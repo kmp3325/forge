@@ -125,6 +125,7 @@ public enum Keyword {
     MORPH("Morph", KeywordWithCost.class, false, "You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its morph cost."),
     MULTIKICKER("Multikicker", KeywordWithCost.class, false, "You may pay an additional %s any number of times as you cast this spell."),
     MUTATE("Mutate", KeywordWithCost.class, true, "If you cast this spell for its mutate cost, put it over or under target non-Human creature you own. They mutate into the creature on top plus all abilities from under it."),
+    MUTATE_ONTO("Mutate onto", MutateOnto.class, false, "If you cast this spell for its mutate cost, put it over target creature you own named %s. They mutate into CARDNAME %splus %s's abilities."),
     MYRIAD("Myriad", SimpleKeyword.class, false, "Whenever this creature attacks, for each opponent other than defending player, you may create a token that's a copy of this creature that's tapped and attacking that player or a planeswalker they control. Exile the tokens at end of combat."),
     NIGHTBOUND("Nightbound", SimpleKeyword.class, true, "If a player casts at least two spells during their own turn, it becomes day next turn."),
     NINJUTSU("Ninjutsu", Ninjutsu.class, false, "%s, Return an unblocked attacker you control to hand: Put this card onto the battlefield from your %s tapped and attacking."),
@@ -187,6 +188,7 @@ public enum Keyword {
     VIGILANCE("Vigilance", SimpleKeyword.class, true, "Attacking doesn't cause this creature to tap."),
     WARD("Ward", KeywordWithCost.class, false, "Whenever this permanent becomes the target of a spell or ability an opponent controls, counter it unless that player pays %s."),
     WITHER("Wither", SimpleKeyword.class, true, "This deals damage to creatures in the form of -1/-1 counters."),
+    CAUSTIC("Caustic", SimpleKeyword.class, true, "This deals damage to creatures in the form of -0/-1 counters."),
 
     // mayflash additional cast
     MAYFLASHCOST("MayFlashCost", KeywordWithCost.class, false, "You may cast CARDNAME as though it had flash if you pay %s more to cast it."),

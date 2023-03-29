@@ -1,2 +1,3684 @@
-- Bug fixes -
-As always, this release of Forge features an assortment of bug fixes and improvements based on user feedback during the previous release run.
+## Unreleased
+### No issue
+
+**Merge pull request #2746 from EldritchBimbo/Gwyn-Master**
+
+ * Gitaxian Dungeon, 2 Enemies
+
+[c81d3423822b79b](https://github.com/Card-Forge/forge/commit/c81d3423822b79b) Anthony Calosa *2023-03-26 13:35:03*
+
+**Merge pull request #2759 from kevlahnota/newmaster2**
+
+ * update ManaShards event
+
+[2e27cf2388007bc](https://github.com/Card-Forge/forge/commit/2e27cf2388007bc) Anthony Calosa *2023-03-26 13:28:26*
+
+**Merge pull request #2733 from Simisays/adventureupdatee**
+
+ * A bunch of new enemies + removal of giant crab + fix Kiora Island (squash merge)
+
+[7a0732ca7aa003a](https://github.com/Card-Forge/forge/commit/7a0732ca7aa003a) Anthony Calosa *2023-03-26 13:24:34*
+
+**update ManaShards event**
+
+
+[71a6d82d6160e81](https://github.com/Card-Forge/forge/commit/71a6d82d6160e81) Anthony Calosa *2023-03-26 13:17:38*
+
+**Merge pull request #2758 from kevlahnota/newmaster2**
+
+ * refactor ManaShards
+
+[35f62508431c231](https://github.com/Card-Forge/forge/commit/35f62508431c231) Anthony Calosa *2023-03-26 11:46:33*
+
+**refactor ManaShards**
+
+ * - remove Mana Shards as countertype
+
+[68dc1fdce9d8525](https://github.com/Card-Forge/forge/commit/68dc1fdce9d8525) Anthony Calosa *2023-03-26 11:36:41*
+
+**Update kuldotha_cackler.txt**
+
+
+[1c510bac213eeb8](https://github.com/Card-Forge/forge/commit/1c510bac213eeb8) Hans Mackowiak *2023-03-26 10:44:55*
+
+**SLD 6 new DND cards (#2742)**
+
+ * update
+ * update
+ * Update xenk_paladin_unbroken.txt
+ * Update doric_natures_warden_doric_owlbear_avenger.txt
+ * Update doric_natures_warden_doric_owlbear_avenger.txt
+ * update
+
+[98805f9603ba8cd](https://github.com/Card-Forge/forge/commit/98805f9603ba8cd) Simisays *2023-03-26 10:03:44*
+
+**Merge pull request #2757 from kevlahnota/newmaster2**
+
+ * prevent proliferate affecting manashards
+
+[6c02c8033e6b142](https://github.com/Card-Forge/forge/commit/6c02c8033e6b142) Anthony Calosa *2023-03-26 06:29:23*
+
+**prevent proliferate affecting manashards**
+
+
+[f18c525fe1e6e90](https://github.com/Card-Forge/forge/commit/f18c525fe1e6e90) Anthony Calosa *2023-03-26 06:22:54*
+
+**Update cavalier_of_thorns.txt**
+
+
+[f5ec35fe97e9e9e](https://github.com/Card-Forge/forge/commit/f5ec35fe97e9e9e) Anthony Calosa *2023-03-26 05:36:53*
+
+**Update academy_rector.txt**
+
+ * typo
+
+[0000ee13bb6bea7](https://github.com/Card-Forge/forge/commit/0000ee13bb6bea7) Anthony Calosa *2023-03-26 05:35:11*
+
+**Update TokenEffectBase.java**
+
+ * fix ConcurrentModificationException (anointed procession and divine visitation in play, then cast benevolent offering, then choose replacement effect divine visitation, hit ok)
+
+[2a0c36eaa135333](https://github.com/Card-Forge/forge/commit/2a0c36eaa135333) Anthony Calosa *2023-03-26 02:45:13*
+
+**Merge pull request #2756 from kevlahnota/newmaster2**
+
+ * dispose framebuffer
+
+[67bc3e1f98e88d4](https://github.com/Card-Forge/forge/commit/67bc3e1f98e88d4) Anthony Calosa *2023-03-26 00:16:07*
+
+**dispose framebuffer**
+
+
+[c820e1c78173edf](https://github.com/Card-Forge/forge/commit/c820e1c78173edf) Anthony Calosa *2023-03-26 00:05:39*
+
+**Merge pull request #2754 from MikeS-NZ/forge_mom1**
+
+ * MOM: Wrenn and Realmbreaker
+
+[206d16ba7424ad9](https://github.com/Card-Forge/forge/commit/206d16ba7424ad9) Paul Hammerton *2023-03-25 23:26:05*
+
+**Update wrenn_and_realmbreaker.txt**
+
+
+[6c266cda3e9c088](https://github.com/Card-Forge/forge/commit/6c266cda3e9c088) Mike S *2023-03-25 22:56:10*
+
+**Merge remote-tracking branch 'upstream/master' into adventureupdatee**
+
+
+[8d4e4b78cc6bec7](https://github.com/Card-Forge/forge/commit/8d4e4b78cc6bec7) Simisays *2023-03-25 20:44:23*
+
+**Update boar.atlas**
+
+
+[5129575b320f5ec](https://github.com/Card-Forge/forge/commit/5129575b320f5ec) Simisays *2023-03-25 20:40:56*
+
+**Update enemies.json**
+
+
+[dfad28bf69802bc](https://github.com/Card-Forge/forge/commit/dfad28bf69802bc) Simisays *2023-03-25 20:37:08*
+
+**update**
+
+
+[c1bb2fad4b642ef](https://github.com/Card-Forge/forge/commit/c1bb2fad4b642ef) Simisays *2023-03-25 20:36:07*
+
+**Merge pull request #2755 from kevlahnota/newmaster2**
+
+ * refactor RewardActor
+
+[e72c48afad2b4b9](https://github.com/Card-Forge/forge/commit/e72c48afad2b4b9) Anthony Calosa *2023-03-25 20:33:53*
+
+**MOM: Wrenn and Realmbreaker**
+
+ * MOM: Add script for showcased card Wrenn and Realmbreaker.
+ * - Wrenn and Realmbreaker
+
+[ac2df214a316403](https://github.com/Card-Forge/forge/commit/ac2df214a316403) Suthro *2023-03-25 20:20:28*
+
+**refactor RewardActor**
+
+ * - removed DrawOnPixmap
+ * - use framebuffer to generate texture from item, gold, life, shards
+
+[3ef54f55cb46fda](https://github.com/Card-Forge/forge/commit/3ef54f55cb46fda) Anthony Calosa *2023-03-25 20:20:26*
+
+**update**
+
+
+[aa8fd48cd85684c](https://github.com/Card-Forge/forge/commit/aa8fd48cd85684c) Simisays *2023-03-25 19:51:11*
+
+**Merge pull request #2753 from kevlahnota/newmaster2**
+
+ * update PlayerStatisticScene, update filters
+
+[d0dfc85d18f05c4](https://github.com/Card-Forge/forge/commit/d0dfc85d18f05c4) Anthony Calosa *2023-03-25 19:00:37*
+
+**Merge branch 'master' into newmaster2**
+
+
+[dbbd0e21ccc0974](https://github.com/Card-Forge/forge/commit/dbbd0e21ccc0974) Anthony Calosa *2023-03-25 18:56:21*
+
+**remove duplicated code**
+
+
+[c02c20851ade5af](https://github.com/Card-Forge/forge/commit/c02c20851ade5af) Anthony Calosa *2023-03-25 18:50:43*
+
+**update PlayerStatisticScene, update filters**
+
+ * - add active planaswalker achievements
+ * - add Shards count
+ * - use Textralabel region icon to render
+ * - update textratypist
+ * - update filter for hud elements, splash for adventure
+
+[3de08f030838cb4](https://github.com/Card-Forge/forge/commit/3de08f030838cb4) Anthony Calosa *2023-03-25 18:40:17*
+
+**Fix to dungeon wall collision**
+
+
+[80cb519364f0bf7](https://github.com/Card-Forge/forge/commit/80cb519364f0bf7) Alwayssnarky *2023-03-25 16:57:41*
+
+**Merge pull request #2752 from kevlahnota/newmaster2**
+
+ * add dungeon/cave indicator
+
+[927e066179b47d5](https://github.com/Card-Forge/forge/commit/927e066179b47d5) Anthony Calosa *2023-03-25 16:20:48*
+
+**Merge pull request #2748 from Simisays/anothertibaltfix**
+
+ * further improvements to tibalt dungeon
+
+[4b696957c7be0ba](https://github.com/Card-Forge/forge/commit/4b696957c7be0ba) Anthony Calosa *2023-03-25 16:13:49*
+
+**Merge pull request #2751 from tool4ever/cleanup25**
+
+ * Fix some cards via cleanup
+
+[0ff53ac1976e5ea](https://github.com/Card-Forge/forge/commit/0ff53ac1976e5ea) Anthony Calosa *2023-03-25 16:13:05*
+
+**rename**
+
+
+[ddd493f324ef943](https://github.com/Card-Forge/forge/commit/ddd493f324ef943) Anthony Calosa *2023-03-25 16:00:29*
+
+**update position**
+
+
+[36572ac36d388e7](https://github.com/Card-Forge/forge/commit/36572ac36d388e7) Anthony Calosa *2023-03-25 15:57:32*
+
+**add dungeon/cave indicator**
+
+ * - adds signpost with magnifying glass indicates unexplored/unchanged poi
+
+[da082c0335456a5](https://github.com/Card-Forge/forge/commit/da082c0335456a5) Anthony Calosa *2023-03-25 15:37:53*
+
+**Fix some cards via cleanup**
+
+
+[e53e6723c510bf6](https://github.com/Card-Forge/forge/commit/e53e6723c510bf6) tool4EvEr *2023-03-25 14:41:15*
+
+**Merge pull request #2747 from kevlahnota/newmaster2**
+
+ * Fix Collision, Smoother Volume Fade, Add Night / Day settings for TitleBG
+
+[214310306d14d66](https://github.com/Card-Forge/forge/commit/214310306d14d66) Anthony Calosa *2023-03-25 12:49:07*
+
+**make it look for booster in the right place**
+
+
+[044609578b80eeb](https://github.com/Card-Forge/forge/commit/044609578b80eeb) Alwayssnarky *2023-03-25 12:22:59*
+
+**Update points_of_interest.json**
+
+
+[b045eab6315b71a](https://github.com/Card-Forge/forge/commit/b045eab6315b71a) Alwayssnarky *2023-03-25 12:21:04*
+
+**Support Supertype for Deckhints (#2750)**
+
+
+[23875bcc16a3b2f](https://github.com/Card-Forge/forge/commit/23875bcc16a3b2f) tool4ever *2023-03-25 10:23:02*
+
+**LTR: Mount Doom + 2 cards (#2683)**
+
+ * LTR: Add card scripts for spoiled LTR cards Mount Doom, Reprieve, and You Cannot Pass!
+
+[283a434df92afc0](https://github.com/Card-Forge/forge/commit/283a434df92afc0) Mike S *2023-03-25 10:19:01*
+
+**Update wildrat.atlas**
+
+
+[fb7d8da98d0319c](https://github.com/Card-Forge/forge/commit/fb7d8da98d0319c) Simisays *2023-03-25 07:57:52*
+
+**update**
+
+
+[4b55c7a2c1bcf13](https://github.com/Card-Forge/forge/commit/4b55c7a2c1bcf13) Simisays *2023-03-25 07:55:56*
+
+**Merge remote-tracking branch 'upstream/master' into adventureupdatee**
+
+
+[2186f698dc373a3](https://github.com/Card-Forge/forge/commit/2186f698dc373a3) Simisays *2023-03-25 07:51:17*
+
+**further improvements**
+
+
+[f9269e585cc6a55](https://github.com/Card-Forge/forge/commit/f9269e585cc6a55) Simisays *2023-03-25 07:47:20*
+
+**Update titania_voice_of_gaea_titania_gaea_incarnate.txt**
+
+
+[167f35e9440d100](https://github.com/Card-Forge/forge/commit/167f35e9440d100) Hans Mackowiak *2023-03-25 07:12:36*
+
+**fix collision**
+
+
+[bfb84b6e0856e2e](https://github.com/Card-Forge/forge/commit/bfb84b6e0856e2e) Anthony Calosa *2023-03-25 03:54:54*
+
+**Merge branch 'master' into Gwyn-Master**
+
+
+[4c8879b71dacbc1](https://github.com/Card-Forge/forge/commit/4c8879b71dacbc1) EldritchBimbo *2023-03-25 02:54:31*
+
+**add Day/Night transition settings for titleBG**
+
+
+[524d8c5c546087e](https://github.com/Card-Forge/forge/commit/524d8c5c546087e) Anthony Calosa *2023-03-25 02:02:51*
+
+**Gitaxian Dungeon, 2 Enemies**
+
+ * Adds:
+ * 1 dungeon based on the Progress Engine, tiles for such, and associated infrastructure.
+ * 2 new enemies based on the same faction, along with deck .jsons and spritesheet atlases.
+ * Changes:
+ * Edits basilica dungeon - replaces 1 of the treasure chests with a themed booster pack.
+ * Edit Phyrexian Buildings atlas and png to add new overworld sprite for new dungeon.
+ * Edits Phyrexiantiles to add requested extra tiles that were not covered in previous upload.
+ * Adds to blue, enemies, and POI jsons to make dungeon, enemies, and enemy loot pools exist and correctly function.
+
+[6818b9ba647c819](https://github.com/Card-Forge/forge/commit/6818b9ba647c819) Alwayssnarky *2023-03-25 00:31:29*
+
+**smoother fade audio**
+
+
+[98b4766c0545964](https://github.com/Card-Forge/forge/commit/98b4766c0545964) Anthony Calosa *2023-03-25 00:08:53*
+
+**Merge pull request #2745 from paulsnoops/wrenns_mom**
+
+ * Update edition: MOM
+
+[0e681474fb9fc54](https://github.com/Card-Forge/forge/commit/0e681474fb9fc54) Paul Hammerton *2023-03-24 23:22:03*
+
+**Update edition: MOM**
+
+
+[88b2a6b96de7ba3](https://github.com/Card-Forge/forge/commit/88b2a6b96de7ba3) paulsnoops *2023-03-24 22:29:02*
+
+**Merge pull request #2744 from Simisays/TIBALTFIX**
+
+ * Fix Tibalt dungeon
+
+[228515f2650ab8c](https://github.com/Card-Forge/forge/commit/228515f2650ab8c) Anthony Calosa *2023-03-24 20:46:13*
+
+**update**
+
+
+[3c1de50260ddf9f](https://github.com/Card-Forge/forge/commit/3c1de50260ddf9f) Simisays *2023-03-24 20:41:05*
+
+**update**
+
+
+[9a881b5dd3c85f8](https://github.com/Card-Forge/forge/commit/9a881b5dd3c85f8) Simisays *2023-03-24 15:52:17*
+
+**update**
+
+
+[198d574758bb09c](https://github.com/Card-Forge/forge/commit/198d574758bb09c) Simisays *2023-03-24 15:47:59*
+
+**QUICK FIX**
+
+
+[a5bbde6092690a1](https://github.com/Card-Forge/forge/commit/a5bbde6092690a1) Simisays *2023-03-24 14:02:05*
+
+**Merge pull request #2740 from paulsnoops/update_editions**
+
+ * Update editions: MOM &amp; SLD
+
+[37b12761b72252b](https://github.com/Card-Forge/forge/commit/37b12761b72252b) Paul Hammerton *2023-03-24 09:37:32*
+
+**Update editions: MOM & SLD**
+
+
+[bf7480e34c53b15](https://github.com/Card-Forge/forge/commit/bf7480e34c53b15) paulsnoops *2023-03-24 09:31:52*
+
+**Update venerated_rotpriest.txt**
+
+
+[23257d109e2c5e3](https://github.com/Card-Forge/forge/commit/23257d109e2c5e3) Hans Mackowiak *2023-03-24 08:37:08*
+
+**MOM archangel_elspeth.txt (#2738)**
+
+
+[1584e6227a9f7f5](https://github.com/Card-Forge/forge/commit/1584e6227a9f7f5) Northmoc *2023-03-24 08:05:34*
+
+**Update cruel_grimnarch.txt**
+
+
+[a1cacfeb6a2508e](https://github.com/Card-Forge/forge/commit/a1cacfeb6a2508e) Hans Mackowiak *2023-03-24 05:54:37*
+
+**revert slimefoot**
+
+
+[d2af94792bde57a](https://github.com/Card-Forge/forge/commit/d2af94792bde57a) Simisays *2023-03-23 22:19:06*
+
+**Merge pull request #2737 from kevlahnota/newmaster2**
+
+ * minor patch fix
+
+[9f1950132fb0704](https://github.com/Card-Forge/forge/commit/9f1950132fb0704) Anthony Calosa *2023-03-23 21:50:18*
+
+**minor patch fix**
+
+
+[a583435ed386281](https://github.com/Card-Forge/forge/commit/a583435ed386281) Anthony Calosa *2023-03-23 21:49:28*
+
+**Merge pull request #2736 from kevlahnota/newmaster2**
+
+ * show quest keys in GameHUD
+
+[19855e761b8b528](https://github.com/Card-Forge/forge/commit/19855e761b8b528) Anthony Calosa *2023-03-23 17:49:44*
+
+**add Main Story Key Indicator**
+
+ * - show quest keys in GameHUD
+
+[3fcb3635ff21f40](https://github.com/Card-Forge/forge/commit/3fcb3635ff21f40) Anthony Calosa *2023-03-23 17:42:41*
+
+**update**
+
+
+[794a5d64f42c747](https://github.com/Card-Forge/forge/commit/794a5d64f42c747) Simisays *2023-03-23 17:02:59*
+
+**update**
+
+
+[6cfd62b1b08878b](https://github.com/Card-Forge/forge/commit/6cfd62b1b08878b) Simisays *2023-03-23 16:26:33*
+
+**Merge branch 'master' into newmaster2**
+
+
+[cfc36cc604da88e](https://github.com/Card-Forge/forge/commit/cfc36cc604da88e) Anthony Calosa *2023-03-23 16:11:53*
+
+**fix plane folder conflict, fix RewardActor label (#2735)**
+
+ * fix plane folder conflict, fix RewardActor label
+ * - update textratypist, adjust settings prior to new changes
+ * - fix RewardActor label render
+ * - move music to default plane directory
+ * update
+ * labels
+
+[951652c790fed82](https://github.com/Card-Forge/forge/commit/951652c790fed82) Anthony Calosa *2023-03-23 16:11:06*
+
+**Merge branch 'master' into newmaster2**
+
+
+[5320e5427378d6d](https://github.com/Card-Forge/forge/commit/5320e5427378d6d) Anthony Calosa *2023-03-23 16:08:26*
+
+**labels**
+
+
+[7da1b336813a1c1](https://github.com/Card-Forge/forge/commit/7da1b336813a1c1) Anthony Calosa *2023-03-23 16:05:18*
+
+**update**
+
+
+[dc7ffee1728a4db](https://github.com/Card-Forge/forge/commit/dc7ffee1728a4db) Anthony Calosa *2023-03-23 16:04:57*
+
+**update**
+
+
+[b6dc7b974b32930](https://github.com/Card-Forge/forge/commit/b6dc7b974b32930) Simisays *2023-03-23 16:04:45*
+
+**fix plane folder conflict, fix RewardActor label**
+
+ * - update textratypist, adjust settings prior to new changes
+ * - fix RewardActor label render
+ * - move music to default plane directory
+
+[fe10bfcc470f54a](https://github.com/Card-Forge/forge/commit/fe10bfcc470f54a) Anthony Calosa *2023-03-23 16:03:55*
+
+**Merge pull request #2732 from Northmoc/qs**
+
+ * quicksilver_servitor.txt and support
+
+[9bc6904e3875ad6](https://github.com/Card-Forge/forge/commit/9bc6904e3875ad6) Paul Hammerton *2023-03-23 13:34:50*
+
+**update**
+
+
+[6d3a55811c03c5a](https://github.com/Card-Forge/forge/commit/6d3a55811c03c5a) Simisays *2023-03-23 11:33:31*
+
+**update**
+
+
+[5089448a6f84773](https://github.com/Card-Forge/forge/commit/5089448a6f84773) Simisays *2023-03-23 11:28:45*
+
+**Merge pull request #2734 from tool4ever/clean23**
+
+ * Update Charm desc when turn restriction is lifted
+
+[d61f3b1dc1b2416](https://github.com/Card-Forge/forge/commit/d61f3b1dc1b2416) Anthony Calosa *2023-03-23 10:25:13*
+
+**Update Charm desc when turn restriction is lifted**
+
+
+[fad1327a088bb11](https://github.com/Card-Forge/forge/commit/fad1327a088bb11) tool4EvEr *2023-03-23 10:10:46*
+
+**Clean up**
+
+
+[eaee14f3ca211c9](https://github.com/Card-Forge/forge/commit/eaee14f3ca211c9) tool4EvEr *2023-03-23 10:10:04*
+
+**update**
+
+
+[1c109815de8efe7](https://github.com/Card-Forge/forge/commit/1c109815de8efe7) Simisays *2023-03-23 08:26:01*
+
+**Update xiras_hive.txt**
+
+
+[b5571f70b1caa63](https://github.com/Card-Forge/forge/commit/b5571f70b1caa63) Anthony Calosa *2023-03-23 08:10:21*
+
+**Update garruk_boss_effect_phasetwo.txt**
+
+
+[f86a7274288340c](https://github.com/Card-Forge/forge/commit/f86a7274288340c) Anthony Calosa *2023-03-23 08:09:44*
+
+**Update xira_boss_effect.txt**
+
+
+[24eb6a534ef18d4](https://github.com/Card-Forge/forge/commit/24eb6a534ef18d4) Anthony Calosa *2023-03-23 08:08:24*
+
+**Update wildrat.atlas**
+
+
+[686e5c9bdf0abf2](https://github.com/Card-Forge/forge/commit/686e5c9bdf0abf2) Simisays *2023-03-23 07:16:22*
+
+**Merge pull request #2726 from Card-Forge/MaxFromEffectv2**
+
+ * CountersPutEffect: remove MaxFromEffect, let the CounterTable handle it
+
+[e309f77069112a2](https://github.com/Card-Forge/forge/commit/e309f77069112a2) Anthony Calosa *2023-03-23 05:56:11*
+
+**Merge pull request #2731 from kevlahnota/newmaster2**
+
+ * fix splashscreen NPE, disable flip sfx
+
+[97da604ed3cfe29](https://github.com/Card-Forge/forge/commit/97da604ed3cfe29) Anthony Calosa *2023-03-23 05:55:53*
+
+**update ArenaScene**
+
+
+[41136da7d592942](https://github.com/Card-Forge/forge/commit/41136da7d592942) Anthony Calosa *2023-03-23 04:04:40*
+
+**quicksilver_servitor.txt and support**
+
+
+[2de115d82937b15](https://github.com/Card-Forge/forge/commit/2de115d82937b15) Northmoc *2023-03-23 02:33:14*
+
+**fix splashscreen NPE, disable flip sfx**
+
+
+[b69706857043fe4](https://github.com/Card-Forge/forge/commit/b69706857043fe4) Anthony Calosa *2023-03-22 23:58:00*
+
+**update**
+
+
+[8bbe85605d6ad15](https://github.com/Card-Forge/forge/commit/8bbe85605d6ad15) Simisays *2023-03-22 21:20:32*
+
+**update**
+
+
+[8c71301446886f2](https://github.com/Card-Forge/forge/commit/8c71301446886f2) Simisays *2023-03-22 20:53:42*
+
+**Card: add extra check for DREAM counters**
+
+
+[580856bcaa4ee99](https://github.com/Card-Forge/forge/commit/580856bcaa4ee99) Hans Mackowiak *2023-03-22 20:00:54*
+
+**Merge pull request #2730 from paulsnoops/quick_fix**
+
+ * Update SCH
+
+[90d230a98ec8c02](https://github.com/Card-Forge/forge/commit/90d230a98ec8c02) Paul Hammerton *2023-03-22 19:59:22*
+
+**Update SCH**
+
+
+[9de37f282fe167c](https://github.com/Card-Forge/forge/commit/9de37f282fe167c) paulsnoops *2023-03-22 19:52:40*
+
+**Merge branch 'Card-Forge:master' into adventureupdatee**
+
+
+[f6d2a91117a0f6d](https://github.com/Card-Forge/forge/commit/f6d2a91117a0f6d) Simisays *2023-03-22 14:04:23*
+
+**Update one_with_the_multiverse.txt**
+
+
+[2c831f7f49238b2](https://github.com/Card-Forge/forge/commit/2c831f7f49238b2) tool4ever *2023-03-22 09:05:04*
+
+**Merge pull request #2729 from kevlahnota/newmaster2**
+
+ * update dialog buttons
+
+[a07c1f5934779c4](https://github.com/Card-Forge/forge/commit/a07c1f5934779c4) Anthony Calosa *2023-03-22 08:25:49*
+
+**update dialog buttons**
+
+ * - increase button_press volume
+
+[7a103e7e706e72e](https://github.com/Card-Forge/forge/commit/7a103e7e706e72e) Anthony Calosa *2023-03-22 08:23:10*
+
+**Merge pull request #2728 from Simisays/Fungus**
+
+ * Create fungus.json
+
+[b2c1495fcbf0aaa](https://github.com/Card-Forge/forge/commit/b2c1495fcbf0aaa) Anthony Calosa *2023-03-22 08:03:23*
+
+**Create fungus.json**
+
+
+[2d631346a07a071](https://github.com/Card-Forge/forge/commit/2d631346a07a071) Simisays *2023-03-22 07:48:32*
+
+**Merge pull request #2727 from kevlahnota/newmaster2**
+
+ * update SFX, handle missing JSON deck definition
+
+[117112bc715bc7d](https://github.com/Card-Forge/forge/commit/117112bc715bc7d) Anthony Calosa *2023-03-22 07:27:49*
+
+**update**
+
+
+[8749f9dc7298ead](https://github.com/Card-Forge/forge/commit/8749f9dc7298ead) Anthony Calosa *2023-03-22 07:00:22*
+
+**update SFX, handle missing JSON deck definition**
+
+ * - add button_press, coins_drop, take_shard sfx
+ * - update music timing
+ * - adjust secondary audio volume
+ * - adjust flipprocess prior to its sfx
+ * - handle crash for missing deck/json definition
+
+[4fa752b24cb58e5](https://github.com/Card-Forge/forge/commit/4fa752b24cb58e5) Anthony Calosa *2023-03-22 06:03:20*
+
+**CountersPutEffect: remove MaxFromEffect, let the CounterTable handle it**
+
+
+[dbd75ec08c94532](https://github.com/Card-Forge/forge/commit/dbd75ec08c94532) Hans Mackowiak *2023-03-22 05:22:47*
+
+**Merge pull request #2723 from Simisays/adventure**
+
+ * Adventure lootupgrade
+
+[a05e79fce810f64](https://github.com/Card-Forge/forge/commit/a05e79fce810f64) Anthony Calosa *2023-03-22 00:04:06*
+
+**Merge pull request #2724 from EldritchBimbo/SpriteWalkdownFix**
+
+ * Fix to Bug in PC Walk Down Animations
+
+[402d6d1bd4f236f](https://github.com/Card-Forge/forge/commit/402d6d1bd4f236f) Anthony Calosa *2023-03-22 00:01:00*
+
+**Merge pull request #2725 from tool4ever/crashfix**
+
+ * Fix Mist of Stagnation
+
+[7d43ba42cdf31e1](https://github.com/Card-Forge/forge/commit/7d43ba42cdf31e1) Anthony Calosa *2023-03-21 23:54:45*
+
+**Fix Mist of Stagnation**
+
+
+[08b0aad84fb95d9](https://github.com/Card-Forge/forge/commit/08b0aad84fb95d9) tool4EvEr *2023-03-21 22:02:57*
+
+**Fix to Bug in PC Walk Down Animations**
+
+ * Fix to bug in PC walking animations where the 3rd frame when walking directly down came from the idle animations instead of the walking ones.
+
+[f1974e4302eb881](https://github.com/Card-Forge/forge/commit/f1974e4302eb881) Alwayssnarky *2023-03-21 20:58:01*
+
+**lootupgrade**
+
+
+[8cd6655a67de1eb](https://github.com/Card-Forge/forge/commit/8cd6655a67de1eb) Simisays *2023-03-21 19:00:59*
+
+**commit**
+
+
+[833decd9ea36328](https://github.com/Card-Forge/forge/commit/833decd9ea36328) Simisays *2023-03-21 16:26:08*
+
+**Merge pull request #2722 from kevlahnota/newmaster2**
+
+ * Fix Android Music, Add flip_card sfx
+
+[ff88a2b940445d0](https://github.com/Card-Forge/forge/commit/ff88a2b940445d0) Anthony Calosa *2023-03-21 14:20:44*
+
+**Update GameEventCardStatsChanged.java**
+
+
+[442699380cf26b1](https://github.com/Card-Forge/forge/commit/442699380cf26b1) Anthony Calosa *2023-03-21 14:16:41*
+
+**..**
+
+
+[94be6a7e486bbaa](https://github.com/Card-Forge/forge/commit/94be6a7e486bbaa) Anthony Calosa *2023-03-21 14:09:45*
+
+**Fix Android Music, Add flip_card sfx**
+
+ * - fix secondary music not playing on Android (let assetmanager unload them on exit)
+ * - fix MapDialog audio bgm fade
+ * - add Flip sfx on RewardActor flip and transform setstate effect
+
+[865d228cb2e45e6](https://github.com/Card-Forge/forge/commit/865d228cb2e45e6) Anthony Calosa *2023-03-21 13:56:41*
+
+**Merge pull request #2721 from paulsnoops/fix_mom**
+
+ * Editions: Small fixes for MOM &amp; MOC
+
+[9bbed6df081ce77](https://github.com/Card-Forge/forge/commit/9bbed6df081ce77) Paul Hammerton *2023-03-21 10:21:44*
+
+**Editions: Small fixes**
+
+
+[ab0d9a13f04cc1e](https://github.com/Card-Forge/forge/commit/ab0d9a13f04cc1e) paulsnoops *2023-03-21 10:17:15*
+
+**Merge pull request #2720 from kevlahnota/newmaster2**
+
+ * update check
+
+[08c69562e544509](https://github.com/Card-Forge/forge/commit/08c69562e544509) Anthony Calosa *2023-03-21 09:40:55*
+
+**update check**
+
+
+[92c6bd1365f42a3](https://github.com/Card-Forge/forge/commit/92c6bd1365f42a3) Anthony Calosa *2023-03-21 09:39:00*
+
+**Merge pull request #2719 from kevlahnota/newmaster2**
+
+ * update match loudness, fix playing music after match
+
+[3632e37accdd186](https://github.com/Card-Forge/forge/commit/3632e37accdd186) Anthony Calosa *2023-03-21 09:17:40*
+
+**update match loudness, fix playing music after match**
+
+
+[f9a347a68d63d9b](https://github.com/Card-Forge/forge/commit/f9a347a68d63d9b) Anthony Calosa *2023-03-21 09:15:55*
+
+**Seek effect + SeekAll trigger for new Arena stuff (#2590)**
+
+ * trove_mage.txt refactor + support
+ * SeekEffect + SeekAll trigger initial
+ * SeekEffect better
+ * SeekEffect.getStackDescription basic
+ * more refactored
+ * gitrog_horror_of_zhava.txt needs ImprintFound
+ * 10 more refactors
+ * more
+ * SeekEffect fix bad imprint line
+ * SeekEffect fix better remember/imprint
+ * gitrog_horror_of_zhava.txt with Branch
+ * more cards
+ * last ones?
+ * SeekEffect tighten up based on Hanmac ver
+ * optimize imports
+ * fix param discrepancies
+ * SeekEffect tighten up
+
+[b4d2742f6661f82](https://github.com/Card-Forge/forge/commit/b4d2742f6661f82) Northmoc *2023-03-21 08:58:23*
+
+**Merge pull request #2718 from kevlahnota/newmaster2**
+
+ * prevent NPE
+
+[d8356f61cbbccec](https://github.com/Card-Forge/forge/commit/d8356f61cbbccec) Anthony Calosa *2023-03-21 08:16:08*
+
+**prevent NPE**
+
+
+[bbd8e2eb61bb317](https://github.com/Card-Forge/forge/commit/bbd8e2eb61bb317) Anthony Calosa *2023-03-21 08:15:18*
+
+**Update nahiris_boss_effect.txt**
+
+
+[0bdc435110d2710](https://github.com/Card-Forge/forge/commit/0bdc435110d2710) Anthony Calosa *2023-03-21 07:55:42*
+
+**Merge pull request #2714 from kevlahnota/newmaster2**
+
+ * update BGM detection, update Arena Challenges for Hard/Insane
+
+[155c197347f7df8](https://github.com/Card-Forge/forge/commit/155c197347f7df8) Anthony Calosa *2023-03-21 07:32:04*
+
+**Merge pull request #2717 from Card-Forge/MaxFromEffect**
+
+ * GameEntityCounterTable: respect MaxFromEffect for Clockwork
+
+[b72d4abde6dc8e4](https://github.com/Card-Forge/forge/commit/b72d4abde6dc8e4) Anthony Calosa *2023-03-21 07:25:07*
+
+**update add boss battle BGM**
+
+
+[51f154572295a0c](https://github.com/Card-Forge/forge/commit/51f154572295a0c) Anthony Calosa *2023-03-21 07:17:59*
+
+**Update faith_unbroken.txt**
+
+
+[1f13ce190e52762](https://github.com/Card-Forge/forge/commit/1f13ce190e52762) tool4ever *2023-03-21 06:55:49*
+
+**GameEntityCounterTable: respect MaxFromEffect for Clockwork**
+
+
+[f166394db05719e](https://github.com/Card-Forge/forge/commit/f166394db05719e) Hans Mackowiak *2023-03-21 06:39:19*
+
+**update pause timing**
+
+
+[a0e3949aabdba90](https://github.com/Card-Forge/forge/commit/a0e3949aabdba90) Anthony Calosa *2023-03-21 05:17:06*
+
+**update playlist selection**
+
+
+[1190f40b553923d](https://github.com/Card-Forge/forge/commit/1190f40b553923d) Anthony Calosa *2023-03-20 23:20:21*
+
+**Merge branch 'master' into newmaster2**
+
+
+[bdaed72d2d307f2](https://github.com/Card-Forge/forge/commit/bdaed72d2d307f2) Anthony Calosa *2023-03-20 23:09:10*
+
+**Merge pull request #2715 from Simisays/adventurebis**
+
+ * Xira&#x27;s Hive collision improvements + removal horse overworld
+
+[e0493f1556bd073](https://github.com/Card-Forge/forge/commit/e0493f1556bd073) Anthony Calosa *2023-03-20 23:04:53*
+
+**Merge pull request #2716 from tool4ever/charmFix**
+
+ * Fix NPE when trying to build Charm description
+
+[1ecede772691fd6](https://github.com/Card-Forge/forge/commit/1ecede772691fd6) Anthony Calosa *2023-03-20 23:03:55*
+
+**Merge pull request #2704 from paulsnoops/sir_draft**
+
+ * Booster Draft: SIR
+
+[acce1562055750f](https://github.com/Card-Forge/forge/commit/acce1562055750f) Northmoc *2023-03-20 21:22:29*
+
+**Clean up**
+
+
+[348670776eb8cdd](https://github.com/Card-Forge/forge/commit/348670776eb8cdd) tool4EvEr *2023-03-20 17:25:03*
+
+**Fix NPE when trying to build Charm description**
+
+
+[84aef29d6919460](https://github.com/Card-Forge/forge/commit/84aef29d6919460) tool4EvEr *2023-03-20 17:24:32*
+
+**update**
+
+
+[652f799ec394251](https://github.com/Card-Forge/forge/commit/652f799ec394251) Simisays *2023-03-20 17:23:34*
+
+**update BGM detection, update Arena Challenges for Hard/Insane**
+
+ * - still have the layer bug for the BGM since it&#x27;s not boundary based, but tolerable atm, it must get the colored boundaries for accuracy
+
+[2a22be944b0697b](https://github.com/Card-Forge/forge/commit/2a22be944b0697b) Anthony Calosa *2023-03-20 12:24:26*
+
+**AbilityUtils: add Convoked as DefinedCards (#2710)**
+
+
+[c5e52aab7d70887](https://github.com/Card-Forge/forge/commit/c5e52aab7d70887) Hans Mackowiak *2023-03-20 05:20:35*
+
+**Merge pull request #2712 from kevlahnota/newmaster2**
+
+ * fix JSON typos
+
+[6978733fb043b53](https://github.com/Card-Forge/forge/commit/6978733fb043b53) Anthony Calosa *2023-03-20 04:25:31*
+
+**fix JSON typos**
+
+
+[38a11a8bacfd714](https://github.com/Card-Forge/forge/commit/38a11a8bacfd714) Anthony Calosa *2023-03-20 04:24:56*
+
+**Merge pull request #2711 from kevlahnota/newmaster2**
+
+ * update missing music and rename custom card
+
+[85d549cb86290e5](https://github.com/Card-Forge/forge/commit/85d549cb86290e5) Anthony Calosa *2023-03-20 04:02:47*
+
+**update missing music and rename custom card**
+
+
+[de300f9c00282e2](https://github.com/Card-Forge/forge/commit/de300f9c00282e2) Anthony Calosa *2023-03-20 04:01:55*
+
+**Merge pull request #2709 from tool4ever/defile**
+
+ * Fix Defilers applying twice with MayPlay
+
+[33189271b19acaa](https://github.com/Card-Forge/forge/commit/33189271b19acaa) Anthony Calosa *2023-03-20 03:50:22*
+
+**Merge pull request #2705 from kevlahnota/newmaster2**
+
+ * update adventure BGM..
+
+[7600ec549215631](https://github.com/Card-Forge/forge/commit/7600ec549215631) Anthony Calosa *2023-03-20 03:50:03*
+
+**Merge pull request #2698 from EldritchBimbo/Gwyn-Master**
+
+ * Adds 1 dungeon, 2 enemies based on the Machine Orthodoxy
+
+[b95226b0316257d](https://github.com/Card-Forge/forge/commit/b95226b0316257d) Anthony Calosa *2023-03-20 03:46:15*
+
+**Merge pull request #2692 from Simisays/XIRAA**
+
+ * Large Adventure update
+
+[8fc22b9d024e765](https://github.com/Card-Forge/forge/commit/8fc22b9d024e765) Anthony Calosa *2023-03-20 03:25:34*
+
+**Update tibalts_bag_of_tricks.txt**
+
+
+[af88585695cb2b9](https://github.com/Card-Forge/forge/commit/af88585695cb2b9) Anthony Calosa *2023-03-20 03:14:14*
+
+**Fix Defilers applying twice with MayPlay**
+
+
+[714baa47ee783ac](https://github.com/Card-Forge/forge/commit/714baa47ee783ac) tool4EvEr *2023-03-19 20:13:27*
+
+**Bunch of fixes (#2706)**
+
+ * Fix Tawnos&#x27;s Coffin not using ETB counters
+ * Cost fix
+ * Saga tweaks
+ * ---------
+ * Co-authored-by: tool4EvEr &lt;tool4EvEr@192.168.0.59&gt;
+
+[25d2aa82b67c85a](https://github.com/Card-Forge/forge/commit/25d2aa82b67c85a) tool4ever *2023-03-19 19:07:03*
+
+**Update karumonix_the_rat_king.txt**
+
+
+[7b78a2052d808bf](https://github.com/Card-Forge/forge/commit/7b78a2052d808bf) tool4ever *2023-03-19 18:58:57*
+
+**CardFactoryUtil: Read Ahead use DisableTriggers (#2703)**
+
+
+[6b61d7fc7e0f5c3](https://github.com/Card-Forge/forge/commit/6b61d7fc7e0f5c3) Hans Mackowiak *2023-03-19 15:34:47*
+
+**Merge pull request #2699 from tool4ever/copycleanup**
+
+ * CardFactory: remove redundant copying
+
+[a4b52b4b40810ac](https://github.com/Card-Forge/forge/commit/a4b52b4b40810ac) Hans Mackowiak *2023-03-19 14:14:12*
+
+**prevent NPE**
+
+
+[1b7180a0f2c2fd8](https://github.com/Card-Forge/forge/commit/1b7180a0f2c2fd8) Anthony Calosa *2023-03-19 13:36:34*
+
+**update**
+
+
+[a91845c444373b0](https://github.com/Card-Forge/forge/commit/a91845c444373b0) Anthony Calosa *2023-03-19 13:03:51*
+
+**update**
+
+
+[149dc720f13a344](https://github.com/Card-Forge/forge/commit/149dc720f13a344) Simisays *2023-03-19 12:42:30*
+
+**update adventure BGM..**
+
+
+[1bc8abf7e164086](https://github.com/Card-Forge/forge/commit/1bc8abf7e164086) Anthony Calosa *2023-03-19 11:16:51*
+
+**sprite fixes for editor**
+
+
+[40d4d9381b3604b](https://github.com/Card-Forge/forge/commit/40d4d9381b3604b) Simisays *2023-03-19 10:45:30*
+
+**Booster Draft: SIR**
+
+
+[7962d0bfca74e0e](https://github.com/Card-Forge/forge/commit/7962d0bfca74e0e) paulsnoops *2023-03-19 09:52:49*
+
+**Merge branch 'Card-Forge:master' into Gwyn-Master**
+
+
+[35a8d7b636dce79](https://github.com/Card-Forge/forge/commit/35a8d7b636dce79) EldritchBimbo *2023-03-18 20:29:04*
+
+**Tweaks to Tiles**
+
+ * Modifies phyrexiantiles.png to standardize tile grid, edits phyreixan_w1 and tiles.tsx to accommodate.
+
+[23734b2f79492eb](https://github.com/Card-Forge/forge/commit/23734b2f79492eb) Alwayssnarky *2023-03-18 20:21:31*
+
+**Update xiras_hive.txt**
+
+
+[1a4c370b3917ad0](https://github.com/Card-Forge/forge/commit/1a4c370b3917ad0) Simisays *2023-03-18 13:13:41*
+
+**Merge pull request #2702 from JohnWilliams77/patch-81**
+
+ * Update Secret Lair Drop Series.txt
+
+[1186d4ee221730f](https://github.com/Card-Forge/forge/commit/1186d4ee221730f) Paul Hammerton *2023-03-18 08:28:54*
+
+**Update Secret Lair Drop Series.txt**
+
+
+[069c50daa5f0dc8](https://github.com/Card-Forge/forge/commit/069c50daa5f0dc8) JohnWilliams77 *2023-03-18 08:19:44*
+
+**update**
+
+
+[4b2bc09acb54dc2](https://github.com/Card-Forge/forge/commit/4b2bc09acb54dc2) Simisays *2023-03-18 07:51:33*
+
+**CardFactoryUtil: Equip shouldn't care if it is a creature (#2696)**
+
+
+[eef4dd58fc562b6](https://github.com/Card-Forge/forge/commit/eef4dd58fc562b6) Hans Mackowiak *2023-03-18 04:02:08*
+
+**remove redundant calls**
+
+
+[11ca3ca7b028749](https://github.com/Card-Forge/forge/commit/11ca3ca7b028749) tool4EvEr *2023-03-17 21:19:15*
+
+**update**
+
+
+[95d23e9fd6f2209](https://github.com/Card-Forge/forge/commit/95d23e9fd6f2209) Simisays *2023-03-17 21:08:33*
+
+**Adds 1 dungeon, 2 enemies based on the Machine Orthodoxy**
+
+ * Adds:
+ * .2 new enemies (Orthodoxy Duelist and Orthodoxy Angel), along with accompanying infrastructure. (Sprites, atlas, decks. Decks both use JSON randomization.)
+ * .New file for Phyrexian overworld buildings (and other dungeons I might make), along with accompanying infrastructure.
+ * .New tiles for in-dungeon tilesets, along with accompanying infrastructure.
+ * .1 new dungeon, based on the Machine Orthodoxy. Uses new &quot;patrolling enemy&quot; mechanic.
+ * Changes:
+ * .Enemies.json - defines the new enemies&#x27; stats and drop table.
+ * .Points_of_Interest.json - Defines new dungeon and sets it up to link to new map correctly.
+ * .White.json - Allows new dungeon to spawn in white area of the world. Enemies are limited to this dungeon (for now)
+
+[bd6f6bcf77f4357](https://github.com/Card-Forge/forge/commit/bd6f6bcf77f4357) Alwayssnarky *2023-03-17 20:59:46*
+
+**Update tibalt_boss_effect.txt**
+
+
+[dbf9433238f6237](https://github.com/Card-Forge/forge/commit/dbf9433238f6237) Simisays *2023-03-17 14:42:34*
+
+**update**
+
+
+[8b397611ecaaf7b](https://github.com/Card-Forge/forge/commit/8b397611ecaaf7b) Simisays *2023-03-17 14:41:18*
+
+**Update xira_boss_effect.txt**
+
+
+[582cf84e682930c](https://github.com/Card-Forge/forge/commit/582cf84e682930c) Simisays *2023-03-17 14:38:30*
+
+**Update tibalt_boss_effect.txt**
+
+
+[a60a1747fc899b3](https://github.com/Card-Forge/forge/commit/a60a1747fc899b3) Simisays *2023-03-17 14:28:36*
+
+**Update slobads_iron_boots.txt**
+
+
+[ec153b0e73b1eb0](https://github.com/Card-Forge/forge/commit/ec153b0e73b1eb0) Simisays *2023-03-17 14:16:41*
+
+**Update slobad_boss_effect.txt**
+
+
+[f75ebd43793434d](https://github.com/Card-Forge/forge/commit/f75ebd43793434d) Simisays *2023-03-17 14:14:29*
+
+**update**
+
+
+[9f26fd5670b077b](https://github.com/Card-Forge/forge/commit/9f26fd5670b077b) Simisays *2023-03-17 12:02:05*
+
+**update**
+
+
+[25e1189e41ceea1](https://github.com/Card-Forge/forge/commit/25e1189e41ceea1) Simisays *2023-03-17 11:59:48*
+
+**update**
+
+
+[a0e884cbae9732a](https://github.com/Card-Forge/forge/commit/a0e884cbae9732a) Simisays *2023-03-17 10:35:54*
+
+**update**
+
+
+[6c3a21b10773ccd](https://github.com/Card-Forge/forge/commit/6c3a21b10773ccd) Simisays *2023-03-17 10:33:39*
+
+**update**
+
+
+[22587d97f33e5e3](https://github.com/Card-Forge/forge/commit/22587d97f33e5e3) Simisays *2023-03-17 10:32:51*
+
+**update**
+
+
+[79bb40ebf49520c](https://github.com/Card-Forge/forge/commit/79bb40ebf49520c) Simisays *2023-03-17 10:10:19*
+
+**Merge pull request #2697 from paulsnoops/sir_sis_formats**
+
+ * Formats update: Add SIR &amp; SIS
+
+[395eab4d59a54a2](https://github.com/Card-Forge/forge/commit/395eab4d59a54a2) Paul Hammerton *2023-03-17 09:51:16*
+
+**Formats update: Add SIR & SIS**
+
+
+[aed4b92f8b70c19](https://github.com/Card-Forge/forge/commit/aed4b92f8b70c19) paulsnoops *2023-03-17 09:46:50*
+
+**update card pics**
+
+
+[befe87614cca649](https://github.com/Card-Forge/forge/commit/befe87614cca649) Simisays *2023-03-17 08:03:43*
+
+**Merge pull request #2694 from Simisays/LOTR**
+
+ * LOTR 5 cards
+
+[0cf8fe968392be4](https://github.com/Card-Forge/forge/commit/0cf8fe968392be4) Anthony Calosa *2023-03-17 03:45:15*
+
+**Merge pull request #2695 from Card-Forge/CommanderGauntlet**
+
+ * add Commander Gauntlet
+
+[2903d2df019439f](https://github.com/Card-Forge/forge/commit/2903d2df019439f) Anthony Calosa *2023-03-17 03:44:56*
+
+**add Commander Gauntlet**
+
+
+[81efb2737f00a9f](https://github.com/Card-Forge/forge/commit/81efb2737f00a9f) Anthony Calosa *2023-03-17 00:18:52*
+
+**Update sam_loyal_attendant.txt**
+
+
+[9f682d2d25a7613](https://github.com/Card-Forge/forge/commit/9f682d2d25a7613) Simisays *2023-03-16 19:23:27*
+
+**update**
+
+
+[6dfa23895e3f2d5](https://github.com/Card-Forge/forge/commit/6dfa23895e3f2d5) Simisays *2023-03-16 19:18:23*
+
+**update**
+
+
+[569089f55e8c647](https://github.com/Card-Forge/forge/commit/569089f55e8c647) Simisays *2023-03-16 18:52:06*
+
+**Merge pull request #2693 from paulsnoops/edition_fixes**
+
+ * Small edition fixes
+
+[64c44a7ba5eee27](https://github.com/Card-Forge/forge/commit/64c44a7ba5eee27) Paul Hammerton *2023-03-16 18:01:14*
+
+**cardname**
+
+
+[a5126777d58e019](https://github.com/Card-Forge/forge/commit/a5126777d58e019) paulsnoops *2023-03-16 17:53:55*
+
+**Small edition fixes**
+
+
+[024f853cb46b7a8](https://github.com/Card-Forge/forge/commit/024f853cb46b7a8) paulsnoops *2023-03-16 17:43:17*
+
+**Update entry_down.tx**
+
+
+[0ce0a3daceaf204](https://github.com/Card-Forge/forge/commit/0ce0a3daceaf204) Simisays *2023-03-16 14:12:58*
+
+**update**
+
+
+[eb19be85f20169b](https://github.com/Card-Forge/forge/commit/eb19be85f20169b) Simisays *2023-03-16 14:06:48*
+
+**Merge pull request #2691 from paulsnoops/update_editions**
+
+ * Edition updates: LTR, LTC, SIR, SIS (new)
+
+[e2e98f2478880fa](https://github.com/Card-Forge/forge/commit/e2e98f2478880fa) Paul Hammerton *2023-03-16 09:52:26*
+
+**Update The Lord of the Rings Tales of Middle-earth.txt**
+
+
+[c5ddb0209a77d6f](https://github.com/Card-Forge/forge/commit/c5ddb0209a77d6f) Paul Hammerton *2023-03-16 09:45:36*
+
+**Update The Lord of the Rings Tales of Middle-earth Commander.txt**
+
+
+[648ceaf2297b9fc](https://github.com/Card-Forge/forge/commit/648ceaf2297b9fc) Paul Hammerton *2023-03-16 09:42:20*
+
+**Create Shadows of the Past.txt**
+
+
+[aa96855abaa5edb](https://github.com/Card-Forge/forge/commit/aa96855abaa5edb) Paul Hammerton *2023-03-16 09:39:42*
+
+**Edition updates: SIR, SIS (new)**
+
+
+[7bf776965b2d1c6](https://github.com/Card-Forge/forge/commit/7bf776965b2d1c6) Paul Hammerton *2023-03-16 09:34:28*
+
+**Merge pull request #2690 from kevlahnota/newmaster2**
+
+ * fix holdtooltip bug
+
+[b03e99288a13026](https://github.com/Card-Forge/forge/commit/b03e99288a13026) Anthony Calosa *2023-03-16 00:07:18*
+
+**fix holdtooltip bug**
+
+ * - fix issue when downloaded image is reloaded while holdtooltip is engaged locks up all the buttons
+
+[ec76844a2eb0115](https://github.com/Card-Forge/forge/commit/ec76844a2eb0115) Anthony Calosa *2023-03-16 00:00:40*
+
+**Update skullpiercer_gnat.txt**
+
+
+[e0946bf0178d360](https://github.com/Card-Forge/forge/commit/e0946bf0178d360) tool4ever *2023-03-15 15:44:56*
+
+**Merge pull request #2689 from tool4ever/thelon**
+
+ * Fix Thelon
+
+[0c44a357a340ea9](https://github.com/Card-Forge/forge/commit/0c44a357a340ea9) Anthony Calosa *2023-03-15 15:33:24*
+
+**Merge pull request #2686 from kevlahnota/newmaster2**
+
+ * revert AudioClip, refactor Texture get
+
+[8de1ffee4501f2b](https://github.com/Card-Forge/forge/commit/8de1ffee4501f2b) Anthony Calosa *2023-03-15 15:33:08*
+
+**Fix Thelon**
+
+
+[298ff0465ef9302](https://github.com/Card-Forge/forge/commit/298ff0465ef9302) tool4EvEr *2023-03-15 15:12:50*
+
+**add dispose clips**
+
+
+[3a849e77ab461a3](https://github.com/Card-Forge/forge/commit/3a849e77ab461a3) Anthony Calosa *2023-03-15 14:30:39*
+
+**Remove some obsolete stuff (#2685)**
+
+ * Remove obsolete code
+ * Fix uncounterable being invisible
+ * Fix CantHappen requiring choice
+
+[9b47a7fee2ae286](https://github.com/Card-Forge/forge/commit/9b47a7fee2ae286) tool4ever *2023-03-15 12:37:22*
+
+**revert AudioClip, refactor Texture get**
+
+
+[e59bfb8a1f96549](https://github.com/Card-Forge/forge/commit/e59bfb8a1f96549) Anthony Calosa *2023-03-15 11:32:12*
+
+**Merge pull request #2684 from paulsnoops/update_ltr**
+
+ * Edition updates: LTR, LTC (new)
+
+[9bf972aa7088375](https://github.com/Card-Forge/forge/commit/9bf972aa7088375) Paul Hammerton *2023-03-14 20:37:16*
+
+**Edition updates: LTR, LTC (new)**
+
+
+[8047a0ae793d241](https://github.com/Card-Forge/forge/commit/8047a0ae793d241) paulsnoops *2023-03-14 20:32:22*
+
+**Merge pull request #2682 from kevlahnota/newmaster2**
+
+ * update Achievement Trophies
+
+[e8ea282e2af08ed](https://github.com/Card-Forge/forge/commit/e8ea282e2af08ed) Anthony Calosa *2023-03-14 19:45:12*
+
+**Merge branch 'Card-Forge:master' into XIRAA**
+
+
+[4f02e2e18e26925](https://github.com/Card-Forge/forge/commit/4f02e2e18e26925) Simisays *2023-03-14 19:35:35*
+
+**update**
+
+
+[087b699bed2e2ba](https://github.com/Card-Forge/forge/commit/087b699bed2e2ba) Simisays *2023-03-14 19:34:50*
+
+**prevent NPE**
+
+
+[eb4ac33b369d4ca](https://github.com/Card-Forge/forge/commit/eb4ac33b369d4ca) Anthony Calosa *2023-03-14 17:33:12*
+
+**Merge pull request #2676 from MikeS-NZ/forge_ltr**
+
+ * LTR: Gandalf the Grey + The One Ring
+
+[50e46a176b45cf5](https://github.com/Card-Forge/forge/commit/50e46a176b45cf5) Paul Hammerton *2023-03-14 17:20:26*
+
+**update**
+
+
+[78bded11fb6d9a8](https://github.com/Card-Forge/forge/commit/78bded11fb6d9a8) Anthony Calosa *2023-03-14 17:14:51*
+
+**Update gandalf_the_grey.txt**
+
+
+[6d945ff283805a8](https://github.com/Card-Forge/forge/commit/6d945ff283805a8) Mike S *2023-03-14 17:13:19*
+
+**papercard images as fallback**
+
+
+[b88cd6c2e923366](https://github.com/Card-Forge/forge/commit/b88cd6c2e923366) Anthony Calosa *2023-03-14 17:06:29*
+
+**Merge branch 'master' into newmaster2**
+
+
+[eac869f389152ad](https://github.com/Card-Forge/forge/commit/eac869f389152ad) Anthony Calosa *2023-03-14 16:42:37*
+
+**update Achievement Trophies**
+
+ * - use PaperCard images as overlay if available for Achievement Trophies
+
+[a41a3916de227f7](https://github.com/Card-Forge/forge/commit/a41a3916de227f7) Anthony Calosa *2023-03-14 16:27:49*
+
+**Create gandalf_the_grey.txt**
+
+
+[b1ebbdc8fb3b8a6](https://github.com/Card-Forge/forge/commit/b1ebbdc8fb3b8a6) Mike S *2023-03-14 16:12:38*
+
+**Merge pull request #2681 from paulsnoops/fix_formats**
+
+ * Formats: Fix Explorer and Arena Standard
+
+[f5d046370f3bcd7](https://github.com/Card-Forge/forge/commit/f5d046370f3bcd7) Paul Hammerton *2023-03-14 14:17:50*
+
+**Formats: Fix Explorer and Arena Standard**
+
+
+[424e16da50c5f35](https://github.com/Card-Forge/forge/commit/424e16da50c5f35) paulsnoops *2023-03-14 14:10:31*
+
+**Merge pull request #2680 from Card-Forge/newmaster2**
+
+ * Fix old theme Splashscreen and Logo
+
+[4576efc52f050af](https://github.com/Card-Forge/forge/commit/4576efc52f050af) Anthony Calosa *2023-03-14 11:06:22*
+
+**Merge pull request #2679 from kevlahnota/newmaster2**
+
+ * Fix old theme splashscreen and logo
+
+[ecd8e4fd3d354e4](https://github.com/Card-Forge/forge/commit/ecd8e4fd3d354e4) Anthony Calosa *2023-03-14 11:03:45*
+
+**update check**
+
+
+[9d9103709d26aff](https://github.com/Card-Forge/forge/commit/9d9103709d26aff) Anthony Calosa *2023-03-14 11:02:09*
+
+**fix old theme splashscreen and logo**
+
+ * - themes without hd skins should load fine now
+
+[356cd2c908b1b65](https://github.com/Card-Forge/forge/commit/356cd2c908b1b65) Anthony Calosa *2023-03-14 10:53:18*
+
+**Merge pull request #2677 from Card-Forge/mulligan-bypass**
+
+ * Speed up London Mulligan when you just want to mulligan again.
+
+[ed8728f9210ac5f](https://github.com/Card-Forge/forge/commit/ed8728f9210ac5f) Anthony Calosa *2023-03-14 10:20:49*
+
+**Merge pull request #2678 from kevlahnota/newmaster2**
+
+ * fix dialog voiceFile not playing on Android
+
+[adaae8d06ef9fb4](https://github.com/Card-Forge/forge/commit/adaae8d06ef9fb4) Anthony Calosa *2023-03-14 10:20:35*
+
+**update**
+
+
+[39090504154c374](https://github.com/Card-Forge/forge/commit/39090504154c374) Anthony Calosa *2023-03-14 09:56:51*
+
+**fix dialog voiceFile not playing on Android**
+
+
+[87f2b11341ec4ff](https://github.com/Card-Forge/forge/commit/87f2b11341ec4ff) Anthony Calosa *2023-03-14 07:59:23*
+
+**LTR: Gandalf the Grey + The One Ring**
+
+ * LTR: Add card scripts for spoiled LTR cards Gandalf the Grey and The One Ring.
+ * - Gandalf the Grey
+ * - The One Ring
+
+[a3883b0ba59af72](https://github.com/Card-Forge/forge/commit/a3883b0ba59af72) Suthro *2023-03-14 00:21:31*
+
+**Merge pull request #2675 from kevlahnota/newmaster2**
+
+ * update deck award
+
+[7de13c38cfb9299](https://github.com/Card-Forge/forge/commit/7de13c38cfb9299) Anthony Calosa *2023-03-13 23:17:25*
+
+**update deck award**
+
+
+[c80929663e0a436](https://github.com/Card-Forge/forge/commit/c80929663e0a436) Anthony Calosa *2023-03-13 23:15:56*
+
+**Fix undo when it gets cleared during payment (#2674)**
+
+
+[812f4062dd5cf8a](https://github.com/Card-Forge/forge/commit/812f4062dd5cf8a) tool4ever *2023-03-13 22:06:49*
+
+**Merge pull request #2673 from paulsnoops/oops**
+
+ * LTR: nothing to see here (or maybe a typo)
+
+[92b210b1dae78e9](https://github.com/Card-Forge/forge/commit/92b210b1dae78e9) Paul Hammerton *2023-03-13 17:44:02*
+
+**LTR: nothing to see here (or maybe a typo)**
+
+
+[507a1a0b57586da](https://github.com/Card-Forge/forge/commit/507a1a0b57586da) paulsnoops *2023-03-13 17:41:01*
+
+**Merge pull request #2672 from paulsnoops/add_ltr_edition**
+
+ * New edition: LTR
+
+[a690234babead6b](https://github.com/Card-Forge/forge/commit/a690234babead6b) Paul Hammerton *2023-03-13 17:38:32*
+
+**New edition: LTR**
+
+
+[04dcdf524bcb671](https://github.com/Card-Forge/forge/commit/04dcdf524bcb671) paulsnoops *2023-03-13 17:33:01*
+
+**Fix illegal target (#2670)**
+
+ * Co-authored-by: TRT &lt;&gt;
+
+[6eb724c2f4d0fe5](https://github.com/Card-Forge/forge/commit/6eb724c2f4d0fe5) tool4ever *2023-03-13 12:11:28*
+
+**Update tawnoss_tinkering.txt (#2671)**
+
+
+[bbb42f5546f9c7b](https://github.com/Card-Forge/forge/commit/bbb42f5546f9c7b) Simisays *2023-03-13 11:19:54*
+
+**Merge branch 'Card-Forge:master' into XIRAA**
+
+
+[0f119e14db41948](https://github.com/Card-Forge/forge/commit/0f119e14db41948) Simisays *2023-03-13 07:26:12*
+
+**Merge pull request #2668 from kevlahnota/newmaster2**
+
+ * update AudioClip, AudioMusic
+
+[50e15de07f249c4](https://github.com/Card-Forge/forge/commit/50e15de07f249c4) Anthony Calosa *2023-03-13 03:19:06*
+
+**Merge pull request #2662 from tool4ever/undocheat**
+
+ * Anti-Cheat: fix refunding wrong mana
+
+[8c0cc9468e9ceac](https://github.com/Card-Forge/forge/commit/8c0cc9468e9ceac) Anthony Calosa *2023-03-13 03:06:32*
+
+**update AudioClip, AudioMusic**
+
+ * - let AssetManager handle game audio
+ * - unload particles and music after playing it to save RAM
+
+[205fe95129ec0bb](https://github.com/Card-Forge/forge/commit/205fe95129ec0bb) Anthony Calosa *2023-03-13 02:29:25*
+
+**three alchemy fixes  (#2667)**
+
+
+[39f3a57e96e091d](https://github.com/Card-Forge/forge/commit/39f3a57e96e091d) Simisays *2023-03-12 22:08:01*
+
+**update**
+
+
+[be2a8ad8e0750af](https://github.com/Card-Forge/forge/commit/be2a8ad8e0750af) Simisays *2023-03-12 21:41:26*
+
+**Merge pull request #2665 from pfirpfel/fix-Fallaji-Antiquarian**
+
+ * Fallaji Antiquarian: Fix trigger
+
+[5e78431d18c6815](https://github.com/Card-Forge/forge/commit/5e78431d18c6815) Anthony Calosa *2023-03-12 19:44:34*
+
+**Fallaji Antiquarian: Fix trigger**
+
+
+[0045905e158aa4a](https://github.com/Card-Forge/forge/commit/0045905e158aa4a) pfirpfel *2023-03-12 19:10:23*
+
+**Clean up**
+
+
+[cf4f6f7f49b244e](https://github.com/Card-Forge/forge/commit/cf4f6f7f49b244e) tool4EvEr *2023-03-12 16:20:22*
+
+**Fix script**
+
+
+[3f79414431329c8](https://github.com/Card-Forge/forge/commit/3f79414431329c8) tool4EvEr *2023-03-12 16:10:29*
+
+**Anti-Cheat: fix refunding wrong mana**
+
+
+[419c66daa521f16](https://github.com/Card-Forge/forge/commit/419c66daa521f16) tool4EvEr *2023-03-12 15:37:10*
+
+**Merge pull request #2661 from kevlahnota/newmaster2**
+
+ * update PlayerStatisticScene
+
+[0b12cc5340642b2](https://github.com/Card-Forge/forge/commit/0b12cc5340642b2) Anthony Calosa *2023-03-12 13:11:54*
+
+**update PlayerStatisticScene**
+
+ * - add toggable Achievements buttons (Shared with Constructed GameType except variants)
+ * - set avatar to stretch (to match different scaling)
+ * - fix Ooze avatar region
+
+[97bb4d0fbbd8dc2](https://github.com/Card-Forge/forge/commit/97bb4d0fbbd8dc2) Anthony Calosa *2023-03-12 13:07:56*
+
+**Merge pull request #2660 from kevlahnota/newmaster2**
+
+ * refactor FSkin Texture loading
+
+[453a704afa46825](https://github.com/Card-Forge/forge/commit/453a704afa46825) Anthony Calosa *2023-03-11 23:27:10*
+
+**move ParticleEffect load to AssetManager**
+
+
+[2a82a51fab1f30f](https://github.com/Card-Forge/forge/commit/2a82a51fab1f30f) Anthony Calosa *2023-03-11 23:19:57*
+
+**update**
+
+
+[1c12d79f52b4219](https://github.com/Card-Forge/forge/commit/1c12d79f52b4219) Simisays *2023-03-11 18:53:27*
+
+**cleanup**
+
+
+[63fedcdd81d79ec](https://github.com/Card-Forge/forge/commit/63fedcdd81d79ec) Anthony Calosa *2023-03-11 14:42:35*
+
+**refactor FSkin Texture loading**
+
+ * - this should clear up unused texture
+ * - fix startup on empty res/skins folder
+
+[683f004f84646e8](https://github.com/Card-Forge/forge/commit/683f004f84646e8) Anthony Calosa *2023-03-11 13:50:10*
+
+**Merge pull request #2659 from tool4ever/poms**
+
+ * Maven: relocate platform-specific dependency
+
+[fa48fcd33677a47](https://github.com/Card-Forge/forge/commit/fa48fcd33677a47) Anthony Calosa *2023-03-11 10:15:21*
+
+**update**
+
+
+[112284f49523b85](https://github.com/Card-Forge/forge/commit/112284f49523b85) Simisays *2023-03-11 08:30:58*
+
+**Maven: relocate platform-specific dependency**
+
+
+[f59ad77a4d4e0c2](https://github.com/Card-Forge/forge/commit/f59ad77a4d4e0c2) tool4EvEr *2023-03-11 08:13:51*
+
+**Merge pull request #2658 from Card-Forge/revert-2657-newmaster2**
+
+ * Revert &quot;update initial skin texture load&quot;
+
+[c826a1c02911f14](https://github.com/Card-Forge/forge/commit/c826a1c02911f14) Anthony Calosa *2023-03-11 06:25:20*
+
+**Revert "update initial skin texture load"**
+
+
+[ef1b089d4908094](https://github.com/Card-Forge/forge/commit/ef1b089d4908094) Anthony Calosa *2023-03-11 06:22:25*
+
+**Merge pull request #2657 from kevlahnota/newmaster2**
+
+ * update initial skin texture load
+
+[180ba40cc87c4ca](https://github.com/Card-Forge/forge/commit/180ba40cc87c4ca) Anthony Calosa *2023-03-11 03:45:20*
+
+**update initial skin texture load**
+
+ * - directly create texture if absolute path is not available
+ * - dispose overridden texture
+
+[bc3185a0ccd2ca5](https://github.com/Card-Forge/forge/commit/bc3185a0ccd2ca5) Anthony Calosa *2023-03-11 03:39:55*
+
+**Merge pull request #2655 from kevlahnota/newmaster2**
+
+ * fix old themes without hdbuttons and hdstart
+
+[c9602147b974c28](https://github.com/Card-Forge/forge/commit/c9602147b974c28) Anthony Calosa *2023-03-10 21:45:35*
+
+**fix old themes without hdbuttons and hdstart**
+
+
+[2d4ec54562e89ac](https://github.com/Card-Forge/forge/commit/2d4ec54562e89ac) Anthony Calosa *2023-03-10 21:41:54*
+
+**Merge pull request #2654 from Card-Forge/refactorTexture**
+
+ * refactor texture loading
+
+[1f12b0dee897d3f](https://github.com/Card-Forge/forge/commit/1f12b0dee897d3f) Anthony Calosa *2023-03-10 20:17:22*
+
+**refactor texture loading**
+
+ * - move loading of textures directly to assetmanager
+ * - move textratypist to gui-mobile
+
+[a807d74744c4d71](https://github.com/Card-Forge/forge/commit/a807d74744c4d71) Anthony Calosa *2023-03-10 20:00:15*
+
+**Merge remote-tracking branch 'upstream/master' into XIRAA**
+
+
+[d1dbe7924f649fe](https://github.com/Card-Forge/forge/commit/d1dbe7924f649fe) Simisays *2023-03-10 12:19:15*
+
+**update**
+
+
+[70e65a86197f410](https://github.com/Card-Forge/forge/commit/70e65a86197f410) Simisays *2023-03-10 12:16:50*
+
+**Merge pull request #2653 from kevlahnota/newmaster2**
+
+ * fix EnemyData loading issues
+
+[5ce27717ac28efd](https://github.com/Card-Forge/forge/commit/5ce27717ac28efd) Anthony Calosa *2023-03-10 06:18:19*
+
+**fix EnemyData loading issues**
+
+
+[3991b6d081d3fe2](https://github.com/Card-Forge/forge/commit/3991b6d081d3fe2) Anthony Calosa *2023-03-10 06:12:02*
+
+**Merge pull request #2620 from Card-Forge/rebalancedFormatCheck**
+
+ * GameFormat: filter Rebalanced cards
+
+[1f908465d5dce58](https://github.com/Card-Forge/forge/commit/1f908465d5dce58) Anthony Calosa *2023-03-10 05:09:10*
+
+**Merge pull request #2652 from jjayers99/master**
+
+ * Adventure - Additional Challenger decks
+
+[1ac2b9aa9fe9f25](https://github.com/Card-Forge/forge/commit/1ac2b9aa9fe9f25) Anthony Calosa *2023-03-10 05:08:45*
+
+**Merge branch 'master' of https://github.com/jjayers99/forge**
+
+
+[a6530249c974697](https://github.com/Card-Forge/forge/commit/a6530249c974697) jjayers99 *2023-03-10 03:56:08*
+
+**Adv: Additional Challenger enemy decks**
+
+
+[5ef4c37cb8642ea](https://github.com/Card-Forge/forge/commit/5ef4c37cb8642ea) jjayers99 *2023-03-10 03:55:57*
+
+**Merge pull request #2651 from kevlahnota/newmaster2**
+
+ * fix particle effect initial position
+
+[c97489fedfc0cdd](https://github.com/Card-Forge/forge/commit/c97489fedfc0cdd) Anthony Calosa *2023-03-10 01:59:31*
+
+**Merge pull request #2650 from jjayers99/master**
+
+ * Adventure updates
+
+[a8733ed6a50faeb](https://github.com/Card-Forge/forge/commit/a8733ed6a50faeb) Anthony Calosa *2023-03-10 01:55:56*
+
+**Merge pull request #2648 from Simisays/KIORABRANCH**
+
+ * Kiora Island Collision Fix
+
+[cd3a14d9adb1afb](https://github.com/Card-Forge/forge/commit/cd3a14d9adb1afb) Anthony Calosa *2023-03-10 01:54:01*
+
+**Merge pull request #2649 from tool4ever/clean93**
+
+ * Some cleanup
+
+[7de1495049c3cbd](https://github.com/Card-Forge/forge/commit/7de1495049c3cbd) Anthony Calosa *2023-03-10 01:53:04*
+
+**fix particle effect initial position**
+
+ * - move the offset calculation inside MapActor
+
+[5748d09b54a4183](https://github.com/Card-Forge/forge/commit/5748d09b54a4183) Anthony Calosa *2023-03-10 01:18:43*
+
+**Sprite fix**
+
+
+[8675affd018c081](https://github.com/Card-Forge/forge/commit/8675affd018c081) jjayers99 *2023-03-09 22:50:29*
+
+**Adv: New enemies, sprite corrections**
+
+
+[5e1d6da8db4c325](https://github.com/Card-Forge/forge/commit/5e1d6da8db4c325) jjayers99 *2023-03-09 22:18:37*
+
+**Some cleanup**
+
+
+[b7105e1ee9f8ae1](https://github.com/Card-Forge/forge/commit/b7105e1ee9f8ae1) tool4EvEr *2023-03-09 21:43:50*
+
+**Adventure mode: new enemy sprite**
+
+
+[791270575a95960](https://github.com/Card-Forge/forge/commit/791270575a95960) jjayers99 *2023-03-09 21:02:49*
+
+**update**
+
+
+[d5a15fb14e2ea09](https://github.com/Card-Forge/forge/commit/d5a15fb14e2ea09) Simisays *2023-03-09 19:07:55*
+
+**Update zopandrel_hunger_dominus.txt**
+
+
+[439cb39c96ce9c0](https://github.com/Card-Forge/forge/commit/439cb39c96ce9c0) tool4ever *2023-03-09 15:34:31*
+
+**update**
+
+
+[7018d415c2ef369](https://github.com/Card-Forge/forge/commit/7018d415c2ef369) Simisays *2023-03-09 14:42:07*
+
+**update**
+
+
+[4418f79f97e2d23](https://github.com/Card-Forge/forge/commit/4418f79f97e2d23) Simisays *2023-03-09 14:32:30*
+
+**Add alchemy draft formats (#2628)**
+
+ * Add new rarity slot used by Alchemy sets
+ * Make Alchemy: New Capenna draftable
+ * Make Alchemy: Phyrexia draftable
+ * Make Alchemy: The Brothers&#x27; War draftable
+ * Make Alchemy: Kamigawa draftable
+ * Make Alchemy: Dominaria draftable
+
+[69272b963c19ae6](https://github.com/Card-Forge/forge/commit/69272b963c19ae6) Michael Kuenzli *2023-03-09 09:40:55*
+
+**Update kinzu_of_the_bleak_coven.txt**
+
+ * Fix AddKeywords
+
+[e786b4bed52d5dc](https://github.com/Card-Forge/forge/commit/e786b4bed52d5dc) Hans Mackowiak *2023-03-09 07:28:51*
+
+**Speed up London Mulligan when you just want to mulligan again.**
+
+
+[53957d5abf6579f](https://github.com/Card-Forge/forge/commit/53957d5abf6579f) friarsol *2023-03-09 04:07:18*
+
+**Merge pull request #2647 from kevlahnota/newmaster2**
+
+ * downscale XLHQ custom cards
+
+[51942b276cbc57c](https://github.com/Card-Forge/forge/commit/51942b276cbc57c) Anthony Calosa *2023-03-08 22:56:12*
+
+**downscale XLHQ custom cards**
+
+ * - prevent crashes for mobile devices with weak GPU or low RAM
+
+[ff2fe7fcb95d471](https://github.com/Card-Forge/forge/commit/ff2fe7fcb95d471) Anthony Calosa *2023-03-08 22:48:19*
+
+**Merge pull request #2644 from tool4ever/makeanexample**
+
+ * Fix Make an Example
+
+[7c9982f8eb352bc](https://github.com/Card-Forge/forge/commit/7c9982f8eb352bc) Anthony Calosa *2023-03-08 22:10:09*
+
+**Merge pull request #2646 from jjayers99/master**
+
+ * Adventure updates
+
+[434cfac4a6f5135](https://github.com/Card-Forge/forge/commit/434cfac4a6f5135) Anthony Calosa *2023-03-08 22:09:54*
+
+**Collision fixes**
+
+ * Added new tileset for buildings.png, buildings-nocollide.tsx. This tileset will automatically use the same buildings.png image, but the intent is to never add collision mapping to this tileset so that all tiles are fully passable for background images.
+
+[5977cc2e835a07b](https://github.com/Card-Forge/forge/commit/5977cc2e835a07b) jjayers99 *2023-03-08 20:32:11*
+
+**Merge branch 'Card-Forge:master' into master**
+
+
+[e03c871701a5987](https://github.com/Card-Forge/forge/commit/e03c871701a5987) TabletopGeneral *2023-03-08 14:59:54*
+
+**Merge pull request #2645 from kevlahnota/newmaster2**
+
+ * update scrollable tables
+
+[f2cf37eecbb0faa](https://github.com/Card-Forge/forge/commit/f2cf37eecbb0faa) Anthony Calosa *2023-03-08 13:08:48*
+
+**update scrollable tables**
+
+ * - can use mouse wheel if availble to scroll
+
+[6a173f688f989ee](https://github.com/Card-Forge/forge/commit/6a173f688f989ee) Anthony Calosa *2023-03-08 13:04:03*
+
+**Merge branch 'master' of https://github.com/jjayers99/forge**
+
+
+[2cf3f508fb4c90d](https://github.com/Card-Forge/forge/commit/2cf3f508fb4c90d) jjayers99 *2023-03-08 12:11:35*
+
+**Fix Make an Example**
+
+
+[798bce389ce41f1](https://github.com/Card-Forge/forge/commit/798bce389ce41f1) tool4EvEr *2023-03-08 10:54:58*
+
+**Merge pull request #2642 from JohnWilliams77/patch-80**
+
+ * Update Secret Lair Drop Series.txt
+
+[6f5475d9e0524d8](https://github.com/Card-Forge/forge/commit/6f5475d9e0524d8) Paul Hammerton *2023-03-08 10:00:05*
+
+**Merge pull request #2643 from kevlahnota/newmaster2**
+
+ * update SaveLoadScene, InventoryScene
+
+[374522e17b56874](https://github.com/Card-Forge/forge/commit/374522e17b56874) Anthony Calosa *2023-03-08 09:34:44*
+
+**update SaveLoadScene, InventoryScene**
+
+ * - fix layout, add table header and scrollable content
+ * - update textratypist
+
+[64c920421b5a6ad](https://github.com/Card-Forge/forge/commit/64c920421b5a6ad) Anthony Calosa *2023-03-08 09:20:58*
+
+**Update Secret Lair Drop Series.txt**
+
+
+[f56580598e97ee0](https://github.com/Card-Forge/forge/commit/f56580598e97ee0) JohnWilliams77 *2023-03-08 09:03:44*
+
+**Adventure - New red boss dungeon, waypoint tools**
+
+ * A few further changes are planned for new dungeon, but needed to actually do a check-in at some point...
+
+[24f585f0a88a1b0](https://github.com/Card-Forge/forge/commit/24f585f0a88a1b0) jjayers99 *2023-03-08 03:11:33*
+
+**Merge pull request #2640 from kevlahnota/newmaster2**
+
+ * Fix to avoid incompatibility if compile with JDK9+
+
+[8066a9be8366bc8](https://github.com/Card-Forge/forge/commit/8066a9be8366bc8) Anthony Calosa *2023-03-07 23:24:22*
+
+**Merge pull request #2639 from EldritchBimbo/Gwyn-Master**
+
+ * Playable Phyrexians Update
+
+[7994ca1aaa41b7e](https://github.com/Card-Forge/forge/commit/7994ca1aaa41b7e) Anthony Calosa *2023-03-07 23:24:05*
+
+**Merge pull request #2638 from Simisays/better-saturation**
+
+ * Improve exposure new sprites
+
+[91c9b41730c11cb](https://github.com/Card-Forge/forge/commit/91c9b41730c11cb) Anthony Calosa *2023-03-07 23:23:43*
+
+**Fix to avoid incompatibility if compile with JDK9+**
+
+
+[3ba9bdca8044a6b](https://github.com/Card-Forge/forge/commit/3ba9bdca8044a6b) Anthony Calosa *2023-03-07 23:18:53*
+
+**Playable Phyrexians Update**
+
+ * SIMPLE CHANGES
+ * .Adds playable Phyrexian race. (On parity with existing. 20 portraits, 2 sprite animation sets.)
+ * DETAILED CHANGES
+ * .Adds 4 files for png and atlas of new sprites.
+ * .Adds 20 portraits to avatar.png
+ * .Alters avatar.atlas and heroes.json to utilize new files.
+
+[b279d9f127dfcc5](https://github.com/Card-Forge/forge/commit/b279d9f127dfcc5) Alwayssnarky *2023-03-07 22:56:21*
+
+**Update scarecrowcaptain.png**
+
+
+[6b5f77040ff7f7c](https://github.com/Card-Forge/forge/commit/6b5f77040ff7f7c) Simisays *2023-03-07 22:13:34*
+
+**update**
+
+
+[09d8665b5b5591f](https://github.com/Card-Forge/forge/commit/09d8665b5b5591f) Simisays *2023-03-07 22:10:02*
+
+**StaticData: check all Editions for rebalanced**
+
+
+[cd880015dafe5f3](https://github.com/Card-Forge/forge/commit/cd880015dafe5f3) Hans Mackowiak *2023-03-07 21:04:08*
+
+**GameFormat: filter Rebalanced cards**
+
+
+[2eff0f08d8a7cc8](https://github.com/Card-Forge/forge/commit/2eff0f08d8a7cc8) Hans Mackowiak *2023-03-07 21:00:39*
+
+**Merge pull request #2637 from kevlahnota/newmaster2**
+
+ * update fix
+
+[7e95633a33d9af7](https://github.com/Card-Forge/forge/commit/7e95633a33d9af7) Anthony Calosa *2023-03-07 16:04:42*
+
+**update fix**
+
+
+[e6b083330cb8ab6](https://github.com/Card-Forge/forge/commit/e6b083330cb8ab6) Anthony Calosa *2023-03-07 16:02:35*
+
+**Merge pull request #2636 from kevlahnota/newmaster2**
+
+ * rename pics
+
+[70f30fcab2c72c3](https://github.com/Card-Forge/forge/commit/70f30fcab2c72c3) Anthony Calosa *2023-03-07 15:54:15*
+
+**update PlayerStatisticScene**
+
+ * - fixed table header with scrollable values
+
+[b06ffdfebb64697](https://github.com/Card-Forge/forge/commit/b06ffdfebb64697) Anthony Calosa *2023-03-07 15:52:50*
+
+**Merge pull request #2625 from Simisays/quickfix**
+
+ * Improvements to Scarecrow Farm + Blue Aerie fix
+
+[bad27f6a01de631](https://github.com/Card-Forge/forge/commit/bad27f6a01de631) Anthony Calosa *2023-03-07 15:47:51*
+
+**update picture**
+
+
+[ed5efcce134878f](https://github.com/Card-Forge/forge/commit/ed5efcce134878f) Simisays *2023-03-07 15:36:08*
+
+**Merge pull request #2635 from kevlahnota/newmaster2**
+
+ * update PlayerStatisticScene
+
+[8875a52599b06e7](https://github.com/Card-Forge/forge/commit/8875a52599b06e7) Anthony Calosa *2023-03-07 15:26:56*
+
+**update PlayerStatisticScene**
+
+ * - fixed table header with scrollable values
+
+[f658a150f9345ed](https://github.com/Card-Forge/forge/commit/f658a150f9345ed) Anthony Calosa *2023-03-07 14:46:50*
+
+**fix**
+
+
+[754ee7fb44a72e1](https://github.com/Card-Forge/forge/commit/754ee7fb44a72e1) Simisays *2023-03-07 14:33:16*
+
+**final update**
+
+
+[a77e3aef7d2b35e](https://github.com/Card-Forge/forge/commit/a77e3aef7d2b35e) Simisays *2023-03-07 13:05:59*
+
+**Merge pull request #2634 from Simisays/NEW**
+
+ * Update lukamina_moon_druid.txt
+
+[2e5abd3e08a0540](https://github.com/Card-Forge/forge/commit/2e5abd3e08a0540) Anthony Calosa *2023-03-07 11:05:14*
+
+**Update lukamina_moon_druid.txt**
+
+
+[cbcf9b4643ecd15](https://github.com/Card-Forge/forge/commit/cbcf9b4643ecd15) Simisays *2023-03-07 10:52:59*
+
+**update**
+
+
+[6de40ab06c1b840](https://github.com/Card-Forge/forge/commit/6de40ab06c1b840) Simisays *2023-03-07 10:42:27*
+
+**Update giant_scythe.txt**
+
+
+[17b43e7672babcd](https://github.com/Card-Forge/forge/commit/17b43e7672babcd) Simisays *2023-03-07 10:32:54*
+
+**Merge pull request #2633 from kevlahnota/newmaster2**
+
+ * update windowlistener
+
+[9153584c0f8833e](https://github.com/Card-Forge/forge/commit/9153584c0f8833e) Anthony Calosa *2023-03-07 10:23:49*
+
+**update windowlistener**
+
+ * - use Lwjgl3WindowAdapter, should fix some issue for LWJGL3
+
+[472b8823a0e43fe](https://github.com/Card-Forge/forge/commit/472b8823a0e43fe) Anthony Calosa *2023-03-07 10:15:58*
+
+**update**
+
+
+[7571d77d272b09a](https://github.com/Card-Forge/forge/commit/7571d77d272b09a) Simisays *2023-03-07 08:33:44*
+
+**update**
+
+
+[86ca964b2f9ea6b](https://github.com/Card-Forge/forge/commit/86ca964b2f9ea6b) Simisays *2023-03-07 08:28:36*
+
+**Merge branch 'quickfix' of https://github.com/Simisays/forge into quickfix**
+
+
+[ec0314d28b40006](https://github.com/Card-Forge/forge/commit/ec0314d28b40006) Simisays *2023-03-07 08:00:55*
+
+**update**
+
+
+[8746a6dd66f344e](https://github.com/Card-Forge/forge/commit/8746a6dd66f344e) Simisays *2023-03-07 08:00:44*
+
+**Update giant_scythe.txt**
+
+
+[7298164d15bf34d](https://github.com/Card-Forge/forge/commit/7298164d15bf34d) Simisays *2023-03-07 07:56:32*
+
+**Update GameHUD.java**
+
+
+[f8dba98212ad72f](https://github.com/Card-Forge/forge/commit/f8dba98212ad72f) Anthony Calosa *2023-03-07 07:51:16*
+
+**update**
+
+
+[3da826b97d503fc](https://github.com/Card-Forge/forge/commit/3da826b97d503fc) Simisays *2023-03-07 07:48:22*
+
+**Merge branch 'Card-Forge:master' into quickfix**
+
+
+[76f5bb39e3e17e3](https://github.com/Card-Forge/forge/commit/76f5bb39e3e17e3) Simisays *2023-03-07 07:44:37*
+
+**update**
+
+
+[b35e5023ace7235](https://github.com/Card-Forge/forge/commit/b35e5023ace7235) Simisays *2023-03-07 07:41:59*
+
+**Merge pull request #2632 from kevlahnota/newmaster2**
+
+ * adjust effect timing, center particle effect animation based on scale
+
+[62e95ae6cb7935b](https://github.com/Card-Forge/forge/commit/62e95ae6cb7935b) Anthony Calosa *2023-03-07 04:36:10*
+
+**adjust effect timing, center particle effect animation based on scale**
+
+ * -fix effectdata classcast startCardsInCommandZone
+
+[cbd742ae6cad695](https://github.com/Card-Forge/forge/commit/cbd742ae6cad695) Anthony Calosa *2023-03-07 04:02:04*
+
+**Merge pull request #2631 from kevlahnota/newmaster2**
+
+ * fix deckaward alignment
+
+[5da1f37fa7cd821](https://github.com/Card-Forge/forge/commit/5da1f37fa7cd821) Anthony Calosa *2023-03-07 03:12:43*
+
+**adjust height for 5C decks, fix custom starter deck startup**
+
+
+[4fed70aef93a6ec](https://github.com/Card-Forge/forge/commit/4fed70aef93a6ec) Anthony Calosa *2023-03-07 02:39:50*
+
+**fix deckaward alignment**
+
+
+[0722fa9a58a034b](https://github.com/Card-Forge/forge/commit/0722fa9a58a034b) Anthony Calosa *2023-03-07 01:53:28*
+
+**Merge pull request #2626 from tool4ever/fixnpe6**
+
+ * Fix Churning Reservoir NPE
+
+[872367240cb34be](https://github.com/Card-Forge/forge/commit/872367240cb34be) Anthony Calosa *2023-03-06 23:28:36*
+
+**Merge pull request #2630 from pfirpfel/fix-nettling-host-pt**
+
+ * Nettling Host: Fix Power/Toughness
+
+[af488f7f3daa15d](https://github.com/Card-Forge/forge/commit/af488f7f3daa15d) Anthony Calosa *2023-03-06 23:10:19*
+
+**Clean up**
+
+
+[5c71c7e01bc00b3](https://github.com/Card-Forge/forge/commit/5c71c7e01bc00b3) tool4EvEr *2023-03-06 22:10:45*
+
+**Nettling Host: Fix Power/Toughness**
+
+
+[e65a956027ddbcd](https://github.com/Card-Forge/forge/commit/e65a956027ddbcd) pfirpfel *2023-03-06 22:03:29*
+
+**Nettling Host: Fix mana cost (#2629)**
+
+
+[b484ca2b0f58055](https://github.com/Card-Forge/forge/commit/b484ca2b0f58055) Michael Kuenzli *2023-03-06 22:00:29*
+
+**Merge pull request #2627 from paulsnoops/banandrest_6march**
+
+ * Banned and Restricted Announcement for March 6, 2023
+
+[ce6842a9ff9d899](https://github.com/Card-Forge/forge/commit/ce6842a9ff9d899) Paul Hammerton *2023-03-06 21:00:44*
+
+**Banned and Restricted Announcement for March 6, 2023**
+
+
+[f08c94c1d957678](https://github.com/Card-Forge/forge/commit/f08c94c1d957678) paulsnoops *2023-03-06 20:54:09*
+
+**Fix trigger**
+
+
+[10ff128a27c85f6](https://github.com/Card-Forge/forge/commit/10ff128a27c85f6) tool4EvEr *2023-03-06 20:23:22*
+
+**update**
+
+
+[d2bbad2683d75b7](https://github.com/Card-Forge/forge/commit/d2bbad2683d75b7) Simisays *2023-03-06 19:08:10*
+
+**Fix Churning Reservoir NPE**
+
+
+[4d4f89f4b752726](https://github.com/Card-Forge/forge/commit/4d4f89f4b752726) tool4EvEr *2023-03-06 19:05:07*
+
+**Update garruk.dck**
+
+
+[3169b50f6fd027f](https://github.com/Card-Forge/forge/commit/3169b50f6fd027f) Simisays *2023-03-06 17:40:24*
+
+**update**
+
+
+[d4f7c7fa0cf51a6](https://github.com/Card-Forge/forge/commit/d4f7c7fa0cf51a6) Simisays *2023-03-06 17:38:33*
+
+**Update reins_of_the_vinesteed.txt**
+
+
+[f96cae737cc8da8](https://github.com/Card-Forge/forge/commit/f96cae737cc8da8) tool4ever *2023-03-06 15:10:42*
+
+**Merge pull request #2624 from paulsnoops/fix_format**
+
+ * Fix incorrect format name
+
+[00da94a82ebef6a](https://github.com/Card-Forge/forge/commit/00da94a82ebef6a) Paul Hammerton *2023-03-06 08:33:53*
+
+**Fix incorrect format name**
+
+
+[8b0ddf14785a324](https://github.com/Card-Forge/forge/commit/8b0ddf14785a324) paulsnoops *2023-03-06 08:30:12*
+
+**Merge pull request #2623 from kevlahnota/newmaster2**
+
+ * update CardImageRenderer
+
+[878736fb4ed1640](https://github.com/Card-Forge/forge/commit/878736fb4ed1640) Anthony Calosa *2023-03-06 07:18:51*
+
+**Merge pull request #2621 from MikeS-NZ/forgenew_mom**
+
+ * YONE: Contagion Dispenser + Skullpiercer Gnat
+
+[48cf0bd3ad79759](https://github.com/Card-Forge/forge/commit/48cf0bd3ad79759) Anthony Calosa *2023-03-06 07:17:43*
+
+**Merge pull request #2619 from Simisays/CLEANUP**
+
+ * Adventure. Cleanup of three dungeons
+
+[f662891ad62beb7](https://github.com/Card-Forge/forge/commit/f662891ad62beb7) Anthony Calosa *2023-03-06 07:16:03*
+
+**Merge pull request #2611 from tool4ever/statictrig**
+
+ * Fix static trigger messing up LTB trigger
+
+[91119288767a1c6](https://github.com/Card-Forge/forge/commit/91119288767a1c6) Anthony Calosa *2023-03-06 07:14:42*
+
+**update CardImageRenderer**
+
+ * - use artifact frame for artifact cards (non PW)
+ * - add basic outline color
+
+[552c9ee91b62f22](https://github.com/Card-Forge/forge/commit/552c9ee91b62f22) Anthony Calosa *2023-03-06 07:12:13*
+
+**Merge pull request #2622 from Card-Forge/tehdiplomat-patch-1**
+
+ * Update curse_of_the_pierced_heart.txt
+
+[c53ed9d46bc6bb8](https://github.com/Card-Forge/forge/commit/c53ed9d46bc6bb8) Hans Mackowiak *2023-03-06 05:48:16*
+
+**~ fix Oracles**
+
+
+[61afab9b554acac](https://github.com/Card-Forge/forge/commit/61afab9b554acac) Hans Mackowiak *2023-03-06 05:45:13*
+
+**Update curse_of_the_pierced_heart.txt**
+
+
+[f8f3060e2fb67d6](https://github.com/Card-Forge/forge/commit/f8f3060e2fb67d6) Chris H *2023-03-06 03:56:51*
+
+**YONE: Contagion Dispenser + Skullpiercer Gnat**
+
+ * YMOM: Added scripts for alchemy All Will Be One cards Contagion Dispenser and Skullpiercer Gnat.
+ * - Contagion Dispenser
+ * - Skullpiercer Gnat
+
+[e96211295c0a118](https://github.com/Card-Forge/forge/commit/e96211295c0a118) Suthro *2023-03-06 00:38:41*
+
+**cleanup**
+
+
+[6168199cc453596](https://github.com/Card-Forge/forge/commit/6168199cc453596) Simisays *2023-03-05 20:41:27*
+
+**Fix refund timing (#2618)**
+
+
+[c0d729cddac3fd9](https://github.com/Card-Forge/forge/commit/c0d729cddac3fd9) tool4ever *2023-03-05 13:26:17*
+
+**Merge pull request #2617 from kevlahnota/newmaster2**
+
+ * update ArenaScene moveby action
+
+[516dca316cd0d06](https://github.com/Card-Forge/forge/commit/516dca316cd0d06) Anthony Calosa *2023-03-05 13:02:52*
+
+**update ArenaScene moveby action**
+
+
+[96f82ac9d8e8d89](https://github.com/Card-Forge/forge/commit/96f82ac9d8e8d89) Anthony Calosa *2023-03-05 12:52:06*
+
+**Update pom.xml**
+
+ * use textratypist 0.7.8 release
+
+[5e72245d3007c87](https://github.com/Card-Forge/forge/commit/5e72245d3007c87) Anthony Calosa *2023-03-05 12:17:50*
+
+**Merge pull request #2593 from Simisays/YONE4**
+
+ * [[Squash Merge]] YONE 6 cards
+
+[9f3f70fc2a3bf8b](https://github.com/Card-Forge/forge/commit/9f3f70fc2a3bf8b) Paul Hammerton *2023-03-05 11:10:52*
+
+**Update garruk_boss_effect_phasetwo.txt**
+
+
+[59dc295af16546b](https://github.com/Card-Forge/forge/commit/59dc295af16546b) Simisays *2023-03-05 10:17:06*
+
+**Update MakeCardEffect.java**
+
+
+[aca74dc703e48a9](https://github.com/Card-Forge/forge/commit/aca74dc703e48a9) Simisays *2023-03-05 09:44:51*
+
+**Update MakeCardEffect.java**
+
+
+[93e216859d81dca](https://github.com/Card-Forge/forge/commit/93e216859d81dca) Simisays *2023-03-05 09:43:50*
+
+**Update MakeCardEffect.java**
+
+
+[2e2c139f3e8f5fd](https://github.com/Card-Forge/forge/commit/2e2c139f3e8f5fd) Simisays *2023-03-05 09:42:51*
+
+**Update march_toward_perfection.txt**
+
+
+[0866c224e68e97d](https://github.com/Card-Forge/forge/commit/0866c224e68e97d) Simisays *2023-03-05 08:53:33*
+
+**Update march_toward_perfection.txt**
+
+
+[2ca9aaeabb985b3](https://github.com/Card-Forge/forge/commit/2ca9aaeabb985b3) Simisays *2023-03-05 08:43:25*
+
+**Merge pull request #2616 from kevlahnota/newmaster2**
+
+ * enable some particle effects
+
+[bd6bdb09e7c8139](https://github.com/Card-Forge/forge/commit/bd6bdb09e7c8139) Anthony Calosa *2023-03-05 07:59:22*
+
+**update blood**
+
+
+[be07d3fec39563c](https://github.com/Card-Forge/forge/commit/be07d3fec39563c) Anthony Calosa *2023-03-05 07:59:02*
+
+**enable some particle effects**
+
+
+[42a29428126380a](https://github.com/Card-Forge/forge/commit/42a29428126380a) Anthony Calosa *2023-03-05 07:52:56*
+
+**Merge pull request #2615 from kevlahnota/newmaster2**
+
+ * move textrafonts to Assets
+
+[c7e54d7332f198d](https://github.com/Card-Forge/forge/commit/c7e54d7332f198d) Anthony Calosa *2023-03-05 07:06:57*
+
+**move textrafonts to Assets**
+
+ * - add long dash to default chars
+
+[8eb09b9554bd5d1](https://github.com/Card-Forge/forge/commit/8eb09b9554bd5d1) Anthony Calosa *2023-03-05 06:46:43*
+
+**Merge pull request #2613 from kevlahnota/newmaster2**
+
+ * update textratypist fix
+
+[09af6c9b0ff23de](https://github.com/Card-Forge/forge/commit/09af6c9b0ff23de) Anthony Calosa *2023-03-05 00:33:22*
+
+**update textratypist fix**
+
+
+[0d7950d6f348981](https://github.com/Card-Forge/forge/commit/0d7950d6f348981) Anthony Calosa *2023-03-04 23:47:41*
+
+**Merge pull request #2608 from Simisays/farm**
+
+ * New Farm Dungeon + new mobs
+
+[3e41dcbb2c68db6](https://github.com/Card-Forge/forge/commit/3e41dcbb2c68db6) Anthony Calosa *2023-03-04 21:39:12*
+
+**update**
+
+
+[2340a9029b677f7](https://github.com/Card-Forge/forge/commit/2340a9029b677f7) Simisays *2023-03-04 20:00:47*
+
+**colision fix**
+
+
+[a1997d7fb7e05dc](https://github.com/Card-Forge/forge/commit/a1997d7fb7e05dc) Simisays *2023-03-04 19:57:59*
+
+**fix bull**
+
+
+[14f8847028ea3ca](https://github.com/Card-Forge/forge/commit/14f8847028ea3ca) Simisays *2023-03-04 19:44:00*
+
+**update**
+
+
+[ee1f080f486391a](https://github.com/Card-Forge/forge/commit/ee1f080f486391a) Simisays *2023-03-04 19:40:31*
+
+**Merge pull request #2612 from kevlahnota/newmaster2**
+
+ * update ArenaScene
+
+[5e3e8df561d4747](https://github.com/Card-Forge/forge/commit/5e3e8df561d4747) Anthony Calosa *2023-03-04 18:58:05*
+
+**update ArenaScene**
+
+ * - support portrait mode for arena battles
+ * - update textratypist to fix text rendering
+
+[908a55e9177da4c](https://github.com/Card-Forge/forge/commit/908a55e9177da4c) Anthony Calosa *2023-03-04 18:51:01*
+
+**cleanup**
+
+
+[f55db108f3e93be](https://github.com/Card-Forge/forge/commit/f55db108f3e93be) Simisays *2023-03-04 18:14:57*
+
+**Update MakeCardEffect.java**
+
+
+[e52776636feda82](https://github.com/Card-Forge/forge/commit/e52776636feda82) Simisays *2023-03-04 18:12:53*
+
+**Merge branch 'Card-Forge:master' into master**
+
+
+[bbc398b5a525d71](https://github.com/Card-Forge/forge/commit/bbc398b5a525d71) TabletopGeneral *2023-03-04 16:56:49*
+
+**update**
+
+
+[0a48912c4d1e799](https://github.com/Card-Forge/forge/commit/0a48912c4d1e799) Simisays *2023-03-04 15:21:22*
+
+**update**
+
+
+[e4434440eebde90](https://github.com/Card-Forge/forge/commit/e4434440eebde90) Simisays *2023-03-04 14:45:21*
+
+**Fix static trigger messing up LTB trigger**
+
+
+[0657bdc243fc7f0](https://github.com/Card-Forge/forge/commit/0657bdc243fc7f0) tool4EvEr *2023-03-04 14:10:03*
+
+**update**
+
+
+[13c15fc5de113f0](https://github.com/Card-Forge/forge/commit/13c15fc5de113f0) Simisays *2023-03-04 09:12:49*
+
+**Merge branch 'Card-Forge:master' into farm**
+
+
+[963d8f425168b17](https://github.com/Card-Forge/forge/commit/963d8f425168b17) Simisays *2023-03-03 12:36:24*
+
+**update**
+
+
+[37fd698c791057b](https://github.com/Card-Forge/forge/commit/37fd698c791057b) Simisays *2023-03-03 12:33:13*
+
+**Merge branch 'Card-Forge:master' into YONE4**
+
+
+[82d83558c3418fd](https://github.com/Card-Forge/forge/commit/82d83558c3418fd) Simisays *2023-03-03 11:54:21*
+
+**update**
+
+
+[76d78c5b99eb493](https://github.com/Card-Forge/forge/commit/76d78c5b99eb493) Simisays *2023-03-03 10:22:34*
+
+**Merge pull request #2605 from tool4ever/handlePaid**
+
+ * Fix Revival Experiment via handlePaid cleanup
+
+[96c94ffa954a365](https://github.com/Card-Forge/forge/commit/96c94ffa954a365) Anthony Calosa *2023-03-02 22:27:51*
+
+**Merge pull request #2607 from tool4ever/makecard**
+
+ * Fix for Goblin Morale Sergeant
+
+[3094d2ae4522395](https://github.com/Card-Forge/forge/commit/3094d2ae4522395) Anthony Calosa *2023-03-02 22:27:20*
+
+**Merge branch 'farm' of https://github.com/Simisays/forge into farm**
+
+
+[fca95d5adebca38](https://github.com/Card-Forge/forge/commit/fca95d5adebca38) Simisays *2023-03-02 21:49:52*
+
+**update**
+
+
+[547f3c0770a4f69](https://github.com/Card-Forge/forge/commit/547f3c0770a4f69) Simisays *2023-03-02 21:49:49*
+
+**Merge branch 'Card-Forge:master' into farm**
+
+
+[e389c683dccc9a2](https://github.com/Card-Forge/forge/commit/e389c683dccc9a2) Simisays *2023-03-02 21:49:36*
+
+**Update bess_soul_nourisher.txt**
+
+
+[dd511e581ade813](https://github.com/Card-Forge/forge/commit/dd511e581ade813) tool4ever *2023-03-02 18:59:01*
+
+**Fix for Goblin Morale Sergeant**
+
+
+[653207e0967c9c6](https://github.com/Card-Forge/forge/commit/653207e0967c9c6) tool4EvEr *2023-03-02 18:08:05*
+
+**Update sheoldreds_assimilator.txt**
+
+
+[30036cfb73e9ad0](https://github.com/Card-Forge/forge/commit/30036cfb73e9ad0) Simisays *2023-03-02 17:53:40*
+
+**update**
+
+
+[c73ecff20ec559d](https://github.com/Card-Forge/forge/commit/c73ecff20ec559d) Simisays *2023-03-02 17:51:22*
+
+**Fix NPE (#2606)**
+
+ * Fix NPE
+ * Fix incorrect values being reused
+
+[e887c8f3f376c58](https://github.com/Card-Forge/forge/commit/e887c8f3f376c58) tool4ever *2023-03-02 17:30:12*
+
+**update**
+
+
+[789824af6e29fae](https://github.com/Card-Forge/forge/commit/789824af6e29fae) Simisays *2023-03-02 17:20:28*
+
+**Update sheoldreds_assimilator.txt**
+
+
+[f2ce02b520d4ae5](https://github.com/Card-Forge/forge/commit/f2ce02b520d4ae5) Simisays *2023-03-02 14:30:16*
+
+**Update surgical_metamorph.txt**
+
+
+[00a6090cd2296c5](https://github.com/Card-Forge/forge/commit/00a6090cd2296c5) Simisays *2023-03-02 13:06:31*
+
+**Fix Revival Experiment via handlePaid cleanup**
+
+
+[489deb67aa1b0e1](https://github.com/Card-Forge/forge/commit/489deb67aa1b0e1) TRT *2023-03-02 12:18:36*
+
+**Merge branch 'Card-Forge:master' into YONE4**
+
+
+[1c7fa7db8220ff6](https://github.com/Card-Forge/forge/commit/1c7fa7db8220ff6) Simisays *2023-03-02 09:43:33*
+
+**Merge pull request #2604 from kevlahnota/newmaster2**
+
+ * update sprite exposures
+
+[43ea20c0b3cb785](https://github.com/Card-Forge/forge/commit/43ea20c0b3cb785) Anthony Calosa *2023-03-02 09:35:00*
+
+**Merge pull request #2603 from Card-Forge/tool4ever-patch-1**
+
+ * Update maven.config
+
+[6b042bf5d2d5d03](https://github.com/Card-Forge/forge/commit/6b042bf5d2d5d03) Anthony Calosa *2023-03-02 09:13:54*
+
+**Update tezzerets_reckoning.txt**
+
+
+[aa7f1716a3e4452](https://github.com/Card-Forge/forge/commit/aa7f1716a3e4452) Simisays *2023-03-02 09:04:20*
+
+**Update surgical_metamorph.txt**
+
+
+[db7ae5a7cf43aaf](https://github.com/Card-Forge/forge/commit/db7ae5a7cf43aaf) Simisays *2023-03-02 09:03:56*
+
+**Update surgical_metamorph.txt**
+
+
+[93dd1e947f39b04](https://github.com/Card-Forge/forge/commit/93dd1e947f39b04) Simisays *2023-03-02 08:56:08*
+
+**Create tezzerets_reckoning.txt**
+
+
+[d5ff381ffaddec0](https://github.com/Card-Forge/forge/commit/d5ff381ffaddec0) Simisays *2023-03-02 08:54:54*
+
+**Rename Add to deck_surgical_metamorph.txt to surgical_metamorph.txt**
+
+
+[20bf732b9e6238b](https://github.com/Card-Forge/forge/commit/20bf732b9e6238b) Simisays *2023-03-02 08:47:09*
+
+**update sprite exposures**
+
+
+[d88e3b2cf09ea05](https://github.com/Card-Forge/forge/commit/d88e3b2cf09ea05) Anthony Calosa *2023-03-02 08:43:38*
+
+**Create sheoldreds_assimilator.txt**
+
+
+[d7d3a3b86b37d52](https://github.com/Card-Forge/forge/commit/d7d3a3b86b37d52) Simisays *2023-03-02 08:28:48*
+
+**Create  Add to deck_surgical_metamorph.txt**
+
+
+[952ab060790208f](https://github.com/Card-Forge/forge/commit/952ab060790208f) Simisays *2023-03-02 08:14:24*
+
+**Merge branch 'Card-Forge:master' into YONE4**
+
+
+[f487605c1797c4d](https://github.com/Card-Forge/forge/commit/f487605c1797c4d) Simisays *2023-03-02 08:08:16*
+
+**Update seething_skitter_priest.txt**
+
+
+[bb54971bbdfbb02](https://github.com/Card-Forge/forge/commit/bb54971bbdfbb02) Simisays *2023-03-02 07:52:26*
+
+**Update maven.config**
+
+ * Fix maven 3.9.0
+
+[f1df22e2566d876](https://github.com/Card-Forge/forge/commit/f1df22e2566d876) tool4ever *2023-03-02 07:01:50*
+
+**Merge pull request #2602 from kevlahnota/newmaster2**
+
+ * update bounding box
+
+[309ab9123288731](https://github.com/Card-Forge/forge/commit/309ab9123288731) Anthony Calosa *2023-03-02 06:35:37*
+
+**Merge branch 'master' into newmaster2**
+
+
+[1295297d412284e](https://github.com/Card-Forge/forge/commit/1295297d412284e) Anthony Calosa *2023-03-02 06:06:19*
+
+**update fox sprite**
+
+
+[2ba7d0b1ffeb38a](https://github.com/Card-Forge/forge/commit/2ba7d0b1ffeb38a) Anthony Calosa *2023-03-02 06:06:05*
+
+**update bounding box**
+
+ * - should fix collision for enemy with custom scale
+ * - update ooze sprite size to utilize 32x32
+
+[0424093cc75b404](https://github.com/Card-Forge/forge/commit/0424093cc75b404) Anthony Calosa *2023-03-02 05:10:49*
+
+**Merge pull request #2601 from paulsnoops/net_decks**
+
+ * Add more net decks by gös
+
+[ead5637bedf1212](https://github.com/Card-Forge/forge/commit/ead5637bedf1212) Paul Hammerton *2023-03-01 22:48:25*
+
+**Add more net decks by gös**
+
+
+[add5c225ce48120](https://github.com/Card-Forge/forge/commit/add5c225ce48120) paulsnoops *2023-03-01 22:44:54*
+
+**Update seething_skitter_priest.txt**
+
+
+[448891e68fcd123](https://github.com/Card-Forge/forge/commit/448891e68fcd123) Simisays *2023-03-01 21:20:58*
+
+**Merge pull request #2600 from kevlahnota/newmaster2**
+
+ * update FSkin to use default hd texture if applicable
+
+[e7b75565892bc68](https://github.com/Card-Forge/forge/commit/e7b75565892bc68) Anthony Calosa *2023-03-01 19:45:46*
+
+**update**
+
+
+[cfdfaedff1fc79b](https://github.com/Card-Forge/forge/commit/cfdfaedff1fc79b) Simisays *2023-03-01 19:02:04*
+
+**update FSkin to use default hd texture if applicable**
+
+
+[d1ce3ba25d9ec33](https://github.com/Card-Forge/forge/commit/d1ce3ba25d9ec33) Anthony Calosa *2023-03-01 18:44:58*
+
+**Fix Meandering Towershell (#2599)**
+
+
+[b6d53ac5ac7a884](https://github.com/Card-Forge/forge/commit/b6d53ac5ac7a884) tool4ever *2023-03-01 16:35:19*
+
+**Merge pull request #2596 from Simisays/XIRABIS**
+
+ * Tileset corrections
+
+[08a242c1b86da52](https://github.com/Card-Forge/forge/commit/08a242c1b86da52) Anthony Calosa *2023-03-01 14:26:36*
+
+**update**
+
+
+[5616bb486bbc01b](https://github.com/Card-Forge/forge/commit/5616bb486bbc01b) Simisays *2023-03-01 11:30:51*
+
+**Update darksteel_hydra.txt**
+
+
+[0b0bfacfe82779b](https://github.com/Card-Forge/forge/commit/0b0bfacfe82779b) Simisays *2023-03-01 10:43:42*
+
+**Merge branch 'Card-Forge:master' into YONE4**
+
+
+[6513e76e87b1eeb](https://github.com/Card-Forge/forge/commit/6513e76e87b1eeb) Simisays *2023-03-01 10:39:48*
+
+**Merge pull request #2588 from Simisays/XIRA**
+
+ * Tileset update for Adventure
+
+[87c09d203f9e80a](https://github.com/Card-Forge/forge/commit/87c09d203f9e80a) Anthony Calosa *2023-03-01 10:35:01*
+
+**Update seething_skitter_priest.txt**
+
+
+[4dfbb4bc8828e25](https://github.com/Card-Forge/forge/commit/4dfbb4bc8828e25) Simisays *2023-03-01 10:32:07*
+
+**Update seething_skitter_priest.txt**
+
+
+[ec543794ec8106d](https://github.com/Card-Forge/forge/commit/ec543794ec8106d) Simisays *2023-03-01 10:31:46*
+
+**Update phyrexian_scrapyard.txt**
+
+
+[9f40a770c92fb96](https://github.com/Card-Forge/forge/commit/9f40a770c92fb96) Simisays *2023-03-01 10:29:37*
+
+**Merge pull request #2595 from paulsnoops/name_fix**
+
+ * Name fix for Ghalma the Shaper
+
+[91ba4afe9606182](https://github.com/Card-Forge/forge/commit/91ba4afe9606182) Paul Hammerton *2023-03-01 09:18:22*
+
+**Name fix for Ghalma the Shaper**
+
+
+[dedaa2e7ae53819](https://github.com/Card-Forge/forge/commit/dedaa2e7ae53819) paulsnoops *2023-03-01 09:07:56*
+
+**Tweak AI to skip useless Enlisting (#2594)**
+
+
+[048543f74e6665c](https://github.com/Card-Forge/forge/commit/048543f74e6665c) tool4ever *2023-03-01 09:03:47*
+
+**update**
+
+
+[6c01b3b886d8cb6](https://github.com/Card-Forge/forge/commit/6c01b3b886d8cb6) Simisays *2023-03-01 08:37:09*
+
+**Merge pull request #2581 from Simisays/YONE3**
+
+ * YONE 6 cards
+
+[f7303b0ab26c368](https://github.com/Card-Forge/forge/commit/f7303b0ab26c368) Paul Hammerton *2023-03-01 08:24:41*
+
+**Update ichor_aberration.txt**
+
+
+[3cdf2a511487f4b](https://github.com/Card-Forge/forge/commit/3cdf2a511487f4b) Simisays *2023-03-01 08:19:18*
+
+**Update hexgold_sledge.txt**
+
+
+[353009c03634d91](https://github.com/Card-Forge/forge/commit/353009c03634d91) Simisays *2023-03-01 08:18:53*
+
+**Merge pull request #2592 from Card-Forge/update-mobile-version**
+
+ * Alpha version didn&#x27;t update with desktop releases
+
+[9eb24e4db11e796](https://github.com/Card-Forge/forge/commit/9eb24e4db11e796) Paul Hammerton *2023-03-01 07:52:25*
+
+**Alpha version didn't update with desktop releases**
+
+
+[a943c1c0359e4b4](https://github.com/Card-Forge/forge/commit/a943c1c0359e4b4) friarsol *2023-03-01 03:18:29*
+
+**Fix Reverse Polarity**
+
+
+[9c90b19c8201ff3](https://github.com/Card-Forge/forge/commit/9c90b19c8201ff3) tool4EvEr *2023-02-28 23:05:03*
+
+**Fix Oblivion Ring**
+
+
+[29522de5ae162c3](https://github.com/Card-Forge/forge/commit/29522de5ae162c3) tool4EvEr *2023-02-28 23:05:03*
+
+**Clean up**
+
+
+[11ef4dd2f618f37](https://github.com/Card-Forge/forge/commit/11ef4dd2f618f37) tool4EvEr *2023-02-28 23:05:03*
+
+**Merge branch 'Card-Forge:master' into YONE3**
+
+
+[5e9b0f50487d0ba](https://github.com/Card-Forge/forge/commit/5e9b0f50487d0ba) Simisays *2023-02-28 21:30:06*
+
+**update**
+
+
+[5737c40d8ea86ec](https://github.com/Card-Forge/forge/commit/5737c40d8ea86ec) Simisays *2023-02-28 20:27:20*
+
+**magmatic_scorchwing.txt phyresis_roach.txt (#2589)**
+
+ * magmatic_scorchwing.txt phyresis_roach.txt
+ * fix magmatic_scorchwing.txt
+ * phyresis_roach.txt organize better
+ * fix missing &#x27;Valid&#x27;
+
+[2c4f5e9a7e4bdfd](https://github.com/Card-Forge/forge/commit/2c4f5e9a7e4bdfd) Northmoc *2023-02-28 19:55:15*
+
+**Update ghalma_the_shaper.txt**
+
+
+[91be5e58bf199e2](https://github.com/Card-Forge/forge/commit/91be5e58bf199e2) Simisays *2023-02-28 19:11:40*
+
+**Update jaces_signature_hoodie.txt**
+
+
+[f067bdbc120daec](https://github.com/Card-Forge/forge/commit/f067bdbc120daec) Simisays *2023-02-28 16:40:47*
+
+**Merge branch 'Card-Forge:master' into XIRA**
+
+
+[b2edbb6b3feb45c](https://github.com/Card-Forge/forge/commit/b2edbb6b3feb45c) Simisays *2023-02-28 15:08:24*
+
+**update**
+
+
+[c89c6ce6a318ffe](https://github.com/Card-Forge/forge/commit/c89c6ce6a318ffe) Simisays *2023-02-28 15:06:46*
+
+**Fix remembering players leading to crash for AI with Shifting Shadow (#2587)**
+
+ * Co-authored-by: tool4EvEr &lt;tool4EvEr@192.168.0.59&gt;
+
+[1b655458e792af1](https://github.com/Card-Forge/forge/commit/1b655458e792af1) tool4ever *2023-02-28 10:02:54*
+
+**Merge pull request #2586 from kevlahnota/newmaster2**
+
+ * minor adjustments
+
+[09977620087cfc8](https://github.com/Card-Forge/forge/commit/09977620087cfc8) Anthony Calosa *2023-02-28 09:37:21*
+
+**Update ichor_aberration.txt**
+
+
+[8c30d318ae8b130](https://github.com/Card-Forge/forge/commit/8c30d318ae8b130) Simisays *2023-02-28 09:36:31*
+
+**minor adjustments**
+
+
+[0cc56770941d3b9](https://github.com/Card-Forge/forge/commit/0cc56770941d3b9) Anthony Calosa *2023-02-28 05:30:22*
+
+**Update zeriam_golden_wind.txt (#2585)**
+
+
+[621a08252eddb4b](https://github.com/Card-Forge/forge/commit/621a08252eddb4b) Chris H *2023-02-28 04:48:26*
+
+**Improve applying attack requirements in multiplayer (#2582)**
+
+ * Fix bad player position
+ * Recover clean up
+ * ---------
+ * Co-authored-by: tool4EvEr &lt;tool4EvEr@192.168.0.59&gt;
+
+[8482e5a4c87a356](https://github.com/Card-Forge/forge/commit/8482e5a4c87a356) tool4ever *2023-02-28 04:48:08*
+
+**Merge pull request #2584 from paulsnoops/update_yone**
+
+ * YONE artist fix
+
+[5dcd91843b5b503](https://github.com/Card-Forge/forge/commit/5dcd91843b5b503) Paul Hammerton *2023-02-28 02:08:25*
+
+**YONE artist fix**
+
+
+[86a77d3c20993a4](https://github.com/Card-Forge/forge/commit/86a77d3c20993a4) paulsnoops *2023-02-28 02:03:23*
+
+**Merge branch 'Card-Forge:master' into master**
+
+
+[2ede795f9b93c23](https://github.com/Card-Forge/forge/commit/2ede795f9b93c23) TabletopGeneral *2023-02-27 23:22:48*
+
+**update**
+
+
+[c8efd0164e2da7d](https://github.com/Card-Forge/forge/commit/c8efd0164e2da7d) Simisays *2023-02-27 20:11:00*
+
+**Update norns_fetchling.txt**
+
+
+[510b963d5a5556b](https://github.com/Card-Forge/forge/commit/510b963d5a5556b) Simisays *2023-02-27 17:59:35*
+
+**Update kembas_outfitter.txt**
+
+
+[60557a2d2d98304](https://github.com/Card-Forge/forge/commit/60557a2d2d98304) Simisays *2023-02-27 17:57:37*
+
+**Update ichor_aberration.txt**
+
+
+[38b250849303ee4](https://github.com/Card-Forge/forge/commit/38b250849303ee4) Simisays *2023-02-27 17:56:36*
+
+**Update hexgold_sledge.txt**
+
+
+[27be3d2cc4647c6](https://github.com/Card-Forge/forge/commit/27be3d2cc4647c6) Simisays *2023-02-27 17:55:37*
+
+**update**
+
+
+[f8f1afbf5398c2e](https://github.com/Card-Forge/forge/commit/f8f1afbf5398c2e) Simisays *2023-02-27 17:53:44*
+
+**Merge pull request #2579 from kevlahnota/newmaster2**
+
+ * update item description for starting cards
+
+[a11da1c7fb7180d](https://github.com/Card-Forge/forge/commit/a11da1c7fb7180d) Anthony Calosa *2023-02-27 11:59:58*
+
+**update item description for starting cards**
+
+
+[d92302f0cd2c29c](https://github.com/Card-Forge/forge/commit/d92302f0cd2c29c) Anthony Calosa *2023-02-27 11:54:39*
+
+**Add files via upload**
+
+ * update card art
+
+[7003e1c0909b2c5](https://github.com/Card-Forge/forge/commit/7003e1c0909b2c5) Anthony Calosa *2023-02-27 11:08:58*
+
+**Merge pull request #2578 from kevlahnota/newmaster2**
+
+ * Update custom card pics, NPE prevention on cardart
+
+[0e46b9c390a6b3d](https://github.com/Card-Forge/forge/commit/0e46b9c390a6b3d) Anthony Calosa *2023-02-27 10:06:14*
+
+**Merge pull request #2577 from paulsnoops/gos_decks**
+
+ * Add some net decks by gös
+
+[d71b8d31092d5b9](https://github.com/Card-Forge/forge/commit/d71b8d31092d5b9) Anthony Calosa *2023-02-27 10:02:39*
+
+**Add some net decks by gös**
+
+
+[1489c386fc46e4d](https://github.com/Card-Forge/forge/commit/1489c386fc46e4d) paulsnoops *2023-02-27 09:56:59*
+
+**Update custom card pics, NPE prevention on cardart**
+
+
+[86c546bd88d9d4f](https://github.com/Card-Forge/forge/commit/86c546bd88d9d4f) Anthony Calosa *2023-02-27 09:56:07*
+
+**Kura fix (#2576)**
+
+ * Co-authored-by: TRT &lt;&gt;
+
+[6153eb61a28e725](https://github.com/Card-Forge/forge/commit/6153eb61a28e725) tool4ever *2023-02-27 08:57:51*
+
+**Merge pull request #2575 from cicoa/work**
+
+ * Updated golden_argosy.txt
+
+[b60075c64fb11c4](https://github.com/Card-Forge/forge/commit/b60075c64fb11c4) Anthony Calosa *2023-02-27 06:12:20*
+
+**Updated golden_argosy.txt**
+
+
+[1c29d2f162be31c](https://github.com/Card-Forge/forge/commit/1c29d2f162be31c) cicoa *2023-02-27 04:43:19*
+
+**Merge pull request #155 from Agetian/ai-countersput-shouldpump**
+
+ * CountersPutAI: shouldPumpCard is too restrictive for instant speed PutCounter
+
+[b3606feb3f45247](https://github.com/Card-Forge/forge/commit/b3606feb3f45247) Anthony Calosa *2023-02-27 04:31:52*
+
+**New arena cards and one tweak (#2568)**
+
+ * darksteel_hydra.txt glistening_extractor.txt
+ * gyox_brutal_carnivora.txt
+ * agent_of_raffine.txt tidy
+ * refactor
+
+[1d11638331f4a6c](https://github.com/Card-Forge/forge/commit/1d11638331f4a6c) Northmoc *2023-02-27 03:07:59*
+
+**[[SQUASH MERGE]] Teferi,Nahiri and Garruk dungeon + update other four dungeons (#2526)**
+
+ * update
+ * update
+ * Adventure updates
+ * Adventure items can now spawn cards in command zone via startBattleWithCardInCommandZone - Updated Mana Shard based items to do so.
+ * Added new map objects:  Mana Shard rewards, generic collision zone, intended for use in upcoming map updates.
+ * Fixed mismatched wall tile in green castle.
+ * update
+ * Update teferis_staff.txt
+ * update
+ * update
+ * update
+ * update
+ * update
+ * nahiri update
+ * map needs more work
+ * update
+ * update
+ * update
+ * update
+ * update
+ * update
+ * update
+ * update
+ * Update garruk_boss_effect_phasetwo.txt
+ * card update
+ * update
+ * update
+ * update
+ * update
+ * update
+ * ---------
+ * Co-authored-by: jjayers99 &lt;56438137+jjayers99@users.noreply.github.com&gt;
+
+[b0b0b951c085959](https://github.com/Card-Forge/forge/commit/b0b0b951c085959) Simisays *2023-02-27 03:07:49*
+
+**Merge pull request #2574 from kevlahnota/newmaster2**
+
+ * update fix for bleeding
+
+[41afe9e07477bb1](https://github.com/Card-Forge/forge/commit/41afe9e07477bb1) Anthony Calosa *2023-02-27 01:37:48*
+
+**update fix for bleeding**
+
+
+[fbfde2be91e2374](https://github.com/Card-Forge/forge/commit/fbfde2be91e2374) Anthony Calosa *2023-02-27 01:02:59*
+
+**Clean up**
+
+
+[ebd0c64687dd5a9](https://github.com/Card-Forge/forge/commit/ebd0c64687dd5a9) tool4EvEr *2023-02-26 22:35:30*
+
+**Some counter checks**
+
+
+[1fa03b09b779ab4](https://github.com/Card-Forge/forge/commit/1fa03b09b779ab4) tool4EvEr *2023-02-26 21:07:40*
+
+**Logic tweak**
+
+
+[fd2d425d23dad8c](https://github.com/Card-Forge/forge/commit/fd2d425d23dad8c) tool4EvEr *2023-02-26 17:29:45*
+
+**Merge branch 'Card-Forge:master' into master**
+
+
+[317dc6e4b8b6934](https://github.com/Card-Forge/forge/commit/317dc6e4b8b6934) TabletopGeneral *2023-02-26 15:58:13*
+
+**Merge pull request #2573 from paulsnoops/small_fixes**
+
+ * Some small card QoL fixes
+
+[5852d65b70a882f](https://github.com/Card-Forge/forge/commit/5852d65b70a882f) Paul Hammerton *2023-02-26 13:15:06*
+
+**Some small card QoL fixes**
+
+
+[f81c8b62b04c781](https://github.com/Card-Forge/forge/commit/f81c8b62b04c781) paulsnoops *2023-02-26 13:11:08*
+
+**YONE 5 cards (#2561)**
+
+ * update
+ * Update arek_false_goldwarden.txt
+ * update
+ * update
+ * Update bladehold_cleaver.txt
+ * Update arek_false_goldwarden.txt
+
+[d3fb521390d08bc](https://github.com/Card-Forge/forge/commit/d3fb521390d08bc) Simisays *2023-02-26 10:46:36*
+
+**Merge pull request #2572 from paulsnoops/yone_formats**
+
+ * Formats update: Add YONE
+
+[b03564fe41fa500](https://github.com/Card-Forge/forge/commit/b03564fe41fa500) Paul Hammerton *2023-02-26 10:07:40*
+
+**Merge pull request #2570 from tool4ever/NPEfixes**
+
+ * Fix 4 NPE from Sentry
+
+[57bc988e0a48c07](https://github.com/Card-Forge/forge/commit/57bc988e0a48c07) Anthony Calosa *2023-02-26 10:05:01*
+
+**Formats update: Add YONE**
+
+
+[d4bea5aa5c2b2d7](https://github.com/Card-Forge/forge/commit/d4bea5aa5c2b2d7) paulsnoops *2023-02-26 10:00:07*
+
+**- Don't limit the AI to shouldPumpCard logic for instants when deciding whether to put a +1/+1 counter on own card or not.**
+
+
+[459416630b24334](https://github.com/Card-Forge/forge/commit/459416630b24334) Michael Kamensky *2023-02-26 09:58:17*
+
+**Merge pull request #2571 from kevlahnota/newmaster2**
+
+ * Update Adventure custom card pics
+
+[1fca9debfdd5264](https://github.com/Card-Forge/forge/commit/1fca9debfdd5264) Anthony Calosa *2023-02-26 09:57:33*
+
+**..**
+
+
+[4d12e7e52b7e837](https://github.com/Card-Forge/forge/commit/4d12e7e52b7e837) Anthony Calosa *2023-02-26 09:51:01*
+
+**Fix Silver Scrutiny**
+
+
+[08ae04ab8b0de07](https://github.com/Card-Forge/forge/commit/08ae04ab8b0de07) tool4EvEr *2023-02-26 09:17:47*
+
+**Fix Zephyrim**
+
+
+[89f4d8ff67add47](https://github.com/Card-Forge/forge/commit/89f4d8ff67add47) tool4EvEr *2023-02-26 09:15:05*
+
+**Fix Cunning Giant NPE**
+
+
+[7720844e487163f](https://github.com/Card-Forge/forge/commit/7720844e487163f) tool4EvEr *2023-02-26 09:12:56*
+
+**Fix Detention Sphere**
+
+
+[3fdc788f33894a3](https://github.com/Card-Forge/forge/commit/3fdc788f33894a3) tool4EvEr *2023-02-26 09:12:17*
+
+**Adventure updates (#2493)**
+
+ * Adventure updates
+ * Adventure items can now spawn cards in command zone via startBattleWithCardInCommandZone - Updated Mana Shard based items to do so.
+ * Added new map objects:  Mana Shard rewards, generic collision zone, intended for use in upcoming map updates.
+ * Fixed mismatched wall tile in green castle.
+ * Removing unused import
+ * Updating language / structure of Adventure custom cards.
+ * Updating language / structure of Adventure custom cards.
+
+[7939df234f624e1](https://github.com/Card-Forge/forge/commit/7939df234f624e1) TabletopGeneral *2023-02-26 05:23:43*
+
+**Merge pull request #2569 from kevlahnota/newmaster2**
+
+ * update Manacost render for Split Cards
+
+[5ae313c7f8df913](https://github.com/Card-Forge/forge/commit/5ae313c7f8df913) Anthony Calosa *2023-02-26 04:42:20*
+
+**update Manacost render for Split Cards**
+
+
+[3c5f363b0ea1668](https://github.com/Card-Forge/forge/commit/3c5f363b0ea1668) Anthony Calosa *2023-02-26 03:55:42*
+
+**Updating language / structure of Adventure custom cards.**
+
+
+[801100e150ad689](https://github.com/Card-Forge/forge/commit/801100e150ad689) jjayers99 *2023-02-26 02:27:07*
+
+**Updating language / structure of Adventure custom cards.**
+
+
+[012545bcb7265f1](https://github.com/Card-Forge/forge/commit/012545bcb7265f1) jjayers99 *2023-02-26 02:04:50*
+
+**Update chandra_hopes_beacon.txt**
+
+
+[25c6b05c596c61e](https://github.com/Card-Forge/forge/commit/25c6b05c596c61e) Hans Mackowiak *2023-02-26 01:45:46*
+
+**Removing unused import**
+
+
+[8bf4d34d8816535](https://github.com/Card-Forge/forge/commit/8bf4d34d8816535) TabletopGeneral *2023-02-26 01:17:05*
+
+**Merge pull request #2567 from kevlahnota/newmaster2**
+
+ * update RewardActor, SpellSmithScene, InventoryScene
+
+[9f29c5bbec1be54](https://github.com/Card-Forge/forge/commit/9f29c5bbec1be54) Anthony Calosa *2023-02-26 00:43:42*
+
+**update itemDescription**
+
+
+[3c6fb8fff2ee051](https://github.com/Card-Forge/forge/commit/3c6fb8fff2ee051) Anthony Calosa *2023-02-26 00:22:53*
+
+**update Gold sprite space**
+
+
+[0663c4359965270](https://github.com/Card-Forge/forge/commit/0663c4359965270) Anthony Calosa *2023-02-26 00:21:15*
+
+**update RewardActor, SpellSmithScene**
+
+ * - silently download back image along with the front image. fixes #2551
+ * - update SpellSmithScene label
+ * - add an expiremental fix for texture bleeding. some weird/tall aspect ratio will still produce some bleeding.
+
+[04c769a1636b0e3](https://github.com/Card-Forge/forge/commit/04c769a1636b0e3) Anthony Calosa *2023-02-26 00:08:48*
+
+**Merge pull request #2566 from MikeS-NZ/forgenew_mom**
+
+ * MOM: Heliod, the Radiant Dawn + 3 cards
+
+[22120944171ac54](https://github.com/Card-Forge/forge/commit/22120944171ac54) Anthony Calosa *2023-02-25 23:13:27*
+
+**Update moment_of_truth.txt**
+
+
+[7ad0194247d974e](https://github.com/Card-Forge/forge/commit/7ad0194247d974e) Mike S *2023-02-25 22:18:48*
+
+**MOM: Heliod, the Radiant Dawn + 3 cards**
+
+ * MOM: Added card scripts for the following cards:
+ * - Heliod, the Radiant Dawn // Heliod, the Warped Eclipse
+ * - Breach the Multiverse
+ * - Chandra, Hope&#x27;s Beacon
+ * - Moment of Truth
+
+[388a08d5fbddaec](https://github.com/Card-Forge/forge/commit/388a08d5fbddaec) Suthro *2023-02-25 18:48:44*
+
+**Improve payment test on hybrid shards (#2562)**
+
+ * Improve payment test on hybrid shards
+ * Clean up
+ * ---------
+ * Co-authored-by: tool4EvEr &lt;tool4EvEr@192.168.0.59&gt;
+
+[6c168b1a4a950ff](https://github.com/Card-Forge/forge/commit/6c168b1a4a950ff) tool4ever *2023-02-25 12:53:05*
+
+**Update ajani_sleeper_agent.txt**
+
+
+[eab63b52bd321b9](https://github.com/Card-Forge/forge/commit/eab63b52bd321b9) tool4ever *2023-02-25 10:05:20*
+
+**Merge pull request #2560 from paulsnoops/yone_scd**
+
+ * Edition updates: SCD, YONE
+
+[fe2d93b2402d089](https://github.com/Card-Forge/forge/commit/fe2d93b2402d089) Paul Hammerton *2023-02-25 09:12:26*
+
+**Edition updates: SCD, YONE**
+
+
+[a695fa92d8d698f](https://github.com/Card-Forge/forge/commit/a695fa92d8d698f) paulsnoops *2023-02-25 09:00:27*
+
+**Update drowner_of_secrets.txt (#2557)**
+
+
+[394f47490dca7c2](https://github.com/Card-Forge/forge/commit/394f47490dca7c2) Chris H *2023-02-25 04:45:21*
+
+**Merge pull request #2553 from Agetian/master**
+
+ * Improve PumpAi for cards like Pearlspear Courier
+
+[b0a91845df951a5](https://github.com/Card-Forge/forge/commit/b0a91845df951a5) Anthony Calosa *2023-02-24 22:10:45*
+
+**Merge pull request #2554 from tool4ever/fixes24**
+
+ * Some fixes
+
+[bf33084daa3a87f](https://github.com/Card-Forge/forge/commit/bf33084daa3a87f) Anthony Calosa *2023-02-24 22:09:48*
+
+**Merge pull request #2555 from Card-Forge/fix-jawbone-duelist**
+
+ * Update jawbone_duelist.txt
+
+[14f09309ed33f27](https://github.com/Card-Forge/forge/commit/14f09309ed33f27) Anthony Calosa *2023-02-24 22:06:53*
+
+**Update jawbone_duelist.txt**
+
+
+[fb4fdba74c3e7e9](https://github.com/Card-Forge/forge/commit/fb4fdba74c3e7e9) Chris H *2023-02-24 19:24:23*
+
+**Clean up**
+
+
+[d6e479705fd106e](https://github.com/Card-Forge/forge/commit/d6e479705fd106e) tool4EvEr *2023-02-24 16:39:04*
+
+**- Make the check sturdier.**
+
+
+[0a15ed42601a6ac](https://github.com/Card-Forge/forge/commit/0a15ed42601a6ac) Michael Kamensky *2023-02-24 16:21:18*
+
+**- Improve PumpAi for cards like Pearlspear Courier.**
+
+
+[f181166e7476636](https://github.com/Card-Forge/forge/commit/f181166e7476636) Michael Kamensky *2023-02-24 16:19:08*
+
+**Fix logic**
+
+
+[2a88ac84021b979](https://github.com/Card-Forge/forge/commit/2a88ac84021b979) tool4EvEr *2023-02-24 13:17:25*
+
+**Merge pull request #2542 from Simisays/YONE**
+
+ * YONE 3 cards
+
+[f6dbb9d2d9d58ef](https://github.com/Card-Forge/forge/commit/f6dbb9d2d9d58ef) Paul Hammerton *2023-02-24 08:53:48*
+
+**Update LibGDXImageFetcher.java**
+
+ * - fix target filename to correct displayed images using rounded borders on mobile GUI (Scryfall card images have borders unlike the old &quot;.full&quot; MWS image implementation)
+
+[3d07368b27a14ed](https://github.com/Card-Forge/forge/commit/3d07368b27a14ed) Anthony Calosa *2023-02-24 06:58:21*
+
+**Merge pull request #2549 from kevlahnota/newmaster2**
+
+ * update Icons
+
+[f15b41ba0f5fa40](https://github.com/Card-Forge/forge/commit/f15b41ba0f5fa40) Anthony Calosa *2023-02-24 06:44:09*
+
+**Merge pull request #2548 from Card-Forge/IfReachStatic**
+
+ * Dragon Hunter as StaticAbility instead of fake Keyword
+
+[4d4a24f91ae55c7](https://github.com/Card-Forge/forge/commit/4d4a24f91ae55c7) Anthony Calosa *2023-02-24 06:43:52*
+
+**update Icons**
+
+ * - AI Icon and Movement Icon
+
+[32b4e1484387623](https://github.com/Card-Forge/forge/commit/32b4e1484387623) Anthony Calosa *2023-02-24 06:33:50*
+
+**Dragon Hunter as StaticAbility instead of fake Keyword**
+
+
+[683850801894008](https://github.com/Card-Forge/forge/commit/683850801894008) Hans Mackowiak *2023-02-24 06:14:39*
+
+**Merge pull request #2546 from kevlahnota/newmaster2**
+
+ * update NewGameScene, Inventory translations
+
+[ed2be5db814115a](https://github.com/Card-Forge/forge/commit/ed2be5db814115a) Anthony Calosa *2023-02-24 04:38:19*
+
+**Merge branch 'master' into newmaster2**
+
+
+[4147bb6ea381678](https://github.com/Card-Forge/forge/commit/4147bb6ea381678) Anthony Calosa *2023-02-24 04:37:08*
+
+**update map json**
+
+
+[ba44e714b7c339d](https://github.com/Card-Forge/forge/commit/ba44e714b7c339d) Anthony Calosa *2023-02-24 04:20:30*
+
+**update Inventory translation**
+
+
+[10833be84ee09df](https://github.com/Card-Forge/forge/commit/10833be84ee09df) Anthony Calosa *2023-02-24 04:12:27*
+
+**update NewGameScene translations**
+
+
+[1bc9f77cdb2a175](https://github.com/Card-Forge/forge/commit/1bc9f77cdb2a175) Anthony Calosa *2023-02-24 02:48:09*
+
+**Merge pull request #2545 from churrufli/master**
+
+ * Net Decks Archive Updates
+
+[041a48ab242c34e](https://github.com/Card-Forge/forge/commit/041a48ab242c34e) Paul Hammerton *2023-02-23 21:00:43*
+
+**Update phyrexian_harvester.txt**
+
+
+[65f021419427a0e](https://github.com/Card-Forge/forge/commit/65f021419427a0e) Simisays *2023-02-23 18:44:19*
+
+**Update phyrexian_harvester.txt**
+
+
+[d31f1d8f8ea0a1b](https://github.com/Card-Forge/forge/commit/d31f1d8f8ea0a1b) Simisays *2023-02-23 18:40:19*
+
+**Update phyrexian_harvester.txt**
+
+
+[6e64d0cb94e5bfb](https://github.com/Card-Forge/forge/commit/6e64d0cb94e5bfb) Simisays *2023-02-23 17:27:04*
+
+**Update phyrexian_harvester.txt**
+
+
+[8cffa2bc4938223](https://github.com/Card-Forge/forge/commit/8cffa2bc4938223) Simisays *2023-02-23 17:02:50*
+
+**Net Decks Archive Updates**
+
+
+[b2916779628a187](https://github.com/Card-Forge/forge/commit/b2916779628a187) Churrufli *2023-02-23 15:26:20*
+
+**Merge pull request #2541 from kevlahnota/newmaster2**
+
+ * enable pixelmana atlas, update spellsmith reset
+
+[d500bc32a4f554d](https://github.com/Card-Forge/forge/commit/d500bc32a4f554d) Anthony Calosa *2023-02-23 13:20:32*
+
+**unused import**
+
+
+[f82bd2026d40a46](https://github.com/Card-Forge/forge/commit/f82bd2026d40a46) Anthony Calosa *2023-02-23 13:19:19*
+
+**update adventure deckaward**
+
+
+[39e8837887e2e6e](https://github.com/Card-Forge/forge/commit/39e8837887e2e6e) Anthony Calosa *2023-02-23 13:16:33*
+
+**Update spawning_pod.txt**
+
+
+[8d94d69d282908c](https://github.com/Card-Forge/forge/commit/8d94d69d282908c) Simisays *2023-02-23 11:23:08*
+
+**Merge pull request #2543 from JohnWilliams77/patch-79**
+
+ * Update Secret Lair Drop Series.txt
+
+[3f9debda18060d4](https://github.com/Card-Forge/forge/commit/3f9debda18060d4) Paul Hammerton *2023-02-23 10:44:10*
+
+**Update Secret Lair Drop Series.txt**
+
+
+[9acb2f735b1b6b7](https://github.com/Card-Forge/forge/commit/9acb2f735b1b6b7) JohnWilliams77 *2023-02-23 09:41:54*
+
+**Update spawning_pod.txt**
+
+
+[df5cfa25f1533fe](https://github.com/Card-Forge/forge/commit/df5cfa25f1533fe) Simisays *2023-02-23 09:38:38*
+
+**Update spawning_pod.txt**
+
+
+[31614d5a831f6ea](https://github.com/Card-Forge/forge/commit/31614d5a831f6ea) Simisays *2023-02-23 09:36:04*
+
+**Update spawning_pod.txt**
+
+
+[4eff45d62ac0ac6](https://github.com/Card-Forge/forge/commit/4eff45d62ac0ac6) Simisays *2023-02-23 09:25:44*
+
+**Update phyrexian_harvester.txt**
+
+
+[31cc287578ae68c](https://github.com/Card-Forge/forge/commit/31cc287578ae68c) Simisays *2023-02-23 09:24:26*
+
+**Added puzzle PS_ONE2 (#2539)**
+
+
+[25e580d152a79eb](https://github.com/Card-Forge/forge/commit/25e580d152a79eb) cicoa *2023-02-23 09:23:20*
+
+**update**
+
+
+[fff7a4932f6ee9f](https://github.com/Card-Forge/forge/commit/fff7a4932f6ee9f) Simisays *2023-02-23 09:22:31*
+
+**GameAction: cleanup card on the battlefield gaining Keyword from castSA (#2540)**
+
+ * GameAction: cleanup card on the battlefield gaining Keyword from castSA
+ * Update GameAction.java
+ * only non intrinsic
+
+[91a10c6b0b59961](https://github.com/Card-Forge/forge/commit/91a10c6b0b59961) Hans Mackowiak *2023-02-23 09:08:10*
+
+**update SpellSmithScene reset**
+
+
+[e4dae453cd5b669](https://github.com/Card-Forge/forge/commit/e4dae453cd5b669) Anthony Calosa *2023-02-23 08:48:03*
+
+**Merge pull request #2538 from The-Wolverine28/patch-8**
+
+ * Update and rename The Arena Cube December 13 - January 1.draft to The…
+
+[2198cb3174c941c](https://github.com/Card-Forge/forge/commit/2198cb3174c941c) Anthony Calosa *2023-02-23 07:55:15*
+
+**Merge pull request #2537 from The-Wolverine28/patch-7**
+
+ * Update and rename The Arena Cube December 13 - January 1.dck to The A…
+
+[4aa39853d5016f7](https://github.com/Card-Forge/forge/commit/4aa39853d5016f7) Anthony Calosa *2023-02-23 07:54:59*
+
+**enable pixelmana atlas**
+
+
+[52271e151ab11ce](https://github.com/Card-Forge/forge/commit/52271e151ab11ce) Anthony Calosa *2023-02-23 07:33:32*
+
+**Update and rename The Arena Cube December 13 - January 1.draft to The Arena Cube.draft**
+
+
+[c84201eaac5b7e8](https://github.com/Card-Forge/forge/commit/c84201eaac5b7e8) The-Wolverine28 *2023-02-23 04:25:14*
+
+**Update and rename The Arena Cube December 13 - January 1.dck to The Arena Cube.dck**
+
+
+[b84dd6a205d798b](https://github.com/Card-Forge/forge/commit/b84dd6a205d798b) The-Wolverine28 *2023-02-23 04:24:11*
+
+**ValidAfterStack for MayPlay (#2527)**
+
+ * Co-authored-by: tool4EvEr &lt;tool4EvEr@192.168.0.59&gt;
+
+[201ef725850eea6](https://github.com/Card-Forge/forge/commit/201ef725850eea6) tool4ever *2023-02-23 03:36:33*
+
+**Merge pull request #2535 from The-Wolverine28/patch-6**
+
+ * Rename Pioneer_Cube.draft to Pioneer Cube.draft
+
+[92b40a1b7805df2](https://github.com/Card-Forge/forge/commit/92b40a1b7805df2) Anthony Calosa *2023-02-22 17:34:49*
+
+**Merge pull request #2534 from The-Wolverine28/patch-5**
+
+ * Rename The_Arena_Cube_December13_-_January1.draft to The Arena Cube D…
+
+[7dfbcd545f4f4fb](https://github.com/Card-Forge/forge/commit/7dfbcd545f4f4fb) Anthony Calosa *2023-02-22 17:34:25*
+
+**Merge pull request #2533 from The-Wolverine28/patch-4**
+
+ * Update and rename MTGArena_Chromatic_Cube_June_24.draft to MTG Arena …
+
+[c5c2819b10dc03f](https://github.com/Card-Forge/forge/commit/c5c2819b10dc03f) Anthony Calosa *2023-02-22 17:33:54*
+
+**Merge pull request #2532 from The-Wolverine28/patch-3**
+
+ * Rename The_Arena_Cube_December13_-_January1.dck to The Arena Cube Dec…
+
+[0702bcb663208be](https://github.com/Card-Forge/forge/commit/0702bcb663208be) Anthony Calosa *2023-02-22 17:33:10*
+
+**Merge pull request #2531 from The-Wolverine28/patch-2**
+
+ * Rename Pioneer_Cube.dck to Pioneer Cube.dck
+
+[1d0ad6279264507](https://github.com/Card-Forge/forge/commit/1d0ad6279264507) Anthony Calosa *2023-02-22 17:32:41*
+
+**Merge pull request #2530 from The-Wolverine28/patch-1**
+
+ * Rename MTGArena_Chromatic_Cube_June_24.dck to MTG Arena Chromatic Cub…
+
+[d1ebcffe8ee2765](https://github.com/Card-Forge/forge/commit/d1ebcffe8ee2765) Anthony Calosa *2023-02-22 17:32:16*
+
+**Fix NPE (#2536)**
+
+ * Fix NPE
+
+[e9dfbf3c662f851](https://github.com/Card-Forge/forge/commit/e9dfbf3c662f851) tool4ever *2023-02-22 16:45:26*
+
+**Rename Pioneer_Cube.draft to Pioneer Cube.draft**
+
+
+[fa522833308249f](https://github.com/Card-Forge/forge/commit/fa522833308249f) The-Wolverine28 *2023-02-22 16:21:42*
+
+**Rename The_Arena_Cube_December13_-_January1.draft to The Arena Cube December 13 - January 1.draft**
+
+
+[397f772270753cb](https://github.com/Card-Forge/forge/commit/397f772270753cb) The-Wolverine28 *2023-02-22 16:21:09*
+
+**Update and rename MTGArena_Chromatic_Cube_June_24.draft to MTG Arena Chromatic Cube June 24.draft**
+
+
+[017a25bbe9e9412](https://github.com/Card-Forge/forge/commit/017a25bbe9e9412) The-Wolverine28 *2023-02-22 16:20:07*
+
+**Rename The_Arena_Cube_December13_-_January1.dck to The Arena Cube December 13 - January 1.dck**
+
+
+[e74f49e18d23571](https://github.com/Card-Forge/forge/commit/e74f49e18d23571) The-Wolverine28 *2023-02-22 16:18:48*
+
+**Rename Pioneer_Cube.dck to Pioneer Cube.dck**
+
+
+[155af916cc80e85](https://github.com/Card-Forge/forge/commit/155af916cc80e85) The-Wolverine28 *2023-02-22 16:17:04*
+
+**Rename MTGArena_Chromatic_Cube_June_24.dck to MTG Arena Chromatic Cube June 24.dck**
+
+
+[f68edb3dd512c6c](https://github.com/Card-Forge/forge/commit/f68edb3dd512c6c) The-Wolverine28 *2023-02-22 16:15:30*
+
+**Merge pull request #2529 from kevlahnota/newmaster2**
+
+ * update SpellSmithScene selectbox
+
+[1e7f658813a4680](https://github.com/Card-Forge/forge/commit/1e7f658813a4680) Anthony Calosa *2023-02-21 22:47:59*
+
+**Merge branch 'master' into newmaster2**
+
+
+[2c186cd45487950](https://github.com/Card-Forge/forge/commit/2c186cd45487950) Anthony Calosa *2023-02-21 22:40:20*
+
+**update SpellSmithScene selectbox**
+
+
+[f664b001a2e3c2f](https://github.com/Card-Forge/forge/commit/f664b001a2e3c2f) Anthony Calosa *2023-02-21 22:38:01*
+
+**Merge pull request #2522 from Simisays/MOCMAT**
+
+ * 4 MOC 1 MAT cards
+
+[f1c63e0d2ee073a](https://github.com/Card-Forge/forge/commit/f1c63e0d2ee073a) Paul Hammerton *2023-02-21 21:21:01*
+
+**Merge pull request #2524 from Northmoc/defined+target**
+
+ * Allow Defined and Targets to coexist on one effect
+
+[dec89cabeefc6eb](https://github.com/Card-Forge/forge/commit/dec89cabeefc6eb) Anthony Calosa *2023-02-21 21:08:34*
+
+**LandEvaluator for AI**
+
+
+[c02447ece2f5934](https://github.com/Card-Forge/forge/commit/c02447ece2f5934) Anthony Calosa *2023-02-21 20:17:07*
+
+**update new cube and draft**
+
+
+[66db85b1bc6f676](https://github.com/Card-Forge/forge/commit/66db85b1bc6f676) Anthony Calosa *2023-02-21 20:17:07*
+
+**update**
+
+
+[3c400e0c44c7cfd](https://github.com/Card-Forge/forge/commit/3c400e0c44c7cfd) Anthony Calosa *2023-02-21 20:17:07*
+
+**unused import**
+
+
+[121e079c20fbac6](https://github.com/Card-Forge/forge/commit/121e079c20fbac6) Anthony Calosa *2023-02-21 20:17:07*
+
+**Merge pull request #2523 from tool4ever/disturbfix**
+
+ * Disturb fix
+
+[b38a6edbbb58a56](https://github.com/Card-Forge/forge/commit/b38a6edbbb58a56) Anthony Calosa *2023-02-21 19:54:14*
+
+**update new cube and draft**
+
+
+[ba27d79ad90e5fd](https://github.com/Card-Forge/forge/commit/ba27d79ad90e5fd) Anthony Calosa *2023-02-21 19:43:22*
+
+**update**
+
+
+[9d91f404d2f99df](https://github.com/Card-Forge/forge/commit/9d91f404d2f99df) Anthony Calosa *2023-02-21 19:35:33*
+
+**Update slimefoot_and_squee.txt**
+
+
+[93ae6e8641e9530](https://github.com/Card-Forge/forge/commit/93ae6e8641e9530) Simisays *2023-02-21 19:08:13*
+
+**Merge pull request #2525 from paulsnoops/new_editions**
+
+ * New editions: CMM, SIR, YONE
+
+[13cb7a7f3eeadb4](https://github.com/Card-Forge/forge/commit/13cb7a7f3eeadb4) Paul Hammerton *2023-02-21 18:46:30*
+
+**Update slimefoot_and_squee.txt**
+
+
+[33853b011caef3a](https://github.com/Card-Forge/forge/commit/33853b011caef3a) Simisays *2023-02-21 18:41:32*
+
+**New editions: CMM, SIR, YONE**
+
+
+[5f64f052717c039](https://github.com/Card-Forge/forge/commit/5f64f052717c039) paulsnoops *2023-02-21 18:40:55*
+
+**update**
+
+
+[0e4689d69db685c](https://github.com/Card-Forge/forge/commit/0e4689d69db685c) Simisays *2023-02-21 18:39:17*
+
+**ChangeZoneEffect.changeHiddenOriginStackDescription improve**
+
+
+[5fde87c84a89161](https://github.com/Card-Forge/forge/commit/5fde87c84a89161) Northmoc *2023-02-21 18:20:52*
+
+**SpellAbilityEffect.getCards support "ThisDefinedAndTgts"**
+
+
+[597ab366967a504](https://github.com/Card-Forge/forge/commit/597ab366967a504) Northmoc *2023-02-21 18:20:26*
+
+**Disturb fix**
+
+
+[d350c242e049b1e](https://github.com/Card-Forge/forge/commit/d350c242e049b1e) TRT *2023-02-21 17:31:03*
+
+**Update towashi.txt**
+
+
+[a7200740afbe99c](https://github.com/Card-Forge/forge/commit/a7200740afbe99c) Simisays *2023-02-21 17:18:11*
+
+**update**
+
+
+[8e78143b3e23cb8](https://github.com/Card-Forge/forge/commit/8e78143b3e23cb8) Simisays *2023-02-21 17:14:46*
+
+**Update ghirapur_orrery.txt**
+
+
+[72289f764663459](https://github.com/Card-Forge/forge/commit/72289f764663459) tool4ever *2023-02-21 16:57:37*
+
+**unused import**
+
+
+[eaf83488631a8d8](https://github.com/Card-Forge/forge/commit/eaf83488631a8d8) Anthony Calosa *2023-02-21 13:25:19*
+
+**Merge pull request #2520 from JohnWilliams77/patch-78**
+
+ * Update Secret Lair Drop Series.txt
+
+[cda7c5d41ce194f](https://github.com/Card-Forge/forge/commit/cda7c5d41ce194f) Paul Hammerton *2023-02-21 13:23:08*
+
+**LandEvaluator for AI**
+
+
+[e2c3908df637f5d](https://github.com/Card-Forge/forge/commit/e2c3908df637f5d) Anthony Calosa *2023-02-21 13:21:39*
+
+**Update two scripts (#2518)**
+
+ * Co-authored-by: TRT &lt;&gt;
+
+[a0f7b6c4c19b8cb](https://github.com/Card-Forge/forge/commit/a0f7b6c4c19b8cb) tool4ever *2023-02-21 12:55:23*
+
+**Add files via upload**
+
+
+[0833c5d3022da20](https://github.com/Card-Forge/forge/commit/0833c5d3022da20) Simisays *2023-02-21 12:40:37*
+
+**Update token-images.txt**
+
+
+[e11bc5d46056bab](https://github.com/Card-Forge/forge/commit/e11bc5d46056bab) Anthony Calosa *2023-02-21 12:26:14*
+
+**Update Secret Lair Drop Series.txt**
+
+
+[e3bd1af804e3dc7](https://github.com/Card-Forge/forge/commit/e3bd1af804e3dc7) JohnWilliams77 *2023-02-21 11:25:23*
+
+**Merge pull request #2508 from tool4ever/omnath**
+
+ * New Omnath and support
+
+[5852942e54bf8d2](https://github.com/Card-Forge/forge/commit/5852942e54bf8d2) Anthony Calosa *2023-02-21 08:29:14*
+
+**Merge pull request #2517 from Simisays/JUMPSTART-FIX**
+
+ * Fix ONE Jumpstart
+
+[dc80a3cec614eb4](https://github.com/Card-Forge/forge/commit/dc80a3cec614eb4) Anthony Calosa *2023-02-21 08:28:39*
+
+**Update printsheets.txt**
+
+
+[6e750c22fc39c52](https://github.com/Card-Forge/forge/commit/6e750c22fc39c52) Simisays *2023-02-21 08:23:33*
+
+**add new Cube (TheWolverine)**
+
+
+[b9fc0ea8f9c53f6](https://github.com/Card-Forge/forge/commit/b9fc0ea8f9c53f6) Anthony Calosa *2023-02-21 07:50:24*
+
+**add new draft (TheWolverine)**
+
+
+[f618e325da33643](https://github.com/Card-Forge/forge/commit/f618e325da33643) Anthony Calosa *2023-02-21 07:49:33*
+
+**Merge pull request #2509 from tool4ever/opal_titan**
+
+ * Fix color word usage
+
+[3fe71b04fe10fac](https://github.com/Card-Forge/forge/commit/3fe71b04fe10fac) Anthony Calosa *2023-02-21 07:23:10*
+
+**Merge pull request #2516 from kevlahnota/newmaster2**
+
+ * patch crash for adventure starter decks generation
+
+[9015bd95b1d124c](https://github.com/Card-Forge/forge/commit/9015bd95b1d124c) Anthony Calosa *2023-02-21 07:14:57*
+
+**patch crash for adventure starter decks generation**
+
+
+[2ac9b56dd823389](https://github.com/Card-Forge/forge/commit/2ac9b56dd823389) Anthony Calosa *2023-02-21 07:03:53*
+
+**Conversion: use color words**
+
+
+[0a8a96c312e5e0f](https://github.com/Card-Forge/forge/commit/0a8a96c312e5e0f) TRT *2023-02-21 06:26:55*
+
+**MOM 5 cards (#2513)**
+
+
+[eccf726d0b673b3](https://github.com/Card-Forge/forge/commit/eccf726d0b673b3) Simisays *2023-02-21 06:11:16*
+
+**[maven-release-plugin] prepare for next development iteration**
+
+
+[de4feee3ef9c0d4](https://github.com/Card-Forge/forge/commit/de4feee3ef9c0d4) GitHub Actions *2023-02-21 04:36:34*
+
+**[maven-release-plugin] prepare release forge-1.6.55**
+
+
+[257895f01988301](https://github.com/Card-Forge/forge/commit/257895f01988301) GitHub Actions *2023-02-21 04:36:34*
+
+**Clean up**
+
+
+[55009a21a9cbe39](https://github.com/Card-Forge/forge/commit/55009a21a9cbe39) tool4EvEr *2023-02-20 19:19:04*
+
+**Fix changedText not applied to SA**
+
+
+[07bf3a18c96af52](https://github.com/Card-Forge/forge/commit/07bf3a18c96af52) tool4EvEr *2023-02-20 18:15:32*
+
+**XColor fixes**
+
+
+[6c5436a69e60e6c](https://github.com/Card-Forge/forge/commit/6c5436a69e60e6c) tool4EvEr *2023-02-20 14:59:53*
+
+**Fix color word usage**
+
+
+[57c6a338d8eb263](https://github.com/Card-Forge/forge/commit/57c6a338d8eb263) tool4EvEr *2023-02-20 13:39:29*
+
+**Clean script**
+
+
+[d9f5436277307ef](https://github.com/Card-Forge/forge/commit/d9f5436277307ef) tool4EvEr *2023-02-20 12:10:10*
+
+**Use color word**
+
+
+[f82b9c220095557](https://github.com/Card-Forge/forge/commit/f82b9c220095557) tool4EvEr *2023-02-20 11:43:21*
+
+**New Omnath and support**
+
+
+[022f3e0cb164fd8](https://github.com/Card-Forge/forge/commit/022f3e0cb164fd8) tool4EvEr *2023-02-20 10:47:30*
+
+**Adventure updates**
+
+ * Adventure items can now spawn cards in command zone via startBattleWithCardInCommandZone - Updated Mana Shard based items to do so.
+ * Added new map objects:  Mana Shard rewards, generic collision zone, intended for use in upcoming map updates.
+ * Fixed mismatched wall tile in green castle.
+
+[d8d18acfef155c4](https://github.com/Card-Forge/forge/commit/d8d18acfef155c4) jjayers99 *2023-02-18 04:15:46*
+
+

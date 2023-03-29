@@ -1288,7 +1288,7 @@ public class AiAttackController {
 
         if (!hasCombatEffect) {
             if (attacker.hasKeyword(Keyword.WITHER) || attacker.hasKeyword(Keyword.INFECT)
-                    || attacker.hasKeyword(Keyword.LIFELINK) || attacker.hasKeyword(Keyword.AFFLICT)) {
+                    || attacker.hasKeyword(Keyword.LIFELINK) || attacker.hasKeyword(Keyword.AFFLICT) || attacker.hasKeyword(Keyword.CAUSTIC)) {
                 hasCombatEffect = true;
             }
         }
@@ -1305,7 +1305,7 @@ public class AiAttackController {
 
         // used to check that CanKillAllDangerous check makes sense in context where creatures with dangerous abilities are present
         boolean dangerousBlockersPresent = Iterables.any(validBlockers, Predicates.or(
-                CardPredicates.hasKeyword(Keyword.WITHER), CardPredicates.hasKeyword(Keyword.INFECT),
+                CardPredicates.hasKeyword(Keyword.WITHER), CardPredicates.hasKeyword(Keyword.CAUSTIC), CardPredicates.hasKeyword(Keyword.INFECT),
                 CardPredicates.hasKeyword(Keyword.LIFELINK)));
 
         // total power of the defending creatures, used in predicting whether a gang block can kill the attacker
@@ -1335,7 +1335,7 @@ public class AiAttackController {
                     if (blocker.getSVar("HasCombatEffect").equals("TRUE") || blocker.getSVar("HasBlockEffect").equals("TRUE")) {
                         canKillAllDangerous = false;
                     } else {
-                        if (blocker.hasKeyword(Keyword.WITHER) || blocker.hasKeyword(Keyword.INFECT)
+                        if (blocker.hasKeyword(Keyword.WITHER) || blocker.hasKeyword(Keyword.CAUSTIC) || blocker.hasKeyword(Keyword.INFECT)
                                 || blocker.hasKeyword(Keyword.LIFELINK)) {
                             canKillAllDangerous = false;
                             // there is a creature that can survive an attack from this creature

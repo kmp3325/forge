@@ -13,6 +13,8 @@ import forge.game.card.Card;
 import forge.game.card.CardCollection;
 import forge.game.card.CardCollectionView;
 import forge.game.card.CardFactory;
+import forge.game.keyword.Keyword;
+import forge.game.keyword.MutateOnto;
 import forge.game.player.Player;
 import forge.game.spellability.SpellAbility;
 import forge.game.trigger.TriggerType;
@@ -38,13 +40,26 @@ public class MutateEffect extends SpellAbilityEffect {
         final Card target = (Card)targets.get(0);
 
         CardCollectionView view = CardCollection.getView(Lists.newArrayList(host, target));
-        final Card topCard = host.getController().getController().chooseSingleEntityForEffect(
-                view,
-                sa,
-                Localizer.getInstance().getMessage("lblChooseCreatureToBeTop"),
-                false,
-                new HashMap<>()
-        );
+        final Card topCard;
+        if (sa.getKeyword().getKeyword().equals(Keyword.MUTATE_ONTO)) {
+            MutateOnto mutateOntoKeyword = (MutateOnto) sa.getKeyword();
+            if (mutateOntoKeyword.getNewPower().isPresent()) {
+                host.setBasePower(mutateOntoKeyword.getNewPower().get());
+            }
+            if (mutateOntoKeyword.getNewToughness().isPresent()) {
+                host.setBaseToughness(mutateOntoKeyword.getNewToughness().get());
+            }
+            topCard = host;
+        } else {
+            topCard = host.getController().getController().chooseSingleEntityForEffect(
+                    view,
+                    sa,
+                    Localizer.getInstance().getMessage("lblChooseCreatureToBeTop"),
+                    false,
+                    new HashMap<>()
+            );
+        }
+
         final boolean putOnTop = (topCard == host);
 
         // There shouldn't be any mutate abilities, but for now.

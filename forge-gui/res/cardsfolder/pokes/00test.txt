@@ -1,0 +1,8 @@
+Name:Test
+ManaCost:1
+Types: Creature Plant Frog Pokémon
+PT:1/1
+K:A deck can have any number of cards named CARDNAME.
+A:AB$ Pump | Cost$ 1 | Defined$ Self | KW$ Caustic | SpellDescription$ CARDNAME gains caustic until end of turn.
+A:AB$ Pump | Cost$ 1 | Defined$ Self | KW$ Wither | Duration$ UntilEndOfCombat | ActivationPhases$ BeginCombat->EndCombat | SpellDescription$ CARDNAME gains wither until end of combat.
+Oracle:A deck can have any number of cards named Test.\nWither\n{1}: Test gains caustic until end of turn.

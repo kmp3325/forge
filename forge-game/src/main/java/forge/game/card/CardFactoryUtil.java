@@ -3182,6 +3182,23 @@ public class CardFactoryUtil {
             } else {
                 sa.addAnnounceVar("Multikicker");
             }
+        } else if (keyword.startsWith("Mutate onto")) {
+            final String[] params = keyword.split(":");
+            final String cost = params[1];
+            final String onto = params[2];
+
+            final StringBuilder sbMutate = new StringBuilder();
+            sbMutate.append("SP$ MutateOnto | Cost$ ");
+            sbMutate.append(cost);
+            sbMutate.append(" | ValidTgts$ Creature.sharesOwnerWith+named" + onto);
+
+            final SpellAbility sa = AbilityFactory.getAbility(sbMutate.toString(), card);
+            sa.setDescription("Mutate onto " + onto + " " + ManaCostParser.parse(cost) +
+                    " (" + inst.getReminderText() + ")");
+            sa.setStackDescription("Mutate onto - " + card.getName());
+            sa.setAlternativeCost(AlternativeCost.Mutate);
+            sa.setIntrinsic(intrinsic);
+            inst.addSpellAbility(sa);
         } else if (keyword.startsWith("Mutate")) {
             final String[] params = keyword.split(":");
             final String cost = params[1];

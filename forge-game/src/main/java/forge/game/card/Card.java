@@ -2258,7 +2258,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
                          || keyword.equals("Horsemanship") || keyword.equals("Infect")|| keyword.equals("Persist")
                          || keyword.equals("Phasing") || keyword.equals("Shadow")|| keyword.equals("Skulk")
                          || keyword.equals("Undying") || keyword.equals("Wither") || keyword.equals("Cascade")
-                         || keyword.equals("Mentor") || keyword.equals("Training")) {
+                         || keyword.equals("Mentor") || keyword.equals("Training") || keyword.equals("Caustic")) {
                     if (sb.length() != 0) {
                         sb.append("\r\n");
                     }
@@ -5661,13 +5661,15 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
         }
         if (isCreature()) {
             boolean wither = game.getStaticEffects().getGlobalRuleChange(GlobalRuleChange.alwaysWither)
-                    || source.hasKeyword(Keyword.WITHER) || source.hasKeyword(Keyword.INFECT);
+                    || source.hasKeyword(Keyword.WITHER) || (source.hasKeyword(Keyword.INFECT) && !source.hasKeyword(Keyword.CAUSTIC));
 
             if (wither) { // 120.3d
                 addCounter(CounterEnumType.M1M1, damageIn, source.getController(), counterTable);
                 damageType = DamageType.M1M1Counters;
-            }
-            else { // 120.3e
+            } else if (source.hasKeyword(Keyword.CAUSTIC)) {
+                addCounter(CounterEnumType.M0M1, damageIn, source.getController(), counterTable);
+                damageType = DamageType.M0M1Counters;
+            } else { // 120.3e
                 int old = damage.getOrDefault(Objects.hash(source.getId(), source.getTimestamp()), 0);
                 damage.put(Objects.hash(source.getId(), source.getTimestamp()), old + damageIn);
                 view.updateDamage(this);

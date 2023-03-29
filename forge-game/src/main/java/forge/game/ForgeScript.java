@@ -221,7 +221,7 @@ public class ForgeScript {
             return sa.isEquip();
         } else if (property.equals("Boast")) {
             return sa.isBoast();
-        } else if (property.equals("Mutate")) {
+        } else if (property.equals("Mutate") || property.equals("MutateOnto")) {
             return sa.isMutate();
         } else if (property.equals("Ninjutsu")) {
             return sa.isNinjutsu();

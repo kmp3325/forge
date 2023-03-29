@@ -1,5 +1,6 @@
 package forge.game.keyword;
 
+import java.security.Key;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
@@ -49,6 +50,15 @@ public class KeywordCollection implements Iterable<KeywordInterface> {
         return null;
     }
     public boolean insert(KeywordInterface inst) {
+        if (inst.getKeyword().equals(Keyword.WITHER) && map.containsKey(Keyword.CAUSTIC)) {
+            removeAll(Keyword.CAUSTIC);
+        }
+        if (inst.getKeyword().equals(Keyword.CAUSTIC) && map.containsKey(Keyword.WITHER)) {
+            removeAll(Keyword.WITHER);
+        }
+        if (inst.getKeyword().equals(Keyword.INFECT) && map.containsKey(Keyword.CAUSTIC)) {
+            removeAll(Keyword.CAUSTIC);
+        }
         Keyword keyword = inst.getKeyword();
         Collection<KeywordInterface> list = map.get(keyword);
         if (list.isEmpty() || !inst.redundant(list)) {

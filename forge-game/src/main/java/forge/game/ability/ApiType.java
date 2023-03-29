@@ -115,6 +115,7 @@ public enum ApiType {
     MultiplyCounter (CountersMultiplyEffect.class),
     MustBlock (MustBlockEffect.class),
     Mutate (MutateEffect.class),
+    MutateOnto (MutateEffect.class),
     NameCard (ChooseCardNameEffect.class),
     NoteCounters (CountersNoteEffect.class),
     PeekAndReveal (PeekAndRevealEffect.class),

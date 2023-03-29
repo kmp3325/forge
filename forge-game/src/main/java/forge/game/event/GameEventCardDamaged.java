@@ -5,7 +5,8 @@ import forge.game.card.Card;
 public class GameEventCardDamaged extends GameEvent {
 
     public enum DamageType {
-        Normal, 
+        Normal,
+        M0M1Counters,
         M1M1Counters, 
         Deathtouch, 
         LoyaltyLoss

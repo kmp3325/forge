@@ -15,6 +15,7 @@ Sphere:Spheres
 Tower
 Urza's
 [CreatureTypes]
+Pokémon:Pokémon
 Advisor:Advisors
 Aetherborn:Aetherborn
 Ally:Allies

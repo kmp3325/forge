@@ -1,0 +1,11 @@
+Name:Venusaur
+ManaCost:2 G G G
+Types: Creature Plant Frog Pokémon
+PT:5/5
+K:Mutate onto:2 G G G:Ivysaur:6/6
+A:AN$ PutCounter | Cost$ X | CounterType$ SOLAR | CounterNum$ X | SpellDescription$ Put X solar counters on CARDNAME. If it's sunny, put twice that many solar counters on it instead.
+
+SVar:X:Count$xPaid
+SVar:DoubleX:DB$ ReplaceCounter | Amount$ Y
+SVar:Y:ReplaceCount$CountNum/Twice
+Oracle:Mutate onto Ivysaur {2}{G}{G}{G}\n{X}{G}{G}: Put X solar counters on Venusaur. If it's sunny, put twice that many solar counters on it instead.\n{G}, {T}, Remove X solar counters from Venusaur: Venusaur deals X damage to target creature. If that creature has flying, instead Venusaur deals half that damage to it, rounded up.

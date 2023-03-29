@@ -612,7 +612,7 @@ public class ComputerUtilCombat {
 
         } // flanking
         if (attacker.hasKeyword(Keyword.INDESTRUCTIBLE)
-                && !(defender.hasKeyword(Keyword.WITHER) || defender.hasKeyword(Keyword.INFECT))) {
+                && !(defender.hasKeyword(Keyword.WITHER) || defender.hasKeyword(Keyword.INFECT) || defender.hasKeyword(Keyword.CAUSTIC))) {
             return 0;
         }
 
@@ -1696,7 +1696,7 @@ public class ComputerUtilCombat {
         } // flanking
 
         if (((attacker.hasKeyword(Keyword.INDESTRUCTIBLE) || (!withoutAbilities && ComputerUtil.canRegenerate(ai, attacker)))
-                && !(blocker.hasKeyword(Keyword.WITHER) || blocker.hasKeyword(Keyword.INFECT)))
+                && !(blocker.hasKeyword(Keyword.WITHER) || blocker.hasKeyword(Keyword.INFECT) || blocker.hasKeyword(Keyword.CAUSTIC)))
                 || (attacker.hasKeyword(Keyword.PERSIST) && !attacker.canReceiveCounters(CounterEnumType.M1M1) && (attacker
                         .getCounters(CounterEnumType.M1M1) == 0))
                 || (attacker.hasKeyword(Keyword.UNDYING) && !attacker.canReceiveCounters(CounterEnumType.P1P1) && (attacker
@@ -1910,7 +1910,7 @@ public class ComputerUtilCombat {
     	}
 
         if (((blocker.hasKeyword(Keyword.INDESTRUCTIBLE) || (!withoutAbilities && ComputerUtil.canRegenerate(ai, blocker))) && !(attacker
-                .hasKeyword(Keyword.WITHER) || attacker.hasKeyword(Keyword.INFECT)))
+                .hasKeyword(Keyword.WITHER) || attacker.hasKeyword(Keyword.INFECT) || attacker.hasKeyword(Keyword.CAUSTIC)))
                 || (blocker.hasKeyword(Keyword.PERSIST) && !blocker.canReceiveCounters(CounterEnumType.M1M1) && blocker
                         .getCounters(CounterEnumType.M1M1) == 0)
                 || (blocker.hasKeyword(Keyword.UNDYING) && !blocker.canReceiveCounters(CounterEnumType.P1P1) && blocker
@@ -2155,7 +2155,7 @@ public class ComputerUtilCombat {
         final int killDamage = getDamageToKill(c, false);
 
         if (c.hasKeyword(Keyword.INDESTRUCTIBLE) || c.getCounters(CounterEnumType.SHIELD) > 0 || (c.getShieldCount() > 0 && c.canBeShielded())) {
-            if (!(source.hasKeyword(Keyword.WITHER) || source.hasKeyword(Keyword.INFECT))) {
+            if (!(source.hasKeyword(Keyword.WITHER) || source.hasKeyword(Keyword.INFECT) || source.hasKeyword(Keyword.CAUSTIC))) {
                 return maxDamage + 1;
             }
         } else if (source.hasKeyword(Keyword.DEATHTOUCH) && !c.isPlaneswalker()) {

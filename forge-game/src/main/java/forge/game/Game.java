@@ -17,17 +17,10 @@
  */
 package forge.game;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.IdentityHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import forge.game.card.*;
+import forge.game.event.GameEventWeatherChanged;
 import org.apache.commons.lang3.tuple.Pair;
 
 import com.google.common.base.Predicate;
@@ -131,6 +124,7 @@ public class Game {
     private Direction turnOrder = Direction.getDefaultDirection();
 
     private Boolean daytime = null;
+    private Weather weather = null;
 
     private long timestamp = 0;
     public final GameAction action;
@@ -1254,5 +1248,40 @@ public class Game {
         }
         if (!isNeitherDayNorNight())
             fireEvent(new GameEventDayTimeChanged(isDay()));
+    }
+
+    public void setWeather(Weather weather) {
+        Weather previous = this.weather;
+        this.weather = weather;
+        if (!previous.equals(weather)) {
+            getTriggerHandler().runTrigger(TriggerType.WeatherChanged, new HashMap<>(), false);
+        }
+        if (!isNoWeather()) {
+            fireEvent(new GameEventWeatherChanged(weather));
+        }
+    }
+
+    public boolean isSunny() {
+        return Weather.SUNNY.equals(weather);
+    }
+
+    public boolean isFoggy() {
+        return Weather.FOGGY.equals(weather);
+    }
+
+    public boolean isRainy() {
+        return Weather.RAINY.equals(weather);
+    }
+
+    public boolean isWindy() {
+        return Weather.WINDY.equals(weather);
+    }
+
+    public boolean isSnowy() {
+        return Weather.SNOWY.equals(weather);
+    }
+
+    public boolean isNoWeather() {
+        return weather == null;
     }
 }

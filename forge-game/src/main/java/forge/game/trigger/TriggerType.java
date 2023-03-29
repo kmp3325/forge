@@ -125,7 +125,8 @@ public enum TriggerType {
     TurnFaceUp(TriggerTurnFaceUp.class),
     Unattach(TriggerUnattach.class),
     Untaps(TriggerUntaps.class),
-    Vote(TriggerVote.class);
+    Vote(TriggerVote.class),
+    WeatherChanged(TriggerWeatherChanged.class);
 
     private final Constructor<? extends Trigger> constructor;
 

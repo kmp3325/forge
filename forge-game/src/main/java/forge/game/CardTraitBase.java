@@ -320,6 +320,30 @@ public abstract class CardTraitBase extends GameObject implements IHasCardView, 
             }
         }
 
+        if (params.containsKey("Weather")) {
+            if ("Sunny".equalsIgnoreCase(params.get("Weather"))) {
+                if (!game.isSunny()) {
+                    return false;
+                }
+            } else if ("Windy".equalsIgnoreCase(params.get("Weather"))) {
+                if (!game.isWindy()) {
+                    return false;
+                }
+            } else if ("Foggy".equalsIgnoreCase(params.get("Weather"))) {
+                if (!game.isFoggy()) {
+                    return false;
+                }
+            } else if ("Rainy".equalsIgnoreCase(params.get("Weather"))) {
+                if (!game.isRainy()) {
+                    return false;
+                }
+            } else if ("Snowy".equalsIgnoreCase(params.get("Weather"))) {
+                if (!game.isSnowy()) {
+                    return false;
+                }
+            }
+        }
+
         if (params.containsKey("Adamant")) {
             if (hostCard.getCastSA() == null) {
                 return false;

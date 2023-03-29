@@ -57,6 +57,7 @@ public interface IGameEventVisitor<T> {
     T visit(GameEventZone event);
     T visit(GameEventCardForetold gameEventCardForetold);
     T visit(GameEventDayTimeChanged gameEventDayTimeChanged);
+    T visit(GameEventWeatherChanged gameEventWeatherChanged);
 
     // This is base class for all visitors.
     class Base<T> implements IGameEventVisitor<T>{
@@ -114,6 +115,9 @@ public interface IGameEventVisitor<T> {
             return null;
         }
         public T visit(GameEventDayTimeChanged gameEventDayTimeChanged) {
+            return null;
+        }
+        public T visit(GameEventWeatherChanged gameEventWeatherChanged) {
             return null;
         }
     }

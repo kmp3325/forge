@@ -138,7 +138,11 @@ public final class ForgeConstants {
     public static final String MATCH_BG_FILE          = "bg_match.jpg";
     public static final String MATCH_BG_DAY_FILE      = "bg_day.jpg";
     public static final String MATCH_BG_NIGHT_FILE    = "bg_night.jpg";
-    public static final String MATCH_BG_WEATHER // todo something like this. can i do it alongside day though? instead of overwriting?
+    public static final String MATCH_SUNNY_ICON_FILE = "sunny.png";
+    public static final String MATCH_RAINY_ICON_FILE = "rainy.png";
+    public static final String MATCH_WINDY_ICON_FILE = "windy.png";
+    public static final String MATCH_FOGGY_ICON_FILE = "foggy.png";
+    public static final String MATCH_SNOWY_ICON_FILE = "snowy.png";
     public static final String ADV_MATCH_BG_FILE      = "adv_bg_match.jpg";
     public static final String ADV_MATCH_BG_DAY_FILE  = "adv_bg_match_day.jpg";
     public static final String ADV_MATCH_BG_NIGHT_FILE= "adv_bg_match_nigh.jpg";

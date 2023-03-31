@@ -242,6 +242,8 @@ public interface IGuiGame {
 
     void updateDayTime(String daytime);
 
+    void updateWeather(String weather);
+
     void awaitNextInput();
 
     void cancelAwaitNextInput();

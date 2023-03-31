@@ -307,6 +307,17 @@ public class FControlGameEventHandler extends IGameEventVisitor.Base<Void> {
                 matchController.updateDayTime("Day");
             else if (event.maingame.isNight())
                 matchController.updateDayTime("Night");
+
+            if (event.maingame.isWindy())
+                matchController.updateWeather("WINDY");
+            else if (event.maingame.isFoggy())
+                matchController.updateWeather("FOGGY");
+            else if (event.maingame.isRainy())
+                matchController.updateWeather("RAINY");
+            else if (event.maingame.isSunny())
+                matchController.updateWeather("SUNNY");
+            else if (event.maingame.isSnowy())
+                matchController.updateWeather("SNOWY");
             return processEvent();
         }
         return null;
@@ -477,6 +488,12 @@ public class FControlGameEventHandler extends IGameEventVisitor.Base<Void> {
     @Override
     public Void visit(final GameEventDayTimeChanged event) {
         matchController.updateDayTime(event.daytime ? "Day" : "Night");
+        return processEvent();
+    }
+
+    @Override
+    public Void visit(GameEventWeatherChanged event) {
+        matchController.updateWeather(event.weather.name());
         return processEvent();
     }
 

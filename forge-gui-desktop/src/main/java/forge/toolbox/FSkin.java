@@ -1304,6 +1304,12 @@ public class FSkin {
         //daynight bg
         SkinIcon.setIcon(FSkinProp.BG_DAY, defaultDir + ForgeConstants.MATCH_BG_DAY_FILE);
         SkinIcon.setIcon(FSkinProp.BG_NIGHT, defaultDir + ForgeConstants.MATCH_BG_NIGHT_FILE);
+        //weather icons
+        SkinIcon.setIcon(FSkinProp.SUNNY, defaultDir + ForgeConstants.MATCH_SUNNY_ICON_FILE);
+        SkinIcon.setIcon(FSkinProp.RAINY, defaultDir + ForgeConstants.MATCH_RAINY_ICON_FILE);
+        SkinIcon.setIcon(FSkinProp.FOGGY, defaultDir + ForgeConstants.MATCH_FOGGY_ICON_FILE);
+        SkinIcon.setIcon(FSkinProp.SNOWY, defaultDir + ForgeConstants.MATCH_SNOWY_ICON_FILE);
+        SkinIcon.setIcon(FSkinProp.WINDY, defaultDir + ForgeConstants.MATCH_WINDY_ICON_FILE);
 
         // Run through enums and load their coords.
         Colors.updateAll();

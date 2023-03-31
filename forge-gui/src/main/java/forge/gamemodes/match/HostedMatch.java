@@ -321,6 +321,7 @@ public class HostedMatch {
             else if (!GuiBase.getInterface().isLibgdxPort()||!isMatchOver)
                 humanController.getGui().afterGameEnd();
             humanController.getGui().updateDayTime(null);
+            humanController.getGui().updateWeather(null);
         }
         humanControllers.clear();
     }

@@ -46,6 +46,7 @@ public abstract class AbstractGuiGame implements IGuiGame, IMayViewCards {
     private boolean gamePause = false;
     private boolean gameSpeed = false;
     private String daytime = null;
+    private String weather = null;
     private boolean ignoreConcedeChain = false;
 
     public final boolean hasLocalPlayers() {
@@ -76,6 +77,11 @@ public abstract class AbstractGuiGame implements IGuiGame, IMayViewCards {
     @Override
     public void updateDayTime(String daytime) {
         this.daytime = daytime;
+    }
+
+    @Override
+    public void updateWeather(String weather) {
+        this.weather = weather;
     }
 
     @Override

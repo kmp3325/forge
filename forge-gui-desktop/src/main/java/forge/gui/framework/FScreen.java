@@ -189,6 +189,7 @@ public class FScreen {
     private final FileLocation layoutFile;
     private final boolean isMatch;
     private String daytime = null;
+    private String weather = null;
 
     private FScreen(final IVTopLevelUI view0, final ICDoc controller0,
             final String tabCaption0, final SkinImage tabIcon0,
@@ -236,6 +237,14 @@ public class FScreen {
     }
     public void setDaytime(final String daytime) {
         this.daytime = daytime;
+    }
+
+    public String getWeather() {
+        return weather;
+    }
+
+    public void setWeather(String weather) {
+        this.weather = weather;
     }
 
     public SkinImage getTabIcon() {

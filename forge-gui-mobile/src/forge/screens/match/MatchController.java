@@ -200,6 +200,7 @@ public class MatchController extends AbstractGuiGame {
         actuateMatchPreferences();
         //reset daytime every match
         updateDayTime(null);
+        updateWeather(null);
         Forge.openScreen(view);
     }
 

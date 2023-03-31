@@ -108,7 +108,7 @@ public class ItemPool<T extends InventoryItem> implements Iterable<Entry<T, Inte
     }
 
     // Data members
-    protected final Map<T, Integer> items;
+    public final Map<T, Integer> items;
 
     private final Class<T> myClass; //class does not keep this in runtime by itself
 

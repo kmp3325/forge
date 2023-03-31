@@ -75,6 +75,7 @@ public final class CardScriptInfo {
                 ForgeConstants.CARD_DATA_DIR + File.separator + "upcoming",
                 ForgeConstants.USER_CUSTOM_CARDS_DIR + File.separator + String.valueOf(filename.charAt(0)),
                 ForgeConstants.USER_CUSTOM_CARDS_DIR,
+                ForgeConstants.CARD_DATA_DIR + File.separator + "pokes"
             };
             
             for (String folder : folders) {

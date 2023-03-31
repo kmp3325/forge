@@ -91,6 +91,13 @@ public enum FSkinProp {
     IMG_ZONE_POISON      (new int[] {320, 80, 40, 40}, PropType.IMAGE),
     IMG_TICKET           (new int[] {360, 80, 40, 40}, PropType.IMAGE),
 
+    // weather
+    SUNNY (new int[] {360, 80, 40, 40}, PropType.IMAGE),
+    RAINY (new int[] {360, 80, 40, 40}, PropType.IMAGE),
+    FOGGY (new int[] {360, 80, 40, 40}, PropType.IMAGE),
+    WINDY (new int[] {360, 80, 40, 40}, PropType.IMAGE),
+    SNOWY (new int[] {360, 80, 40, 40}, PropType.IMAGE),
+
     //mana images
     IMG_MANA_B         (new int[] {166, 2, 80, 80}, PropType.MANAICONS),
     IMG_MANA_R         (new int[] {330, 2, 80, 80}, PropType.MANAICONS),

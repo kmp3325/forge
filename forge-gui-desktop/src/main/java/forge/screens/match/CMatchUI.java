@@ -427,6 +427,28 @@ public final class CMatchUI
     }
 
     @Override
+    public void updateWeather(String weather) {
+        super.updateWeather(weather);
+        if ("SUNNY".equals(weather)) {
+            FView.SINGLETON_INSTANCE.getPnlInsets().setForegroundImage(FSkin.getIcon(FSkinProp.SUNNY));
+            getScreen().setWeather("SUNNY");
+        } else if ("WINDY".equals(weather)) {
+            FView.SINGLETON_INSTANCE.getPnlInsets().setForegroundImage(FSkin.getIcon(FSkinProp.WINDY));
+            getScreen().setWeather("WINDY");
+        }  else if ("FOGGY".equals(weather)) {
+            FView.SINGLETON_INSTANCE.getPnlInsets().setForegroundImage(FSkin.getIcon(FSkinProp.FOGGY));
+            getScreen().setWeather("FOGGY");
+        } else if ("RAINY".equals(weather)) {
+            FView.SINGLETON_INSTANCE.getPnlInsets().setForegroundImage(FSkin.getIcon(FSkinProp.RAINY));
+            getScreen().setWeather("RAINY");
+        } else if ("SNOWY".equals(weather)) {
+            FView.SINGLETON_INSTANCE.getPnlInsets().setForegroundImage(FSkin.getIcon(FSkinProp.SNOWY));
+            getScreen().setWeather("SNOWY");
+        }
+        FView.SINGLETON_INSTANCE.getPnlInsets().repaint();
+    }
+
+    @Override
     public void updateZones(final Iterable<PlayerZoneUpdate> zonesToUpdate) {
         for (final PlayerZoneUpdate update : zonesToUpdate) {
             final PlayerView owner = update.getPlayer();

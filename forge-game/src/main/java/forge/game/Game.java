@@ -1253,7 +1253,12 @@ public class Game {
     public void setWeather(Weather weather) {
         Weather previous = this.weather;
         this.weather = weather;
-        if (!previous.equals(weather)) {
+        if (previous == null && weather == null) {
+            return;
+        }
+        if (previous == null) {
+            getTriggerHandler().runTrigger(TriggerType.WeatherChanged, new HashMap<>(), false);
+        } else if (!previous.equals(weather)) {
             getTriggerHandler().runTrigger(TriggerType.WeatherChanged, new HashMap<>(), false);
         }
         if (!isNoWeather()) {

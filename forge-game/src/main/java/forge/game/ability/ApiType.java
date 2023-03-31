@@ -61,6 +61,7 @@ public enum ApiType {
     DamageAll (DamageAllEffect.class),
     DealDamage (DamageDealEffect.class),
     DayTime (DayTimeEffect.class),
+    Weather(WeatherEffect.class),
     Debuff (DebuffEffect.class),
     DeclareCombatants (DeclareCombatantsEffect.class),
     DelayedTrigger (DelayedTriggerEffect.class),

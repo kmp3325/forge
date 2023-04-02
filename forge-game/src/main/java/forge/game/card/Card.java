@@ -6960,8 +6960,8 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
         etbCounters.clear();
     }
 
-    public final Set<Table.Cell<Player, CounterType, Integer>> getEtbCounters() {
-        return etbCounters.cellSet();
+    public final Table<Player, CounterType, Integer> getEtbCounters() {
+        return etbCounters;
     }
 
     public final void putEtbCounters(GameEntityCounterTable table) {

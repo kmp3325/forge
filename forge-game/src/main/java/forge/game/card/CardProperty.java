@@ -5,6 +5,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import forge.StaticData;
 import forge.card.CardDb;
+import forge.card.CardStateName;
 import forge.card.ColorSet;
 import forge.card.MagicColor;
 import forge.card.mana.ManaCost;
@@ -141,6 +142,10 @@ public class CardProperty {
             }
         } else if (property.equals("BackSide")) {
             if (!card.isBackSide()) {
+                return false;
+            }
+        } else if (property.equals("Transformed")) {
+            if (!card.getCurrentStateName().equals(CardStateName.Transformed)) {
                 return false;
             }
         } else if (property.equals("Flip")) {
@@ -1873,7 +1878,7 @@ public class CardProperty {
             }
             final ZoneType realZone = ZoneType.smartValueOf(strZone);
             if (card.getCastFrom() == null || (zoneOwner != null && !card.getCastFrom().getPlayer().equals(zoneOwner))
-                    || (byYou && !controller.equals(card.getCastSA().getActivatingPlayer()))
+                    || (byYou && !sourceController.equals(card.getCastSA().getActivatingPlayer()))
                     || realZone != card.getCastFrom().getZoneType()) {
                 return false;
             }
@@ -1894,7 +1899,7 @@ public class CardProperty {
             }
             final ZoneType realZone = ZoneType.smartValueOf(strZone);
             if (card.getCastFrom() != null && (zoneOwner == null || card.getCastFrom().getPlayer().equals(zoneOwner))
-                    && (!byYou || controller.equals(card.getCastSA().getActivatingPlayer()))
+                    && (!byYou || sourceController.equals(card.getCastSA().getActivatingPlayer()))
                     && realZone == card.getCastFrom().getZoneType()) {
                 return false;
             }
@@ -1902,7 +1907,7 @@ public class CardProperty {
             if (!card.wasCast()) {
                 return false;
             }
-            if (property.contains("ByYou") && !controller.equals(card.getCastSA().getActivatingPlayer())) {
+            if (property.contains("ByYou") && !sourceController.equals(card.getCastSA().getActivatingPlayer())) {
                 return false;
             }
         } else if (property.equals("wasNotCast")) {

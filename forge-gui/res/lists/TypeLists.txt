@@ -324,6 +324,7 @@ Equipment
 Food
 Fortification
 Gold
+Incubator:Incubators
 Key:Keys
 Powerstone
 Treasure

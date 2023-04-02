@@ -101,6 +101,7 @@ public enum ApiType {
     Investigate (InvestigateEffect.class),
     Intensify (IntensifyEffect.class),
     ImmediateTrigger (ImmediateTriggerEffect.class),
+    Incubate (IncubateEffect.class),
     Learn (LearnEffect.class),
     LookAt (LookAtEffect.class),
     LoseLife (LifeLoseEffect.class),

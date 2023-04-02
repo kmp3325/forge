@@ -65,10 +65,10 @@
 ],
 "pointsOfInterest": [
 	"White Castle",
+	"Plains Capital",
 	"Plains Town Generic",
 	"Plains Town Identity",
 	"Plains Town Tribal",
-	"Plains Capital",
 	"Monastery",
 	"Monastery1",
 	"Monastery2",
@@ -92,7 +92,8 @@
 	"CaveW5",
 	"CaveW6",
 	"OrthodoxyBasilica",
-	"Nahiri Encampment"
+	"Nahiri Encampment",
+	"MageTower White"
 ],
 "structures": [
 	{

@@ -189,6 +189,9 @@ public class GameLogFormatter extends IGameEventVisitor.Base<GameLogEntry> {
         if (event.type == DamageType.M0M1Counters) {
             additionalLog = localizer.getMessage("lblAsM0M1Counters");
         }
+        if (event.type == DamageType.BurnCounters) {
+            additionalLog = localizer.getMessage("lblAsBurnCounters");
+        }
         if (event.type == DamageType.LoyaltyLoss) {
             additionalLog = localizer.getMessage("lblRemovingNLoyaltyCounter", String.valueOf(event.amount));
         }

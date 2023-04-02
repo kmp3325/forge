@@ -531,6 +531,7 @@ public enum FSkinProp {
     IMG_BORDER_BLACK             (new int[] {2, 2, 672, 936}, PropType.BORDERS),
     IMG_BORDER_WHITE             (new int[] {676, 2, 672, 936}, PropType.BORDERS),
     //Protection From
+    // todo add caustic to this
     IMG_ABILITY_PROTECT_ALL           (new int[] {248, 84, 80, 80}, PropType.ABILITY),
     IMG_ABILITY_PROTECT_B             (new int[] {330, 84, 80, 80}, PropType.ABILITY),
     IMG_ABILITY_PROTECT_BU            (new int[] {412, 84, 80, 80}, PropType.ABILITY),

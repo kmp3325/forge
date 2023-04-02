@@ -4,10 +4,11 @@ Types: Creature Plant Frog Pokémon
 PT:5/5
 K:Mutate onto:2 G G G:Ivysaur:6/6
 A:AB$ PutCounter | Cost$ X G G | CounterType$ SOLAR | CounterNum$ PutSolar | SpellDescription$ Put X solar counters on CARDNAME. If it's sunny, put twice that many solar counters on it instead.
-SVar:PutSolar:Count$Sunny.X/Twice.X
+SVar:PutSolar:Count$Sunny.Y.X
 SVar:X:Count$xPaid
+SVar:Y:Count$xPaid/Twice
 A:AB$ DealDamage | Cost$ T G SubCounter<X/SOLAR> | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumDmg$ SolarBeam | SpellDescription$ CARDNAME deals that much damage to target creature. If that creature has flying, instead CARDNAME deals half that damage to it, rounded up.
-SVar:SolarBeam:Count$Compare IsFlying GE1.Y.X
+SVar:SolarBeam:Count$Compare IsFlying GE1.Z.X
 SVar:IsFlying:Targeted$Valid Creature.withFlying
-SVar:Y:Count$xPaid/HalfUp
-Oracle:Mutate onto Ivysaur {2}{G}{G}{G}\n{X}{G}{G}: Put X solar counters on Venusaur. If it's sunny, put twice that many solar counters on it instead.\n{G}, {T}, Remove any number of solar counters from Venusaur: Venusaur deals that much damage to target creature. If that creature has flying, instead Venusaur deals half that damage to it, rounded up.
+SVar:Z:Count$xPaid/HalfUp
+Oracle:Mutate onto Ivysaur {2}{G}{G}{G} [6/6]\n{X}{G}{G}: Put X solar counters on Venusaur. If it's sunny, put twice that many solar counters on it instead.\n{G}, {T}, Remove any number of solar counters from Venusaur: Venusaur deals that much damage to target creature. If that creature has flying, instead Venusaur deals half that damage to it, rounded up.

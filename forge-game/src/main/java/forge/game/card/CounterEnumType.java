@@ -33,6 +33,7 @@ public enum CounterEnumType {
     M1M1("-1/-1", "-1/-1", 255, 110, 106),
     P1P1("+1/+1", "+1/+1", 96, 226, 23),
     SOLAR("SOLAR", 121, 219, 151),
+    BURN("BURN", 255, 124, 82),
 
     LOYALTY("LOYAL", 198, 198, 198),
 

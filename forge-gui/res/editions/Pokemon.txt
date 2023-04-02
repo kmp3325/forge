@@ -5,3 +5,11 @@ Name=Pokémon
 
 [cards]
 1 C Bulbasaur
+1 U Ivysaur
+1 M Venusaur
+1 C Charmander
+1 U Charmeleon
+1 M Charizard
+1 C Squirtle
+1 U Wartortle
+1 M Blastoise

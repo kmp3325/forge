@@ -7,7 +7,8 @@ public class GameEventCardDamaged extends GameEvent {
     public enum DamageType {
         Normal,
         M0M1Counters,
-        M1M1Counters, 
+        BurnCounters,
+        M1M1Counters,
         Deathtouch, 
         LoyaltyLoss
     }

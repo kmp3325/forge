@@ -443,6 +443,7 @@ public enum FSkinImage implements FImage {
     IMG_ABILITY_TRAMPLE        (FSkinProp.IMG_ABILITY_TRAMPLE, SourceFile.ABILITIES),
     IMG_ABILITY_VIGILANCE      (FSkinProp.IMG_ABILITY_VIGILANCE, SourceFile.ABILITIES),
     //HEXPROOF FROM
+    // todo add caustic to this. It comes from the sprite_ability.png file
     IMG_ABILITY_HEXPROOF_R       (FSkinProp.IMG_ABILITY_HEXPROOF_R, SourceFile.ABILITIES),
     IMG_ABILITY_HEXPROOF_G       (FSkinProp.IMG_ABILITY_HEXPROOF_G, SourceFile.ABILITIES),
     IMG_ABILITY_HEXPROOF_B       (FSkinProp.IMG_ABILITY_HEXPROOF_B, SourceFile.ABILITIES),

@@ -2342,6 +2342,26 @@ public class AbilityUtils {
             return doXMath(calculateAmount(c, sq[game.isNight() ? 1 : 2], ctb), expr, c, ctb);
         }
 
+        if (sq[0].equalsIgnoreCase("Sunny")) {
+            return doXMath(calculateAmount(c, sq[game.isSunny() ? 1 : 2], ctb), expr, c, ctb);
+        }
+
+        if (sq[0].equalsIgnoreCase("Windy")) {
+            return doXMath(calculateAmount(c, sq[game.isWindy() ? 1 : 2], ctb), expr, c, ctb);
+        }
+
+        if (sq[0].equalsIgnoreCase("Foggy")) {
+            return doXMath(calculateAmount(c, sq[game.isFoggy() ? 1 : 2], ctb), expr, c, ctb);
+        }
+
+        if (sq[0].equalsIgnoreCase("Rainy")) {
+            return doXMath(calculateAmount(c, sq[game.isRainy() ? 1 : 2], ctb), expr, c, ctb);
+        }
+
+        if (sq[0].equalsIgnoreCase("Snowy")) {
+            return doXMath(calculateAmount(c, sq[game.isSnowy() ? 1 : 2], ctb), expr, c, ctb);
+        }
+
         if (sq[0].contains("CardControllerTypes")) {
             return doXMath(getCardTypesFromList(player.getCardsIn(ZoneType.listValueOf(sq[1]))), expr, c, ctb);
         }

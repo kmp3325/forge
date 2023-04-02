@@ -1,0 +1,7 @@
+[metadata]
+Code=PKM
+Date=2023-01-01
+Name=Pokémon
+
+[cards]
+1 C Bulbasaur

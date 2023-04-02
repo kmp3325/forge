@@ -3,13 +3,16 @@ ManaCost:1
 Types: Creature Plant Frog Pokémon
 PT:1/1
 K:A deck can have any number of cards named CARDNAME.
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigMonarch | TriggerDescription$ When CARDNAME enters the battlefield, you become the monarch.
-SVar:TrigMonarch:DB$ BecomeMonarch | Defined$ You
-K:Infect
-R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | DayTime$ Neither | ReplaceWith$ DoDay | ReplacementResult$ Updated | Description$ If it's neither day nor night, it becomes day as CARDNAME enters the battlefield.
-SVar:DoDay:DB$ DayTime | Value$ Day
 R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplaceWith$ DoSunny | ReplacementResult$ Updated | Description$ Make it sunny
 SVar:DoSunny:DB$ Weather | Value$ SUNNY
-A:AB$ Pump | Cost$ 1 | Defined$ Self | KW$ Caustic | SpellDescription$ CARDNAME gains caustic until end of turn.
-A:AB$ Pump | Cost$ 1 | Defined$ Self | KW$ Infect | Duration$ UntilEndOfCombat | ActivationPhases$ BeginCombat->EndCombat | SpellDescription$ CARDNAME gains wither until end of combat.
+A:AB$ Pump | Cost$ 1 | Defined$ Self | KW$ Flying | SpellDescription$ CARDNAME gains flying until end of turn.
+
+A:AB$ PutCounter | Cost$ X G G | CounterType$ SOLAR | CounterNum$ PutSolar | SpellDescription$ Put X solar counters on CARDNAME. If it's sunny, put twice that many solar counters on it instead.
+SVar:PutSolar:Count$Sunny.X/Twice.X
+SVar:X:Count$xPaid
+A:AB$ DealDamage | Cost$ T G SubCounter<X/SOLAR> | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumDmg$ SolarBeam | SpellDescription$ CARDNAME deals that much damage to target creature. If that creature has flying, instead CARDNAME deals half that damage to it, rounded up.
+SVar:SolarBeam:Count$Compare IsFlying GE1.Y.X
+SVar:IsFlying:Targeted$Valid Creature.withFlying
+SVar:Y:Count$xPaid/HalfUp
+
 Oracle:Bullshit

@@ -30,13 +30,15 @@ import com.google.common.collect.Maps;
 
 import forge.card.CardType;
 import forge.game.Game;
+import forge.game.GameEntityCounterTable;
+import forge.game.GameLogEntryType;
 import forge.game.GlobalRuleChange;
 import forge.game.ability.ApiType;
-import forge.game.card.Card;
-import forge.game.card.CardCollection;
-import forge.game.card.CardLists;
-import forge.game.card.CardPredicates;
+import forge.game.card.*;
 import forge.game.card.CardPredicates.Presets;
+import forge.game.event.GameEventBurnCounterBurned;
+import forge.game.event.GameEventBurnCountersHealed;
+import forge.game.event.GameEventFlipCoin;
 import forge.game.keyword.Keyword;
 import forge.game.keyword.KeywordInterface;
 import forge.game.player.Player;
@@ -74,6 +76,7 @@ public class Untap extends Phase {
 
         doPhasing(game.getPhaseHandler().getPlayerTurn());
         doDayTime(game.getPhaseHandler().getPreviousPlayerTurn());
+        doBurn(game.getPhaseHandler().getPlayerTurn());
 
         game.getAction().checkStaticAbilities();
 
@@ -294,6 +297,34 @@ public class Untap extends Phase {
             game.setDayTime(true);
         } else if (game.isNight() && CardLists.count(casted, CardPredicates.isController(previous)) > 1) {
             game.setDayTime(false);
+        }
+    }
+
+    private static void doBurn(Player player) {
+        if (player == null) {
+            return;
+        }
+        Game game = player.getGame();
+        for (Card card : player.getCardsIn(ZoneType.Battlefield, true)) {
+            int burnCounterCount = card.getCounters(CounterEnumType.BURN);
+            if (burnCounterCount > 0) {
+                if (Math.random() > .5) {
+                    card.subtractCounter(CounterEnumType.BURN, burnCounterCount);
+                    GameEventBurnCountersHealed gameEvent = new GameEventBurnCountersHealed(card);
+                    game.fireEvent(gameEvent);
+                    game.getGameLog().add(GameLogEntryType.BURN_HEALED, gameEvent.toString());
+                } else {
+                    GameEntityCounterTable table = card.getSpellPermanent().getCounterTable();
+                    if (table == null) {
+                        table = new GameEntityCounterTable();
+                    }
+                    card.addCounter(CounterEnumType.BURN, 1, player, table);
+                    table.replaceCounterEffect(game, null, false);
+                    GameEventBurnCounterBurned gameEvent = new GameEventBurnCounterBurned(card);
+                    game.fireEvent(gameEvent);
+                    game.getGameLog().add(GameLogEntryType.BURNED, gameEvent.toString());
+                }
+            }
         }
     }
 }

@@ -296,6 +296,16 @@ public class GameLogFormatter extends IGameEventVisitor.Base<GameLogEntry> {
         return new GameLogEntry(GameLogEntryType.MULLIGAN, message);
     }
 
+    @Override
+    public GameLogEntry visit(GameEventBurnCountersHealed ev) {
+        return new GameLogEntry(GameLogEntryType.BURN_HEALED, ev.toString());
+    }
+
+    @Override
+    public GameLogEntry visit(GameEventBurnCounterBurned ev) {
+        return new GameLogEntry(GameLogEntryType.BURNED, ev.toString());
+    }
+
     @Subscribe
     public void recieve(GameEvent ev) {
         GameLogEntry le = ev.visit(this);

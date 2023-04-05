@@ -17,7 +17,9 @@ public enum GameLogEntryType {
     STACK_ADD("Add to stack"),
     DAMAGE("Damage"),
     MANA("Mana"),
-    PHASE("Phase");
+    PHASE("Phase"),
+    BURN_HEALED("Burn healed"),
+    BURNED("Burned");
     
     private final String caption; 
     GameLogEntryType(String name) {

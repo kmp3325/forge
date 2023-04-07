@@ -1,6 +1,6 @@
 Name:Blastoise
 ManaCost:2 U U U
-Types: Creature Turtle Pokémon
+Types:Creature Turtle Pokémon
 PT:4/6
 K:Mutate onto:2 U U U:Wartortle:5/7
 A:AB$ DealDamage | Cost$ U T | ValidTgts$ Creature.attacking | TgtPrompt$ Select target attacking creature | NumDmg$ X | SpellDescription$ CARDNAME deals damage to target creature equal to the number of untapped Islands you control.

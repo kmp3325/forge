@@ -1,0 +1,8 @@
+Name:Caterpie
+ManaCost:G
+Types:Creature Insect Pokémon
+PT:0/1
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Any | ValidCard$ Card.Self | Execute$ TrigGainLife | TriggerDescription$ When CARDNAME leaves the battlefield, you gain life equal to the number of creatures you control.
+SVar:TrigGainLife:DB$ GainLife | Defined$ You | LifeAmount$ X
+SVar:X:Count$Valid Creature.YouCtrl
+Oracle:When Caterpie leaves the battlefield, you gain life equal to the number of creatures you control.

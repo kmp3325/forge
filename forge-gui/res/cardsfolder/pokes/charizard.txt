@@ -1,6 +1,6 @@
 Name:Charizard
 ManaCost:2 R R R
-Types: Creature Dragon Pokémon
+Types:Creature Dragon Pokémon
 PT:5/4
 K:Mutate onto:2 R R R:Charmeleon:6/5
 K:Flying

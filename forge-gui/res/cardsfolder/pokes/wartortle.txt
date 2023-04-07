@@ -1,6 +1,6 @@
 Name:Wartortle
 ManaCost:1 U U
-Types: Creature Turtle Pokémon
+Types:Creature Turtle Pokémon
 PT:2/3
 K:Mutate onto:1 U U:Squirtle:2/4
 K:CARDNAME can block as though it were untapped.

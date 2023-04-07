@@ -1,6 +1,6 @@
 Name:Venusaur
 ManaCost:2 G G G
-Types: Creature Plant Frog Pokémon
+Types:Creature Plant Frog Pokémon
 PT:5/5
 K:Mutate onto:2 G G G:Ivysaur:6/6
 A:AB$ PutCounter | Cost$ X G G | CounterType$ SOLAR | CounterNum$ PutSolar | SpellDescription$ Put X solar counters on CARDNAME. If it's sunny, put twice that many solar counters on it instead.

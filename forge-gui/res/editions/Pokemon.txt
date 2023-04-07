@@ -13,3 +13,6 @@ Name=Pokémon
 1 C Squirtle
 1 U Wartortle
 1 M Blastoise
+1 C Caterpie
+1 C Metapod
+1 R Butterfree

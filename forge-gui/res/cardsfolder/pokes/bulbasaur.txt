@@ -1,6 +1,6 @@
 Name:Bulbasaur
 ManaCost:G
-Types: Creature Plant Frog Pokémon
+Types:Creature Plant Frog Pokémon
 PT:1/1
 K:etbCounter:SOLAR:1
 T:Mode$ Mutates | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, put a solar counter on it.

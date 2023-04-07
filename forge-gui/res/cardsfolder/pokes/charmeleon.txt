@@ -1,6 +1,6 @@
 Name:Charmeleon
 ManaCost:1 R R
-Types: Creature Lizard Pokémon
+Types:Creature Lizard Pokémon
 PT:3/2
 K:Mutate onto:1 R R:Charmander:4/2
 K:Burn damage

@@ -1,7 +1,6 @@
 Name:Test
 ManaCost:1
 Types: Creature Plant Frog Pokémon
-PT:0/10
+PT:1/10
 K:A deck can have any number of cards named CARDNAME.
-K:Defender
 Oracle:Bullshit

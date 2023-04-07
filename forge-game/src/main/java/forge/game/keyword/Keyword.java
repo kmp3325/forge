@@ -189,7 +189,7 @@ public enum Keyword {
     WARD("Ward", KeywordWithCost.class, false, "Whenever this permanent becomes the target of a spell or ability an opponent controls, counter it unless that player pays %s."),
     WITHER("Wither", SimpleKeyword.class, true, "This deals damage to creatures in the form of -1/-1 counters."),
     CAUSTIC("Caustic", SimpleKeyword.class, true, "This deals damage to creatures in the form of -0/-1 counters."),
-    BURN_DAMAGE("BurnDamage", SimpleKeyword.class, true, "This deals damage to creatures in the form of burn counters. (A creature gets -0/-1 for each burn counter on it. At the beginning of its controller's upkeep, they flip a coin. If they win the flip, remove all burn counters from it. If they lose the flip, put another burn counter on it.)"),
+    BURN_DAMAGE("Burn damage", SimpleKeyword.class, true, "This deals damage to creatures in the form of burn counters. (A creature gets -0/-1 for each burn counter on it. At the beginning of its controller's upkeep, they flip a coin. If they win the flip, remove all burn counters from it. If they lose the flip, put another burn counter on it.)"),
 
     // mayflash additional cast
     MAYFLASHCOST("MayFlashCost", KeywordWithCost.class, false, "You may cast CARDNAME as though it had flash if you pay %s more to cast it."),

@@ -1,0 +1,6 @@
+Name:Squirtle
+ManaCost:U
+Types:Creature Turtle Pokémon
+PT:0/1
+A:AB$ Pump | Cost$ U | NumDef$ +1 | ActivationPhases$ Upkeep->Main1 | SpellDescription$ CARDNAME gets +0/+1 until end of turn. Activate only before combat.
+Oracle:{R}: Squirtle gets +0/+1 until end of turn. Activate only before combat.

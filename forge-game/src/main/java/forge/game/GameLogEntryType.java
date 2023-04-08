@@ -12,14 +12,14 @@ public enum GameLogEntryType {
     DISCARD("Discard"),
     INFORMATION("Information"),
     EFFECT_REPLACED("Replacement Effect"),
+    BURN_HEALED("Burn healed"),
+    BURNED("Burned"),
     LAND("Land"),
     STACK_RESOLVE("Resolve stack"),
     STACK_ADD("Add to stack"),
     DAMAGE("Damage"),
     MANA("Mana"),
-    PHASE("Phase"),
-    BURN_HEALED("Burn healed"),
-    BURNED("Burned");
+    PHASE("Phase");
     
     private final String caption; 
     GameLogEntryType(String name) {

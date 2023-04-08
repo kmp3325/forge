@@ -1,0 +1,8 @@
+Name:Kakuna
+ManaCost:B G
+Types:Creature Insect Pokémon
+PT:1/3
+K:Mutate onto:B G:Weedle:1/5
+S:Mode$ Continuous | Affected$ Card.Self | AddKeyword$ Deathtouch | CheckSVar$ X | SVarCompare$ GE2 | Description$ CARDNAME has deathtouch as long as it's mutated twice.
+SVar:X:Count$TimesMutated
+Oracle:Mutate onto Weedle {B}{G} [1/5]\nKakuna has deathtouch as long as it's mutated twice.

@@ -312,7 +312,6 @@ public class Untap extends Phase {
                     card.subtractCounter(CounterEnumType.BURN, burnCounterCount);
                     GameEventBurnCountersHealed gameEvent = new GameEventBurnCountersHealed(card);
                     game.fireEvent(gameEvent);
-                    game.getGameLog().add(GameLogEntryType.BURN_HEALED, gameEvent.toString());
                 } else {
                     GameEntityCounterTable table = card.getSpellPermanent().getCounterTable();
                     if (table == null) {
@@ -322,7 +321,6 @@ public class Untap extends Phase {
                     table.replaceCounterEffect(game, null, false);
                     GameEventBurnCounterBurned gameEvent = new GameEventBurnCounterBurned(card);
                     game.fireEvent(gameEvent);
-                    game.getGameLog().add(GameLogEntryType.BURNED, gameEvent.toString());
                 }
             }
         }

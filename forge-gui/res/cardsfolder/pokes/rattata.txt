@@ -1,0 +1,6 @@
+Name:Rattata
+ManaCost:W
+Types:Creature Rat Pokémon
+PT:1/1
+A:AB$ Phases | Cost$ 4 | Defined$ Self | SpellDescription$ CARDNAME phases out.
+Oracle:{4}: Rattata phases out.

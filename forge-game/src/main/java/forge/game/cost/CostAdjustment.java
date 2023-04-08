@@ -353,6 +353,14 @@ public class CostAdjustment {
      *            a ManaCost
      */
     private  static void applySetCostAbility(final StaticAbility staticAbility, final SpellAbility sa, final ManaCostBeingPaid manaCost) {
+        if (!checkRequirement(sa, staticAbility)) {
+            return;
+        }
+        if (staticAbility.hasParam("NoCost")) {
+            manaCost.setNoManaCost();
+            return;
+        }
+
         final String amount = staticAbility.getParam("Amount");
 
         if (!checkRequirement(sa, staticAbility)) {

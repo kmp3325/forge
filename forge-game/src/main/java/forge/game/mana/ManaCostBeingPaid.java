@@ -410,6 +410,10 @@ public class ManaCostBeingPaid {
         }
     }
 
+    public void setNoManaCost() {
+        unpaidShards.clear();
+    }
+
     public final int getGenericManaAmount() {
         ShardCount sc = unpaidShards.get(ManaCostShard.GENERIC);
         if (sc != null) {

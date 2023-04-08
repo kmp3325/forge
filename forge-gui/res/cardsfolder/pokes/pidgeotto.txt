@@ -1,0 +1,12 @@
+Name:Pidgeotto
+ManaCost:2 W
+Types: Creature Bird Pokémon
+PT:1/2
+K:Mutate onto:2 W:Pidgey:2/2
+K:Flying
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigPhaseOut | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME attacks, you may have it phase out. When it phases in, it deals damage equal to its power to any target.
+SVar:TrigPhaseOut:DB$ Phases | Defined$ Self | SubAbility$ PhaseInTrig
+SVar:PhaseInTrig:DB$ DelayedTrigger | Mode$ PhaseIn | ValidCard$ Card.Self | Execute$ DamageTrig | Description$ When CARDNAME phases in, it deals damage equal to its power to any target.
+SVar:DamageTrig:DB$ DealDamage | ValidTgts$ Creature,Player,Planeswalker | TgtPrompt$ Select any target | NumDmg$ X
+SVar:X:Count$CardPower
+Oracle:Mutate onto Pidgey {2}{G} [2/2]\nFlying\nWhenever Pidgeotto attacks, you may have it phase out. When it phases in, it deals damage equal to its power to any target.

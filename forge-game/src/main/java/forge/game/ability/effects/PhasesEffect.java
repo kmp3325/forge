@@ -43,6 +43,7 @@ public class PhasesEffect extends SpellAbilityEffect {
         final Card source = sa.getHostCard();
         final boolean phaseInOrOut = sa.hasParam("PhaseInOrOut");
         final boolean wontPhaseInNormal = sa.hasParam("WontPhaseInNormal");
+        boolean phaseIn = sa.hasParam("PhaseIn");
 
         if (sa.hasParam("AllValid")) {
             if (phaseInOrOut) {
@@ -74,6 +75,20 @@ public class PhasesEffect extends SpellAbilityEffect {
                     tgtC.setWontPhaseInNormal(false);
                 } else {
                     tgtC.setWontPhaseInNormal(wontPhaseInNormal);
+                }
+            }
+        } else if (phaseIn) {
+            for (final Card tgtC : tgtCards) {
+                if (tgtC.isPhasedOut()) {
+                    tgtC.phase(false);
+                    if (!tgtC.isPhasedOut()) {
+                        if (sa.hasParam("Tapped")) {
+                            tgtC.setTapped(true);
+                        } else if (sa.hasParam("Untapped")) {
+                            tgtC.setTapped(false);
+                        }
+                        tgtC.setWontPhaseInNormal(false);
+                    }
                 }
             }
         } else { // just phase out

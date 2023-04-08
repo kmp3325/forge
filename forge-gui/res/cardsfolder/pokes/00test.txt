@@ -3,4 +3,6 @@ ManaCost:1
 Types: Creature Plant Frog Pokémon
 PT:1/10
 K:A deck can have any number of cards named CARDNAME.
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigSunny
+SVar:TrigSunny:DB$ Weather | Value$ Windy
 Oracle:Bullshit

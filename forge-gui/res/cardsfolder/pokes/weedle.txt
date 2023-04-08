@@ -1,0 +1,6 @@
+Name:Weedle
+ManaCost:BG
+Types: Creature Insect Pokémon
+K:Caustic
+S:Mode$ Continuous | Affected$ Card.Self+attacking | AddPower$ 1 | Description$ CARDNAME gets +1/+0 as long as it's attacking.
+Oracle:Caustic\nWeedle gets +1/+0 as long as it's attacking.

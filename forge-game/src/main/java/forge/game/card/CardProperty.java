@@ -871,9 +871,9 @@ public class CardProperty {
                 } else if (restriction.equals("MovedToGrave")) {
                     if (!(spellAbility instanceof SpellAbility)) {
                         final SpellAbility root = ((SpellAbility) spellAbility).getRootAbility();
-                        if (root != null && (root.getPaidList("MovedToGrave") != null)
-                                && !root.getPaidList("MovedToGrave").isEmpty()) {
-                            final CardCollectionView cards = root.getPaidList("MovedToGrave");
+                        if (root != null && (root.getPaidList("MovedToGrave", true) != null)
+                                && !root.getPaidList("MovedToGrave", true).isEmpty()) {
+                            final CardCollectionView cards = root.getPaidList("MovedToGrave", true);
                             for (final Card c : cards) {
                                 String name = c.getName();
                                 if (StringUtils.isEmpty(name)) {
@@ -989,6 +989,18 @@ public class CardProperty {
             if (card.getTurnInZone() <= sourceController.getLastTurnNr()) {
                 return false;
             }
+        } else if (property.startsWith("ThisTurnEnteredFrom")) {
+            final String restrictions = property.split("ThisTurnEnteredFrom_")[1];
+            final String[] res = restrictions.split("_");
+            final ZoneType origin = ZoneType.smartValueOf(res[0]);
+
+            if (card.getTurnInZone() != game.getPhaseHandler().getTurn()) {
+                return false;
+            }
+
+            if (!card.getZone().isCardAddedThisTurn(card, origin)) {
+                return false;
+            }
         } else if (property.startsWith("ThisTurnEntered")) {
             // only check if it entered the Zone this turn
             if (card.getTurnInZone() != game.getPhaseHandler().getTurn()) {
@@ -1010,18 +1022,6 @@ public class CardProperty {
         } else if (property.equals("NotThisTurnEntered")) {
             // only check if it entered the Zone this turn
             if (card.getTurnInZone() == game.getPhaseHandler().getTurn()) {
-                return false;
-            }
-        } else if (property.startsWith("ThisTurnEnteredFrom")) {
-            final String restrictions = property.split("ThisTurnEnteredFrom_")[1];
-            final String[] res = restrictions.split("_");
-            final ZoneType origin = ZoneType.smartValueOf(res[0]);
-
-            if (card.getTurnInZone() != game.getPhaseHandler().getTurn()) {
-                return false;
-            }
-
-            if (!card.getZone().isCardAddedThisTurn(card, origin)) {
                 return false;
             }
         } else if (property.equals("DiscardedThisTurn")) {

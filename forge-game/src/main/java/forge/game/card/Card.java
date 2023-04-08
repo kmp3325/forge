@@ -2257,7 +2257,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
                          || keyword.equals("Exalted") || keyword.equals("Extort")|| keyword.equals("Flanking")
                          || keyword.equals("Horsemanship") || keyword.equals("Infect")|| keyword.equals("Persist")
                          || keyword.equals("Phasing") || keyword.equals("Shadow")|| keyword.equals("Skulk")
-                         || keyword.equals("Undying") || keyword.equals("Wither") || keyword.equals("Cascade")
+                         || keyword.equals("Undying") || keyword.equals("Wither")
                          || keyword.equals("Mentor") || keyword.equals("Training")) {
                     if (sb.length() != 0) {
                         sb.append("\r\n");
@@ -2267,6 +2267,25 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
                         sb.append(" (").append(inst.getReminderText()).append(")");
                         printedKW.add(keyword);
                     }
+                } else if (keyword.equals("Cascade")) { // this could become a list for easy keywords that stack
+                    if (printedKW.contains(keyword)) {
+                        continue;
+                    }
+                    if (sb.length() != 0) {
+                        sb.append("\r\n");
+                    }
+
+                    StringBuilder descStr = new StringBuilder(keyword);
+                    int times = 0;
+                    for (KeywordInterface keyw : keywords) {
+                        String kw = keyw.getOriginal();
+                        if (kw.equals(keyword)) {
+                            descStr.append(times == 0 ? "" : ", " + StringUtils.uncapitalize(keyword));
+                            times++;
+                        }
+                    }
+                    sb.append(descStr).append(" ").append(" (").append(inst.getReminderText()).append(")");
+                    printedKW.add(keyword);
                 } else if (keyword.startsWith("Ward")) {
                     final String[] k = keyword.split(":");
                     final Cost cost = new Cost(k[1], false);
@@ -2303,10 +2322,37 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
                         || keyword.startsWith("Specialize") || keyword.equals("Ravenous")
                         || keyword.equals("For Mirrodin")) {
                     // keyword parsing takes care of adding a proper description
-                } else if(keyword.startsWith("Read ahead")) {
+                } else if (keyword.startsWith("Read ahead")) {
                     sb.append(Localizer.getInstance().getMessage("lblReadAhead")).append(" (").append(Localizer.getInstance().getMessage("lblReadAheadDesc"));
                     sb.append(" ").append(Localizer.getInstance().getMessage("lblSagaFooter")).append(" ").append(TextUtil.toRoman(getFinalChapterNr())).append(".");
                     sb.append(")").append("\r\n\r\n");
+                } else if (keyword.startsWith("Backup")) {
+                    if (printedKW.contains("Backup")) {
+                        continue;
+                    }
+                    boolean plural = false;
+
+                    StringBuilder descStr = new StringBuilder("Backup ");
+                    int times = 0;
+                    for (KeywordInterface keyw : keywords) {
+                        String kw = keyw.getOriginal();
+                        if (kw.startsWith("Backup")) {
+                            final String[] k = keyword.split(":");
+                            String magnitude = k[1];
+                            if (times == 0 && k[2].endsWith("s")) {
+                                plural = true;
+                            }
+                            descStr.append(times == 0 ? magnitude : ", backup " + magnitude);
+                            times++;
+                        }
+                    }
+                    sb.append(descStr).append(" ").append(" (");
+                    String remStr = inst.getReminderText();
+                    if (plural) {
+                        remStr = remStr.replace("ability", "abilities");
+                    }
+                    sb.append(remStr).append(times > 1 ? " Each backup ability triggers separately." : "").append(")");
+                    printedKW.add("Backup");
                 } else if (keyword.startsWith("MayEffectFromOpening")) {
                     final String[] k = keyword.split(":");
                     // need to get SpellDescription from Svar
@@ -2325,7 +2371,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
                     sbLong.append("\r\n");
                 }
 
-                if (keyword.equals("Flash")) {
+                if (keyword.equals("Flash") || keyword.startsWith("Backup")) {
                     sb.append("\r\n\r\n");
                     i = 0;
                 } else {
@@ -4401,6 +4447,17 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
         return result;
     }
 
+    public void setStoredReplacements(Table<StaticAbility, String, ReplacementEffect> table) {
+        storedReplacementEffect.clear();
+        for (Table.Cell<StaticAbility, String, ReplacementEffect> c : table.cellSet()) {
+            storedReplacementEffect.put(c.getRowKey(), c.getColumnKey(), c.getValue().copy(this, true));
+        }
+    }
+
+    public final Table<StaticAbility, String, ReplacementEffect> getStoredReplacements() {
+        return storedReplacementEffect;
+    }
+
     public final ReplacementEffect getReplacementEffectForStaticAbility(final String str, final StaticAbility stAb) {
         ReplacementEffect result = storedReplacementEffect.get(stAb, str);
         if (result == null) {
@@ -4571,8 +4628,25 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
     public void setStoredKeywords(Table<Long, String, KeywordInterface> table, boolean lki) {
         storedKeywords.clear();
         for (Table.Cell<Long, String, KeywordInterface> c : table.cellSet()) {
-            storedKeywords.put(c.getRowKey(), c.getColumnKey(), c.getValue().copy(this, lki));
+            storedKeywords.put(c.getRowKey(), c.getColumnKey(), getCopyForStoredKeyword(c, lki));
         }
+    }
+
+    private final KeywordInterface getCopyForStoredKeyword(Table.Cell<Long, String, KeywordInterface> c, boolean lki) {
+        // for performance check if we already copied this
+        if (lki) {
+            for (KeywordsChange kc : changedCardKeywords.column(c.getRowKey()).values()) {
+                // same static id
+                for (KeywordInterface kw : kc.getKeywords()) {
+                    if (kw.getOriginal().equals(c.getValue().getOriginal())) {
+                        // same kw
+                        return kw;
+                    }
+                }
+            }
+        }
+
+        return c.getValue().copy(this, lki);
     }
 
     public final void addChangedCardKeywordsByText(final List<KeywordInterface> keywords, final long timestamp, final long staticId, final boolean updateView) {
@@ -5847,7 +5921,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
         timesCrewedThisTurn += 1;
         Map<AbilityKey, Object> runParams = AbilityKey.newMap();
         runParams.put(AbilityKey.Vehicle, this);
-        runParams.put(AbilityKey.Crew, sa.getPaidList("TappedCards"));
+        runParams.put(AbilityKey.Crew, sa.getPaidList("TappedCards", true));
         game.getTriggerHandler().runTrigger(TriggerType.BecomesCrewed, runParams, false);
     }
 

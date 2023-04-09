@@ -1,0 +1,9 @@
+Name:Ninetales
+ManaCost:2 R R
+Types: Creature Fox Pokémon
+PT:3/4
+K:Mutate onto:2 R R:Vulpix:4/6
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ BurnEm | TriggerDescription$ Whenever CARDNAME attacks, you may put a burn counter on each of up to two target creatures. If it's sunny, put two burn counters on each of those creatures instead.
+SVar:BurnEm:DB$ PutCounter | CounterType$ BURN | CounterNum$ X | TargetMin$ 0 | TargetMax$ 2 | ValidTgts$ Creature | TgtPrompt$ Select up to two target creatures
+SVar:X:Count$Sunny.2.1
+Oracle:Mutate onto Vulpix {2}{R}{R} [4/6]\nWhenever Ninetales attacks, you may put a burn counter on each of up to two target creatures. If it's sunny, put two burn counters on each of those creatures instead.

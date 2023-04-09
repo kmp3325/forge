@@ -20,7 +20,7 @@ public class GameEventBurnCounterBurned extends GameEvent {
      */
     @Override
     public String toString() {
-        return card != null ? card.toString() : "(unknown)" + "'s burn got worse. It received another burn counter.";
+        return (card != null ? card.toString() : "(unknown)") + "'s burn got worse. It received another burn counter.";
     }
 }
 

@@ -5,6 +5,6 @@ PT:1/10
 K:A deck can have any number of cards named CARDNAME.
 A:AB$ PutCounter | Cost$ T | CounterType$ STUN | CounterNum$ 1 | ValidTgts$ Creature | SpellDescription$ Stun that fool
 K:Flying
-SVar:WeatherStuff:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigWeather
-SVar:TrigWeather:DB$ Weather | Value$ Snowy
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigWeather
+SVar:TrigWeather:DB$ Weather | Value$ Sunny
 Oracle:Bullshit

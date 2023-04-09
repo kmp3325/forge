@@ -634,7 +634,6 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
             incrementTransformedTimestamp();
 
             return retResult;
-
         } else if (mode.equals("Flip")) {
             // 709.4. Flipping a permanent is a one-way process.
             if (isFlipped()) {
@@ -1447,6 +1446,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
             final int toughnessBonusBefore = getToughnessBonusFromCounters();
             final int loyaltyBefore = getCurrentLoyalty();
 
+            int addedThisTurn = getGame().getCounterAddedThisTurn(counterType, this);
             setCounters(counterType, newValue);
             getGame().addCounterAddedThisTurn(source, counterType, this, addAmount);
             view.updateCounters(this);
@@ -1473,6 +1473,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
             }
             if (addAmount > 0) {
                 runParams.put(AbilityKey.CounterAmount, addAmount);
+                runParams.put(AbilityKey.FirstTime, addedThisTurn == 0);
                 getGame().getTriggerHandler().runTrigger(
                         TriggerType.CounterAddedOnce, AbilityKey.newMap(runParams), false);
             }
@@ -3284,6 +3285,10 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
 
     public final void setFaceDown(boolean value) {
         facedown = value;
+    }
+
+    public final boolean isTransformed() {
+        return getTransformedTimestamp() != 0;
     }
 
     public final boolean isFlipped() {

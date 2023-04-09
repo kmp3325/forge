@@ -5734,7 +5734,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
             if (wither) { // 120.3d
                 addCounter(CounterEnumType.M1M1, damageIn, source.getController(), counterTable);
                 damageType = DamageType.M1M1Counters;
-            } else if (source.hasKeyword(Keyword.CAUSTIC)) {
+            } else if (source.hasKeyword(Keyword.CAUSTIC) && !takesCausticAsRegularDamage(source)) {
                 addCounter(CounterEnumType.M0M1, damageIn, source.getController(), counterTable);
                 damageType = DamageType.M0M1Counters;
             } else if (source.hasKeyword(Keyword.BURN_DAMAGE)) {
@@ -5761,6 +5761,11 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
         }
 
         return damageIn;
+    }
+
+    public boolean takesCausticAsRegularDamage(Card source) {
+        return hasKeyword("Creatures you control with caustic deal damage to this creature as though they didn't have caustic.")
+            && source.getController().equals(getController());
     }
 
     public final String getSetCode() {

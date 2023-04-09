@@ -1,0 +1,7 @@
+Name:Ekans
+ManaCost:B G
+Types:Creature Snake Pokémon
+PT:2/2
+K:Caustic
+A:AB$ Pump | Cost$ B G | NumDef$ +2 | SpellDescription$ CARDNAME gets +0/+2 until end of turn.
+Oracle:Caustic\n{B}{G}: Ekans gets +0/+2 until end of turn.

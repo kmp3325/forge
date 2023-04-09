@@ -3,6 +3,8 @@ ManaCost:1
 Types: Creature Plant Frog Pokémon
 PT:1/10
 K:A deck can have any number of cards named CARDNAME.
-T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigWeather
+A:AB$ PutCounter | Cost$ T | CounterType$ STUN | CounterNum$ 1 | ValidTgts$ Creature | SpellDescription$ Stun that fool
+K:Caustic
+SVar:WeatherStuff:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigWeather
 SVar:TrigWeather:DB$ Weather | Value$ Snowy
 Oracle:Bullshit

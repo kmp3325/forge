@@ -1,0 +1,12 @@
+Name:Arbok
+ManaCost:2 B G
+Types:Creature Snake Pokémon
+PT:3/3
+K:Mutate onto:2 B G:Ekans:4/4
+K:Caustic
+A:AB$ DealDamage | Cost$ T | NumDmg$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigProvoke | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME attacks, you may have target creature with a -0/-1 counter on it block CARDNAME this turn if able. When it does, CARDNAME gets +0/+X until end of turn, where X is CARDNAME's toughness.
+SVar:TrigProvoke:DB$ MustBlock | ValidTgts$ Creature.counters_GE1_M0M1 | TgtPrompt$ Select target creature with a -0/-1 counter on it | SubAbility$ PumpTough
+SVar:PumpTough:DB$ Pump | NumDef$ +X
+SVar:X:Count$CardToughness
+Oracle: Mutate onto Ekans {2}{B}{G} [4/4]\nCaustic\n{T}: Arbok deals 1 damage to target creature.\nWhenever Arbok attacks, you may have target creature with a -0/-1 counter on it block Arbok this turn if able. When it does, Arbok gets +0/+X until end of turn, where X is Arbok's toughness.

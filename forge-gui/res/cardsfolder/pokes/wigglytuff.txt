@@ -1,0 +1,10 @@
+Name:Wigglytuff
+ManaCost:4 W U
+Types:Creature Faerie Rabbit Pokémon
+PT:3/3
+K:Mutate onto:4 W U:Jigglypuff:4/4
+R:Event$ Moved | ValidCard$ Creature.OppCtrl | Destination$ Battlefield | ReplaceWith$ ETBTapped | ReplacementResult$ Updated | ActiveZones$ Battlefield | Description$ Creatures your opponents control enter the battlefield tapped.
+SVar:ETBTapped:DB$ Tap | ETB$ True | Defined$ ReplacedCard
+T:Mode$ Mutates | ValidCard$ Creature.YouDontCtrl | TriggerZones$ Battlefield | Execute$ TrigTap | TriggerDescription$ Whenever a creature you don't control mutates, tap it.
+SVar:TrigTap:DB$ Tap | Defined$ TriggeredCardLKICopy
+Oracle:Mutate onto Jigglypuff {4}{W}{U} [4/4]\nCreatures your opponents control enter the battlefield tapped.\nWhenever a creature you don't control mutates, tap it.

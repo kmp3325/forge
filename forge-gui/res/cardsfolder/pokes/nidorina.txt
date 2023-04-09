@@ -1,0 +1,7 @@
+Name:Nidorina
+ManaCost:4 B
+Types:Creature Dinosaur Rabbit Pokémon
+PT:3/4
+K:Mutate onto:4 B:Female Nidoran:4/5
+K:Caustic
+Oracle:Mutate onto Female Nidoran {4}{B} [4/5]\nCaustic

@@ -1,0 +1,10 @@
+Name:Clefairy
+ManaCost:4 W
+Types:Creature Faerie Rabbit Pokémon
+PT:1/1
+K:Mutate onto:4 W:Cleffa:1/2
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigPutCounters | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, put a +1/+1 counter on each mutated creature you control. They gain indestructible and vigilance until end of turn.
+T:Mode$ Mutates | ValidCard$ Card.Self | Execute$ TrigPutCounters | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, put a +1/+1 counter on each mutated creature you control. They gain indestructible and vigilance until end of turn.
+SVar:TrigPutCounters:DB$ PutCounterAll | ValidCards$ Creature.YouCtrl+Mutated | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ TrigKWPump
+SVar:TrigKWPump:DB$ PumpAll | ValidCards$ Creature.YouCtrl+Mutated | KW$ Indestructible & vigilance
+Oracle:Mutate onto Cleffa {4}{W} [1/2]\nWhenever Clefairy enters the battlefield or mutates, put a +1/+1 counter on each mutated creature you control. They gain indestructible and vigilance until end of turn.

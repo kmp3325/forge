@@ -163,6 +163,10 @@ public class CardProperty {
             if (!card.isAdventureCard()) {
                 return false;
             }
+        } else if (property.equals("Mutated")) {
+            if (!card.isMutated()) {
+                return false;
+            }
         } else if (property.equals("IsTriggerRemembered")) {
             boolean found = false;
             for (Object o : spellAbility.getTriggerRemembered()) {

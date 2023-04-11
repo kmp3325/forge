@@ -1,0 +1,7 @@
+Name:Insect Token
+ManaCost:no cost
+Types:Creature Plant
+Colors:green
+PT:0/1
+S:Mode$ Continuous | Affected$ Creature.Insect+YouCtrl | AddPower$ 1 | AddToughness$ 1 | Description$ Insects you control get +1/+1.
+Oracle:Insects you control get +1/+1.

@@ -1,0 +1,7 @@
+Name:Paras
+ManaCost:2 G
+Types:Creature Plant Insect Pokémon
+PT:2/2
+A:AB$ GainLife | Cost$ G T | LifeAmount$ X | Defined$ You | SpellDescription$ You gain 1 life for each Insect on the battlefield.
+SVar:X:Count$TypeOnBattlefield.Insect
+Oracle:{G}, {T}: You gain 1 life for each Insect on the battlefield.

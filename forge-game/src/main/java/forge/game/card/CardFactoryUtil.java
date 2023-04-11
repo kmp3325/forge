@@ -3215,7 +3215,10 @@ public class CardFactoryUtil {
             final StringBuilder sbMutate = new StringBuilder();
             sbMutate.append("SP$ MutateOnto | Cost$ ");
             sbMutate.append(cost);
-            sbMutate.append(" | ValidTgts$ Creature.sharesOwnerWith+named" + onto);
+            sbMutate.append(" | ValidTgts$ Creature.sharesOwnerWith+named");
+            sbMutate.append(onto);
+            sbMutate.append(" | TgtPrompt$ Select target ");
+            sbMutate.append(onto);
 
             final SpellAbility sa = AbilityFactory.getAbility(sbMutate.toString(), card);
             sa.setDescription("Mutate onto " + onto + " " + ManaCostParser.parse(cost) +

@@ -1,0 +1,9 @@
+Name:Oddish
+ManaCost:BG
+Types:Creature Plant Pokémon
+PT:1/1
+T:Mode$ Taps | ValidCard$ Card.Self | Execute$ TrigSolar | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME becomes tapped, you may put a solar counter on it. If you do, you gain life equal to the number of solar counters on CARDNAME.
+SVar:TrigSolar:DB$ PutCounter | Defined$ Card.Self | CounterType$ SOLAR | CounterNum$ 1 | SubAbility$ DBGainLife
+SVar:DBGainLife:DB$ GainLife | Defined$ You | LifeAmount$ X
+SVar:X:Count$CardCounters.SOLAR
+Oracle:Whenever Oddish becomes tapped, you may put a solar counter on it. If you do, you gain life equal to the number of solar counters on Oddish.

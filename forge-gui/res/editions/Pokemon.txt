@@ -47,7 +47,7 @@ Name=Pokémon
 1 C Zubat
 1 C Golbat
 1 C Oddish
-1 U Gloom
+1 U Gloom Pokémon
 1 R Vileplume
 1 C Paras
 1 R Parasect

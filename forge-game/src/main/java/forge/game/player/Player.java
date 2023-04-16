@@ -1418,6 +1418,25 @@ public class Player extends GameEntity implements Comparable<Player> {
         numRollsThisTurn++;
     }
 
+    public final CardCollection discardCards(final CardCollectionView cardCollectionView, final SpellAbility sa, final boolean effect, CardZoneTable table, Map<AbilityKey, Object> params) {
+        Map<AbilityKey, Object> repRunParams = AbilityKey.mapFromAffected(this);
+        if (game.getReplacementHandler().run(ReplacementType.DiscardCards, repRunParams) != ReplacementResult.NotReplaced) {
+            return new CardCollection();
+        }
+        CardCollection discarded = new CardCollection();
+        for (Card card : Lists.newArrayList(cardCollectionView)) { // without copying will get concurrent modification exception
+            if (card == null) { continue; }
+            if (discard(card, sa, effect, table, params) != null) {
+                discarded.add(card);
+
+                if (sa.hasParam("RememberDiscarded")) {
+                    sa.getHostCard().addRemembered(card);
+                }
+            }
+        }
+        return discarded;
+    }
+
     public final Card discard(final Card c, final SpellAbility sa, final boolean effect, CardZoneTable table, Map<AbilityKey, Object> params) {
         if (!c.canBeDiscardedBy(sa, effect)) {
             return null;
@@ -1432,10 +1451,11 @@ public class Player extends GameEntity implements Comparable<Player> {
 
         boolean discardToTopOfLibrary = null != sa && sa.hasParam("DiscardToTopOfLibrary");
         boolean discardMadness = sa != null && sa.hasParam("Madness");
+        boolean discardToExile = sa != null && sa.hasParam("DiscardToExile");
 
         // DiscardToTopOfLibrary and Madness are replacement discards,
         // that should not trigger other Replacement again
-        if (!discardToTopOfLibrary && !discardMadness) {
+        if (!discardToTopOfLibrary && !discardMadness && !discardToExile) {
             // Replacement effects
             final Map<AbilityKey, Object> repRunParams = AbilityKey.mapFromCard(c);
             repRunParams.put(AbilityKey.Source, source);
@@ -1456,6 +1476,10 @@ public class Player extends GameEntity implements Comparable<Player> {
             newCard = game.getAction().moveToLibrary(c, 0, sa, params);
             sb.append(" to the library");
             // Play the Discard sound
+        }
+        else if (discardToExile) {
+            newCard = game.getAction().exile(c, sa, params);
+            sb.append(" to exile");
         }
         else if (discardMadness) {
             newCard = game.getAction().exile(c, sa, params);

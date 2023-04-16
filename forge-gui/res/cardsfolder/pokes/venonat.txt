@@ -1,0 +1,6 @@
+Name:Venonat
+ManaCost:2 BG
+Types:Creature Insect Pokémon
+PT:1/1
+S:Mode$ Continuous | AffectedZone$ Hand | Affected$ Card.OppOwn | MayLookAt$ Player | IsPresent$ Insect.YouCtrl+Mutated | PresentCompare$ GE2 | Description$ Your opponents play with their hands revealed as long as you.
+Oracle:Your opponents play with their hands revealed as long as you control two or more mutated Insects.

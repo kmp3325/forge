@@ -311,6 +311,8 @@ public class DiscardEffect extends SpellAbilityEffect {
         params.put(AbilityKey.LastStateBattlefield, sa.getLastStateBattlefield());
         params.put(AbilityKey.LastStateGraveyard, sa.getLastStateGraveyard());
 
+        // todo discardcards replacement here??
+
         discard(sa, table, true, discardedMap, params);
 
         // run trigger if something got milled

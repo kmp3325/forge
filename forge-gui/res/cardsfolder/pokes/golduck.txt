@@ -1,0 +1,9 @@
+Name:Golduck
+ManaCost:3 U U
+Types:Creature Bird Pokémon
+PT:4/5
+K:Mutate onto:3 U U:Psyduck:5/6
+R:Event$ DiscardCards | ActiveZones$ Battlefield | ReplaceWith$ ExileDiscard | Optional$ True | DiscardFromEffect$ True | Description$ If a spell or ability causes you to discard one or more cards, you may exile them instead of putting them into your graveyard. If you do, you may play one of those cards until the end of your next turn. This ability triggers only once each turn.
+SVar:ExileDiscard:DB$ Discard ////TODO think about how this doesnt infinitely loop trying to replace?? maybe check draw card replaces? Do they just add 1 somehow?
+
+Oracle:Mutate onto Psyduck {3}{U}{U} [5/6]\nIf a spell or ability causes you to discard one or more cards, you may exile them instead of putting them into your graveyard. If you do, you may play one of those cards until the end of your next turn. This ability triggers only once each turn.

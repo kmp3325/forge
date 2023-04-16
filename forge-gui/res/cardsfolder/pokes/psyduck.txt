@@ -1,0 +1,7 @@
+Name:Psyduck
+ManaCost:3 U
+Types:Creature Bird Pokémon
+PT:2/2
+T:Mode$ AttackersDeclared | AttackedTarget$ You | TriggerZones$ Battlefield | Execute$ TrigCard | TriggerDescription$ Whenever one or more creatures attack you, you may discard a card. If you do, draw a card.
+SVar:TrigCard:DB$ Draw | Cost$ Discard<1/Card> | NumCards$ 1
+Oracle:Whenever one or more creatures attack you, you may discard a card. If you do, draw a card.

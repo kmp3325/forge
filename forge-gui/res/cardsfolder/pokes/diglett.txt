@@ -1,0 +1,9 @@
+Name:Diglett
+ManaCost:WB
+Types:Creature Mole Pokémon
+PT:1/1
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounter | TriggerDescription$ When CARDNAME enters the battlefield, put a dig counter on it.
+SVar:TrigPutCounter:DB$ PutCounter | Defined$ TriggeredCardLKICopy | CounterNum$ 1 | CounterType$ DIG
+A:AB$ Phases | Cost$ WB WB | Defined$ Self | IsPresent$ Card.Self+counters_GE1_DIG | SpellDescription$ CARDNAME phases out. Activate only if CARDNAME has a dig counter on it.
+A:AB$ Phases | Cost$ WB WB SubCounter<1/DIG> | ValidTgts$ Creature | SpellDescription$ Target creature phases out.
+Oracle:When Diglett enters the battlefield, put a dig counter on it.\n{WB}{WB}: Diglett phases out. Activate only if Diglett has a dig counter on it.\n{WB}{WB}, Remove a dig counter from Diglett: Target creature phases out.

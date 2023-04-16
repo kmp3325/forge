@@ -17,6 +17,7 @@ import forge.game.player.PlayerCollection;
 import forge.game.replacement.ReplacementEffect;
 import forge.game.replacement.ReplacementHandler;
 import forge.game.replacement.ReplacementLayer;
+import forge.game.replacement.ReplacementType;
 import forge.game.spellability.AbilitySub;
 import forge.game.spellability.SpellAbility;
 import forge.game.trigger.Trigger;
@@ -778,17 +779,7 @@ public abstract class SpellAbilityEffect {
     protected static void discard(SpellAbility sa, CardZoneTable table, final boolean effect, Map<Player, CardCollectionView> discardedMap, Map<AbilityKey, Object> params) {
         Set<Player> discarders = discardedMap.keySet();
         for (Player p : discarders) {
-            final CardCollection discardedByPlayer = new CardCollection();
-            for (Card card : Lists.newArrayList(discardedMap.get(p))) { // without copying will get concurrent modification exception
-                if (card == null) { continue; }
-                if (p.discard(card, sa, effect, table, params) != null) {
-                    discardedByPlayer.add(card);
-
-                    if (sa.hasParam("RememberDiscarded")) {
-                        sa.getHostCard().addRemembered(card);
-                    }
-                }
-            }
+            final CardCollection discardedByPlayer = p.discardCards(discardedMap.get(p), sa, effect, table, params);
             discardedMap.put(p, discardedByPlayer);
         }
 

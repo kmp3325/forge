@@ -2391,6 +2391,10 @@ public class Player extends GameEntity implements Comparable<Player> {
         return CardLists.filter(getCardsIn(ZoneType.Battlefield), Presets.PLANESWALKERS);
     }
 
+    public CardCollection getBattlesInPlay() {
+        return CardLists.filter(getCardsIn(ZoneType.Battlefield), Presets.BATTLES);
+    }
+
     /**
      * use to get a list of tokens in play for a given player.
      */

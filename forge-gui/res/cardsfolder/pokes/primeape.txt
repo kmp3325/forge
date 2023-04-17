@@ -1,0 +1,9 @@
+Name:Primeape
+ManaCost:2 R W
+Types:Creature Monkey Pokémon
+PT:4/3
+K:Mutate onto:2 R W:Mankey:5/4
+K:Vigilance
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ DBFight | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME attacks, you may have it fight target creature.
+SVar:DBFight:DB$ Fight | Defined$ Self | ValidTgts$ Creature | TgtPrompt$ Choose target creature
+Oracle:Mutate onto Mankey {2}{R}{W} [5/4]\nVigilance\nWhenever Primeape attacks, you may have it fight target creature.

@@ -1,0 +1,10 @@
+Name:Poliwag
+ManaCost:2 U
+Types:Creature Frog Pokémon
+PT:0/1
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigEffect | TriggerDescription$ When CARDNAME enters the battlefield, until your next turn, the next spell an opponent casts is countered unless they discard two cards.
+SVar:TrigEffect:DB$ Effect | Triggers$ TrigCastSpell | Duration$ UntilYourNextTurn | Description$ Until your next turn, the next spell an opponent casts is countered unless they discard two cards.
+SVar:TrigCastSpell:Mode$ SpellCast | ValidActivatingPlayer$ Player.Opponent | TriggerZone$ Command | Execute$ DBCounter | Static$ True | Description$ The next spell an opponent casts is countered unless they discard two cards.
+SVar:DBCounter:DB$ Counter | Defined$ TriggeredSpellAbility | UnlessCost$ Discard<2/Card> | UnlessPayer$ TriggeredSpellAbilityController | SubAbility$ RemoveEffect
+SVar:RemoveEffect:DB$ ChangeZone | Origin$ Command | Destination$ Exile
+Oracle:When Poliwag enters the battlefield, until your next turn, the next spell an opponent casts is countered unless they discard two cards.

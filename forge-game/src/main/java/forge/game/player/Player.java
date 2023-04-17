@@ -1419,10 +1419,6 @@ public class Player extends GameEntity implements Comparable<Player> {
     }
 
     public final CardCollection discardCards(final CardCollectionView cardCollectionView, final SpellAbility sa, final boolean effect, CardZoneTable table, Map<AbilityKey, Object> params) {
-        Map<AbilityKey, Object> repRunParams = AbilityKey.mapFromAffected(this);
-        if (game.getReplacementHandler().run(ReplacementType.DiscardCards, repRunParams) != ReplacementResult.NotReplaced) {
-            return new CardCollection();
-        }
         CardCollection discarded = new CardCollection();
         for (Card card : Lists.newArrayList(cardCollectionView)) { // without copying will get concurrent modification exception
             if (card == null) { continue; }
@@ -1480,6 +1476,10 @@ public class Player extends GameEntity implements Comparable<Player> {
         else if (discardToExile) {
             newCard = game.getAction().exile(c, sa, params);
             sb.append(" to exile");
+            if (sa.hasParam("ExileFaceDown")) {
+                newCard.turnFaceDown(true);
+                sb.append(" face down");
+            }
         }
         else if (discardMadness) {
             newCard = game.getAction().exile(c, sa, params);

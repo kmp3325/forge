@@ -1,0 +1,7 @@
+Name:Growlithe
+ManaCost:2 R
+Types:Creature Dog Pokémon
+PT:2/2
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigDealDmg | TriggerDescription$ When CARDNAME enters the battlefield, it deals 2 damage to any target.
+SVar:TrigDealDmg:DB$ DealDamage | ValidTgts$ Creature,Player,Planeswalker | NumDmg$ 2 | TgtPrompt$ Choose any target
+Oracle:When Growlithe enters the battlefield, it deals 2 damage to any target.

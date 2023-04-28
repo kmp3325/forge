@@ -89,22 +89,11 @@ import io.sentry.Sentry;
  */
 public class CardFactoryUtil {
 
-    public static SpellAbility buildBasicLandAbility(final CardState state, byte color) {
-        String strcolor = MagicColor.toShortString(color);
-        String abString  = "AB$ Mana | Cost$ T | Produced$ " + strcolor +
-                " | Secondary$ True | SpellDescription$ Add {" + strcolor + "}.";
-        SpellAbility sa = AbilityFactory.getAbility(abString, state);
-        sa.setIntrinsic(true); // always intrisic
-        return sa;
-    }
-
     /**
      * <p>
      * abilityMorphDown.
      * </p>
      *
-     * @param sourceCard
-     *            a {@link forge.game.card.Card} object.
      * @return a {@link forge.game.spellability.SpellAbility} object.
      */
     public static SpellAbility abilityMorphDown(final CardState cardState, final boolean intrinsic) {
@@ -160,8 +149,6 @@ public class CardFactoryUtil {
      * abilityMorphUp.
      * </p>
      *
-     * @param sourceCard
-     *            a {@link forge.game.card.Card} object.
      * @return a {@link forge.game.spellability.AbilityActivated} object.
      */
     public static SpellAbility abilityMorphUp(final CardState cardState, final String costStr, final boolean mega, final boolean intrinsic) {
@@ -819,9 +806,9 @@ public class CardFactoryUtil {
             inst.addTrigger(trigger);
         } else if (keyword.equals("Ascend")) {
             // Ascend trigger only for Permanent
-            if (card.isPermanent()) {
-                final String trig = "Mode$ Always | TriggerZones$ Battlefield | Secondary$ True"
-                        + " | Static$ True | Blessing$ False | IsPresent$ Permanent.YouCtrl | PresentCompare$ GE10 "
+            if (card.isPermanent() || card.isPlane()) {
+                final String trig = "Mode$ Always | TriggerZones$ " + (card.isPlane() ? "Command" : "Battlefield")
+                        + " | Secondary$ True | Static$ True | Blessing$ False | IsPresent$ Permanent.YouCtrl | PresentCompare$ GE10"
                         + " | TriggerDescription$ Ascend (" + inst.getReminderText() + ")";
 
                 final String effect = "DB$ Ascend | Defined$ You";
@@ -1322,8 +1309,8 @@ public class CardFactoryUtil {
 
             // Second, create the trigger that runs when the haunted creature dies
             final StringBuilder sbDies = new StringBuilder();
-            sbDies.append("Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | TriggerZones$ Exile |");
-            sbDies.append("ValidCard$ Creature.HauntedBy | Execute$ ").append(hauntSVarName);
+            sbDies.append("Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | TriggerZones$ Exile");
+            sbDies.append(" | ValidCard$ Creature.HauntedBy | Execute$ ").append(hauntSVarName);
             sbDies.append(" | TriggerDescription$ ").append(hauntDescription);
 
             final Trigger hauntedDies = TriggerHandler.parseTrigger(sbDies.toString(), card, intrinsic);
@@ -1373,7 +1360,7 @@ public class CardFactoryUtil {
             // First, create trigger that runs when the haunter goes to the graveyard
             final StringBuilder sbHaunter = new StringBuilder();
             sbHaunter.append("Mode$ ChangesZone | Origin$ ");
-            sbHaunter.append(card.isCreature() ? "Battlefield" : "Stack | ResolvedCard$ True");
+            sbHaunter.append(card.isCreature() ? "Battlefield" : "Stack | Fizzle$ False");
             sbHaunter.append(" | Destination$ Graveyard | ValidCard$ Card.Self");
             sbHaunter.append(" | Secondary$ True | TriggerDescription$ Haunt (").append(inst.getReminderText()).append(")");
 
@@ -2284,12 +2271,10 @@ public class CardFactoryUtil {
             String cleanupStr = "DB$ Cleanup | ClearRemembered$ True";
 
             AbilitySub sacrificeSA = (AbilitySub) AbilityFactory.getAbility(sacrificeStr, card);
-            String value = "Count$Valid " + valid + ".YouCtrl+Other";
-            sacrificeSA.setSVar("DevourSacX", value);
+            sacrificeSA.setSVar("DevourSacX", "Count$Valid " + valid + ".YouCtrl+Other");
 
             AbilitySub counterSA = (AbilitySub) AbilityFactory.getAbility(counterStr, card);
-            counterSA.setSVar("DevourX", "SVar$DevourSize/Times." + magnitude);
-            counterSA.setSVar("DevourSize", "Count$RememberedSize");
+            counterSA.setSVar("DevourX", "Count$RememberedSize/Times." + magnitude);
             sacrificeSA.setSubAbility(counterSA);
 
             AbilitySub cleanupSA = (AbilitySub) AbilityFactory.getAbility(cleanupStr, card);
@@ -3779,7 +3764,7 @@ public class CardFactoryUtil {
                     "| Trigger$ TrigEnlist | Description$ Enlist ( " + inst.getReminderText() + ")";
             StaticAbility st = StaticAbility.create(effect, state.getCard(), state, intrinsic);
             st.setSVar("TrigEnlist", "DB$ Pump | NumAtt$ TriggerRemembered$CardPower" +
-            " | SpellDescription$ When you do, add its power to this creature’s until end of turn.");
+            " | SpellDescription$ When you do, add its power to this creature's until end of turn.");
             inst.addStaticAbility(st);
         } else if (keyword.equals("Fear")) {
             String effect = "Mode$ CantBlockBy | ValidAttacker$ Creature.Self | ValidBlocker$ Creature.nonArtifact+nonBlack | Secondary$ True" +
@@ -3857,7 +3842,7 @@ public class CardFactoryUtil {
             inst.addStaticAbility(StaticAbility.create(effect, state.getCard(), state, intrinsic));
         } else if (keyword.startsWith("Read ahead")) {
             String effect = "Mode$ DisableTriggers | ValidCard$ Card.Self+ThisTurnEntered | ValidTrigger$ Triggered.ChapterNotLore | Secondary$ True" +
-                    " | Description$ Chapter abilities of this Saga can’t trigger the turn it entered the battlefield unless it has exactly the number of lore counters on it specified in the chapter symbol of that ability.";
+                    " | Description$ Chapter abilities of this Saga can't trigger the turn it entered the battlefield unless it has exactly the number of lore counters on it specified in the chapter symbol of that ability.";
             inst.addStaticAbility(StaticAbility.create(effect, state.getCard(), state, intrinsic));
         } else if (keyword.equals("Shroud")) {
             String effect = "Mode$ CantTarget | Shroud$ True | ValidCard$ Card.Self | Secondary$ True"
@@ -3932,6 +3917,37 @@ public class CardFactoryUtil {
         }
 
         return altCostSA;
+    }
+
+    public static void setupSiegeAbilities(Card card) {
+        StringBuilder chooseSB = new StringBuilder();
+        chooseSB.append("Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplacementResult$ Updated");
+        chooseSB.append(" | Description$ (As a Siege enters the battlefield, choose an opponent to protect it. You and others can attack it. When it's defeated, exile it, then cast it transformed.)");
+        String chooseProtector = "DB$ ChoosePlayer | Defined$ You | Choices$ Opponent | Protect$ True | ChoiceTitle$ Choose an opponent to protect this battle";
+
+        ReplacementEffect re = ReplacementHandler.parseReplacement(chooseSB.toString(), card, true);
+        re.setOverridingAbility(AbilityFactory.getAbility(chooseProtector, card));
+        card.addReplacementEffect(re);
+
+        // Defeated trigger
+        StringBuilder triggerDefeated = new StringBuilder();
+        triggerDefeated.append("Mode$ CounterRemovedOnce | ValidCard$ Card.Self | Secondary$ True | CounterType$ DEFENSE | Remaining$ 0 | TriggerZones$ Battlefield | ");
+        triggerDefeated.append(" TriggerDescription$ When CARDNAME is defeated, exile it, then cast it transformed.");
+
+        String castExileBattle = "DB$ ChangeZone | Defined$ Self | Origin$ Battlefield | Destination$ Exile | RememberChanged$ True";
+        // note full rules text:
+        // When the last defense counter is removed from this permanent, exile it, then you may cast it transformed
+        // without paying its mana cost.
+        String castDefeatedBattle = "DB$ Play | Defined$ Remembered | WithoutManaCost$ True | Optional$ True | " +
+                "CastTransformed$ True";
+
+        Trigger defeatedTrigger = TriggerHandler.parseTrigger(triggerDefeated.toString(), card, true);
+        SpellAbility exileAbility = AbilityFactory.getAbility(castExileBattle, card);
+        AbilitySub castAbility = (AbilitySub)AbilityFactory.getAbility(castDefeatedBattle, card);
+
+        exileAbility.setSubAbility(castAbility);
+        defeatedTrigger.setOverridingAbility(exileAbility);
+        card.addTrigger(defeatedTrigger);
     }
 
     public static void setupAdventureAbility(Card card) {

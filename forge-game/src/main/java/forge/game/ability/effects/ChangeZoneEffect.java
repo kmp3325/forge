@@ -339,7 +339,7 @@ public class ChangeZoneEffect extends SpellAbilityEffect {
         final String fromGraveyard = " from the graveyard";
 
         if (destination.equals(ZoneType.Battlefield)) {
-            final boolean attacking = (sa.hasParam("Attacking"));
+            final boolean attacking = sa.hasParam("Attacking");
             if (ZoneType.Graveyard.equals(origin)) {
                 sb.append("Return").append(targetname).append(fromGraveyard).append(" to the battlefield");
             } else {
@@ -505,7 +505,6 @@ public class ChangeZoneEffect extends SpellAbilityEffect {
 
         final boolean optional = sa.hasParam("Optional");
         final boolean shuffle = sa.hasParam("Shuffle") && "True".equals(sa.getParam("Shuffle"));
-        final long ts = game.getNextTimestamp();
         boolean combatChanged = false;
 
         Player chooser = player;
@@ -566,6 +565,7 @@ public class ChangeZoneEffect extends SpellAbilityEffect {
 
                 // If a card is moved to library from the stack, remove its spells from the stack
                 if (sa.hasParam("Fizzle")) {
+                    // TODO only AI still targets as card, try to remove it
                     if (gameCard.isInZone(ZoneType.Exile) || gameCard.isInZone(ZoneType.Hand) || gameCard.isInZone(ZoneType.Stack)) {
                         // This only fizzles spells, not anything else.
                         game.getStack().remove(gameCard);
@@ -593,7 +593,7 @@ public class ChangeZoneEffect extends SpellAbilityEffect {
                         gameCard.setTapped(false);
                     }
                     if (sa.hasParam("Transformed")) {
-                        if (gameCard.isDoubleFaced()) {
+                        if (gameCard.isTransformable()) {
                             // need LKI before Animate does apply
                             if (!moveParams.containsKey(AbilityKey.CardLKI)) {
                                 moveParams.put(AbilityKey.CardLKI, CardUtil.getLKICopy(gameCard));
@@ -701,13 +701,6 @@ public class ChangeZoneEffect extends SpellAbilityEffect {
                         game.getCombat().addAttacker(movedCard, defender);
                         game.getCombat().getBandOfAttacker(movedCard).setBlocked(false);
                         combatChanged = true;
-                    }
-
-                    movedCard.setTimestamp(ts);
-                    if (movedCard.isInPlay()) {
-                        // need to also update LKI
-                        List<Card> lki = movedCard.getZone().getCardsAddedThisTurn(null);
-                        lki.get(lki.lastIndexOf(movedCard)).setTimestamp(ts);
                     }
 
                     if (sa.hasParam("AttachAfter") && movedCard.isAttachment()) {
@@ -1246,7 +1239,7 @@ public class ChangeZoneEffect extends SpellAbilityEffect {
                 CardLists.shuffle(chosenCards);
             }
             // do not shuffle the library once we have placed a fetched card on top.
-            if (origin.contains(ZoneType.Library) && (destination == ZoneType.Library) && shuffleMandatory) {
+            if (origin.contains(ZoneType.Library) && destination == ZoneType.Library && shuffleMandatory) {
                 player.shuffle(sa);
             }
 
@@ -1284,7 +1277,6 @@ public class ChangeZoneEffect extends SpellAbilityEffect {
             List<ZoneType> origin = HiddenOriginChoicesMap.get(player).origin;
             ZoneType destination = HiddenOriginChoicesMap.get(player).destination;
             CardCollection movedCards = new CardCollection();
-            long ts = game.getNextTimestamp();
             Player decider = ObjectUtils.firstNonNull(chooser, player);
 
             for (final Card c : chosenCards) {
@@ -1329,7 +1321,7 @@ public class ChangeZoneEffect extends SpellAbilityEffect {
                         c.addEtbCounter(cType, cAmount, player);
                     }
                     if (sa.hasParam("Transformed")) {
-                        if (c.isDoubleFaced()) {
+                        if (c.isTransformable()) {
                             // need LKI before Animate does apply
                             if (!moveParams.containsKey(AbilityKey.CardLKI)) {
                                 moveParams.put(AbilityKey.CardLKI, CardUtil.getLKICopy(c));
@@ -1390,13 +1382,6 @@ public class ChangeZoneEffect extends SpellAbilityEffect {
                         CardFactoryUtil.setFaceDownState(c, sa);
                     }
                     movedCard = game.getAction().moveToPlay(c, c.getController(), sa, moveParams);
-
-                    movedCard.setTimestamp(ts);
-                    if (movedCard.isInPlay()) {
-                        // need to also update LKI
-                        List<Card> lki = movedCard.getZone().getCardsAddedThisTurn(null);
-                        lki.get(lki.lastIndexOf(movedCard)).setTimestamp(ts);
-                    }
 
                     if (sa.hasParam("AttachAfter") && movedCard.isAttachment() && movedCard.isInPlay()) {
                         CardCollection list = AbilityUtils.getDefinedCards(source, sa.getParam("AttachAfter"), sa);

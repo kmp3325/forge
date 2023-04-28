@@ -47,6 +47,8 @@ import forge.game.card.Card;
 import forge.game.card.CardCollection;
 import forge.game.card.CardCollectionView;
 import forge.game.card.CardDamageMap;
+import forge.game.card.CardLists;
+import forge.game.card.CardPredicates;
 import forge.game.card.CardUtil;
 import forge.game.keyword.Keyword;
 import forge.game.player.Player;
@@ -74,7 +76,7 @@ public class Combat {
     // Defenders, as they are attacked by hostile forces
     private final FCollection<GameEntity> attackableEntries = new FCollection<>();
 
-    // Keyed by attackable defender (player or planeswalker)
+    // Keyed by attackable defender (player or planeswalker or battle)
     private final Multimap<GameEntity, AttackingBand> attackedByBands = Multimaps.synchronizedMultimap(ArrayListMultimap.create());
     private final Multimap<AttackingBand, Card> blockedBands = Multimaps.synchronizedMultimap(ArrayListMultimap.create());
 
@@ -231,7 +233,11 @@ public class Combat {
     }
 
     public final CardCollection getDefendingPlaneswalkers() {
-        return new CardCollection(Iterables.filter(attackableEntries, Card.class));
+        return CardLists.filter(Iterables.filter(attackableEntries, Card.class), CardPredicates.isType("Planeswalker"));
+    }
+
+    public final CardCollection getDefendingBattles() {
+        return CardLists.filter(Iterables.filter(attackableEntries, Card.class), CardPredicates.isType("Battle"));
     }
 
     public final Map<Card, GameEntity> getAttackersAndDefenders() {
@@ -303,8 +309,15 @@ public class Combat {
 
         // maybe attack on a controlled planeswalker?
         if (defender instanceof Card) {
-            return ((Card) defender).getController();
+            Card def = (Card)defender;
+            if (def.isBattle()) {
+                return def.getProtectingPlayer();
+            } else {
+                return def.getController();
+            }
+
         }
+
         return null;
     }
 
@@ -612,17 +625,17 @@ public class Combat {
             }
         }
 
-        for (Card pw : getDefendingPlaneswalkers()) {
-            if (pw.equals(c)) {
+        for (Card battleOrPW : Iterables.filter(attackableEntries, Card.class)) {
+            if (battleOrPW.equals(c)) {
                 Multimap<GameEntity, AttackingBand> attackerBuffer = ArrayListMultimap.create();
                 Collection<AttackingBand> bands = attackedByBands.get(c);
-                for (AttackingBand abPW : bands) {
-                    unregisterDefender(c, abPW);
+                for (AttackingBand abDef : bands) {
+                    unregisterDefender(c, abDef);
                     // Rule 506.4c workaround to keep creatures in combat
                     Card fake = new Card(-1, c.getGame());
                     fake.setName("<Nothing>");
                     fake.setController(c.getController(), 0);
-                    attackerBuffer.put(fake, abPW);
+                    attackerBuffer.put(fake, abDef);
                 }
                 bands.clear();
                 attackedByBands.putAll(attackerBuffer);

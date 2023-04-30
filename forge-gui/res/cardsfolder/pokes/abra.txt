@@ -1,0 +1,10 @@
+Name:Abra
+ManaCost:U B
+Types:Creature Fox Wizard Pokémon
+PT:1/1
+T:Mode$ BecomesTarget | ValidTarget$ Card.Self | ValidSource$ SpellAbility.OppCtrl | TriggerZones$ Battlefield | Execute$ DBPhaseOut | TriggerDescription$ Whenever CARDNAME becomes the target of a spell or ability an opponent controls, it phases out until end of turn.
+R:Event$ DamageDone | IsCombat$ False | ActiveZones$ Battlefield | ValidTarget$ Card.Self | ReplaceWith$ DBPhaseOut | PreventionEffect$ True | Description$ If noncombat damage would be dealt to Abra, prevent that damage. It phases out until end of turn.
+SVar:DBPhaseOut:DB$ Phases | Defined$ Self | WontPhaseInNormal$ True | Duration$ UntilEndOfTurn
+A:AB$ Effect | Cost$ U U | RememberObjects$ Self | ForgetOnMoved$ Battlefield | StaticAbilities$ CantPhaseOut | Duration$ UntilEndOfTurn | SpellDescription$ CARDNAME can't phase out until end of turn.
+SVar:CantPhaseOut:Mode$ CantPhaseOut | ValidCard$ Card.IsRemembered | Description$ EFFECTSOURCE can't phase out until end of turn.
+Oracle:Whenever Abra becomes the target of a spell or ability an opponent controls, it phases out until end of turn.\nIf noncombat damage would be dealt to Abra, prevent that damage. It phases out until end of turn.\n{U}{U}: Abra can't phase out until end of turn.

@@ -2,6 +2,9 @@ package forge.game.ability.effects;
 
 import java.util.List;
 
+import forge.GameCommand;
+import forge.game.event.GameEventCardPhased;
+import forge.game.event.GameEventCardStatsChanged;
 import forge.util.Lang;
 
 import forge.game.Game;
@@ -100,6 +103,19 @@ public class PhasesEffect extends SpellAbilityEffect {
                             source.addRemembered(tgtC);
                         }
                         tgtC.setWontPhaseInNormal(wontPhaseInNormal);
+                    }
+                    if (sa.hasParam("Duration")) {
+                        final GameCommand untilEOT = new GameCommand() {
+
+                            private static final long serialVersionUID = -4890679038956651232L;
+
+                            @Override
+                            public void run() {
+                                tgtC.phase(false);
+                            }
+                        };
+
+                        addUntilCommand(sa, untilEOT);
                     }
                 }
             }

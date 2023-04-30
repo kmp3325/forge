@@ -1,0 +1,8 @@
+Name:Kadabra
+ManaCost:3 U B
+Types:Creature Fox Wizard Pokémon
+PT:3/2
+K:Mutate onto:3 U B:Abra:4/3
+A:AB$ Draw | Cost$ T | NumCards$ 1 | ValidTgts$ Player | TgtPrompt$ Select target player | SpellDescription$ Target player draws a card, then discards a card. | SubAbility$ DBDiscard
+SVar:DBDiscard:DB$ Discard | Defined$ Targeted | NumCards$ 1 | Mode$ TgtChoose
+Oracle:Mutate onto Abra {3}{U}{B} [4/3]\n{T}: Target player draws a card, then discards a card.

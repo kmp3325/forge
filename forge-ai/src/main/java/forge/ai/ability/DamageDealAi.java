@@ -76,7 +76,7 @@ public class DamageDealAi extends DamageAiBase {
                 }
                 for (; energy > 0; energy--) {
                     if (damageTargetAI(ai, sa, energy, false)) {
-                        dmg = ComputerUtilCombat.getEnoughDamageToKill(sa.getTargetCard(), energy, source, false, false);
+                        dmg = ComputerUtilCombat.getEnoughDamageToKill(sa.getTargetCard(), energy, source, false);
                         if (dmg > energy || dmg < 1) {
                             continue; // in case the calculation gets messed up somewhere
                         }
@@ -224,7 +224,7 @@ public class DamageDealAi extends DamageAiBase {
             int loyalty = source.getCounters(CounterEnumType.LOYALTY);
             for (; loyalty > 0; loyalty--) {
                 if (damageTargetAI(ai, sa, loyalty, false)) {
-                    dmg = ComputerUtilCombat.getEnoughDamageToKill(sa.getTargetCard(), loyalty, source, false, false);
+                    dmg = ComputerUtilCombat.getEnoughDamageToKill(sa.getTargetCard(), loyalty, source, false);
                     if (dmg > loyalty || dmg < 1) {
                         continue;   // in case the calculation gets messed up somewhere
                     }
@@ -802,7 +802,7 @@ public class DamageDealAi extends DamageAiBase {
         for (final GameEntity o : objects) {
             if (o instanceof Card) {
                 Card c = (Card) o;
-                final int restDamage = ComputerUtilCombat.predictDamageTo(c, dmg, saMe.getHostCard(), false);
+                final int restDamage = ComputerUtilCombat.predictDamageTo(c, dmg, saMe.getHostCard(), false, false);
                 if (!c.hasKeyword(Keyword.INDESTRUCTIBLE) && ComputerUtilCombat.getDamageToKill(c, false) <= restDamage) {
                     if (c.getController().equals(ai)) {
                         return false;
@@ -814,7 +814,7 @@ public class DamageDealAi extends DamageAiBase {
                 }
             } else if (o instanceof Player) {
                 final Player p = (Player) o;
-                final int restDamage = ComputerUtilCombat.predictDamageTo(p, dmg, saMe.getHostCard(), false);
+                final int restDamage = ComputerUtilCombat.predictDamageTo(p, dmg, saMe.getHostCard(), false, false);
                 if (restDamage > 0 && p.canLoseLife()) {
                     if (!p.isOpponentOf(ai) && restDamage + 3 >= p.getLife()) {
                         // from this spell will kill me

@@ -295,7 +295,7 @@ public class AiAttackController {
         // TODO check if that makes sense
         int exalted = ai.countExaltedBonus();
         if (this.attackers.size() == 1 && exalted > 0
-                && ComputerUtilCombat.predictDamageTo(defender, exalted, attacker, true) > 0) {
+                && ComputerUtilCombat.predictDamageTo(defender, exalted, attacker, true, false) > 0) {
             return true;
         }
 

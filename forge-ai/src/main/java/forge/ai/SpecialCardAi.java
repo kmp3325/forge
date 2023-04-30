@@ -371,7 +371,7 @@ public class SpecialCardAi {
             }
 
             // Do not activate if damage will be prevented
-            if (source.staticDamagePrevention(predictedPT.getLeft(), 0, source, true) == 0) {
+            if (source.staticDamagePrevention(predictedPT.getLeft(), 0, source, true, false) == 0) {
                 return false;
             }
 
@@ -1619,7 +1619,7 @@ public class SpecialCardAi {
                     // basic logic copied from DamageDealAi::dealDamageChooseTgtC
                     if (ugin_burn.canTarget(single)) {
                         final boolean can_kill = single.getSVar("Targeting").equals("Dies")
-                                || (ComputerUtilCombat.getEnoughDamageToKill(single, 3, source, false, false) <= 3)
+                                || (ComputerUtilCombat.getEnoughDamageToKill(single, 3, source, false) <= 3)
                                         && !ComputerUtil.canRegenerate(ai, single)
                                         && !(single.getSVar("SacMe").length() > 0);
                         if (can_kill) {

@@ -24,6 +24,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+import forge.game.ability.effects.FightEffect;
 import org.apache.commons.lang3.StringUtils;
 
 import com.google.common.base.Predicate;
@@ -1747,6 +1748,7 @@ public class ComputerUtil {
                     }
                 }
             }
+            final boolean isFight = saviour.getApi() == ApiType.Fight;
             for (final Object o : objects) {
                 if (o instanceof Card) {
                     final Card c = (Card) o;
@@ -1772,7 +1774,7 @@ public class ComputerUtil {
                     }
 
                     if (saviourApi == ApiType.Pump || saviourApi == ApiType.PumpAll) {
-                        boolean canSave = ComputerUtilCombat.predictDamageTo(c, dmg - toughness, source, false) < ComputerUtilCombat.getDamageToKill(c, false);
+                        boolean canSave = ComputerUtilCombat.predictDamageTo(c, dmg - toughness, source, false, isFight) < ComputerUtilCombat.getDamageToKill(c, false);
                         if ((!topStack.usesTargeting() && !grantIndestructible && !canSave)
                                 || (!grantIndestructible && !grantShroud && !canSave)) {
                             continue;
@@ -1780,7 +1782,7 @@ public class ComputerUtil {
                     }
 
                     if (saviourApi == ApiType.PutCounter || saviourApi == ApiType.PutCounterAll) {
-                        boolean canSave = ComputerUtilCombat.predictDamageTo(c, dmg - toughness, source, false) < ComputerUtilCombat.getDamageToKill(c, false);
+                        boolean canSave = ComputerUtilCombat.predictDamageTo(c, dmg - toughness, source, false, isFight) < ComputerUtilCombat.getDamageToKill(c, false);
                         if (!canSave) {
                             continue;
                         }
@@ -1797,17 +1799,17 @@ public class ComputerUtil {
                         continue;
                     }
 
-                    if (ComputerUtilCombat.predictDamageTo(c, dmg, source, false) >= ComputerUtilCombat.getDamageToKill(c, false)) {
+                    if (ComputerUtilCombat.predictDamageTo(c, dmg, source, false, isFight) >= ComputerUtilCombat.getDamageToKill(c, false)) {
                         threatened.add(c);
                     }
                 } else if (o instanceof Player) {
                     final Player p = (Player) o;
 
                     if (source.hasKeyword(Keyword.INFECT)) {
-                        if (p.canReceiveCounters(CounterEnumType.POISON) && ComputerUtilCombat.predictDamageTo(p, dmg, source, false) >= 10 - p.getPoisonCounters()) {
+                        if (p.canReceiveCounters(CounterEnumType.POISON) && ComputerUtilCombat.predictDamageTo(p, dmg, source, false, isFight) >= 10 - p.getPoisonCounters()) {
                             threatened.add(p);
                         }
-                    } else if (ComputerUtilCombat.predictDamageTo(p, dmg, source, false) >= p.getLife()) {
+                    } else if (ComputerUtilCombat.predictDamageTo(p, dmg, source, false, isFight) >= p.getLife()) {
                         threatened.add(p);
                     }
                 }
@@ -2728,7 +2730,7 @@ public class ComputerUtil {
                     continue;
                 }
                 damage += ComputerUtilCombat.predictDamageTo(targetPlayer,
-                        AbilityUtils.calculateAmount(card, ab.getParam("NumDmg"), ab), card, false);
+                        AbilityUtils.calculateAmount(card, ab.getParam("NumDmg"), ab), card, false, sa.getApi() == ApiType.Fight);
             } else if (ab.getApi() == ApiType.LoseLife) {
                 if (damage == -1) { damage = 0; } // found a damage-dealing spell
                 if (!ab.hasParam("LifeAmount")) {
@@ -2789,7 +2791,7 @@ public class ComputerUtil {
                     continue;
                 }
                 damage += ComputerUtilCombat.predictDamageTo(player,
-                        AbilityUtils.calculateAmount(source, trigSa.getParam("NumDmg"), trigSa), source, false);
+                        AbilityUtils.calculateAmount(source, trigSa.getParam("NumDmg"), trigSa), source, false, sa.getApi() == ApiType.Fight);
             } else if (trigSa.getApi() == ApiType.LoseLife) {
                 if (!"TriggeredActivator".equals(trigSa.getParam("Defined"))) {
                     continue;
@@ -2849,7 +2851,7 @@ public class ComputerUtil {
                     continue;
                 }
                 damage += ComputerUtilCombat.predictDamageTo(player,
-                        AbilityUtils.calculateAmount(source, trigSa.getParam("NumDmg"), trigSa), source, false);
+                        AbilityUtils.calculateAmount(source, trigSa.getParam("NumDmg"), trigSa), source, false, false);
             } else if (trigSa.getApi() == ApiType.LoseLife) {
                 if (!"TriggeredCardController".equals(trigSa.getParam("Defined"))) {
                     continue;

@@ -5697,8 +5697,8 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
         return total;
     }
 
-    public final boolean canDamagePrevented(final boolean isCombat) {
-        return !StaticAbilityCantPreventDamage.cantPreventDamage(this, isCombat);
+    public final boolean canDamagePrevented(final boolean isCombat, final boolean isFight) {
+        return !StaticAbilityCantPreventDamage.cantPreventDamage(this, isCombat, isFight);
     }
 
     // This is used by the AI to forecast an effect (so it must not change the game state)

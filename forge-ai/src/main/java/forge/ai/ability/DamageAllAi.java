@@ -100,12 +100,12 @@ public class  DamageAllAi extends SpellAbilityAi {
 
         for (int dmg = 1; dmg <= x; dmg++) {
             // Don't kill yourself in the process
-            if (validP.equals("Player") && aiLife <= ComputerUtilCombat.predictDamageTo(ai, dmg, source, false)) {
+            if (validP.equals("Player") && aiLife <= ComputerUtilCombat.predictDamageTo(ai, dmg, source, false, false)) {
                 break;
             }
             for (Player opp : ai.getOpponents()) {
                 if ((validP.equals("Player") || validP.contains("Opponent"))
-                        && (opp.getLife() <= ComputerUtilCombat.predictDamageTo(opp, dmg, source, false))) {
+                        && (opp.getLife() <= ComputerUtilCombat.predictDamageTo(opp, dmg, source, false, false))) {
                     bestOpp = opp;
                 }
             }
@@ -128,7 +128,7 @@ public class  DamageAllAi extends SpellAbilityAi {
         final String validP = sa.getParamOrDefault("ValidPlayers", "");
         // TODO: if damage is dependant on mana paid, maybe have X be human's max life
         // Don't kill yourself
-        if (validP.equals("Player") && (ai.getLife() <= ComputerUtilCombat.predictDamageTo(ai, dmg, source, false))) {
+        if (validP.equals("Player") && (ai.getLife() <= ComputerUtilCombat.predictDamageTo(ai, dmg, source, false, false))) {
             return -1;
         }
 
@@ -144,7 +144,7 @@ public class  DamageAllAi extends SpellAbilityAi {
                 // that tactic only works if there are creatures left to keep pestilence in play
                 // and can kill the player in a reasonable amount of time (no more than 2-3 turns?)
                 if (validP.equals("Player")) {
-                    if (ComputerUtilCombat.predictDamageTo(opp, dmg, source, false) > 0) {
+                    if (ComputerUtilCombat.predictDamageTo(opp, dmg, source, false, false) > 0) {
                         // When using Pestilence to hurt players, do it at
                         // the end of the opponent's turn only
                         if ((!"DmgAllCreaturesAndPlayers".equals(sa.getParam("AILogic")))
@@ -155,21 +155,21 @@ public class  DamageAllAi extends SpellAbilityAi {
                         // || (ai.sa.getPayCosts(). ??? )
                         {
                             // would take zero damage, and hurt opponent, do it!
-                            if (ComputerUtilCombat.predictDamageTo(ai, dmg, source, false) < 1) {
+                            if (ComputerUtilCombat.predictDamageTo(ai, dmg, source, false, false) < 1) {
                                 return 1;
                             }
                             // enemy is expected to die faster than AI from damage if repeated
-                            if (ai.getLife() > ComputerUtilCombat.predictDamageTo(ai, dmg, source, false)
-                                    * ((opp.getLife() + ComputerUtilCombat.predictDamageTo(opp, dmg, source, false) - 1)
-                                    / ComputerUtilCombat.predictDamageTo(opp, dmg, source, false))) {
+                            if (ai.getLife() > ComputerUtilCombat.predictDamageTo(ai, dmg, source, false, false)
+                                    * ((opp.getLife() + ComputerUtilCombat.predictDamageTo(opp, dmg, source, false, false) - 1)
+                                    / ComputerUtilCombat.predictDamageTo(opp, dmg, source, false, false))) {
                                 // enemy below 10 life, go for it!
                                 if ((opp.getLife() < 10)
-                                        && (ComputerUtilCombat.predictDamageTo(opp, dmg, source, false) >= 1)) {
+                                        && (ComputerUtilCombat.predictDamageTo(opp, dmg, source, false, false) >= 1)) {
                                     return 1;
                                 }
                                 // At least half enemy remaining life can be removed in one go
                                 // worth doing even if enemy still has high health - one more copy of spell to win!
-                                if (opp.getLife() <= 2 * ComputerUtilCombat.predictDamageTo(opp, dmg, source, false)) {
+                                if (opp.getLife() <= 2 * ComputerUtilCombat.predictDamageTo(opp, dmg, source, false, false)) {
                                     return 1;
                                 }
                             }
@@ -214,13 +214,13 @@ public class  DamageAllAi extends SpellAbilityAi {
             computerList.clear();
         }
         // Don't get yourself killed
-        if (validP.equals("Player") && (ai.getLife() <= ComputerUtilCombat.predictDamageTo(ai, dmg, source, false))) {
+        if (validP.equals("Player") && (ai.getLife() <= ComputerUtilCombat.predictDamageTo(ai, dmg, source, false, false))) {
             return false;
         }
 
         // if we can kill human, do it
         if ((validP.equals("Player") || validP.equals("Opponent") || validP.contains("Targeted"))
-                && (enemy.getLife() <= ComputerUtilCombat.predictDamageTo(enemy, dmg, source, false))) {
+                && (enemy.getLife() <= ComputerUtilCombat.predictDamageTo(enemy, dmg, source, false, false))) {
             return true;
         }
 
@@ -256,7 +256,7 @@ public class  DamageAllAi extends SpellAbilityAi {
         final Predicate<Card> filterKillable = new Predicate<Card>() {
             @Override
             public boolean apply(final Card c) {
-                return ComputerUtilCombat.predictDamageTo(c, dmg, source, false) >= ComputerUtilCombat.getDamageToKill(c, false);
+                return ComputerUtilCombat.predictDamageTo(c, dmg, source, false, false) >= ComputerUtilCombat.getDamageToKill(c, false);
             }
         };
 
@@ -298,13 +298,13 @@ public class  DamageAllAi extends SpellAbilityAi {
             return true;
         }
         // Don't get yourself killed
-        if (validP.equals("Player") && (ai.getLife() <= ComputerUtilCombat.predictDamageTo(ai, dmg, source, false))) {
+        if (validP.equals("Player") && (ai.getLife() <= ComputerUtilCombat.predictDamageTo(ai, dmg, source, false, false))) {
             return false;
         }
 
         // if we can kill human, do it
         if ((validP.equals("Player") || validP.contains("Opponent") || validP.contains("Targeted"))
-                && (enemy.getLife() <= ComputerUtilCombat.predictDamageTo(enemy, dmg, source, false))) {
+                && (enemy.getLife() <= ComputerUtilCombat.predictDamageTo(enemy, dmg, source, false, false))) {
             return true;
         }
 

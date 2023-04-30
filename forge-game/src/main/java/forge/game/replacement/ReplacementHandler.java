@@ -399,7 +399,7 @@ public class ReplacementHandler {
         return ReplacementResult.Replaced;
     }
 
-    private void getPossibleReplaceDamageList(PlayerCollection players, final boolean isCombat, final CardDamageMap damageMap, final SpellAbility cause) {
+    private void getPossibleReplaceDamageList(PlayerCollection players, final boolean isCombat, final boolean isFight, final CardDamageMap damageMap, final SpellAbility cause) {
         for (Map.Entry<GameEntity, Map<Card, Integer>> et : damageMap.columnMap().entrySet()) {
             final GameEntity target = et.getKey();
             int playerIndex = target instanceof Player ? players.indexOf(((Player) target)) :
@@ -410,7 +410,7 @@ public class ReplacementHandler {
                 Card source = e.getKey();
                 Integer damage = e.getValue();
                 if (damage > 0) {
-                    boolean prevention = source.canDamagePrevented(isCombat) &&
+                    boolean prevention = source.canDamagePrevented(isCombat, isFight) &&
                                             (cause == null || !cause.hasParam("NoPrevention"));
                     final Map<AbilityKey, Object> repParams = AbilityKey.mapFromAffected(target);
                     repParams.put(AbilityKey.DamageSource, source);
@@ -651,7 +651,7 @@ public class ReplacementHandler {
         Map<ReplacementEffect, List<Map<AbilityKey, Object>>> executedDamageMap = new HashMap<>();
 
         // First, gather all possible replacement effects
-        getPossibleReplaceDamageList(players, isCombat, damageMap, cause);
+        getPossibleReplaceDamageList(players, isCombat, cause != null && cause.getApi() == ApiType.Fight, damageMap, cause);
 
         // Next, handle replacement effects in APNAP order
         // Handle "Prevented this way" and abilities like "Phantom Nomad", by buffer the replaced SA

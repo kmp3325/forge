@@ -75,11 +75,11 @@ public abstract class GameEntity extends GameObject implements IIdentifiable {
 
     // This should be also usable by the AI to forecast an effect (so it must
     // not change the game state)
-    public int staticDamagePrevention(int damage, final int possiblePrevention, final Card source, final boolean isCombat) {
+    public int staticDamagePrevention(int damage, final int possiblePrevention, final Card source, final boolean isCombat, final boolean isFight) {
         if (damage <= 0) {
             return 0;
         }
-        if (!source.canDamagePrevented(isCombat)) {
+        if (!source.canDamagePrevented(isCombat, isFight)) {
             return damage;
         }
 

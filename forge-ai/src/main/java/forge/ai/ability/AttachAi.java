@@ -747,13 +747,13 @@ public class AttachAi extends SpellAbilityAi {
         if (combat != null && combat.isAttacking(equipped) && ph.is(PhaseType.COMBAT_DECLARE_BLOCKERS, sa.getActivatingPlayer())) {
             int damage = 0;
             for (Card c : combat.getUnblockedAttackers()) {
-                damage += ComputerUtilCombat.predictDamageTo(combat.getDefenderPlayerByAttacker(equipped), c.getNetCombatDamage(), c, true);
+                damage += ComputerUtilCombat.predictDamageTo(combat.getDefenderPlayerByAttacker(equipped), c.getNetCombatDamage(), c, true, false);
             }
             if (combat.isBlocked(equipped)) {
                 for (Card atk : combat.getAttackers()) {
                     if (!combat.isBlocked(atk) && !ComputerUtil.predictThreatenedObjects(sa.getActivatingPlayer(), null).contains(atk)) {
                         if (ComputerUtilCombat.predictDamageTo(combat.getDefenderPlayerByAttacker(atk),
-                                atk.getNetCombatDamage(), atk, true) > 0) {
+                                atk.getNetCombatDamage(), atk, true, false) > 0) {
                             if (damage + powerBuff >= combat.getDefenderPlayerByAttacker(atk).getLife()) {
                                 sa.resetTargets(); // this is needed to avoid bugs with adding two targets to a single SA
                                 return atk; // lethal damage, we can win right now, so why not?

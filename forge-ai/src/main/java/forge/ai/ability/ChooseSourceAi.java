@@ -84,7 +84,7 @@ public class ChooseSourceAi extends SpellAbilityAi {
                         return false;
                     }
                     int dmg = AbilityUtils.calculateAmount(threatSource, topStack.getParam("NumDmg"), topStack);
-                    return ComputerUtilCombat.predictDamageTo(ai, dmg, threatSource, false) > 0;
+                    return ComputerUtilCombat.predictDamageTo(ai, dmg, threatSource, false, false) > 0;
                 }
                 if (game.getPhaseHandler().getPhase() != PhaseType.COMBAT_DECLARE_BLOCKERS) {
                     return false;
@@ -192,7 +192,7 @@ public class ChooseSourceAi extends SpellAbilityAi {
                 continue;
             }
             int dmg = AbilityUtils.calculateAmount(source, abilityOnStack.getParam("NumDmg"), abilityOnStack);
-            if (ComputerUtilCombat.predictDamageTo(ai, dmg, source, false) <= 0) {
+            if (ComputerUtilCombat.predictDamageTo(ai, dmg, source, false, false) <= 0) {
                 continue;
             }
             return source;

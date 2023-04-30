@@ -1,0 +1,10 @@
+Name:Machoke
+ManaCost:1 R W
+Types:Creature Frog Ape Pokémon
+PT:3/3
+K:Mutate onto:1 R W:Machop:4/4
+A:AB$ Tap | Cost$ R W T | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | SubAbility$ DBTap | AlwaysRemember$ True | SpellDescription$ Tap target creature you control and target creature of an opponent's choice they control. Those creatures fight each other.
+SVar:DBTap:DB$ Tap | TargetingPlayer$ Player.Opponent | TargetingPlayerControls$ True | ValidTgts$ Creature | TgtPrompt$ Select target creature you control | SubAbility$ DBFight | AlwaysRemember$ True
+SVar:DBFight:DB$ Fight | Defined$ Remembered | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+Oracle:Mutate onto Machop {1}{R}{W} [4/4]\n{R}{W}, {T}: Tap target creature you control and a creature of an opponent's choice they control. Those creatures fight each other.

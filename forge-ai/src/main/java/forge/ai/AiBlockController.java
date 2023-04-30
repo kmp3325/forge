@@ -469,7 +469,7 @@ public class AiBlockController {
             final Card leader = ComputerUtilCard.getBestCreatureAI(usableBlockers);
             blockGang.add(leader);
             usableBlockers.remove(leader);
-            absorbedDamage = ComputerUtilCombat.getEnoughDamageToKill(leader, attacker.getNetCombatDamage(), attacker, true);
+            absorbedDamage = ComputerUtilCombat.getEnoughDamageToKill(leader, attacker.getNetCombatDamage(), attacker, true, false);
             currentValue = ComputerUtilCard.evaluateCreature(leader);
 
             // consider a double block
@@ -478,7 +478,7 @@ public class AiBlockController {
                 // enough and the new one would deal the remaining damage
                 final int currentDamage = ComputerUtilCombat.totalDamageOfBlockers(attacker, blockGang);
                 final int additionalDamage = ComputerUtilCombat.dealsDamageAsBlocker(attacker, blocker);
-                final int absorbedDamage2 = ComputerUtilCombat.getEnoughDamageToKill(blocker, attacker.getNetCombatDamage(), attacker, true);
+                final int absorbedDamage2 = ComputerUtilCombat.getEnoughDamageToKill(blocker, attacker.getNetCombatDamage(), attacker, true, false);
                 final int addedValue = ComputerUtilCard.evaluateCreature(blocker);
                 final int damageNeeded = ComputerUtilCombat.getDamageToKill(attacker, false)
                         + ComputerUtilCombat.predictToughnessBonusOfAttacker(attacker, blocker, combat, false);
@@ -518,7 +518,7 @@ public class AiBlockController {
                 // consider the properties of the second blocker
                 final int currentDamage = ComputerUtilCombat.totalDamageOfBlockers(attacker, blockGang);
                 final int additionalDamage2 = ComputerUtilCombat.dealsDamageAsBlocker(attacker, secondBlocker);
-                final int absorbedDamage2 = ComputerUtilCombat.getEnoughDamageToKill(secondBlocker, attacker.getNetCombatDamage(), attacker, true);
+                final int absorbedDamage2 = ComputerUtilCombat.getEnoughDamageToKill(secondBlocker, attacker.getNetCombatDamage(), attacker, true, false);
                 final int addedValue2 = ComputerUtilCard.evaluateCreature(secondBlocker);
                 final int damageNeeded = ComputerUtilCombat.getDamageToKill(attacker, false)
                         + ComputerUtilCombat.predictToughnessBonusOfAttacker(attacker, secondBlocker, combat, false);
@@ -529,7 +529,7 @@ public class AiBlockController {
                 // loop over the remaining blockers in search of a good third blocker candidate
                 for (Card thirdBlocker : usableBlockersAsThird) {
                     final int additionalDamage3 = ComputerUtilCombat.dealsDamageAsBlocker(attacker, thirdBlocker);
-                    final int absorbedDamage3 = ComputerUtilCombat.getEnoughDamageToKill(thirdBlocker, attacker.getNetCombatDamage(), attacker, true);
+                    final int absorbedDamage3 = ComputerUtilCombat.getEnoughDamageToKill(thirdBlocker, attacker.getNetCombatDamage(), attacker, true, false);
                     final int addedValue3 = ComputerUtilCard.evaluateCreature(secondBlocker);
                     final int netCombatDamage = attacker.getNetCombatDamage();
 
@@ -593,11 +593,11 @@ public class AiBlockController {
             final Card leader = ComputerUtilCard.getWorstCreatureAI(usableBlockers);
             blockGang.add(leader);
             usableBlockers.remove(leader);
-            absorbedDamage = ComputerUtilCombat.getEnoughDamageToKill(leader, attacker.getNetCombatDamage(), attacker, true);
+            absorbedDamage = ComputerUtilCombat.getEnoughDamageToKill(leader, attacker.getNetCombatDamage(), attacker, true, false);
 
             // consider a double block
             for (final Card blocker : usableBlockers) {
-                final int absorbedDamage2 = ComputerUtilCombat.getEnoughDamageToKill(blocker, attacker.getNetCombatDamage(), attacker, true);
+                final int absorbedDamage2 = ComputerUtilCombat.getEnoughDamageToKill(blocker, attacker.getNetCombatDamage(), attacker, true, false);
                 // only do it if neither blocking creature will die
                 if (absorbedDamage > attacker.getNetCombatDamage() && absorbedDamage2 > attacker.getNetCombatDamage()) {
                     currentAttackers.remove(attacker);
@@ -883,7 +883,7 @@ public class AiBlockController {
                         int damageToPW = 0;
                         for (final Card pwatkr : combat.getAttackersOf(def)) {
                             if (!combat.isBlocked(pwatkr)) {
-                                damageToPW += ComputerUtilCombat.predictDamageTo(def, pwatkr.getNetCombatDamage(), pwatkr, true);
+                                damageToPW += ComputerUtilCombat.predictDamageTo(def, pwatkr.getNetCombatDamage(), pwatkr, true, false);
                             }
                         }
                         if ((!onlyIfLethal && damageToPW > 0) || damageToPW >= def.getCounters(CounterEnumType.LOYALTY)) {
@@ -941,7 +941,7 @@ public class AiBlockController {
                                 pwDefenders.addAll(combat.getBlockers(pwAtk));
                             } else {
                                 isFullyBlocked = false;
-                                damageToPW += ComputerUtilCombat.predictDamageTo(pw, pwAtk.getNetCombatDamage(), pwAtk, true);
+                                damageToPW += ComputerUtilCombat.predictDamageTo(pw, pwAtk.getNetCombatDamage(), pwAtk, true, false);
                             }
                         }
                         if (!isFullyBlocked && damageToPW >= pw.getCounters(CounterEnumType.LOYALTY)) {

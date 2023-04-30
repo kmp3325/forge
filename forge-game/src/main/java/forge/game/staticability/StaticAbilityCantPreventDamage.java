@@ -8,7 +8,7 @@ public class StaticAbilityCantPreventDamage {
 
     static String MODE = "CantPreventDamage";
 
-    public static boolean cantPreventDamage(final Card source, final boolean isCombat) {
+    public static boolean cantPreventDamage(final Card source, final boolean isCombat, final boolean isFight) {
         CardCollection list = new CardCollection(source.getGame().getCardsIn(ZoneType.STATIC_ABILITIES_SOURCE_ZONES));
         list.add(source);
         for (final Card ca : list) {
@@ -16,7 +16,7 @@ public class StaticAbilityCantPreventDamage {
                 if (!stAb.checkConditions(MODE)) {
                     continue;
                 }
-                if (applyCantPreventDamage(stAb, source, isCombat)) {
+                if (applyCantPreventDamage(stAb, source, isCombat, isFight)) {
                     return true;
                 }
             }
@@ -24,9 +24,14 @@ public class StaticAbilityCantPreventDamage {
         return false;
     }
 
-    public static boolean applyCantPreventDamage(final StaticAbility stAb, final Card source, final boolean isCombat) {
+    public static boolean applyCantPreventDamage(final StaticAbility stAb, final Card source, final boolean isCombat, final boolean isFight) {
         if (stAb.hasParam("IsCombat")) {
             if (stAb.getParamOrDefault("IsCombat", "False").equals("True") != isCombat) {
+                return false;
+            }
+        }
+        if (stAb.hasParam("IsFight")) {
+            if (stAb.getParamOrDefault("IsFight", "False").equals("True") != isFight) {
                 return false;
             }
         }

@@ -202,7 +202,7 @@ public class ComputerUtilCombat {
 
         if (!attacker.hasKeyword(Keyword.INFECT)) {
             damage += predictPowerBonusOfAttacker(attacker, null, combat, withoutAbilities);
-            sum = predictDamageTo(attacked, damage, attacker, true);
+            sum = predictDamageTo(attacked, damage, attacker, true, false);
             if (attacker.hasDoubleStrike()) {
                 sum *= 2;
             }
@@ -230,7 +230,7 @@ public class ComputerUtilCombat {
         int poison = 0;
         damage += predictPowerBonusOfAttacker(attacker, null, null, false);
         if (attacker.hasKeyword(Keyword.INFECT)) {
-            int pd = predictDamageTo(attacked, damage, attacker, true);
+            int pd = predictDamageTo(attacked, damage, attacker, true, false);
             // opponent can always order it so that he gets 0
             if (pd == 1 && Iterables.any(attacker.getController().getOpponents().getCardsIn(ZoneType.Battlefield), CardPredicates.nameEquals("Vorinclex, Monstrous Raider"))) {
                 pd = 0;
@@ -263,7 +263,7 @@ public class ComputerUtilCombat {
     public static int sumDamageIfUnblocked(final Iterable<Card> attackers, final Player attacked, boolean onlyPreventable) {
         int sum = 0;
         for (final Card attacker : attackers) {
-            if (onlyPreventable && !attacker.canDamagePrevented(true)) {
+            if (onlyPreventable && !attacker.canDamagePrevented(true, false)) {
                 continue;
             }
             // TODO always applies full prevention shields for each, so this might wrongly lower the result
@@ -581,7 +581,7 @@ public class ComputerUtilCombat {
         int defenderDamage = predictDamageByBlockerWithoutDoubleStrike(attacker, defender);
 
         if (defender.hasDoubleStrike()) {
-            defenderDamage += predictDamageTo(attacker, defenderDamage, defender, true);
+            defenderDamage += predictDamageTo(attacker, defenderDamage, defender, true, false);
         }
 
         return defenderDamage;
@@ -624,7 +624,7 @@ public class ComputerUtilCombat {
         }
 
         // consider static Damage Prevention
-        defenderDamage = predictDamageTo(attacker, defenderDamage, defender, true);
+        defenderDamage = predictDamageTo(attacker, defenderDamage, defender, true, false);
         return defenderDamage;
     }
 
@@ -1077,7 +1077,7 @@ public class ComputerUtilCombat {
                     continue;
                 }
                 int damage = AbilityUtils.calculateAmount(source, sa.getParam("NumDmg"), sa);
-                toughness -= predictDamageTo(blocker, damage, source, false);
+                toughness -= predictDamageTo(blocker, damage, source, false, false);
             } else
 
             // -1/-1 PutCounter triggers
@@ -1449,7 +1449,7 @@ public class ComputerUtilCombat {
                 }
                 int damage = AbilityUtils.calculateAmount(source, sa.getParam("NumDmg"), sa);
 
-                toughness -= predictDamageTo(attacker, damage, source, false);
+                toughness -= predictDamageTo(attacker, damage, source, false, false);
                 continue;
             } else if (ApiType.Pump.equals(sa.getApi())) {
                 if (!sa.hasParam("NumDef")) {
@@ -1721,7 +1721,7 @@ public class ComputerUtilCombat {
         }
 
         // consider Damage Prevention/Replacement
-        defenderDamage = predictDamageTo(attacker, defenderDamage, possibleAttackerPrevention, blocker, true);
+        defenderDamage = predictDamageTo(attacker, defenderDamage, possibleAttackerPrevention, blocker, true, false);
         if (defenderDamage > 0 && isCombatDamagePrevented(blocker, attacker, defenderDamage)) {
             return false;
         }
@@ -1734,7 +1734,7 @@ public class ComputerUtilCombat {
             attackerDamage = attacker.getNetPower()
                     + predictPowerBonusOfAttacker(attacker, blocker, combat, withoutAbilities, withoutAttackerStaticAbilities);
         }
-        attackerDamage = predictDamageTo(blocker, attackerDamage, possibleDefenderPrevention, attacker, true);
+        attackerDamage = predictDamageTo(blocker, attackerDamage, possibleDefenderPrevention, attacker, true, false);
 
         final int defenderLife = getDamageToKill(blocker, false)
                 + predictToughnessBonusOfBlocker(attacker, blocker, withoutAbilities);
@@ -1947,8 +1947,8 @@ public class ComputerUtilCombat {
         }
 
         // consider Damage Prevention/Replacement
-        defenderDamage = predictDamageTo(attacker, defenderDamage, possibleAttackerPrevention, blocker, true);
-        attackerDamage = predictDamageTo(blocker, attackerDamage, possibleDefenderPrevention, attacker, true);
+        defenderDamage = predictDamageTo(attacker, defenderDamage, possibleAttackerPrevention, blocker, true, false);
+        attackerDamage = predictDamageTo(blocker, attackerDamage, possibleDefenderPrevention, attacker, true, false);
 
         // Damage prevention might come from a static effect
         if (isCombatDamagePrevented(attacker, blocker, attackerDamage)) {
@@ -1961,7 +1961,7 @@ public class ComputerUtilCombat {
         if (combat != null) {
             for (Card atkr : combat.getAttackersBlockedBy(blocker)) {
                 if (!atkr.equals(attacker)) {
-                    attackerDamage += predictDamageTo(blocker, atkr.getNetCombatDamage(), atkr, true);
+                    attackerDamage += predictDamageTo(blocker, atkr.getNetCombatDamage(), atkr, true, false);
                 }
             }
         }
@@ -2124,7 +2124,7 @@ public class ComputerUtilCombat {
      * @return a int.
      */
     public final static int getEnoughDamageToKill(final Card c, final int maxDamage, final Card source, final boolean isCombat) {
-        return getEnoughDamageToKill(c, maxDamage, source, isCombat, false);
+        return getEnoughDamageToKill(c, maxDamage, source, isCombat);
     }
 
     /**
@@ -2159,7 +2159,7 @@ public class ComputerUtilCombat {
                     return i;
                 }
             } else {
-                if (predictDamageTo(c, i, source, isCombat) >= killDamage) {
+                if (predictDamageTo(c, i, source, isCombat, false) >= killDamage) {
                     return i;
                 }
             }
@@ -2201,8 +2201,8 @@ public class ComputerUtilCombat {
      *            a boolean.
      * @return a int.
      */
-    public final static int predictDamageTo(final GameEntity target, final int damage, final Card source, final boolean isCombat) {
-        return predictDamageTo(target, damage, 0, source, isCombat);
+    public final static int predictDamageTo(final GameEntity target, final int damage, final Card source, final boolean isCombat, final boolean isFight) {
+        return predictDamageTo(target, damage, 0, source, isCombat, isFight);
     }
 
     // This function helps the AI calculate the actual amount of damage an
@@ -2222,11 +2222,11 @@ public class ComputerUtilCombat {
      *            a boolean.
      * @return a int.
      */
-    public final static int predictDamageTo(final GameEntity target, final int damage, final int possiblePrevention, final Card source, final boolean isCombat) {
+    public final static int predictDamageTo(final GameEntity target, final int damage, final int possiblePrevention, final Card source, final boolean isCombat, final boolean isFight) {
         int restDamage = damage;
 
         restDamage = target.staticReplaceDamage(restDamage, source, isCombat);
-        restDamage = target.staticDamagePrevention(restDamage, possiblePrevention, source, isCombat);
+        restDamage = target.staticDamagePrevention(restDamage, possiblePrevention, source, isCombat, isFight);
 
         return restDamage;
     }
@@ -2322,7 +2322,7 @@ public class ComputerUtilCombat {
     }
 
     public static boolean isCombatDamagePrevented(final Card attacker, final GameEntity target, final int damage) {
-        if (!attacker.canDamagePrevented(true)) {
+        if (!attacker.canDamagePrevented(true, false)) {
             return false;
         }
 
@@ -2443,7 +2443,7 @@ public class ComputerUtilCombat {
 
     public static int predictPoisonFromTriggers(Card attacker, Player attacked, int damage) {
         int pd = 0, poison = 0;
-        int damageAfterRepl = predictDamageTo(attacked, damage, attacker, true);
+        int damageAfterRepl = predictDamageTo(attacked, damage, attacker, true, false);
         if (damageAfterRepl > 0) {
             CardCollectionView trigCards = attacker.getController().getCardsIn(ZoneType.Battlefield);
             for (Card c : trigCards) {

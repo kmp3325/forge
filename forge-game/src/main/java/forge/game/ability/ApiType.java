@@ -37,6 +37,7 @@ public enum ApiType {
     ChangeX (ChangeXEffect.class),
     ChangeZone (ChangeZoneEffect.class),
     ChangeZoneAll (ChangeZoneAllEffect.class),
+    ChaosEnsues (ChaosEnsuesEffect.class),
     Charm (CharmEffect.class),
     ChooseCard (ChooseCardEffect.class),
     ChooseColor (ChooseColorEffect.class),
@@ -191,7 +192,7 @@ public enum ApiType {
     Vote (VoteEffect.class),
     WinsGame (GameWinEffect.class),
 
-
+    BlankLine (BlankLineEffect.class),
     DamageResolve (DamageResolveEffect.class),
     ChangeZoneResolve (ChangeZoneResolveEffect.class),
     InternalLegendaryRule (CharmEffect.class),

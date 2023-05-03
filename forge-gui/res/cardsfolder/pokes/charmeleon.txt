@@ -4,4 +4,4 @@ Types:Creature Lizard Pokémon
 PT:3/2
 K:Mutate onto:1 R R:Charmander:4/2
 K:Scorching
-Oracle:Mutate onto Charmander {1}{R}{R} [4/2]\nCharmeleon deals damage to creatures in the form of burn counters.
+Oracle:Mutate onto Charmander {1}{R}{R} [4/2]\nScorching

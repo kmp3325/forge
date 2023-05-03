@@ -52,19 +52,12 @@ public class KeywordCollection implements Iterable<KeywordInterface> {
     public boolean insert(KeywordInterface inst) {
         if (inst.getKeyword().equals(Keyword.WITHER)) {
             removeAll(Keyword.CAUSTIC);
-            removeAll(Keyword.BURN_DAMAGE);
         }
         if (inst.getKeyword().equals(Keyword.CAUSTIC)) {
             removeAll(Keyword.WITHER);
-            removeAll(Keyword.BURN_DAMAGE);
         }
         if (inst.getKeyword().equals(Keyword.INFECT)) {
             removeAll(Keyword.CAUSTIC);
-            removeAll(Keyword.BURN_DAMAGE);
-        }
-        if (inst.getKeyword().equals(Keyword.BURN_DAMAGE)) {
-            removeAll(Keyword.CAUSTIC);
-            removeAll(Keyword.WITHER);
         }
         Keyword keyword = inst.getKeyword();
         Collection<KeywordInterface> list = map.get(keyword);

@@ -1748,7 +1748,7 @@ public class ComputerUtil {
                     }
                 }
             }
-            final boolean isFight = saviour.getApi() == ApiType.Fight;
+            final boolean isFight = saviour != null && saviour.getApi() == ApiType.Fight;
             for (final Object o : objects) {
                 if (o instanceof Card) {
                     final Card c = (Card) o;

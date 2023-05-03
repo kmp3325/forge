@@ -12,7 +12,7 @@ public enum GameLogEntryType {
     DISCARD("Discard"),
     INFORMATION("Information"),
     EFFECT_REPLACED("Replacement Effect"),
-    BURN_HEALED("Burn healed"),
+    FROZEN("Frozen"),
     BURNED("Burned"),
     LAND("Land"),
     STACK_RESOLVE("Resolve stack"),

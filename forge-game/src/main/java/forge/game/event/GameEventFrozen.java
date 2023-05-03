@@ -2,11 +2,11 @@ package forge.game.event;
 
 import forge.game.card.Card;
 
-public class GameEventBurnCountersHealed extends GameEvent {
+public class GameEventFrozen extends GameEvent {
 
     public final Card card;
 
-    public GameEventBurnCountersHealed(Card card) {
+    public GameEventFrozen(Card card) {
         this.card = card;
     }
 
@@ -20,7 +20,7 @@ public class GameEventBurnCountersHealed extends GameEvent {
      */
     @Override
     public String toString() {
-        return (card != null ? card.toString() : "(unknown)") + "'s burn was healed.";
+        return (card != null ? card.toString() : "(unknown)") + " is frozen.";
     }
 }
 

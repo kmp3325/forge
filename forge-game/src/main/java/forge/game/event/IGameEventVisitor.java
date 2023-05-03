@@ -5,7 +5,7 @@ package forge.game.event;
  *
  */
 public interface IGameEventVisitor<T> {
-    T visit(GameEventBurnCountersHealed event);
+    T visit(GameEventFrozen event);
     T visit(GameEventBurnCounterBurned event);
     T visit(GameEventAnteCardsSelected event);
     T visit(GameEventAttackersDeclared event);
@@ -63,7 +63,7 @@ public interface IGameEventVisitor<T> {
 
     // This is base class for all visitors.
     class Base<T> implements IGameEventVisitor<T>{
-        public T visit(GameEventBurnCountersHealed event) { return null; }
+        public T visit(GameEventFrozen event) { return null; }
         public T visit(GameEventBurnCounterBurned event) { return null; }
         public T visit(GameEventAnteCardsSelected event) { return null; }
         public T visit(GameEventAttackersDeclared event) { return null; }

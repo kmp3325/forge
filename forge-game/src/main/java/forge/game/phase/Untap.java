@@ -17,9 +17,7 @@
  */
 package forge.game.phase;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
 
 import com.google.common.base.Predicate;
@@ -28,17 +26,16 @@ import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
+import forge.GameCommand;
 import forge.card.CardType;
 import forge.game.Game;
-import forge.game.GameEntityCounterTable;
-import forge.game.GameLogEntryType;
 import forge.game.GlobalRuleChange;
 import forge.game.ability.ApiType;
 import forge.game.card.*;
 import forge.game.card.CardPredicates.Presets;
 import forge.game.event.GameEventBurnCounterBurned;
-import forge.game.event.GameEventBurnCountersHealed;
-import forge.game.event.GameEventFlipCoin;
+import forge.game.event.GameEventCardStatsChanged;
+import forge.game.event.GameEventFrozen;
 import forge.game.keyword.Keyword;
 import forge.game.keyword.KeywordInterface;
 import forge.game.player.Player;
@@ -76,11 +73,13 @@ public class Untap extends Phase {
 
         doPhasing(game.getPhaseHandler().getPlayerTurn());
         doDayTime(game.getPhaseHandler().getPreviousPlayerTurn());
-        doBurn(game.getPhaseHandler().getPlayerTurn());
 
         game.getAction().checkStaticAbilities();
 
         doUntap();
+
+        doBurn(game.getPhaseHandler().getPlayerTurn());
+        doFrozen(game.getPhaseHandler().getPlayerTurn());
     }
 
     /**
@@ -304,24 +303,69 @@ public class Untap extends Phase {
         if (player == null) {
             return;
         }
-        Game game = player.getGame();
-        for (Card card : player.getCardsIn(ZoneType.Battlefield, true)) {
-            int burnCounterCount = card.getCounters(CounterEnumType.BURN);
-            if (burnCounterCount > 0) {
-                if (Math.random() > .5) {
-                    card.subtractCounter(CounterEnumType.BURN, burnCounterCount);
-                    GameEventBurnCountersHealed gameEvent = new GameEventBurnCountersHealed(card);
-                    game.fireEvent(gameEvent);
-                } else {
-                    GameEntityCounterTable table = card.getSpellPermanent().getCounterTable();
-                    if (table == null) {
-                        table = new GameEntityCounterTable();
+        Map<Card, Integer> burnedCards = new HashMap<>();
+        for (Card card : player.getOpponents().getCreaturesInPlay()) {
+            if (card.isPhasedOut() || card.getCounters(CounterEnumType.BURN) == 0) {
+                continue;
+            }
+            int numberOfBurnCountersOnCard = card.getCounters(CounterEnumType.BURN);
+            if (numberOfBurnCountersOnCard == 0) {
+                continue;
+            }
+            burnedCards.put(card, numberOfBurnCountersOnCard);
+        }
+        if (burnedCards.isEmpty()) {
+            return;
+        }
+
+        if (Math.random() > .5) {
+            Game game = player.getGame();
+            for (Entry<Card, Integer> burned : burnedCards.entrySet()) {
+                Card gameCard = burned.getKey();
+                long timestamp = game.getNextTimestamp();
+                gameCard.addPTBoost(0, burned.getValue() * -1, timestamp, 0);
+                game.getEndOfTurn().addUntil(new GameCommand() {
+                    private static final long serialVersionUID = -422445424L;
+                    @Override
+                    public void run() {
+                        gameCard.removePTBoost(timestamp, 0);
+                        gameCard.updatePowerToughnessForView();
+                        game.fireEvent(new GameEventCardStatsChanged(gameCard));
                     }
-                    card.addCounter(CounterEnumType.BURN, 1, player, table);
-                    table.replaceCounterEffect(game, null, false);
-                    GameEventBurnCounterBurned gameEvent = new GameEventBurnCounterBurned(card);
-                    game.fireEvent(gameEvent);
-                }
+                });
+                gameCard.updatePowerToughnessForView();
+                GameEventBurnCounterBurned gameEvent = new GameEventBurnCounterBurned(burned.getKey());
+                game.fireEvent(gameEvent);
+            }
+        }
+    }
+
+    private static void doFrozen(Player player) {
+        if (player == null) {
+            return;
+        }
+        Map<Card, Integer> frozenCards = new HashMap<>();
+        for (Card card : player.getCreaturesInPlay()) {
+            if (card.isPhasedOut() || card.isTapped() || card.getCounters(CounterEnumType.FROZEN) == 0) {
+                continue;
+            }
+            int numberOfFrozenCountersOnCard = card.getCounters(CounterEnumType.FROZEN);
+            if (numberOfFrozenCountersOnCard == 0) {
+                continue;
+            }
+            frozenCards.put(card, numberOfFrozenCountersOnCard);
+        }
+        if (frozenCards.isEmpty()) {
+            return;
+        }
+
+        if (Math.random() < .5) {
+            Game game = player.getGame();
+            for (Entry<Card, Integer> frozen : frozenCards.entrySet()) {
+                frozen.getKey().tap(true);
+                frozen.getKey().subtractCounter(CounterEnumType.FROZEN, 1);
+                GameEventFrozen gameEvent = new GameEventFrozen(frozen.getKey());
+                game.fireEvent(gameEvent);
             }
         }
     }

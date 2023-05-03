@@ -69,7 +69,7 @@ public class EventVisualizer extends IGameEventVisitor.Base<SoundEffectType> imp
     public SoundEffectType visit(final GameEventFlipCoin event) { return SoundEffectType.FlipCoin; }
 
     @Override
-    public SoundEffectType visit(final GameEventBurnCountersHealed event) { return SoundEffectType.RemoveCounter; }
+    public SoundEffectType visit(final GameEventFrozen event) { return SoundEffectType.RemoveCounter; }
 
     @Override
     public SoundEffectType visit(final GameEventBurnCounterBurned event) { return SoundEffectType.Damage; }

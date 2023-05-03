@@ -361,7 +361,7 @@ public class FControlGameEventHandler extends IGameEventVisitor.Base<Void> {
     }
 
     @Override
-    public Void visit(final GameEventBurnCountersHealed event) {
+    public Void visit(final GameEventFrozen event) {
         processCard(event.card, cardsUpdate);
         return processEvent();
     }

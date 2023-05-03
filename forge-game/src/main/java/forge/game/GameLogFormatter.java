@@ -189,9 +189,6 @@ public class GameLogFormatter extends IGameEventVisitor.Base<GameLogEntry> {
         if (event.type == DamageType.M0M1Counters) {
             additionalLog = localizer.getMessage("lblAsM0M1Counters");
         }
-        if (event.type == DamageType.BurnCounters) {
-            additionalLog = localizer.getMessage("lblAsBurnCounters");
-        }
         if (event.type == DamageType.LoyaltyLoss) {
             additionalLog = localizer.getMessage("lblRemovingNLoyaltyCounter", String.valueOf(event.amount));
         }
@@ -304,8 +301,8 @@ public class GameLogFormatter extends IGameEventVisitor.Base<GameLogEntry> {
     }
 
     @Override
-    public GameLogEntry visit(GameEventBurnCountersHealed ev) {
-        return new GameLogEntry(GameLogEntryType.BURN_HEALED, ev.toString());
+    public GameLogEntry visit(GameEventFrozen ev) {
+        return new GameLogEntry(GameLogEntryType.FROZEN, ev.toString());
     }
 
     @Override

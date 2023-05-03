@@ -26,6 +26,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 import forge.GameCommand;
+import forge.game.*;
 import forge.game.event.GameEventCardForetold;
 import forge.game.trigger.TriggerType;
 import org.apache.commons.lang3.StringUtils;
@@ -46,10 +47,6 @@ import forge.card.ICardFace;
 import forge.card.MagicColor;
 import forge.card.mana.ManaCost;
 import forge.card.mana.ManaCostParser;
-import forge.game.CardTraitBase;
-import forge.game.Game;
-import forge.game.GameEntityCounterTable;
-import forge.game.GameLogEntryType;
 import forge.game.ability.AbilityFactory;
 import forge.game.ability.AbilityKey;
 import forge.game.ability.AbilityUtils;
@@ -1810,6 +1807,21 @@ public class CardFactoryUtil {
                     inst.addTrigger(t);
                 }
             }
+        } else if (keyword.startsWith("Scorching")) {
+            String trigStr = "Mode$ DamageDone | " +
+                    "ValidSource$ Card.Self | " +
+                    "ValidTarget$ Creature | " +
+                    "TriggerZones$ Battlefield | " +
+                    "TriggerDescription$ Whenever this deals damage to a creature," +
+                    " put that many burn counters on that creature.";
+            final Trigger parsedTrigger = TriggerHandler.parseTrigger(trigStr, card, intrinsic);
+
+            SpellAbility sa = AbilityFactory.getAbility("DB$ PutCounter | Defined$ TriggeredTargetLKICopy | CounterType$ BURN | CounterNum$ X", card);
+            parsedTrigger.setSVar("X", "TriggerCount$DamageAmount");
+            sa.setIntrinsic(intrinsic);
+            parsedTrigger.setOverridingAbility(sa);
+
+            inst.addTrigger(parsedTrigger);
         } else if (keyword.equals("Soulbond")) {
             // Setup ETB trigger for card with Soulbond keyword
             final String actualTriggerSelf = "Mode$ ChangesZone | Destination$ Battlefield | "

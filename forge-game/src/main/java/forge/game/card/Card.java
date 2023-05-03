@@ -4308,7 +4308,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
     public final int getToughnessBonusFromCounters() {
         return getCounters(CounterEnumType.P1P1) + 2 * getCounters(CounterEnumType.P1P2) - getCounters(CounterEnumType.M1M1)
                 + getCounters(CounterEnumType.P0P1) - 2 * getCounters(CounterEnumType.M0M2) + 2 * getCounters(CounterEnumType.P2P2)
-                - getCounters(CounterEnumType.M0M1) - getCounters(CounterEnumType.BURN) - getCounters(CounterEnumType.M2M1) - 2 * getCounters(CounterEnumType.M2M2)
+                - getCounters(CounterEnumType.M0M1) - getCounters(CounterEnumType.M2M1) - 2 * getCounters(CounterEnumType.M2M2)
                 + 2 * getCounters(CounterEnumType.P0P2);
     }
 
@@ -5821,7 +5821,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
         }
         if (isCreature()) {
             boolean wither = game.getStaticEffects().getGlobalRuleChange(GlobalRuleChange.alwaysWither)
-                    || source.hasKeyword(Keyword.WITHER) || (source.hasKeyword(Keyword.INFECT) && !(source.hasKeyword(Keyword.CAUSTIC) || source.hasKeyword(Keyword.BURN_DAMAGE)));
+                    || source.hasKeyword(Keyword.WITHER) || (source.hasKeyword(Keyword.INFECT) && !source.hasKeyword(Keyword.CAUSTIC));
 
             if (wither) { // 120.3d
                 addCounter(CounterEnumType.M1M1, damageIn, source.getController(), counterTable);
@@ -5829,9 +5829,6 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
             } else if (source.hasKeyword(Keyword.CAUSTIC) && !takesCausticAsRegularDamage(source)) {
                 addCounter(CounterEnumType.M0M1, damageIn, source.getController(), counterTable);
                 damageType = DamageType.M0M1Counters;
-            } else if (source.hasKeyword(Keyword.BURN_DAMAGE)) {
-                addCounter(CounterEnumType.BURN, damageIn, source.getController(), counterTable);
-                damageType = DamageType.BurnCounters;
             } else { // 120.3e
                 int old = damage.getOrDefault(Objects.hash(source.getId(), source.getTimestamp()), 0);
                 damage.put(Objects.hash(source.getId(), source.getTimestamp()), old + damageIn);

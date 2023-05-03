@@ -202,7 +202,7 @@ public class AttachAi extends SpellAbilityAi {
                 int totalAtkPower = 0;
                 for (Card attacker : combat.getBlockers(attachTarget)) {
                     if (attacker.hasKeyword(Keyword.DEATHTOUCH) || attacker.hasKeyword(Keyword.INFECT)
-                            || attacker.hasKeyword(Keyword.WITHER) || attacker.hasKeyword(Keyword.CAUSTIC) || attacker.hasKeyword(Keyword.BURN_DAMAGE)) {
+                            || attacker.hasKeyword(Keyword.WITHER) || attacker.hasKeyword(Keyword.CAUSTIC) || attacker.hasKeyword(Keyword.SCORCHING)) {
                         dangerous = true;
                     }
                     totalAtkPower += attacker.getNetPower();

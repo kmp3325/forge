@@ -1,0 +1,8 @@
+Name:Weepinbell
+ManaCost:4 G
+Types:Creature Plant Pokémon
+PT:3/2
+K:Mutate onto:4 G:Bellsprout:4/3
+K:Caustic
+S:Mode$ CanBlockIfReach | ValidAttacker$ Insect | ValidBlocker$ Card.Self | Description$ CARDNAME can block Insects as though it had reach.
+Oracle:Mutate onto Bellsprout {4}{G} [4/3]\nCaustic\nWeepinbell can block Insects as though it had reach.

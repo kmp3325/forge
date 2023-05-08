@@ -1,0 +1,7 @@
+Name:Bellsprout
+ManaCost:2 G
+Types:Creature Plant Pokémon
+PT:1/1
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDestroy | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters the battlefield, you may destroy target artifact or enchantment.
+SVar:TrigDestroy:DB$ Destroy | ValidTgts$ Artifact,Enchantment | TgtPrompt$ Choose target artifact or enchantment.
+Oracle:When Bellsprout enters the battlefield, you may destroy target artifact or enchantment.

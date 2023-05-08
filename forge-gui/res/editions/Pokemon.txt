@@ -86,7 +86,7 @@ Name=Pokémon
 1 U Slowbro
 1 C Magnemite
 1 U Magneton
-1 C Farfetch’d
+1 C Farfetch'd
 1 C Doduo
 1 R Dodrio
 1 C Seel

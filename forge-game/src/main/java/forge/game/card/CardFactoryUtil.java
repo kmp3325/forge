@@ -2513,7 +2513,11 @@ public class CardFactoryUtil {
             final ReplacementEffect re = makeEtbCounter(sb, card, intrinsic);
 
             inst.addReplacement(re);
-        }  else if (keyword.equals("Sunburst")) {
+        } else if (keyword.startsWith("Steel skin")) {
+            final String sb = "Event$ DamageDone | ActiveZones$ Battlefield | ValidSource$ Card.withCaustic,Card.withInfect,Card.withWither | ValidTarget$ Card.Self | PreventionEffect$ True | Description$ If damage would be dealt to this in the form of counters, prevent that damage.";
+            final ReplacementEffect re = ReplacementHandler.parseReplacement(sb, host, intrinsic, card);
+            inst.addReplacement(re);
+        } else if (keyword.equals("Sunburst")) {
             // Rule 702.43a If this object is entering the battlefield as a creature,
             // ignoring any type-changing effects that would affect it
             CounterType t = CounterType.get(host.isCreature() ? CounterEnumType.P1P1 : CounterEnumType.CHARGE);

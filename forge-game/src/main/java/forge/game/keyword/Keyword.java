@@ -191,7 +191,7 @@ public enum Keyword {
     WITHER("Wither", SimpleKeyword.class, true, "This deals damage to creatures in the form of -1/-1 counters."),
     CAUSTIC("Caustic", SimpleKeyword.class, true, "This deals damage to creatures in the form of -0/-1 counters."),
     SCORCHING("Scorching", SimpleKeyword.class, false, "Whenever this deals damage to a creature, put that many burn counters on that creature."),
-
+    STEEL_SKIN("Steel skin", SimpleKeyword.class, true, "If damage would be dealt to this in the form of counters, prevent that damage."),
     // mayflash additional cast
     MAYFLASHCOST("MayFlashCost", KeywordWithCost.class, false, "You may cast CARDNAME as though it had flash if you pay %s more to cast it."),
     MAYFLASHSAC("MayFlashSac", SimpleKeyword.class, false, "You may cast CARDNAME as though it had flash. If you cast it any time a sorcery couldn't have been cast, the controller of the permanent it becomes sacrifices it at the beginning of the next cleanup step."),

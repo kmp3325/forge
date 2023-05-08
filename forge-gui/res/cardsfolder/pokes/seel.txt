@@ -1,0 +1,10 @@
+Name:Seel
+ManaCost:2 U
+Types:Creature Walrus Pokémon
+PT:1/2
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigRemoveFrozen | TriggerDescription$ When Seel enters the battlefield, you may remove all frozen counters from target creature. If a frozen counter was removed this way, draw a card.
+SVar:TrigRemoveFrozen:DB$ RemoveCounter | ValidTgts$ Creature | TgtPrompt$ Select target creature | CounterType$ FROZEN | CounterNum$ All | RememberRemoved$ True | SubAbility$ TrigDraw
+SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ X | SubAbility$ DBCleanup
+SVar:X:Count$RememberedSize
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+Oracle:When Seel enters the battlefield, you may remove all frozen counters from target creature. If a frozen counter was removed this way, draw a card.

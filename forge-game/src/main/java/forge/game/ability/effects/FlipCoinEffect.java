@@ -305,6 +305,18 @@ public class FlipCoinEffect extends SpellAbilityEffect {
         return wonFlip;
     }
 
+    public static boolean flipCoinCallNotSpellAbility(final Player caller, final String reason) {
+        final SpellAbility emptySpellAbility = new SpellAbility.EmptySa(null, caller);
+        final boolean choice = caller.getController().chooseBinary(emptySpellAbility, reason, PlayerController.BinaryChoiceType.HeadsOrTails, true);
+        caller.getGame().fireEvent(new GameEventFlipCoin());
+        final boolean wonFlip = choice == MyRandom.getRandom().nextBoolean();
+        caller.getGame().getAction().notifyOfValue(null, caller, wonFlip ? Localizer.getInstance().getMessage("lblWin") : Localizer.getInstance().getMessage("lblLose"), null);
+        final Map<AbilityKey, Object> runParams = AbilityKey.mapFromPlayer(caller);
+        runParams.put(AbilityKey.Result, wonFlip);
+        caller.getGame().getTriggerHandler().runTrigger(TriggerType.FlippedCoin, runParams, false);
+        return wonFlip;
+    }
+
     public static int getFlipMultiplier(final Player flipper) {
         String str = "If you would flip a coin, instead flip two coins and ignore one.";
         return 1 + flipper.getKeywords().getAmount(str);

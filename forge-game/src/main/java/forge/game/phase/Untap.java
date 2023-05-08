@@ -31,6 +31,7 @@ import forge.card.CardType;
 import forge.game.Game;
 import forge.game.GlobalRuleChange;
 import forge.game.ability.ApiType;
+import forge.game.ability.effects.FlipCoinEffect;
 import forge.game.card.*;
 import forge.game.card.CardPredicates.Presets;
 import forge.game.event.GameEventBurnCounterBurned;
@@ -317,8 +318,8 @@ public class Untap extends Phase {
         if (burnedCards.isEmpty()) {
             return;
         }
-
-        if (Math.random() > .5) {
+        boolean won = FlipCoinEffect.flipCoinCallNotSpellAbility(player, "Flip for burn counters. Heads or tails?");
+        if (won) {
             Game game = player.getGame();
             for (Entry<Card, Integer> burned : burnedCards.entrySet()) {
                 Card gameCard = burned.getKey();
@@ -359,7 +360,8 @@ public class Untap extends Phase {
             return;
         }
 
-        if (Math.random() < .5) {
+        boolean won = FlipCoinEffect.flipCoinCallNotSpellAbility(player, "Flip for frozen counters. Heads or tails?");
+        if (!won) {
             Game game = player.getGame();
             for (Entry<Card, Integer> frozen : frozenCards.entrySet()) {
                 frozen.getKey().tap(true);

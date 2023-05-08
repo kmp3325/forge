@@ -1,7 +1,6 @@
 package forge.game.ability.effects;
 
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import com.google.common.collect.Lists;
 
@@ -98,7 +97,7 @@ public class FightEffect extends DamageBaseEffect {
         if (sa.usesTargeting()) {
             tgts = sa.getTargets().getTargetCards();
             if (!tgts.isEmpty()) {
-                fighter1 = tgts.get(0);
+                fighter1 = selectFighterAndRunReplacements(Collections.singleton(tgts.get(0))).get(0);
             }
         }
         if (sa.hasParam("Defined")) {
@@ -107,6 +106,7 @@ public class FightEffect extends DamageBaseEffect {
             if (sa.hasParam("ExtraDefined")) {
                 defined.addAll(AbilityUtils.getDefinedCards(host, sa.getParam("ExtraDefined"), sa));
             }
+            defined = selectFighterAndRunReplacements(defined);
 
             List<Card> newDefined = Lists.newArrayList();
             for (final Card d : defined) {
@@ -137,9 +137,11 @@ public class FightEffect extends DamageBaseEffect {
         }
 
         if (fighter1 != null) {
+            fighter1.getGame().getReplacementHandler().run(ReplacementType.Fight, AbilityKey.mapFromAffected(fighter1));
             fighterList.add(fighter1);
         }
         if (fighter2 != null) {
+            fighter2.getGame().getReplacementHandler().run(ReplacementType.Fight, AbilityKey.mapFromAffected(fighter2));
             fighterList.add(fighter2);
         }
 
@@ -184,5 +186,16 @@ public class FightEffect extends DamageBaseEffect {
         }
 
         replaceDying(sa);
+    }
+
+    private static List<Card> selectFighterAndRunReplacements(Collection<Card> fighters) {
+        List<Card> realFighters = new ArrayList<>();
+        for (Card fighter : fighters) {
+            final Map<AbilityKey, Object> runParams = AbilityKey.mapFromAffected(fighter);
+            fighter.getGame().getReplacementHandler().run(ReplacementType.Fight, runParams);
+            realFighters.add((Card) runParams.get(AbilityKey.Affected));
+        }
+
+        return realFighters;
     }
 }

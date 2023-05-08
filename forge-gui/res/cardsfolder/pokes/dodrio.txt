@@ -1,0 +1,14 @@
+Name:Dodrio
+ManaCost:1 W W W
+Types:Creature Bird Pokémon
+PT:3/1
+K:Mutate onto:1 W W W:Doduo:4/2
+K:Flying
+K:First strike
+K:Vigilance
+T:Mode$ Mutates | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigWeather | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, it becomes windy.
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigWeather | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, it becomes windy.
+SVar:TrigWeather:DB$ Weather | Value$ Windy
+S:Mode$ Continuous | Affected$ Card.Self | CheckSVar$ WIND | SVarCompare$ GE1 | CanBlockAmount$ 1 | Description$ CARDNAME can block an additional creature each combat as long as it's windy.
+SVar:WIND:Count$Windy.1.0
+Oracle:Mutate onto Doduo {1}{W}{W}{W} [4/2]\nFlying, first strike, vigilance\nWhenever Dodrio enters the battlefield or mutates, it becomes windy.\nDodrio can block an additional creature each combat as long as it's windy.

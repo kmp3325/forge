@@ -1,0 +1,7 @@
+Name:Cloyster
+ManaCost:3 GU
+Types:Snow Creature Oyster Pokémon
+PT:2/4
+K:Mutate onto:3 GU:Shellder:2/6
+A:AB$ PutCounter | Cost$ 3 S T | CounterNum$ 1 | CounterType$ FROZEN | ValidTgts$ Creature | TgtPrompt$ Select target creature | SpellDescription$ Put a frozen counter on target creature.
+Oracle:Mutate onto Shellder {3}{GU} [2/6]\n{3}{S}, {T}: Put a frozen counter on target creature.

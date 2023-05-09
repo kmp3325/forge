@@ -990,7 +990,7 @@ public class CombatUtil {
             // MustBeBlockedByAll:<valid>
             if (keyword.startsWith("MustBeBlockedByAll")) {
                 final String valid = keyword.split(":")[1];
-                if (blocker.isValid(valid, null, null, null)) {
+                if (blocker.isValid(valid, attacker.getController(), attacker, null)) {
                     return false;
                 }
             }

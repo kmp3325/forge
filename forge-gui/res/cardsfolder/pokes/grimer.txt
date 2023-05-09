@@ -1,0 +1,8 @@
+Name:Grimer
+ManaCost:3 B
+Types:Creature Ooze Horror Pokémon
+PT:1/1
+K:Caustic
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDestroy | TriggerDescription$ When CARDNAME enters the battlefield, destroy target nonblack creature.
+SVar:TrigDestroy:DB$ Destroy | ValidTgts$ Creature.nonBlack | TgtPrompt$ Select target nonblack creature
+Oracle:Caustic\nWhen Grimer enters the battlefield, destroy target nonblack creature.

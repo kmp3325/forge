@@ -22,6 +22,7 @@ import forge.game.zone.ZoneType;
 import forge.util.CardTranslation;
 import forge.util.Localizer;
 import forge.util.TextUtil;
+import org.apache.commons.lang3.tuple.Pair;
 
 public class CountersMoveEffect extends SpellAbilityEffect {
 
@@ -169,6 +170,7 @@ public class CountersMoveEffect extends SpellAbilityEffect {
             table.replaceCounterEffect(game, sa, true);
             return;
         } else if (sa.hasParam("ValidDefined")) {
+            boolean rememberMoved = sa.hasParam("RememberMoved");
             // one Source to many Targets
             // need given CounterType
             // currently used for Forgotten Ancient
@@ -197,7 +199,16 @@ public class CountersMoveEffect extends SpellAbilityEffect {
 
             boolean updateSource = false;
 
+            int max;
+            if (!counterNum.equals("Any") && !counterNum.equals("All")) {
+                max = Math.min(AbilityUtils.calculateAmount(sa.getHostCard(), counterNum, sa), source.getCounters(cType));
+            } else {
+                max = source.getCounters(cType);
+            }
             for (final Card dest : tgtCards) {
+                if (max <= 0) {
+                    continue;
+                }
                 // rule 121.5: If the first and second objects are the same object, nothing happens
                 if (source.equals(dest)) {
                     continue;
@@ -219,9 +230,15 @@ public class CountersMoveEffect extends SpellAbilityEffect {
                 int cnum = player.getController().chooseNumber(sa,
                         Localizer.getInstance().getMessage("lblPutHowManyTargetCounterOnCard", cType.getName(),
                                 CardTranslation.getTranslatedName(cur.getName())),
-                        0, source.getCounters(cType), params);
+                        0, max, params);
+                max -= cnum;
 
                 if (cnum > 0) {
+                    if (rememberMoved) {
+                        for (int i = 0; i < cnum; i++) {
+                            host.addRemembered(Pair.of(cType, i));
+                        }
+                    }
                     source.subtractCounter(cType, cnum);
                     cur.addCounter(cType, cnum, player, table);
                     game.updateLastStateForCard(cur);
@@ -319,6 +336,8 @@ public class CountersMoveEffect extends SpellAbilityEffect {
     } // moveCounterResolve
 
     protected void removeCounter(SpellAbility sa, final Card src, final Card dest, CounterType cType, String counterNum, Map<CounterType, Integer> countersToAdd) {
+        boolean rememberMoved = sa.hasParam("RememberMoved");
+
         final Card host = sa.getHostCard();
         final Player player = sa.getActivatingPlayer();
         final PlayerController pc = player.getController();
@@ -357,6 +376,11 @@ public class CountersMoveEffect extends SpellAbilityEffect {
             src.subtractCounter(cType, cnum);
             game.updateLastStateForCard(src);
             countersToAdd.put(cType, (countersToAdd.containsKey(cType) ? countersToAdd.get(cType) : 0) + cnum);
+            if (rememberMoved) {
+                for (int i = 0; i < cnum; i++) {
+                    host.addRemembered(Pair.of(cType, i));
+                }
+            }
         }
     }
 }

@@ -3,7 +3,7 @@ ManaCost:4 G G W
 Types:Creature Golem Pokémon
 PT:6/6
 K:Mutate onto:4 G G W:Graveler:7/7
-K:etbCounter:SHIELD:1
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, put a shield counter on it.
 T:Mode$ Mutates | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, put a shield counter on it.
 SVar:TrigPutCounter:DB$ PutCounter | Defined$ TriggeredCardLKICopy | CounterType$ SHIELD | CounterNum$ 1
 S:Mode$ Continuous | Affected$ Card.Other+YouCtrl | AddPower$ X | AddToughness$ X | Description$ Other creatures you control get +1/+1 for each shield counter on CARDNAME

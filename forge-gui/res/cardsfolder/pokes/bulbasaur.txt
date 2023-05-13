@@ -2,7 +2,7 @@ Name:Bulbasaur
 ManaCost:G
 Types:Creature Plant Frog Pokémon
 PT:1/1
-K:etbCounter:SOLAR:1
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, put a solar counter on it.
 T:Mode$ Mutates | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigPutCounter | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, put a solar counter on it.
 SVar:TrigPutCounter:DB$ PutCounter | Defined$ TriggeredCardLKICopy | CounterType$ SOLAR | CounterNum$ 1
 A:AB$ GainLife | Cost$ T | LifeAmount$ NumSolar | SpellDescription$ You gain life equal to the number of solar counters on CARDNAME.

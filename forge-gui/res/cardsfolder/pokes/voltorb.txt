@@ -1,0 +1,8 @@
+Name:Voltorb
+ManaCost:2 UR UR
+Types:Artifact Creature Construct Pokémon
+PT:1/1
+K:Steel skin
+A:AB$ DamageAll | Cost$ T | ActivationZone$ Battlefield | ValidCards$ Creature | NumDmg$ X | ValidDescription$ each creature | SpellDescription$ It deals damage equal to its power to each creature.
+SVar:X:Count$CardPower
+Oracle:Steel skin\nSacrifice Voltorb:It deals damage equal to its power to each creature.

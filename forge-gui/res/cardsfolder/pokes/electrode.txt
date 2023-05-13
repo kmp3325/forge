@@ -1,0 +1,10 @@
+Name:Electrode
+ManaCost:3 U R
+Types:Artifact Creature Construct Pokémon
+PT:5/4
+K:Mutate onto:2 U R:Voltorb:5/4
+K:Steel skin
+T:Mode$ DamageDone | ValidSource$ Card.Self | ValidTarget$ Creature.OppCtrl | Execute$ TrigTap | TriggerDescription$ Whenever CARDNAME deals damage to a creature, tap that creature and put a stun counter on it.
+SVar:TrigTap:DB$ Tap | Defined$ TriggeredTarget | SubAbility$ TrigStun
+SVar:TrigStun:DB$ PutCounter | CounterType$ STUN | CounterNum$ 1 | Defined$ TriggeredTarget
+Oracle:Mutate onto {2}{U}{R} [5/4]\nSteel skin\nWhenever Electrode deals damage to a creature an opponent controls, tap that creature and put a stun counter on it.

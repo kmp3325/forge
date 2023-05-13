@@ -1,0 +1,10 @@
+Name:Kingler
+ManaCost:4 GU
+Types:Creature Crab Pokémon
+PT:5/4
+K:Mutate onto:5 U:Krabby:6/5
+T:Mode$ Mutates | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigDestroy | TriggerDescription$ Whenever CARDNAME mutates, destroy target creature with a vicegrip counter on it. If a creature is destroyed this way, put a number of +1/+1 counters on CARDNAME equal to half that creature's toughness, rounded up.
+SVar:TrigDestroy:DB$ Destroy | ValidTgts$ Creature.counters_GE1_VICEGRIP | TgtPrompt$ Select target creature with a vicegrip counter on it | SubAbility$ TrigPutCounter
+SVar:TrigPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ X
+SVar:X:Targeted$CardToughness/HalfUp
+Oracle:Mutate onto Krabby {5}{U} [6/5]\nWhenever Kingler mutates, destroy target creature with a vicegrip counter on it. If a creature is destroyed this way, put a number of +1/+1 counters on Kingler equal to half that creature's toughness, rounded up.

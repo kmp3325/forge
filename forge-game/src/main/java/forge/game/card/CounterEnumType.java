@@ -35,6 +35,7 @@ public enum CounterEnumType {
     SOLAR("SOLAR", 121, 219, 151),
     BURN("BURN", 255, 124, 82),
     FROZEN("FROZEN", 42, 170, 249),
+    VICEGRIP("VICEGRIP", 138, 166, 210),
     DIG("DIG", 150, 75, 0),
 
     LOYALTY("LOYAL", 198, 198, 198),

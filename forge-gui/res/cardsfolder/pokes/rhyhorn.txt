@@ -1,0 +1,7 @@
+Name:Rhyhorn
+ManaCost:3 G W
+Types:Creature Dinosaur Rhino Pokémon
+PT:4/4
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounter | TriggerDescription$ When CARDNAME enters the battlefield, put a shield counter on it.
+SVar:TrigPutCounter:DB$ PutCounter | CounterType$ SHIELD | CounterNum$ 1 | Defined$ TriggeredCardLKICopy
+Oracle:When Rhyhorn enters the battlefield, put a shield counter on it.

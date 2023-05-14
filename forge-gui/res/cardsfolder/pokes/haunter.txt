@@ -1,6 +1,6 @@
 Name:Haunter
 ManaCost:B B B
-Types:Creature Spirit Horror Pokémon
+Types:Creature Nightmare Spirit Pokémon
 PT:2/2
 K:Mutate onto:B B B:Gastly:2/2
 K:Shadow

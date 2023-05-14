@@ -1,6 +1,6 @@
 Name:Gastly
 ManaCost:B B
-Types:Creature Spirit Horror Pokémon
+Types:Creature Nightmare Spirit Pokémon
 PT:1/1
 K:Shadow
 K:Caustic

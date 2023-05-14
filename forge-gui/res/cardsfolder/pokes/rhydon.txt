@@ -1,0 +1,14 @@
+Name:Rhydon
+ManaCost:5 G W
+Types:Creature Dinosaur Rhino Pokémon
+PT:7/7
+K:Mutate onto:5 G W:Rhyhorn:8/8
+T:Mode$ AttackerBlockedByCreature | ValidCard$ Card.Self | ValidBlocker$ Creature | Execute$ TrigShieldSteal | TriggerDescription$ Whenever CARDNAME becomes blocked by a creature, remove all shield counters from that creature. If a shield counter is removed this way, put a shield counter on CARDNAME and it gains trample until end of turn.
+SVar:TrigShieldSteal:DB$ RemoveCounter | Defined$ TriggeredBlockerLKICopy | CounterType$ SHIELD | CounterNum$ All | RememberRemoved$ True | SubAbility$ TrigShieldSelf
+SVar:TrigShieldSelf:DB$ PutCounter | CounterType$ SHIELD | Defined$ Self | CounterNum$ 1 | CheckSVar$ X | SVarCompare$ GE1 | SubAbility$ GainTrample
+SVar:X:Count$RememberedSize
+SVar:GainTrample:DB$ Pump | Defined$ Self | KW$ Trample | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+A:AB$ PutCounter | Cost$ 3 G | CounterType$ SHIELD | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature | ActivationLimit$ 1 | SubAbility$ HurtSelf | SpellDescription$ Put a shield counter on target creature, then CARDNAME deals 1 damage to itself. Activate only once each turn.
+SVar:HurtSelf:DB$ DealDamage | Defined$ Self | NumDmg$ 1
+Oracle:Mutate onto Rhyhorn {5}{G}{W} [8/8]\nWhenever Rhydon is blocked by a creature, remove all shield counters from that creature. If a shield counter is removed this way, put a shield counter on Rhydon and it gains trample until end of turn.\n{3}{G}: Put a shield counter on target creature, then Rhydon deals 1 damage to itself. Activate only once each turn.

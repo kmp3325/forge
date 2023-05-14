@@ -1,6 +1,6 @@
 Name:Gengar
 ManaCost:B B B B B B
-Types:Creature Spirit Horror Pokémon
+Types:Creature Nightmare Spirit Pokémon
 PT:4/3
 K:Mutate onto:B B B B B B:Haunter:5/3
 K:Shadow

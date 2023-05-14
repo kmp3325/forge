@@ -1,0 +1,9 @@
+Name:Weezing
+ManaCost:3 B
+Types:Creature Elemental Pokémon
+PT:3/5
+K:Mutate onto:3 B:Koffing:3/6
+A:AB$ Weather | Cost$ B B PayLife<2> | Value$ Foggy | SpellDescription$ It becomes foggy.
+S:Mode$ MinMaxBlocker | ValidCard$ Creature.YouCtrl | Max$ 1 | CheckSVar$ FOG | SVarCompare$ GE1 | Description$ Each creature you control can't be blocked by more than one creature as long as it's foggy.
+SVar:FOG:Count$Foggy.1.0
+Oracle:Mutate onto Koffing {3}{B} [3/6]\n{B}{B}, Pay 2 life: It becomes foggy.\nEach creature you control can't be blocked by more than one creature as long as it's foggy.

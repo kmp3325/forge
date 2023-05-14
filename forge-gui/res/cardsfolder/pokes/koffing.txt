@@ -1,0 +1,9 @@
+Name:Koffing
+ManaCost:B
+Types:Creature Elemental Pokémon
+PT:1/1
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigWeather | TriggerDescription$ When CARDNAME enters the battlefield, it becomes foggy.
+SVar:TrigWeather:DB$ Weather | Value$ Foggy
+S:Mode$ Continuous | Affected$ Card.Self | AddKeyword$ Caustic | CheckSVar$ FOG | SVarCompare$ GE1  | Description$ CARDNAME has caustic as long as it's foggy.
+SVar:FOG:Count$Foggy.1.0
+Oracle:When Koffing enters the battlefield, it becomes foggy.\nKoffing has caustic as long as it's foggy.

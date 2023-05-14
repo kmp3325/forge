@@ -1,0 +1,10 @@
+Name:Hitmonchan
+ManaCost:2 R W
+Types:Creature Mutant Beast Pokémon
+PT:3/4
+K:Mutate onto:2 R W:Tyrogue:4/5
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigFight | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, you may have it fight target creature.
+T:Mode$ Mutates | ValidCard$ Card.Self | Execute$ TrigFight | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, you may have it fight target creature.
+SVar:TrigFight:DB$ Fight | Defined$ TriggeredCardLKICopy | ValidTgts$ Creature | TgtPrompt$ Choose target creature
+A:AB$ Pump | Cost$ W | NumDef$ 1 | Defined$ Self | KW$ Reach | SpellDescription$ CARDNAME gets +0/+1 and gains reach until end of turn.
+Oracle:Mutate onto Tyrogue {2}{R}{W} [4/5]\nWhenever Hitmonchan enters the battlefield or mutates, you may have it fight target creature.\n{W}: Hitmonchan gets +0/+1 and gains reach until end of turn.

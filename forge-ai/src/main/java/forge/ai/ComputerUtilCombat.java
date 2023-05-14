@@ -2124,7 +2124,7 @@ public class ComputerUtilCombat {
      * @return a int.
      */
     public final static int getEnoughDamageToKill(final Card c, final int maxDamage, final Card source, final boolean isCombat) {
-        return getEnoughDamageToKill(c, maxDamage, source, isCombat);
+        return getEnoughDamageToKill(c, maxDamage, source, isCombat, false);
     }
 
     /**

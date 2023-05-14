@@ -3,8 +3,6 @@ package forge.game.ability.effects;
 import java.util.List;
 
 import forge.GameCommand;
-import forge.game.event.GameEventCardPhased;
-import forge.game.event.GameEventCardStatsChanged;
 import forge.util.Lang;
 
 import forge.game.Game;

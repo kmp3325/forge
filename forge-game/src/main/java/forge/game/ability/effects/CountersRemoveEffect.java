@@ -1,6 +1,9 @@
 package forge.game.ability.effects;
 
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import forge.game.card.*;
 import org.apache.commons.lang3.tuple.Pair;
@@ -113,7 +116,7 @@ public class CountersRemoveEffect extends SpellAbilityEffect {
                     cntToRemove = tgtPlayer.getCounters(counterType);
                 }
                 if (type.equals("Any")) {
-                    removeAnyType(tgtPlayer, cntToRemove, sa);
+                    removeAnyType(tgtPlayer, cntToRemove, sa, false);
                 } else {
                     tgtPlayer.subtractCounter(counterType, cntToRemove);
                 }
@@ -170,7 +173,7 @@ public class CountersRemoveEffect extends SpellAbilityEffect {
             }
 
             if (type.equals("Any")) {
-                removeAnyType(gameCard, cntToRemove, sa);
+                removeAnyType(gameCard, cntToRemove, sa, num.equals("Any"));
             } else {
                 cntToRemove = Math.min(cntToRemove, gameCard.getCounters(counterType));
 
@@ -204,7 +207,7 @@ public class CountersRemoveEffect extends SpellAbilityEffect {
         }
     }
 
-    protected void removeAnyType(GameEntity entity, int cntToRemove, SpellAbility sa) {
+    protected void removeAnyType(GameEntity entity, int cntToRemove, SpellAbility sa, boolean isAnyNum) {
         boolean rememberRemoved = sa.hasParam("RememberRemoved");
 
         final Card card = sa.getHostCard();
@@ -213,7 +216,8 @@ public class CountersRemoveEffect extends SpellAbilityEffect {
 
         PlayerController pc = player.getController();
 
-        while (cntToRemove > 0 && entity.hasCounters()) {
+        Set<CounterType> counterTypesLeftToReview = isAnyNum ? new HashSet<>(entity.getCounters().keySet()) : Collections.emptySet();
+        while ((cntToRemove > 0 || !counterTypesLeftToReview.isEmpty()) && entity.hasCounters()) {
             final Map<CounterType, Integer> tgtCounters = entity.getCounters();
             Map<String, Object> params = Maps.newHashMap();
             params.put("Target", entity);
@@ -221,12 +225,15 @@ public class CountersRemoveEffect extends SpellAbilityEffect {
             String prompt = Localizer.getInstance().getMessage("lblSelectCountersTypeToRemove");
             CounterType chosenType = pc.chooseCounterType(
                     ImmutableList.copyOf(tgtCounters.keySet()), sa, prompt, params);
+            if (!counterTypesLeftToReview.isEmpty()) {
+                counterTypesLeftToReview.remove(chosenType);
+            }
             prompt = Localizer.getInstance().getMessage("lblSelectRemoveCountersNumberOfTarget", chosenType.getName());
-            int max = Math.min(cntToRemove, tgtCounters.get(chosenType));
+            int max = isAnyNum ? tgtCounters.get(chosenType) : Math.min(cntToRemove, tgtCounters.get(chosenType));
             params = Maps.newHashMap();
             params.put("Target", entity);
             params.put("CounterType", chosenType);
-            int chosenAmount = pc.chooseNumber(sa, prompt, sa.hasParam("UpTo") ? 0 : 1, max, params);
+            int chosenAmount = pc.chooseNumber(sa, prompt, sa.hasParam("UpTo") || isAnyNum ? 0 : 1, max, params);
 
             if (chosenAmount > 0) {
                 entity.subtractCounter(chosenType, chosenAmount);

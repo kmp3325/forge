@@ -141,6 +141,8 @@ public enum CounterEnumType {
     FILIBUSTER("FLBTR", 255, 179, 119),
 
     FLAME("FLAME", 255, 143, 43),
+    
+    FLAVOR("FLAVOR", 208, 152, 97), ///adventure only
 
     FLOOD("FLOOD", 0, 203, 255),
 
@@ -417,6 +419,7 @@ public enum CounterEnumType {
     REACH("Reach"),
     TRAMPLE("Trample"),
     VIGILANCE("Vigilance")
+    SHADOW("Shadow")
 //*/
     ;
 

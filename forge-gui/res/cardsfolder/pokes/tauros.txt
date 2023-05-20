@@ -1,0 +1,7 @@
+Name:Tauros
+ManaCost:4
+Types:Creature Aurochs Pokémon
+PT:*/*
+S:Mode$ Continuous | EffectZone$ All | CharacteristicDefining$ True | SetPower$ X | SetToughness$ X | Description$ CARDNAME's power and toughness are each equal to the number of creatures you control without flying.
+SVar:X:Count$Valid Creature.YouCtrl+withoutFlying
+Oracle:Tauros's power and toughness are each equal to the number of creatures you control without flying.

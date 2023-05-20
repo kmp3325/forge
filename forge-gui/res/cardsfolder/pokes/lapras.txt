@@ -1,0 +1,11 @@
+Name:Lapras
+ManaCost:4 U U
+Types:Snow Creature Dinosaur Pokémon
+PT:6/6
+T:Mode$ Attacks | ValidCard$ Card.Self | CheckSVar$ SNOW | SVarCompare$ GE1 | Execute$ TrigCantBlock | TriggerDescription$ Whenever CARDNAME attacks, as long as it's snowy, another target creature can't be blocked this turn.
+SVar:SNOW:Count$Snowy.1.0
+SVar:TrigCantBlock:DB$ Effect | TgtPrompt$ Select up to one target attacking creature | ValidTgts$ Creature.attacking | TargetMin$ 0 | TargetMax$ 1 | RememberObjects$ Targeted | ExileOnMoved$ Battlefield | StaticAbilities$ Unblockable | AILogic$ Pump | SubAbility$ DBDelTrig
+SVar:Unblockable:Mode$ CantBlockBy | ValidAttacker$ Card.IsRemembered | Description$ This creature can't be blocked this turn.
+A:AB$ Weather | Cost$ S T | Value$ Snowy | SubAbility$ DBPutCounter
+SVar:DBPutCounter:DB$ PutCounter | ValidTgts$ Creature | CounterType$ FROZEN | CounterNum$ 1 | TgtPrompt$ Select target creature
+Oracle: Whenever Lapras attacks, as long as it's snowy, another target creature can't be blocked this turn.\n{S}, {T}: It becomes snowy, then put a frozen counter on target creature.

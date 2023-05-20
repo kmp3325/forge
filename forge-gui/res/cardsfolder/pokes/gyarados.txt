@@ -1,0 +1,10 @@
+Name:Gyarados
+ManaCost:3 W U U
+Types:Creature Leviathan Pokémon
+PT:6/6
+K:Mutate onto:3 W U U:Magikarp:9/9
+K:Flying
+K:Vigilance
+T:Mode$ DamageDone | ValidSource$ Card.Self | ValidTarget$ Player | Execute$ TrigDestroy | CombatDamage$ True | TriggerDescription$ Whenever CARDNAME deals combat damage to a player, destroy target land that player controls.
+SVar:TrigDestroy:DB$ Destroy | ValidTgts$ Land.ControlledBy TriggeredTarget | TgtPrompt$ Select target land damaged player controls
+Oracle:Mutate onto Magikarp {3}{W}{U}{U} [9/9]\nFlying, vigilance\nWhenever Gyarados deals combat damage to a player, destroy target land that player controls.

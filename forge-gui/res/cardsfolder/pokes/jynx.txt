@@ -1,0 +1,10 @@
+Name:Jynx
+ManaCost:3 B B
+Types:Snow Creature Vampire Demon Pokémon
+PT:4/3
+K:Mutate onto:3 B B:Smoochum:5/3
+T:Mode$ DamageDone | ValidSource$ Card.Self | ValidTarget$ Player | Execute$ TrigReveal | CombatDamage$ True | TriggerDescription$ Whenever CARDNAME deals combat damage to a player, reveal your hand and discard a card of their choice. That player exiles a number of cards equal to the discarded card's mana value from the top of their library. Until end of turn, you may play those cards. If you cast a spell this way, pay life equal to its mana value rather than paying its mana cost.
+SVar:TrigReveal:DB$ Discard | Defined$ You | Mode$ RevealTgtChoose | NumCards$ 1 | RememberDiscarded$ True | SubAbility$ TrigExile
+SVar:TrigExile:DB$ Dig | Defined$ TriggeredTarget | DigNum$ X | ChangeNum$ All | DestinationZone$ Exile | RememberChanged$ True | SubAbility$ DBMayPlay
+
+Oracle:Mutate onto Smoochum {3}{B}{B} [5/3]\nWhenever Jynx deals combat damage to a player, reveal your hand and discard a card of their choice. That player exiles a number of cards equal to the discarded card's mana value from the top of their library. Until end of turn, you may play those cards. If you cast a spell this way, pay life equal to its mana value rather than paying its mana cost.

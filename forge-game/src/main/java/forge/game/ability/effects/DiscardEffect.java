@@ -134,6 +134,9 @@ public class DiscardEffect extends SpellAbilityEffect {
             // In this case the target need not be the discarding player
             discarders = getDefinedPlayersOrTargeted(sa);
             firstTarget = Iterables.getFirst(targets, null);
+        } else if (mode.equals("RevealTriggeredTgtChoose")) {
+            discarders = getDefinedPlayersOrTargeted(sa);
+            firstTarget = (Player) sa.getTriggeringObjects().get(AbilityKey.Target);
         } else {
             discarders = targets;
         }
@@ -146,7 +149,7 @@ public class DiscardEffect extends SpellAbilityEffect {
             }
 
             CardCollectionView toBeDiscarded = new CardCollection();
-            if ((mode.equals("RevealTgtChoose") && firstTarget != null) || !sa.usesTargeting() || p.canBeTargetedBy(sa)) {
+            if (((mode.equals("RevealTgtChoose") || mode.equals("RevealTriggeredTgtChoose")) && firstTarget != null) || !sa.usesTargeting() || p.canBeTargetedBy(sa)) {
                 final int numCardsInHand = p.getCardsIn(ZoneType.Hand).size();
                 if (mode.equals("Defined")) {
                     if (!p.canDiscardBy(sa, true)) {
@@ -272,7 +275,7 @@ public class DiscardEffect extends SpellAbilityEffect {
                     Player chooser = p;
                     if (mode.endsWith("YouChoose")) {
                         chooser = source.getController();
-                    } else if (mode.equals("RevealTgtChoose")) {
+                    } else if (mode.equals("RevealTgtChoose") || mode.equals("RevealTriggeredTgtChoose")) {
                         chooser = firstTarget;
                     }
 

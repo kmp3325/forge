@@ -1,0 +1,11 @@
+Name:Vaporeon
+ManaCost:2 U U
+Types:Creature Fish Cat Pokémon
+PT:2/6
+K:Mutate onto:2 U U:Eevee:3/7
+S:Mode$ Continuous | Affected$ Creature.YouCtrl | AddKeyword$ Ward:2 | CheckSVar$ RAIN | SVarCompare$ GE1 | Description$ Creatures you control have ward {2} as long as it's rainy.
+SVar:RAIN:Count$Rainy.1.0
+T:Mode$ LifeGained | ValidPlayer$ You | TriggerZones$ Battlefield | CheckSVar$ MUTATED | SVarCompare$ GE1 | Execute$ TrigPutCounter | TriggerDescription$ Whenever you gain life, if CARDNAME is mutated, put a +1/+1 counter on target creature.
+SVar:MUTATED:Count$TimesMutated
+SVar:TrigPutCounter:DB$ PutCounter | CounterType$ P1P1 | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature
+Oracle:Mutate onto Eevee {2}{U}{U} [3/7]\nCreatures you control have ward {2} as long as it's rainy.\nWhenever you gain life, if Vaporeon is mutated, put a +1/+1 counter on target creature.

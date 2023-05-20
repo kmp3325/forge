@@ -1,0 +1,8 @@
+Name:Eevee
+ManaCost:2
+Types:Creature Fox Pokémon
+PT:1/1
+T:Mode$ SpellCast | ValidCard$ Card.SharesColorWith | ValidActivatingPlayer$ You | Execute$ TrigGainLife | TriggerDescription$ Whenever you cast a spell that shares a color with CARDNAME, you gain 2 life and draw a card.
+SVar:TrigGainLife:DB$ GainLife | LifeAmount$ 2 | SubAbility$ TrigDraw
+SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ 1
+Oracle:Whenever you cast a spell that shares a color with Eevee, you gain 2 life.

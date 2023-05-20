@@ -888,6 +888,13 @@ public class CardFactory {
                 } else {
                     state.addSpellAbility(root.copy(out, false));
                 }
+                if (sa.hasParam("GainSecondary")) {
+                    for (Trigger trigger : host.getTriggers()) {
+                        if (trigger.hasParam("SecondaryGainsWithCopy") && !trigger.equals(root.getTrigger())) {
+                            state.addTrigger(trigger.copy(out, false));
+                        }
+                    }
+                }
             }
 
             // Special Rules for Embalm and Eternalize

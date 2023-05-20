@@ -1,0 +1,10 @@
+Name:Mr. Mime
+ManaCost:3 WB
+Types:Creature Faerie Demon Pokémon
+PT:3/3
+K:Mutate onto:3 WB:Mime. Jr:3/3
+K:CARDNAME doesn't untap during your untap step.
+A:AB$ Effect | Cost$ T | ReplacementEffects$ RPrevent | SpellDescription$ Prevent all damage that would be dealt to creatures you control this turn.
+SVar:RPrevent:Event$ DamageDone | Prevent$ True | ActiveZones$ Command | ValidTarget$ Creature.YouCtrl | Description$ Prevent all damage that would be dealt to creatures you control this turn.
+A:AB$ Untap | Cost$ 5 W B | SpellDescription$ Untap CARDNAME.
+Oracle:Mutate onto Mime. Jr {3}{WB} [3/3]\nMr. Mime doesn't untap during your untap step.\n{T}: Prevent all damage that would be dealt to creatures you control this turn.\n{5}{W}{B}: Untap Mr. Mime.

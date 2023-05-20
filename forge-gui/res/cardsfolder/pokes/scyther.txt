@@ -1,0 +1,8 @@
+Name:Scyther
+ManaCost:4 RG
+Types:Creature Insect Pokémon
+PT:3/3
+K:Flying
+A:AB$ Pump | Cost$ X RG RG | Defined$ Self | NumAtt$ +X | SpellDescription$ CARDNAME gets +X/+0 until end of turn.
+SVar:X:Count$xPaid
+Oracle:Flying\n{X}{RG}{RG}: Scyther gets +X/+0 until end of turn.

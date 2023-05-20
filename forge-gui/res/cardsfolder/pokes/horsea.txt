@@ -1,0 +1,6 @@
+Name:Horsea
+ManaCost:3 U
+Types:Creature Fish Pokémon
+PT:1/1
+A:AB$ PreventDamage | Cost$ U U | ValidTgts$ Creature | Amount$ 3 | TgtPrompt$ Select target creature | ActivationLimit$ 1 | SpellDescription$ Prevent the next 3 damage that would be dealt to target creature this turn. Activate only once each turn.
+Oracle:{U}{U}: Prevent the next 3 damage that would be dealt to target creature. Activate only once each turn.

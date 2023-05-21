@@ -1,0 +1,10 @@
+Name:Jolteon
+ManaCost:2 R R
+Types:Creature Dog Pokémon
+PT:5/3
+K:Mutate onto:2 R R:Eevee:6/4
+K:First strike
+T:Mode$ LifeGained | ValidPlayer$ You | TriggerZones$ Battlefield | CheckSVar$ MUTATED | SVarCompare$ GE1 | Execute$ TrigTap | TriggerDescription$ Whenever you gain life, if CARDNAME is mutated, tap target creature and put a stun counter on it.
+SVar:MUTATED:Count$TimesMutated
+SVar:TrigTap:DB$ Tap | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigPutCounter
+SVar:TrigPutCounter:DB$ PutCounter | CounterType$ STUN | CounterNum$ 1 | Defined$ Targeted

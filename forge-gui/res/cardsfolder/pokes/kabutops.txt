@@ -1,0 +1,10 @@
+Name:Kabutops
+ManaCost: 3 G U
+Types:Creature Scorpion Pokémon
+PT:5/3
+K:Mutate onto:3 G U:Kabuto:6/4
+S:Mode$ Continuous | Affected$ Card.Self | AddKeyword$ First strike | CheckSVar$ RAIN | SVarCompare$ GE1  | Description$ CARDNAME has first strike as long as it's rainy.
+SVar:RAIN:Count$Rainy.1.0
+S:Mode$ Continuous | Affected$ Card.Self | AddPower$ X | Description$ CARDNAME gets +1/+0 for each +1/+1 counter on creatures your opponents control.
+SVar:X:Count$Valid Creature.OppCtrl$CardCounters.P1P1
+Oracle:Mutate onto Kabuto {3}{G}{U} [6/4]\nKabutops has first strike as long as it's rainy.\nKabutops gets +1/+0 for each +1/+1 counter on creatures your opponents control.

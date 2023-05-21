@@ -1,0 +1,11 @@
+Name:Zapdos
+ManaCost: GW GW GW GW GW GW
+Types:Legendary Creature Bird Pokémon
+PT:8/6
+K:Flying
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigShield | TriggerDescription$ Whenever CARDNAME attacks, put a shield counter on each of up to two target creatures.
+SVar:TrigShield:DB$ PutCounter | ValidTgts$ Creature | TgtPrompt$ Select target creature | CounterType$ SHIELD | CounterNum$ 1 | TargetMin$ 0 | TargetMax$ 2
+T:Mode$ CounterRemoved | ValidCard$ Creature.YouCtrl | TriggerZones$ Battlefield | CounterType$ SHIELD | Execute$ TrigTap | Optional$ True | OptionalDecider$ You | TriggerDescription$ Whenever a shield counter is removed from a creature you control, you may tap target creature and put a stun counter on it.
+SVar:TrigTap:DB$ Tap | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigStun
+SVar:TrigStun:DB$ PutCounter | CounterType$ STUN | CounterNum$ 1 | Defined$ Targeted
+Oracle:Flying\nWhenever Zapdos attacks, put a shield counter on each of up to two target creatures.\nWhenever a shield counter is removed from a creature you control, you may tap target creature and put a stun counter on it.

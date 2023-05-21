@@ -1,0 +1,10 @@
+Name:Articuno
+ManaCost:WU WU WU WU WU WU
+Types:Legendary Snow Creature Bird Pokémon
+PT:6/8
+K:Flying
+R:Event$ RemoveCounter | ActiveZones$ Battlefield | ValidCard$ Creature.inZoneBattlefield | ValidCounterType$ FROZEN | Phases$ Untap | ReplaceWith$ ReduceLoss | Description$ Frozen counters can't be removed from creatures during the untap step.
+SVar:ReduceLoss:DB$ ReplaceEffect | VarName$ Result | VarValue$ X
+SVar:X:Count$CardCounters.FROZEN
+A:AB$ PutCounter | Cost$ 1 S S | CounterType$ FROZEN | CounterNum$ 1 | ValidTgts$ Creature.attacking | TgtPrompt$ Select target attacking creature | SpellDescription$ Put a frozen counter on target attacking creature.
+Oracle:Flying\nFrozen counters can't be removed from creatures during the untap step.\n{1}{S}{S}: Put a frozen counter on target attacking creature.

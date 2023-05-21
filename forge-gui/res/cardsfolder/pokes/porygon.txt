@@ -1,0 +1,8 @@
+Name:Porygon
+ManaCost:1
+Types:Artifact Creature Construct Pokémon
+PT:1/1
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ DBTrigger | TriggerDescription$ When CARDNAME enters the battlefield, you may pay {2}. If you do, put a +1/+1 counter on it and draw a card.
+SVar:DBTrigger:AB$ PutCounter | Cost$ 2 | CounterType$ P1P1 | CounterNum$ 1 | Defined$ Self | SubAbility$ TrigDraw
+SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ 1
+Oracle:When Porygon enters the battlefied, you may pay {2}. If you do, put a +1/+1 counter on it and draw a card.

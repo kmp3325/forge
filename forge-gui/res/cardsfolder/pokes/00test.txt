@@ -7,5 +7,5 @@ A:AB$ PutCounter | Cost$ T | CounterType$ STUN | CounterNum$ 1 | ValidTgts$ Crea
 K:Flying
 K:Caustic
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigWeather
-SVar:TrigWeather:DB$ Weather | Value$ Rainy
+SVar:TrigWeather:DB$ Weather | Value$ Sunny
 Oracle:Bullshit

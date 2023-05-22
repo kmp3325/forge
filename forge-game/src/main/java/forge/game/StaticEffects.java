@@ -41,7 +41,6 @@ public class StaticEffects {
     private final Map<StaticAbility, StaticEffect> staticEffects = Maps.newHashMap();
     //Global rule changes
     private final Set<GlobalRuleChange> ruleChanges = EnumSet.noneOf(GlobalRuleChange.class);
-// todo make permanent ones?? actually. just make burning a state like weather
 
     public final void clearStaticEffects(final Set<Card> affectedCards) {
         ruleChanges.clear();
@@ -59,10 +58,6 @@ public class StaticEffects {
 
     public boolean getGlobalRuleChange(final GlobalRuleChange change) {
         return this.ruleChanges.contains(change);
-    }
-
-    public void removeGlobalRuleChange(final GlobalRuleChange change) {
-        this.ruleChanges.remove(change);
     }
 
     /**

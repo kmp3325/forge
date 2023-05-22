@@ -1,7 +1,6 @@
 package forge.game.ability.effects;
 
 import forge.game.Game;
-import forge.game.GlobalRuleChange;
 import forge.game.Weather;
 import forge.game.ability.SpellAbilityEffect;
 import forge.game.card.Card;

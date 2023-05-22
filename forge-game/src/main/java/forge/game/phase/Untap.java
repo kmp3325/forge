@@ -42,6 +42,7 @@ import forge.game.keyword.KeywordInterface;
 import forge.game.player.Player;
 import forge.game.player.PlayerController.BinaryChoiceType;
 import forge.game.spellability.SpellAbility;
+import forge.game.staticability.StaticAbility;
 import forge.game.zone.ZoneType;
 
 /**
@@ -304,16 +305,12 @@ public class Untap extends Phase {
         if (player == null) {
             return;
         }
-        Map<Card, Integer> burnedCards = new HashMap<>();
+        Set<Card> burnedCards = new HashSet<>();
         for (Card card : player.getOpponents().getCreaturesInPlay()) {
             if (card.isPhasedOut() || card.getCounters(CounterEnumType.BURN) == 0) {
                 continue;
             }
-            int numberOfBurnCountersOnCard = card.getCounters(CounterEnumType.BURN);
-            if (numberOfBurnCountersOnCard == 0) {
-                continue;
-            }
-            burnedCards.put(card, numberOfBurnCountersOnCard);
+            burnedCards.add(card);
         }
         if (burnedCards.isEmpty()) {
             return;
@@ -321,23 +318,20 @@ public class Untap extends Phase {
         boolean won = FlipCoinEffect.flipCoinCallNotSpellAbility(player, "Flip for burn counters. Heads or tails?");
         if (won) {
             Game game = player.getGame();
-            for (Entry<Card, Integer> burned : burnedCards.entrySet()) {
-                Card gameCard = burned.getKey();
-                long timestamp = game.getNextTimestamp();
-                gameCard.addPTBoost(0, burned.getValue() * -1, timestamp, 0);
-                game.getEndOfTurn().addUntil(new GameCommand() {
-                    private static final long serialVersionUID = -422445424L;
-                    @Override
-                    public void run() {
-                        gameCard.removePTBoost(timestamp, 0);
-                        gameCard.updatePowerToughnessForView();
-                        game.fireEvent(new GameEventCardStatsChanged(gameCard));
-                    }
-                });
-                gameCard.updatePowerToughnessForView();
-                GameEventBurnCounterBurned gameEvent = new GameEventBurnCounterBurned(burned.getKey());
-                game.fireEvent(gameEvent);
+            game.setBurning(true);
+            for (Card card : burnedCards) {
+                card.updatePowerToughnessForView();
             }
+            game.getEndOfTurn().addUntil(new GameCommand() {
+                private static final long serialVersionUID = -422445424L;
+                @Override
+                public void run() {
+                    game.setBurning(false);
+                    for (Card card : game.getCardsIn(ZoneType.Battlefield)) {
+                        card.updatePowerToughnessForView();
+                    }
+                }
+            });
         }
     }
 

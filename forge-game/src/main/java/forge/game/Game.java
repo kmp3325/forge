@@ -125,6 +125,7 @@ public class Game {
 
     private Boolean daytime = null;
     private Weather weather = null;
+    private boolean burning = false;
 
     private long timestamp = 0;
     public final GameAction action;
@@ -1262,6 +1263,13 @@ public class Game {
         }
         if (!isNeitherDayNorNight())
             fireEvent(new GameEventDayTimeChanged(isDay()));
+    }
+
+    public void setBurning(boolean burning) {
+        this.burning = burning;
+    }
+    public boolean isBurning() {
+        return burning;
     }
 
     public void setWeather(Weather weather) {

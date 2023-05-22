@@ -4308,10 +4308,14 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
     }
 
     public final int getToughnessBonusFromCounters() {
+        if (game == null) {
+            return 0;
+        }
+        int isBurning = game.isBurning() && game.getPhaseHandler().getPlayerTurn().getOpponents().contains(getController()) ? 1 : 0;
         return getCounters(CounterEnumType.P1P1) + 2 * getCounters(CounterEnumType.P1P2) - getCounters(CounterEnumType.M1M1)
                 + getCounters(CounterEnumType.P0P1) - 2 * getCounters(CounterEnumType.M0M2) + 2 * getCounters(CounterEnumType.P2P2)
                 - getCounters(CounterEnumType.M0M1) - getCounters(CounterEnumType.M2M1) - 2 * getCounters(CounterEnumType.M2M2)
-                + 2 * getCounters(CounterEnumType.P0P2);
+                + 2 * getCounters(CounterEnumType.P0P2) - isBurning * getCounters(CounterEnumType.BURN);
     }
 
     public final StatBreakdown getNetToughnessBreakdown() {

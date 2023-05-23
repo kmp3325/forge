@@ -223,6 +223,8 @@ public class CopyPermanentEffect extends TokenEffectBase {
                         }
                     }
                 }
+            } else if (sa.hasParam("ValidCards")) {
+                tgtCards = CardLists.getValidCards(game.getCardsIn(ZoneType.Battlefield), sa.getParam("ValidCards"), host.getController(), host, sa);
             } else {
                 tgtCards = getDefinedCardsOrTargeted(sa);
             }

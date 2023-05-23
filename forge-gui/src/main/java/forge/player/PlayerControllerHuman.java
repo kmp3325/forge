@@ -19,6 +19,7 @@ import java.util.Map.Entry;
 import java.util.stream.Collectors;
 import java.util.TreeSet;
 
+import forge.game.Weather;
 import forge.trackable.TrackableCollection;
 import forge.util.ImageUtil;
 import org.apache.commons.lang3.ObjectUtils;
@@ -1286,6 +1287,11 @@ public class PlayerControllerHuman extends PlayerController implements IGameCont
             return getGui().oneOrNone(localizer.getMessage("lblChooseATargetType", kindOfType.toLowerCase()), types);
         }
         return getGui().one(localizer.getMessage("lblChooseATargetType", kindOfType.toLowerCase()), types);
+    }
+
+    @Override
+    public Weather chooseWeather(SpellAbility sa) {
+        return getGui().one(localizer.getMessage("lblChooseWeather"), Arrays.asList(Weather.values()));
     }
 
     // sort creature types such that those most prevalent in player's deck are

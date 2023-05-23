@@ -50,6 +50,8 @@ public class MutateEffect extends SpellAbilityEffect {
                 host.setBaseToughness(mutateOntoKeyword.getNewToughness().get());
             }
             topCard = host;
+        } else if (sa.hasParam("Bottom")) {
+            topCard = target;
         } else {
             topCard = host.getController().getController().chooseSingleEntityForEffect(
                     view,

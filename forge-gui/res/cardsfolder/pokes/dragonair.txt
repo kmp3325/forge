@@ -1,0 +1,8 @@
+Name:Dragonair
+ManaCost:3 U R
+Types:Creature Dragon Pokémon
+PT:5/5
+K:Mutate onto:3 U R:Dratini:6/5
+T:Mode$ Mutates | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigChooseWeather | TriggerDescription$ Whenever CARDNAME mutates, it becomes the weather of your choice.
+SVar:TrigChooseWeather:DB$ Weather | Value$ Choose
+Oracle:Mutate onto Dratini {3}{U}{R} [6/5]\nWhenever Dragonair mutates, it becomes the weather of your choice.

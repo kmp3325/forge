@@ -30,6 +30,8 @@ public class WeatherEffect extends SpellAbilityEffect {
             game.setWeather(Weather.RAINY);
         } else if (newValue.equalsIgnoreCase("SNOWY")) {
             game.setWeather(Weather.SNOWY);
+        } else if (newValue.equalsIgnoreCase("Choose")) {
+            game.setWeather(host.getController().getController().chooseWeather(sa));
         }
     }
 }

@@ -6,14 +6,23 @@ import com.google.common.collect.Lists;
 import forge.game.Game;
 import forge.game.GameEntity;
 import forge.game.GameObjectPredicates;
+import forge.game.ability.AbilityFactory;
 import forge.game.ability.AbilityKey;
 import forge.game.ability.AbilityUtils;
+import forge.game.ability.ApiType;
 import forge.game.ability.SpellAbilityEffect;
 import forge.game.card.Card;
 import forge.game.card.CardFactory;
+import forge.game.keyword.Keyword;
+import forge.game.keyword.KeywordInterface;
+import forge.game.keyword.KeywordWithCost;
+import forge.game.keyword.KeywordWithType;
 import forge.game.player.Player;
 import forge.game.replacement.ReplacementType;
+import forge.game.spellability.AlternativeCost;
 import forge.game.spellability.SpellAbility;
+import forge.game.spellability.TargetChoices;
+import forge.game.spellability.TargetRestrictions;
 import forge.game.staticability.StaticAbilityCantBeCopied;
 import forge.game.zone.ZoneType;
 import forge.util.Aggregates;
@@ -145,6 +154,18 @@ public class CopySpellAbilityEffect extends SpellAbilityEffect {
                 }
 
                 for (GameEntity e : newTgts) {
+                    if (sa.hasParam("MakeMutate") && chosenSA.getHostCard().isCreature()) {
+                        SpellAbility copy = AbilityFactory.getAbility("SP$ Mutate | ValidTgts$ Creature | Bottom$ True", chosenSA.getHostCard());
+                        TargetChoices targetChoices = new TargetChoices();
+                        targetChoices.add(e);
+                        copy.setTargets(targetChoices);
+                        copy.setCopied(true);
+                        copy.setKeyword(Keyword.getInstance("Mutate"));
+                        copy.setAlternativeCost(AlternativeCost.Mutate);
+                        copy.setStackDescription("Mutate - " + chosenSA.getHostCard().getName() + " (under " + e.getName() + ")");
+                        copies.add(copy);
+                        continue;
+                    }
                     SpellAbility copy = CardFactory.copySpellAbilityAndPossiblyHost(sa, chosenSA, controller);
                     if (changeToLegalTarget(copy, e)) {
                         copies.add(copy);

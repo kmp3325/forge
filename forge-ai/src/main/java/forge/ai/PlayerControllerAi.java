@@ -572,6 +572,11 @@ public class PlayerControllerAi extends PlayerController {
     }
 
     @Override
+    public Weather chooseWeather(SpellAbility sa) {
+        return Weather.values()[new Random().nextInt(Weather.values().length)];
+    }
+
+    @Override
     public Object vote(SpellAbility sa, String prompt, List<Object> options, ListMultimap<Object, Player> votes, Player forPlayer) {
         return ComputerUtil.vote(player, options, sa, votes, forPlayer);
     }

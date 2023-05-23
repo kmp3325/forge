@@ -181,6 +181,8 @@ public abstract class PlayerController {
         return chooseSomeType(kindOfType, sa, validTypes, invalidTypes, false);
     }
 
+    public abstract Weather chooseWeather(SpellAbility sa);
+
     public abstract String chooseSector(Card assignee, String ai, List<String> sectors);
     public final String chooseSector(Card assignee, String ai) {
         final List<String> sectors = Arrays.asList("Alpha", "Beta", "Gamma");

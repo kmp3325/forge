@@ -496,6 +496,11 @@ public class PlayerControllerForTests extends PlayerController {
     }
 
     @Override
+    public Weather chooseWeather(SpellAbility sa) {
+        return Weather.SUNNY;
+    }
+
+    @Override
     public String chooseSector(Card assignee, String ai, List<String> sectors) {
         return chooseItem(sectors);
     }

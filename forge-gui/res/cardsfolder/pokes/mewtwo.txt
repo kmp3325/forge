@@ -1,0 +1,10 @@
+Name:Mewtwo
+ManaCost:4 U B R
+Types:Legendary Creature Mutant Pokémon
+PT:8/7
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigPutCounters | TriggerDescription$ When CARDNAME enters the battlefield, put a sample counter on each nonlegendary creature you don't control.
+SVar:TrigPutCounters:DB$ PutCounterAll | ValidCards$ Creature.YouDontCtrl | CounterType$ SAMPLE | CounterNum$ 1
+T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigClone | TriggerDescription$ At the beginning of your upkeep, for each creature you don't control with a sample counter on it, remove all sample counters from it and create a token that's a copy of it.
+SVar:TrigClone:DB$ CopyPermanent | ValidCards$ Creature.YouDontCtrl+counters_GE1_SAMPLE | SubAbility$ TrigRemoveCounters
+SVar:TrigRemoveCounters:DB$ RemoveCounterAll | ValidCards$ Creature.YouDontCtrl | CounterType$ SAMPLE | AllCounters$ True
+Oracle:When Mewtwo enters the battlefield, put a sample counter on each nonlegendary creature you don't control.\nAt the beginning of your upkeep, for each creature you don't control with a sample counter on it, remove all sample counters from it and create a token that's a copy of it.

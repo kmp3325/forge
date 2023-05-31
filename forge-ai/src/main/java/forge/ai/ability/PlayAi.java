@@ -39,11 +39,6 @@ public class PlayAi extends SpellAbilityAi {
             return false; // prevent infinite loop
         }
 
-        List<Card> cards = getPlayableCards(sa, ai);
-        if (cards.isEmpty()) {
-            return false;
-        }
-
         if (game.getRules().hasAppliedVariant(GameType.MoJhoSto) && source.getName().equals("Jhoira of the Ghitu Avatar")) {
             // Additional logic for MoJhoSto:
             // Do not activate Jhoira too early, usually there are few good targets
@@ -58,6 +53,12 @@ public class PlayAi extends SpellAbilityAi {
             if ("Instant".equals(sa.getParam("AnySupportedCard")) && MyRandom.percentTrue(chanceToActivateInst)) {
                 return false;
             }
+            return true;
+        }
+
+        List<Card> cards = getPlayableCards(sa, ai);
+        if (cards.isEmpty()) {
+            return false;
         }
 
         if ("ReplaySpell".equals(logic)) {
@@ -120,7 +121,7 @@ public class PlayAi extends SpellAbilityAi {
 
             if ("ReplaySpell".equals(sa.getParam("AILogic"))) {
                 return ComputerUtil.targetPlayableSpellCard(ai, getPlayableCards(sa, ai), sa, sa.hasParam("WithoutManaCost"), mandatory);
-            } 
+            }
 
             return checkApiLogic(ai, sa);
         }
@@ -213,11 +214,10 @@ public class PlayAi extends SpellAbilityAi {
 
     private static List<Card> getPlayableCards(SpellAbility sa, Player ai) {
         List<Card> cards = null;
-        final TargetRestrictions tgt = sa.getTargetRestrictions();
         final Card source = sa.getHostCard();
 
-        if (tgt != null) {
-            cards = CardUtil.getValidCardsToTarget(tgt, sa);
+        if (sa.usesTargeting()) {
+            cards = CardUtil.getValidCardsToTarget(sa);
         } else if (!sa.hasParam("Valid")) {
             cards = AbilityUtils.getDefinedCards(source, sa.getParam("Defined"), sa);
         }

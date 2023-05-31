@@ -4666,6 +4666,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
         if (staticId < 1 || !storedKeywords.containsKey(triple)) {
             result = Keyword.getInstance(kw);
             result.setStaticId(staticId);
+            result.setIdx(idx);
             result.createTraits(this, false);
             if (staticId > 0) {
                 storedKeywords.put(triple, result);
@@ -4678,7 +4679,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
 
     public final void addKeywordForStaticAbility(KeywordInterface kw) {
         if (kw.getStaticId() > 0) {
-            storedKeywords.put(Triple.of(kw.getOriginal(), kw.getStaticId(), 0l), kw);
+            storedKeywords.put(Triple.of(kw.getOriginal(), kw.getStaticId(), kw.getIdx()), kw);
         }
     }
 
@@ -4724,7 +4725,6 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
         final List<KeywordInterface> keywords, final List<KeywordInterface> removeKeywords,
         final boolean removeAllKeywords,
         final long timestamp, final long staticId, final boolean updateView) {
-
         final KeywordsChange newCks = new KeywordsChange(keywords, removeKeywords, removeAllKeywords);
         changedCardKeywords.put(timestamp, staticId, newCks);
 

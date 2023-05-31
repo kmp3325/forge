@@ -8,3 +8,4 @@ T:Mode$ LifeGained | ValidPlayer$ You | TriggerZones$ Battlefield | CheckSVar$ M
 SVar:MUTATED:Count$TimesMutated
 SVar:TrigTap:DB$ Tap | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigPutCounter
 SVar:TrigPutCounter:DB$ PutCounter | CounterType$ STUN | CounterNum$ 1 | Defined$ Targeted
+Oracle:Mutate onto Eevee {2}{R}{R} [6/4]\nFirst strike\nWhenever you gain life, if Jolteon is mutated, you may tap target creature and put a stun counter on it.

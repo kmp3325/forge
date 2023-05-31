@@ -1,0 +1,13 @@
+Name:Bayleef
+ManaCost:3 G
+Types:Creature Plant Dinosaur Pokémon
+PT:3/3
+K:Mutate onto:3 G:Chikorita:4/4
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSolar | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, put a solar counter on it. It becomes sunny.
+T:Mode$ Mutates | ValidCard$ Card.Self | Execute$ TrigSolar | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, put a solar counter on it. It becomes sunny.
+SVar:TrigSolar:DB$ PutCounter | Defined$ Self | CounterType$ SOLAR | CounterNum$ 1 | SubAbility$ TrigSun
+SVar:TrigSun:DB$ Weather | Value$ Sunny
+A:AB$ PutCounter | Cost$ T | Defined$ Self | CounterType$ SOLAR | CounterNum$ 1 | SubAbility$ TrigLife | SpellDescription$ Put a solar counter on CARDNAME, then you gain life equal to the number of solar counters on it.
+SVar:TrigLife:DB$ GainLife | Defined$ You | LifeAmount$ X
+SVar:X:Count$CardCounters.SOLAR
+Oracle:Mutate onto Chikorita {3}{G} [4/4]\nWhenever Bayleef enters the battlefield or mutates, put a solar counter on it. It becomes sunny.\n{T}: Put a solar counter on Bayleef, then you gain life equal to the number of solar counters on it.

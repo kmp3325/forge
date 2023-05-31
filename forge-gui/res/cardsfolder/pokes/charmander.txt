@@ -2,5 +2,5 @@ Name:Charmander
 ManaCost:R
 Types:Creature Lizard Pokémon
 PT:1/1
-A:AB$ Pump | Cost$ R | NumAtt$ +1 | ActivationPhases$ Upkeep->Main1 | SpellDescription$ CARDNAME gets +1/+0 until end of turn. Activate only before combat.
-Oracle:{R}: Charmander gets +1/+0 until end of turn. Activate only before combat.
+K:Scorching
+Oracle:Scorching

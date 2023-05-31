@@ -2,6 +2,6 @@ Name:Shellder
 ManaCost:2 GU
 Types:Creature Oyster Pokémon
 PT:1/1
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounters | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters the battlefield, you may put up to two +1/+1 counters on target creature.
-SVar:TrigPutCounters:DB$ PutCounter | CounterType$ P1P1 | CounterNum$ 2 | ValidTgts$ Creature | TgtPrompt$ Select target creature
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounters | TriggerDescription$ When CARDNAME enters the battlefield, you may put up to two +1/+1 counters on target creature.
+SVar:TrigPutCounters:DB$ PutCounter | CounterType$ P1P1 | CounterNum$ 2 | ValidTgts$ Creature | TgtPrompt$ Select target creature | UpTo$ True
 Oracle:When Shellder enters the battlefield, you may put up to two +1/+1 counters on target creature.

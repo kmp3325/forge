@@ -1,0 +1,12 @@
+Name:Feraligatr
+ManaCost:5 U
+Types:Creature Crocodile Pokémon
+PT:4/5
+K:Mutate onto:5 U:Croconaw:5/6
+A:AB$ Phases | Cost$ 1 U U Q | ValidTgts$ Creature.attacking | TgtPrompt$ Select target attacking creature | WontPhaseInNormal$ True | ConditionPresent$ Card.Self | SubAbility$ DBEffect | SpellDescription$ Target attacking creature phases out until CARDNAME leaves the battlefield. If that creature phases out this way, CARDNAME phases out. When CARDNAME phases in, put a -0/-1 counter on it.
+SVar:DBEffect:DB$ Effect | Triggers$ TrigComeBack | RememberObjects$ Targeted | ImprintCards$ Self | ConditionPresent$ Card.Self | Duration$ Permanent | ForgetOnPhasedIn$ True | SubAbility$ TrigPhaseSelf
+SVar:TrigComeBack:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Any | ValidCard$ Card.IsImprinted | Execute$ DBPhaseIn | TriggerZones$ Command | TriggerController$ TriggeredCardController | Static$ True | TriggerDescription$ Target creature phases out until CARDNAME leaves the battlefield. Tap that creature as it phases in this way.
+SVar:DBPhaseIn:DB$ Phases | Defined$ Remembered | PhaseInOrOut$ True | SubAbility$ DBExileSelf
+SVar:DBExileSelf:DB$ ChangeZone | Origin$ Command | Destination$ Exile | Defined$ Self
+SVar:TrigPhaseSelf:DB$
+Oracle:Mutate onto Croconaw {5}{U} [5/6]\n{1}{U}{U}, {Q}: Target attacking creature phases out until Feraligatr leaves the battlefield. If that creature phases out this way, Feraligatr phases out. When Feraligatr phases in, put a -0/-1 counter on it.

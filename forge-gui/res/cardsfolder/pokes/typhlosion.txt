@@ -7,5 +7,5 @@ T:Mode$ SpellCast | ValidCard$ Card.Red | ValidActivatingPlayer$ You | TriggerZo
 SVar:BurnEm:DB$ PutCounter | CounterType$ BURN | CounterNum$ SUN | Defined$ Self | UpTo$ True
 SVar:SUN:Count$Sunny.2.1
 T:Mode$ Attacks | ValidCard$ Card.Self | OptionalDecider$ You | Execute$ TrigFlameWheel | TriggerDescription$ Whenever CARDNAME attacks, you may move any number of burn counters from it onto another target creature.
-SVar:TrigFlameWheel:DB$ MoveCounter | Source$ Self | ValidTgts$ Creature.Other | TgtPrompt$ Choose another target creature | CounterType$ BURN | CounterNum$ Any
+SVar:TrigFlameWheel:DB$ MoveCounter | Source$ Self | ValidTgts$ Creature.Other | TgtPrompt$ Select another target creature | CounterType$ BURN | CounterNum$ Any
 Oracle:Mutate onto Quilava {4}{R}{R} [6/5]\nWhenever you cast a red spell, you may put a burn counter on Typhlosion. If it's sunny, put up to two burn counters on it instead.\nWhenever Typhlosion attacks, you may move any number of burn counters from it onto another target creature.

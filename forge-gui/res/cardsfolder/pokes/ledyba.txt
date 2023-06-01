@@ -1,0 +1,8 @@
+Name:Ledyba
+ManaCost:1 G
+Types:Creature Insect Pokémon
+PT:0/1
+K:Flying
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | OptionalDecider$ You | Execute$ TrigSearch | TriggerDescription$ When CARDNAME enters the battlefield, search your library for an Insect card, reveal it, put it into your hand, then shuffle.
+SVar:TrigSearch:DB$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Insect | ChangeNum$ 1
+Oracle:Flying\nWhen Ledyba enters the battlefield, you may search your library for an Insect card, reveal it, put it into your hand, then shuffle.

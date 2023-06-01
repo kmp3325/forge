@@ -1,0 +1,9 @@
+Name:Ledian
+ManaCost:2 G
+Types:Creature Insect Pokémon
+PT:2/2
+K:Mutate onto:2 G:Ledyba:3/3
+K:Flying
+S:Mode$ Continuous | Affected$ Creature.Self+attacking | AddPower$ X | AddToughness$ X | Description$ As long as CARDNAME is attacking, it gets +1/+1 for each other attacking Insect.
+SVar:X:Count$Valid Creature.attacking+Insect+Other
+Oracle:Mutate onto Ledyba {2}{G} [3/3]\nFlying\nAs long as Ledian is attacking, it gets +1/+1 for each other attacking Insect.

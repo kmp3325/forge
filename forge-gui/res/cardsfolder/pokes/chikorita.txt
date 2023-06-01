@@ -2,6 +2,6 @@ Name:Chikorita
 ManaCost:1 G
 Types:Creature Plant Dinosaur Pokémon
 PT:1/1
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSearch | TriggerDescription$ When CARDNAME enters the battlefield, search your library for a basic land card and put it onto the battlefield tapped, then shuffle.
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSearch | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters the battlefield, you may search your library for a basic land card and put it onto the battlefield tapped, then shuffle.
 SVar:TrigSearch:DB$ ChangeZone | Origin$ Library | Destination$ Battlefield | Tapped$ True | ChangeType$ Land.Basic | ChangeNum$ 1
-Oracle:When Chikorita enters the battlefield, search your library for a basic land card and put it onto the battlefield tapped, then shuffle.
+Oracle:When Chikorita enters the battlefield, you may search your library for a basic land card and put it onto the battlefield tapped, then shuffle.

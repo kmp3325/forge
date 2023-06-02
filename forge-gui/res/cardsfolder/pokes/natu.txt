@@ -1,0 +1,8 @@
+Name:Natu
+ManaCost:B
+Types:Creature Bird Pokémon
+PT:1/1
+K:Flying
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigRemoveCounters | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters the battlefield, you may remove all counters from target permanent.
+SVar:TrigRemoveCounters:DB$ RemoveCounter | CounterType$ All | CounterNum$ All | ValidTgts$ Permanent | TgtPrompt$ Select target permanent
+Oracle:Flying\nWhen Natu enters the battlefield, you may remove all counters from target permanent.

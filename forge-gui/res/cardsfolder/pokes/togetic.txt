@@ -1,0 +1,10 @@
+Name:Togetic
+ManaCost:1 W U
+Types:Creature Faerie Bird Pokémon
+PT:2/2
+K:Mutate onto:1 W U:Togepi:4/4
+K:Flying
+T:Mode$ Blocks | ValidCard$ Card.Self | Execute$ TrigPutCounter | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME blocks, you may put a peace counter on target creature.
+SVar:TrigPutCounter:DB$ PutCounter | CounterType$ PEACE | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature
+S:Mode$ Continuous | Affected$ Creature.counters_GE1_PEACE | AddHiddenKeyword$ CARDNAME can't attack or block. | Description$ Creatures with peace counters on them can't attack or block.
+Oracle:Mutate onto Togepi {1}{W}{U} [4/4]\nFlying\nWhenever Togetic blocks, you may put a peace counter on target creature.\nCreatures with peace counters on them can't attack or block.

@@ -1,0 +1,6 @@
+Name:Igglybuff
+ManaCost:WU
+Types:Creature Faerie Rabbit Pokémon
+PT:0/1
+K:Hexproof
+Oracle:Hexproof

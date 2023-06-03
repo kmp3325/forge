@@ -1,0 +1,8 @@
+Name:Teddiursa
+ManaCost:2
+Types:Creature Bear Pokémon
+PT:1/1
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigRemoveStun | TriggerDescription$ When CARDNAME enters the battlefield, you may remove a stun counter from target creature and untap it.
+SVar:TrigRemoveStun:DB$ RemoveCounter | CounterType$ STUN | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigUntap
+SVar:TrigUntap:DB$ Untap | Defined$ Targeted
+Oracle:When Teddiursa enters the battlefield, you may remove a stun counter from target creature and untap it.

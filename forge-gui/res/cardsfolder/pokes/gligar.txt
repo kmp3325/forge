@@ -1,0 +1,9 @@
+Name:Gligar
+ManaCost:2 W
+Types:Creature Scorpion Bat Pokémon
+PT:2/2
+K:Flying
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigKill | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters the battlefield, you may destroy target creature. If ou do, CARDNAME loses flying until your next turn.
+SVar:TrigKill:DB$ Destroy | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigLoseFlying
+SVar:TrigLoseFlying:DB$ Debuff | Defined$ Self | Keywords$ Flying | Duration$ UntilYourNextTurn
+Oracle:Flying\nWhen Gligar enters the battlefield, you may destroy target creature. If ou do, Gligar loses flying until your next turn.

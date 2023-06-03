@@ -1,0 +1,11 @@
+Name:Steelix
+ManaCost:1 G G W
+Types:Creature Golem Serpent Pokémon
+PT:3/6
+K:Mutate onto:3 G G W:Onix:4/8
+K:Indestructible
+K:Vigilance
+K:Steel skin
+T:Mode$ Mutates | ValidCard$ Card.Self | Execute$ TrigShield | TriggerDescription$ Whenever CARDNAME mutates, put a shield counter on each other creature you control.
+SVar:TrigShield:DB$ PutCounterAll | CounterType$ SHIELD | CounterNum$ 1 | ValidCards$ Creature.YouCtrl+Other
+Oracle:Mutate onto Onix {3}{G}{G}{W}\nIndestructible, vigilance, steel skin\nWhenever Steelix mutates, put a shield counter on each other creature you control.

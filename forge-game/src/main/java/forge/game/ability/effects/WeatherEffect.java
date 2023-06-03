@@ -5,6 +5,7 @@ import forge.game.Weather;
 import forge.game.ability.SpellAbilityEffect;
 import forge.game.card.Card;
 import forge.game.spellability.SpellAbility;
+import forge.game.staticability.StaticAbilityCantChangeWeather;
 
 public class WeatherEffect extends SpellAbilityEffect {
     @Override
@@ -17,6 +18,9 @@ public class WeatherEffect extends SpellAbilityEffect {
     @Override
     public void resolve(SpellAbility sa) {
         Card host = sa.getHostCard();
+        if (!StaticAbilityCantChangeWeather.canChangeWeather(host)) {
+            return;
+        }
         Game game = host.getGame();
 
         String newValue = sa.getParam("Value");

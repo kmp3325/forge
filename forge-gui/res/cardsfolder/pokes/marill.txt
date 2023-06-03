@@ -1,0 +1,9 @@
+Name:Marill
+ManaCost:2 WU
+Types:Creature Faerie Mouse Pokémon
+PT:1/1
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigPhase | TriggerDescription$ When CARDNAME enters the battlefield, target creature phases out. When it phases in, it phases out again.
+SVar:TrigPhase:DB$ Phases | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ PhaseInTrig
+SVar:PhaseInTrig:DB$ DelayedTrigger | Mode$ PhaseIn | Defined$ TriggeredCardLKICopy | Execute$ PhaseAgain | TriggerDescription$ When it phases in, it phases out again.
+SVar:PhaseAgain:DB$ Phases | Defined$ TriggeredCardLKICopy
+Oracle:When Marill enters the battlefield, target creature phases out. When it phases in, it phases out again.

@@ -1,0 +1,9 @@
+Name:Sunkern
+ManaCost:R G
+Types:Creature Saproling Pokémon
+PT:0/1
+A:AB$ Branch | Cost$ T | BranchConditionSVar$ SUN | BranchConditionSVarCompare$ EQ1 | FalseSubAbility$ LessMana | TrueSubAbility$ MoreMana | SpellDescription$ Add {R} or {G}. If it's sunny, add {R}{G} instead.
+SVar:SUN:Count$Sunny.1.0
+SVar:LessMana:DB$ Mana | Produced$ Combo R G
+SVar:MoreMana:DB$ Mana | Produced$ R G
+Oracle:{T}: Add {R} or {G}. If it's sunny, add {R}{G} instead.

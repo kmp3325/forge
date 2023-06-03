@@ -1,0 +1,12 @@
+Name:Jumpluff
+ManaCost:1 R G
+Types:Creature Plant Saproling Pokémon
+PT:2/4
+K:Mutate onto:R G:Skiploom:3/5
+K:Flying
+A:AB$ PeekAndReveal | Cost$ T | PeekAmount$ 1 | RevealValid$ Creature | RevealOptional$ True | RememberRevealed$ True | SubAbility$ DBChangeZone | SpellDescription$ Look at the top card of your library. If it's a creature card, you may reveal it and put it into your hand. If you do, add {R}{G} as long as it's sunny.
+SVar:DBChangeZone:DB$ ChangeZone | Defined$ TopOfLibrary | Origin$ Library | Destination$ Hand | ConditionDefined$ Remembered | ConditionPresent$ Creature | ConditionCompare$ EQ1 | SubAbility$ AddMana
+SVar:AddMana:DB$ Mana | Produced$ R G | Amount$ SUN | ConditionDefined$ Remembered | ConditionPresent$ Creature | ConditionCompare$ EQ1 | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:SUN:Count$Sunny.1.0
+Oracle:Mutate onto Skiploom {R}{G} [3/5]\nFlying\n{T}: Look at the top card of your library. If it's a creature card, you may reveal it and put it into your hand. If you do, add {R}{G} as long as it's sunny.

@@ -1,0 +1,10 @@
+Name:Hoppip
+ManaCost:RG
+Types:Creature Plant Saproling Pokémon
+PT:0/1
+K:Flying
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSun | TriggerDescription$ When CARDNAME enters the battlefield, it becomes sunny.
+SVar:TrigSun:DB$ Weather | Value$ Sunny
+S:Mode$ Continuous | Affected$ Card.Self | CheckSVar$ SUN | SVarCompare$ GE1 | NumAtt$ +1 | Description$ CARDNAME gets +1/+0 as long as it's sunny.
+SVar:WIND:Count$Sunny.1.0
+Oracle:Flying\nWhen Hoppip enters the battlefield, it becomes sunny.\nHoppip gets +1/+0 as long as it's sunny.

@@ -1,0 +1,8 @@
+Name:Skiploom
+ManaCost:R G
+Types:Creature Plant Saproling Pokémon
+PT:1/2
+K:Mutate onto:R G:Hoppip:2/3
+K:Flying
+A:AB$ Weather | Cost$ G G T | Value$ Sunny
+Oracle:Mutate onto Hoppip {R}{G} [2/3]\nFlying\n{G}{G}, {T}: It becomes sunny.

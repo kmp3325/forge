@@ -1,0 +1,7 @@
+Name:Aipom
+ManaCost:3
+Types:Creature Monkey Pokémon
+PT:1/1
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigGrave | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters the battlefield, you may shuffle your graveyard into your library.
+SVar:TrigGrave:DB$ ChangeZoneAll | ChangeType$ Card.YouOwn | Origin$ Graveyard | Destination$ Library | Shuffle$ True
+Oracle:When Aipom enters the battlefield, you may shuffle your graveyard into your library.

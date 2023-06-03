@@ -1,0 +1,13 @@
+Name:Sunflora
+ManaCost:1 R G G
+Types:Creature Plant Pokémon
+PT:3/3
+K:Mutate onto:1 R G G:Sunkern:4/4
+A:AB$ Branch | Cost$ T | BranchConditionSVar$ SUN | BranchConditionSVarCompare$ EQ1 | FalseSubAbility$ DBPutCounter | TrueSubAbility$ DBPutAllCounter | SpellDescription$ Put a solar counter on CARDNAME. If it's sunny, put a solar counter on each creature you control instead.
+SVar:SUN:Count$Sunny.1.0
+SVar:DBPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ SOLAR | CounterNum$ 1
+SVar:DBPutAllCounter:DB$ PutCounterAll | ValidCards$ Creature.YouCtrl | CounterType$ SOLAR | CounterNum$ 1
+A:AB$ Weather | Cost$ RG SubCounter<1/SOLAR> | Value$ Sunny | SubAbility$ DBGainLife | SpellDescription$ It becomes sunny. You gain life equal to the number of solar counters on creatures you control.
+SVar:DBGainLife:DB$ GainLife | LifeAmount$ X | Defined$ You
+SVar:X:Count$Valid Creature.YouCtrl$CardCounters.SOLAR
+Oracle:Mutate onto Sunkern {1}{R}{G}{G} [4/4]\n{T}: Put a solar counter on Sunflora. If it's sunny, put a solar counter on each creature you control instead.\n{RG}, Remove a solar counter from Sunflora: It becomes sunny. You gain life equal to the number of solar counters on creatures you control.

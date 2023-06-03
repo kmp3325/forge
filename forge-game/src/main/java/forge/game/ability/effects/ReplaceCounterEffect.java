@@ -72,23 +72,39 @@ public class ReplaceCounterEffect extends SpellAbilityEffect {
                 if (sa.hasParam("ValidCounterType")) {
                     CounterType ct = CounterType.getType(sa.getParam("ValidCounterType"));
                     if (e.getValue().containsKey(ct)) {
-                        sa.setReplacingObject(AbilityKey.CounterNum, e.getValue().get(ct));
-                        int value = AbilityUtils.calculateAmount(card, sa.getParam("Amount"), sa);
-                        if (value <= 0) {
+                        if (sa.hasParam("Amount")) {
+                            sa.setReplacingObject(AbilityKey.CounterNum, e.getValue().get(ct));
+                            int value = AbilityUtils.calculateAmount(card, sa.getParam("Amount"), sa);
+                            if (value <= 0) {
+                                e.getValue().remove(ct);
+                            } else {
+                                e.getValue().put(ct, value);
+                            }
+                        }
+                        if (sa.hasParam("CounterType")) {
+                            sa.setReplacingObject(AbilityKey.CounterType, ct);
+                            CounterType newCt = CounterType.get(sa.getParam("CounterType"));
+                            e.getValue().put(newCt, e.getValue().get(ct));
                             e.getValue().remove(ct);
-                        } else {
-                            e.getValue().put(ct, value);
                         }
                     }
                 } else {
                     List<CounterType> toRemove = Lists.newArrayList();
                     for (Map.Entry<CounterType, Integer> ec : e.getValue().entrySet()) {
-                        sa.setReplacingObject(AbilityKey.CounterNum, ec.getValue());
-                        int value = AbilityUtils.calculateAmount(card, sa.getParam("Amount"), sa);
-                        if (value <= 0) {
-                            toRemove.add(ec.getKey());
-                        } else {
-                            ec.setValue(value);
+                        if (sa.hasParam("Amount")) {
+                            sa.setReplacingObject(AbilityKey.CounterNum, ec.getValue());
+                            int value = AbilityUtils.calculateAmount(card, sa.getParam("Amount"), sa);
+                            if (value <= 0) {
+                                toRemove.add(ec.getKey());
+                            } else {
+                                ec.setValue(value);
+                            }
+                        }
+                        if (sa.hasParam("CounterType")) {
+                            sa.setReplacingObject(AbilityKey.CounterType, ec.getKey());
+                            CounterType newCt = CounterType.get(sa.getParam("CounterType"));
+                            e.getValue().put(newCt, e.getValue().get(ec.getKey()));
+                            e.getValue().remove(ec.getKey());
                         }
                     }
                     e.getValue().keySet().removeAll(toRemove);

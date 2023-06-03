@@ -1,0 +1,9 @@
+Name:Mareep
+ManaCost:U R
+Types:Creature Sheep Pokémon
+PT:2/2
+T:Mode$ AttackerBlockedByCreature | ValidCard$ Creature | ValidBlocker$ Card.Self | Execute$ TrigStunAttacker | TriggerDescription$ Whenever CARDNAME blocks or becomes blocked by a creature, put a stun counter on that creature.
+T:Mode$ AttackerBlockedByCreature | ValidCard$ Card.Self | ValidBlocker$ Creature | Execute$ TrigStunBlocker | Secondary$ True | TriggerDescription$ Whenever CARDNAME blocks or becomes blocked by a creature, put a stun counter on that creature.
+SVar:TrigStunAttacker:DB$ PutCounter | CounterType$ STUN | Defined$ TriggeredAttackerLKICopy | CounterNum$ 1
+SVar:TrigStunBlocker:DB$ PutCounter | CounterType$ STUN | Defined$ TriggeredBlockerLKICopy | CounterNum$ 1
+Oracle:Whenever Mareep blocks or becomes blocked by a creature, put a stun counter on that creature.

@@ -49,6 +49,11 @@ public class FlipCoinEffect extends SpellAbilityEffect {
     public void resolve(SpellAbility sa) {
         final Card host = sa.getHostCard();
         final Player player = host.getController();
+        if (sa.hasParam("Optional")) {
+            if (!player.getController().confirmAction(sa, null, Localizer.getInstance().getMessage("lblDoYouWantFlipNCoinAction"), null)) {
+                return;
+            }
+        }
         int flipMultiplier = 1; // For multiple copies of Krark's Thumb
 
         final List<Player> playersToFlip = AbilityUtils.getDefinedPlayers(host, sa.getParam("Flipper"), sa);

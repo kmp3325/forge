@@ -343,6 +343,7 @@ public enum CounterEnumType {
     SOUL("SOUL", 243, 190, 247),
 
     SOOT("SOOT", 211, 194, 198),
+    SPEED("SPEED", 6, 162, 255),
 
     SPITE("SPITE", 0, 218, 255),
 

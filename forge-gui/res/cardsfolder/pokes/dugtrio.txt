@@ -7,4 +7,4 @@ T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | Execute$ TrigPutCounter | Tri
 SVar:TrigPutCounter:DB$ PutCounter | CounterNum$ 1 | CounterType$ DIG
 S:Mode$ CantBlockBy | ValidAttacker$ Creature.Self | ValidBlocker$ Creature.powerLEX | Description$ Creatures with power less than CARDNAME's power can't block it.
 SVar:X:Count$CardCounters.DIG
-Oracle:Mutate onto Diglett {1}{W}{B} [3/3]\nAt the beginning of you upkeep, put a dig counter on Dugtrio.\nCreatures with power less than or equal to the number of dig counters on Dugtrio can't block Dugtrio.
+Oracle:Mutate onto Diglett {1}{W}{B} [3/3]\nAt the beginning of your upkeep, put a dig counter on Dugtrio.\nCreatures with power less than or equal to the number of dig counters on Dugtrio can't block Dugtrio.

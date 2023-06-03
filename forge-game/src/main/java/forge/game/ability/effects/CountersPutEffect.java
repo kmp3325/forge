@@ -609,7 +609,11 @@ public class CountersPutEffect extends SpellAbilityEffect {
                     && !sa.hasParam("CounterTypes") && !sa.hasParam("ChooseDifferent")
                     && !sa.hasParam("PutOnEachOther") && !sa.hasParam("PutOnDefined")) {
                 try {
-                    counterType = chooseTypeFromList(sa, sa.getParam("CounterType"), null, placer.getController());
+                    if (sa.hasParam("TriggeredCounterType")) {
+                        counterType = (CounterType) sa.getTriggeringObject(AbilityKey.CounterType);
+                    } else {
+                        counterType = chooseTypeFromList(sa, sa.getParam("CounterType"), null, placer.getController());
+                    }
                 } catch (Exception e) {
                     System.out.println("Counter type doesn't match, nor does an SVar exist with the type name.");
                     return;

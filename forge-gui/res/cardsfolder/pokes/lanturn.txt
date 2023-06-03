@@ -5,6 +5,7 @@ PT:3/3
 K:Mutate onto:1 U R:Chinchou:4/4
 S:Mode$ Continuous | Affected$ Card.Self | AddPower$ X | AddToughness$ X | Description$ CARDNAME gets +1/+1 for each stun counter on creatures your opponents control.
 SVar:X:Count$Valid Creature.OppCtrl$CardCounters.STUN
-T:Mode$ Blocks | ValidCard$ Card.Self | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME blocks, you may pay {U}{R}. If you do, put a stun counter on target creature.
-SVar:TrigPutCounter:AB$ PutCounter | Cost$ U R | CounterType$ STUN | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature
-Oracle:Mutate onto Chinchou {1}{U}{R} [4/4]\nLanturn gets +1/+1 for each stun counter on creatures you opponents control.\nWhenever Lanturn blocks, you may pay {U}{R}. If you do, put a stun counter on target creature.
+T:Mode$ Blocks | ValidCard$ Card.Self | Execute$ TrigImmediate | TriggerDescription$ Whenever CARDNAME blocks, you may pay {U}{R}. When you do, put a stun counter on target creature.
+SVar:TrigImmediate:AB$ ImmediateTrigger | Execute$ TrigPutCounter | Cost$ U R
+SVar:TrigPutCounter:DB$ PutCounter | CounterType$ STUN | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature
+Oracle:Mutate onto Chinchou {1}{U}{R} [4/4]\nLanturn gets +1/+1 for each stun counter on creatures you opponents control.\nWhenever Lanturn blocks, you may pay {U}{R}. When you do, put a stun counter on target creature.

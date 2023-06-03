@@ -1,0 +1,11 @@
+Name:Umbreon
+ManaCost:2 B B
+Types:Creature Dog Fox Pokémon
+PT:3/5
+K:Mutate onto:2 B B:Eevee:4/6
+S:Mode$ Continuous | Affected$ Creature.YouCtrl | CheckSVar$ FOG | SVarCompare$ GE1 | AddKeyword$ CARDNAME can block creatures with shadow as though they didn't have shadow. | Description$ Creatures you control can block creatures with shadow as though they didn't have shadow.
+SVar:FOG:Count$Foggy.1.0
+T:Mode$ LifeGained | ValidPlayer$ You | TriggerZones$ Battlefield | CheckSVar$ MUTATED | SVarCompare$ GE1 | Execute$ TrigDrain | OptionalDecider$ You | TriggerDescription$ Whenever you gain life, if CARDNAME is mutated, each opponent loses 1 life.
+SVar:MUTATED:Count$TimesMutated
+SVar:TrigDrain:DB$ LoseLife | Defined$ Opponent | LifeAmount$ 1
+Oracle:Mutate onto Eevee {2}{B}{B} [4/6]\nCreatures you control can block creatures with shadow as though they didn't have shadow as long as it's foggy.\nWhenever you gain life, if Umbreon is mutated, each opponent loses 1 life.

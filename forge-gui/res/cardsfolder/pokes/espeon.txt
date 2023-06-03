@@ -1,0 +1,14 @@
+Name:Espeon
+ManaCost:2 B B
+Types:Creature Cat Pokémon
+PT:4/4
+K:Mutate onto:2 B B:Eevee:5/5
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigMill | TriggerDescription$ Whenever CARDNAME attacks, target player mills four cards.
+SVar:TrigMill:DB$ Mill | ValidTgts$ Player | TgtPrompt$ Select target player | NumCards$ 4
+T:Mode$ LifeGained | ValidPlayer$ You | TriggerZones$ Battlefield | CheckSVar$ MUTATED | SVarCompare$ GE1 | Execute$ TrigExile | OptionalDecider$ You | TriggerDescription$ Whenever you gain life, if CARDNAME is mutated, you may exile up to one target card from a graveyard. If a card is exiled this way, its owner mills cards equal to its mana value.
+SVar:MUTATED:Count$TimesMutated
+SVar:TrigExile:DB$ ChangeZone | Origin$ Graveyard | Destination$ Exile | ValidTgts$ Card | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select target card in a graveyard to exile | RememberChanged$ True | SubAbility$ TrigMillExiled
+SVar:TrigMillExiled:DB$ Mill | NumCards$ X | SubAbility$ DBCleanup | Defined$ RememberedController
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:X:Count$RememberedCardManaCost
+Oracle:Mutate onto Eevee {2}{B}{B} [5/5]\nWhenever Espeon attacks, target player mills four cards.\nWhenever you gain life, if Espeon is mutated, you may exile up to one target card from a graveyard. If a card is exiled this way, its owner mills cards equal to its mana value.

@@ -1,0 +1,8 @@
+Name:Slowking
+ManaCost:2 W U B
+Types:Creature Hippo Wizard Pokémon
+PT:4/7
+K:Mutate onto:2 W U B:Slowbro:4/9
+T:Mode$ MilledAll | ValidPlayer$ Player | ValidCard$ Creature | TriggerZones$ Battlefield | Execute$ TrigTap | OptionalDecider$ You | TriggerDescription$ Whenever a player mills one or more creature cards, you map tap target creature.
+SVar:TrigTap:DB$ Tap | ValidTgts$ Creature | TgtPrompt$ Select target creature
+Oracle:Mutate onto {2}{W}{U}{B} [4/9]\nWhenever a player mills one or more creature cards, you may tap target creature.

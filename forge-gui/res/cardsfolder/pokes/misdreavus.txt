@@ -1,0 +1,9 @@
+Name:Misdreavus
+ManaCost:5 B
+Types:Creature Spirit Pokémon
+PT:2/2
+K:Shadow
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDestroy | TriggerDescription$ When CARDNAME enters the battlefield, destroy all other creatures with power 3 or less. It becomes foggy.
+SVar:TrigDestroy:DB$ DestroyAll | ValidCards$ Creature.powerLE3+Other | SubAbility$ TrigFog
+SVar:TrigFog:DB$ Weather | Value$ Foggy
+Oracle:Shadow\nWhen Misdreavus enters the battlefield, destroy all other creatures with power 3 or less. It becomes foggy.

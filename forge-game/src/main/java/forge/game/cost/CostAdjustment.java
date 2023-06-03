@@ -209,7 +209,22 @@ public class CostAdjustment {
         // Reduce cost
         int sumGeneric = 0;
         if (sa.hasParam("ReduceCost")) {
-            sumGeneric += AbilityUtils.calculateAmount(originalCard, sa.getParam("ReduceCost"), sa);
+            String reduce = sa.getParam("ReduceCost");
+            if (StringUtils.isNumeric(reduce)) {
+                sumGeneric += AbilityUtils.calculateAmount(originalCard, reduce, sa);
+            } else {
+                ManaCost mc;
+                if (sa.hasSVar(reduce)) {
+                    mc = ManaCost.get(AbilityUtils.calculateAmount(originalCard, reduce, sa));
+                } else {
+                    mc = new ManaCost(new ManaCostParser(reduce));
+                }
+                cost.decreaseShard(ManaCostShard.WHITE, mc.getColorShardCounts()[0]);
+                cost.decreaseShard(ManaCostShard.BLUE, mc.getColorShardCounts()[1]);
+                cost.decreaseShard(ManaCostShard.BLACK, mc.getColorShardCounts()[2]);
+                cost.decreaseShard(ManaCostShard.RED, mc.getColorShardCounts()[3]);
+                cost.decreaseShard(ManaCostShard.GREEN, mc.getColorShardCounts()[4]);
+            }
         }
 
         for (final StaticAbility stAb : reduceAbilities) {

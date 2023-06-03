@@ -1,0 +1,8 @@
+Name:Murkrow
+ManaCost:1 B
+Types:Creature Bird Pokémon
+PT:1/1
+K:Flying
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSearch | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters the battlefield, you may search your library for an artifact or Pokémon creature card, reveal it, put it into your hand, then shuffle.
+SVar:TrigSearch:DB$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Artifact,Creature.Pokémon | ChangeNum$ 1
+Oracle:Flying\nWhen Murkrow enters the battlefield, you may search your library for an artifact or Pokémon creature card, reveal it, put it into your hand, then shuffle.

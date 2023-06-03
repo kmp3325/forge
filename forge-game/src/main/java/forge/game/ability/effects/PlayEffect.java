@@ -406,7 +406,7 @@ public class PlayEffect extends SpellAbilityEffect {
                 // for Kefnet only can reduce colorless cost
                 String reduce = sa.getParam("PlayReduceCost");
                 tgtSA.putParam("ReduceCost", reduce);
-                if (!StringUtils.isNumeric(reduce)) {
+                if (!StringUtils.isNumeric(reduce) && StringUtils.isNotBlank(sa.getSVar(reduce))) {
                     tgtSA.setSVar(reduce, sa.getSVar(reduce));
                 }
             }

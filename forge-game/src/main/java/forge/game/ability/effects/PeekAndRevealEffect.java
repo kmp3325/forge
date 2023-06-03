@@ -73,8 +73,14 @@ public class PeekAndRevealEffect extends SpellAbilityEffect {
             numPeek = Math.min(numPeek, library.size());
 
             CardCollection peekCards = new CardCollection();
-            for (int i = 0; i < numPeek; i++) {
-                peekCards.add(library.get(i));
+            if (sa.hasParam("Bottom")) {
+                for (int i = library.size() - 1; i > library.size() - numPeek - 1; i--) {
+                    peekCards.add(library.get(i));
+                }
+            } else {
+                for (int i = 0; i < numPeek; i++) {
+                    peekCards.add(library.get(i));
+                }
             }
 
             CardCollectionView revealableCards = CardLists.getValidCards(peekCards, revealValid, peekingPlayer, source, sa);

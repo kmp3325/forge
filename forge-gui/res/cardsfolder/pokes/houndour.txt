@@ -2,8 +2,8 @@ Name:Houndour
 ManaCost:B R
 Types:Creature Demon Dog Pokémon
 PT:1/1
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | OptionalDecider$ You | Execute$ TrigBurn | TriggerDescription$ When CARDNAME enters the battlefield, you may put a burn counter on target creature you don't control. Until end of turn, you gain control of that creature and it loses all abilities.
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | OptionalDecider$ You | Execute$ TrigBurn | TriggerDescription$ When CARDNAME enters the battlefield, you may put a burn counter on target creature you don't control. If you do, until end of turn, you gain control of that creature and it loses all abilities.
 SVar:TrigBurn:DB$ PutCounter | ValidTgts$ Creature.YouDontCtrl | TgtPrompt$ Select target creature you don't control | CounterType$ BURN | CounterNum$ 1 | SubAbility$ TrigGainControl
 SVar:TrigGainControl:DB$ GainControl | SubAbility$ DBPump | LoseControl$ EOT | Defined$ Targeted
 SVar:DBPump:DB$ Animate | Defined$ Targeted | RemoveAllAbilities$ True | Duration$ UntilEndOfTurn
-Oracle:When Houndour enters the battlefield, you may put a burn counter on target creature you don't control. Until end of turn, you gain control of that creature and it loses all abilities.
+Oracle:When Houndour enters the battlefield, you may put a burn counter on target creature you don't control. If you do, until end of turn, you gain control of that creature and it loses all abilities.

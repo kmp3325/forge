@@ -1,0 +1,8 @@
+Name:Houndoom
+ManaCost:3 B R
+Types:Creature Demon Dog Pokémon
+PT:4/3
+K:Mutate onto:3 B R:Houndour:5/4
+A:AB$ PutCounter | Cost$ B R R | CounterType$ BURN | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature | SpellDescription$ Put a burn counter on target creature.
+A:AB$ GainControl | Cost$ T | ValidTgts$ Creature.counters_GE3_BURN | TgtPrompt$ Select target creature | SpellDescription$ Gain control of target creature with three or more burn counters on it.
+Oracle:Mutate onto Houndour {3}{B}{R} [5/4]\n{B}{R}{R}: Put a burn counter on target creature.\n{T}: Gain control of target creature with three or more burn counters on it.

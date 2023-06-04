@@ -1,0 +1,16 @@
+Name:Skarmory
+ManaCost:2 G W
+Types:Creature Bird Pokémon
+PT:2/5
+K:Flying
+K:Steel skin
+T:Mode$ Attacks | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME attacks, put a shield counter on target attacking creature. Until end of turn, that creature gains "Whenever this creature deals combat damage to a player, remove a shield counter from it. If you do, you gain life equal to its power."
+SVar:TrigPutCounter:DB$ PutCounter | ValidTgts$ Creature.attacking | TgtPrompt$ Select target attacking creature | CounterType$ SHIELD | SubAbility$ DBAnimate
+SVar:DBAnimate:DB$ Animate | Defined$ Targeted | Triggers$ DealsDamage
+SVar:DealsDamage:Mode$ DamageDone | ValidSource$ Card.Self | ValidTarget$ Player | CombatDamage$ True | Execute$ TrigRemoveCounter | TriggerDescription$ Whenever this creature deals combat damage to a player, remove a shield counter from it. If you do, you gain life equal to its power.
+SVar:TrigRemoveCounter:DB$ RemoveCounter | CounterType$ SHIELD | RememberRemoved$ True | SubAbility$ DBLife
+SVar:DBLife:DB$ GainLife | ConditionCheckSVar$ X | LifeAmount$ POW | SubAbility$ DBCleanup
+SVar:POW:Count$CardPower
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:X:Count$RememberedSize
+Oracle:Flying, Steel skin\nWhenever Skarmory attacks, put a shield counter on target attacking creature. Until end of turn, that creature gains "Whenever this creature deals combat damage to a player, remove a shield counter from it. If you do, you gain life equal to its power."

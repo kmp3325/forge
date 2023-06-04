@@ -1,0 +1,7 @@
+Name:Delibird
+ManaCost:5
+Types:Snow Creature Bird Pokémon
+PT:3/3
+K:Flying
+A:AB$ RemoveCounter | Cost$ 4 ExileFromGrave<1/Card> | ValidTgts$ Creature | TgtPrompt$ Select target creature | CounterType$ Any | CounterNum$ Any
+Oracle:Flying\n{4}, Exile a card from your graveyard: Remove any number of counters from target creature.

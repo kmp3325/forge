@@ -1,0 +1,11 @@
+Name:Porygon2
+ManaCost:3
+Types:Artifact Creature Construct Pokémon
+PT:2/2
+K:Mutate onto:3:Porygon:3/3
+A:AB$ Weather | Cost$ 2 W | Value$ Windy | SpellDescription$ It becomes windy.
+A:AB$ Weather | Cost$ 2 U | Value$ Rainy | SpellDescription$ It becomes rainy.
+A:AB$ Weather | Cost$ 2 B | Value$ Foggy | SpellDescription$ It becomes foggy.
+A:AB$ Weather | Cost$ 2 RG | Value$ Sunny | SpellDescription$ It becomes sunny.
+A:AB$ Weather | Cost$ 2 S | Value$ Snowy | SpellDescription$ It becomes snowy.
+Oracle:Mutate onto Porygon {3} [3/3]\n{2}{W}: It becomes windy.\n{2}{U}: It becomes rainy.\n{2}{B}: It becomes foggy.\n{2}{RG}: It becomes sunny.\n{2}{S}: It becomes snowy.

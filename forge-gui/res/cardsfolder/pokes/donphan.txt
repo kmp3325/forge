@@ -1,0 +1,10 @@
+Name:Donphan
+ManaCost:5 W W
+Types:Creature Elephant Pokémon
+PT:6/6
+K:Mutate onto:5 W W:Phanpy:7/7
+S:Mode$ Continuous | Affected$ Card.Self | AddKeyword$ Indestructible | CheckSVar$ RAIN | SVarCompare$ GE1  | Description$ CARDNAME has indestructible as long as it's not rainy.
+SVar:RAIN:Count$Rainy.0.1
+T:Mode$ AttackerBlockedByCreature | ValidCard$ Card.Self | ValidBlocker$ Creature | Execute$ TrigDebuff | TriggerDescription$ Whenever CARDNAME becomes blocked by a creature, that creature loses indestructible until end of turn.
+SVar:TrigDebuff:DB$ Debuff | Defined$ TriggeredBlockerLKICopy | Keywords$ Indestructible
+Oracle:Mutate onto Phanpy {5}{W}{W} [7/7]\nDonphan has indestructible as long as it's not rainy.\nWhenever Donphan becomes blocked by a creature, that creature loses indestructible until end of turn.

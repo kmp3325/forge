@@ -1,0 +1,11 @@
+Name:Smeargle
+ManaCost:3
+Types:Creature Dog Monkey Pokémon
+PT:3/3
+S:Mode$ Continuous | Affected$ Card.Self | EffectZone$ Battlefield | GainsAbilitiesOf$ Card.IsImprinted+ExiledWithSource | GainsAbilitiesOfZones$ Exile | Description$ CARDNAME has all activated abilities of all cards exiled with it.
+A:AB$ ChangeZone | Cost$ 2 T | ValidTgts$ Creature.YouCtrl+Pokémon | Origin$ Graveyard | Destination$ Exile | TgtPrompt$ Select target Pokémon creature in your graveyard | Imprint$ True | SpellDescription$ Exile target Pokémon creature card from your graveyard.
+T:Mode$ ChangesZone | Origin$ Exile | Destination$ Any | Static$ True | ValidCard$ Card.IsImprinted+ExiledWithSource | Execute$ DBForget
+SVar:DBForget:DB$ Pump | ForgetImprinted$ TriggeredCard
+T:Mode$ ChangesZone | Origin$ Battlefield | ValidCard$ Card.Self | Destination$ Any | Execute$ DBCleanup | Static$ True
+SVar:DBCleanup:DB$ Cleanup | ClearImprinted$ True
+Oracle:{2}, {T}: Exile target Pokémon creature card from your graveyard.\nSmeargle has all activated abilities of all cards exiled with it.

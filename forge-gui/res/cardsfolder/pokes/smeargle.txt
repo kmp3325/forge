@@ -1,5 +1,5 @@
 Name:Smeargle
-ManaCost:3
+ManaCost:1 C
 Types:Creature Dog Monkey Pokémon
 PT:3/3
 S:Mode$ Continuous | Affected$ Card.Self | EffectZone$ Battlefield | GainsAbilitiesOf$ Card.IsImprinted+ExiledWithSource | GainsAbilitiesOfZones$ Exile | Description$ CARDNAME has all activated abilities of all cards exiled with it.

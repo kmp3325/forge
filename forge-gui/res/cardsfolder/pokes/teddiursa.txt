@@ -1,5 +1,5 @@
 Name:Teddiursa
-ManaCost:2
+ManaCost:C
 Types:Creature Bear Pokémon
 PT:1/1
 A:AB$ Mana | Cost$ T | Produced$ C | SubAbility$ TrigGain | ConditionCheckSVar$ SNOW | ConditionSVarCompare$ GE1 | Amount$ SNOW | SpellDescription$ Add {C}. You gain 2 life. Activate only if it's not snowy.

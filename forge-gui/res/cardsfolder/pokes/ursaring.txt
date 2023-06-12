@@ -1,8 +1,8 @@
 Name:Ursaring
-ManaCost:3
+ManaCost:1 C
 Types:Creature Bear Pokémon
 PT:3/3
-K:Mutate onto:3:Teddiursa:4/4
+K:Mutate onto:1 C:Teddiursa:4/4
 R:Event$ AddCounter | ActiveZones$ Battlefield | ValidCard$ Creature.YouCtrl+inZoneBattlefield | ReplaceWith$ MinusOneMore | Description$ If one or more counters would be put on a creature you control, that many counters minus one are put on it instead.
 SVar:MinusOneMore:DB$ ReplaceCounter | Amount$ X
 SVar:X:ReplaceCount$CounterNum/Minus.1

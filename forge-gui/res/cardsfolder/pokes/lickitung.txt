@@ -1,5 +1,5 @@
 Name:Lickitung
-ManaCost:5
+ManaCost:3 C
 Types:Creature Frog Horror Pokémon
 PT:3/3
 A:AB$ Debuff | Cost$ 2 | ValidTgts$ Creature | TgtPrompt$ Select target creature | Keywords$ Shadow | SubAbility$ DBPhase | ActivationLimit$ 1 | SpellDescription$ Target creature loses shadow and can't phase out until end of turn. Activate only once each turn.

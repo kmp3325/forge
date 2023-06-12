@@ -1,5 +1,5 @@
 Name:Ditto
-ManaCost:4
+ManaCost:2 C C
 Types:Creature Shapeshifter Ooze Pokémon
 PT:2/2
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Creature.Other | Execute$ DittoCopy | SecondaryGainsWithCopy$ True | TriggerDescription$ Whenever another creature enters the battlefield or mutates, you may have CARDNAME become a copy of that creature, except its name is Ditto, it's not legendary, and it has this ability.

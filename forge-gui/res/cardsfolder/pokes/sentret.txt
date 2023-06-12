@@ -1,5 +1,5 @@
 Name:Sentret
-ManaCost:1
+ManaCost:C
 Types:Creature Squirrel Pokémon
 PT:1/1
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigRemove | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters the battlefield, you may remove all shield counters from target creature.

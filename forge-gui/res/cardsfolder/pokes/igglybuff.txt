@@ -2,5 +2,5 @@ Name:Igglybuff
 ManaCost:WU
 Types:Creature Faerie Rabbit Pokémon
 PT:0/1
-K:Hexproof
+K:Ward:Discard<1/Card>
 Oracle:Hexproof

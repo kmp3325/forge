@@ -1,5 +1,5 @@
 Name:Skiploom
-ManaCost:R G
+ManaCost:RG RG
 Types:Creature Plant Saproling Pokémon
 PT:1/2
 K:Mutate onto:R G:Hoppip:2/3

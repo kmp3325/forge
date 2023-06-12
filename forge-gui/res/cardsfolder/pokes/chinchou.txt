@@ -1,5 +1,5 @@
 Name:Chinchou
-ManaCost:U R
+ManaCost:UR UR
 Types:Creature Fish Pokémon
 PT:1/1
 A:AB$ PutCounter | Cost$ U R | ValidTgts$ Creature | TgtPrompt$ Select target creature | CounterType$ STUN | CounterNum$ 1 | ActivationLimit$ 1 | SorcerySpeed$ True | SpellDescription$ Put a stun counter on target creature. Activate only as a sorcery and only once each turn.

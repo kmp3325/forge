@@ -4,5 +4,5 @@ Types:Creature Plant Pokémon
 PT:3/3
 K:Mutate onto:1 BG BG:Oddish:3/3
 K:Caustic
-A:AB$ RemoveCounter | Cost$ 1 B T | CounterType$ M0M1 | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature | SpellDescription$ Remove a -0/-1 counter from target creature.
-Oracle:Mutate onto Oddish {1}{BG}{BG} [3/3]\nCaustic\n{1}{B}, {T}: Remove a -0/-1 counter from target creature.
+A:AB$ RemoveCounter | Cost$ 1 G T | CounterType$ M0M1 | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature | SpellDescription$ Remove a -0/-1 counter from target creature.
+Oracle:Mutate onto Oddish {1}{BG}{BG} [3/3]\nCaustic\n{1}{G}, {T}: Remove a -0/-1 counter from target creature.

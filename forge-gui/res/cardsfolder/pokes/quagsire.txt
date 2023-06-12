@@ -1,5 +1,5 @@
 Name:Quagsire
-ManaCost:3 W U
+ManaCost:3 WU WU
 Types:Creature Salamander Pokémon
 PT:4/5
 K:Mutate onto:3 W U:Wooper:5/6

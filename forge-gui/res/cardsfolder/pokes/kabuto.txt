@@ -1,5 +1,5 @@
 Name:Kabuto
-ManaCost:G U
+ManaCost:GU GU
 Types:Creature Crab Pokémon
 PT:1/1
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigWeather | TriggerDescription$ When CARDNAME enters the battlefield, it becomes rainy. Then put a +1/+1 counter on target creature.

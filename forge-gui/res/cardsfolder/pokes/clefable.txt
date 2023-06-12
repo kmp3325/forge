@@ -3,7 +3,7 @@ ManaCost:3 W W
 Types:Creature Faerie Rabbit Pokémon
 PT:3/4
 K:Mutate onto:3 W W:Clefairy:3/5
-K:Hexproof
+K:Ward:Discard<1/Card>
 T:Mode$ SpellCast | ValidSA$ Spell.Mutate | ValidActivatingPlayer$ You | Execute$ TrigProliferate | TriggerZones$ Battlefield | TriggerDescription$ Whenever you cast a mutating creature spell, proliferate twice.
 SVar:TrigProliferate:DB$ Proliferate | Amount$ 2
 Oracle:Mutate onto Clefairy {3}{W}{W} [3/5]\nHexproof\nWhenever you cast a mutating creature spell, proliferate twice.

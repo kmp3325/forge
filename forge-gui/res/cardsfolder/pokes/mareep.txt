@@ -1,5 +1,5 @@
 Name:Mareep
-ManaCost:U R
+ManaCost:UR UR
 Types:Creature Sheep Pokémon
 PT:2/2
 T:Mode$ AttackerBlockedByCreature | ValidCard$ Creature | ValidBlocker$ Card.Self | Execute$ TrigStunAttacker | TriggerDescription$ Whenever CARDNAME blocks or becomes blocked by a creature, put a stun counter on that creature.

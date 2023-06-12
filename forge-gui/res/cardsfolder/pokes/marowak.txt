@@ -1,5 +1,5 @@
 Name:Marowak
-ManaCost:1 W B
+ManaCost:1 WB WB
 Types:Creature Dinosaur Pokémon
 PT:3/3
 K:Mutate onto:1 W B:Cubone:4/4

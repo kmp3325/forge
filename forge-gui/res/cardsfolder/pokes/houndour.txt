@@ -1,5 +1,5 @@
 Name:Houndour
-ManaCost:B R
+ManaCost:BR BR
 Types:Creature Demon Dog Pokémon
 PT:1/1
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | OptionalDecider$ You | Execute$ TrigBurn | TriggerDescription$ When CARDNAME enters the battlefield, you may put a burn counter on target creature you don't control. If you do, until end of turn, you gain control of that creature and it loses all abilities.

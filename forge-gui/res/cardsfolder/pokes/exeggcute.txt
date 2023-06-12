@@ -1,5 +1,5 @@
 Name:Exeggcute
-ManaCost:G U
+ManaCost:GU GU
 Types:Creature Egg Pokémon
 PT:0/0
 K:etbCounter:P1P1:2

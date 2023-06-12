@@ -1,0 +1,19 @@
+Name:Suicune
+ManaCost:1 W U U B
+Types:Legendary Creature Cat Beast Pokémon
+PT:4/4
+K:First strike
+T:Mode$ Destroyed | ValidCard$ Creature.YouCtrl+Other | Execute$ TrackDeath | Static$ True
+SVar:TrackDeath:DB$ Pump | RememberObjects$ TriggeredCard
+T:Mode$ TurnBegin | Execute$ TrigReset | Static$ True
+SVar:TrigReset:DB$ Cleanup | ClearRemembered$ True
+SVar:HadDeath:Remembered$Amount
+R:Event$ Destroy | ActiveZones$ Battlefield | ValidCard$ Creature.YouCtrl+Other | CheckSVar$ HadDeath | SVarCompare$ EQ0 | ReplaceWith$ DBRemoveDmg | Description$ The first time another creature you control would be destroyed during each of your turns, instead remove all damage from it and it phases out.
+SVar:DBRemoveDmg:DB$ DealDamage | Defined$ ReplacedCard | Remove$ All | SubAbility$ DBPhaseOut
+SVar:DBPhaseOut:DB$ Phases | Defined$ ReplacedCard | SubAbility$ TrackUse
+SVar:TrackUse:DB$ Pump | RememberObjects$ Self
+T:Mode$ PhaseIn | ValidCard$ Creature.YouCtrl | Execute$ DBPump | TriggerDescription$ Whenever a creature you control phases in, it gets +1/+1 until end of turn, then each opponent mills cards equal to its power.
+SVar:DBPump:DB$ Pump | NumAtt$ 1 | NumDef$ 1 | Defined$ TriggeredCardLKICopy | SubAbility$ DBMill
+SVar:DBMill:DB$ Mill | Defined$ Player.Opponent | NumCards$ X
+SVar:X:TriggeredCard$CardPower
+Oracle:First strike\nThe first time another creature you control would be destroyed during each of your turns, instead remove all damage from it and it phases out.\nWhenever a creature you control phases in, it gets +1/+1 until end of turn, then each opponent mills cards equal to its power.

@@ -1,0 +1,7 @@
+Name:Pupitar
+ManaCost:1 G W
+Types:Creature Dinosaur Pokémon
+PT:0/2
+K:Mutate onto:G W:Larvitar:0/3
+A:AB$ PutCounter | Cost$ G W T | CounterType$ SHIELD | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature | SpellDescription$ Put a shield counter on target creature.
+Oracle:Mutate onto {G}{W} [0/3]\n{G}{W}, {T}: Put a shield counter on target creature.

@@ -1816,8 +1816,8 @@ public class CardFactoryUtil {
                     " put that many burn counters on that creature.";
             final Trigger parsedTrigger = TriggerHandler.parseTrigger(trigStr, card, intrinsic);
 
-            SpellAbility sa = AbilityFactory.getAbility("DB$ PutCounter | Defined$ TriggeredTargetLKICopy | CounterType$ BURN | CounterNum$ X", card);
-            parsedTrigger.setSVar("X", "TriggerCount$DamageAmount");
+            SpellAbility sa = AbilityFactory.getAbility("DB$ PutCounter | Defined$ TriggeredTargetLKICopy | CounterType$ BURN | CounterNum$ DamageDoneSVar", card);
+            sa.setSVar("DamageDoneSVar", "TriggerCount$DamageAmount");
             sa.setIntrinsic(intrinsic);
             parsedTrigger.setOverridingAbility(sa);
 

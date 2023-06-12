@@ -1,0 +1,9 @@
+Name:Larvitar
+ManaCost:GW
+Types:Creature Dinosaur Pokémon
+PT:1/1
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigBite | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters the battlefield, you may have target creature you control deal damage equal to half its power, rounded down, to another target creature.
+SVar:TrigBite:DB$ Pump | ValidTgts$ Creature.YouCtrl | AILogic$ PowerDmg | TgtPrompt$ Select target creature you control | SubAbility$ SoulsDamage
+SVar:SoulsDamage:DB$ DealDamage | ValidTgts$ Creature | TargetUnique$ True | AILogic$ PowerDmg | TgtPrompt$ Select another target creature | NumDmg$ X | DamageSource$ ParentTarget
+SVar:X:ParentTargeted$CardPower/HalfUp
+Oracle:When Larvitar enters the battlefield, you may have target creature you control deal damage equal to half its power, rounded up, to another target creature.

@@ -1,0 +1,8 @@
+Name:Blissey
+ManaCost:4 G W U
+Types:Creature Faerie Rabbit Pokémon
+PT:2/8
+K:Mutate onto:3 G W U:Chansey:3/10
+T:Mode$ Mutates | ValidCard$ Card.Self | Execute$ TrigCounterHeal | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME mutates, you may remove any number of counters from among creatures you control.
+SVar:TrigCounterHeal:DB$ RemoveCounter | CounterType$ Any | CounterNum$ Any | ValidSource$ Creature.YouCtrl
+Oracle:Mutate onto Chansey {3}{G}{W}{U} [3/10]\nWhenever Blissey mutates, you may remove any number of counters from among creatures you control.

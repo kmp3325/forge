@@ -1,0 +1,6 @@
+Name:Magby
+ManaCost:R
+Types:Creature Elemental Duck Pokémon
+PT:1/1
+K:Scorching
+Oracle:Scorching

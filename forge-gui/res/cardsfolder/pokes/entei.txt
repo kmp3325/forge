@@ -1,0 +1,13 @@
+Name:Entei
+ManaCost:2 B R G
+Types:Legendary Creature Cat Beast Pokémon
+PT:4/4
+K:First strike
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigChooseOpp | TriggerDescription$ When CARDNAME enters the battlefield, target opponent gains control of it.
+SVar:TrigChooseOpp:DB$ Pump | ValidTgts$ Opponent | TgtPrompt$ Select target opponent | SubAbility$ TrigSwapCtrl
+SVar:TrigSwapCtrl:DB$ GainControl | Defined$ Self | NewController$ ParentTarget
+T:Mode$ Attacks | ValidCard$ Creature.YouCtrl+Other | TriggerZones$ Battlefield | Execute$ DBBurn | TriggerDescription$ Whenever another creature you control attacks, if you own CARDNAME, that creature gets +1/+1 until end of turn. If you don't own CARDNAME, put two burn counters on that creature.
+SVar:DBBurn:DB$ PutCounter | Defined$ TriggeredAttackerLKICopy | CounterType$ BURN | CounterNum$ 2 | ConditionPresent$ Card.Self+OwnerDoesntControl | ConditionCompare$ EQ1 | SubAbility$ DBPump
+SVar:DBPump:DB$ Pump | Defined$ TriggeredAttackerLKICopy | NumAtt$ 1 | NumDef$ 1 | ConditionPresent$ Card.Self+OwnerDoesntControl | ConditionCompare$ EQ0
+A:AB$ Pump | Cost$ T Sac<1/Creature.Other/another creature> | ValidTgts$ Player | TgtPrompt$ Select target player | SubAbility$ TrigSwapCtrl | SorcerySpeed$ True | SpellDescription$ Target player gains control of CARDNAME. Activate only as a sorcery.
+Oracle:First strike\nWhen Entei enters the battlefield, target opponent gains control of it.\nWhenever another creature you control attacks, if you own Entei, that creature gets +1/+1 until end of turn. If you don't own Entei, put two burn counters on that creature.\n{T}, Sacrifice another creature: Target player gains control of Entei. Activate only as a sorcery.

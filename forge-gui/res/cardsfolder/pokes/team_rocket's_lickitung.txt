@@ -1,0 +1,11 @@
+Name:Team Rocket's Lickitung
+ManaCost:4 BR BR
+Types:Creature Frog Horror Pokémon
+PT:1/3
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigGainCtrl | TriggerDescription$ When CARDNAME enters the battlefield, until end of turn, gain control of target creature and it gains haste. Tap it and put a stun counter on it at the beginning of the next turn's upkeep.
+SVar:TrigGainCtrl:DB$ GainControl | ValidTgts$ Creature | TgtPrompt$ Select target creature | LoseControl$ EOT | AddKWs$ Haste | SubAbility$ DelTrig
+SVar:DelTrig:DB$ DelayedTrigger | NextTurn$ True | Mode$ Phase | Phase$ Upkeep | RememberObjects$ Targeted | Execute$ DBTap | TriggerDescription$ Tap it and put a stun counter on it.
+SVar:DBTap:DB$ Tap | Defined$ DelayTriggerRememberedLKI | SubAbility$ DBStun
+SVar:DBStun:DB$ PutCounter | CounterType$ STUN | CounterNum$ 1 | Defined$ DelayTriggerRememberedLKI | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+Oracle:When Team Rocket's Lickitung enters the battlefield, until end of turn, gain control of target creature and it gains haste. Tap it and put a stun counter on it at the beginning of the next turn's upkeep.

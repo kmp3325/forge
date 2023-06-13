@@ -1,0 +1,8 @@
+Name:Team Rocket's Magikarp
+ManaCost: BR BR
+Types:Creature Fish Pokémon
+PT:0/1
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigCoinFlip | TriggerDescription$ When CARDNAME enters the battlefield, flip a coin. If you win the flip, draw a card.
+SVar:TrigCoinFlip:DB$ FlipACoin | Caller$ You | WinSubAbility$ TrigDraw
+SVar:TrigDraw:DB$ Draw | NumCards$ 1 | Defined$ You
+Oracle:When Team Rocket's Magikarp enters the battlefield, flip a coin. If you win the flip, draw a card.

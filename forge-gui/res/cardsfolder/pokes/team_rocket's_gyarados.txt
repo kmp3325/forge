@@ -1,0 +1,10 @@
+Name:Team Rocket's Gyarados
+ManaCost:4 B R
+Types:Creature Leviathan Pokémon
+PT:5/5
+K:Mutate onto:4 B R:Team Rocket's Magikarp:7/7
+K:Flying
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigGainLand | TriggerDescription$ Whenever CARDNAME attacks, gain control of target land until end of turn. If it's foggy, gain control of up to two target lands until end of turn instead. Untap those lands.
+SVar:TrigGainLand:DB$ GainControl | ValidTgts$ Land | TargetMin$ 0 | TargetMax$ X | LoseControl$ EOT | Untap$ True
+SVar:X:Count$Foggy.2.1
+Oracle:Mutate onto Team Rocket's Magikarp {4}{B}{R} [7/7]\nFlying\nWhenever Team Rocket's Gyarados attacks, gain control of target land until end of turn. If it's foggy, gain control of up to two target lands until end of turn instead. Untap those lands.

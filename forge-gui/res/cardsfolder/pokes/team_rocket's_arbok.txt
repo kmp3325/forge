@@ -1,0 +1,8 @@
+Name:Team Rocket's Arbok
+ManaCost:2 RB
+Types:Creature Snake Pokémon
+PT:3/1
+K:Deathtouch
+K:Caustic
+S:Mode$ Continuous | Affected$ Card.Self | AddKeyword$ First strike | IsPresent$ Creature.YouDontOwn+YouCtrl | Description$ CARDNAME has first strike as long as you control a creature you don't own.
+Oracle:Deathtouch, caustic\nTeam Rocket's Arbok has first strike as long as you control a creature you don't own.

@@ -1,0 +1,9 @@
+Name:Team Rocket's Meowth
+ManaCost:RB
+Types:Legendary Creature Cat Pokémon
+PT:1/1
+A:AB$ ChangeZone | Cost$ T | Origin$ Battlefield | Destination$ Library | Shuffle$ False | RememberChanged$ True | Defined$ Self | SubAbility$ DBBlastOff | SpellDescription$ Shuffle CARDNAME and up to two other permanents you control into their owners' libraries.
+SVar:DBBlastOff:DB$ ChangeZone | TargetMin$ 0 | TargetMax$ 2 | TargetsFromSingleZone$ True | TgtPrompt$ Choose target permanent you control | ValidTgts$ Card.YouCtrl+Other | Origin$ Battlefield | Destination$ Library | Shuffle$ False | RememberChanged$ True | SubAbility$ DBShuffleChanged
+SVar:DBShuffleChanged:DB$ Shuffle | Defined$ RememberedOwner | SubAbility$ DBCleanup | StackDescription$ None
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+Oracle:{T}: Shuffle Team Rocket's Meowth and up to two other permanents you control into their owners' libraries.

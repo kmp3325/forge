@@ -1,0 +1,11 @@
+Name:Ho-Oh
+ManaCost:BR BR BR BR BR BR
+Types:Legendary Creature Phoenix Pokémon
+PT:7/6
+K:Flying
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigBurn | TriggerDescription$ Whenever CARDNAME attacks, put a burn counter on target creature. Then double the number of burn counters on target creature.
+SVar:TrigBurn:DB$ PutCounter | CounterType$ BURN | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature to put a burn counter on | SubAbility$ DoubleBurn
+SVar:DoubleBurn:DB$ MultiplyCounter | ValidTgts$ Creature | TgtPrompt$ Select target creature to double the number of burn counters on | CounterType$ BURN
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Creature.counters_GE1_BURN | ActiveZones$ Battlefield | ActivationLimit$ 1 | Execute$ TrigResurrect | TriggerDescription$ Whenever a creature with a burn counter on it dies, return it to the battlefield under your control. This ability triggers only once each turn.
+SVar:TrigResurrect:DB$ ChangeZone | Origin$ Graveyard | Destination$ Battlefield | GainControl$ True | Defined$ TriggeredCard
+Oracle:Flying\nWhenever Ho-Oh attacks, put a burn counter on target creature. Then double the number of burn counters on target creature.\nWhenever a creature with a burn counter on it dies, return it to the battlefield under your control. This ability triggers only once each turn.

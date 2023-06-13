@@ -90,6 +90,8 @@ public enum AbilityKey {
     Modifier("Modifier"),
     MonstrosityAmount("MonstrosityAmount"),
     NewCard("NewCard"),
+    NewController("NewController"),
+
     NewCounterAmount("NewCounterAmount"),
     NoPreventDamage("NoPreventDamage"),
     Num("Num"), // TODO confirm that this and NumThisTurn can be merged

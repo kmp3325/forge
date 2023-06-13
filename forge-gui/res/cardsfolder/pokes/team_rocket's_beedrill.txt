@@ -1,0 +1,9 @@
+Name:Team Rocket's Beedrill
+ManaCost:B R G
+Types:Creature Insect Pokémon
+PT:1/1
+K:Double strike
+K:Caustic
+T:Mode$ ChangesController | ValidCard$ Creature.Insect | TriggerZones$ Battlefield | Execute$ TrigBoost | ValidOriginalController$ Opponent | ValidNewController$ You | TriggerDescription$ When you lose control of CARDNAME, exile creature controlled by CARDNAME.
+SVar:TrigBoost:DB$ PutCounter | Defined$ Self | CounterNum$ 1 | CounterType$ P1P1
+Oracle:Double strike, caustic\nWhenever you gain control of an Insect creature, put a +1/+1 counter on Team Rocket's Beedrill.

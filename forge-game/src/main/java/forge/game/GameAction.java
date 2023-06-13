@@ -631,6 +631,7 @@ public class GameAction {
         if (fromBattlefield && !zoneFrom.getPlayer().equals(zoneTo.getPlayer())) {
             final Map<AbilityKey, Object> runParams2 = AbilityKey.mapFromCard(lastKnownInfo);
             runParams2.put(AbilityKey.OriginalController, zoneFrom.getPlayer());
+            runParams2.put(AbilityKey.NewController, zoneTo.getPlayer());
             if (params != null) {
                 runParams2.putAll(params);
             }
@@ -1035,6 +1036,7 @@ public class GameAction {
 
         final Map<AbilityKey, Object> runParams = AbilityKey.mapFromCard(c);
         runParams.put(AbilityKey.OriginalController, original);
+        runParams.put(AbilityKey.NewController, controller);
         game.getTriggerHandler().runTrigger(TriggerType.ChangesController, runParams, false);
 
         game.getTriggerHandler().clearSuppression(TriggerType.ChangesZone);

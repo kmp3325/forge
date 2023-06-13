@@ -60,6 +60,9 @@ public class TriggerChangesController extends Trigger {
         if (!matchesValidParam("ValidOriginalController", runParams.get(AbilityKey.OriginalController))) {
             return false;
         }
+        if (!matchesValidParam("ValidNewController", runParams.get(AbilityKey.NewController))) {
+            return false;
+        }
 
         return true;
     }

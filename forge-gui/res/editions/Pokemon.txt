@@ -255,3 +255,63 @@ Name=Pokémon
 1 M Lugia
 1 M Ho-Oh
 1 M Celebi
+1 U Team Rocket's Beedrill
+1 U Team Rocket's Arbok
+1 C Team Rocket's Meowth
+1 U Team Rocket's Tentacruel
+1 U Team Rocket's Hitmonchan
+1 C Team Rocket's Lickitung
+1 U Team Rocket's Weezing
+1 U Team Rocket's Rhyhorn
+1 R Team Rocket's Rhydon
+1 C Team Rocket's Magikarp
+1 R Team Rocket's Gyarados
+1 R Giovanni's Persian
+1 M Giovanni's Armor
+1 C Wild Pidgey
+1 U Wild Pidgeot
+1 U Wild Raticate
+1 U Wild Fearow
+1 U Wild Tauros
+1 U Wild Poliwhirl
+1 U Wild Tentacool
+1 U Wild Lapras
+1 C Wild Zubat
+1 C Wild Gastly
+1 C Wild Charmander
+1 C Wild Vulpix
+1 U Wild Ninetales
+1 U Wild Arcanine
+1 C Wild Cyndaquil
+1 C Wild Typhlosion
+1 U Wild Beedrill
+1 C Wild Gloom
+1 C Wild Onix
+1 U Wild Rhydon
+1 U Wild Scyther
+1 U Wild Kabutops
+1 C Wild Bellossom
+1 U Great Ball
+1 R Ultra Ball
+1 M Master Ball
+1 C Glacier Badge
+1 C Zephyr Badge
+1 C Earth Badge
+1 C Storm Badge
+1 C Mineral Badge
+1 C Marsh Badge
+1 C Thunder Badge
+1 C Cascade Badge
+1 C Fog Badge
+1 C Hive Badge
+1 C Volcano Badge
+1 L Snow-Covered Plains
+1 L Snow-Covered Island
+1 L Snow-Covered Swamp
+1 L Snow-Covered Mountain
+1 L Snow-Covered Forest
+1 L Plains
+1 L Island
+1 L Swamp
+1 L Mountain
+1 L Forest

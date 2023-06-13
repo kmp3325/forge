@@ -5862,8 +5862,9 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
     }
 
     public boolean takesCausticAsRegularDamage(Card source) {
-        return hasKeyword("Creatures you control with caustic deal damage to this creature as though they didn't have caustic.")
-            && source.getController().equals(getController());
+        return (hasKeyword("Creatures you control with caustic deal damage to this creature as though they didn't have caustic.")
+            && source.getController().equals(getController())) ||
+                hasKeyword("Creatures with caustic deal damage to this creature as though they didn't have caustic.");
     }
 
     public final String getSetCode() {

@@ -1,317 +1,344 @@
 [metadata]
 Code=PKM
-Date=2023-01-01
+Date=2023-06-14
 Name=Pokémon
+Type=Draft
+Booster=9 Common:!fromSheet("PKM Snow Lands"):fromSheet("PKM cards"), 5 Ucommon:fromSheet("PKM cards"), 1 RareMythic:fromSheet("PKM cards"), 1 fromSheet("PKM Snow Lands"), 1 fromSheet("PKM Badges"),
+Prerelease=6 Boosters, RareMythic+
+BoosterBox=36
+DoublePick=Always
+Foil=NotSupported
 
 [cards]
 1 C Bulbasaur
-1 U Ivysaur
-1 M Venusaur
-1 C Charmander
-1 U Charmeleon
-1 M Charizard
-1 C Squirtle
-1 U Wartortle
-1 M Blastoise
-1 C Caterpie
-1 C Metapod
-1 R Butterfree
-1 C Weedle
-1 C Kakuna
-1 R Beedrill
-1 C Pidgey
-1 C Pidgeotto
-1 R Pidgeot
-1 C Rattata
-1 C Raticate
-1 C Spearow
-1 U Fearow
-1 U Ekans
-1 M Arbok
-1 C Pikachu
-1 R Raichu
-1 C Sandshrew
-1 U Sandslash
-1 C Female Nidoran
-1 C Nidorina
-1 R Nidoqueen
-1 C Male Nidoran
-1 C Nidorino
-1 R Nidoking
-1 C Clefairy
-1 M Clefable
-1 C Vulpix
-1 R Ninetales
-1 U Jigglypuff
-1 R Wigglytuff
-1 C Zubat
-1 C Golbat
-1 C Oddish
-1 U Gloom Pokémon
-1 R Vileplume
-1 C Paras
-1 R Parasect
-1 U Venonat
-1 R Venomoth
-1 U Diglett
-1 U Dugtrio
-1 U Meowth
-1 M Persian
-1 C Psyduck
-1 R Golduck
-1 C Mankey
-1 U Primeape
-1 C Growlithe
-1 M Arcanine
-1 C Poliwag
-1 U Poliwhirl
-1 R Poliwrath
-1 U Abra
-1 U Kadabra
-1 M Alakazam
-1 C Machop
-1 U Machoke
-1 M Machamp
-1 C Bellsprout
-1 C Weepinbell
-1 R Victreebel
-1 U Tentacool
-1 R Tentacruel
-1 C Geodude
-1 U Graveler
-1 R Golem
-1 C Ponyta
-1 R Rapidash
-1 C Slowpoke
-1 U Slowbro
-1 C Magnemite
-1 U Magneton
-1 C Farfetch'd
-1 C Doduo
-1 R Dodrio
-1 C Seel
-1 R Dewgong
-1 C Grimer
-1 M Muk
-1 C Shellder
-1 U Cloyster
-1 C Gastly
-1 U Haunter
-1 M Gengar
-1 C Onix
-1 C Drowzee
-1 R Hypno
-1 C Krabby
-1 U Kingler
-1 C Voltorb
-1 R Electrode
-1 C Exeggcute
-1 U Exeggutor
-1 C Cubone
-1 C Marowak
-1 R Hitmonlee
-1 R Hitmonchan
-1 C Lickitung
-1 C Koffing
-1 R Weezing
-1 C Rhyhorn
-1 R Rhydon
-1 R Chansey
-1 C Tangela
-1 R Kangaskhan
-1 C Horsea
-1 U Seadra
-1 C Goldeen
-1 R Seaking
-1 C Staryu
-1 R Starmie
-1 U Mr. Mime
-1 U Scyther
-1 R Jynx
-1 R Electabuzz
-1 R Magmar
-1 U Pinsir
-1 U Tauros
-1 C Magikarp
-1 M Gyarados
-1 M Lapras
-1 R Ditto
-1 C Eevee
-1 U Vaporeon
-1 U Jolteon
-1 U Flareon
-1 U Porygon
-1 C Omanyte
-1 R Omastar
-1 C Kabuto
-1 R Kabutops
-1 R Aerodactyl
-1 M Snorlax
-1 M Articuno
-1 M Zapdos
-1 M Moltres
-1 C Dratini
-1 U Dragonair
-1 R Dragonite
-1 M Mewtwo
-1 M Mew
-1 C Chikorita
-1 C Bayleef
-1 R Meganium
-1 C Cyndaquil
-1 C Quilava
-1 R Typhlosion
-1 C Totodile
-1 C Croconaw
-1 R Feraligatr
-1 C Sentret
-1 U Furret
-1 C Hoothoot
-1 R Noctowl
-1 U Ledyba
-1 R Ledian
-1 C Spinarak
-1 U Ariados
-1 R Crobat
-1 C Chinchou
-1 R Lanturn
-1 U Pichu
-1 C Cleffa
-1 C Igglybuff
-1 U Togepi
-1 R Togetic
-1 U Natu
-1 R Xatu
-1 C Mareep
-1 U Flaaffy
-1 M Ampharos
-1 M Bellossom
-1 C Marill
-1 U Azumarill
-1 U Sudowoodo
-1 R Politoed
-1 C Hoppip
-1 C Skiploom
-1 R Jumpluff
-1 C Aipom
-1 U Sunkern
-1 M Sunflora
-1 U Yanma
-1 C Wooper
-1 C Quagsire
-1 U Espeon
-1 U Umbreon
-1 U Murkrow
-1 U Slowking
-1 U Misdreavus
-1 R Unown
-1 C Wobbuffet
-1 C Girafarig
-1 C Pineco
-1 R Forretress
-1 C Dunsparce
-1 U Gligar
-1 M Steelix
-1 C Snubbull
-1 C Granbull
-1 C Qwilfish
-1 R Scizor
-1 U Shuckle
-1 U Heracross
-1 U Sneasel
-1 C Teddiursa
-1 R Ursaring
-1 C Slugma
-1 U Magcargo
-1 C Swinub
-1 R Piloswine
-1 U Corsola
-1 C Remoraid
-1 R Octillery
-1 C Delibird
-1 U Mantine
-1 R Skarmory
-1 C Houndour
-1 R Houndoom
-1 M Kingdra
-1 U Phanpy
-1 R Donphan
-1 R Porygon2
-1 C Stantler
-1 U Smeargle
-1 U Tyrogue
-1 R Hitmontop
-1 U Smoochum
-1 U Elekid
-1 C Magby
-1 C Miltank
-1 U Blissey
-1 M Raikou
-1 M Entei
-1 M Suicune
-1 C Larvitar
-1 U Pupitar
-1 R Tyranitar
-1 M Lugia
-1 M Ho-Oh
-1 M Celebi
-1 U Team Rocket's Beedrill
-1 U Team Rocket's Arbok
-1 C Team Rocket's Meowth
-1 U Team Rocket's Tentacruel
-1 U Team Rocket's Hitmonchan
-1 C Team Rocket's Lickitung
-1 U Team Rocket's Weezing
-1 U Team Rocket's Rhyhorn
-1 R Team Rocket's Rhydon
-1 C Team Rocket's Magikarp
-1 R Team Rocket's Gyarados
-1 R Giovanni's Persian
-1 M Giovanni's Armor
-1 C Wild Pidgey
-1 U Wild Pidgeot
-1 U Wild Raticate
-1 U Wild Fearow
-1 U Wild Tauros
-1 U Wild Poliwhirl
-1 U Wild Tentacool
-1 U Wild Lapras
-1 C Wild Zubat
-1 C Wild Gastly
-1 C Wild Charmander
-1 C Wild Vulpix
-1 U Wild Ninetales
-1 U Wild Arcanine
-1 C Wild Cyndaquil
-1 C Wild Typhlosion
-1 U Wild Beedrill
-1 C Wild Gloom
-1 C Wild Onix
-1 U Wild Rhydon
-1 U Wild Scyther
-1 U Wild Kabutops
-1 C Wild Bellossom
-1 U Great Ball
-1 R Ultra Ball
-1 M Master Ball
-1 C Glacier Badge
-1 C Zephyr Badge
-1 C Earth Badge
-1 C Storm Badge
-1 C Mineral Badge
-1 C Marsh Badge
-1 C Thunder Badge
-1 C Cascade Badge
-1 C Fog Badge
-1 C Hive Badge
-1 C Volcano Badge
-1 L Snow-Covered Plains
-1 L Snow-Covered Island
-1 L Snow-Covered Swamp
-1 L Snow-Covered Mountain
-1 L Snow-Covered Forest
-1 L Plains
-1 L Island
-1 L Swamp
-1 L Mountain
-1 L Forest
+2 U Ivysaur
+3 M Venusaur
+4 C Charmander
+5 U Charmeleon
+6 M Charizard
+7 C Squirtle
+8 U Wartortle
+9 M Blastoise
+10 C Caterpie
+11 C Metapod
+12 R Butterfree
+13 C Weedle
+14 C Kakuna
+15 R Beedrill
+16 C Pidgey
+17 C Pidgeotto
+18 R Pidgeot
+19 C Rattata
+20 C Raticate
+21 C Spearow
+22 U Fearow
+23 U Ekans
+24 M Arbok
+25 C Pikachu
+26 R Raichu
+27 C Sandshrew
+28 U Sandslash
+29 C Female Nidoran
+30 C Nidorina
+31 R Nidoqueen
+32 C Male Nidoran
+33 C Nidorino
+34 R Nidoking
+35 C Clefairy
+36 M Clefable
+37 C Vulpix
+38 R Ninetales
+39 U Jigglypuff
+40 R Wigglytuff
+41 C Zubat
+42 C Golbat
+43 C Oddish
+44 U Gloom Pokémon
+45 R Vileplume
+46 C Paras
+47 R Parasect
+48 U Venonat
+49 R Venomoth
+50 U Diglett
+51 U Dugtrio
+52 U Meowth
+53 M Persian
+54 C Psyduck
+55 R Golduck
+56 C Mankey
+57 U Primeape
+58 C Growlithe
+59 M Arcanine
+60 C Poliwag
+61 U Poliwhirl
+62 R Poliwrath
+63 U Abra
+64 U Kadabra
+65 M Alakazam
+66 C Machop
+67 U Machoke
+68 M Machamp
+69 C Bellsprout
+70 C Weepinbell
+71 R Victreebel
+72 U Tentacool
+73 R Tentacruel
+74 C Geodude
+75 U Graveler
+76 R Golem
+77 C Ponyta
+78 R Rapidash
+79 C Slowpoke
+80 U Slowbro
+81 C Magnemite
+82 U Magneton
+83 C Farfetch'd
+84 C Doduo
+85 R Dodrio
+86 C Seel
+87 R Dewgong
+88 C Grimer
+89 M Muk
+90 C Shellder
+91 U Cloyster
+92 C Gastly
+93 U Haunter
+94 M Gengar
+95 C Onix
+96 C Drowzee
+97 R Hypno
+98 C Krabby
+99 U Kingler
+100 C Voltorb
+101 R Electrode
+102 C Exeggcute
+103 U Exeggutor
+104 C Cubone
+105 C Marowak
+106 R Hitmonlee
+107 R Hitmonchan
+108 C Lickitung
+109 C Koffing
+110 R Weezing
+111 C Rhyhorn
+112 R Rhydon
+113 R Chansey
+114 C Tangela
+115 R Kangaskhan
+116 C Horsea
+117 U Seadra
+118 C Goldeen
+119 R Seaking
+120 C Staryu
+121 R Starmie
+122 U Mr. Mime
+123 U Scyther
+124 R Jynx
+125 R Electabuzz
+126 R Magmar
+127 U Pinsir
+128 U Tauros
+129 C Magikarp
+130 M Gyarados
+131 M Lapras
+132 R Ditto
+133 C Eevee
+134 U Vaporeon
+135 U Jolteon
+136 U Flareon
+137 U Porygon
+138 C Omanyte
+139 R Omastar
+140 C Kabuto
+141 R Kabutops
+142 R Aerodactyl
+143 M Snorlax
+144 M Articuno
+145 M Zapdos
+146 M Moltres
+147 C Dratini
+148 U Dragonair
+149 R Dragonite
+150 M Mewtwo
+151 M Mew
+152 C Chikorita
+153 C Bayleef
+154 R Meganium
+155 C Cyndaquil
+156 C Quilava
+157 R Typhlosion
+158 C Totodile
+159 C Croconaw
+160 R Feraligatr
+161 C Sentret
+162 U Furret
+163 C Hoothoot
+164 R Noctowl
+165 U Ledyba
+166 R Ledian
+167 C Spinarak
+168 U Ariados
+169 R Crobat
+170 C Chinchou
+171 R Lanturn
+172 U Pichu
+173 C Cleffa
+174 C Igglybuff
+175 U Togepi
+176 R Togetic
+177 U Natu
+178 R Xatu
+179 C Mareep
+180 U Flaaffy
+181 M Ampharos
+182 M Bellossom
+183 C Marill
+184 U Azumarill
+185 U Sudowoodo
+186 R Politoed
+187 C Hoppip
+188 C Skiploom
+189 R Jumpluff
+190 C Aipom
+191 U Sunkern
+192 M Sunflora
+193 U Yanma
+194 C Wooper
+195 C Quagsire
+196 U Espeon
+197 U Umbreon
+198 U Murkrow
+199 U Slowking
+200 U Misdreavus
+201 R Unown
+202 C Wobbuffet
+203 C Girafarig
+204 C Pineco
+205 R Forretress
+206 C Dunsparce
+207 U Gligar
+208 M Steelix
+209 C Snubbull
+210 C Granbull
+211 C Qwilfish
+212 R Scizor
+213 U Shuckle
+214 U Heracross
+215 U Sneasel
+216 C Teddiursa
+217 R Ursaring
+218 C Slugma
+219 U Magcargo
+220 C Swinub
+221 R Piloswine
+222 U Corsola
+223 C Remoraid
+224 R Octillery
+225 C Delibird
+226 U Mantine
+227 R Skarmory
+228 C Houndour
+229 R Houndoom
+230 M Kingdra
+231 U Phanpy
+232 R Donphan
+233 R Porygon2
+234 C Stantler
+235 U Smeargle
+236 U Tyrogue
+237 R Hitmontop
+238 U Smoochum
+239 U Elekid
+240 C Magby
+241 C Miltank
+242 U Blissey
+243 M Raikou
+244 M Entei
+245 M Suicune
+246 C Larvitar
+247 U Pupitar
+248 R Tyranitar
+249 M Lugia
+250 M Ho-Oh
+251 M Celebi
+252 U Team Rocket's Beedrill
+253 U Team Rocket's Arbok
+254 C Team Rocket's Meowth
+255 U Team Rocket's Tentacruel
+256 U Team Rocket's Hitmonchan
+257 C Team Rocket's Lickitung
+258 U Team Rocket's Weezing
+259 U Team Rocket's Rhyhorn
+260 R Team Rocket's Rhydon
+261 C Team Rocket's Magikarp
+262 R Team Rocket's Gyarados
+263 R Giovanni's Persian
+264 M Giovanni's Armor
+265 C Wild Pidgey
+266 U Wild Pidgeot
+267 U Wild Raticate
+268 U Wild Fearow
+269 U Wild Tauros
+270 U Wild Poliwhirl
+271 U Wild Tentacool
+272 U Wild Lapras
+273 C Wild Zubat
+274 C Wild Gastly
+275 C Wild Charmander
+276 C Wild Vulpix
+277 U Wild Ninetales
+278 U Wild Arcanine
+279 C Wild Cyndaquil
+280 C Wild Typhlosion
+281 U Wild Beedrill
+282 C Wild Gloom
+283 C Wild Onix
+284 U Wild Rhydon
+285 U Wild Scyther
+286 U Wild Kabutops
+287 C Wild Bellossom
+288 U Great Ball
+289 R Ultra Ball
+290 M Master Ball
+291 C Glacier Badge
+292 C Zephyr Badge
+293 C Earth Badge
+294 C Storm Badge
+295 C Mineral Badge
+296 C Marsh Badge
+297 C Thunder Badge
+298 C Cascade Badge
+299 C Fog Badge
+300 C Hive Badge
+301 C Volcano Badge
+302 L Snow-Covered Plains
+303 L Snow-Covered Island
+304 L Snow-Covered Swamp
+305 L Snow-Covered Mountain
+306 L Snow-Covered Forest
+307 L Plains
+308 L Island
+309 L Swamp
+310 L Mountain
+311 L Forest
+
+[Snow Lands]
+5 Snow-Covered Plains|PKM
+5 Snow-Covered Island|PKM
+5 Snow-Covered Swamp|PKM
+5 Snow-Covered Mountain|PKM
+5 Snow-Covered Forest|PKM
+
+[Badges]
+2 Glacier Badge|PKM
+2 Zephyr Badge|PKM
+2 Earth Badge|PKM
+2 Storm Badge|PKM
+2 Mineral Badge|PKM
+2 Marsh Badge|PKM
+2 Thunder Badge|PKM
+2 Cascade Badge|PKM
+2 Fog Badge|PKM
+2 Hive Badge|PKM
+2 Volcano Badge|PKM
+

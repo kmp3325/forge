@@ -17,6 +17,9 @@ import forge.game.ability.SpellAbilityEffect;
 import forge.game.card.Card;
 import forge.game.card.CardCollection;
 import forge.game.card.CardLists;
+import forge.game.keyword.Keyword;
+import forge.game.keyword.KeywordInterface;
+import forge.game.keyword.MutateOnto;
 import forge.game.player.Player;
 import forge.game.spellability.SpellAbility;
 import forge.util.Aggregates;
@@ -52,6 +55,7 @@ public class ChooseCardNameEffect extends SpellAbilityEffect {
         boolean chooseFromDefined = sa.hasParam("ChooseFromDefinedCards");
         boolean chooseFromList = sa.hasParam("ChooseFromList");
         boolean chooseFromOneTimeList = sa.hasParam("ChooseFromOneTimeList");
+        boolean chooseFromMutate = sa.hasParam("ChooseFromMutateOnto");
 
         if (!randomChoice) {
             if (sa.hasParam("SelectPrompt")) {
@@ -129,6 +133,16 @@ public class ChooseCardNameEffect extends SpellAbilityEffect {
                     sb.append(name);
                 }
                 sa.putParam("ChooseFromOneTimeList", sb.toString());
+            } else if (chooseFromMutate) {
+                CardCollection choices = AbilityUtils.getDefinedCards(host, sa.getParam("ChooseFromMutateOnto"), sa);
+                choices = CardLists.getValidCards(choices, valid, host.getController(), host, sa);
+                Card parent = Aggregates.random(choices);
+                if (parent != null) {
+                    chosen = parent.getKeywords(Keyword.MUTATE_ONTO).stream().findFirst()
+                            .map(m -> (MutateOnto) m)
+                            .flatMap(MutateOnto::getOnto)
+                            .orElse("");
+                }
             } else {
                 // use CardFace because you might name a alternate names
                 Predicate<ICardFace> cpp = Predicates.alwaysTrue();

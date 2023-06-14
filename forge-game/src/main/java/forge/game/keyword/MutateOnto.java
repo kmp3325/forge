@@ -39,4 +39,8 @@ public class MutateOnto extends KeywordWithCost {
     public Optional<Integer> getNewToughness() {
         return Optional.ofNullable(newToughness);
     }
+
+    public Optional<String> getOnto() {
+        return Optional.ofNullable(onto);
+    }
 }

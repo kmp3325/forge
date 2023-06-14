@@ -4,6 +4,7 @@ Types:Creature Elemental Pokémon
 PT:2/3
 K:Mutate onto:3 GW:Bonsly:2/3
 K:Defender
-T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigPut | TriggerDescription$ At the beginning of your upkeep, put a shield counter on CARDNAME.
+T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigPut | CheckSVar$ X | SVarCompare$ GE1 | TriggerDescription$ At the beginning of your upkeep, if it's not rainy, put a shield counter on CARDNAME.
+SVar:X:Count$Rainy.0.1
 SVar:TrigPut:DB$ PutCounter | Defined$ Self | CounterType$ SHIELD | CounterNum$ 1
-Oracle:Mutate onto Bonsly {3}{GW} [2/3]\nDefender\nAt the beginning of your upkeep, put a shield counter on Sudowoodo.
+Oracle:Mutate onto Bonsly {3}{GW} [2/3]\nDefender\nAt the beginning of your upkeep, if it's not rainy, put a shield counter on Sudowoodo.

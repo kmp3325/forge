@@ -7,4 +7,4 @@ T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefi
 SVar:TrigPump:DB$ Pump | NumAtt$ 3 | NumDef$ 3 | Defined$ Self | SubAbility$ TrigFight
 SVar:TrigFight:DB$ Fight | Defined$ TriggeredCardLKICopy | ValidTgts$ Creature | TgtPrompt$ Choose target creature | SubAbility$ TrigDebuff
 SVar:TrigDebuff:DB$ Debuff | Defined$ Targeted | Keywords$ Indesructible
-Oracle:Flash\nWhen Wild Raticate enters the battlefield, you may have it fight target creature. If you do, until end of turn, that creature loses indestructible and Raticate gets +3/+3.
+Oracle:Flash\nWhen Wild Raticate enters the battlefield, you may have it fight target creature. If you do, until end of turn, that creature loses indestructible and Wild Raticate gets +3/+3.

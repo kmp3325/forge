@@ -1,0 +1,8 @@
+Name:Wild Beedrill
+ManaCost:3 G
+Types:Creature Insect Pokémon
+PT:1/1
+K:Flash
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigPumpAll | TriggerDescription$ When CARDNAME enters the battlefield, Insect creatures you control +1/+1 and gain caustic until end of turn.
+SVar:TrigPumpAll:DB$ PumpAll | ValidCards$ Creature.Insect+YouCtrl | NumAtt$ +1 | NumDef$ +1 | KW$ Caustic
+Oracle:Flash\nWhen Wild Beedrill enters the battlefield, Insect creatures you control +1/+1 and gain caustic until end of turn.

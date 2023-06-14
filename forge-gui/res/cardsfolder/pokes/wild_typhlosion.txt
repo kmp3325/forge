@@ -1,0 +1,10 @@
+Name:Wild Typhlosion
+ManaCost:4 R
+Types:Creature Bear Mouse Pokémon
+PT:3/3
+K:Flash
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigDestroy | TriggerDescription$ When CARDNAME enters the battlefield, destroy target artifact, land, or creature with steel skin.
+SVar:TrigDestroy:DB$ Destroy | ValidTgts$ Artifact,Land,Creature.withSteel skin | TgtPrompt$ Select target artifact, land, or creature with steel skin
+S:Mode$ Continuous | Affected$ Card.Self | CheckSVar$ RAIN | SVarCompare$ GE1 | AddPower$ -1 | AddToughness$ -1 | Description$ CARDNAME gets -1/-1 as long as it's rainy.
+SVar:RAIN:Count$Rainy.1.0
+Oracle:Flash\nWhen Wild Typhlosion enters the battlefield, destroy target artifact, land, or creature with steel skin.\nWild Typhlosion gets -1/-1 as long as it's rainy.

@@ -1,0 +1,10 @@
+Name:Wild Gloom
+ManaCost:6 G
+Types:Creature Plant Pokémon
+PT:1/1
+K:Flash
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigPoison | TriggerDescription$ When CARDNAME enters the battlefield, put a -0/-1 counter on target creature without steel skin, then put a stun counter on each creature you don't control with a -0/-1 counter on it. Tap those creatures.
+SVar:TrigPoison:DB$ PutCounter | CounterType$ M0M1 | CounterNum$ 1 | ValidTgts$ Creature.withoutSteel skin | TgtPrompt$ select target creature without steel skin | SubAbility$ TrigStun
+SVar:TrigStun:DB$ PutCounterAll | ValidCards$ Creature.YouDontCtrl+counters_GE1_M0M1 | CounterType$ STUN | CounterNum$ 1 | SubAbility$ DBTap
+SVar:DBTap:DB$ TapAll | ValidCards$ Creature.YouDontCtrl+counters_GE1_M0M1
+Oracle:Flash\nWhen Wild Gloom enters the battlefield, put a -0/-1 counter on target creature without steel skin, then put a stun counter on each creature you don't control with a -0/-1 counter on it. Tap those creatures.

@@ -1,0 +1,10 @@
+Name:Wild Scyther
+ManaCost:3 G
+Types:Creature Insect Pokémon
+PT:3/3
+K:Flash
+K:Flying
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigDmg | TriggerDescription$ When CARDNAME enters the battlefield, it deals damage to any target equal to the number of Insects you control.
+SVar:TrigDmg:DB$ DealDamage | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumDmg$ X
+SVar:X:Count$Valid Creature.Insect+YouCtrl
+Oracle:Flash\nFlying\nWhen Wild Scyther enters the battlefield, it deals damage to any target equal to the number of Insects you control.

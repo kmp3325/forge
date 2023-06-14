@@ -1,0 +1,8 @@
+Name:Wild Cyndaquil
+ManaCost:3 R
+Types:Creature Mouse Pokémon
+PT:1/1
+K:Flash
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigBurnAll | TriggerDescription$ When CARDNAME enters the battlefield, put a burn counter on each creature you don't control.
+SVar:TrigBurnAll:DB$ PutCounterAll | CounterType$ BURN | CounterNum$ 1 | ValidCards$ Creature.YouDontCtrl
+Oracle:Flash\nWhen Wild Cyndaquil enters the battlefield, put a burn counter on each creature you don't control.

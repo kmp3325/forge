@@ -1,5 +1,6 @@
 package forge.game.ability.effects;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -83,6 +84,9 @@ public class PeekAndRevealEffect extends SpellAbilityEffect {
                 }
             }
 
+            Map<String, Object> params = new HashMap<>();
+            params.put("Revealed", peekCards);
+
             CardCollectionView revealableCards = CardLists.getValidCards(peekCards, revealValid, peekingPlayer, source, sa);
             boolean doReveal = !sa.hasParam("NoReveal") && !revealableCards.isEmpty();
             if (!noPeek) {
@@ -92,7 +96,7 @@ public class PeekAndRevealEffect extends SpellAbilityEffect {
             }
 
             if (doReveal && sa.hasParam("RevealOptional"))
-                doReveal = peekingPlayer.getController().confirmAction(sa, null, Localizer.getInstance().getMessage("lblRevealCardToOtherPlayers"), null);
+                doReveal = peekingPlayer.getController().confirmAction(sa, null, Localizer.getInstance().getMessage("lblRevealCardToOtherPlayers"), params);
 
             if (doReveal) {
                 peekingPlayer.getGame().getAction().reveal(revealableCards, ZoneType.Library, libraryToPeek, !noPeek,

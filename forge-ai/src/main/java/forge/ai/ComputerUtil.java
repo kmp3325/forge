@@ -23,6 +23,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import forge.game.ability.effects.FightEffect;
 import org.apache.commons.lang3.StringUtils;
@@ -695,10 +696,8 @@ public class ComputerUtil {
     public static CardCollection chooseTapType(final Player ai, final String type, final Card activate, final boolean tap, final int amount, final CardCollectionView exclude, SpellAbility sa) {
         CardCollection all = new CardCollection(ai.getCardsIn(ZoneType.Battlefield));
         all.removeAll(exclude);
-        CardCollection typeList =
-                CardLists.getValidCards(all, type.split(";"), activate.getController(), activate, sa);
+        CardCollection typeList = CardLists.getValidCards(all, type.split(";"), activate.getController(), activate, sa);
 
-        // is this needed?
         typeList = CardLists.filter(typeList, Presets.UNTAPPED);
 
         if (tap) {
@@ -734,7 +733,6 @@ public class ComputerUtil {
             typeList = CardLists.getNotKeyword(typeList, "CARDNAME can't crew Vehicles.");
         }
 
-        // is this needed?
         typeList = CardLists.filter(typeList, Presets.UNTAPPED);
 
         if (tap) {
@@ -773,7 +771,6 @@ public class ComputerUtil {
         CardCollection typeList =
                 CardLists.getValidCards(ai.getCardsIn(ZoneType.Battlefield), type.split(";"), activate.getController(), activate, sa);
 
-        // is this needed?
         typeList = CardLists.filter(typeList, Presets.TAPPED);
 
         if (untap) {
@@ -1294,7 +1291,6 @@ public class ComputerUtil {
                 && !sa.hasParam("ActivationPhases");
     }
 
-    //returns true if it's better to wait until blockers are declared).
     public static boolean castSpellInMain1(final Player ai, final SpellAbility sa) {
         final Card source = sa.getHostCard();
         final SpellAbility sub = sa.getSubAbility();
@@ -1316,6 +1312,7 @@ public class ComputerUtil {
                 return true;
             }
         }
+
         final CardCollectionView buffed = ai.getCardsIn(ZoneType.Battlefield);
         boolean checkThreshold = sa.isSpell() && !ai.hasThreshold() && !source.isInZone(ZoneType.Graveyard);
         for (Card buffedCard : buffed) {
@@ -1381,8 +1378,8 @@ public class ComputerUtil {
         }
         if (abCost.hasTapCost() && source.hasSVar("AITapDown")) {
             return true;
-        } else if (sa.isPwAbility() && ai.getGame().getPhaseHandler().is(PhaseType.MAIN2)) {
-            for (final CostPart part : abCost.getCostParts()) {
+        } else if (sa.getRootAbility().isPwAbility() && ai.getGame().getPhaseHandler().is(PhaseType.MAIN2)) {
+            for (final CostPart part : sa.getRootAbility().getPayCosts().getCostParts()) {
                 if (part instanceof CostPutCounter) {
                     return part.convertAmount() == null || part.convertAmount() > 0 || ai.isCardInPlay("Carth the Lion");
                 }
@@ -1509,19 +1506,29 @@ public class ComputerUtil {
         return false;
     }
 
-    public static boolean hasAFogEffect(final Player ai, boolean checkingOther) {
-        final CardCollection all = new CardCollection(ai.getCardsIn(ZoneType.Battlefield));
+    public static boolean hasAFogEffect(final Player defender, final Player ai, boolean checkingOther) {
+        final CardCollection all = new CardCollection(defender.getCardsIn(ZoneType.Battlefield));
 
-        all.addAll(ai.getCardsActivableInExternalZones(true));
+        all.addAll(defender.getCardsActivableInExternalZones(true));
         // TODO check if cards can be viewed instead
         if (!checkingOther) {
-            all.addAll(ai.getCardsIn(ZoneType.Hand));
+            all.addAll(defender.getCardsIn(ZoneType.Hand));
+        }
+
+        Set<Card> revealed = AiCardMemory.getMemorySet(ai, MemorySet.REVEALED_CARDS);
+        if (revealed != null) {
+            for (Card c : revealed) {
+                // if the card moved to a hidden zone depending on the circumstances the AI could not have noticed...?
+                if (c.isInZone(ZoneType.Hand) && c.getOwner() == defender) {
+                    all.add(c);
+                }
+            }
         }
 
         for (final Card c : all) {
             // check if card is at least available to be played
             // further improvements might consider if AI has options to steal the spell by making it playable first
-            if (c.getZone().getPlayer() != null && c.getZone().getPlayer() != ai && c.mayPlay(ai).isEmpty()) {
+            if (c.getZone().getPlayer() != null && c.getZone().getPlayer() != defender && c.mayPlay(defender).isEmpty()) {
                 continue;
             }
             for (final SpellAbility sa : c.getSpellAbilities()) {
@@ -1536,13 +1543,13 @@ public class ComputerUtil {
                     if (!c.getController().isAI()) {
                         continue;
                     }
-                    if (AiCardMemory.isRememberedCard(ai, c, AiCardMemory.MemorySet.MARKED_TO_AVOID_REENTRY)) {
+                    if (AiCardMemory.isRememberedCard(defender, c, AiCardMemory.MemorySet.MARKED_TO_AVOID_REENTRY)) {
                         continue;
                     }
-                    AiCardMemory.rememberCard(ai, c, AiCardMemory.MemorySet.MARKED_TO_AVOID_REENTRY);
+                    AiCardMemory.rememberCard(defender, c, AiCardMemory.MemorySet.MARKED_TO_AVOID_REENTRY);
                 }
 
-                if (!ComputerUtilCost.canPayCost(sa, ai, false)) {
+                if (!ComputerUtilCost.canPayCost(sa, defender, false)) {
                     continue;
                 }
                 return true;
@@ -2718,12 +2725,11 @@ public class ComputerUtil {
         return ComputerUtilCard.getBestCreatureAI(killables);
     }
 
-    public static int predictDamageFromSpell(final SpellAbility sa, final Player targetPlayer) {
+    public static int predictDamageFromSpell(SpellAbility ab, final Player targetPlayer) {
         int damage = -1; // returns -1 if the spell does not deal damage
-        final Card card = sa.getHostCard();
+        final Card card = ab.getHostCard();
 
-        SpellAbility ab = sa;
-        while (ab != null) {
+        while (ab != null && targetPlayer.canLoseLife()) {
             if (ab.getApi() == ApiType.DealDamage) {
                 if (damage == -1) { damage = 0; } // found a damage-dealing spell
                 if (!ab.hasParam("NumDmg")) {

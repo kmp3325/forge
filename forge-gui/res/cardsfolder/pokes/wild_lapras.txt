@@ -1,0 +1,10 @@
+Name:Wild Lapras
+ManaCost:4 U
+Types:Snow Creature Dinosaur Pokémon
+PT:1/3
+K:Flash
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigPump | TriggerDescription$ When CARDNAME enters the battlefield, target creature gets -3/-0 until end of turn. Draw a card.
+SVar:TrigPump:DB$ Pump | NumAtt$ -3 | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigDraw
+SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ 1
+A:AB$ Weather | Cost$ S T | Value$ Snowy | SpellDescription$ It becomes snowy.
+Oracle:Flash\nWhen Wild Lapras enters the battlefield, target creature gets -3/-0 until end of turn. Draw a card.\n{S}, {T}: It becomes snowy.

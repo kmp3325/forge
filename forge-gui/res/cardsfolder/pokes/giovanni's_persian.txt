@@ -1,0 +1,10 @@
+Name:Giovanni's Persian
+ManaCost:4 RB RB
+Types:Legendary Creature Cat Pokémon
+PT:3/3
+K:Double strike
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigCharm | TriggerDescription$ When CARDNAME enters the battlefield, ABILITY
+SVar:TrigCharm:DB$ Charm | Choices$ DBGainCtrl,DBSearch
+SVar:DBGainCtrl:DB$ GainControl | ValidTgts$ Permanent.nonCreature | TgtPrompt$ Select target noncreature permanent | SpellDescription$ • Gain control of target noncreature permanent.
+SVar:DBSearch:DB$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Permanent.nonCreature | ChangeNum$ 1 | SpellDescription$ • Search your library for a noncreature card, reveal it, put it into your hand, then shuffle.
+Oracle:Double strike\nWhen Giovanni's Persian enters the battlefield, you may choose one —\n• Gain control of target noncreature permanent.\n• Search your library for a noncreature card, reveal it, put it into your hand, then shuffle.

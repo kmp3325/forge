@@ -1,0 +1,10 @@
+Name:Wild Poliwhirl
+ManaCost:2 U
+Types:Creature Frog Pokémon
+PT:2/2
+K:Flash
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigWeather | TriggerDescription$ When CARDNAME enters the battlefield, it becomes rainy.
+SVar:TrigWeather:DB$ Weather | Value$ Rainy
+T:Mode$ WeatherChanged | ValidWeather$ Rainy | Execute$ TrigPutCounter | TriggerDescription$ Whenever it becomes rainy, put a +1/+1 counter on CARDNAME.
+SVar:TrigPutCounter:DB$ PutCounter | CounterType$ P1P1 | CounterNum$ 1 | Defined$ Self
+Oracle:Flash\nWhen Wild Poliwhirl enters the battlefield, it becomes rainy.\nWhenever it becomes rainy, put a +1/+1 counter on Wild Poliwhirl.

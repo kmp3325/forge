@@ -1,0 +1,9 @@
+Name:Wild Fearow
+ManaCost:3 W
+Types:Creature Bird Pokémon
+PT:3/3
+K:Flash
+K:Flying
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigRemoveCounter | TriggerDescription$ When CARDNAME enters the battlefield, remove a shield counter from target creature.
+SVar:TrigRemoveCounter:DB$ RemoveCounter | CounterType$ SHIELD | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature
+Oracle:Flash\nFlying\nWhen Wild Fearow enters the battlefield, remove a shield counter from target creature.

@@ -1,0 +1,9 @@
+Name:Wild Pidgey
+ManaCost:2W W
+Types:Creature Bird Pokémon
+PT:2/2
+K:Flash
+K:Flying
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigWeather | TriggerDescription$ When CARDNAME enters the battlefield, it becomes windy.
+SVar:TrigWeather:DB$ Weather | Value$ Windy
+Oracle:Flash\nFlying\nWhen Wild Pidgey enters the battlefield, it becomes windy.

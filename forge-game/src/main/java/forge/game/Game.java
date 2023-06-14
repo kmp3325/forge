@@ -1272,16 +1272,16 @@ public class Game {
         return burning;
     }
 
-    public void setWeather(Weather weather) {
+    public void setWeather(Weather weather, Map<AbilityKey, Object> runParams) {
         Weather previous = this.weather;
         this.weather = weather;
         if (previous == null && weather == null) {
             return;
         }
         if (previous == null) {
-            getTriggerHandler().runTrigger(TriggerType.WeatherChanged, new HashMap<>(), false);
+            getTriggerHandler().runTrigger(TriggerType.WeatherChanged, runParams, false);
         } else if (!previous.equals(weather)) {
-            getTriggerHandler().runTrigger(TriggerType.WeatherChanged, new HashMap<>(), false);
+            getTriggerHandler().runTrigger(TriggerType.WeatherChanged, runParams, false);
         }
         if (!isNoWeather()) {
             fireEvent(new GameEventWeatherChanged(weather));

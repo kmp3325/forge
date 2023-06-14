@@ -136,6 +136,7 @@ public enum AbilityKey {
     Token("Token"),
     TokenNum("TokenNum"),
     Vehicle("Vehicle"),
+    Weather("Weather"),
     Won("Won");
 
 

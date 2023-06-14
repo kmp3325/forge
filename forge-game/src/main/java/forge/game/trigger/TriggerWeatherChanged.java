@@ -23,12 +23,16 @@ public class TriggerWeatherChanged extends Trigger {
 
     @Override
     public boolean performTest(Map<AbilityKey, Object> runParams) {
+        if (!matchesValidParam("ValidWeather", runParams.get(AbilityKey.Weather))) {
+            return false;
+        }
+
         return true;
     }
 
     @Override
     public void setTriggeringObjects(SpellAbility sa, Map<AbilityKey, Object> runParams) {
-
+        sa.setTriggeringObjectsFrom(runParams, AbilityKey.Card);
     }
 
     @Override

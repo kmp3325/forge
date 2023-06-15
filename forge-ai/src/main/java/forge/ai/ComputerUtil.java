@@ -2736,7 +2736,7 @@ public class ComputerUtil {
                     continue;
                 }
                 damage += ComputerUtilCombat.predictDamageTo(targetPlayer,
-                        AbilityUtils.calculateAmount(card, ab.getParam("NumDmg"), ab), card, false, sa.getApi() == ApiType.Fight);
+                        AbilityUtils.calculateAmount(card, ab.getParam("NumDmg"), ab), card, false, ab.getApi() == ApiType.Fight);
             } else if (ab.getApi() == ApiType.LoseLife) {
                 if (damage == -1) { damage = 0; } // found a damage-dealing spell
                 if (!ab.hasParam("LifeAmount")) {

@@ -24,6 +24,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.TreeMap;
 
@@ -400,6 +401,20 @@ public class BoosterGenerator {
                 result.removeAll(candidates);
                 replaceCardFromExtraSheet(candidates, split[1]);
                 result.addAll(candidates);
+            }
+        }
+
+        if (edition != null && "Pokémon".equals(edition.getName())) {
+            int currentNum = result.size();
+            int numMissed = PokeGeneration.getEvos(result, CardRarity.MythicRare, 0);
+            if (currentNum == result.size()) {
+                numMissed = PokeGeneration.getEvos(result, CardRarity.Rare, 0);
+            }
+            numMissed = PokeGeneration.getEvos(result, CardRarity.Uncommon, numMissed);
+            numMissed = PokeGeneration.getEvos(result, CardRarity.Common, numMissed);
+            if (numMissed > 0) {
+                PrintSheet ps = getPrintSheet("Rare");
+                result.addAll(ps.random(numMissed, true));
             }
         }
 

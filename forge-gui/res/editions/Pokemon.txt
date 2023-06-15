@@ -2,8 +2,8 @@
 Code=PKM
 Date=2023-06-14
 Name=Pokémon
-Type=Draft
-Booster=9 Common:!fromSheet("PKM Snow Lands"):fromSheet("PKM cards"), 5 Ucommon:fromSheet("PKM cards"), 1 RareMythic:fromSheet("PKM cards"), 1 fromSheet("PKM Snow Lands"), 1 fromSheet("PKM Badges"),
+Type=Expansion
+Booster=9 Common:!fromSheet("PKM Snow Lands"):fromSheet("PKM cards"), 5 Uncommon:fromSheet("PKM cards"), 1 RareMythic:fromSheet("PKM cards"), 1 fromSheet("PKM Snow Lands"), 1 fromSheet("PKM Badges"),
 Prerelease=6 Boosters, RareMythic+
 BoosterBox=36
 DoublePick=Always

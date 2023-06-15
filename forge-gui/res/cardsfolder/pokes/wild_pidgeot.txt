@@ -1,4 +1,4 @@
-Name:Wild Pigdeot
+Name:Wild Pidgeot
 ManaCost:4 W
 Types:Creature Bird Pokémon
 PT:2/3

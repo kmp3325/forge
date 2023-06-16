@@ -271,7 +271,7 @@ Foil=NotSupported
 259 U Team Rocket's Rhyhorn
 260 R Team Rocket's Rhydon
 261 C Team Rocket's Magikarp
-262 R Team Rocket's Gyarados
+262 M Team Rocket's Gyarados
 263 R Giovanni's Persian
 264 M Giovanni's Armor
 265 C Wild Pidgey

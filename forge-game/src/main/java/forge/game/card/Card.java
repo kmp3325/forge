@@ -6352,7 +6352,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
             return isValid(tgt.getValidTgts(), aura.getController(), aura, sa);
         }
 
-        return true;
+        return false;
     }
 
     @Override

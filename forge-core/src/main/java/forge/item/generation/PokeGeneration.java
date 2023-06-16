@@ -14,6 +14,8 @@ public class PokeGeneration {
     Optional<PaperCard> evo = getEvo(result, rarity);
     if (evo.isPresent()) {
       result.add(evo.get());
+    } else {
+      num++;
     }
     while (evo.isPresent() && num > 0) {
       evo = getEvo(result, rarity);

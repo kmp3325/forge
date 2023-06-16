@@ -405,16 +405,24 @@ public class BoosterGenerator {
         }
 
         if (edition != null && "Pokémon".equals(edition.getName())) {
-            int currentNum = result.size();
             int numMissed = PokeGeneration.getEvos(result, CardRarity.MythicRare, 0);
-            if (currentNum == result.size()) {
+            if (numMissed == 1) {
                 numMissed = PokeGeneration.getEvos(result, CardRarity.Rare, 0);
             }
             numMissed = PokeGeneration.getEvos(result, CardRarity.Uncommon, numMissed);
             numMissed = PokeGeneration.getEvos(result, CardRarity.Common, numMissed);
-            if (numMissed > 0) {
-                PrintSheet ps = getPrintSheet("Rare");
+            while (numMissed > 0) {
+                double roll = Math.random();
+                PrintSheet ps;
+                if (roll < .2) {
+                    ps = getPrintSheet("MythicRare PKM");
+                } else if (roll > .2 && roll < .5) {
+                    ps = getPrintSheet("Rare PKM");
+                } else {
+                    ps = getPrintSheet("Uncommon PKM");
+                }
                 result.addAll(ps.random(numMissed, true));
+                numMissed--;
             }
         }
 

@@ -352,6 +352,318 @@
 #351|Forest 2|C|MOM
 #352|Forest 3|C|MOM
 //Rank|Name|Rarity|Set
+#1|Ho-Oh|M|PKM
+#2|Moltres|M|PKM
+#3|Zapdos|M|PKM
+#4|Articuno|M|PKM
+#5|Lugia|M|PKM
+#6|Master Ball|M|PKM
+#7|Suicune|M|PKM
+#8|Raikou|M|PKM
+#9|Entei|M|PKM
+#10|Bellossom|M|PKM
+#11|Venusaur|M|PKM
+#12|Charizard|M|PKM
+#13|Blastoise|M|PKM
+#14|Arbok|M|PKM
+#15|Clefable|M|PKM
+#16|Team Rocket's Gyarados|M|PKM
+#17|Persian|M|PKM
+#18|Arcanine|M|PKM
+#19|Alakazam|M|PKM
+#20|Machamp|M|PKM
+#21|Muk|M|PKM
+#22|Gengar|M|PKM
+#23|Gyarados|M|PKM
+#24|Lapras|M|PKM
+#25|Snorlax|M|PKM
+#26|Mewtwo|M|PKM
+#27|Ampharos|M|PKM
+#28|Sunflora|M|PKM
+#29|Steelix|M|PKM
+#30|Kingdra|M|PKM
+#31|Celebi|M|PKM
+#32|Giovanni's Armor|M|PKM
+#33|Mew|M|PKM
+#34|Butterfree|R|PKM
+#35|Beedrill|R|PKM
+#36|Pidgeot|R|PKM
+#37|Raichu|R|PKM
+#38|Nidoqueen|R|PKM
+#39|Nidoking|R|PKM
+#40|Ninetales|R|PKM
+#41|Wigglytuff|R|PKM
+#42|Vileplume|R|PKM
+#43|Parasect|R|PKM
+#44|Venomoth|R|PKM
+#45|Golduck|R|PKM
+#46|Poliwrath|R|PKM
+#47|Victreebel|R|PKM
+#48|Tentacruel|R|PKM
+#49|Golem|R|PKM
+#50|Rapidash|R|PKM
+#51|Dodrio|R|PKM
+#52|Dewgong|R|PKM
+#53|Hypno|R|PKM
+#54|Electrode|R|PKM
+#55|Hitmonlee|R|PKM
+#56|Hitmonchan|R|PKM
+#57|Weezing|R|PKM
+#58|Rhydon|R|PKM
+#59|Chansey|R|PKM
+#60|Kangaskhan|R|PKM
+#61|Seaking|R|PKM
+#62|Starmie|R|PKM
+#63|Jynx|R|PKM
+#64|Electabuzz|R|PKM
+#65|Magmar|R|PKM
+#66|Ditto|R|PKM
+#67|Omastar|R|PKM
+#68|Kabutops|R|PKM
+#69|Aerodactyl|R|PKM
+#70|Dragonite|R|PKM
+#71|Meganium|R|PKM
+#72|Typhlosion|R|PKM
+#73|Feraligatr|R|PKM
+#74|Noctowl|R|PKM
+#75|Ledian|R|PKM
+#76|Crobat|R|PKM
+#77|Lanturn|R|PKM
+#78|Togetic|R|PKM
+#79|Xatu|R|PKM
+#80|Politoed|R|PKM
+#81|Jumpluff|R|PKM
+#82|Unown|R|PKM
+#83|Forretress|R|PKM
+#84|Scizor|R|PKM
+#85|Ursaring|R|PKM
+#86|Piloswine|R|PKM
+#87|Octillery|R|PKM
+#88|Skarmory|R|PKM
+#89|Houndoom|R|PKM
+#90|Donphan|R|PKM
+#91|Porygon2|R|PKM
+#92|Hitmontop|R|PKM
+#93|Tyranitar|R|PKM
+#94|Team Rocket's Rhydon|R|PKM
+#95|Giovanni's Persian|R|PKM
+#96|Ultra Ball|R|PKM
+#97|Ivysaur|U|PKM
+#98|Charmeleon|U|PKM
+#99|Wartortle|U|PKM
+#100|Fearow|U|PKM
+#101|Ekans|U|PKM
+#102|Sandslash|U|PKM
+#103|Jigglypuff|U|PKM
+#104|Gloom Pok?mon|null|PKM
+#105|Venonat|U|PKM
+#106|Diglett|U|PKM
+#107|Dugtrio|U|PKM
+#108|Meowth|U|PKM
+#109|Primeape|U|PKM
+#110|Poliwhirl|U|PKM
+#111|Abra|U|PKM
+#112|Kadabra|U|PKM
+#113|Machoke|U|PKM
+#114|Tentacool|U|PKM
+#115|Graveler|U|PKM
+#116|Slowbro|U|PKM
+#117|Magneton|U|PKM
+#118|Cloyster|U|PKM
+#119|Haunter|U|PKM
+#120|Kingler|U|PKM
+#121|Exeggutor|U|PKM
+#122|Seadra|U|PKM
+#123|Mr. Mime|U|PKM
+#124|Scyther|U|PKM
+#125|Pinsir|U|PKM
+#126|Tauros|U|PKM
+#127|Vaporeon|U|PKM
+#128|Jolteon|U|PKM
+#129|Flareon|U|PKM
+#130|Porygon|U|PKM
+#131|Dragonair|U|PKM
+#132|Furret|U|PKM
+#133|Ledyba|U|PKM
+#134|Ariados|U|PKM
+#135|Pichu|U|PKM
+#136|Togepi|U|PKM
+#137|Natu|U|PKM
+#138|Flaaffy|U|PKM
+#139|Azumarill|U|PKM
+#140|Sudowoodo|U|PKM
+#141|Sunkern|U|PKM
+#142|Yanma|U|PKM
+#143|Espeon|U|PKM
+#144|Umbreon|U|PKM
+#145|Murkrow|U|PKM
+#146|Slowking|U|PKM
+#147|Misdreavus|U|PKM
+#148|Gligar|U|PKM
+#149|Shuckle|U|PKM
+#150|Heracross|U|PKM
+#151|Sneasel|U|PKM
+#152|Magcargo|U|PKM
+#153|Corsola|U|PKM
+#154|Mantine|U|PKM
+#155|Phanpy|U|PKM
+#156|Smeargle|U|PKM
+#157|Tyrogue|U|PKM
+#158|Smoochum|U|PKM
+#159|Elekid|U|PKM
+#160|Blissey|U|PKM
+#161|Pupitar|U|PKM
+#162|Team Rocket's Beedrill|U|PKM
+#163|Team Rocket's Arbok|U|PKM
+#164|Team Rocket's Tentacruel|U|PKM
+#165|Team Rocket's Hitmonchan|U|PKM
+#166|Team Rocket's Weezing|U|PKM
+#167|Team Rocket's Rhyhorn|U|PKM
+#168|Wild Pidgeot|U|PKM
+#169|Wild Raticate|U|PKM
+#170|Wild Fearow|U|PKM
+#171|Wild Tauros|U|PKM
+#172|Wild Poliwhirl|U|PKM
+#173|Wild Tentacool|U|PKM
+#174|Wild Lapras|U|PKM
+#175|Wild Ninetales|U|PKM
+#176|Wild Arcanine|U|PKM
+#177|Wild Beedrill|U|PKM
+#178|Wild Rhydon|U|PKM
+#179|Wild Scyther|U|PKM
+#180|Wild Kabutops|U|PKM
+#181|Great Ball|U|PKM
+#182|Bulbasaur|C|PKM
+#183|Charmander|C|PKM
+#184|Squirtle|C|PKM
+#185|Caterpie|C|PKM
+#186|Metapod|C|PKM
+#187|Weedle|C|PKM
+#188|Kakuna|C|PKM
+#189|Pidgey|C|PKM
+#190|Pidgeotto|C|PKM
+#191|Rattata|C|PKM
+#192|Raticate|C|PKM
+#193|Spearow|C|PKM
+#194|Pikachu|C|PKM
+#195|Sandshrew|C|PKM
+#196|Female Nidoran|C|PKM
+#197|Nidorina|C|PKM
+#198|Male Nidoran|C|PKM
+#199|Nidorino|C|PKM
+#200|Clefairy|C|PKM
+#201|Vulpix|C|PKM
+#202|Zubat|C|PKM
+#203|Golbat|C|PKM
+#204|Oddish|C|PKM
+#205|Paras|C|PKM
+#206|Psyduck|C|PKM
+#207|Mankey|C|PKM
+#208|Growlithe|C|PKM
+#209|Poliwag|C|PKM
+#210|Machop|C|PKM
+#211|Bellsprout|C|PKM
+#212|Weepinbell|C|PKM
+#213|Geodude|C|PKM
+#214|Ponyta|C|PKM
+#215|Slowpoke|C|PKM
+#216|Magnemite|C|PKM
+#217|Farfetch'd|C|PKM
+#218|Doduo|C|PKM
+#219|Seel|C|PKM
+#220|Grimer|C|PKM
+#221|Shellder|C|PKM
+#222|Gastly|C|PKM
+#223|Onix|C|PKM
+#224|Drowzee|C|PKM
+#225|Krabby|C|PKM
+#226|Voltorb|C|PKM
+#227|Exeggcute|C|PKM
+#228|Cubone|C|PKM
+#229|Marowak|C|PKM
+#230|Lickitung|C|PKM
+#231|Koffing|C|PKM
+#232|Rhyhorn|C|PKM
+#233|Tangela|C|PKM
+#234|Horsea|C|PKM
+#235|Goldeen|C|PKM
+#236|Staryu|C|PKM
+#237|Magikarp|C|PKM
+#238|Eevee|C|PKM
+#239|Omanyte|C|PKM
+#240|Kabuto|C|PKM
+#241|Dratini|C|PKM
+#242|Chikorita|C|PKM
+#243|Bayleef|C|PKM
+#244|Cyndaquil|C|PKM
+#245|Quilava|C|PKM
+#246|Totodile|C|PKM
+#247|Croconaw|C|PKM
+#248|Sentret|C|PKM
+#249|Hoothoot|C|PKM
+#250|Spinarak|C|PKM
+#251|Chinchou|C|PKM
+#252|Cleffa|C|PKM
+#253|Igglybuff|C|PKM
+#254|Mareep|C|PKM
+#255|Marill|C|PKM
+#256|Hoppip|C|PKM
+#257|Skiploom|C|PKM
+#258|Aipom|C|PKM
+#259|Wooper|C|PKM
+#260|Quagsire|C|PKM
+#261|Wobbuffet|C|PKM
+#262|Girafarig|C|PKM
+#263|Pineco|C|PKM
+#264|Dunsparce|C|PKM
+#265|Snubbull|C|PKM
+#266|Granbull|C|PKM
+#267|Qwilfish|C|PKM
+#268|Teddiursa|C|PKM
+#269|Slugma|C|PKM
+#270|Swinub|C|PKM
+#271|Remoraid|C|PKM
+#272|Delibird|C|PKM
+#273|Houndour|C|PKM
+#274|Stantler|C|PKM
+#275|Magby|C|PKM
+#276|Miltank|C|PKM
+#277|Larvitar|C|PKM
+#278|Team Rocket's Meowth|C|PKM
+#279|Team Rocket's Lickitung|C|PKM
+#280|Team Rocket's Magikarp|C|PKM
+#281|Wild Pidgey|C|PKM
+#282|Wild Zubat|C|PKM
+#283|Wild Gastly|C|PKM
+#284|Wild Charmander|C|PKM
+#285|Wild Vulpix|C|PKM
+#286|Wild Cyndaquil|C|PKM
+#287|Wild Typhlosion|C|PKM
+#288|Wild Gloom|C|PKM
+#289|Wild Onix|C|PKM
+#290|Wild Bellossom|C|PKM
+#291|Glacier Badge|C|PKM
+#292|Zephyr Badge|C|PKM
+#293|Earth Badge|C|PKM
+#294|Storm Badge|C|PKM
+#295|Mineral Badge|C|PKM
+#296|Marsh Badge|C|PKM
+#297|Thunder Badge|C|PKM
+#298|Cascade Badge|C|PKM
+#299|Fog Badge|C|PKM
+#300|Hive Badge|C|PKM
+#301|Volcano Badge|C|PKM
+#302|Snow-Covered Plains|L|PKM
+#303|Snow-Covered Island|L|PKM
+#304|Snow-Covered Swamp|L|PKM
+#305|Snow-Covered Mountain|L|PKM
+#306|Snow-Covered Forest|L|PKM
+#307|Plains|L|PKM
+#308|Island|L|PKM
+#309|Swamp|L|PKM
+#310|Mountain|L|PKM
+#311|Forest|L|PKM
+//Rank|Name|Rarity|Set
 #1|Archangel Avacyn|M|SIR
 #2|Sorin, Grim Nemesis|M|SIR
 #3|Arlinn Kord|M|SIR

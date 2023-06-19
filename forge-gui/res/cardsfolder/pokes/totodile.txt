@@ -2,7 +2,7 @@ Name:Totodile
 ManaCost:1 U
 Types:Creature Crocodile Pokémon
 PT:1/1
-A:AB$ Tap | Cost$ U T | ValidTgts$ Creature | TgtPrompt$ Select target creature
+A:AB$ Tap | Cost$ U T | ValidTgts$ Creature | TgtPrompt$ Select target creature | SpellDescription$ Tap target creature.
 Oracle:{U}, {T}: Tap target creature.
 
 DeckHints:Name$Croconaw

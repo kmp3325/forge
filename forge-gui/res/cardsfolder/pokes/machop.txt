@@ -2,7 +2,7 @@ Name:Machop
 ManaCost:RW RW
 Types:Creature Frog Ape Pokémon
 PT:1/1
-A:AB$ Pump | Cost$ R W | Defined$ Self | NumDef$ 1 | SpellDescription$ CARDNAME gets +0/+1 until end of turn.
-Oracle:{R}{W}: Machop gets +0/+1 until end of turn.
+A:AB$ Pump | Cost$ RW | Defined$ Self | NumDef$ 1 | SpellDescription$ CARDNAME gets +0/+1 until end of turn.
+Oracle:{RW}: Machop gets +0/+1 until end of turn.
 
 DeckHints:Name$Machoke

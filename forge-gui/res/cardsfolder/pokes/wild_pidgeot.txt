@@ -4,8 +4,9 @@ Types:Creature Bird Pokémon
 PT:2/3
 K:Flash
 K:Flying
-K:Vigilance
-A:AB$ Debuff | Cost$ T | Keywords$ Flying | SubAbility$ TrigGainLife | Duration$ UntilYourNextUpkeep | SorcerySpeed$ True | SpellDescription$ CARDNAME loses flying until the beginning of your next upkeep. You gain life equal to twice its power. Activate only as a sorcery.
-SVar:TrigGainLife:DB$ GainLife | LifeAmount$ X | Defined$ You
-SVar:X:Count$CardPower/Times.2
-Oracle:Flash\nFlying, vigilance\n{T}: Wild Pidgeot loses flying until the beginning of your next upkeep. You gain life equal to twice its power. Activate only as a sorcery.
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigExile | TriggerDescription$ When CARDNAME enters the battlefield, exile target creature. You gain life equal to that creature's toughness.
+SVar:TrigExile:DB$ ChangeZone | ValidTgts$ Creature | TgtPrompt$ Select target creature | Origin$ Battlefield | Destination$ Exile | RememberLKI$ True | SubAbility$ DBGainLife
+SVar:DBGainLife:DB$ GainLife | Defined$ You | LifeAmount$ X | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:X:RememberedLKI$CardToughness
+Oracle:Flash\nFlying\nWhen Wild Pidgeot enters the battlefield, exile target creature. You gain life equal to that creature's toughness.

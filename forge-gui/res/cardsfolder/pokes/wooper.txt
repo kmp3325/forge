@@ -1,7 +1,7 @@
 Name:Wooper
 ManaCost:WU WU
 Types:Creature Salamander Pokémon
-PT:1/1
+PT:2/2
 A:AB$ Phases | Cost$ W U | Defined$ Self | PlayerTurn$ True | SpellDescription$ CARDNAME phases out. Activate only during your turn.
 Oracle:{W}{U}: Wooper phases out. Activate only during your turn.
 

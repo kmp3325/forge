@@ -415,13 +415,13 @@ public class BoosterGenerator {
                 double roll = Math.random();
                 PrintSheet ps;
                 if (roll < .2) {
-                    ps = getPrintSheet("MythicRare PKM");
+                    ps = getPrintSheet("Mythic PKM");
                 } else if (roll > .2 && roll < .5) {
                     ps = getPrintSheet("Rare PKM");
                 } else {
                     ps = getPrintSheet("Uncommon PKM");
                 }
-                result.addAll(ps.random(numMissed, true));
+                result.addAll(ps.random(1, true));
                 numMissed--;
             }
         }

@@ -1,11 +1,11 @@
 Name:Fog Badge
 Types:Artifact Land Badge
-A:AB$ Mana | Cost$ BR T | Produced$ C C | SpellDescription$ Add {C}{C}.
+A:AB$ Mana | Cost$ T | Produced$ C | SpellDescription$ Add {C}.
 A:AB$ Mana | Cost$ BR T | Produced$ B R | SpellDescription$ Add {B}{R}.
 A:AB$ Reveal | Cost$ BR T | RevealValid$ Card.Creature+Pokémon+withMutate onto | AILogic$ Never | RememberRevealed$ True | SubAbility$ DBNameCard | SpellDescription$ Reveal a Pokémon creature card that mutates onto a named card from your hand. If you do, search your library for the named card, reveal it, put it into your hand, then shuffle.
 SVar:DBNameCard:DB$ NameCard | Defined$ You | ChooseFromMutateOnto$ Remembered | SubAbility$ DBFetch
 SVar:DBFetch:DB$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Card.NamedCard | ChangeNum$ 1 | SubAbility$ DBCleanup | ConditionDefined$ Remembered | ConditionPresent$ Card | ConditionCompare$ GE1
 SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
-Oracle:{BR}, {T}: Add {C}{C} or {B}{R}.\n{BR}, {T}: Reveal a Pokémon creature card that mutates onto a named card from your hand. If you do, search your library for the named card, reveal it, put it into your hand, then shuffle.
+Oracle:{T}: Add {C}.\n{BR}, {T}: Add {B}{R}.\n{BR}, {T}: Reveal a Pokémon creature card that mutates onto a named card from your hand. If you do, search your library for the named card, reveal it, put it into your hand, then shuffle.
 
 DeckNeeds:Type$Pokémon

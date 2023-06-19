@@ -4,6 +4,7 @@ Types:Creature Bird Pokémon
 PT:3/3
 K:Flash
 K:Flying
-T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigRemoveCounter | TriggerDescription$ When CARDNAME enters the battlefield, remove a shield counter from target creature.
-SVar:TrigRemoveCounter:DB$ RemoveCounter | CounterType$ SHIELD | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature
-Oracle:Flash\nFlying\nWhen Wild Fearow enters the battlefield, remove a shield counter from target creature.
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigDmg | TriggerDescription$ When CARDNAME enters the battlefield, it deals damage equal to the number of Bird creatures you control to target creature.
+SVar:TrigDmg:DB$ DealDamage | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumDmg$ X
+SVar:X:Count$Valid Creature.YouCtrl+Bird
+Oracle:Flash\nFlying\nWhen Wild Fearow enters the battlefield, it deals damage equal to the number of Bird creatures you control to target creature.

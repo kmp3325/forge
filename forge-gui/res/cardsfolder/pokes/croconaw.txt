@@ -4,7 +4,7 @@ Types:Creature Crocodile Pokémon
 PT:3/3
 K:Mutate onto:4 U:Totodile:4/4
 K:Menace
-T:Mode$ PhaseIn | ValidCard$ Card.Self | Execute$ TrigDraw | TriggerDescription$ Whenever CARDNAME phases in, you gain life equal to its toughness.
+T:Mode$ PhaseIn | ValidCard$ Card.Self | Execute$ TrigDraw | TriggerDescription$ Whenever CARDNAME phases in, draw a card.
 SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ 1
 Oracle:Mutate onto Totodile {4}{U} [4/4]\nMenace\nWhenever Croconaw phases in, draw a card.
 

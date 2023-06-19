@@ -1,17 +1,15 @@
 Name:Rhydon
-ManaCost:5 G W
+ManaCost:4 G G W
 Types:Creature Dinosaur Rhino Pokémon
 PT:7/7
-K:Mutate onto:5 G W:Rhyhorn:8/8
-T:Mode$ AttackerBlockedByCreature | ValidCard$ Card.Self | ValidBlocker$ Creature | Execute$ TrigShieldSteal | TriggerDescription$ Whenever CARDNAME becomes blocked by a creature, remove all shield counters from that creature. If a shield counter is removed this way, put a shield counter on CARDNAME and it gains trample until end of turn.
-SVar:TrigShieldSteal:DB$ RemoveCounter | Defined$ TriggeredBlockerLKICopy | CounterType$ SHIELD | CounterNum$ All | RememberRemoved$ True | SubAbility$ TrigShieldSelf
-SVar:TrigShieldSelf:DB$ PutCounter | CounterType$ SHIELD | Defined$ Self | CounterNum$ 1 | CheckSVar$ X | SVarCompare$ GE1 | SubAbility$ GainTrample
-SVar:X:Count$RememberedSize
-SVar:GainTrample:DB$ Pump | Defined$ Self | KW$ Trample | SubAbility$ DBCleanup
-SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
-A:AB$ PutCounter | Cost$ 3 G | CounterType$ SHIELD | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature | ActivationLimit$ 1 | SubAbility$ HurtSelf | SpellDescription$ Put a shield counter on target creature, then CARDNAME deals 1 damage to itself. Activate only once each turn.
-SVar:HurtSelf:DB$ DealDamage | Defined$ Self | NumDmg$ 1
-Oracle:Mutate onto Rhyhorn {5}{G}{W} [8/8]\nWhenever Rhydon is blocked by a creature, remove all shield counters from that creature. If a shield counter is removed this way, put a shield counter on Rhydon and it gains trample until end of turn.\n{3}{G}: Put a shield counter on target creature, then Rhydon deals 1 damage to itself. Activate only once each turn.
+K:Mutate onto:4 G G W:Rhyhorn:8/8
+
+T:Mode$ DamageDone | ValidSource$ Card.Self | ValidTarget$ Creature | CombatDamage$ True | TriggerZones$ Battlefield | Execute$ TrigHurtSelf | TriggerDescription$ Whenever CARDNAME deals combat damage to a creature, it deals 2 damage to itself.
+SVar:TrigHurtSelf:DB$ DealDamage | NumDmg$ 2 | Defined$ Self
+T:Mode$ CounterRemoved | ValidCard$ Creature.YouCtrl | TriggerZones$ Battlefield | CounterType$ SHIELD | Execute$ TrigDmg | TriggerDescription$ Whenever a shield counter is removed from a creature you control, CARDNAME deals 2 damage to target creature.
+SVar:TrigDmg:DB$ DealDamage | NumDmg$ 2 | ValidTgts$ Creature | TgtPrompt$ Select target creature
+A:AB$ PutCounter | Cost$ 1 G W | CounterNum$ 1 | CounterType$ SHIELD | Defined$ Self | SorcerySpeed$ True | SpellDescription$ Put a shield counter on CARDNAME. Activate only as a sorcery.
+Oracle:Mutate onto Rhyhorn {4}{G}{G}{W} [8/8]\nWhenever Rhydon deals combat damage to a creature, it deals 2 damage to itself.\nWhenever a shield counter is removed from a creature you control, Rhydon deals 2 damage to target creature.\n{1}{G}{W}: Put a shield counter on Rhydon. Activate only as a sorcery.
 
 DeckHints:Name$Rhyhorn
-SVar:HasAttackEffect:Blocked
+SVar:HasCombatEffect:TRUE

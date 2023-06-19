@@ -9,3 +9,5 @@ T:Mode$ LifeGained | ValidPlayer$ You | TriggerZones$ Battlefield | CheckSVar$ M
 SVar:MUTATED:Count$TimesMutated
 SVar:TrigDrain:DB$ LoseLife | Defined$ Opponent | LifeAmount$ 1
 Oracle:Mutate onto Eevee {2}{B}{B} [4/6]\nCreatures you control can block creatures with shadow as though they didn't have shadow as long as it's foggy.\nWhenever you gain life, if Umbreon is mutated, each opponent loses 1 life.
+
+DeckHints:Name$Eevee

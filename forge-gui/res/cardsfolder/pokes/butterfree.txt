@@ -6,3 +6,6 @@ K:Mutate onto:2 G:Metapod:2/3
 K:Flying
 A:AB$ PumpAll | Cost$ G G Exile<1/CARDNAME> | ValidCards$ Creature.YouCtrl | NumAtt$ +2 | NumDef$ +2 | KW$ Trample | SpellDescription$ Creatures you control get +2/+2 and gain trample until end of turn.
 Oracle:Mutate onto Metapod {2}{G} [2/3]\nFlying\n{G}{G}, Exile Butterfree: Creatures you control get +2/+2 and gain trample until end of turn.
+
+DeckHints:Name$Metapod
+DeckHints:Type$Creature

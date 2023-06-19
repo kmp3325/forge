@@ -5,3 +5,5 @@ PT:2/2
 A:AB$ Mill | Cost$ T | ValidTgts$ Player | NumCards$ X | TgtPrompt$ Select target player | SpellDescription$ Target player mills X cards, where X is CARDNAME's toughness.
 SVar:X:Count$CardToughness
 Oracle:{T}: Target player mills X cards, where X is Staryu's toughness.
+
+DeckHints:Name$Starmie

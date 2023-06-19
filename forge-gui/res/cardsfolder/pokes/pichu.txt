@@ -7,3 +7,5 @@ SVar:TrigRandomDmg:DB$ DealDamage | ValidTgts$ Player | NumDmg$ 5 | TargetsAtRan
 T:Mode$ Mutates | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigDmg | TriggerDescription$ Whenever CARDNAME mutates, it deals 5 damage to target player.
 SVar:TrigDmg:DB$ DealDamage | ValidTgts$ Player | NumDmg$ 5 | TgtPrompt$ Select target player
 Oracle:When Pichu enters the battlefield, it deals 5 damage to target player chosen at random.\nWhenever Pichu mutates, it deals 5 damage to target player.
+
+DeckHints:Name$Pikachu

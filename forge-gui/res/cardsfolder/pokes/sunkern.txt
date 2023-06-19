@@ -7,3 +7,5 @@ SVar:SUN:Count$Sunny.1.0
 SVar:LessMana:DB$ Mana | Produced$ Combo R G
 SVar:MoreMana:DB$ Mana | Produced$ R G
 Oracle:{T}: Add {R} or {G}. If it's sunny, add {R}{G} instead.
+
+DeckHints:Name$Sunflora

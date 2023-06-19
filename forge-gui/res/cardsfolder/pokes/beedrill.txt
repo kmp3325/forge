@@ -6,3 +6,5 @@ K:Mutate onto:1 B G:Kakuna:4/1
 K:First strike
 K:Caustic
 Oracle:Mutate onto Kakuna {1}{B}{G} [4/1]\nFirst strike, caustic
+
+DeckHints:Name$Kakuna

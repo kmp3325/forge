@@ -8,3 +8,5 @@ SVar:DBPhaseOut:DB$ Phases | Defined$ Self | WontPhaseInNormal$ True | Duration$
 A:AB$ Effect | Cost$ U U | RememberObjects$ Self | ForgetOnMoved$ Battlefield | StaticAbilities$ CantPhaseOut | Duration$ UntilEndOfTurn | SpellDescription$ CARDNAME can't phase out until end of turn.
 SVar:CantPhaseOut:Mode$ CantPhaseOut | ValidCard$ Card.IsRemembered | Description$ EFFECTSOURCE can't phase out until end of turn.
 Oracle:Whenever Abra becomes the target of a spell or ability an opponent controls, it phases out until end of turn.\nIf noncombat damage would be dealt to Abra, prevent that damage. It phases out until end of turn.\n{U}{U}: Abra can't phase out until end of turn.
+
+DeckHints:Name$Kadabra

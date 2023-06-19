@@ -4,6 +4,8 @@ Types:Creature Cat Pokémon
 PT:1/1
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigTap | TriggerDescription$ When CARDNAME enters the battlefield, tap target creature and put a stun counter on it.
 SVar:TrigTap:DB$ Tap | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigPutCounter
-SVar:TrigPutCounter:DB$ PutCounter | Defined$ Targeted | CounterType$ STUN | CounterNum$ 1
+SVar:TrigPutCounter:DB$ PutCounter | IsCurse$ True | Defined$ Targeted | CounterType$ STUN | CounterNum$ 1
 A:AB$ DamageAll | Cost$ U R | NumDmg$ 1 | ValidCards$ Creature.counters_GE1_STUN | SpellDescription$ CARDNAME deals 1 damage to each creature with a stun counter on it.
 Oracle:When Elekid enters the battlefield, tap target creature and put a stun counter on it.\n{!}{R}: Elekid deals 1 damage to each creature with a stun counter on it.
+
+DeckHints:Name$Electabuzz

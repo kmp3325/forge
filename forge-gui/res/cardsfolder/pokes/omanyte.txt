@@ -5,3 +5,6 @@ PT:1/2
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ DBTrigger | TriggerDescription$ When CARDNAME enters the battlefield, put a +1/+1 counter on target creature.
 SVar:DBTrigger:DB$ PutCounter | CounterType$ P1P1 | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature
 Oracle:When Omanyte enters the battlefield, put a +1/+1 counter on target creature.
+
+DeckHints:Name$Omastar
+SVar:HasCombatEffect:TRUE

@@ -11,3 +11,5 @@ R:Event$ DamageDone | ValidSource$ Creature | ValidTarget$ Card.Self | ActiveZon
 SVar:DBRemoveSolar:DB$ RemoveCounter | CounterType$ SOLAR | CounterNum$ Dmg | Defined$ Self
 SVar:Dmg:ReplaceCount$DamageAmount
 Oracle:Mutate onto Gloom {2}{G}{G} [3/5]\n{T}: Put a solar counter on Bellossom. If it's sunny, put two solar counters on it instead.\n{T}: You gain life equal to the number of solar counters on Bellossom.\nIf Bellossom would be dealt damage and it has a solar counter on it, remove that many solar counters from it instead.
+
+DeckHints:Name$Gloom Pokémon

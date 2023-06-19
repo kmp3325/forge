@@ -6,3 +6,6 @@ K:Mutate onto:3 G:Paras:4/4
 A:AB$ Token | Cost$ X G T Sac<1/CARDNAME> | TokenScript$ g_0_1_plant_parasect | TokenAmount$ X | SpellDescription$ Create X 0/1 green Plant creature tokens with "Insects you control get +1/+1," where X is the number of Insects you control.
 SVar:X:Count$xPaid
 Oracle:Mutate onto Paras {6}{G} [4/4]\n{X}{G}, Sacrifice Parasect: Create X 0/1 green Plant creature tokens with "Insects you control get +1/+1," where X is the number of Insects you control.
+
+DeckHints:Name$Paras
+DeckHints:Type$Insect

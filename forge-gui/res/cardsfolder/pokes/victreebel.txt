@@ -9,3 +9,6 @@ SVar:MustAttack:Mode$ MustAttack | EffectZone$ Command | ValidCreature$ Creature
 T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Creature.DamagedBy | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Whenever a creature dealt damage by CARDNAME this turn dies, put a +1/+1 counter on CARDNAME.
 SVar:TrigPutCounter:DB$ PutCounter | Defined$ Self | CounterNum$ 1 | CounterType$ P1P1
 Oracle:Mutate onto Weepinbell {1}{B}{G}{U} [4/4]\nCaustic\nWhenever a creature dealt damage by Victreebel this turn dies, put a +1/+1 counter on Victreebel.\n{B}{G}{U}: Target Insect creature an opponent controls attacks you this turn if able. Activate only once each turn.
+
+DeckHints:Name$Weepinbell
+SVar:AntiBuffedBy:Creature.Insect

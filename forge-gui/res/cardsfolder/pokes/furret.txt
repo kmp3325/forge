@@ -5,3 +5,5 @@ PT:2/2
 K:Mutate onto:C:Sentret:3/3
 A:AB$ RemoveCounter | Cost$ T | CounterType$ SHIELD | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature | SpellDescription$ Remove a shield counter from target creature.
 Oracle:Mutate onto Sentret {2} [3/3]\n{T}: Remove a shield counter from target creature.
+
+DeckHints:Name$Sentret

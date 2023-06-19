@@ -11,3 +11,6 @@ A:AB$ PutCounter | Cost$ T | Defined$ Self | CounterType$ SOLAR | CounterNum$ 1 
 SVar:TrigLife:DB$ GainLife | Defined$ You | LifeAmount$ X
 SVar:X:Count$CardCounters.SOLAR
 Oracle:Mutate onto Chikorita {3}{G} [4/4]\nWhenever Bayleef enters the battlefield or mutates, put a solar counter on it. It becomes sunny.\n{T}: Put a solar counter on Bayleef, then you gain life equal to the number of solar counters on it.
+
+DeckHints:Name$Chikorita
+DeckHints:Name$Meganium

@@ -3,3 +3,5 @@ ManaCost:RW
 Types:Creature Dog Faerie Pokémon
 PT:1/2
 Oracle:
+
+DeckHints:Name$Granbull

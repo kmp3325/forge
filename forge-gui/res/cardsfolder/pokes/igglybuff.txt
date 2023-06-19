@@ -4,3 +4,5 @@ Types:Creature Faerie Rabbit Pokémon
 PT:0/1
 K:Ward:Discard<1/Card>
 Oracle:Hexproof
+
+DeckHints:Name$Jigglypuff

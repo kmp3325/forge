@@ -9,3 +9,6 @@ SVar:X:Count$Valid Permanent.Snow
 S:Mode$ Continuous | Affected$ Creature.YouCtrl | AddPower$ SNOW | AddToughness$ SNOW | Description$ Creatures you control get +1/+1 as long as it's snowy.
 SVar:SNOW:Count$Snowy.1.0
 Oracle:Mutate onto Swinub {2}{W}{S} [6/6]\nWhenever Piloswine mutates, it deals damage to each other creature equal to the number of snow permanents on the battlefield.\nCreatures you control get +1/+1 as long as it's snowy.
+
+DeckHints:Name$Swinub
+DeckHints:Type$Snow

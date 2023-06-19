@@ -5,3 +5,5 @@ PT:0/5
 T:Mode$ Blocks | ValidCard$ Card.Self | Execute$ TrigCounter | TriggerDescription$ Whenever CARDNAME blocks, put a shield counter on it.
 SVar:TrigCounter:DB$ PutCounter | CounterType$ SHIELD | Defined$ Self | CounterNum$ 1
 Oracle:Whenever Shuckle blocks, put a shield counter on it.
+
+SVar:HasBlockEffect:TRUE

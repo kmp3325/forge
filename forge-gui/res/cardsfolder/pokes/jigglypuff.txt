@@ -7,3 +7,6 @@ T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefi
 T:Mode$ Mutates | ValidCard$ Card.Self | Execute$ TrigTapAll | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, tap all creatures you don't control.
 SVar:TrigTapAll:DB$ TapAll | ValidCards$ Creature.YouDontCtrl
 Oracle:Mutate onto Igglybuff {2}{W}{U} [2/2]\nWhenever Jigglypuff enters the battlefield or mutates, tap all creatures you don't control.
+
+DeckHints:Name$Wigglytuff
+DeckHints:Name$Igglybuff

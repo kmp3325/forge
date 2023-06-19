@@ -6,3 +6,5 @@ K:Trample
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounter | TriggerDescription$ When CARDNAME enters the battlefield, put a shield counter on it.
 SVar:TrigPutCounter:DB$ PutCounter | CounterType$ SHIELD | CounterNum$ 1 | Defined$ TriggeredCardLKICopy
 Oracle:Trample\nWhen Rhyhorn enters the battlefield, put a shield counter on it.
+
+DeckHints:Name$Rhydon

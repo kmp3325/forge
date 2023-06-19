@@ -5,3 +5,5 @@ PT:3/3
 S:Mode$ Continuous | Affected$ Creature.Insect+YouCtrl | AddPower$ 1 | AddToughness$ 1 | CheckSVar$ SUN | SVarCompare$ GE1 | Description$ Insect creatures you control get +1/+1 as long as it's sunny.
 SVar:SUN:Count$Sunny.1.0
 Oracle:Insect creatures you control get +1/+1 as long as it's sunny.
+
+DeckHints:Type$Insect

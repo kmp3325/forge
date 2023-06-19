@@ -6,3 +6,5 @@ T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefi
 SVar:TrigDealDmg:DB$ DealDamage | ValidTgts$ Creature,Player,Planeswalker | NumDmg$ 2 | TgtPrompt$ Choose any target | SubAbility$ TrigSun
 SVar:TrigSun:DB$ Weather | Value$ Sunny
 Oracle:When Growlithe enters the battlefield, it deals 2 damage to any target. It becomes sunny.
+
+DeckHints:Name$Arcanine

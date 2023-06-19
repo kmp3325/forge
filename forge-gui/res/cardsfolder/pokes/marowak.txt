@@ -6,3 +6,6 @@ K:Mutate onto:1 W B:Cubone:4/4
 T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigDmg | TriggerDescription$ Whenever CARDNAME attacks, it deals 1 damage to another target creature you control.
 SVar:TrigDmg:DB$ DealDamage | ValidTgts$ Creature.Other+YouCtrl | NumDmg$ 1
 Oracle:Mutate onto Cubone {1}{W}{B} [4/4]\nWhenever Marowak attacks, it deals 1 damage to another target creature you control.
+
+DeckHints:Name$Cubone
+SVar:HasAttackEffect:TRUE

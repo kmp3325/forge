@@ -4,7 +4,7 @@ Types:Legendary Creature Bird Pokémon
 PT:7/7
 K:Flying
 T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigPutCounters | TriggerDescription$ Whenever CARDNAME attacks, put a burn counter on each creature defending player controls.
-SVar:TrigPutCounters:DB$ PutCounterAll | ValidCards$ Creature.DefenderCtrl | CounterType$ BURN | CounterNum$ 1
+SVar:TrigPutCounters:DB$ PutCounterAll | IsCurse$ True | ValidCards$ Creature.DefenderCtrl | CounterType$ BURN | CounterNum$ 1
 R:Event$ AddCounter | ValidCounterType$ BURN | ActiveZones$ Battlefield | ValidCard$ Creature.inZoneBattlefield | ReplaceWith$ DoubleCounters | CheckSVar$ SUN | SVarCompare$ GE1 | Description$ As long as it's sunny, if one or more burn counters would be put on a creature, put twice that many on it instead.
 SVar:SUN:Count$Sunny.1.0
 SVar:DoubleCounters:DB$ ReplaceCounter | Amount$ Y

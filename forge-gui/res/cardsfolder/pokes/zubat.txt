@@ -7,3 +7,5 @@ K:Lifelink
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ DBDealDamage | TriggerDescription$ When CARDNAME enters the battlefield, it deals 2 damage to target creature.
 SVar:DBDealDamage:DB$ DealDamage | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumDmg$ 2
 Oracle:Flying, lifelink\nWhen Zubat enters the battlefield, it deals 2 damage to target creature.
+
+DeckHints:Name$Golbat

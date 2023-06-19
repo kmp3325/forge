@@ -3,3 +3,5 @@ ManaCost:U
 Types:Creature Fish Pokémon
 PT:0/1
 Oracle:
+
+DeckNeeds:Name$Gyarados

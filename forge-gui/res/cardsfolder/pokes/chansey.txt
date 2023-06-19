@@ -7,3 +7,5 @@ T:Mode$ PhaseIn | ValidCard$ Creature.YouCtrl | Execute$ DBHeal | Optional$ True
 SVar:DBHeal:DB$ RemoveCounter | Defined$ TriggeredCardLKICopy | CounterType$ Any | CounterNum$ Any
 A:AB$ Phases | Cost$ W U | ValidTgts$ Creature.YouCtrl | ActivationLimit$ 1 | ActivationSpeed$ Sorcery | TgtPrompt$ Select target creature you control | SpellDescription$ Target creature you control phases out.
 Oracle:Mutate onto Happiny {4}{W}{U} [2/10]\nWhenever a creature you control phases in, you may remove any number of counters from it.\n{W}{U}: Target creature you control phases out. Activate only as a sorcery and only once each turn.
+
+DeckHints:Name$Blissey

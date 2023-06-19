@@ -10,3 +10,5 @@ SVar:RemoveEffect:DB$ ChangeZone | Origin$ Command | Destination$ Exile
 SVar:TrigWeather:DB$ Weather | Value$ Rainy | SubAbility$ TrigEffect
 SVar:RAIN:Count$Rainy.1.0
 Oracle:When Poliwag enters the battlefield, it becomes rainy. Until your next turn, as long as it's rainy, the next spell an opponent casts is countered unless they discard two cards.
+
+DeckHints:Name$Poliwhirl

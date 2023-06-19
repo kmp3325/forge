@@ -9,3 +9,7 @@ SVar:TrigDamageAttacker:DB$ DealDamage | Defined$ TriggeredAttackerLKICopy | Num
 SVar:TrigDamageBlocker:DB$ DealDamage | Defined$ TriggeredBlockerLKICopy | NumDmg$ 1
 A:AB$ RemoveCounter | Cost$ T | ValidTgts$ Creature | CounterType$ FROZEN | CounterNum$ All | TgtPrompt$ Select target creature | SpellDescription$ Remove all frozen counters from target creature.
 Oracle:Mutate onto Goldeen {4}{U} [4/4]\nWhenever Seaking blocks or becomes blocked by a creature, you may remove all shield counters from that creature.\n{T}: Remove all frozen counters from target creature.
+
+DeckHints:Name$Goldeen
+SVar:HasAttackEffect:TRUE
+SVar:HasBlockEffect:TRUE

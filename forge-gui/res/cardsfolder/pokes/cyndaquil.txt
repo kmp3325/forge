@@ -5,3 +5,5 @@ PT:1/1
 S:Mode$ Continuous | Affected$ Card.Self | AddToughness$ X | Description$ CARDNAME gets +0/+1 for each burn counter on it.
 SVar:X:Count$CardCounters.BURN
 Oracle:Cyndaquil gets +0/+1 for each burn counter on it.
+
+DeckHints:Name$Quilava

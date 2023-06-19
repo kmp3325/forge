@@ -7,3 +7,6 @@ K:Haste
 A:AB$ PutCounter | Cost$ T | Defined$ Self | CounterType$ STUN | CounterNum$ 1 | SubAbility$ DBPumpAll | SpellDescription$ Put a stun counter on CARDNAME. Creatures you control get +1/+1 until end of turn.
 SVar:DBPumpAll:DB$ PumpAll | ValidCards$ Creature.YouCtrl | NumAtt$ +1 | NumDef$ +1
 Oracle:Mutate onto Pichu {2}{R} [2/2]\nHaste\n{T}: Put a stun counter on Pikachu. Creatures you control get +1/+1 until end of turn.
+
+DeckHints:Name$Raichu
+DeckHints:Type$Creature

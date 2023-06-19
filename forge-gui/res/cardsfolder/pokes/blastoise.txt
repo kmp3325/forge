@@ -9,3 +9,5 @@ R:Event$ DamageDone | ActiveZones$ Battlefield | ValidSource$ Card.Self | ValidT
 SVar:DmgTwice:DB$ ReplaceEffect | VarName$ DamageAmount | VarValue$ Y
 SVar:Y:ReplaceCount$DamageAmount/Twice
 Oracle:Mutate onto Wartortle {2}{U}{U}{U} [5/7]\n{U}, {T}: Blastoise deals damage to target attacking creature equal to the number of untapped Islands you control.\nIf Blastoise would deal noncombat damage to a creature, it deals double that damage instead.
+
+DeckHints:Name$Wartortle

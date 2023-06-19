@@ -6,3 +6,5 @@ K:Trample
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigWeather | TriggerDescription$ When CARDNAME enters the battlefield, it becomes foggy.
 SVar:TrigWeather:DB$ Weather | Value$ Foggy
 Oracle:Trample\nWhen Team Rocket's Rhyhorn enters the battlefield, it becomes foggy.
+
+DeckHints:Name$Team Rocket's Rhydon

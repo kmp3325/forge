@@ -5,5 +5,7 @@ PT:5/5
 K:Mutate onto:4 R:Elekid:6/6
 T:Mode$ Mutates | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, put a stun counter on each creature you don't control.
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, put a stun counter on each creature you don't control.
-SVar:TrigPutCounter:DB$ PutCounterAll | ValidCards$ Creature.YouDontCtrl | CounterType$ STUN | CounterNum$ 1
+SVar:TrigPutCounter:DB$ PutCounterAll | IsCurse$ True | ValidCards$ Creature.YouDontCtrl | CounterType$ STUN | CounterNum$ 1
 Oracle:Mutate onto Elekid {4}{R} [6/6]\nWhenever Electabuzz enters the battlefield or mutates, put a stun counter on each creature you don't control.
+
+DeckHints:Name$Elekid

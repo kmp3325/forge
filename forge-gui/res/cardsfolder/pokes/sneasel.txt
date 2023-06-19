@@ -3,7 +3,7 @@ ManaCost:4 B
 Types:Snow Creature Badger Pokémon
 PT:3/3
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigFreeze | TriggerDescription$ When CARDNAME enters the battlefield, put a frozen counter on each of up to two target creatures. When you do, you may destroy target creature with a frozen counter on it.
-SVar:TrigFreeze:DB$ PutCounter | CounterType$ FROZEN | TargetMin$ 0 | TargetMax$ 2 | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ DBImmediate
+SVar:TrigFreeze:DB$ PutCounter | IsCurse$ True | CounterType$ FROZEN | TargetMin$ 0 | TargetMax$ 2 | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ DBImmediate
 SVar:DBImmediate:DB$ ImmediateTrigger | Execute$ TrigShatter | OptionalDecider$ You | TriggerDescription$ When you do, you may destroy target creature with a frozen counter on it.
 SVar:TrigShatter:DB$ Destroy | ValidTgts$ Creature.counters_GE1_FROZEN | TgtPrompt$ Select target creature
 Oracle:When Sneasel enters the battlefield, put a frozen counter on each of up to two target creatures. When you do, you may destroy target creature with a frozen counter on it.

@@ -7,3 +7,7 @@ A:AB$ Pump | Cost$ G | NumDef$ +1 | SpellDescription$ CARDNAME gets +0/+1 until 
 T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Any | ValidCard$ Card.Self | Execute$ TrigVig | TriggerDescription$ When CARDNAME leaves the battlefield, creatures you control get +0/+2 and gain vigilance until end of turn.
 SVar:TrigVig:DB$ PumpAll | ValidCards$ Creature.YouCtrl | NumDef$ +2 | KW$ Vigilance
 Oracle:Mutate onto Caterpie {1}{G} [0/4]\n{G}: Metapod gets +0/+1 until end of turn.\nWhen Metapod leaves the battlefield, creatures you control get +0/+2 and gain vigilance until end of turn.
+
+DeckHints:Name$Caterpie
+DeckHints:Name$Butterfree
+DeckHints:Type$Creature

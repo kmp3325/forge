@@ -6,3 +6,7 @@ K:Mutate onto:1 U U:Squirtle:2/4
 K:CARDNAME can block as though it were untapped.
 R:Event$ DamageDone | ValidSource$ Card.Self+tapped+blocking | ActiveZones$ Battlefield | Prevent$ True | IsCombat$ True | Description$ Prevent all combat damage that would be dealt by CARDNAME as long as it's tapped and blocking.
 Oracle:Mutate onto Squirtle {1}{U}{U} [2/4]\nWartortle can block as though it were untapped.\nPrevent all combat damage that would be dealt by Wartortle as long as it's tapped and blocking.
+
+DeckHints:Name$Squirtle
+DeckHints:Name$Blastoise
+SVar:HasBlockEffect:TRUE

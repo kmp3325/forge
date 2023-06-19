@@ -12,3 +12,6 @@ SVar:X:Count$Windy.1.0
 SVar:PutCounter:DB$ PutCounter | Defined$ Valid Card.Self | CounterType$ P1P1 | CounterNum$ 1
 SVar:Pump:DB$ Pump | Defined$ Valid Card.Self | NumAtt$ 1 | NumDef$ 1
 Oracle:Mutate onto Pidgeotto {2}{W}{W} [4/5]\nFlying, first strike\nWhenever Pidgeot phases out, you may have it phase in.\nWhenever Pidgeot phases in, it gets +1/+1 until end of turn. If it's windy, put a +1/+1 counter on it instead.
+
+DeckHints:Name$Pidgey
+DeckHints:Name$Pidgeotto

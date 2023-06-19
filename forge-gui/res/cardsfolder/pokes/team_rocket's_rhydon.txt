@@ -8,3 +8,5 @@ SVar:FOG:Count$Foggy.1.0
 A:AB$ GainControl | Cost$ B B R | ActivationLimit$ 1 | ValidTgts$ Creature.powerLEX | TgtPrompt$ Select target creature with power less than or equal to the number of creatures you control | SpellDescription$ Gain control of target creature with power less than or equal to the number of creatures you control. Activate only once each turn.
 SVar:X:Count$Valid Creature.YouCtrl
 Oracle:Mutate onto Team Rocket's Rhyhorn {4}{B}{R} [6/7]\nAs long as it's foggy, Team Rocket's Rhydon can't have burn counters put on it.\n{B}{B}{R}: Gain control of target creature with power less than or equal to the number of creatures you control. Activate only once each turn.
+
+DeckHints:Name$Team Rocket's Rhyhorn

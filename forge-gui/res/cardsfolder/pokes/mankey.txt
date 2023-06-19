@@ -4,3 +4,5 @@ Types:Creature Monkey Pokémon
 PT:2/1
 K:Menace
 Oracle:Menace
+
+DeckHints:Name$Primeape

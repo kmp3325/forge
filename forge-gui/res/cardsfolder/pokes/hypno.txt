@@ -10,3 +10,5 @@ SVar:SubMill:DB$ Mill | Defined$ TargetedPlayer | NumCards$ Y | SubAbility$ DBCl
 SVar:Y:Remembered$Amount
 SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
 Oracle:Mutate onto Drowzee {2}{U}{B} [1/4]\n{B}, {T}: Exile all creature cards from target player's graveyard. They mill cards equal to the number of cards exiled this way.\n{U}, {T}: Target player mills cards equal to the number of cards in their hand plus one.
+
+DeckHints:Name$Drowzee

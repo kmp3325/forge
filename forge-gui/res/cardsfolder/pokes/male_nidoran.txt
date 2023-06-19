@@ -4,3 +4,6 @@ Types: Creature Dinosaur Rabbit Pokémon
 PT: 1/1
 S:Mode$ Continuous | Affected$ Creature.YouCtrl | AddKeyword$ Creatures you control with caustic deal damage to this creature as though they didn't have caustic. | Description$ Creatures you control deal damage to creatures you control as though they didn't have caustic.
 Oracle:Creatures you control deal damage to creatures you control as though they didn't have caustic.
+
+DeckHints:Name$Nidorino
+DeckNeeds:Keyword$Caustic

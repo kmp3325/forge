@@ -14,3 +14,5 @@ SVar:POW:Count$CardPower
 SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
 SVar:X:Count$RememberedSize
 Oracle:Flying, Steel skin\nWhenever Skarmory attacks, put a shield counter on target attacking creature. Until end of turn, that creature gains "Whenever this creature deals combat damage to a player, remove a shield counter from it. If you do, you gain life equal to its power."
+
+SVar:HasAttackEffect:TRUE

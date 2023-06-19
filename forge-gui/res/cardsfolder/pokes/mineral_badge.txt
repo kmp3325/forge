@@ -7,3 +7,5 @@ SVar:DBNameCard:DB$ NameCard | Defined$ You | ChooseFromMutateOnto$ Remembered |
 SVar:DBFetch:DB$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Card.NamedCard | ChangeNum$ 1 | SubAbility$ DBCleanup | ConditionDefined$ Remembered | ConditionPresent$ Card | ConditionCompare$ GE1
 SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
 Oracle:{GW}, {T}: Add {C}{C} or {G}{W}.\n{GW}, {T}: Reveal a Pokémon creature card that mutates onto a named card from your hand. If you do, search your library for the named card, reveal it, put it into your hand, then shuffle.
+
+DeckNeeds:Type$Pokémon

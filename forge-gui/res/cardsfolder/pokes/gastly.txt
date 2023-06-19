@@ -7,3 +7,5 @@ K:Caustic
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSac | TriggerDescription$ When CARDNAME enters the battlefield, target player sacrifices a creature.
 SVar:TrigSac:DB$ Sacrifice | ValidTgts$ Player | SacValid$ Creature | SacMessage$ Creature
 Oracle:When Gastly enters the battlefield, target player sacrifices a creature.
+
+DeckHints:Name$Haunter

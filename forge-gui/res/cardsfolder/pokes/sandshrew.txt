@@ -5,3 +5,5 @@ PT:2/2
 A:AB$ Phases | Cost$ WB | Defined$ Self | ActivationPhases$ Upkeep->Declare Attackers | ConditionCheckSVar$ X | ConditionSVarCompare$ GE1 | SpellDescription$ CARDNAME phases out. Activate only if it's not rainy and only before blockers are declared.
 SVar:X:Count$Rainy.0.1
 Oracle:{WB}: Sandshrew phases out. Activate only if it's not rainy and only before blockers are declared.
+
+DeckHints:Name$Sandslash

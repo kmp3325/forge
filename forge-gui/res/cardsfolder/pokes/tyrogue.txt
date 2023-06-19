@@ -7,3 +7,7 @@ SVar:DBSwap:DB$ Pump | Defined$ Self | PumpZone$ Stack | KW$ HIDDEN CARDNAME's p
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigFight | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters the battlefield, you may have it fight target creature.
 SVar:TrigFight:DB$ Fight | Defined$ TriggeredCardLKICopy | ValidTgts$ Creature | TgtPrompt$ Choose target creature
 Oracle:As Tyrogue enters the battlefield, you may switch its power and toughness until end of turn.\nWhen Tyrogue enters the battlefield, you may have it fight target creature.
+
+DeckHints:Name$Hitmonchan
+DeckHints:Name$Hitmonlee
+DeckHints:Name$Hitmontop

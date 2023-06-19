@@ -10,3 +10,5 @@ SVar:STLook:Mode$ Continuous | MayLookAt$ You | EffectZone$ Command | Affected$ 
 SVar:STPlay:Mode$ Continuous | MayPlay$ True | EffectZone$ Command | Affected$ Card.IsRemembered | AffectedZone$ Exile | Secondary$ True | Description$ You may play this card until the end of your next turn
 SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
 Oracle:Mutate onto Psyduck {3}{U}{U} [5/6]\nIf a spell or ability causes you to discard a card, you may exile it instead of putting it into your graveyard. If you do, you may play that card until the end of your next turn.
+
+DeckHints:Name$Psyduck

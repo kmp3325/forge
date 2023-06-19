@@ -9,3 +9,6 @@ SVar:Earthquake:DB$ DamageAll | ValidCards$ Creature.withoutFlying+Other | NumDm
 T:Mode$ DamageDone | ValidTarget$ Creature.YouCtrl | CombatDamage$ False | TriggerZones$ Battlefield | Execute$ DBGainLife | TriggerDescription$ Whenever a creature you control is dealt noncombat damage, you gain 2 life.
 SVar:DBGainLife:DB$ GainLife | Defined$ You | LifeAmount$ 2
 Oracle:Mutate onto Nidorina {4}{W}{B} [6/6]\nVigilance\nWhenever Nidoqueen deals combat damage to a player, it deals 1 damage to each other creature without flying.\nWhenever a creature you control is dealt noncombat damage, you gain 2 life.
+
+DeckHints:Name$Nidorina
+SVar:HasCombatEffect:TRUE

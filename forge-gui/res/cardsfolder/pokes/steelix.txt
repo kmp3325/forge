@@ -9,3 +9,5 @@ K:Steel skin
 T:Mode$ Mutates | ValidCard$ Card.Self | Execute$ TrigShield | TriggerDescription$ Whenever CARDNAME mutates, put a shield counter on each other creature you control.
 SVar:TrigShield:DB$ PutCounterAll | CounterType$ SHIELD | CounterNum$ 1 | ValidCards$ Creature.YouCtrl+Other
 Oracle:Mutate onto Onix {3}{G}{G}{W}\nIndestructible, vigilance, steel skin\nWhenever Steelix mutates, put a shield counter on each other creature you control.
+
+DeckHints:Name$Onix

@@ -12,3 +12,5 @@ SVar:DBHurtOthers:DB$ DealDamage | NumDmg$ X | Defined$ Targeted | SubAbility$ R
 SVar:RemoveSolar:DB$ RemoveCounter | CounterType$ All | CounterNum$ All
 SVar:X:Count$CardCounters.SOLAR/Plus.1
 Oracle:Mutate onto Gloom {3}{BG}{BG} [6/6]\n{1}{G}: Choose target creature, then roll a d6.\n1 | Put a solar counter on Vileplume, then Vileplume deals 1 damage to itself.\n2-4 | Vileplume deals 1 damage to that creature. Put two solar counters on Vileplume.\n5-6 | Vileplume deals damage to that creature equal to 1 plus the number of solar counters on Vileplume, then remove all counters from Vileplume.
+
+DeckHints:Name$Gloom Pokémon

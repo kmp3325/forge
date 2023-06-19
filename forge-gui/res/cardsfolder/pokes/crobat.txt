@@ -10,3 +10,6 @@ SVar:TrigGain:DB$ GainLife | Defined$ You | LifeAmount$ X | SubAbility$ TrigLose
 SVar:TrigLoseLife:DB$ LoseLife | ValidTgts$ Player | TgtPrompt$ Select target player | LifeAmount$ X
 SVar:X:TriggerCount$DamageAmount
 Oracle:Mutate onto Golbat {4}{B}{B} [4/5]\nFlying, first strike\nWhenever Crobat deals damage, you gain that much life and target player loses that much life.
+
+DeckHints:Name$Golbat
+SVar:HasCombatEffect:TRUE

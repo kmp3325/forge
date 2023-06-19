@@ -6,5 +6,7 @@ K:Mutate onto:2 R R:Eevee:6/4
 K:Scorching
 T:Mode$ LifeGained | ValidPlayer$ You | TriggerZones$ Battlefield | CheckSVar$ MUTATED | SVarCompare$ GE1 | Execute$ TrigPutCounter | Optional$ True | TriggerDescription$ Whenever you gain life, if CARDNAME is mutated, you may put a burn counter on target creature.
 SVar:MUTATED:Count$TimesMutated
-SVar:TrigPutCounter:DB$ PutCounter | CounterType$ BURN | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature
+SVar:TrigPutCounter:DB$ PutCounter | IsCurse$ True | CounterType$ BURN | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature
 Oracle:Mutate onto Eevee {2}{R}{R} [6/4]\nScorching\nWhenever you gain life, if Flareon is mutated, you may put a burn counter on target creature.
+
+DeckHints:Name$Eevee

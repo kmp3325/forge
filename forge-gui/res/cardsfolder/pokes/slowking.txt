@@ -7,3 +7,5 @@ T:Mode$ MilledAll | ValidPlayer$ Player | ValidCard$ Creature | TriggerZones$ Ba
 SVar:TrigTap:DB$ Tap | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigDmg
 SVar:TrigDmg:DB$ DealDamage | NumDmg$ 1 | DamageSource$ Targeted | Defined$ Targeted
 Oracle:Mutate onto {2}{W}{U}{B} [4/9]\nWhenever a player mills one or more creature cards, you may tap target creature. If you do, it deals 1 damage to itself.
+
+DeckHints:Name$Slowpoke

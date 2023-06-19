@@ -7,3 +7,6 @@ K:Caustic
 T:Mode$ AttackerBlockedByCreature | ValidCard$ Card.Self | ValidBlocker$ Creature | Execute$ TrigLoseAbilities | TriggerDescription$ Whenever CARDNAME blocks or becomes blocked by a creature, that creature loses all abilities until end of combat.
 SVar:TrigLoseAbilities:DB$ Animate | Defined$ TriggeredBlockerLKICopy | RemoveAllAbilities$ True | IsCurse$ True | Duration$ UntilEndOfCombat
 Oracle:Mutate onto Venonat {2}{B}{G} [4/4]\nCaustic\nWhenever Venomoth becomes blocked by a creature, that creature loses all abilities until end of combat.
+
+DeckHints:Name$Venonat
+SVar:HasBlockEffect:TRUE

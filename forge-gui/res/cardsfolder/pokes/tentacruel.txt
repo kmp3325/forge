@@ -8,3 +8,5 @@ T:Mode$ DamageDone | ValidSource$ Card.Self | ValidTarget$ Player | Execute$ Tri
 SVar:TrigMill:DB$ Mill | NumCards$ 5 | Defined$ TriggeredTarget
 S:Mode$ Continuous | Affected$ Card.Self | MayPlay$ True | ValidSA$ Spell.Mutate | AffectedZone$ Graveyard | EffectZone$ Graveyard | Description$ You may cast CARDNAME from your graveyard using its mutate ability.
 Oracle:Mutate onto Tentacool {5}{UB} [5/5]\nCaustic\nWhenever Tentacruel deals damage to a player, that player mills five cards.\nYou may cast Tentacruel from your graveyard using its mutate ability.
+
+DeckHints:Name$Tentacool

@@ -7,3 +7,5 @@ SVar:DBPutCounter:DB$ PutCounter | CounterType$ P1P1 | CounterNum$ 1 | Defined$ 
 T:Mode$ Attacks | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigPump | TriggerDescription$ Whenever CARDNAME attacks, another target creature you control gains indestructible until end of turn.
 SVar:TrigPump:DB$ Pump | ValidTgts$ Creature.YouCtrl+Other | TgtPrompt$ Select another target creature you control | KW$ Indestructible
 Oracle:Whenever one or more creatures you control are dealt damage by another creature you control, put a +1/+1 counter on Kangaskhan.\nWhenever Kangaskhan attacks, another target creature you control gains indestructible until end of turn.
+
+SVar:HasAttackEffect:TRUE

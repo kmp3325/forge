@@ -10,3 +10,6 @@ SVar:TrigProvoke:DB$ MustBlock | ValidTgts$ Creature.counters_GE1_M0M1 | TgtProm
 SVar:PumpTough:DB$ Pump | NumDef$ +X
 SVar:X:Count$CardToughness
 Oracle: Mutate onto Ekans {2}{B}{G} [4/4]\nCaustic\n{T}: Arbok deals 1 damage to target creature.\nWhenever Arbok attacks, you may have target creature with a -0/-1 counter on it block Arbok this turn if able. When it does, double Arbok's toughness until end of turn.
+
+DeckHints:Name$Ekans
+SVar:HasAttackEffect:TRUE

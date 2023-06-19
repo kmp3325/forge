@@ -6,3 +6,5 @@ T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.S
 SVar:TrigDestroy:DB$ Destroy | ValidTgts$ Artifact,Enchantment | TgtPrompt$ Choose target artifact or enchantment | SubAbility$ TrigSun
 SVar:TrigSun:DB$ Weather | Value$ Sunny
 Oracle:When Bellsprout enters the battlefield, you may destroy target artifact or enchantment, then it becomes sunny.
+
+DeckHints:Name$Weepinbell

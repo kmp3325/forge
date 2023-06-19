@@ -9,3 +9,6 @@ SVar:Earthquake:DB$ DamageAll | ValidCards$ Creature.withoutFlying+Other | NumDm
 T:Mode$ DamageDone | ValidTarget$ Creature.YouCtrl | CombatDamage$ False | TriggerZones$ Battlefield | Execute$ TrigDrain | TriggerDescription$ Whenever a creature you control is dealt noncombat damage, each opponent loses 1 life.
 SVar:TrigDrain:DB$ LoseLife | Defined$ Player.Opponent | LifeAmount$ 1
 Oracle:Mutate onto Nidorino {4}{W}{B} [7/5]\nVigilance\nWhenever Nidoking deals combat damage to a player, it deals 1 damage to each other creature without flying.\nWhenever a creature you control is dealt noncombat damage, each opponent loses 1 life.
+
+DeckHints:Name$Nidorino
+SVar:HasCombatEffect:TRUE

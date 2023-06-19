@@ -5,3 +5,6 @@ PT:0/1
 K:Caustic
 S:Mode$ Continuous | Affected$ Card.Self+blocking | AddPower$ 1 | Description$ CARDNAME gets +1/+0 as long as it's blocking.
 Oracle:Caustic\nWeedle gets +1/+0 as long as it's blocking.
+
+DeckHints:Name$Kakuna
+SVar:HasBlockEffect:TRUE

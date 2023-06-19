@@ -11,3 +11,5 @@ T:Mode$ Drawn | ValidCard$ Card.OppOwn | TriggerZones$ Battlefield | Execute$ Im
 SVar:ImmediateTrigger:AB$ ImmediateTrigger | Cost$ PayLife<2> | Execute$ TrigDiscard | CopyTriggeringObjects$ True | TriggerDescription$ When you do, that player discards a card. Do this only once each turn.
 SVar:TrigDiscard:DB$ Discard | Defined$ TriggeredCardController | NumCards$ 1 | Mode$ TgtChoose
 Oracle:Mutate onto Kadabra {3}{U}{U}{B} [7/4]\nFirst strike\nWhenever an opponent discards a card, they mill cards equal to that card's mana value.\nWhenever an opponent draws a card, you may pay 2 life. When you do, that player discards a card. Do this only once each turn.
+
+DeckHints:Name$Kadabra

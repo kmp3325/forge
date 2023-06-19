@@ -4,3 +4,5 @@ Types:Creature Lizard Pokémon
 PT:1/1
 K:Scorching
 Oracle:Scorching
+
+DeckHints:Name$Charmeleon

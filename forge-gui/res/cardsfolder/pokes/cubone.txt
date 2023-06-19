@@ -5,3 +5,5 @@ PT:2/2
 R:Event$ DamageDone | ValidSource$ Creature.Other+YouCtrl | ValidTarget$ Card.Self | ActiveZones$ Battlefield | PreventionEffect$ True | ReplaceWith$ DBPump | Description$ If CARDNAME would be dealt damage by another creature you control, prevent that damage. If damage is prevented this way, CARDNAME gets +1/+1 until end of turn.
 SVar:DBPump:DB$ Pump | Defined$ Self | NumAtt$ 1 | NumDef$ 1
 Oracle:If Cubone would be dealt damage by another creature you control, prevent that damage. If damage is prevented this way, Cubone gets +1/+1 until end of turn.
+
+DeckHints:Name$Marowak

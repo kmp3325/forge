@@ -7,3 +7,5 @@ SVar:TrigSolar:DB$ PutCounter | Defined$ Card.Self | CounterType$ SOLAR | Counte
 SVar:DBGainLife:DB$ GainLife | Defined$ You | LifeAmount$ X
 SVar:X:Count$CardCounters.SOLAR
 Oracle:Whenever Oddish becomes tapped, you may put a solar counter on it. If you do, you gain life equal to the number of solar counters on Oddish.
+
+DeckHints:Name$Gloom Pokémon

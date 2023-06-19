@@ -8,3 +8,6 @@ A:AB$ Tap | Cost$ T | ValidTgts$ Creature | TgtPrompt$ Select target creature | 
 SVar:CoinFlip:DB$ FlipACoin | WinSubAbility$ DmgItself
 SVar:DmgItself:DB$ DealDamage | NumDmg$ 1 | DamageSource$ Targeted | Defined$ Targeted
 Oracle:Mutate onto Zubat {3}{B} [3/3]\nFlying\n{T}: Tap target creature, then flip a coin. If you win the flip, it deals 1 damage to itself.
+
+DeckHints:Name$Zubat
+DeckHints:Name$Crobat

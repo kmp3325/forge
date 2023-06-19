@@ -7,3 +7,5 @@ SVar:SNOW:Count$Snowy.0.1
 SVar:LIFE:Count$Snowy.0.2
 SVar:TrigGain:DB$ GainLife | Defined$ You | LifeAmount$ LIFE
 Oracle:{T}:Add {C}. You gain 2 life. Activate only if it's not snowy.
+
+DeckHints:Name$Ursaring

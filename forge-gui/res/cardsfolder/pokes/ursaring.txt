@@ -7,3 +7,5 @@ R:Event$ AddCounter | ActiveZones$ Battlefield | ValidCard$ Creature.YouCtrl+inZ
 SVar:MinusOneMore:DB$ ReplaceCounter | Amount$ X
 SVar:X:ReplaceCount$CounterNum/Minus.1
 Oracle:Mutate onto Teddiursa {3} [4/4]\nIf one or more counters would be put on a creature you control, that many counters minus one are put on it instead.
+
+DeckHints:Name$Teddiursa

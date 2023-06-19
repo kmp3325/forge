@@ -5,3 +5,6 @@ PT:4/3
 K:Mutate onto:4 B:Male Nidoran:5/4
 K:Caustic
 Oracle:Mutate onto Male Nidoran {4}{B} [5/4]\nCaustic
+
+DeckHints:Name$Male Nidoran
+DeckHints:Name$Nidoking

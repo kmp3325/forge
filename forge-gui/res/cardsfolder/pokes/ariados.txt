@@ -4,6 +4,9 @@ Types:Creature Spider Pokémon
 PT:4/3
 K:Mutate onto:3 B G:Spinarak:4/5
 K:Caustic
-A:AB$ PutCounter | Cost$ B B G T | CounterType$ M0M1 | CounterNum$ 1 | Choices$ Creature.counters_GE1_M0M1 | MinChoiceAmount$ 0 | ChoiceAmount$ MaxChoices | ChoiceTitle$ Choose any number of creatures with -0/-1 counters on them | SpellDescription$ Choose any number of creatures with -0/-1 counters on them, then put a -0/-1 counter on each of them.
+A:AB$ PutCounter | IsCurse$ True | Cost$ B B G T | CounterType$ M0M1 | CounterNum$ 1 | Choices$ Creature.counters_GE1_M0M1 | MinChoiceAmount$ 0 | ChoiceAmount$ MaxChoices | ChoiceTitle$ Choose any number of creatures with -0/-1 counters on them | SpellDescription$ Choose any number of creatures with -0/-1 counters on them, then put a -0/-1 counter on each of them.
 SVar:MaxChoices:Count$Valid Creature.counters_GE1_M0M1
 Oracle:Mutate onto Spinarak {3}{B}{G} [4/5]\nCaustic\n{B}{B}{G}, {T}: Choose any number of creatures with -0/-1 counters on them, then put a -0/-1 counter on each of them.
+
+DeckHints:Name$Spinarak
+

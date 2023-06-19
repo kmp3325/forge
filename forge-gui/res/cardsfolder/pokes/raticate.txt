@@ -8,3 +8,6 @@ T:Mode$ ChangesZone | Destination$ Battlefield | Origin$ Any | ValidCard$ Card.S
 T:Mode$ Mutates | ValidCard$ Card.Self | Execute$ TrigDestroy | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, you may destroy target tapped creature.
 SVar:TrigDestroy:DB$ Destroy | ValidTgts$ Creature.tapped | TgtPrompt$ Select target tapped creature | OptionalDecider$ You
 Oracle:Mutate onto Rattata {3}{W}[3/2]\nFirst strike\nWhenever Raticate enters the battlefield or mutates, you may destroy target tapped creature.
+
+DeckHints:Name$Rattata
+SVar:PlayMain1:OPPONENTCREATURES

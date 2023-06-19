@@ -7,3 +7,5 @@ A:AB$ PutCounter | Cost$ T | Defined$ Self | CounterType$ SOLAR | CounterNum$ 2 
 A:AB$ Pump | Cost$ 2 G | ActivationLimit$ 1 | Defined$ Self | NumAtt$ X | NumDef$ X | SpellDescription$ CARDNAME gets +X/+X until end of turn, where X is the number of solar counters on it. Activate only once each turn.
 SVar:X:Count$CardCounters.SOLAR
 Oracle:Mutate onto Bayleef {5}{G} [5/6]\n{T}: Put two solar counters on Meganium.\n{2}{G}: Meganium gets +X/+X until end of turn, where X is the number of solar counters on it. Activate only once each turn.
+
+DeckHints:Name$Bayleef

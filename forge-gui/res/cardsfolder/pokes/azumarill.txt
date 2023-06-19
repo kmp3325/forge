@@ -9,3 +9,5 @@ SVar:RAIN:Count$Rainy.1.0
 SVar:DBPump:DB$ Pump | Defined$ TriggeredCardLKICopy | NumAtt$ 1 | NumDef$ 1
 SVar:DBPutCounter:DB$ PutCounter | Defined$ TriggeredCardLKICopy | CounterType$ P1P1 | CounterNum$ 1
 Oracle:Mutate onto Marill {3}{WU} [3/3]\nWhenever a creature you control phases in, it gets +1/+1 until end of turn. If it's rainy, put a +1/+1 counter on it instead.
+
+DeckHints:Name$Marill

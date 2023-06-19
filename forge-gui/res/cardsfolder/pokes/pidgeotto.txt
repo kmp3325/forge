@@ -10,3 +10,7 @@ SVar:PhaseInTrig:DB$ DelayedTrigger | Mode$ PhaseIn | ValidCard$ Card.Self | Exe
 SVar:DamageTrig:DB$ DealDamage | ValidTgts$ Creature,Player,Planeswalker | TgtPrompt$ Select any target | NumDmg$ X
 SVar:X:Count$CardPower
 Oracle:Mutate onto Pidgey {2}{G} [2/2]\nFlying\nWhenever Pidgeotto attacks, you may have it phase out. When it phases in, it deals damage equal to its power to any target.
+
+DeckHints:Name$Pidgey
+DeckHints:Name$Pidgeot
+SVar:HasAttackEffect:TRUE

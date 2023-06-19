@@ -13,3 +13,5 @@ SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
 T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | Execute$ TrigPhase | TriggerZones$ Battlefield | IsPresent$ Card.YouCtrl+YouDontOwn | PresentZone$ Battlefield | PresentCompare$ GE1 | TriggerDescription$ At the beginning of your upkeep, if you control a creature you don't own, CARDNAME phases out unless you sacrifice a creature.
 SVar:TrigPhase:DB$ Phases | Defined$ Self | UnlessCost$ Sac<1/Creature> | UnlessPayer$ You
 Oracle:Mutate onto Haunter {B}{B}{B}{B}{B}{B} [5/3]\nShadow, first strike, caustic\nWhenever Gengar deals combat damage to a player, that player discards a card. If they discarded a creature card this way, put it onto the battlefield under your control.\nAt the beginning of your upkeep, if you control a creature you don't own, Gengar phases out unless you sacrifice a creature.
+
+DeckHints:Name$Haunter

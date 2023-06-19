@@ -6,3 +6,5 @@ T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.S
 SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ 1 | SubAbility$ TrigWeather
 SVar:TrigWeather:DB$ Weather | Value$ Rainy
 Oracle:When Goldeen enters the battlefield, draw a card. It becomes rainy.
+
+DeckHints:Name$Seaking

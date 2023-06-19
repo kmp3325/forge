@@ -12,3 +12,5 @@ SVar:TrigMillExiled:DB$ Mill | NumCards$ X | SubAbility$ DBCleanup | Defined$ Re
 SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
 SVar:X:Count$RememberedCardManaCost
 Oracle:Mutate onto Eevee {2}{B}{B} [5/5]\nWhenever Espeon attacks, target player mills four cards.\nWhenever you gain life, if Espeon is mutated, you may exile up to one target card from a graveyard. If a card is exiled this way, its owner mills cards equal to its mana value.
+
+DeckHints:Name$Eevee

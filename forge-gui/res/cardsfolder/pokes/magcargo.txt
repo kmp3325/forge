@@ -6,3 +6,5 @@ K:Mutate onto:1 R G W:Slugma:3/6
 R:Event$ AddCounter | ActiveZones$ Battlefield | ValidCard$ Card.Self | ValidCounterType$ BURN | ReplaceWith$ ActuallyShield | Description$ If a burn counter would be put on CARDNAME, put a shield counter on it instead.
 SVar:ActuallyShield:DB$ ReplaceCounter | CounterType$ SHIELD
 Oracle:Mutate onto Slugma {1}{R}{G}{W} [3/6]\nIf a burn counter would be put on Magcargo, put a shield counter on it instead.
+
+DeckHints:Name$Slugma

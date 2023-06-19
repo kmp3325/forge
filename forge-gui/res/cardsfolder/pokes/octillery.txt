@@ -8,3 +8,5 @@ SVar:Unblockable:Mode$ CantBlockBy | ValidAttacker$ Card.IsRemembered | Descript
 SVar:Eject:DB$ ChangeZone | Defined$ Self | Origin$ Command | Destination$ Exile
 SVar:X:Count$CardPower
 Oracle:Mutate onto Remoraid {4}{U} [4/3]\n{U}, {T}: Target creature with power less than or equal to Octillery's power can't be blocked until end of turn.
+
+DeckHints:Name$Remoraid

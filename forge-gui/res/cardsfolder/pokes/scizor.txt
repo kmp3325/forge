@@ -6,3 +6,5 @@ K:Mutate onto:3 R G:Scyther:6/5
 K:First strike
 K:Steel skin
 Oracle:Mutate onto Scyther {3}{R}{G} [6/5]\nFirst strike, steel skin
+
+DeckHints:Name$Scyther

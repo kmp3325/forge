@@ -9,3 +9,6 @@ T:Mode$ Mutates | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ Tr
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDiscard | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, you may discard a card. If you do, return up to two target creature cards from your graveyard to your hand.
 SVar:TrigDiscard:AB$ ChangeZone | Cost$ Discard<1/Card> | Origin$ Graveyard | Destination$ Hand | TargetMin$ 0 | TargetMax$ 2 | TgtPrompt$ Select up to two target creature cards in your graveyard | ValidTgts$ Creature.YouOwn
 Oracle:Mutate onto Gastly {B}{B}{B} [2/2]\nShadow, caustic\nWhenever Haunter enters the battlefield or mutates, you may discard a card. If you do, return up to two target creature cards from your graveyard to your hand.
+
+DeckHints:Name$Gastly
+DeckHints:Name$Gengar

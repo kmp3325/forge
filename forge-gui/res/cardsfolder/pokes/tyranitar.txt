@@ -9,3 +9,5 @@ T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigQuake | TriggerDescription
 SVar:TrigQuake:DB$ DamageAll | ValidCards$ Creature.Other+withoutFlying | NumDmg$ 2 | SubAbility$ TrigRocks
 SVar:TrigRocks:DB$ DamageAll | ValidCards$ Creature.Other+withFlying | NumDmg$ 3
 Oracle:Mutate onto Pupitar {3}{W}{B}{G} [7/6]\nWhenever Tyranitar attacks, it deals 2 damage to each other creature without flying and 3 damage to each other creature with flying.\nWhenever a shield counter is removed from a creature you control, you gain 2 life.
+
+DeckHints:Name$Pupitar

@@ -5,5 +5,7 @@ PT:2/2
 K:Mutate onto:3 B:Natu:3/3
 K:Flying
 T:Mode$ CounterAdded | ValidCard$ Creature.YouCtrl | TriggerZones$ Battlefield | CounterTypes$ BURN,FROZEN,STUN,M0M1 | Execute$ TrigCopyCounter | OptionalDecider$ You | TriggerDescription$ Whenever a burn counter, frozen counter, stun counter, or -0/-1 counter is put on a creature you control, you may put a counter of that kind on target creature you don't control.
-SVar:TrigCopyCounter:DB$ PutCounter | TriggeredCounterType$ True | ValidTgts$ Creature.YouDontCtrl | TgtPrompt$ Select target creature you don't control | CounterNum$ 1
+SVar:TrigCopyCounter:DB$ PutCounter | IsCurse$ True | TriggeredCounterType$ True | ValidTgts$ Creature.YouDontCtrl | TgtPrompt$ Select target creature you don't control | CounterNum$ 1
 Oracle:Mutate onto Natu {3}{B} [3/3]\nFlying\nWhenever a burn counter, frozen counter, stun counter, or -0/-1 counter is put on a creature you control, you may put a counter of that kind on target creature you don't control.
+
+DeckHints:Name$Natu

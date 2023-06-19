@@ -4,5 +4,7 @@ Types:Artifact Creature Construct Pokémon
 PT:1/1
 K:Steel skin
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME enters the battlefield, put a stun counter on target creature.
-SVar:TrigPutCounter:DB$ PutCounter | ValidTgts$ Creature | TgtPrompt$ Select target creature | CounterType$ STUN | CounterNum$ 1
+SVar:TrigPutCounter:DB$ PutCounter | IsCurse$ True | ValidTgts$ Creature | TgtPrompt$ Select target creature | CounterType$ STUN | CounterNum$ 1
 Oracle:Steel skin\nWhenever Magnemite enters the battlefield, put a stun counter on target creature.
+
+DeckHints:Name$Magneton

@@ -8,3 +8,5 @@ SVar:ETBTapped:DB$ Tap | ETB$ True | Defined$ ReplacedCard
 T:Mode$ Mutates | ValidCard$ Creature.YouDontCtrl | TriggerZones$ Battlefield | Execute$ TrigTap | TriggerDescription$ Whenever a creature you don't control mutates, tap it.
 SVar:TrigTap:DB$ Tap | Defined$ TriggeredCardLKICopy
 Oracle:Mutate onto Jigglypuff {4}{W}{U} [4/4]\nCreatures your opponents control enter the battlefield tapped.\nWhenever a creature you don't control mutates, tap it.
+
+DeckHints:Name$Jigglypuff

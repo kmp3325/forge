@@ -5,3 +5,5 @@ PT:1/1
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigRemove | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters the battlefield, you may remove all shield counters from target creature.
 SVar:TrigRemove:DB$ RemoveCounter | CounterType$ SHIELD | CounterNum$ All | ValidTgts$ Creature | TgtPrompt$ Select target creature
 Oracle:When Sentret enters the battlefield, you may remove all shield counters from target creature.
+
+DeckHints:Name$Furret

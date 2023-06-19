@@ -7,3 +7,5 @@ SVar:TrigPhase:DB$ Phases | ValidTgts$ Creature | TgtPrompt$ Select target creat
 SVar:PhaseInTrig:DB$ DelayedTrigger | Mode$ PhaseIn | Defined$ TriggeredCardLKICopy | Execute$ PhaseAgain | TriggerDescription$ When it phases in, it phases out again.
 SVar:PhaseAgain:DB$ Phases | Defined$ TriggeredCardLKICopy
 Oracle:When Marill enters the battlefield, target creature phases out. When it phases in, it phases out again.
+
+DeckHints:Name$Azumarill

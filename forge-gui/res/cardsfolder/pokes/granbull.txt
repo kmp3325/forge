@@ -7,3 +7,5 @@ T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.S
 T:Mode$ Mutates | ValidCard$ Card.Self | Execute$ TrigExile | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, exile target creature.
 SVar:TrigExile:DB$ ChangeZone | Destination$ Exile | Origin$ Battlefield | ValidTgts$ Creature | TgtPrompt$ Select target creature
 Oracle:Mutate onto Snubbull {4}{R}{W} [5/4]\nWhenever Granbull enters the battlefield or mutates, exile target creature.
+
+DeckHints:Name$Snubbull

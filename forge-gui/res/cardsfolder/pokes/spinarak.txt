@@ -5,3 +5,5 @@ PT:2/2
 K:Caustic
 A:AB$ DealDamage | Cost$ B G | ActivationLimit$ 1 | NumDmg$ 1 | ValidTgts$ Creature.counters_LE0_M0M1 | TgtPrompt$ Select target creature with no -0/-1 counters on it | SpellDescription$ CARDNAME deals 1 damage to target creature with no -0/-1 counters on it. Activate only once each turn.
 Oracle:Caustic\n{B}{G}: Spinarak deals 1 damage to target creature with no -0/-1 counters on it. Activate only once each turn.
+
+DeckHints:Name$Ariados

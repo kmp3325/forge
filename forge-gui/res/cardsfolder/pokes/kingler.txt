@@ -8,3 +8,5 @@ SVar:TrigDestroy:DB$ Destroy | ValidTgts$ Creature.counters_GE1_VICEGRIP | TgtPr
 SVar:TrigPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ X
 SVar:X:Targeted$CardToughness/HalfUp
 Oracle:Mutate onto Krabby {5}{U} [6/5]\nWhenever Kingler mutates, destroy target creature with a vicegrip counter on it. If a creature is destroyed this way, put a number of +1/+1 counters on Kingler equal to half that creature's toughness, rounded up.
+
+DeckHints:Name$Krabby

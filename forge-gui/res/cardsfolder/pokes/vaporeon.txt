@@ -9,3 +9,5 @@ T:Mode$ LifeGained | ValidPlayer$ You | TriggerZones$ Battlefield | CheckSVar$ M
 SVar:MUTATED:Count$TimesMutated
 SVar:TrigPutCounter:DB$ PutCounter | CounterType$ P1P1 | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature
 Oracle:Mutate onto Eevee {2}{U}{U} [3/7]\nCreatures you control have ward {2} as long as it's rainy.\nWhenever you gain life, if Vaporeon is mutated, put a +1/+1 counter on target creature.
+
+DeckHints:Name$Eevee

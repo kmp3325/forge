@@ -8,3 +8,5 @@ T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefi
 SVar:TrigDmg:DB$ DealDamage | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumDmg$ X
 SVar:X:Count$Valid Creature.Insect+YouCtrl
 Oracle:Flash\nFlying\nWhen Wild Scyther enters the battlefield, it deals damage to any target equal to the number of Insects you control.
+
+DeckHints:Type$Insect

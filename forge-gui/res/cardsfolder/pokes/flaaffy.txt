@@ -5,5 +5,8 @@ PT:3/3
 K:Mutate onto:2 U R:Mareep:4/4
 T:Mode$ SpellCast | ValidActivatingPlayer$ You | ActivatorThisTurnCast$ EQ1 | PlayerTurn$ True | NoResolvingCheck$ True | ValidCard$ Card | Execute$ TrigTap | TriggerZones$ Battlefield | OptionalDecider$ You | TriggerDescription$ Whenever you cast your first spell during each of your turns, you may tap target creature and put a stun counter on it.
 SVar:TrigTap:DB$ Tap | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigStun
-SVar:TrigStun:DB$ PutCounter | CounterType$ STUN | CounterNum$ 1 | Defined$ Targeted
+SVar:TrigStun:DB$ PutCounter | IsCurse$ True | CounterType$ STUN | CounterNum$ 1 | Defined$ Targeted
 Oracle:Mutate onto Mareep {2}{U}{R} [4/4]\nWhenever you cast your first spell during each of your turns, you may tap target creature and put a stun counter on it.
+
+DeckHints:Name$Mareep
+DeckHints:Name$Ampharos

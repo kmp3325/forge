@@ -4,3 +4,5 @@ Types:Creature Salamander Pokémon
 PT:4/5
 K:Mutate onto:3 W U:Wooper:5/6
 Oracle:Mutate onto Wooper {3}{W}{U} [5/6]
+
+DeckHints:Name$Wooper

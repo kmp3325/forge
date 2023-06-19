@@ -7,5 +7,7 @@ R:Event$ AddCounter | ActiveZones$ Battlefield | ValidCard$ Creature | ValidCoun
 SVar:AddOneMoreCounters:DB$ ReplaceCounter | ValidCounterType$ BURN | ChooseCounter$ True | Amount$ Y
 SVar:Y:ReplaceCount$CounterNum/Plus.1
 SVar:SUN:Count$Sunny.1.0
-A:AB$ PutCounter | Cost$ R R R | ValidTgts$ Creature | TgtPrompt$ Select target creature | CounterType$ BURN | CounterNum$ 1 | IsCurse$ True | SpellDescription$ Put a burn counter on target creature.
+A:AB$ PutCounter | IsCurse$ True | Cost$ R R R | ValidTgts$ Creature | TgtPrompt$ Select target creature | CounterType$ BURN | CounterNum$ 1 | IsCurse$ True | SpellDescription$ Put a burn counter on target creature.
 Oracle:Mutate onto Ponyta {3}{R}{R}{G} [7/6]\nAs long as it's sunny, if one or more burn counters would be put on a creature, that many plus one burn counters are put on it instead.\n{R}{R}{R}: Put a burn counter on target creature.
+
+DeckHints:Name$Ponyta

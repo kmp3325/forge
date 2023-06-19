@@ -15,3 +15,5 @@ SVar:DBDraw:DB$ Draw | Defined$ TargetedPlayer | NumCards$ Z | SubAbility$ DBCle
 SVar:Z:Count$RememberedSize/Minus.1
 SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
 Oracle:Mutate onto Exeggcute {1}{G}{U} [1/1]\nWhenever Exeggutor enters the battlefield or mutates, put three +1/+1 counters on it.\n{X}{GU}: Move up to X +1/+1 counters from Exeggutor onto other creatures. If it's rainy, target player discards cards equal to the number of counters moved this way then draws that many cards minus one.
+
+DeckHints:Name$Exeggcute

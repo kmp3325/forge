@@ -5,3 +5,5 @@ PT:1/1
 K:Caustic
 S:Mode$ Continuous | Affected$ Card.Self | AffectedZone$ Graveyard | EffectZone$ Graveyard | MayPlay$ True | IsPresent$ Island.YouCtrl | PresentCompare$ GE2 | Description$ You may cast CARDNAME from your graveyard as long as you control two or more Islands.
 Oracle:Caustic\nYou may cast Tentacool from your graveyard as long as you control two or more Islands.
+
+DeckHints:Name$Tentacruel

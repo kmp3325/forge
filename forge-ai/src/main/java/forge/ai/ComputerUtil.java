@@ -1081,6 +1081,11 @@ public class ComputerUtil {
             }
         }
 
+        // cast Blitz in main 1 if the creature attacks
+        if (sa.isBlitz() && ComputerUtilCard.doesSpecifiedCreatureAttackAI(ai, card)) {
+            return true;
+        }
+
         // try not to cast Raid creatures in main 1 if an attack is likely
         if ("Count$AttackersDeclared".equals(card.getSVar("RaidTest")) && !cardState.hasKeyword(Keyword.HASTE)) {
             for (Card potentialAtkr: ai.getCreaturesInPlay()) {

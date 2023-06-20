@@ -1,14 +1,9 @@
 Name:Poliwag
-ManaCost:2 U
+ManaCost:U
 Types:Creature Frog Pokémon
 PT:0/1
-T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigWeather | TriggerDescription$ When CARDNAME enters the battlefield, it becomes rainy. Until your next turn, as long as it's rainy, the next spell an opponent casts is countered unless they discard two cards.
-SVar:TrigEffect:DB$ Effect | Triggers$ TrigCastSpell | Duration$ UntilYourNextTurn | Description$ Until your next turn, as long as it's rainy, the next spell an opponent casts is countered unless they discard two cards.
-SVar:TrigCastSpell:Mode$ SpellCast | CheckSVar$ RAIN | SVarCompare$ GE1 | ValidActivatingPlayer$ Player.Opponent | TriggerZone$ Command | Execute$ DBCounter | Static$ True | Description$ As long as it's rainy, the next spell an opponent casts is countered unless they discard two cards.
-SVar:DBCounter:DB$ Counter | Defined$ TriggeredSpellAbility | UnlessCost$ Discard<2/Card> | UnlessPayer$ TriggeredSpellAbilityController | SubAbility$ RemoveEffect
-SVar:RemoveEffect:DB$ ChangeZone | Origin$ Command | Destination$ Exile
-SVar:TrigWeather:DB$ Weather | Value$ Rainy | SubAbility$ TrigEffect
-SVar:RAIN:Count$Rainy.1.0
-Oracle:When Poliwag enters the battlefield, it becomes rainy. Until your next turn, as long as it's rainy, the next spell an opponent casts is countered unless they discard two cards.
+R:Event$ DamageDone | ActiveZones$ Battlefield | ValidSource$ Creature.inZoneBattlefield | ValidTarget$ Card.Self | ReplaceWith$ DBReplace | PreventionEffect$ True | Description$ If a creature would deal damage to CARDNAME, prevent 1 of that damage.
+SVar:DBReplace:DB$ ReplaceDamage | Amount$ 1
+Oracle:If a creature would deal damage to Poliwag, prevent 1 of that damage.
 
 DeckHints:Name$Poliwhirl

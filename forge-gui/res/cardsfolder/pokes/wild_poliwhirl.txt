@@ -3,8 +3,11 @@ ManaCost:2 U
 Types:Creature Frog Pokémon
 PT:2/2
 K:Flash
-T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigWeather | TriggerDescription$ When CARDNAME enters the battlefield, it becomes rainy.
-SVar:TrigWeather:DB$ Weather | Value$ Rainy
-T:Mode$ WeatherChanged | ValidWeather$ Rainy | Execute$ TrigPutCounter | TriggerZones$ Battlefield | TriggerDescription$ Whenever it becomes rainy, put a +1/+1 counter on CARDNAME.
-SVar:TrigPutCounter:DB$ PutCounter | CounterType$ P1P1 | CounterNum$ 1 | Defined$ Self
-Oracle:Flash\nWhen Wild Poliwhirl enters the battlefield, it becomes rainy.\nWhenever it becomes rainy, put a +1/+1 counter on Wild Poliwhirl.
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigWeather | TriggerDescription$ When CARDNAME enters the battlefield, it becomes rainy. Until your next turn, as long as it's rainy, the next spell an opponent casts is countered unless they discard two cards.
+SVar:TrigEffect:DB$ Effect | Triggers$ TrigCastSpell | Duration$ UntilYourNextTurn | Description$ Until your next turn, as long as it's rainy, the next spell an opponent casts is countered unless they discard two cards.
+SVar:TrigCastSpell:Mode$ SpellCast | CheckSVar$ RAIN | SVarCompare$ GE1 | ValidActivatingPlayer$ Player.Opponent | TriggerZone$ Command | Execute$ DBCounter | Static$ True | Description$ As long as it's rainy, the next spell an opponent casts is countered unless they discard two cards.
+SVar:DBCounter:DB$ Counter | Defined$ TriggeredSpellAbility | UnlessCost$ Discard<2/Card> | UnlessPayer$ TriggeredSpellAbilityController | SubAbility$ RemoveEffect
+SVar:RemoveEffect:DB$ ChangeZone | Origin$ Command | Destination$ Exile
+SVar:TrigWeather:DB$ Weather | Value$ Rainy | SubAbility$ TrigEffect
+SVar:RAIN:Count$Rainy.1.0
+Oracle:Flash\nWhen Wild Poliwhirl enters the battlefield, it becomes rainy. Until your next turn, as long as it's rainy, the next spell an opponent casts is countered unless they discard two cards.

@@ -2,11 +2,13 @@ Name:Seel
 ManaCost:2 U
 Types:Creature Walrus Pokémon
 PT:1/2
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigRemoveFrozen | TriggerDescription$ When CARDNAME enters the battlefield, you may remove all frozen counters from target creature. If a frozen counter is removed this way, draw a card.
-SVar:TrigRemoveFrozen:DB$ RemoveCounter | ValidTgts$ Creature | TgtPrompt$ Select target creature | CounterType$ FROZEN | CounterNum$ All | RememberRemoved$ True | SubAbility$ TrigDraw
-SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ 1 | CheckSVar$ X | SVarCompare$ GE1 | SubAbility$ DBCleanup
-SVar:X:Count$RememberedSize
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigBustIce | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters the battlefield or mutates, you may destroy target creature with a frozen counter on it. If a creature is destroyed this way, draw a card. It becomes snowy.
+T:Mode$ Mutates | ValidCard$ Card.Self | Execute$ TrigBustIce | Secondary$ True | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, you may destroy target creature with a frozen counter on it. If a creature is destroyed this way, draw a card. It becomes snowy.
+SVar:TrigBustIce:DB$ Destroy | ValidTgts$ Creature.counters_GE1_FROZEN | TgtPrompt$ Select target creature with a frozen counter on it | RememberDestroyed$ True | SubAbility$ TrigDraw
+SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ X | SubAbility$ TrigSnow
+SVar:X:Count$Remembered$Amount
+SVar:TrigSnow:DB$ Weather | Value$ Snowy | SubAbility$ DBCleanup
 SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
-Oracle:When Seel enters the battlefield, you may remove all frozen counters from target creature. If a frozen counter is removed this way, draw a card.
+Oracle:When Seel enters the battlefield or mutates, you may destroy target creature with a frozen counter on it. If a creature is destroyed this way, draw a card. It becomes snowy.
 
 DeckHints:Name$Dewgong

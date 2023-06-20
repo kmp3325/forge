@@ -2,8 +2,9 @@ Name:Female Nidoran
 ManaCost:1 B
 Types: Creature Dinosaur Rabbit Pokémon
 PT: 1/1
+K:Caustic
 S:Mode$ Continuous | Affected$ Creature.YouCtrl | AddKeyword$ Creatures you control with caustic deal damage to this creature as though they didn't have caustic. | Description$ Creatures you control deal damage to creatures you control as though they didn't have caustic.
-Oracle:Creatures you control deal damage to creatures you control as though they didn't have caustic.
+Oracle:Caustic\nCreatures you control deal damage to creatures you control as though they didn't have caustic.
 
 DeckHints:Name$Nidorina
 DeckNeeds:Keyword$Caustic

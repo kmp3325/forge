@@ -3,8 +3,9 @@ ManaCost:4 B
 Types:Creature Dinosaur Rabbit Pokémon
 PT:3/4
 K:Mutate onto:4 B:Female Nidoran:4/5
-K:Caustic
-Oracle:Mutate onto Female Nidoran {4}{B} [4/5]\nCaustic
+T:Mode$ DamageDone | ValidTarget$ Creature.YouCtrl | CombatDamage$ False | TriggerZones$ Battlefield | Execute$ DBGainLife | TriggerDescription$ Whenever a creature you control is dealt noncombat damage, you gain 2 life.
+SVar:DBGainLife:DB$ GainLife | Defined$ You | LifeAmount$ 2
+Oracle:Mutate onto Female Nidoran {4}{B} [4/5]\nWhenever a creature you control is dealt noncombat damage, you gain 2 life.
 
 DeckHints:Name$Female Nidoran
 DeckHints:Name$Nidoqueen

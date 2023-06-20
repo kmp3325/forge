@@ -1,12 +1,11 @@
 Name:Ponyta
-ManaCost:2 RG RG
+ManaCost:3 RG RG
 Types:Creature Horse Pokémon
 PT:2/2
-K:Haste
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounter | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, you may put a burn counter on target creature. If it's sunny, you may put two burn counters on that creature instead.
 T:Mode$ Mutates | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigPutCounter | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, you may put a burn counter on target creature. If it's sunny, you may put two burn counters on that creature instead.
-SVar:TrigPutCounter:DB$ PutCounter | IsCurse$ True | ValidTgts$ Creature | TgtPrompt$ Select target creature | CounterType$ BURN | CounterNum$ X
-SVar:X:Count$Sunny.2.1
-Oracle:Haste\nWhenever Ponyta enters the battlefield or mutates, you may put a burn counter on target creature. If it's sunny, you may put two burn counters on that creature instead.
+SVar:TrigPutCounter:DB$ PutCounter | IsCurse$ True | ValidTgts$ Creature | TgtPrompt$ Select target creature | CounterType$ BURN | CounterNum$ X | UpTo$ True
+SVar:X:Count$Sunny.4.3
+Oracle:Whenever Ponyta enters the battlefield or mutates, you may put up to three burn counters on target creature. If it's sunny, you may put up to four burn counters on that creature instead.
 
 DeckHints:Name$Rapidash

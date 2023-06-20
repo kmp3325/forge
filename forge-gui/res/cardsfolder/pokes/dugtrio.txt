@@ -5,9 +5,9 @@ PT:3/3
 K:Mutate onto:1 W B:Diglett:3/3
 T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | Execute$ TrigPutCounter | TriggerZones$ Battlefield | TriggerDescription$ At the beginning of your upkeep, put a dig counter on CARDNAME.
 SVar:TrigPutCounter:DB$ PutCounter | CounterNum$ 1 | CounterType$ DIG
-S:Mode$ CantBlockBy | ValidAttacker$ Creature.Self | ValidBlocker$ Creature.powerLEX | Description$ Creatures with power less than CARDNAME's power can't block it.
+S:Mode$ CantBlockBy | ValidAttacker$ Creature.Self | ValidBlocker$ Creature.powerLEX | Description$ CARDNAME can't be blocked by creatures with power less than or equal to the number of dig counters on it.
 SVar:X:Count$CardCounters.DIG
-Oracle:Mutate onto Diglett {1}{W}{B} [3/3]\nAt the beginning of your upkeep, put a dig counter on Dugtrio.\nCreatures with power less than or equal to the number of dig counters on Dugtrio can't block Dugtrio.
+Oracle:Mutate onto Diglett {1}{W}{B} [3/3]\nAt the beginning of your upkeep, put a dig counter on Dugtrio.\nDugtrio can't be blocked by creatures with power less than or equal to the number of dig counters on it.
 
 DeckHints:Name$Diglett
 SVar:HasAttackEffect:TRUE

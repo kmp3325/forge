@@ -3,8 +3,9 @@ ManaCost:4 B
 Types:Creature Dinosaur Rabbit Pokémon
 PT:4/3
 K:Mutate onto:4 B:Male Nidoran:5/4
-K:Caustic
-Oracle:Mutate onto Male Nidoran {4}{B} [5/4]\nCaustic
+T:Mode$ DamageDone | ValidTarget$ Creature.YouCtrl | CombatDamage$ False | TriggerZones$ Battlefield | Execute$ TrigDrain | TriggerDescription$ Whenever a creature you control is dealt noncombat damage, each opponent loses 1 life.
+SVar:TrigDrain:DB$ LoseLife | Defined$ Player.Opponent | LifeAmount$ 1
+Oracle:Mutate onto Male Nidoran {4}{B} [5/4]\nWhenever a creature you control is dealt noncombat damage, each opponent loses 1 life.
 
 DeckHints:Name$Male Nidoran
 DeckHints:Name$Nidoking

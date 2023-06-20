@@ -1,11 +1,11 @@
 Name:Drowzee
-ManaCost:1 UB UB
+ManaCost:3 UB UB
 Types:Creature Boar Pokémon
 PT:1/2
-A:AB$ ChangeZone | Cost$ UB T | Origin$ Graveyard | Destination$ Exile | TgtPrompt$ Select target creature in a graveyard | ValidTgts$ Creature | RememberChanged$ True | SubAbility$ DBGainLife | SpellDescription$ Exile target creature card from a graveyard. You gain life equal to its toughness.
+A:AB$ ChangeZone | Cost$ UB T | Origin$ Graveyard | Destination$ Exile | TgtPrompt$ Select target creature in a graveyard | ValidTgts$ Creature | RememberChanged$ True | SubAbility$ DBGainLife | SpellDescription$ Exile target creature card from a graveyard. You gain life equal to its mana value.
 SVar:DBGainLife:DB$ GainLife | Defined$ You | LifeAmount$ X | SubAbility$ DBCleanup
-SVar:X:Remembered$CardToughness
+SVar:X:Remembered$CardManaCost
 SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
-Oracle:{UB}, {T}: Exile target creature card from a graveyard. You gain life equal to its toughness.
+Oracle:{UB}, {T}: Exile target creature card from a graveyard. You gain life equal to its mana value.
 
 DeckHints:Name$Hypno

@@ -1,11 +1,11 @@
 Name:Granbull
-ManaCost:4 RW
+ManaCost:3 RW RW
 Types:Creature Dog Faerie Pokémon
 PT:3/3
-K:Mutate onto:4 R W:Snubbull:5/4
+K:Mutate onto:4 R W:Snubbull:5/3
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigExile | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, exile target creature.
 T:Mode$ Mutates | ValidCard$ Card.Self | Execute$ TrigExile | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, exile target creature.
 SVar:TrigExile:DB$ ChangeZone | Destination$ Exile | Origin$ Battlefield | ValidTgts$ Creature | TgtPrompt$ Select target creature
-Oracle:Mutate onto Snubbull {4}{R}{W} [5/4]\nWhenever Granbull enters the battlefield or mutates, exile target creature.
+Oracle:Mutate onto Snubbull {4}{R}{W} [5/3]\nWhenever Granbull enters the battlefield or mutates, exile target creature.
 
 DeckHints:Name$Snubbull

@@ -4,8 +4,8 @@ Types:Creature Bat Pokémon
 PT:1/1
 K:Flying
 K:Lifelink
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ DBDealDamage | TriggerDescription$ When CARDNAME enters the battlefield, it deals 2 damage to target creature.
-SVar:DBDealDamage:DB$ DealDamage | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumDmg$ 2
-Oracle:Flying, lifelink\nWhen Zubat enters the battlefield, it deals 2 damage to target creature.
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigDiscard | TriggerDescription$ When CARDNAME enters the battlefield, target player discards a card.
+SVar:TrigDiscard:DB$ Discard | Mode$ TgtChoose | ValidTgts$ Player | TgtPrompt$ Select target player | NumCards$ 1
+Oracle:Flying, lifelink\nWhen Zubat enters the battlefield, target player discards a card.
 
 DeckHints:Name$Golbat

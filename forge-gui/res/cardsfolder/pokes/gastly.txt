@@ -4,8 +4,9 @@ Types:Creature Nightmare Spirit Pokémon
 PT:1/1
 K:Shadow
 K:Caustic
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSac | TriggerDescription$ When CARDNAME enters the battlefield, target player sacrifices a creature.
-SVar:TrigSac:DB$ Sacrifice | ValidTgts$ Player | SacValid$ Creature | SacMessage$ Creature
-Oracle:When Gastly enters the battlefield, target player sacrifices a creature.
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSac | TriggerDescription$ When CARDNAME enters the battlefield, target player sacrifices a creature. It becomes foggy.
+SVar:TrigSac:DB$ Sacrifice | ValidTgts$ Player | SacValid$ Creature | SacMessage$ Creature | SubAbility$ TrigFog
+SVar:TrigFog:DB$ Weather | Value$ Foggy
+Oracle:When Gastly enters the battlefield, target player sacrifices a creature. It becomes foggy.
 
 DeckHints:Name$Haunter

@@ -5,7 +5,7 @@ PT:1/2
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ DBTrigger | TriggerDescription$ When CARDNAME enters the battlefield, put a +1/+1 counter on target creature.
 SVar:DBTrigger:DB$ PutCounter | CounterType$ P1P1 | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature
 A:AB$ RemoveCounter | Cost$ Discard<1/Card> | CounterType$ P1P1 | CounterNum$ 1 | RememberRemoved$ True | SubAbility$ DBDraw | SpellDescription$ Remove a +1/+1 counter from CARDNAME. If a counter is remove this way, draw a card.
-SVar:DBDraw:DB$ Draw | Defined$ Self | NumCards$ 1 | CheckSVar$ X | SVarCompare$ GE1 | SubAbility$ DBCleanup
+SVar:DBDraw:DB$ Draw | Defined$ You | NumCards$ 1 | ConditionCheckSVar$ X | ConditionSVarCompare$ GE1 | SubAbility$ DBCleanup
 SVar:X:Count$RememberedSize
 SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
 Oracle:When Omanyte enters the battlefield, put a +1/+1 counter on target creature.\nDiscard a card: Remove a +1/+1 counter from Omanyte. If a counter is removed this way, draw a card.

@@ -6,7 +6,7 @@ T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.S
 T:Mode$ Mutates | ValidCard$ Card.Self | Execute$ TrigBustIce | Secondary$ True | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, you may destroy target creature with a frozen counter on it. If a creature is destroyed this way, draw a card. It becomes snowy.
 SVar:TrigBustIce:DB$ Destroy | ValidTgts$ Creature.counters_GE1_FROZEN | TgtPrompt$ Select target creature with a frozen counter on it | RememberDestroyed$ True | SubAbility$ TrigDraw
 SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ X | SubAbility$ TrigSnow
-SVar:X:Count$Remembered$Amount
+SVar:X:Remembered$Amount
 SVar:TrigSnow:DB$ Weather | Value$ Snowy | SubAbility$ DBCleanup
 SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
 Oracle:When Seel enters the battlefield or mutates, you may destroy target creature with a frozen counter on it. If a creature is destroyed this way, draw a card. It becomes snowy.

@@ -4,6 +4,6 @@ Types:Creature Squid Pokémon
 PT:3/3
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigGain | TriggerDescription$ When CARDNAME enters the battlefield, you may gain control of target creature until end of turn. If you do, untap it and it gains haste until end of turn.
 SVar:TrigGain:DB$ GainControl | ValidTgts$ Creature | TgtPrompt$ Select target creature | LoseControl$ EOT | Untap$ True | AddKWs$ Haste
-T:Mode$ ChangesController | ValidCard$ Creature.YouDontOwn | TriggerZones$ Battlefield | Execute$ TrigDraw | TriggerDescription$ Whenever you gain control of a creature you don't own, draw a card.
+T:Mode$ ChangesController | ValidCard$ Creature.YouDontOwn | ValidOriginalController$ Player.Other | TriggerZones$ Battlefield | Execute$ TrigDraw | TriggerDescription$ Whenever you gain control of a creature you don't own, draw a card.
 SVar:TrigDraw:DB$ Draw | NumCards$ 1 | Defined$ You
 Oracle:When Team Rocket's Tentacruel enters the battlefield, you may gain control of target creature until end of turn. If you do, untap it and it gains haste until end of turn.\nWhenever you gain control of a creature you don't own, draw a card.

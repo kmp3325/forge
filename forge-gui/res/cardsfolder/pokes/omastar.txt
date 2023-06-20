@@ -1,8 +1,12 @@
 Name:Omastar
-ManaCost:2 GU GU GU
+ManaCost:4 GU GU
 Types:Creature Nautilus Pokémon
 PT:2/6
-K:Mutate onto:2 GU GU GU:Omanyte:3/7
-SVar:TrigPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1
-T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Creature.DamagedBy | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Whenever a creature dealt damage by CARDNAME this turn dies, put a +1/+1 counter on CARDNAME.
-Oracle:Mutate onto Omanyte {2}{GU}{GU}{GU} [3/7]\nWhenever a creature dealt damage by Omastar this turn dies, put a +1/+1 counter on Omastar.
+K:Mutate onto:4 GU GU:Omanyte:3/7
+T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ At the beginning of your upkeep, put a +1/+1 counter on CARDNAME. Then if it has five or more +1/+1 counters on it, sacrifice it and draw five cards.
+SVar:TrigPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ DBSac
+SVar:DBSac:DB$ Destroy | Defined$ Self | Sacrifice$ True | ConditionDefined$ Self | ConditionPresent$ Card.counters_GE5_P1P1 | SubAbility$ DBDraw
+SVar:DBDraw:DB$ Draw | NumCards$ 5 | Defined$ You
+Oracle:Mutate onto Omanyte {4}{GU}{GU} [3/7]\nAt the beginning of your upkeep, put a +1/+1 counter on Omastar. Then if it has five or more +1/+1 counters on it, sacrifice it and draw five cards.
+
+DeckHints:Name$Omanyte

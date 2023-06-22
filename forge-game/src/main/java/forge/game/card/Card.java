@@ -347,6 +347,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
     private ReplacementEffect shieldCounterReplaceDamage = null;
     private ReplacementEffect shieldCounterReplaceDestroy = null;
     private ReplacementEffect stunCounterReplaceUntap = null;
+    private ReplacementEffect frozenCounterReplaceUntap = null;
 
     // Enumeration for CMC request types
     public enum SplitCMCMode {
@@ -6438,6 +6439,16 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
                 stunCounterReplaceUntap.setOverridingAbility(AbilityFactory.getAbility(sa, this));
             }
             list.add(stunCounterReplaceUntap);
+        } else if (game != null && game.isFrozen() && getCounters(CounterEnumType.FROZEN) > 0) {
+            String sa = "DB$ RemoveCounter | Defined$ Self | CounterType$ Frozen | CounterNum$ 1";
+            if (frozenCounterReplaceUntap == null) {
+                String reStr = "Event$ Untap | ActiveZones$ Battlefield | ValidCard$ Card.Self  | Secondary$ True "
+                        + "| Description$ If this permanent would become untapped, instead remove a frozen counter from it.";
+
+                frozenCounterReplaceUntap = ReplacementHandler.parseReplacement(reStr, this, false, null);
+                frozenCounterReplaceUntap.setOverridingAbility(AbilityFactory.getAbility(sa, this));
+            }
+            list.add(frozenCounterReplaceUntap);
         }
     }
 

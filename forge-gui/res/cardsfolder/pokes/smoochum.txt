@@ -1,11 +1,12 @@
 Name:Smoochum
 ManaCost:1 U
 Types:Snow Creature Vampire Demon Pokémon
-PT:1/1
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigTap | TriggerDescription$ When CARDNAME enters the battlefield, tap target creature and put a frozen counter on it.
+PT:0/1
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigTap | TriggerDescription$ When CARDNAME enters the battlefield, tap target creature and put a frozen counter on it. It becomes snowy.
 SVar:TrigTap:DB$ Tap | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigPutCounter
-SVar:TrigPutCounter:DB$ PutCounter | Defined$ Targeted | CounterType$ FROZEN | CounterNum$ 1
+SVar:TrigPutCounter:DB$ PutCounter | Defined$ Targeted | CounterType$ FROZEN | CounterNum$ 1 | SubAbility$ TrigSnow
+SVar:TrigSnow:DB$ Weather | Value$ Snowy
 A:AB$ PutCounter | IsCurse$ True | Cost$ S T | CounterType$ FROZEN | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature | SpellDescription$ Put a frozen counter on target creature.
-Oracle:When Smoochum enters the battlefield, tap target creature and put a frozen counter on it.\n{S}{T}: Put a frozen counter on target creature.
+Oracle:When Smoochum enters the battlefield, tap target creature and put a frozen counter on it. It becomes snowy.\n{S}{T}: Put a frozen counter on target creature.
 
 DeckHints:Name$Jynx

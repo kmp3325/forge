@@ -1,5 +1,5 @@
 Name:Wild Arcanine
-ManaCost:3 R
+ManaCost:4 R
 Types:Creature Wolf Dog Pokémon
 PT:2/2
 K:Flash

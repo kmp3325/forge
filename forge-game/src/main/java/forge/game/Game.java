@@ -126,6 +126,7 @@ public class Game {
     private Boolean daytime = null;
     private Weather weather = null;
     private boolean burning = false;
+    private boolean frozen = false;
 
     private long timestamp = 0;
     public final GameAction action;
@@ -1273,19 +1274,61 @@ public class Game {
         return burning;
     }
 
+    public void setFrozen(boolean frozen) {
+        this.frozen = frozen;
+    }
+
+    public boolean isFrozen() {
+        return frozen;
+    }
+
     public void setWeather(Weather weather, Map<AbilityKey, Object> runParams) {
         Weather previous = this.weather;
         this.weather = weather;
         if (previous == null && weather == null) {
             return;
         }
-        if (previous == null) {
-            getTriggerHandler().runTrigger(TriggerType.WeatherChanged, runParams, false);
-        } else if (!previous.equals(weather)) {
+        if (previous == null || !previous.equals(weather)) {
+            if (weather.equals(Weather.SUNNY)) {
+                doBurn();
+            } else if (weather.equals(Weather.SNOWY)) {
+                setFrozen(true);
+            } else {
+                undoWeather();
+            }
             getTriggerHandler().runTrigger(TriggerType.WeatherChanged, runParams, false);
         }
         if (!isNoWeather()) {
             fireEvent(new GameEventWeatherChanged(weather));
+        }
+    }
+
+    private void doBurn() {
+        setBurning(true);
+        Set<Card> burnedCards = new HashSet<>();
+        for (Card card : getCardsIn(ZoneType.Battlefield)) {
+            if (!card.isCreature() || card.isPhasedOut() || card.getCounters(CounterEnumType.BURN) == 0) {
+                continue;
+            }
+            burnedCards.add(card);
+        }
+        for (Card card : burnedCards) {
+            card.updatePowerToughnessForView();
+        }
+    }
+
+    private void undoWeather() {
+        setBurning(false);
+        setFrozen(false);
+        Set<Card> burnedCards = new HashSet<>();
+        for (Card card : getCardsIn(ZoneType.Battlefield)) {
+            if (!card.isCreature() || card.isPhasedOut() || card.getCounters(CounterEnumType.BURN) == 0) {
+                continue;
+            }
+            burnedCards.add(card);
+        }
+        for (Card card : burnedCards) {
+            card.updatePowerToughnessForView();
         }
     }
 

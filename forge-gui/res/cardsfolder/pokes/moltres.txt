@@ -3,10 +3,8 @@ ManaCost:RG RG RG RG RG RG
 Types:Legendary Creature Bird Pokémon
 PT:7/7
 K:Flying
-T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigPutCounters | TriggerDescription$ Whenever CARDNAME attacks, put a burn counter on each creature defending player controls.
-SVar:TrigPutCounters:DB$ PutCounterAll | IsCurse$ True | ValidCards$ Creature.DefenderCtrl | CounterType$ BURN | CounterNum$ 1
-R:Event$ AddCounter | ValidCounterType$ BURN | ActiveZones$ Battlefield | ValidCard$ Creature.inZoneBattlefield | ReplaceWith$ DoubleCounters | CheckSVar$ SUN | SVarCompare$ GE1 | Description$ As long as it's sunny, if one or more burn counters would be put on a creature, put twice that many on it instead.
-SVar:SUN:Count$Sunny.1.0
-SVar:DoubleCounters:DB$ ReplaceCounter | Amount$ Y
-SVar:Y:ReplaceCount$CounterNum/Twice
-Oracle:Flying\nWhenever Moltres attacks, put a burn counter on each creature defending player controls.\nAs long as it's sunny, if one or more burn counters would be put on a creature, put twice that many burn counters on it instead.
+T:Mode$ Phase | Phase$ Upkeep | TriggerZones$ Battlefield | Execute$ TrigBurn | ValidPlayer$ You | TriggerDescription$ At the beginning of your upkeep, put a burn counter on each other creature.
+SVar:TrigBurn:DB$ PutCounterAll | ValidCards$ Creature.Other | CounterType$ BURN | CounterNum$ 1
+S:Mode$ Continuous | Affected$ Card.Self | AddPower$ X | AddToughness$ X | Description$ CARDNAME gets +1/+1 for each burn counter on creatures you control.
+SVar:X:Count$Valid Creature.YouCtrl$CardCounters.BURN
+Oracle:Flying\nAt the beginning of your upkeep, put a burn counter on each other creature.\nMoltres gets +1/+1 for each burn counter on creatures you control.

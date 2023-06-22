@@ -9,7 +9,7 @@ SVar:X:Count$Valid Food.YouCtrl
 T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | OptionalDecider$ You | Execute$ TrigImmediateTrig | TriggerZones$ Battlefield | TriggerDescription$ At the beginning of your upkeep, you may pay {C}. When you do, create a Food token.
 SVar:TrigImmediateTrig:AB$ ImmediateTrigger | Cost$ C | Execute$ TrigFood | SpellDescription$ At the beginning of your upkeep, you may pay {C}. When you do, create a Food token.
 SVar:TrigFood:DB$ Token | TokenAmount$ 1 | TokenScript$ c_a_food_sac | TokenOwner$ You
-Oracle:Mutate onto Teddiursa {3} [4/4]\n
+Oracle:Mutate onto Teddiursa {3} [4/4]\nUrsaring can't attack unless you scarifice a Food.\nUrsaring gets +1/+1 for each Food you control.\nAt the beginning of your upkeep, you may pay {C}. When you do, create a Food token.
 
 DeckHints:Name$Teddiursa
 SVar:BuffedBy:Food

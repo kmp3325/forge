@@ -1,5 +1,5 @@
 Name:Wild Vulpix
-ManaCost:4 R
+ManaCost:3 R
 Types:Creature Fox Pokémon
 PT:1/1
 K:Flash

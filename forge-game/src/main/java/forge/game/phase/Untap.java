@@ -80,8 +80,8 @@ public class Untap extends Phase {
 
         doUntap();
 
-        doBurn(game.getPhaseHandler().getPlayerTurn());
-        doFrozen(game.getPhaseHandler().getPlayerTurn());
+//        doBurn(game.getPhaseHandler().getPlayerTurn());
+//        doFrozen(game.getPhaseHandler().getPlayerTurn());
     }
 
     /**

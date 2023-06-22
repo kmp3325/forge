@@ -3,8 +3,11 @@ ManaCost:WU WU WU WU WU WU
 Types:Legendary Snow Creature Bird Pokémon
 PT:6/8
 K:Flying
-R:Event$ RemoveCounter | ActiveZones$ Battlefield | ValidCard$ Creature.inZoneBattlefield | ValidCounterType$ FROZEN | Phases$ Untap | ReplaceWith$ ReduceLoss | Description$ Frozen counters can't be removed from creatures during the untap step.
-SVar:ReduceLoss:DB$ ReplaceEffect | VarName$ Result | VarValue$ X
-SVar:X:Count$CardCounters.FROZEN
-A:AB$ PutCounter | IsCurse$ True | Cost$ S S | CounterType$ FROZEN | CounterNum$ 1 | ValidTgts$ Creature.attacking | TgtPrompt$ Select target attacking creature | SpellDescription$ Put a frozen counter on target attacking creature.
-Oracle:Flying\nFrozen counters can't be removed from creatures during the untap step.\n{S}{S}: Put a frozen counter on target attacking creature.
+T:Mode$ Blocks | ValidCard$ Card.Self | Execute$ TrigImmediate | TriggerDescription$ Whenever CARDNAME blocks, you may pay {S}{S}. When you do, target attacking creature phases out. It becomes snowy.
+SVar:TrigImmediate:AB$ ImmediateTrigger | Execute$ TrigPhase | Cost$ S S
+SVar:TrigPhase:DB$ Phases | ValidTgts$ Creature.attacking | TgtPrompt$ Select target creature | SubAbility$ TrigSnow
+SVar:TrigSnow:DB$ Weather | Value$ Snowy
+T:Mode$ PhaseIn | ValidCard$ Creature.OppCtrl | TriggerZones$ Battlefield | Execute$ TrigTap | TriggerDescription$ Whenever a creature your opponents control phases in, tap it and put a frozen counter on it.
+SVar:TrigTap:DB$ Tap | Defined$ TriggeredCardLKICopy | SubAbility$ TrigFrozen
+SVar:TrigFrozen:DB$ PutCounter | Defined$ TriggeredCardLKICopy | CounterType$ FROZEN | CounterNum$ 1 | IsCurse$ True
+Oracle:Flying\nWhenever Articuno blocks, you may pay {S}{S}. When you do, target attacking creature phases out. It becomes snowy.\nWhenever a creature your opponents control phases in, tap it and put a frozen counter on it.

@@ -4,6 +4,7 @@ Types:Creature Fish Pokémon
 PT:3/6
 K:Mutate onto:3 W U:Mantyke:4/7
 K:Flying
-T:Mode$ PhaseIn | ValidCard$ Creature.YouCtrl | Execute$ DBPump | TriggerDescription$ Whenever a creature you control phases in, put a +1/+1 counter on CARDNAME.
-SVar:DBPump:DB$ PutCounter | CounterType$ P1P1 | CounterNum$ 1 | Defined$ Self
-Oracle:Mutate onto Mantyke {3}{W}{U} [4/7]\nFlying\nWhenever a creature you control phases in, put a +1/+1 counter on Mantine.
+T:Mode$ PhaseIn | ValidCard$ Creature.OppCtrl | Execute$ DBDmg | TriggerDescription$ Whenever a creature an opponent controls phases in, CARDNAME deals damage equal to its power to that creature.
+SVar:DBDmg:DB$ DealDamage | NumDmg$ X | Defined$ TriggeredCardLKICopy
+SVar:X:Count$CardPower
+Oracle:Mutate onto Mantyke {3}{W}{U} [4/7]\nFlying\nWhenever a creature an opponent controls phases in, Mantine deals damage equal to its power to that creature.

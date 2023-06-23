@@ -509,6 +509,7 @@ public class PhaseHandler implements java.io.Serializable {
                 if (!bRepeatCleanup) {
                     // only call onCleanupPhase when Cleanup is not repeated
                     game.onCleanupPhase();
+                    game.resetWeatherChangedTracker();
                     // set previous player
                     playerPreviousTurn = this.getPlayerTurn();
                     setPlayerTurn(handleNextTurn());

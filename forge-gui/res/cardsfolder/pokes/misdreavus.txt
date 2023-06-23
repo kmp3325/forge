@@ -3,7 +3,8 @@ ManaCost:5 B
 Types:Creature Spirit Pokémon
 PT:2/2
 K:Shadow
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDestroy | TriggerDescription$ When CARDNAME enters the battlefield, destroy all other creatures with power 3 or less. It becomes foggy.
-SVar:TrigDestroy:DB$ DestroyAll | ValidCards$ Creature.powerLE3+Other | SubAbility$ TrigFog
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDestroy | TriggerDescription$ When CARDNAME enters the battlefield, destroy all other creatures with power 3 or less. Then return target creature card from your graveyard to your hand. It becomes foggy.
+SVar:TrigDestroy:DB$ DestroyAll | ValidCards$ Creature.powerLE3+Other | SubAbility$ TrigReturn
+SVar:TrigReturn:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature in your graveyard | SubAbility$ TrigFog
 SVar:TrigFog:DB$ Weather | Value$ Foggy
-Oracle:Shadow\nWhen Misdreavus enters the battlefield, destroy all other creatures with power 3 or less. It becomes foggy.
+Oracle:Shadow\nWhen Misdreavus enters the battlefield, destroy all other creatures with power 3 or less. Then return target creature card from your graveyard to your hand. It becomes foggy.

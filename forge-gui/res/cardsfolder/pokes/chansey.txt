@@ -3,9 +3,12 @@ ManaCost:4 W U
 Types:Creature Rabbit Pokémon
 PT:2/8
 K:Mutate onto:4 W U:Happiny:2/10
-T:Mode$ PhaseIn | ValidCard$ Creature.YouCtrl | Execute$ DBHeal | Optional$ True | OptionalDecider$ You | TriggerDescription$ Whenever a creature you control phases in, you may remove any number of counters from it.
-SVar:DBHeal:DB$ RemoveCounter | Defined$ TriggeredCardLKICopy | CounterType$ Any | CounterNum$ Any
+T:Mode$ PhaseIn | ValidCard$ Creature.YouCtrl | Execute$ DBHeal | TriggerZones$ Battlefield | TriggerDescription$ Whenever a creature you control phases in, remove any number of counters from it. If any counters are removed this way, scry 2.
+SVar:DBHeal:DB$ RemoveCounter | Defined$ TriggeredCardLKICopy | CounterType$ Any | CounterNum$ Any | RememberRemoved$ True | SubAbility$ DBScry
+SVar:DBScry:DB$ Scry | ConditionCheckSVar$ X | ConditionSVarCompare$ GE1 | ScryNum$ 2 | StackDescription$ {p:You} scries 2 | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:X:Count$RememberedSize
 A:AB$ Phases | Cost$ W U | ValidTgts$ Creature.YouCtrl | ActivationLimit$ 1 | ActivationSpeed$ Sorcery | TgtPrompt$ Select target creature you control | SpellDescription$ Target creature you control phases out.
-Oracle:Mutate onto Happiny {4}{W}{U} [2/10]\nWhenever a creature you control phases in, you may remove any number of counters from it.\n{W}{U}: Target creature you control phases out. Activate only as a sorcery and only once each turn.
+Oracle:Mutate onto Happiny {4}{W}{U} [2/10]\nWhenever a creature you control phases in, remove any number of counters from it. If any counters are removed this way, scry 2.\n{W}{U}: Target creature you control phases out. Activate only as a sorcery and only once each turn.
 
 DeckHints:Name$Blissey

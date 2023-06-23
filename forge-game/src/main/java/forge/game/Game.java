@@ -124,6 +124,7 @@ public class Game {
     private Direction turnOrder = Direction.getDefaultDirection();
 
     private Boolean daytime = null;
+    private boolean weatherChangedThisTurn = false;
     private Weather weather = null;
     private boolean burning = false;
     private boolean frozen = false;
@@ -1296,6 +1297,7 @@ public class Game {
             } else {
                 undoWeather();
             }
+            weatherChangedThisTurn = true;
             getTriggerHandler().runTrigger(TriggerType.WeatherChanged, runParams, false);
         }
         if (!isNoWeather()) {
@@ -1354,5 +1356,13 @@ public class Game {
 
     public boolean isNoWeather() {
         return weather == null;
+    }
+
+    public boolean hasWeatherChangedThisTurn() {
+        return weatherChangedThisTurn;
+    }
+
+    public void resetWeatherChangedTracker() {
+        weatherChangedThisTurn = false;
     }
 }

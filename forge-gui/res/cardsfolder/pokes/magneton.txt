@@ -1,8 +1,8 @@
 Name:Magneton
-ManaCost:5 UR
+ManaCost:4 UR
 Types:Artifact Creature Construct Pokémon
 PT:4/3
-K:Mutate onto:5 UR:Magnemite:5/4
+K:Mutate onto:4 UR:Magnemite:5/4
 K:Steel skin
 T:Mode$ Mutates | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, put a stun counter on each of up to three target creatures. Tap those creatures.
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, put a stun counter on each of up to three target creatures. Tap those creatures.

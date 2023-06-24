@@ -1,5 +1,5 @@
 Name:Skarmory
-ManaCost:2 G W
+ManaCost:2 GW GW
 Types:Creature Bird Pokémon
 PT:2/5
 K:Flying

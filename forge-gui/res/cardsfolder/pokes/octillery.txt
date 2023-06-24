@@ -1,8 +1,8 @@
 Name:Octillery
-ManaCost:4 U
+ManaCost:2 U
 Types:Creature Octopus Pokémon
 PT:3/2
-K:Mutate onto:4 U:Remoraid:4/3
+K:Mutate onto:2 U:Remoraid:4/3
 A:AB$ Effect | Cost$ U T | SubAbility$ Eject | ValidTgts$ Creature.powerLEX | StaticAbilities$ Unblockable | RememberObjects$ Targeted | SpellDescription$ Target creature with power less than or equal to CARDNAME's power can't be blocked until end of turn.
 SVar:Unblockable:Mode$ CantBlockBy | ValidAttacker$ Card.IsRemembered | Description$ {c:Targeted} can't be blocked until end of turn.
 SVar:Eject:DB$ ChangeZone | Defined$ Self | Origin$ Command | Destination$ Exile

@@ -4,8 +4,8 @@ Types:Creature Dinosaur Pokémon
 PT:3/3
 K:Mutate onto:3 W B:Cubone:4/4
 T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigDmg | TriggerDescription$ Whenever CARDNAME attacks, it deals 1 damage to another target creature. If a creature you control is dealt damage this way, CARDNAME gains menace until end of turn.
-SVar:TrigDmg:DB$ DealDamage | ValidTgts$ Creature.Other | NumDmg$ 1 | RememberDamaged$ True | SubAbility$ TrigPump
-SVar:TrigPump:DB$ Pump | Defined$ Self | ConditionDefined$ Remembered | ConditionPresent$ Creature.YouCtrl | ConditionCompare$ EQ1 | ConditionDescription$ If a creature you control is dealt damage this way, CARDNAME gains menace until end of turn. | KW$ Menace | SubAbility$ DBCleanup
+SVar:TrigDmg:DB$ DealDamage | ValidTgts$ Creature.Other | NumDmg$ 1 | RememberTargets$ True | SubAbility$ TrigPump
+SVar:TrigPump:DB$ Pump | Defined$ Self | ConditionDefined$ Remembered | ConditionPresent$ Creature.YouCtrl | KW$ Menace | SubAbility$ DBCleanup
 SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
 Oracle:Mutate onto Cubone {1}{W}{B} [4/4]\nWhenever Marowak attacks, it deals 1 damage to another target creature. If a creature you control is dealt damage this way, Marowak gains menace until end of turn.
 

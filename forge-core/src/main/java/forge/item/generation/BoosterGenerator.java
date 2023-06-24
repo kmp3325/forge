@@ -414,9 +414,9 @@ public class BoosterGenerator {
             while (numMissed > 0) {
                 double roll = Math.random();
                 PrintSheet ps;
-                if (roll < .2) {
+                if (roll < .1) {
                     ps = getPrintSheet("Mythic PKM");
-                } else if (roll > .2 && roll < .5) {
+                } else if (roll > .1 && roll < .25) {
                     ps = getPrintSheet("Rare PKM");
                 } else {
                     ps = getPrintSheet("Uncommon PKM");

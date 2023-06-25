@@ -2,10 +2,9 @@ Name:Phanpy
 ManaCost:3 W
 Types:Creature Elephant Pokémon
 PT:4/4
-T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Battlefield | Destination$ Any | Execute$ TrigGain | TriggerDescription$ Whenever CARDNAME leaves the battlefield or phases out, you gain life equal to its power.
-T:Mode$ PhaseOut | ValidCard$ Card.phasedOutSelf | Execute$ TrigGain | Secondary$ True | TriggerDescription$ Whenever CARDNAME leaves the battlefield or phases out, you gain life equal to its power.
-SVar:TrigGain:DB$ GainLife | LifeAmount$ X | Defined$ You
-SVar:X:Count$CardPower
-Oracle:Whenever Phanpy leaves the battlefield or phases out, you gain life equal to its power.
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Battlefield | Destination$ Any | Execute$ TrigArt | TriggerDescription$ Whenever CARDNAME leaves the battlefield or phases out, destroy target artifact.
+T:Mode$ PhaseOut | ValidCard$ Card.phasedOutSelf | Execute$ TrigArt | Secondary$ True | TriggerDescription$ Whenever CARDNAME leaves the battlefield or phases out, destroy target artifact.
+SVar:TrigArt:DB$ Destroy | ValidTgts$ Artifact | TgtPrompt$ Select target artifact
+Oracle:Whenever Phanpy leaves the battlefield or phases out, destroy target artifact.
 
 DeckHints:Name$Donphan

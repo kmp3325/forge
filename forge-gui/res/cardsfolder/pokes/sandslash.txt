@@ -5,6 +5,8 @@ PT:3/3
 K:Mutate onto:2 W B:Sandshrew:4/4
 K:First strike
 K:Vigilance
-Oracle:Mutate onto Sandshrew {2}{W}{B} [4/4]\nFirst strike, vigilance
+T:Mode$ DamageDoneOnce | Execute$ TrigPump | ValidTarget$ Card.Self | TriggerZones$ Battlefield | CombatDamage$ False | TriggerDescription$ Whenever Sandslash is dealt noncombat damage, it gets +1/+0 until end of turn.
+SVar:TrigPump:DB$ Pump | Defined$ Self | NumAtt$ 1
+Oracle:Mutate onto Sandshrew {2}{W}{B} [4/4]\nFirst strike, vigilance\nWhenever Sandslash is dealt noncombat damage, it gets +1/+0 until end of turn.
 
 DeckHints:Name$Sandshrew

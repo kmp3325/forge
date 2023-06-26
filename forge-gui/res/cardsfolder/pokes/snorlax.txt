@@ -1,12 +1,11 @@
 Name:Snorlax
 ManaCost:W W B
 Types:Creature Bear Pokémon
-PT:2/6
-K:Mutate onto:W W B:Munchlax:2/8
+PT:2/7
+K:Mutate onto:W W B:Munchlax:2/9
+K:CARDNAME can block as though it were untapped.
 T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigTap | TriggerDescription$ At the beginning of your upkeep, you may pay {W}{W}{B}. If you don't, tap CARDNAME.
 SVar:TrigTap:DB$ Tap | ValidCards$ Card.Self | UnlessCost$ W W B | UnlessPayer$ You | UnlessResolveSubs$ WhenNotPaid
-T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigDealDamage | TriggerDescription$ Whenever CARDNAME attacks, it deals 1 damage to another target creature you control.
-SVar:TrigDealDamage:DB$ DealDamage | ValidTgts$ Creature.YouCtrl+Other | TgtPrompt$ Select another target creature you control | NumDmg$ 1
-T:Mode$ DamageDone | ValidSource$ Creature.YouCtrl | ValidTarget$ Creature.YouCtrl | ActiveZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Whenever a creature you control is dealt damage by a creature you control, put a +1/+1 counter on CARDNAME.
-SVar:TrigPutCounter:DB$ PutCounter | CounterType$ P1P1 | CounterNum$ 1 | Defined$ Self
-Oracle:Mutate onto {W}{W}{B} [2/8]\nAt the beginning of your upkeep, you may pay {W}{W}{B}. If you don't, tap Snorlax.\nWhenever Snorlax attacks, it deals 1 damage to another target creature you control.\nWhenever a creature you control is dealt damage by another creature you control, put a +1/+1 counter on Snorlax.
+T:Mode$ Blocks | ConditionDefined$ Card.Self | ConditionPresent$ Creature.tapped | Execute$ TrigBigHurt | TriggerDescription$ Whenever CARDNAME blocks, if it’s tapped, it deals 3 damage, divided as you choose among one, two, or three other target creatures you control.
+SVar:TrigBigHurt:DB$ DealDamage | ValidTgts$ Creature.Other+YouCtrl | TgtPrompt$ Select another target creature you control to distribute damage to | NumDmg$ 3 | TargetMin$ 1 | TargetMax$ 3 | DividedAsYouChoose$ 3
+Oracle:Mutate onto {W}{W}{B} [2/8]\nAt the beginning of your upkeep, you may pay {W}{W}{B}. If you don't, tap Snorlax.\nSnorlax can block as though it were untapped.\nWhenever Snorlax blocks, if it’s tapped, it deals 3 damage, divided as you choose among one, two, or three other target creatures you control.

@@ -3,9 +3,11 @@ ManaCost:4 U U
 Types:Snow Creature Walrus Pokémon
 PT:4/7
 K:Mutate onto:4 U U:Seel:5/7
+A:AB$ Weather | Cost$ 3 S | Value$ Snowy | SubAbility$ DBTapAll | SpellDescription$ It becomes snowy. Tap all creatures with a frozen counter on them.
+SVar:DBTapAll:DB$ TapAll | ValidCards$ Creature.counters_GE1_FROZEN
 A:AB$ PutCounter | IsCurse$ True | Cost$ 3 S T | ValidTgts$ Creature | TgtPrompt$ Select target creature | CounterType$ FROZEN | CounterNum$ 1 | SubAbility$ DePump | SpellDescription$ Put a frozen counter on target creature. If it's snowy, that creature gets -2/-2 until end of turn.
 SVar:DePump:DB$ Pump | NumAtt$ X | NumDef$ X | Defined$ Targeted
 SVar:X:Count$Snowy.2.0
-Oracle:Mutate onto Seel {4}{U}{U} [5/7]\n{3}{S}, {T}: Put a frozen counter on target creature. If it's snowy, that creature gets -2/-2 until end of turn.
+Oracle:Mutate onto Seel {4}{U}{U} [5/7]\n{3}{S}: It becomes snowy. Tap all creatures with a frozen counter on them.\n{S}, {T}: Put a frozen counter on target creature. If it's snowy, that creature gets -2/-2 until end of turn.
 
 DeckHints:Name$Seel

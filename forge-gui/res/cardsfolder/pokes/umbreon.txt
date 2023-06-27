@@ -3,11 +3,14 @@ ManaCost:2 B B
 Types:Creature Dog Fox Pokémon
 PT:3/5
 K:Mutate onto:2 B B:Eevee:4/6
-S:Mode$ Continuous | Affected$ Creature.YouCtrl | CheckSVar$ FOG | SVarCompare$ GE1 | AddKeyword$ CARDNAME can block creatures with shadow as though they didn't have shadow. | Description$ Creatures you control can block creatures with shadow as though they didn't have shadow.
+T:Mode$ BecomesTarget | ValidTarget$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigPump | TriggerDescription$ Whenever CARDNAME becomes the target of a spell or ability, it gains caustic until end of turn.
+SVar:TrigPump:DB$ Pump | Defined$ Self | KW$ Caustic
+T:Mode$ Blocks | ValidCard$ Card.Self | Execute$ TrigPhaseOut | CheckSVar$ FOG | SVarCompare$ GE1 | TriggerDescription$ Whenever CARDNAME blocks, if it's foggy, you may pay {B}{B}. If you do, it phases out until end of combat. When it phases in, it deals 2 damage to target creature and 1 damage to itself.
+SVar:TrigPhaseOut:AB$ Phases | Cost$ B B | Defined$ Self | WontPhaseInNormal$ True | Duration$ UntilEndOfCombat | SubAbility$ PhaseInTrig
 SVar:FOG:Count$Foggy.1.0
-T:Mode$ LifeGained | ValidPlayer$ You | TriggerZones$ Battlefield | CheckSVar$ MUTATED | SVarCompare$ GE1 | Execute$ TrigDrain | OptionalDecider$ You | TriggerDescription$ Whenever you gain life, if CARDNAME is mutated, each opponent loses 1 life.
-SVar:MUTATED:Count$TimesMutated
-SVar:TrigDrain:DB$ LoseLife | Defined$ Opponent | LifeAmount$ 1
-Oracle:Mutate onto Eevee {2}{B}{B} [4/6]\nCreatures you control can block creatures with shadow as though they didn't have shadow as long as it's foggy.\nWhenever you gain life, if Umbreon is mutated, each opponent loses 1 life.
+SVar:PhaseInTrig:DB$ DelayedTrigger | Mode$ PhaseIn | ValidCard$ Card.Self | Execute$ DBDmgOther | TriggerDescription$ When CARDNAME phases in, it deals 2 damage to target creature and 1 damage to itself.
+SVar:DBDmgOther:DB$ DealDamage | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumDmg$ 2 | SubAbility$ DmgSelf
+SVar:DmgSelf:DB$ DealDamage | Defined$ Self | NumDmg$ 1
+Oracle:Mutate onto Eevee {2}{B}{B} [4/6]\nWhenever Umbreon becomes the target of a spell or ability, it gains caustic until end of turn.\nWhenever Umbreon blocks, if it's foggy, you may pay {b}{b}. When you do, it phases out until end of combat. When it phases in, it deals 2 damage to target creature and 1 damage to itself.
 
 DeckHints:Name$Eevee

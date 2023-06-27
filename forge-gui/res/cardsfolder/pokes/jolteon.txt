@@ -1,13 +1,14 @@
 Name:Jolteon
 ManaCost:2 R R
 Types:Creature Dog Pokémon
-PT:4/3
-K:Mutate onto:2 R R:Eevee:5/4
+PT:5/3
+K:Mutate onto:2 R R:Eevee:6/4
 K:First strike
-T:Mode$ LifeGained | ValidPlayer$ You | TriggerZones$ Battlefield | CheckSVar$ MUTATED | SVarCompare$ GE1 | Execute$ TrigTap | TriggerDescription$ Whenever you gain life, if CARDNAME is mutated, tap target creature and put a stun counter on it.
-SVar:MUTATED:Count$TimesMutated
-SVar:TrigTap:DB$ Tap | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigPutCounter
-SVar:TrigPutCounter:DB$ PutCounter | IsCurse$ True | CounterType$ STUN | CounterNum$ 1 | Defined$ Targeted
-Oracle:Mutate onto Eevee {2}{R}{R} [5/4]\nFirst strike\nWhenever you gain life, if Jolteon is mutated, you may tap target creature and put a stun counter on it.
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigFlip | TriggerDescription$ Whenever CARDNAME attacks, flip a coin unless you pay {U}{R}. If you lose the flip, tap another target creature you control and put a stun counter on it. CARDNAME deals 1 damage to that creature.
+SVar:TrigFlip:DB$ FlipACoin | Caller$ You | LoseSubAbility$ TrigTap | UnlessCost$ U R | ValidTgts$ Creature.YouCtrl+Other | TrgPrompt$ Select target creature you control
+SVar:TrigTap:DB$ Tap | Defined$ Targeted | SubAbility$ TrigStun
+SVar:TrigStun:DB$ PutCounter | CounterType$ STUN | CounterNum$ 1 | Defined$ Targeted | SubAbility$ TrigDmg
+SVar:TrigDmg:DB$ DealDamage | NumDmg$ 1 | Defined$ Targeted
+Oracle:Mutate onto Eevee {2}{R}{R} [6/4]\nFirst strike\nWhenever CARDNAME attacks, flip a coin unless you pay {U}{R}. If you lose the flip, tap another target creature you control and put a stun counter on it. CARDNAME deals 1 damage to that creature.
 
 DeckHints:Name$Eevee

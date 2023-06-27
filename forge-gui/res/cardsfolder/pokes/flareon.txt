@@ -4,9 +4,8 @@ Types:Creature Fox Pokémon
 PT:5/3
 K:Mutate onto:2 R R:Eevee:6/4
 K:Scorching
-T:Mode$ LifeGained | ValidPlayer$ You | TriggerZones$ Battlefield | CheckSVar$ MUTATED | SVarCompare$ GE1 | Execute$ TrigSun | Optional$ True | TriggerDescription$ Whenever you gain life, if CARDNAME is mutated, it becomes sunny.
-SVar:MUTATED:Count$TimesMutated
-SVar:TrigSun:DB$ Weather | Value$ Sunny
-Oracle:Mutate onto Eevee {2}{R}{R} [6/4]\nScorching\nWhenever you gain life, if Flareon is mutated, it becomes sunny.
+S:Mode$ Continuous | Affected$ Card.Self | CheckSVar$ SUN | SVarCompare$ GE1 | AddToughness$ +2 | Description$ CARDNAME gets +0/+2 as long as it's sunny.
+SVar:SUN:Count$Sunny.1.0
+Oracle:Mutate onto Eevee {2}{R}{R} [6/4]\nScorching\nFlareon gets +0/+2 as long as it's sunny.
 
 DeckHints:Name$Eevee

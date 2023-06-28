@@ -1,5 +1,5 @@
 Name:Wild Onix
-ManaCost:4 2G G
+ManaCost:4 2G G G
 Types:Creature Golem Serpent Pokémon
 PT:2/3
 K:Flash

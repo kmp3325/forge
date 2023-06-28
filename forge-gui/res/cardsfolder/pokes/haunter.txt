@@ -3,12 +3,11 @@ ManaCost:B B B
 Types:Creature Nightmare Spirit Pokémon
 PT:2/2
 K:Mutate onto:B B B:Gastly:3/2
-K:Shadow
 K:Caustic
 T:Mode$ Mutates | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigDiscard | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, you may discard a card. If you do, return up to two target creature cards from your graveyard to your hand.
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDiscard | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, you may discard a card. If you do, return up to two target creature cards from your graveyard to your hand.
 SVar:TrigDiscard:AB$ ChangeZone | Cost$ Discard<1/Card> | Origin$ Graveyard | Destination$ Hand | TargetMin$ 0 | TargetMax$ 2 | TgtPrompt$ Select up to two target creature cards in your graveyard | ValidTgts$ Creature.YouOwn
-Oracle:Mutate onto Gastly {B}{B}{B} [3/2]\nShadow, caustic\nWhenever Haunter enters the battlefield or mutates, you may discard a card. If you do, return up to two target creature cards from your graveyard to your hand.
+Oracle:Mutate onto Gastly {B}{B}{B} [3/2]\nCaustic\nWhenever Haunter enters the battlefield or mutates, you may discard a card. If you do, return up to two target creature cards from your graveyard to your hand.
 
 DeckHints:Name$Gastly
 DeckHints:Name$Gengar

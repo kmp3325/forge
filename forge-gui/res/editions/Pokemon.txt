@@ -290,8 +290,8 @@ Foil=NotSupported
 278 U Wild Arcanine
 279 C Wild Cyndaquil
 280 C Wild Typhlosion
-281 U Wild Beedrill
-282 C Wild Gloom
+281 C Wild Venusaur
+282 U Wild Beedrill
 283 C Wild Onix
 284 U Wild Rhydon
 285 U Wild Scyther

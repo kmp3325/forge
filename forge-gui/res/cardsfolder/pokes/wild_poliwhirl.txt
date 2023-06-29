@@ -1,13 +1,10 @@
 Name:Wild Poliwhirl
-ManaCost:2 U
+ManaCost:2 U U
 Types:Creature Frog Pokémon
 PT:2/2
-K:Flash
-T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigWeather | TriggerDescription$ When CARDNAME enters the battlefield, it becomes rainy. Until your next turn, as long as it's rainy, the next spell an opponent casts is countered unless they discard two cards.
-SVar:TrigEffect:DB$ Effect | Triggers$ TrigCastSpell | Duration$ UntilYourNextTurn | Description$ Until your next turn, as long as it's rainy, the next spell an opponent casts is countered unless they discard two cards.
-SVar:TrigCastSpell:Mode$ SpellCast | CheckSVar$ RAIN | SVarCompare$ GE1 | ValidActivatingPlayer$ Player.Opponent | TriggerZone$ Command | Execute$ DBCounter | Static$ True | Description$ As long as it's rainy, the next spell an opponent casts is countered unless they discard two cards.
-SVar:DBCounter:DB$ Counter | Defined$ TriggeredSpellAbility | UnlessCost$ Discard<2/Card> | UnlessPayer$ TriggeredSpellAbilityController | SubAbility$ RemoveEffect
-SVar:RemoveEffect:DB$ ChangeZone | Origin$ Command | Destination$ Exile
-SVar:TrigWeather:DB$ Weather | Value$ Rainy | SubAbility$ TrigEffect
-SVar:RAIN:Count$Rainy.1.0
-Oracle:Flash\nWhen Wild Poliwhirl enters the battlefield, it becomes rainy. Until your next turn, as long as it's rainy, the next spell an opponent casts is countered unless they discard two cards.
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigWeather | TriggerDescription$ When CARDNAME enters the battlefield, it becomes rainy. Then each opponent discards two cards, mills two cards, and you scry 2.
+SVar:TrigWeather:DB$ Weather | Value$ Rainy | SubAbility$ TrigDiscard
+SVar:TrigDiscard:DB$ Discard | Defined$ Player.Opponent | NumCards$ 2 | SubAbility$ TrigMill
+SVar:TrigMill:DB$ Mill | Defined$ Player.Opponent | NumCards$ 2 | SubAbility$ TrigScry
+SVar:TrigScry:DB$ Scry | Defined$ You | ScryNum$ 2
+Oracle:When Wild Poliwhirl enters the battlefield, it becomes rainy. Then each opponent discards two cards, mills two cards, and you scry 2.

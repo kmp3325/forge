@@ -1,7 +1,7 @@
 Name:Wild Typhlosion
 ManaCost:4 R
 Types:Creature Bear Mouse Pokémon
-PT:3/3
+PT:4/4
 K:Flash
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigDestroy | TriggerDescription$ When CARDNAME enters the battlefield, destroy target artifact, land, or creature with steel skin.
 SVar:TrigDestroy:DB$ Destroy | ValidTgts$ Artifact,Land,Creature.withSteel skin | TgtPrompt$ Select target artifact, land, or creature with steel skin

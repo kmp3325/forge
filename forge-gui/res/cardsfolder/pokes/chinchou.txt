@@ -2,7 +2,8 @@ Name:Chinchou
 ManaCost:1 UR UR
 Types:Creature Fish Pokémon
 PT:1/1
-A:AB$ PutCounter | IsCurse$ True | Cost$ U R | ValidTgts$ Creature | TgtPrompt$ Select target creature | CounterType$ STUN | CounterNum$ 1 | ActivationLimit$ 1 | SorcerySpeed$ True | SpellDescription$ Put a stun counter on target creature. Activate only as a sorcery and only once each turn.
-Oracle:{U}{R}: Put a stun counter on target creature. Activate only as a sorcery and only once each turn.
+A:AB$ PutCounter | IsCurse$ True | Cost$ UR T | ValidTgts$ Creature | TgtPrompt$ Select target creature | CounterType$ STUN | CounterNum$ 1 | SorcerySpeed$ True | SubAbility$ DBPutCounterSelf | SpellDescription$ Put a stun counter on target creature and on CARDNAME. Activate only as a sorcery.
+SVar:DBPutCounterSelf:DB$ PutCounter | Defined$ Self | CounterNum$ 1 | CounterType$ STUN
+Oracle:{UR}, {T}: Put a stun counter on target creature and on Chinchou. Activate only as a sorcery.
 
 DeckHints:Name$Lanturn

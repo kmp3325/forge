@@ -3,8 +3,8 @@ ManaCost:4 2B B
 Types:Creature Spirit Horror Pokémon
 PT:1/1
 K:Flash
-K:Shadow
+K:Caustic
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigDestroy | TriggerDescription$ When CARDNAME enters the battlefield, destroy target creature. It becomes foggy.
 SVar:TrigDestroy:DB$ Destroy | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigFog
 SVar:TrigFog:DB$ Weather | Value$ Foggy
-Oracle:Flash\nShadow\nCaustic\nWhen Wild Gastly enters the battlefield, destroy target creature. It becomes foggy.
+Oracle:Flash\nCaustic\nWhen Wild Gastly enters the battlefield, destroy target creature. It becomes foggy.

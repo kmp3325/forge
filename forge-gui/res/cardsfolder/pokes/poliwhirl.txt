@@ -3,11 +3,9 @@ ManaCost:4 UR
 Types:Creature Frog Pokémon
 PT:3/4
 K:Mutate onto:4 UR:Poliwag:3/5
-A:AB$ Tap | Cost$ T | ValidTgts$ Creature | TgtPrompt$ Select target creature | TargetMin$ 0 | TargetMax$ X | SubAbility$ DBStun | SpellDescription$ Tap target creature. If Poliwhirl has mutated at least twice, tap up to two target creatures instead. Put a stun counter on each creature tapped this way.
-SVar:X:Count$Compare Y GE2.2.1
-SVar:Y:Count$TimesMutated
-SVar:DBStun:DB$ PutCounter | IsCurse$ True | CounterType$ STUN | CounterNum$ 1 | Defined$ Targeted
-Oracle:Mutate onto Poliwag {4}{UR} [3/5]\n{T}: Tap target creature. If Poliwhirl has mutated at least twice, tap up to two target creatures instead. Put a stun counter on each creature tapped this way.
+A:AB$ Tap | Cost$ T | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ DBStun | SpellDescription$ Tap target creature. If that creature is an Insect, put a stun counter on it.
+SVar:DBStun:DB$ PutCounter | CounterNum$ 1 | CounterType$ STUN | Defined$ Targeted | ConditionDefined$ Targeted | ConditionPresent$ Creature.Insect
+Oracle:Mutate onto Poliwag {4}{UR} [3/5]\n{T}: Tap target creature. If that creature is an Insect, put a stun counter on it.
 
 DeckHints:Name$Poliwag
 DeckHints:Name$Poliwrath

@@ -261,66 +261,66 @@ Foil=NotSupported
 249 M Lugia
 250 M Ho-Oh
 251 M Celebi
-252 U Team Rocket's Beedrill
-253 U Team Rocket's Arbok
-254 C Team Rocket's Meowth
-255 U Team Rocket's Tentacruel
-256 U Team Rocket's Hitmonchan
-257 C Team Rocket's Lickitung
-258 U Team Rocket's Weezing
-259 U Team Rocket's Rhyhorn
-260 R Team Rocket's Rhydon
-261 C Team Rocket's Magikarp
-262 M Team Rocket's Gyarados
-263 R Giovanni's Persian
-264 M Giovanni's Armor
-265 C Wild Pidgey
-266 U Wild Pidgeot
-267 U Wild Raticate
-268 U Wild Fearow
-269 U Wild Tauros
-270 U Wild Poliwhirl
-271 U Wild Tentacool
-272 U Wild Lapras
-273 C Wild Zubat
-274 C Wild Gastly
-275 C Wild Charmander
-276 C Wild Vulpix
-277 U Wild Ninetales
-278 U Wild Arcanine
-279 C Wild Cyndaquil
-280 C Wild Typhlosion
-281 C Wild Venusaur
-282 U Wild Beedrill
-283 C Wild Onix
-284 U Wild Rhydon
-285 U Wild Scyther
-286 U Wild Kabutops
-287 C Wild Bellossom
-288 U Great Ball
-289 R Ultra Ball
-290 M Master Ball
-291 C Glacier Badge
-292 C Zephyr Badge
-293 C Earth Badge
-294 C Storm Badge
-295 C Mineral Badge
-296 C Marsh Badge
-297 C Thunder Badge
-298 C Cascade Badge
-299 C Fog Badge
-300 C Hive Badge
-301 C Volcano Badge
-302 L Snow-Covered Plains
-303 L Snow-Covered Island
-304 L Snow-Covered Swamp
-305 L Snow-Covered Mountain
-306 L Snow-Covered Forest
-307 L Plains
-308 L Island
-309 L Swamp
-310 L Mountain
-311 L Forest
+9940 U Team Rocket's Beedrill
+9941 U Team Rocket's Arbok
+9942 C Team Rocket's Meowth
+9943 U Team Rocket's Tentacruel
+9944 U Team Rocket's Hitmonchan
+9945 C Team Rocket's Lickitung
+9946 U Team Rocket's Weezing
+9947 U Team Rocket's Rhyhorn
+9948 R Team Rocket's Rhydon
+9949 C Team Rocket's Magikarp
+9950 M Team Rocket's Gyarados
+9951 R Giovanni's Persian
+9952 M Giovanni's Armor
+9953 C Wild Pidgey
+9954 U Wild Pidgeot
+9955 U Wild Raticate
+9956 U Wild Fearow
+9957 U Wild Tauros
+9958 U Wild Poliwhirl
+9959 U Wild Tentacool
+9960 U Wild Lapras
+9961 C Wild Zubat
+9962 C Wild Gastly
+9963 C Wild Charmander
+9964 C Wild Vulpix
+9965 U Wild Ninetales
+9966 U Wild Arcanine
+9967 C Wild Cyndaquil
+9968 C Wild Typhlosion
+9969 C Wild Venusaur
+9970 U Wild Beedrill
+9971 C Wild Onix
+9972 U Wild Rhydon
+9973 U Wild Scyther
+9974 U Wild Kabutops
+9975 C Wild Bellossom
+9976 U Great Ball
+9977 R Ultra Ball
+9978 M Master Ball
+9979 C Glacier Badge
+9980 C Zephyr Badge
+9981 C Earth Badge
+9982 C Storm Badge
+9983 C Mineral Badge
+9984 C Marsh Badge
+9985 C Thunder Badge
+9986 C Cascade Badge
+9987 C Fog Badge
+9988 C Hive Badge
+9989 C Volcano Badge
+9990 L Snow-Covered Plains
+9991 L Snow-Covered Island
+9992 L Snow-Covered Swamp
+9993 L Snow-Covered Mountain
+9994 L Snow-Covered Forest
+9995 L Plains
+9996 L Island
+9997 L Swamp
+9998 L Mountain
+9999 L Forest
 
 [Snow Lands]
 5 Snow-Covered Plains|PKM

@@ -3,9 +3,8 @@ ManaCost:3 G W U
 Types:Creature Faerie Rabbit Pokémon
 PT:2/8
 K:Mutate onto:3 G W U:Chansey:3/10
-T:Mode$ Mutates | ValidCard$ Card.Self | Execute$ TrigCounterHeal | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME mutates, you may remove any number of counters from among creatures you control.
-SVar:TrigCounterHeal:DB$ RemoveCounter | CounterType$ Any | CounterNum$ Any | ValidSource$ Creature.YouCtrl | SubAbility$ DBScry
-SVar:DBScry:DB$ Scry | ScryNum$ 3 |
-Oracle:Mutate onto Chansey {3}{G}{W}{U} [3/10]\nWhenever Blissey mutates, you may remove any number of counters from among creatures you control.
+A:AB$ RemoveCounter | Cost$ G U | ValidTgts$ Creature | TgtPrompt$ Select target creature | CounterNum$ All | CounterType$ All | SubAbility$ DBRegenerate | SpellDescription$ Remove all counters from target creature and regenerate it.
+SVar:DBRegenerate:DB$ Regenerate | Defined$ ParentTarget
+Oracle:Mutate onto Chansey {3}{G}{W}{U} [3/10]\n{G}{U}: Remove all counters from target creature and regenerate it.
 
 DeckHints:Name$Chansey

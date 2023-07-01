@@ -2,7 +2,7 @@ Name:Team Rocket's Tentacruel
 ManaCost:1 U B R
 Types:Creature Squid Pokémon
 PT:3/3
-T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigGain | SubAbility$ DBAnimate | TriggerDescription$ When CARDNAME enters the battlefield, you may gain control of target creature until end of turn. If you do, untap it. Until end of turn, it gains haste and "Whenever this creature deals damage to a player, that player mills that many cards."
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigGain | SubAbility$ DBAnimate | TriggerDescription$ When CARDNAME enters the battlefield, you may gain control of target creature until end of turn. If you do, untap that creature. Until end of turn, it gains haste and "Whenever this creature deals damage to a player, that player mills that many cards."
 SVar:TrigGain:DB$ GainControl | ValidTgts$ Creature | TgtPrompt$ Select target creature | LoseControl$ EOT | Untap$ True | AddKWs$ Haste
 SVar:DBAnimate:DB$ Animate | Defined$ ParentTarget | Triggers$ Miller
 SVar:Miller:Mode$ DamageDone | ValidSources$ Card.Self | ValidTarget$ Player | Execute$ TrigMill | TriggerDescription$ Whenever this creature deals damage to a player, that player mills that many cards.
@@ -10,4 +10,4 @@ SVar:TrigMill:DB$ Mill | NumCards$ X | Defined$ TriggeredTarget
 SVar:X:TriggerCount$DamageAmount
 T:Mode$ ChangesController | ValidCard$ Creature.YouDontOwn | ValidOriginalController$ Player.Other | TriggerZones$ Battlefield | Execute$ TrigDraw | TriggerDescription$ Whenever you gain control of a creature you don't own, draw a card.
 SVar:TrigDraw:DB$ Draw | NumCards$ 1 | Defined$ You
-Oracle:When Team Rocket's Tentacruel enters the battlefield, you may gain control of target creature until end of turn. If you do, untap it. Until end of turn, it gains haste and "Whenever this creature deals damage to a player, that player mills that many cards."\nWhenever you gain control of a creature you don't own, draw a card.
+Oracle:When Team Rocket's Tentacruel enters the battlefield, you may gain control of target creature until end of turn. If you do, untap that creature. Until end of turn, it gains haste and "Whenever this creature deals damage to a player, that player mills that many cards."\nWhenever you gain control of a creature you don't own, draw a card.

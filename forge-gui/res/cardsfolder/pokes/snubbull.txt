@@ -2,6 +2,7 @@ Name:Snubbull
 ManaCost:RW
 Types:Creature Dog Faerie Pokémon
 PT:1/2
-Oracle:
+K:Menace
+Oracle:Menace
 
 DeckHints:Name$Granbull

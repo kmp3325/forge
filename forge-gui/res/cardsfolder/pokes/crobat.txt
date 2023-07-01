@@ -5,11 +5,12 @@ PT:3/4
 K:Mutate onto:4 B B:Golbat:4/5
 K:Flying
 K:First strike
-T:Mode$ DamageDealtOnce | ValidSource$ Card.Self | Execute$ TrigGain | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME deals damage, you gain that much life and target player loses that much life.
+T:Mode$ DamageDealtOnce | ValidSource$ Card.Self | Execute$ TrigGain | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME deals damage, you gain that much life and target player loses that much life then mills that many cards.
 SVar:TrigGain:DB$ GainLife | Defined$ You | LifeAmount$ X | SubAbility$ TrigLoseLife
-SVar:TrigLoseLife:DB$ LoseLife | ValidTgts$ Player | TgtPrompt$ Select target player | LifeAmount$ X
+SVar:TrigLoseLife:DB$ LoseLife | ValidTgts$ Player | TgtPrompt$ Select target player | LifeAmount$ X | SubAbility$ TrigMill
+SVar:TrigMill:DB$ Mill | Defined$ TargetedPlayer | NumCards$ X
 SVar:X:TriggerCount$DamageAmount
-Oracle:Mutate onto Golbat {4}{B}{B} [4/5]\nFlying, first strike\nWhenever Crobat deals damage, you gain that much life and target player loses that much life.
+Oracle:Mutate onto Golbat {4}{B}{B} [4/5]\nFlying, first strike\nWhenever Crobat deals damage, you gain that much life and target player loses that much life then mills that many cards.
 
 DeckHints:Name$Golbat
 SVar:HasCombatEffect:TRUE

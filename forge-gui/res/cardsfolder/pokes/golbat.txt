@@ -4,10 +4,11 @@ Types:Creature Bat Pokémon
 PT:2/2
 K:Mutate onto:3 B:Zubat:3/3
 K:Flying
-A:AB$ Tap | Cost$ T | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ CoinFlip | SpellDescription$ Tap target creature, then flip a coin. If you win the flip, it deals 1 damage to itself.
-SVar:CoinFlip:DB$ FlipACoin | WinSubAbility$ DmgItself
-SVar:DmgItself:DB$ DealDamage | NumDmg$ 1 | DamageSource$ Targeted | Defined$ Targeted
-Oracle:Mutate onto Zubat {3}{B} [3/3]\nFlying\n{T}: Tap target creature, then flip a coin. If you win the flip, it deals 1 damage to itself.
+T:Mode$ AttackerBlocked | ValidCard$ Card.Self | Execute$ CoinFlip | TriggerDescription$ Whenever CARDNAME becomes blocked by a creature, flip a coin. If you win the flip, tap that creature and it deals 1 damage to itself.
+SVar:CoinFlip:DB$ FlipACoin | WinSubAbility$ TrigTap
+SVar:TrigTap:DB$ Tap | Defined$ TriggeredBlockerLKICopy | SubAbility$ DmgItself
+SVar:DmgItself:DB$ DealDamage | NumDmg$ 1 | DamageSource$ TriggeredBlockerLKICopy | Defined$ TriggeredBlockerLKICopy
+Oracle:Mutate onto Zubat {3}{B} [3/3]\nFlying\nWhenever Golbat becomes blocked by a creature, flip a coin. If you win the flip, tap that creature and it deals 1 damage to itself.
 
 DeckHints:Name$Zubat
 DeckHints:Name$Crobat

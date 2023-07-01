@@ -925,7 +925,7 @@
 #285|Wild Vulpix|C|PKM
 #286|Wild Cyndaquil|C|PKM
 #287|Wild Typhlosion|C|PKM
-#288|Wild Gloom|C|PKM
+#288|Wild Venusaur|C|PKM
 #289|Wild Onix|C|PKM
 #290|Wild Bellossom|C|PKM
 #291|Glacier Badge|C|PKM

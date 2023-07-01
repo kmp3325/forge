@@ -421,8 +421,11 @@ public class BoosterGenerator {
                 } else {
                     ps = getPrintSheet("Uncommon PKM");
                 }
-                result.addAll(ps.random(1, true));
-                numMissed--;
+                Optional<PaperCard> random = ps.random(1, true).stream().findFirst();
+                if (random.isPresent() && !result.contains(random.get())) {
+                    result.add(random.get());
+                    numMissed--;
+                }
             }
         }
 

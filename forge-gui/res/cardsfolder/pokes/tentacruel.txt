@@ -4,9 +4,9 @@ Types:Creature Squid Pokémon
 PT:4/4
 K:Caustic
 K:Mutate onto:5 UB:Tentacool:5/5
-T:Mode$ DamageDone | ValidSource$ Card.Self | ValidTarget$ Player | Execute$ TrigMill | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME deals damage to a player, that player mills five cards.
-SVar:TrigMill:DB$ Mill | NumCards$ 5 | Defined$ TriggeredTarget
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigMill | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME attacks, defending player mills five cards.
+SVar:TrigMill:DB$ Mill | NumCards$ 5 | Defined$ TriggeredDefendingPlayer
 S:Mode$ Continuous | Affected$ Card.Self | MayPlay$ True | ValidSA$ Spell.Mutate | AffectedZone$ Graveyard | EffectZone$ Graveyard | Description$ You may cast CARDNAME from your graveyard using its mutate ability.
-Oracle:Mutate onto Tentacool {5}{UB} [5/5]\nCaustic\nWhenever Tentacruel deals damage to a player, that player mills five cards.\nYou may cast Tentacruel from your graveyard using its mutate ability.
+Oracle:Mutate onto Tentacool {5}{UB} [5/5]\nCaustic\nWhenever Tentacruel attacks, defending player mills five cards.\nYou may cast Tentacruel from your graveyard using its mutate ability.
 
 DeckHints:Name$Tentacool

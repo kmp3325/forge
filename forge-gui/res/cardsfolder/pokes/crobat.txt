@@ -1,16 +1,19 @@
 Name:Crobat
-ManaCost:4 B B
+ManaCost:2 B B
 Types:Creature Bat Pokémon
 PT:3/4
-K:Mutate onto:4 B B:Golbat:4/5
+K:Mutate onto:2 B B:Golbat:4/5
 K:Flying
 K:First strike
-T:Mode$ DamageDealtOnce | ValidSource$ Card.Self | Execute$ TrigGain | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME deals damage, you gain that much life and target player loses that much life then mills that many cards.
-SVar:TrigGain:DB$ GainLife | Defined$ You | LifeAmount$ X | SubAbility$ TrigLoseLife
-SVar:TrigLoseLife:DB$ LoseLife | ValidTgts$ Player | TgtPrompt$ Select target player | LifeAmount$ X | SubAbility$ TrigMill
-SVar:TrigMill:DB$ Mill | Defined$ TargetedPlayer | NumCards$ X
+T:Mode$ DamageDealtOnce | ValidSource$ Card.Self | Execute$ TrigGain | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME deals damage, you gain that much life and target player mills that many cards.
+SVar:TrigGain:DB$ GainLife | Defined$ You | LifeAmount$ X | SubAbility$ TrigMill
+SVar:TrigMill:DB$ Mill | ValidTgts$ Player | TgtPrompt$ Select target player | NumCards$ X
 SVar:X:TriggerCount$DamageAmount
-Oracle:Mutate onto Golbat {4}{B}{B} [4/5]\nFlying, first strike\nWhenever Crobat deals damage, you gain that much life and target player loses that much life then mills that many cards.
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | IsPresent$ Card.Self+attackedThisTurn | Execute$ TrigPutPlus | TriggerDescription$ At the beginning of your end step, if CARDNAME attacked this turn, put a +1/+1 counter on it. If it didn't, put a -1/-1 counter on it.
+SVar:TrigPutPlus:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1
+T:Mode$ Phase | Secondary$ True | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | IsPresent$ Card.Self+notAttackedThisTurn | Execute$ TrigPutMinus | TriggerDescription$ At the beginning of your end step, if CARDNAME attacked this turn, put a +1/+1 counter on it. If it didn't, put a -1/-1 counter on it.
+SVar:TrigPutPlus:DB$ PutCounter | Defined$ Self | CounterType$ M1M1 | CounterNum$ 1
+Oracle:Mutate onto Golbat {2}{B}{B} [4/5]\nFlying, first strike\nWhenever Crobat deals damage, you gain that much life and target player mills that many cards.\nAt the beginning of your end step, if Crobat attacked this turn, put a +1/+1 counter on it. If it didn't, put a -1/-1 counter on it.
 
 DeckHints:Name$Golbat
 SVar:HasCombatEffect:TRUE

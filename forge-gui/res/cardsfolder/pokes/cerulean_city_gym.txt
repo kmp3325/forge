@@ -1,5 +1,5 @@
-Name:Cascade Badge
-Types:Artifact Land Badge
+Name:Cerulean City Gym
+Types:Legendary Artifact Land Gym
 A:AB$ Mana | Cost$ T | Produced$ C | SpellDescription$ Add {C}.
 A:AB$ Mana | Cost$ GU T | Produced$ G U | SpellDescription$ Add {G}{U}.
 A:AB$ Reveal | Cost$ GU T | RevealValid$ Card.Creature+Pokémon+withMutate onto | AILogic$ Never | RememberRevealed$ True | SubAbility$ DBNameCard | SpellDescription$ Reveal a Pokémon creature card that mutates onto a named card from your hand. If you do, search your library for the named card, reveal it, put it into your hand, then shuffle.

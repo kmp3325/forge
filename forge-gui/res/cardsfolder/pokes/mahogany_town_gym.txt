@@ -1,5 +1,5 @@
-Name:Glacier Badge
-Types:Snow Artifact Land Badge
+Name:Mahogany Town Gym
+Types:Types:Legendary Snow Artifact Land Gym
 A:AB$ Mana | Cost$ T | Produced$ C | SpellDescription$ Add {C}.
 A:AB$ Mana | Cost$ 1 T | Produced$ C C | SpellDescription$ Add {C}{C}.
 A:AB$ Reveal | Cost$ 1 T | RevealValid$ Card.Creature+Pokémon+withMutate onto | AILogic$ Never | RememberRevealed$ True | SubAbility$ DBNameCard | SpellDescription$ Reveal a Pokémon creature card that mutates onto a named card from your hand. If you do, search your library for the named card, reveal it, put it into your hand, then shuffle.

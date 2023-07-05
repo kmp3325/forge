@@ -300,17 +300,17 @@ Foil=NotSupported
 9976 U Great Ball
 9977 R Ultra Ball
 9978 M Master Ball
-9979 C Glacier Badge
-9980 C Zephyr Badge
-9981 C Earth Badge
-9982 C Storm Badge
-9983 C Mineral Badge
-9984 C Marsh Badge
-9985 C Thunder Badge
-9986 C Cascade Badge
-9987 C Fog Badge
-9988 C Hive Badge
-9989 C Volcano Badge
+9979 Mahogany Town Gym|PKM
+9980 Violet City Gym|PKM
+9981 Viridian City Gym|PKM
+9982 Cianwood City Gym|PKM
+9983 Olivine City Gym|PKM
+9984 Saffron City Gym|PKM
+9985 Vermilion City Gym|PKM
+9986 Cerulean City Gym|PKM
+9987 Ecruteak City Gym|PKM
+9988 Azalea Town Gym|PKM
+9989 Cinnabar Island Gym|PKM
 9990 L Snow-Covered Plains
 9991 L Snow-Covered Island
 9992 L Snow-Covered Swamp
@@ -329,16 +329,15 @@ Foil=NotSupported
 5 Snow-Covered Mountain|PKM
 5 Snow-Covered Forest|PKM
 
-[Badges]
-2 Glacier Badge|PKM
-2 Zephyr Badge|PKM
-2 Earth Badge|PKM
-2 Storm Badge|PKM
-2 Mineral Badge|PKM
-2 Marsh Badge|PKM
-2 Thunder Badge|PKM
-2 Cascade Badge|PKM
-2 Fog Badge|PKM
-2 Hive Badge|PKM
-2 Volcano Badge|PKM
-
+[Gyms]
+2 Mahogany Town Gym|PKM
+2 Violet City Gym|PKM
+2 Viridian City Gym|PKM
+2 Cianwood City Gym|PKM
+2 Olivine City Gym|PKM
+2 Saffron City Gym|PKM
+2 Vermilion City Gym|PKM
+2 Cerulean City Gym|PKM
+1 Ecruteak City Gym|PKM
+2 Azalea Town Gym|PKM
+2 Cinnabar Island Gym|PKM

@@ -1,5 +1,5 @@
-Name:Hive Badge
-Types:Artifact Land Badge
+Name:Azalea Town Gym
+Types:Legendary Artifact Land Gym
 A:AB$ Mana | Cost$ T | Produced$ C | SpellDescription$ Add {C}.
 A:AB$ Mana | Cost$ BG T | Produced$ B G | SpellDescription$ Add {B}{G}.
 A:AB$ Reveal | Cost$ BG T | RevealValid$ Card.Creature+Pokémon+withMutate onto | AILogic$ Never | RememberRevealed$ True | SubAbility$ DBNameCard | SpellDescription$ Reveal a Pokémon creature card that mutates onto a named card from your hand. If you do, search your library for the named card, reveal it, put it into your hand, then shuffle.

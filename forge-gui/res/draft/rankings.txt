@@ -928,17 +928,17 @@
 #288|Wild Venusaur|C|PKM
 #289|Wild Onix|C|PKM
 #290|Wild Bellossom|C|PKM
-#291|Glacier Badge|C|PKM
-#292|Zephyr Badge|C|PKM
-#293|Earth Badge|C|PKM
-#294|Storm Badge|C|PKM
-#295|Mineral Badge|C|PKM
-#296|Marsh Badge|C|PKM
-#297|Thunder Badge|C|PKM
-#298|Cascade Badge|C|PKM
-#299|Fog Badge|C|PKM
-#300|Hive Badge|C|PKM
-#301|Volcano Badge|C|PKM
+#291|Mahogany Town Gym|C|PKM
+#292|Violet City Gym|C|PKM
+#293|Viridian City Gym|C|PKM
+#294|Cianwood City Gym|C|PKM
+#295|Olivine City Gym|C|PKM
+#296|Saffron City Gym|C|PKM
+#297|Vermilion City Gym|C|PKM
+#298|Cerulean City Gym|C|PKM
+#299|Ecruteak City Gym|C|PKM
+#300|Azalea Town Gym|C|PKM
+#301|Cinnabar Island Gym|C|PKM
 #302|Snow-Covered Plains|L|PKM
 #303|Snow-Covered Island|L|PKM
 #304|Snow-Covered Swamp|L|PKM

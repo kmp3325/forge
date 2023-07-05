@@ -1,5 +1,5 @@
-Name:Marsh Badge
-Types:Artifact Land Badge
+Name:Saffron City Gym
+Types:Legendary Artifact Land Gym
 A:AB$ Mana | Cost$ T | Produced$ C | SpellDescription$ Add {C}.
 A:AB$ Mana | Cost$ UB T | Produced$ U B | SpellDescription$ Add {U}{B}.
 A:AB$ Reveal | Cost$ UB T | RevealValid$ Card.Creature+Pokémon+withMutate onto | AILogic$ Never | RememberRevealed$ True | SubAbility$ DBNameCard | SpellDescription$ Reveal a Pokémon creature card that mutates onto a named card from your hand. If you do, search your library for the named card, reveal it, put it into your hand, then shuffle.

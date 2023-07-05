@@ -317,7 +317,7 @@ Saga
 Shrine
 Shard
 [ArtifactTypes]
-Badge:Badges
+Gym:Gyms
 Blood
 Clue:Clues
 Contraption

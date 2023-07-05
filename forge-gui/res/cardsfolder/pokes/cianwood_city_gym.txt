@@ -1,5 +1,5 @@
-Name:Storm Badge
-Types:Artifact Land Badge
+Name:Cianwood City Gym
+Types:Legendary Artifact Land Gym
 A:AB$ Mana | Cost$ T | Produced$ C | SpellDescription$ Add {C}.
 A:AB$ Mana | Cost$ RW T | Produced$ R W | SpellDescription$ Add {R}{W}.
 A:AB$ Reveal | Cost$ RW T | RevealValid$ Card.Creature+Pokémon+withMutate onto | AILogic$ Never | RememberRevealed$ True | SubAbility$ DBNameCard | SpellDescription$ Reveal a Pokémon creature card that mutates onto a named card from your hand. If you do, search your library for the named card, reveal it, put it into your hand, then shuffle.

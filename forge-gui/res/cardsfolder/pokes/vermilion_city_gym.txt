@@ -1,5 +1,5 @@
-Name:Thunder Badge
-Types:Artifact Land Badge
+Name:Vermilion City Gym
+Types:Legendary Artifact Land Gym
 A:AB$ Mana | Cost$ T | Produced$ C | SpellDescription$ Add {C}.
 A:AB$ Mana | Cost$ UR T | Produced$ U R | SpellDescription$ Add {U}{R}.
 A:AB$ Reveal | Cost$ UR T | RevealValid$ Card.Creature+Pokémon+withMutate onto | AILogic$ Never | RememberRevealed$ True | SubAbility$ DBNameCard | SpellDescription$ Reveal a Pokémon creature card that mutates onto a named card from your hand. If you do, search your library for the named card, reveal it, put it into your hand, then shuffle.

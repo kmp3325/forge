@@ -7,6 +7,8 @@ A:AB$ Effect | Cost$ U T | SubAbility$ Eject | ValidTgts$ Creature.powerLEX | St
 SVar:Unblockable:Mode$ CantBlockBy | ValidAttacker$ Card.IsRemembered | Description$ {c:Targeted} can't be blocked until end of turn.
 SVar:Eject:DB$ ChangeZone | Defined$ Self | Origin$ Command | Destination$ Exile
 SVar:X:Count$CardPower
-Oracle:Mutate onto Remoraid {4}{U} [4/3]\n{U}, {T}: Target creature with power less than or equal to Octillery's power can't be blocked until end of turn.
+T:Mode$ CounterAdded | ValidCard$ Creature.YouCtrl | TriggerZones$ Battlefield | CounterType$ P1P1 | Execute$ TrigPutCounter | ActivationLimit$ 1 | TriggerDescription$ Whenever a +1/+1 counter is put on a creature you control, put a +1/+1 counter on CARDNAME. This ability triggers only once each turn.
+SVar:TrigPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1
+Oracle:Mutate onto Remoraid {4}{U} [4/3]\nWhenever a +1/+1 counter is put on a creature you control, put a +1/+1 counter on Octillery. This ability triggers only once each turn.\n{U}, {T}: Target creature with power less than or equal to Octillery's power can't be blocked until end of turn.
 
 DeckHints:Name$Remoraid

@@ -127,7 +127,7 @@ public class Game {
     private boolean weatherChangedThisTurn = false;
     private Weather weather = null;
     private boolean burning = false;
-    private boolean frozen = false;
+    private boolean frosty = false;
 
     private long timestamp = 0;
     public final GameAction action;
@@ -1275,12 +1275,12 @@ public class Game {
         return burning;
     }
 
-    public void setFrozen(boolean frozen) {
-        this.frozen = frozen;
+    public void setFrosty(boolean frost) {
+        this.frosty = frosty;
     }
 
-    public boolean isFrozen() {
-        return frozen;
+    public boolean isFrosty() {
+        return frosty;
     }
 
     public void setWeather(Weather weather, Map<AbilityKey, Object> runParams) {
@@ -1293,7 +1293,7 @@ public class Game {
             if (weather.equals(Weather.SUNNY)) {
                 doBurn();
             } else if (weather.equals(Weather.SNOWY)) {
-                setFrozen(true);
+                setFrosty(true);
             } else {
                 undoWeather();
             }
@@ -1321,7 +1321,7 @@ public class Game {
 
     private void undoWeather() {
         setBurning(false);
-        setFrozen(false);
+        setFrosty(false);
         Set<Card> burnedCards = new HashSet<>();
         for (Card card : getCardsIn(ZoneType.Battlefield)) {
             if (!card.isCreature() || card.isPhasedOut() || card.getCounters(CounterEnumType.BURN) == 0) {

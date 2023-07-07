@@ -9,8 +9,8 @@ SVar:TrigSnow:DB$ Weather | Value$ Snowy | SubAbility$ TrigPhase
 SVar:TrigPhase:DB$ Phases | Defined$ Self
 T:Mode$ PhaseIn | ValidCard$ Creature.YouCtrl | TriggerZones$ Battlefield | CheckSVar$ SNOW | SVarCompare$ GE1 | Execute$ TrigTrap | TriggerDescription$ Whenever a creature you control phases in, if it's snowy, ABILITY
 SVar:SNOW:Count$Snowy.1.0
-SVar:TrigTrap:DB$ Charm | Choices$DBFrozen,DBDmg
-SVar:DBFrozen:DB$ PutCounter | CounterType$ FROZEN | CounterNum$ 1 | IsCurse$ True | ValidTgts$ Creature | TgtPrompt$ Select target creature | SpellDescription$ Put a frozen counter on target creature.
-SVar:DBDmg:DB$ DealDamage | NumDmg$ X | ValidTgts$ Creature.counters_GE1_FROZEN | TgtPrompt$ Select target creature with a frozen counter on it | SpellDescription$ It deals damage equal to its power to target creature with a frozen counter on it.
+SVar:TrigTrap:DB$ Charm | Choices$DBFrost,DBDmg
+SVar:DBFrost:DB$ PutCounter | CounterType$ FROST | CounterNum$ 2 | IsCurse$ True | ValidTgts$ Creature | TgtPrompt$ Select target creature | SpellDescription$ Put two frost counters on target creature.
+SVar:DBDmg:DB$ DealDamage | NumDmg$ X | ValidTgts$ Creature.counters_GE1_FROST | TgtPrompt$ Select target creature with a frost counter on it | SpellDescription$ It deals damage equal to its power to target creature with a frost counter on it.
 SVar:X:TriggeredCard$CardPower
-Oracle:Flying\nWhenever Articuno blocks, you may pay {S}{S}. When you do, it becomes snowy, then Articuno phases out.\nWhenever a creature you control phases in, if it's snowy, choose one —\n• Put a frozen counter on target creature.\n• It deals damage equal to its power to target creature with a frozen counter on it.
+Oracle:Flying\nWhenever Articuno blocks, you may pay {S}{S}. When you do, it becomes snowy, then Articuno phases out.\nWhenever a creature you control phases in, if it's snowy, choose one —\n• Put two frost counters on target creature.\n• It deals damage equal to its power to target creature with a frost counter on it.

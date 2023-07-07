@@ -341,10 +341,10 @@ public class Untap extends Phase {
         }
         Map<Card, Integer> frozenCards = new HashMap<>();
         for (Card card : player.getCreaturesInPlay()) {
-            if (card.isPhasedOut() || card.isTapped() || card.getCounters(CounterEnumType.FROZEN) == 0) {
+            if (card.isPhasedOut() || card.isTapped() || card.getCounters(CounterEnumType.FROST) == 0) {
                 continue;
             }
-            int numberOfFrozenCountersOnCard = card.getCounters(CounterEnumType.FROZEN);
+            int numberOfFrozenCountersOnCard = card.getCounters(CounterEnumType.FROST);
             if (numberOfFrozenCountersOnCard == 0) {
                 continue;
             }
@@ -359,7 +359,7 @@ public class Untap extends Phase {
             Game game = player.getGame();
             for (Entry<Card, Integer> frozen : frozenCards.entrySet()) {
                 frozen.getKey().tap(true);
-                frozen.getKey().subtractCounter(CounterEnumType.FROZEN, 1);
+                frozen.getKey().subtractCounter(CounterEnumType.FROST, 1);
                 GameEventFrozen gameEvent = new GameEventFrozen(frozen.getKey());
                 game.fireEvent(gameEvent);
             }

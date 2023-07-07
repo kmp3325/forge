@@ -321,6 +321,9 @@ public class CombatUtil {
                 }
             }
         }
+        if (attacker.getCounters(CounterEnumType.FROST) > 0) {
+            attackCost.add(new Cost(String.valueOf(attacker.getCounters(CounterEnumType.FROST)), false));
+        }
 
         if (!hasCost) {
             return null;
@@ -364,6 +367,9 @@ public class CombatUtil {
                     noCost = false;
                 }
             }
+        }
+        if (blocker.getCounters(CounterEnumType.FROST) > 0) {
+            blockCost.add(new Cost(String.valueOf(blocker.getCounters(CounterEnumType.FROST)), false));
         }
 
         if (noCost) {

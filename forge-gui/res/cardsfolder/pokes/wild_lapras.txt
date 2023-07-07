@@ -2,9 +2,9 @@ Name:Wild Lapras
 ManaCost:5 U
 Types:Snow Creature Dinosaur Pokémon
 PT:1/3
-T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigFreeze | TriggerDescription$ When CARDNAME enters the battlefield, put a frozen counter on target creature. If it’s snowy, put two frozen counters on it instead. Tap that creature.
-SVar:TrigFreeze:DB$ PutCounter | CounterType$ FROZEN | CounterNum$ X | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ DBTap
-SVar:DBTap:DB$ Tap | Defined$ Targeted
-SVar:X:Count$Snowy.2.1
+K:Flash
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigFreeze | TriggerDescription$ When CARDNAME enters the battlefield, put two frost counters on target creature. If it’s snowy, put three frost counters on it instead.
+SVar:TrigFreeze:DB$ PutCounter | CounterType$ FROST | CounterNum$ X | ValidTgts$ Creature | TgtPrompt$ Select target creature
+SVar:X:Count$Snowy.3.2
 A:AB$ Weather | Cost$ S T | Value$ Snowy | SpellDescription$ It becomes snowy.
-Oracle:When Wild Lapras enters the battlefield, put a frozen counter on target creature. If it’s snowy, put two frozen counters on it instead. Tap that creature.\n{S}, {T}: It becomes snowy.
+Oracle:When Wild Lapras enters the battlefield, put two frost counters on target creature. If it’s snowy, put three frost counters on it instead.\n{S}, {T}: It becomes snowy.

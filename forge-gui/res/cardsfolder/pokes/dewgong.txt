@@ -3,11 +3,10 @@ ManaCost:4 U U
 Types:Snow Creature Walrus Pokémon
 PT:4/7
 K:Mutate onto:4 U U:Seel:5/7
-A:AB$ Weather | Cost$ 1 S | Value$ Snowy | SubAbility$ DBTapAll | SpellDescription$ It becomes snowy. Tap all creatures with a frozen counter on them.
-SVar:DBTapAll:DB$ TapAll | ValidCards$ Creature.counters_GE1_FROZEN
-A:AB$ PutCounter | IsCurse$ True | Cost$ S T | ValidTgts$ Creature | TgtPrompt$ Select target creature | CounterType$ FROZEN | CounterNum$ 1 | SubAbility$ DePump | SpellDescription$ Put a frozen counter on target creature. If it's snowy, that creature gets -2/-2 until end of turn.
-SVar:DePump:DB$ Pump | NumAtt$ X | NumDef$ X | Defined$ Targeted
-SVar:X:Count$Snowy.2.0
-Oracle:Mutate onto Seel {4}{U}{U} [5/7]\n{1}{S}: It becomes snowy. Tap all creatures with a frozen counter on them.\n{S}, {T}: Put a frozen counter on target creature. If it's snowy, that creature gets -2/-2 until end of turn.
+A:AB$ Weather | Cost$ 1 S | Value$ Snowy | SubAbility$ DBFrost | SorcerySpeed$ True | SpellDescription$ It becomes snowy, then put a frost counter on target creature. Activate only as a sorcery.
+SVar:DBFrost:DB$ PutCounter | IsCurse$ True | ValidTgts$ Creature | TgtPrompt$ Select target creature | CounterType$ FROST | CounterNum$ 1
+A:AB$ DealDamage | Cost$ S T | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumDmg$ X | SpellDescription$ CARDNAME deals damage to target creature equal to the number of frost counters on that creature.
+SVar:X:Targeted$CardCounters.FROST
+Oracle:Mutate onto Seel {4}{U}{U} [5/7]\n{1}{S}: It becomes snowy, then put a frost counter on target creature. Activate only as a sorcery.\n{S}, {T}: Dewgong deals damage to target creature equal to the number of frost counters on that creature.
 
 DeckHints:Name$Seel

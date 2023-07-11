@@ -2,10 +2,9 @@ Name:Teddiursa
 ManaCost:C
 Types:Creature Bear Pokémon
 PT:1/1
-A:AB$ Mana | Cost$ T | Produced$ C | SubAbility$ TrigGain | ConditionCheckSVar$ SNOW | ConditionSVarCompare$ GE1 | Amount$ SNOW | SpellDescription$ Add {C}. You gain 2 life. Activate only if it's not snowy.
+A:AB$ Mana | Cost$ T | Produced$ C | SpellDescription$ Add {C}.
+A:AB$ Token | Cost$ T | ConditionCheckSVar$ SNOW | ConditionSVarCompare$ GE1 | TokenAmount$ 1 | TokenScript$ c_a_food_sac | TokenOwner$ You | SpellDescription$ Create a Food token. Activate only if it's not snowy.
 SVar:SNOW:Count$Snowy.0.1
-SVar:LIFE:Count$Snowy.0.2
-SVar:TrigGain:DB$ GainLife | Defined$ You | LifeAmount$ LIFE
-Oracle:{T}:Add {C}. You gain 2 life. Activate only if it's not snowy.
+Oracle:{T}:Add {C}.\n{T}: Create a Food token. Activate only if it's not snowy.
 
 DeckHints:Name$Ursaring

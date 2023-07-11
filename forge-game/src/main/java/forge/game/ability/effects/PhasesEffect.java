@@ -101,19 +101,19 @@ public class PhasesEffect extends SpellAbilityEffect {
                             source.addRemembered(tgtC);
                         }
                         tgtC.setWontPhaseInNormal(wontPhaseInNormal);
-                    }
-                    if (sa.hasParam("Duration")) {
-                        final GameCommand untilEOT = new GameCommand() {
+                        if (sa.hasParam("Duration")) {
+                            final GameCommand untilEOT = new GameCommand() {
 
-                            private static final long serialVersionUID = -4890679038956651232L;
+                                private static final long serialVersionUID = -4890679038956651232L;
 
-                            @Override
-                            public void run() {
-                                tgtC.phase(false);
-                            }
-                        };
+                                @Override
+                                public void run() {
+                                    tgtC.phase(false);
+                                }
+                            };
 
-                        addUntilCommand(sa, untilEOT);
+                            addUntilCommand(sa, untilEOT);
+                        }
                     }
                 }
             }

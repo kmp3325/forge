@@ -2,6 +2,8 @@ Name:Heracross
 ManaCost:3 RG
 Types:Creature Insect Pokémon
 PT:4/5
-K:First strike
-K:Haste
-Oracle:First strike, haste
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigFood | TriggerDescription$ When CARDNAME enters the battlefield, create a Food token.
+SVar:TrigFood:DB$ Token | TokenAmount$ 1 | TokenScript$ c_a_food_sac | TokenOwner$ You
+T:Mode$ Sacrificed | ValidPlayer$ You | ValidCard$ Food.YouCtrl | Origin$ Any | Destination$ Battlefield | Execute$ TrigFight | OptionalDecider$ You | TriggerDescription$ Whenever you sacrifice a Food, you may have CARDNAME fight another target creature.
+SVar:TrigFight:DB$ Fight | TriggeredCardLKICopy | ValidTgts$ Creature.Other | TgtPrompt$ Select another target creature
+Oracle:When Heracross enters the battlefield, create a Food token. {i}(A Food token is an artifact with “{2}, {T}, Sacrifice this artifact: You gain 3 life.”){/i}\nWhenever you sacrifice a Food, you may have Heracross fight another target creature.

@@ -1,13 +1,12 @@
 Name:Rapidash
-ManaCost:3 R R G
+ManaCost:3 R G
 Types:Creature Unicorn Pokémon
 PT:6/5
-K:Mutate onto:3 R R G:Ponyta:7/6
-R:Event$ AddCounter | ActiveZones$ Battlefield | ValidCard$ Creature | ValidCounterType$ BURN | ReplaceWith$ AddOneMoreCounters | CheckSVar$ SUN | SVarCompare$ GE1 | Description$ As long as it's sunny, if one or more burn counters would be put on a creature, that many plus one burn counters are put on it instead.
-SVar:AddOneMoreCounters:DB$ ReplaceCounter | ValidCounterType$ BURN | ChooseCounter$ True | Amount$ Y
-SVar:Y:ReplaceCount$CounterNum/Plus.1
-SVar:SUN:Count$Sunny.1.0
-A:AB$ PutCounter | IsCurse$ True | Cost$ R R R | ValidTgts$ Creature | TgtPrompt$ Select target creature | CounterType$ BURN | CounterNum$ 1 | IsCurse$ True | SpellDescription$ Put a burn counter on target creature.
-Oracle:Mutate onto Ponyta {3}{R}{R}{G} [7/6]\nAs long as it's sunny, if one or more burn counters would be put on a creature, that many plus one burn counters are put on it instead.\n{R}{R}{R}: Put a burn counter on target creature.
+K:Mutate onto:3 R G:Ponyta:7/6
+S:Mode$ Continuous | Affected$ Creature.YouCtrl | AddKeyword$ Trample | CheckSVar$ NUMBURN | SVarCompare$ GE3 Description$ Creatures you control have trample as long as there are three or more burn counters among creatures your opponents control.
+SVar:NUMBURN:Valid$ Creature.OppCtrl$CardCounters.BURN
+T:Mode$ Attacks | Defined$ Card.Self | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME attacksl, put a burn counter on target creature.
+SVar:TrigPutCounter:DB$ PutCounter | CounterType$ BURN | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature
+Oracle:Mutate onto Ponyta {3}{R}{G} [7/6]\nCreatures you control have trample as long as there are three or more burn counters among creatures your opponents control.\nWhenever Rapidash attacks, put a burn counter on target creature.
 
 DeckHints:Name$Ponyta

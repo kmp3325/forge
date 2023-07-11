@@ -1,5 +1,5 @@
 Name:Dodrio
-ManaCost:1 W W W
+ManaCost:W W W
 Types:Creature Bird Pokémon
 PT:3/1
 K:Mutate onto:4 W:Doduo:4/2

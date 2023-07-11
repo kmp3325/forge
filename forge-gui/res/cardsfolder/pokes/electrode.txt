@@ -1,14 +1,14 @@
 Name:Electrode
-ManaCost:3 U R
+ManaCost:4 R
 Types:Artifact Creature Construct Pokémon
 PT:5/4
-K:Mutate onto:2 U R:Voltorb:5/4
+K:Mutate onto:4 R R:Voltorb:5/4
 K:First strike
 T:Mode$ DamageDone | ValidSource$ Card.Self | ValidTarget$ Creature | Execute$ TrigTap | TriggerDescription$ Whenever CARDNAME deals damage to a creature, tap that creature and put a stun counter on it.
 SVar:TrigTap:DB$ Tap | Defined$ TriggeredTarget | SubAbility$ TrigStun
 SVar:TrigStun:DB$ PutCounter | IsCurse$ True | CounterType$ STUN | CounterNum$ 1 | Defined$ TriggeredTarget
 T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.Self | Execute$ TrigDmgPlayers | TriggerDescription$ When CARDNAME dies, it deals 5 damage to each player.
 SVar:TrigDmgPlayers:DB$ DealDamage | NumDmg$ 5 | Defined$ Player
-Oracle:Mutate onto {2}{U}{R} [5/4]\nFirst strike\nWhenever Electrode deals damage to a creature, tap that creature and put a stun counter on it.\nWhen Electrode dies, it deals 5 damage to each player.
+Oracle:Mutate onto {4}{R}{R} [5/4]\nFirst strike\nWhenever Electrode deals damage to a creature, tap that creature and put a stun counter on it.\nWhen Electrode dies, it deals 5 damage to each player.
 
 DeckHints:Name$Voltorb

@@ -1,14 +1,15 @@
 Name:Piloswine
-ManaCost:3 W W
+ManaCost:3 GW GW
 Types:Snow Creature Boar Pokémon
 PT:5/5
-K:Mutate onto:2 W S:Swinub:6/6
-T:Mode$ Mutates | ValidCard$ Card.Self | Execute$ TrigDmg | TriggerDescription$ Whenever Piloswine mutates, it deals damage to each other creature equal to the number of snow permanents on the battlefield.
-SVar:TrigDmg:DB$ DamageAll | ValidCards$ Creature.Other | NumDmg$ X
-SVar:X:Count$Valid Permanent.Snow
-S:Mode$ Continuous | Affected$ Creature.YouCtrl | AddPower$ SNOW | AddToughness$ SNOW | Description$ Creatures you control get +1/+1 as long as it's snowy.
-SVar:SNOW:Count$Snowy.1.0
-Oracle:Mutate onto Swinub {2}{W}{S} [6/6]\nWhenever Piloswine mutates, it deals damage to each other creature equal to the number of snow permanents on the battlefield.\nCreatures you control get +1/+1 as long as it's snowy.
+K:Mutate onto:2 GW S:Swinub:6/6
+T:Mode$ Phase | Phase$ Upkeep | TriggerZones$ Battlefield | Execute$ TrigMana | TriggerDescription$ At the beginning of each combat, add {c} for each frost counter on CARDNAME. Until end of turn, you don't lose this mana as steps and phases end.
+SVar:TrigMana:DB$ Mana | Produced$ C | Amount$ X | PersistentMana$ True
+SVar:X:Count$CardCounters.FROST
+T:Mode$ Attacks | Defined$ Card.Self | Execute$ TrigFrost | TriggerDescription$ Whenever CARDNAME attacks, put a frost counter on target creature you control and target creature you don't control, then CARDNAME deals 1 damage to each creature with a frost counter on it.
+SVar:TrigFrost:DB$ PutCounter | CounterType$ FROST | CounterNum$ 1 | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | SubAbility$ TrigFrostAgain
+SVar:TrigFrostAgain:DB$ PutCounter | CounterType$ FROST | CounterNum$ 1 | ValidTgts$ Creature.YouDontCtrl | TgtPrompt$ Select target creature you don't control | SubAbility$ TrigDmg
+SVar:TrigDmg:DB$ DamageAll | NumDmg$ 1 | ValidCards$ Creature.counters_GE1_FROST
+Oracle:Mutate onto Swinub {2}{GW}{S} [6/6]\nAt the beginning of each combat, add {c} for each frost counter on Piloswine. Until end of turn, you don't lose this mana as steps and phases end.\nWhenever Piloswine attacks, put a frost counter on target creature you control and target creature you don't control, then Piloswine deals 1 damage to each creature with a frost counter on it.
 
 DeckHints:Name$Swinub
-DeckHints:Type$Snow

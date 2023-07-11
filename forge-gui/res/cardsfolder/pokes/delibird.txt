@@ -3,7 +3,7 @@ ManaCost:3 C
 Types:Snow Creature Bird Pokémon
 PT:3/3
 K:Flying
-A:AB$ Mana | Cost$ T ExileFromGrave<1/Card> | Produced$ C C | SubAbility$ TrigGain | SpellDescription$ Add {C}{C}. If it's snowy, you gain 2 life.
-SVar:TrigGain:DB$ GainLife | Defined$ You | LifeAmount$ X
-SVar:X:Count$Snowy.2.0
-Oracle:Flying\n{T}, Exile a card from your graveyard: Add {C}{C}. If it's snowy, you gain 2 life.
+A:AB$ Mana | Cost$ T ExileFromGrave<1/Card> | Produced$ C C | SubAbility$ TrigFood | InstantSpeed$ True | SpellDescription$ Add {C}{C}. If it's snowy, create a Food token. Activate only as an instant.
+SVar:TrigFood:DB$ Token | TokenAmount$ X | TokenScript$ c_a_food_sac | TokenOwner$ You
+SVar:X:Count$Snowy.1.0
+Oracle:Flying\n{T}, Exile a card from your graveyard: Add {C}{C}. If it's snowy, create a Food token. Activate only as an instant.

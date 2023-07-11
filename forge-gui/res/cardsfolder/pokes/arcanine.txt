@@ -1,10 +1,10 @@
 Name:Arcanine
-ManaCost:R R R R
+ManaCost:1 R R R
 Types:Creature Wold Dog Pokémon
 PT:3/3
-K:Mutate onto:R R R R:Growlithe:5/5
+K:Mutate onto:1 R R R:Growlithe:5/5
 K:Scorching
-A:AB$ DealDamage | Cost$ R R R | NumDmg$ 2 | ValidTgts$ Creature,Player,Planeswalker | TgtPrompt$ Choose any target | SpellDescription$ CARDNAME deals 2 damage to any target.
-Oracle:Mutate onto Growlithe {R}{R}{R}{R} [5/5]\nScorching\n{R}{R}{R}: Arcanine deals 2 damage to any target.
+A:AB$ DealDamage | Cost$ 1 R R | NumDmg$ 2 | ValidTgts$ Creature,Player,Planeswalker | TgtPrompt$ Choose any target | SpellDescription$ CARDNAME deals 2 damage to any target.
+Oracle:Mutate onto Growlithe {1}{R}{R}{R} [5/5]\nScorching\n{1}{R}{R}: Arcanine deals 2 damage to any target.
 
 DeckHints:Name$Growlithe

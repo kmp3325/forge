@@ -3,8 +3,9 @@ ManaCost:2 UR
 Types:Artifact Creature Construct Pokémon
 PT:1/1
 K:Steel skin
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME enters the battlefield, put a stun counter on target creature.
-SVar:TrigPutCounter:DB$ PutCounter | IsCurse$ True | ValidTgts$ Creature | TgtPrompt$ Select target creature | CounterType$ STUN | CounterNum$ 1
-Oracle:Steel skin\nWhenever Magnemite enters the battlefield, put a stun counter on target creature.
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigTap | TriggerDescription$ Whenever CARDNAME enters the battlefield, tap target creature and put a stun counter on it.
+SVar:TrigTap:DB$ Tap | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigPutCounter
+SVar:TrigPutCounter:DB$ PutCounter | CounterType$ STUN | CounterNum$ 1
+Oracle:Steel skin\nWhenever Magnemite enters the battlefield, tap target creature and put a stun counter on it.
 
 DeckHints:Name$Magneton

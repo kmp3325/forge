@@ -5134,6 +5134,9 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
         phase(fromUntapStep, true);
     }
     public final void phase(final boolean fromUntapStep, final boolean direct) {
+        if (game.getReplacementHandler().run(ReplacementType.PhaseOut, AbilityKey.mapFromAffected(this)) != ReplacementResult.NotReplaced) {
+            return;
+        }
         final boolean phasingIn = isPhasedOut();
 
         if (!switchPhaseState(fromUntapStep)) {

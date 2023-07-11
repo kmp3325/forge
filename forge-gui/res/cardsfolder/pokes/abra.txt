@@ -5,8 +5,11 @@ PT:1/1
 T:Mode$ BecomesTarget | ValidTarget$ Card.Self | ValidSource$ SpellAbility.OppCtrl | TriggerZones$ Battlefield | Execute$ DBPhaseOut | TriggerDescription$ Whenever CARDNAME becomes the target of a spell or ability an opponent controls, it phases out until end of turn.
 R:Event$ DamageDone | IsCombat$ False | ActiveZones$ Battlefield | ValidTarget$ Card.Self | ReplaceWith$ DBPhaseOut | PreventionEffect$ True | Description$ If noncombat damage would be dealt to Abra, prevent that damage. It phases out until end of turn.
 SVar:DBPhaseOut:DB$ Phases | Defined$ Self | WontPhaseInNormal$ True | Duration$ UntilEndOfTurn
-A:AB$ Effect | Cost$ U U | RememberObjects$ Self | ForgetOnMoved$ Battlefield | StaticAbilities$ CantPhaseOut | Duration$ UntilEndOfTurn | SpellDescription$ CARDNAME can't phase out until end of turn.
-SVar:CantPhaseOut:Mode$ CantPhaseOut | ValidCard$ Card.IsRemembered | Description$ EFFECTSOURCE can't phase out until end of turn.
-Oracle:Whenever Abra becomes the target of a spell or ability an opponent controls, it phases out until end of turn.\nIf noncombat damage would be dealt to Abra, prevent that damage. It phases out until end of turn.\n{U}{U}: Abra can't phase out until end of turn.
+A:AB$ Effect | Cost$ UB | RememberObjects$ Self | ForgetOnMoved$ Battlefield | ReplacementEffects$ ReplacePhase | Stackable$ False | SpellDescription$ The next time CARDNAME would phase out this turn, instead it doesn't.
+SVar:ReplacePhase:Event$ PhaseOut | ValidCards$ Creature.EffectSource | ReplaceWith$ Nothing | Description$ The next time EFFECTSOURCE would phase out this turn, instead it doesn't.
+SVar:Nothing:DB$ Pump | SubAbility$ ExileEffect
+SVar:ExileEffect:DB$ ChangeZone | Defined$ Self | Origin$ Command | Destination$ Exile
+SVar:NonStackingEffect:True
+Oracle:Whenever Abra becomes the target of a spell or ability an opponent controls, it phases out until end of turn.\nIf noncombat damage would be dealt to Abra, prevent that damage. It phases out until end of turn.\n{UB}: The next time Abra would phase out this turn, instead it doesn't.
 
 DeckHints:Name$Kadabra

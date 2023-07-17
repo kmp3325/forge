@@ -1,8 +1,12 @@
 Name:Magby
-ManaCost:R
+ManaCost:2 R
 Types:Creature Elemental Duck Pokémon
 PT:1/1
-K:Scorching
-Oracle:Scorching
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | OptionalDecider$ You | Execute$ TrigRemoveFrost | TriggerDescription$ When CARDNAME enters the battlefield, you may remove all frost counters from target creature. CARDNAME deals damage to each opponent equal to the number of frost counters removed this way.
+SVar:TrigRemoveFrost:DB$ RemoveCounter | CounterType$ FROST | CounterNum$ All | ValidTgts$ Creature | TgtPrompt$ Select target creature | RememberRemoved$ True | SubAbility$ DBDmg
+SVar:DBDmg:DB$ DealDamage | Defined$ Player.Opponent | NumDmg$ X | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:X:Count$RememberedSize
+Oracle:When Magby enters the battlefield, you may remove all frost counters from target creature. Magby deals damage to each opponent equal to the number of frost counters removed this way.
 
 DeckHints:Name$Magmar

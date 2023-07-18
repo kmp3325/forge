@@ -1,14 +1,16 @@
 Name:Primeape
-ManaCost:2 R W
+ManaCost:4 R W
 Types:Creature Monkey Pokémon
 PT:4/3
-K:Mutate onto:2 R W:Mankey:5/4
+K:Mutate onto:4 R W:Mankey:5/4
 K:Vigilance
-T:Mode$ Blocks | ValidCard$ Creature.Other | Execute$ TrigFight | OptionalDecider$ You | TriggerZones$ Battlefield | TriggerDescription$ Whenever another creature blocks a creature other than CARDNAME, becomes blocked by a creature other than CARDNAME, or fights a creature other than CARDNAME, you may have CARDNAME fight that creature.
-T:Mode$ AttackerBlocked | ValidCard$ Creature.Other | Secondary$ True | Execute$ TrigFight | OptionalDecider$ You | TriggerZones$ Battlefield | TriggerDescription$ Whenever another creature blocks a creature other than CARDNAME, becomes blocked by a creature other than CARDNAME, or fights a creature other than CARDNAME, you may have CARDNAME fight that creature.
-T:Mode$ Fight | ValidCard$ Creature.Other | Secondary$ True | Execute$ TrigFight | OptionalDecider$ You | TriggerZones$ Battlefield | TriggerDescription$ Whenever another creature blocks a creature other than CARDNAME, becomes blocked by a creature other than CARDNAME, or fights a creature other than CARDNAME, you may have CARDNAME fight that creature.
-SVar:TrigFight:DB$ Fight | Defined$ Self | ExtraDefined$ TriggeredTarget
-Oracle:Mutate onto Mankey {2}{R}{W} [5/4]\nVigilance\nWhenever another creature blocks a creature other than Primeape, becomes blocked by a creature other than Primeape, or fights a creature other than Primeape, you may have Primeape fight that creature.
+T:Mode$ Blocks | ValidCard$ Creature.Other | Execute$ TrigFightBlo | OptionalDecider$ You | TriggerZones$ Battlefield | TriggerDescription$ Whenever another creature blocks a creature other than CARDNAME, becomes blocked by a creature other than CARDNAME, or fights a creature other than CARDNAME, you may have CARDNAME fight that creature.
+T:Mode$ AttackerBlocked | ValidCard$ Creature.Other | Secondary$ True | Execute$ TrigFightAtt | OptionalDecider$ You | TriggerZones$ Battlefield | TriggerDescription$ Whenever another creature blocks a creature other than CARDNAME, becomes blocked by a creature other than CARDNAME, or fights a creature other than CARDNAME, you may have CARDNAME fight that creature.
+T:Mode$ Fight | ValidCard$ Creature.Other | ValidFighter2$ Creature.Other | Secondary$ True | Execute$ TrigFightFig | OptionalDecider$ You | TriggerZones$ Battlefield | TriggerDescription$ Whenever another creature blocks a creature other than CARDNAME, becomes blocked by a creature other than CARDNAME, or fights a creature other than CARDNAME, you may have CARDNAME fight that creature.
+SVar:TrigFightFig:DB$ Fight | Defined$ Self | ExtraDefined$ TriggeredFighterLKICopy
+SVar:TrigFightBlo:DB$ Fight | Defined$ Self | ExtraDefined$ TriggeredBlockerLKICopy
+SVar:TrigFightAtt:DB$ Fight | Defined$ Self | ExtraDefined$ TriggeredAttackerLKICopy
+Oracle:Mutate onto Mankey {4}{R}{W} [5/4]\nVigilance\nWhenever another creature blocks a creature other than Primeape, becomes blocked by a creature other than Primeape, or fights a creature other than Primeape, you may have Primeape fight that creature.
 
 DeckHints:Name$Mankey
 SVar:HasAttackEffect:TRUE

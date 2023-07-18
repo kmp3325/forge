@@ -1276,7 +1276,7 @@ public class Game {
     }
 
     public void setFrosty(boolean frost) {
-        this.frosty = frosty;
+        this.frosty = frost;
     }
 
     public boolean isFrosty() {

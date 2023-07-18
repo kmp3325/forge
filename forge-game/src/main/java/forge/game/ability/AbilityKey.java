@@ -71,6 +71,7 @@ public enum AbilityKey {
     ETB("ETB"),
     Fighter("Fighter"),
     Fighters("Fighters"),
+    Fighter2("Fighter2"),
     FirstTime("FirstTime"),
     Fizzle("Fizzle"),
     FoundSearchingLibrary("FoundSearchingLibrary"),

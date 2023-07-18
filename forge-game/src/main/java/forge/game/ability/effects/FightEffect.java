@@ -74,10 +74,13 @@ public class FightEffect extends DamageBaseEffect {
 
         dealDamage(sa, fighters.get(0), fighters.get(1));
 
+        int i = 1;
         for (Card c : fighters) {
             final Map<AbilityKey, Object> runParams = AbilityKey.newMap();
             runParams.put(AbilityKey.Fighter, c);
+            runParams.put(AbilityKey.Fighter2, fighters.get(i));
             game.getTriggerHandler().runTrigger(TriggerType.Fight, runParams, false);
+            i--;
         }
 
         final Map<AbilityKey, Object> runParams = AbilityKey.newMap();

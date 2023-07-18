@@ -58,6 +58,9 @@ public class TriggerFight extends Trigger {
         if (!matchesValidParam("ValidCard", runParams.get(AbilityKey.Fighter))) {
             return false;
         }
+        if (!matchesValidParam("ValidFighter2", runParams.get(AbilityKey.Fighter2))) {
+            return false;
+        }
         return true;
     }
 

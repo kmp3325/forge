@@ -3,13 +3,15 @@ ManaCost:2 G G
 Types:Creature Plant Pokémon
 PT:3/4
 K:Mutate onto:2 G G:Gloom Pokémon:3/5
-A:AB$ PutCounter | Cost$ T | Defined$ Self | CounterType$ SOLAR | CounterNum$ SUN | SpellDescription$ Put a solar counter on CARDNAME. If it's sunny, put two solar counters on it instead.
-SVar:SUN:Count$Sunny.2.1
+A:AB$ PutCounter | Cost$ X G | Defined$ Self | CounterType$ SOLAR | CounterNum$ SUN | SpellDescription$ Put X solar counters on CARDNAME. If it's sunny, put twice that many solar counters on it instead.
+SVar:SUN:Count$Sunny.Y.X
+SVar:X:Count$xPaid
+SVar:Y:Count$xPaid/Twice
 A:AB$ GainLife | Cost$ T | LifeAmount$ NumSolar | SpellDescription$ You gain life equal to the number of solar counters on CARDNAME.
 SVar:NumSolar:Count$CardCounters.SOLAR
 R:Event$ DamageDone | ValidSource$ Creature | ValidTarget$ Card.Self | ActiveZones$ Battlefield | PreventionEffect$ True | ReplaceWith$ DBRemoveSolar | CheckSVar$ NumSolar | SVarCompare$ GE1 | Description$ If CARDNAME would be dealt damage and it has a solar counter on it, remove that many solar counters from it instead.
 SVar:DBRemoveSolar:DB$ RemoveCounter | CounterType$ SOLAR | CounterNum$ Dmg | Defined$ Self
 SVar:Dmg:ReplaceCount$DamageAmount
-Oracle:Mutate onto Gloom {2}{G}{G} [3/5]\n{T}: Put a solar counter on Bellossom. If it's sunny, put two solar counters on it instead.\n{T}: You gain life equal to the number of solar counters on Bellossom.\nIf Bellossom would be dealt damage and it has a solar counter on it, remove that many solar counters from it instead.
+Oracle:Mutate onto Gloom {2}{G}{G} [3/5]\n{X}{G}: Put X solar counters on Bellossom. If it's sunny, put twice that many solar counters on it instead.\n{T}: You gain life equal to the number of solar counters on Bellossom.\nIf Bellossom would be dealt damage and it has a solar counter on it, remove that many solar counters from it instead.
 
 DeckHints:Name$Gloom Pokémon

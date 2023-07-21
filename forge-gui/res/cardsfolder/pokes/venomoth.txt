@@ -4,7 +4,7 @@ Types:Creature Insect Pokémon
 PT:4/4
 K:Mutate onto:2 B G:Venonat:4/4
 K:Caustic
-A:AB$ NameCard | Cost$ T | Defined$ You | SubAbility$ DBEffect | SpellDescription$ Name a card. Until the beginning of your next upkeep, spells with the chosen name cost {3} more to cast.
+A:AB$ NameCard | Cost$ T | Defined$ You | SubAbility$ DBEffect | SpellDescription$ Choose a card name. Until the beginning of your next upkeep, spells with the chosen name cost {3} more to cast.
 SVar:DBEffect:DB$ Effect | Duration$ UntilYourNextUpkeep | StaticAbilities$ RaiseCost
 SVar:RaiseCost:Mode$ RaiseCost | ValidCard$ Card.NamedCard | Type$ Spell | Amount$ 3 | Description$ Spells with the chosen name cost {3} more to cast.
 T:Mode$ ChangesZone | ValidCard$ Creature.Insect+powerLTX | Execute$ DBDestroy | TriggerDescription$ Whenever an Insect creature with lesser power enters the battlefield, you may pay {1}. If you do, destroy that creature. Tap CARDNAME and put a stun counter on it.
@@ -12,7 +12,7 @@ SVar:X:Count$CardPower
 SVar:DBDestroy:AB$ Destroy | Cost$ 1 | Defined$ TriggeredCardLKICopy | SubAbility$ TrigTap
 SVar:TrigTap:DB$ Tap | Defined$ Self | SubAbility$ TrigStun
 SVar:TrigStun:DB$ PutCounter | CounterType$ STUN | CounterNum$ 1 | Defined$ Self
-Oracle:Mutate onto Venonat {2}{B}{G} [4/4]\nCaustic\n{T}: NFame a card. until the beginning of your next upkeep, spells with the chosen name cost {3} more to cast.\nWhenever an Insect creature with lesser power enters the battlefield, you may pay {1}. If you do, destroy that creature. Tap Venomoth and put a stun counter on it.
+Oracle:Mutate onto Venonat {2}{B}{G} [4/4]\nCaustic\n{T}: Choose a card name. until the beginning of your next upkeep, spells with the chosen name cost {3} more to cast.\nWhenever an Insect creature with lesser power enters the battlefield, you may pay {1}. If you do, destroy that creature. Tap Venomoth and put a stun counter on it.
 
 DeckHints:Name$Venonat
 SVar:HasBlockEffect:TRUE

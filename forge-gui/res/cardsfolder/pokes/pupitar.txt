@@ -3,8 +3,8 @@ ManaCost:1 G W
 Types:Creature Dinosaur Pokémon
 PT:0/2
 K:Mutate onto:G W:Larvitar:0/3
-A:AB$ PutCounter | Cost$ G W T | CounterType$ SHIELD | CounterNum$ 1 | SpellDescription$ Put a shield counter on CARDNAME.
-Oracle:Mutate onto {G}{W} [0/3]\n{G}{W}, {T}: Put a shield counter on Pupitar.
+A:AB$ PutCounter | Cost$ T | CounterType$ SHIELD | CounterNum$ 1 | SpellDescription$ Put a shield counter on CARDNAME.
+Oracle:Mutate onto {G}{W} [0/3]\n{T}: Put a shield counter on Pupitar.
 
 DeckHints:Name$Larvitar
 DeckHints:Name$Tyranitar

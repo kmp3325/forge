@@ -4,7 +4,7 @@ Types:Creature Insect Pokémon
 PT:1/1
 K:Double strike
 K:Caustic
-T:Mode$ ChangesController | ValidCard$ Creature.Insect | TriggerZones$ Battlefield | Execute$ TrigBoost | ValidOriginalController$ Opponent | ValidNewController$ You | TriggerDescription$ Whenever you gain control of an Insect creature or an Insect creature you don't own enters the battlefield under your control, put a +1/+1 counter on CARDNAME.
-SVar:TrigBoost:DB$ PutCounter | Defined$ Self | CounterNum$ 1 | CounterType$ P1P1
+T:Mode$ ChangesController | ValidCard$ Creature.Insect | TriggerZones$ Battlefield | Execute$ TrigBoost | ValidOriginalController$ Opponent | ValidNewController$ You | TriggerDescription$ Whenever you gain control of an Insect creature or an Insect creature you don't own enters the battlefield under your control, put two +1/+1 counters on CARDNAME.
+SVar:TrigBoost:DB$ PutCounter | Defined$ Self | CounterNum$ 2 | CounterType$ P1P1
 T:Mode$ ChangesZone | ValidCard$ Creature.Insect+YouDontOwn+YouCtrl | TriggerZones$ Battlefield | Secondary$ True | Execute$ TrigBoost | TriggerDescription$ Whenever you gain control of an Insect creature or an Insect creature you don't own enters the battlefield under your control, put a +1/+1 counter on CARDNAME.
-Oracle:Double strike, caustic\nWhenever you gain control of an Insect creature or an Insect creature you don't own enters the battlefield under your control, put a +1/+1 counter on Team Rocket's Beedrill.
+Oracle:Double strike, caustic\nWhenever you gain control of an Insect creature or an Insect creature you don't own enters the battlefield under your control, put two +1/+1 counters on Team Rocket's Beedrill.

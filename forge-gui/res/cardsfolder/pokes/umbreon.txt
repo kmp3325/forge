@@ -10,6 +10,6 @@ SVar:FOG:Count$Foggy.1.0
 SVar:PhaseInTrig:DB$ DelayedTrigger | Mode$ PhaseIn | ValidCard$ Card.Self | Execute$ DBDmgOther | TriggerDescription$ When CARDNAME phases in, it deals 3 damage to target creature and 1 damage to itself.
 SVar:DBDmgOther:DB$ DealDamage | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumDmg$ 3 | SubAbility$ DmgSelf
 SVar:DmgSelf:DB$ DealDamage | Defined$ Self | NumDmg$ 1
-Oracle:Mutate onto Eevee {2}{B}{B} [4/6]\nUmbreon has caustic as long as it's blocking.\nWhenever Umbreon becomes blocked, you may pay {b}. When you do, it phases out until end of combat. When it phases in, it deals 3 damage to any target and 1 damage to itself.
+Oracle:Mutate onto Eevee {2}{B}{B} [4/6]\nUmbreon has caustic as long as it's blocking.\nWhenever Umbreon becomes blocked, you may pay {B}. When you do, it phases out until end of combat. When it phases in, it deals 3 damage to any target and 1 damage to itself.
 
 DeckHints:Name$Eevee

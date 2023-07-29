@@ -8,3 +8,4 @@ SVar:DBPutCounterSelf:DB$ PutCounter | Defined$ Self | CounterNum$ 1 | CounterTy
 Oracle:{UR}, {T}: Tap target creature and put a stun counter on it. Put a stun counter on Chinchou. Activate only as a sorcery.
 
 DeckHints:Name$Lanturn
+SVar:SoundEffect:chinchou.mp3

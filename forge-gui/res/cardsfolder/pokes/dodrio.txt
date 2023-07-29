@@ -14,3 +14,4 @@ SVar:WIND:Count$Windy.1.0
 Oracle:Mutate onto Doduo {4}{W} [4/2]\nFlying, first strike, vigilance\nWhenever Dodrio enters the battlefield or mutates, it becomes windy.\nDodrio can block an additional creature each combat as long as it's windy.
 
 DeckHints:Name$Doduo
+SVar:SoundEffect:dodrio.mp3

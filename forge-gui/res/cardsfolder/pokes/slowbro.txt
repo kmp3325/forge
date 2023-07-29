@@ -11,3 +11,4 @@ SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
 Oracle:Mutate onto Slowpoke {2}{UB}{UB} [2/6]\nWhenever Slowbro enters the battlefield or mutates, target player mills six cards. If two or more land cards were milled this way, draw a card.
 
 DeckHints:Name$Slowpoke
+SVar:SoundEffect:slowbro.mp3

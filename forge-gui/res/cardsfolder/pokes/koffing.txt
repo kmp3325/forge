@@ -9,3 +9,4 @@ SVar:FOG:Count$Foggy.1.0
 Oracle:When Koffing enters the battlefield, it becomes foggy.\nKoffing has caustic as long as it's foggy.
 
 DeckHints:Name$Weezing
+SVar:SoundEffect:koffing.mp3

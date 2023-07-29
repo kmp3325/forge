@@ -8,3 +8,4 @@ T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | E
 SVar:TrigClone:DB$ CopyPermanent | ValidCards$ Creature.YouDontCtrl+counters_GE1_SAMPLE | SubAbility$ TrigRemoveCounters
 SVar:TrigRemoveCounters:DB$ RemoveCounterAll | ValidCards$ Creature.YouDontCtrl | CounterType$ SAMPLE | AllCounters$ True
 Oracle:When Mewtwo enters the battlefield, put a sample counter on each nonlegendary creature you don't control.\nAt the beginning of your upkeep, for each creature you don't control with a sample counter on it, remove all sample counters from it and create a token that's a copy of it.
+SVar:SoundEffect:mewtwo.mp3

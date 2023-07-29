@@ -11,3 +11,4 @@ Oracle:Mutate onto Mareep {2}{U}{R} [4/4]\nWhenever you cast your first spell du
 
 DeckHints:Name$Mareep
 DeckHints:Name$Ampharos
+SVar:SoundEffect:flaaffy.mp3

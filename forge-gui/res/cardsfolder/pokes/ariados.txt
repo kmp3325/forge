@@ -10,3 +10,4 @@ Oracle:Mutate onto Spinarak {3}{B}{G} [4/5]\nCaustic\n{B}{G}, {T}: Choose any nu
 
 DeckHints:Name$Spinarak
 
+SVar:SoundEffect:ariados.mp3

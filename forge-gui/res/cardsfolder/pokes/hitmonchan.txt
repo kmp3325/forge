@@ -10,3 +10,4 @@ A:AB$ Pump | Cost$ W | NumDef$ 1 | Defined$ Self | KW$ Reach | SpellDescription$
 Oracle:Mutate onto Tyrogue {2}{R}{W} [4/5]\nWhenever Hitmonchan enters the battlefield or mutates, you may have it fight target creature.\n{W}: Hitmonchan gets +0/+1 and gains reach until end of turn.
 
 DeckHints:Name$Tyrogue
+SVar:SoundEffect:hitmonchan.mp3

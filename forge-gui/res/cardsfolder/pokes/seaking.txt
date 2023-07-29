@@ -13,3 +13,4 @@ Oracle:Mutate onto Goldeen {4}{U} [4/4]\nWhenever Seaking blocks or becomes bloc
 DeckHints:Name$Goldeen
 SVar:HasAttackEffect:TRUE
 SVar:HasBlockEffect:TRUE
+SVar:SoundEffect:seaking.mp3

@@ -9,4 +9,4 @@ T:Mode$ AttackerBlockedByCreature | ValidCard$ Card.Self | ValidBlocker$ Creatur
 SVar:TrigDebuff:DB$ Debuff | Defined$ TriggeredBlockerLKICopy | Keywords$ Indestructible
 Oracle:Mutate onto Phanpy {5}{W}{W} [7/7]\nDonphan has indestructible as long as it's not rainy.\nWhenever Donphan becomes blocked by a creature, that creature loses indestructible until end of turn.
 
-DeckHints:Name$Phanpy
+DeckHints:Name$PhanpySVar:SoundEffect:donphan.mp3

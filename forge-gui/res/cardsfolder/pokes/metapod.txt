@@ -11,3 +11,4 @@ Oracle:Mutate onto Caterpie {1}{G} [0/4]\n{G}: Metapod gets +0/+1 until end of t
 DeckHints:Name$Caterpie
 DeckHints:Name$Butterfree
 DeckHints:Type$Creature
+SVar:SoundEffect:metapod.mp3

@@ -13,3 +13,4 @@ SVar:DmgSelf:DB$ DealDamage | Defined$ Self | NumDmg$ 1
 Oracle:Mutate onto Eevee {2}{B}{B} [4/6]\nUmbreon has caustic as long as it's blocking.\nWhenever Umbreon becomes blocked, you may pay {B}. When you do, it phases out until end of combat. When it phases in, it deals 3 damage to any target and 1 damage to itself.
 
 DeckHints:Name$Eevee
+SVar:SoundEffect:umbreon.mp3

@@ -9,3 +9,4 @@ SVar:X:Count$Valid Creature.OppCtrl+counters_GE1_PEACE
 Oracle:At the beginning of your upkeep, you may put a peace counter on target creature. Then you gain life equal to the number of creatures with peace counters on them.
 
 DeckHints:Name$Togetic
+SVar:SoundEffect:togepi.mp3

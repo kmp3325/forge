@@ -9,3 +9,4 @@ SVar:DBPump:DB$ Animate | Defined$ Targeted | RemoveAllAbilities$ True | Duratio
 Oracle:When Houndour enters the battlefield, you may put a burn counter on target creature you don't control. If you do, until end of turn, you gain control of that creature and it loses all abilities.
 
 DeckHints:Name$Houndoom
+SVar:SoundEffect:houndour.mp3

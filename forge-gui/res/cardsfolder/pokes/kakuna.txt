@@ -8,3 +8,4 @@ Oracle:Mutate onto Weedle {B}{G} [1/5]\n{G}: Kakuna gets +0/+1 until end of turn
 
 DeckHints:Name$Weedle
 DeckHints:Name$Beedrill
+SVar:SoundEffect:kakuna.mp3

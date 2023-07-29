@@ -8,3 +8,4 @@ SVar:DBReveal:DB$ PeekAndReveal | Bottom$ True | RememberRevealed$ True | SubAbi
 SVar:DBPlay:DB$ Play | ValidZone$ Library | Valid$ Card.IsRemembered | ValidSA$ Spell | PlayReduceCost$ W U B R G | Controller$ You | Optional$ True | Amount$ 1 | ForgetPlayed$ True | ConditionDefined$ Remembered | ConditionPresent$ Card.NamedCard | ConditionCompare$ GE1 | SubAbility$ DBCleanup
 SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
 Oracle:{1}, {T}: Scry 1.\n{2}, {T}: Choose a card name, then reveal the bottom card of your library. If a card with a chosen name is revealed this way, you may cast it. It costs {W}{U}{B}{R}{G} less to cast this way. This effect reduces only the amount of colored mana you pay. Activate only as a sorcery.
+SVar:SoundEffect:unown.mp3

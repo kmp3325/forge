@@ -13,3 +13,4 @@ SVar:SUN:Count$Sunny.1.0
 Oracle:Mutate onto Magby {4}{R} [6/6]\nWhenever Magmar enters the battlefield or mutates, put a burn counter on each creature you don't control.\ns long as it's sunny, if one or more burn counters would be put on a creature, that many plus one burn counters are put on it instead.
 
 DeckHints:Name$Magby
+SVar:SoundEffect:magmar.mp3

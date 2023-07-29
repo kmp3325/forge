@@ -11,3 +11,4 @@ SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
 Oracle:When Omanyte enters the battlefield, put a +1/+1 counter on target creature.\nRemove a +1/+1 counter from Omanyte: Discard a card. If a card is discarded this way, scry 1, then draw a card.
 
 DeckHints:Name$Omastar
+SVar:SoundEffect:omanyte.mp3

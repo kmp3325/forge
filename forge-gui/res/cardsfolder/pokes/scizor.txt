@@ -12,3 +12,4 @@ SVar:TrigOnAttacker:DB$ DealDamage | Defined$ TriggeredAttackerLKICopy | NumDmg$
 Oracle:Mutate onto Scyther {3}{R}{G} [6/5]\nFirst strike, steel skin\nWhenever CARDNAME blocks or becomes blocked by a creature, it deals 1 damage to that creature.
 
 DeckHints:Name$Scyther
+SVar:SoundEffect:scizor.mp3

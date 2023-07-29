@@ -11,3 +11,4 @@ SVar:TrigShield:DB$ PutCounterAll | CounterType$ SHIELD | CounterNum$ 1 | ValidC
 Oracle:Mutate onto Onix {3}{G}{G}{W}\nIndestructible, vigilance, steel skin\nWhenever Steelix mutates, put a shield counter on each other creature you control.
 
 DeckHints:Name$Onix
+SVar:SoundEffect:steelix.mp3

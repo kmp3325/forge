@@ -9,3 +9,4 @@ S:Mode$ Continuous | Affected$ Creature.counters_GE1_VICEGRIP | AddHiddenKeyword
 Oracle:When Krabby enters the battlefield, tap target creature an opponent controls and put a vicegrip counter on it.\nCreatures with vicegrip counters on them don't untap during their controller's untap step.
 
 DeckHints:Name$Kingler
+SVar:SoundEffect:krabby.mp3

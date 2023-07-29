@@ -8,3 +8,4 @@ SVar:TrigRemoveCounters:DB$ RemoveCounter | CounterType$ All | CounterNum$ All |
 Oracle:Flying\nWhen Natu enters the battlefield, you may remove all counters from target permanent.
 
 DeckHints:Name$Xatu
+SVar:SoundEffect:natu.mp3

@@ -10,3 +10,4 @@ Oracle:Mutate onto Totodile {4}{U} [4/4]\nMenace\nWhenever Croconaw phases in, d
 
 DeckHints:Name$Totodile
 DeckHints:Name$Feraligatr
+SVar:SoundEffect:croconaw.mp3

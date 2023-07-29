@@ -13,3 +13,4 @@ SVar:NonStackingEffect:True
 Oracle:Whenever Abra becomes the target of a spell or ability an opponent controls, it phases out until end of turn.\nIf noncombat damage would be dealt to Abra, prevent that damage. It phases out until end of turn.\n{UB}: The next time Abra would phase out this turn, instead it doesn't.
 
 DeckHints:Name$Kadabra
+SVar:SoundEffect:abra.mp3

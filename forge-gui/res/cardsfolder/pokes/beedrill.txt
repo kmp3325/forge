@@ -8,3 +8,4 @@ K:Caustic
 Oracle:Mutate onto Kakuna {1}{B}{G} [4/1]\nFirst strike, caustic
 
 DeckHints:Name$Kakuna
+SVar:SoundEffect:beedrill.mp3

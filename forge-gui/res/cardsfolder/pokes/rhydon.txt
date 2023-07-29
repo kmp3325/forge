@@ -13,3 +13,4 @@ Oracle:Mutate onto Rhyhorn {4}{G}{G}{W} [8/8]\nWhenever Rhydon deals combat dama
 
 DeckHints:Name$Rhyhorn
 SVar:HasCombatEffect:TRUE
+SVar:SoundEffect:rhydon.mp3

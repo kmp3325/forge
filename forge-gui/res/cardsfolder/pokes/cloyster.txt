@@ -10,3 +10,4 @@ A:AB$ PutCounter | IsCurse$ True | Cost$ S Q | CounterNum$ 1 | CounterType$ FROS
 Oracle:Mutate onto Shellder {3}{GU} [2/6]\nIf one or more +1/+1 counters would be put on Cloyster and its untapped, you may tap it and put that many shield counters on it instead.\n{S}, {Q}: Put a frost counter on target creature.
 
 DeckHints:Name$Shellder
+SVar:SoundEffect:cloyster.mp3

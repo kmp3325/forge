@@ -8,3 +8,5 @@ T:Mode$ ChangesController | ValidCard$ Creature.Insect | TriggerZones$ Battlefie
 SVar:TrigBoost:DB$ PutCounter | Defined$ Self | CounterNum$ 2 | CounterType$ P1P1
 T:Mode$ ChangesZone | ValidCard$ Creature.Insect+YouDontOwn+YouCtrl | TriggerZones$ Battlefield | Secondary$ True | Execute$ TrigBoost | TriggerDescription$ Whenever you gain control of an Insect creature or an Insect creature you don't own enters the battlefield under your control, put a +1/+1 counter on CARDNAME.
 Oracle:Double strike, caustic\nWhenever you gain control of an Insect creature or an Insect creature you don't own enters the battlefield under your control, put two +1/+1 counters on Team Rocket's Beedrill.
+
+SVar:SoundEffect:beedrill.mp3

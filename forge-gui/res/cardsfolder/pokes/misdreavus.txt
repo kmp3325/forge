@@ -7,3 +7,4 @@ SVar:TrigDestroy:DB$ DestroyAll | ValidCards$ Creature.toughnessLE3+Other | SubA
 SVar:TrigReturn:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature in your graveyard | SubAbility$ TrigFog
 SVar:TrigFog:DB$ Weather | Value$ Foggy
 Oracle:When Misdreavus enters the battlefield, destroy all other creatures with power 3 or less. Then return target creature card from your graveyard to your hand. It becomes foggy.
+SVar:SoundEffect:misdreavus.mp3

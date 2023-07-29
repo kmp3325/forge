@@ -7,3 +7,5 @@ K:Flying
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ DBDealDamage | TriggerDescription$ When CARDNAME enters the battlefield, it deals 2 damage to target nonblack creature.
 SVar:DBDealDamage:DB$ DealDamage | ValidTgts$ Creature.nonBlack | TgtPrompt$ Select target nonblack creature | NumDmg$ 2
 Oracle:Flash\nFlying\nWhen Wild Zubat enters the battlefield, it deals 2 damage to target nonblack creature.
+
+SVar:SoundEffect:zubat.mp3

@@ -14,3 +14,4 @@ SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
 Oracle:Mutate onto Exeggcute {2}{G}{U} [1/1]\nWhenever Exeggutor enters the battlefield or mutates, put three +1/+1 counters on it.\nWhenever a creature you control with a +1/+1 counter on it becomes the target of a spell or ability an opponent controls, flip a coin. If you win the flip, that opponent discards a card. If a card is discarded this way, they scry 1.
 
 DeckHints:Name$Exeggcute
+SVar:SoundEffect:exeggutor.mp3

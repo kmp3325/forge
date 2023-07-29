@@ -14,3 +14,4 @@ SVar:DBFrost:DB$ PutCounter | CounterType$ FROST | CounterNum$ 2 | IsCurse$ True
 SVar:DBDmg:DB$ DealDamage | NumDmg$ X | ValidTgts$ Creature.counters_GE1_FROST | TgtPrompt$ Select target creature with a frost counter on it | SpellDescription$ It deals damage equal to its power to target creature with a frost counter on it.
 SVar:X:TriggeredCard$CardPower
 Oracle:Flying\nWhenever Articuno blocks, you may pay {S}{S}. When you do, it becomes snowy, then Articuno phases out.\nWhenever a creature you control phases in, if it's snowy, choose one —\n• Put two frost counters on target creature.\n• It deals damage equal to its power to target creature with a frost counter on it.
+SVar:SoundEffect:articuno.mp3

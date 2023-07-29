@@ -9,3 +9,4 @@ SVar:TrigExile:DB$ ChangeZone | Destination$ Exile | Origin$ Battlefield | Valid
 Oracle:Mutate onto Snubbull {4}{R}{W} [5/3]\nWhenever Granbull enters the battlefield or mutates, exile target creature.
 
 DeckHints:Name$Snubbull
+SVar:SoundEffect:granbull.mp3

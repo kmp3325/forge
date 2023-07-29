@@ -10,3 +10,5 @@ SVar:X:Count$Valid Creature.Insect+YouCtrl
 Oracle:Flash\nFlying\nWhen Wild Scyther enters the battlefield, it gets +X/+X until end of turn, where X is the number of Insects you control.
 
 DeckHints:Type$Insect
+
+SVar:SoundEffect:scyther.mp3

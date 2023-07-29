@@ -9,3 +9,4 @@ SVar:DBPump:DB$ Pump | Defined$ TriggeredAttackerLKICopy | NumAtt$ 3 | NumDef$ 3
 A:AB$ Pump | Cost$ T Sac<1/Creature.Other/another creature> | ValidTgts$ Player | TgtPrompt$ Select target player | SubAbility$ TrigSwapCtrl | SorcerySpeed$ True | SpellDescription$ Target player gains control of CARDNAME. Activate only as a sorcery.
 SVar:TrigSwapCtrl:DB$ GainControl | Defined$ Self | NewController$ ParentTarget
 Oracle:First strike\nWhenever another creature you control attacks, if you own Entei, that creature gets +3/+3 until end of turn. If you don't own Entei, put three burn counters on that creature.\n{T}, Sacrifice another creature: Target player gains control of Entei. Activate only as a sorcery.
+SVar:SoundEffect:entei.mp3

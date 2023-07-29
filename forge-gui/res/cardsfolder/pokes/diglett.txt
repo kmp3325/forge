@@ -9,3 +9,4 @@ A:AB$ Phases | Cost$ WB WB SubCounter<1/DIG> | ValidTgts$ Creature | SpellDescri
 Oracle:When Diglett enters the battlefield, put a dig counter on it.\n{WB}{WB}: Diglett phases out. Activate only if Diglett has a dig counter on it.\n{WB}{WB}, Remove a dig counter from Diglett: Target creature phases out.
 
 DeckHints:Name$Dugtrio
+SVar:SoundEffect:diglett.mp3

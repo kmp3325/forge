@@ -7,3 +7,4 @@ SVar:DBPump:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1
 Oracle:If Cubone would be dealt damage by another creature you control, prevent that damage. If damage is prevented this way, put a +1/+1 counter on Cubone.
 
 DeckHints:Name$Marowak
+SVar:SoundEffect:cubone.mp3

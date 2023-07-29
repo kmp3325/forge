@@ -6,3 +6,5 @@ T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefi
 SVar:TrigMove:DB$ MoveCounter | ValidTgts$ Creature | TgtPrompt$ Select target creature | CounterType$ Any | CounterNum$ Any | Defined$ Self | SubAbility$ DBDestroy
 SVar:DBDestroy:DB$ Destroy | Defined$ Targeted
 Oracle:When Wild Rhydon enters the battlefield, you may move any number of counters from target creature onto Wild Rhydon. If any counters are moved this way, destroy that creature.
+
+SVar:SoundEffect:rhydon.mp3

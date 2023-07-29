@@ -8,3 +8,4 @@ Oracle:Mutate onto {G}{W} [0/3]\n{T}: Put a shield counter on Pupitar.
 
 DeckHints:Name$Larvitar
 DeckHints:Name$Tyranitar
+SVar:SoundEffect:pupitar.mp3

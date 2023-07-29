@@ -6,3 +6,4 @@ K:Scorching
 Oracle:Scorching
 
 DeckHints:Name$Charmeleon
+SVar:SoundEffect:charmander.mp3

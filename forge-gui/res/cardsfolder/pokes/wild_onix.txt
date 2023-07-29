@@ -6,3 +6,5 @@ T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefi
 SVar:TrigShield:DB$ PutCounter | CounterType$ SHIELD | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigPump
 SVar:TrigPump:DB$ Pump | Defined$ Targeted | NumAtt$ +1 | NumDef$ +1 | KW$ Trample
 Oracle:When Wild Onix enters the battlefield, put a shield counter on target creature. That creature gets +1/+1 and gains trample until end of turn.
+
+SVar:SoundEffect:onix.mp3

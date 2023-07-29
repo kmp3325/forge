@@ -10,3 +10,4 @@ SVar:X:Count$xPaid
 Oracle:Flying\n{X}{RG}{RG}: Scyther gets +X/+0 until end of turn.
 
 DeckHints:Name$Scizor
+SVar:SoundEffect:scyther.mp3

@@ -10,3 +10,5 @@ SVar:DBGainLife:DB$ GainLife | Defined$ You | LifeAmount$ X | SubAbility$ DBClea
 SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
 SVar:X:RememberedLKI$CardToughness
 Oracle:Flash\nFlying\nWhen Wild Pidgeot enters the battlefield, exile target creature. You gain life equal to that creature's toughness.
+
+SVar:SoundEffect:pidgeot.mp3

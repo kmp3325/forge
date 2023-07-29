@@ -7,3 +7,4 @@ SVar:TrigDraw:AB$ Draw | Cost$ Discard<1/Card> | NumCards$ 1
 Oracle:When Vulpix enters the battlefield, you may discard a card. If you do, draw a card.
 
 DeckHints:Name$Ninetales
+SVar:SoundEffect:vulpix.mp3

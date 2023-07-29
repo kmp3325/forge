@@ -12,3 +12,4 @@ SVar:DBExileSelf:DB$ ChangeZone | Origin$ Command | Destination$ Exile | Defined
 Oracle: Flying\nWhen Hoothoot enters the battlefield, you may have target creature phase out until Hoothoot leaves the battlefield.
 
 DeckHints:Name$Noctowl
+SVar:SoundEffect:hoothoot.mp3

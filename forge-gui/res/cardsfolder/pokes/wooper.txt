@@ -6,3 +6,4 @@ A:AB$ Phases | Cost$ W U | Defined$ Self | PlayerTurn$ True | SpellDescription$ 
 Oracle:{W}{U}: Wooper phases out. Activate only during your turn.
 
 DeckHints:Name$Quagsire
+SVar:SoundEffect:wooper.mp3

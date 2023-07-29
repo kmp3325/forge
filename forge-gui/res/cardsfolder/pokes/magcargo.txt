@@ -8,3 +8,4 @@ SVar:ActuallyShield:DB$ ReplaceCounter | CounterType$ SHIELD
 Oracle:Mutate onto Slugma {1}{R}{G}{W} [3/6]\nIf a burn counter would be put on Magcargo, put a shield counter on it instead.
 
 DeckHints:Name$Slugma
+SVar:SoundEffect:magcargo.mp3

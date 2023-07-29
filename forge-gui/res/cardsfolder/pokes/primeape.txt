@@ -14,3 +14,4 @@ Oracle:Mutate onto Mankey {4}{R}{W} [5/4]\nVigilance\nWhenever another creature 
 
 DeckHints:Name$Mankey
 SVar:HasAttackEffect:TRUE
+SVar:SoundEffect:primeape.mp3

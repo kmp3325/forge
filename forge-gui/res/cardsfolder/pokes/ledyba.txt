@@ -9,3 +9,4 @@ Oracle:Flying\nWhen Ledyba enters the battlefield, you may search your library f
 
 DeckHints:Name$Ledian
 DeckHints:Type$Insect
+SVar:SoundEffect:ledyba.mp3

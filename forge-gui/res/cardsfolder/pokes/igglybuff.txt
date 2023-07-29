@@ -8,3 +8,4 @@ SVar:TrigScry:DB$ Scry | ScryNum$ 1
 Oracle:Ward—Discard a card.\nWhen Igglybuff enters the battlefield, scry 1.
 
 DeckHints:Name$Jigglypuff
+SVar:SoundEffect:igglybuff.mp3

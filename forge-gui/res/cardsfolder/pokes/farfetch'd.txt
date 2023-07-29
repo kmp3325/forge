@@ -6,3 +6,5 @@ K:Flying
 S:Mode$ Continuous | Affected$ Card.Self | AddKeyword$ First strike | CheckSVar$ WIND | SVarCompare$ GE1 | Description$ CARDNAME has first strike as long as it's windy.
 SVar:WIND:Count$Windy.1.0
 Oracle:Flying\nFarfetch'd has first strike as long as it's windy.
+
+SVar:SoundEffect:farfetchd.mp3

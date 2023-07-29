@@ -10,3 +10,4 @@ SVar:X:Count$CardCounters.SOLAR
 Oracle:Whenever Oddish becomes tapped, you may put a solar counter on it. If you do, you gain life equal to the number of solar counters on it. Then if Oddish has three or more solar counters on it, you may return target land card from your graveyard to your hand.
 
 DeckHints:Name$Gloom Pokémon
+SVar:SoundEffect:oddish.mp3

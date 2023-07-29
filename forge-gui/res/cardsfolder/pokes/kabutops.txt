@@ -11,3 +11,4 @@ A:AB$ Regenerate | Cost$ GU | SpellDescription$ Regenerate CARDNAME.
 Oracle:Mutate onto Kabuto {3}{G}{U} [6/4]\nKabutops has first strike as long as it's rainy.\nWhenever a creature dealt damage by Kabutops this turn dies, put a +1/+1 counter on Kabutops.\n{GU}, Remove a +1/+1 counter from Kabutops: Regenerate it.
 
 DeckHints:Name$Kabuto
+SVar:SoundEffect:kabutops.mp3

@@ -9,3 +9,5 @@ SVar:TrigMill:DB$ Mill | Defined$ Player.Opponent | NumCards$ X | SubAbility$ Tr
 SVar:TrigScry:DB$ Scry | Defined$ You | ScryNum$ X
 SVar:X:Count$xPaid
 Oracle:When Wild Poliwhirl enters the battlefield, it becomes rainy. Then each opponent discards X cards, mills X cards, and you scry X.
+
+SVar:SoundEffect:poliwhirl.mp3

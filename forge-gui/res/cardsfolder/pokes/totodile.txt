@@ -6,3 +6,4 @@ A:AB$ Tap | Cost$ U T | ValidTgts$ Creature | TgtPrompt$ Select target creature 
 Oracle:{U}, {T}: Tap target creature.
 
 DeckHints:Name$Croconaw
+SVar:SoundEffect:totodile.mp3

@@ -5,3 +5,5 @@ PT:1/1
 A:AB$ Weather | Cost$ T | Value$ Sunny | SpellDescription$ It becomes sunny.
 A:AB$ PutCounter | Cost$ T | CounterType$ SOLAR | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature | SpellDescription$ Put a solar counter on target creature.
 Oracle:{T}: It becomes sunny.\n{T}: Put a solar counter on target creature.
+
+SVar:SoundEffect:bellossom.mp3

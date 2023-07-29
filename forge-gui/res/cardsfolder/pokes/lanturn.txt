@@ -12,3 +12,4 @@ Oracle:Mutate onto Chinchou {1}{UR}{UR} [4/4]\nLanturn gets +1/+1 for each stun 
 
 DeckHints:Name$Chinchou
 SVar:HasBlockEffect:TRUE
+SVar:SoundEffect:lanturn.mp3

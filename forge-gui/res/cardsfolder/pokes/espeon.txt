@@ -9,3 +9,4 @@ A:AB$ PreventDamage | Cost$ B | Amount$ 1 | Defined$ Self | SpellDescription$ Pr
 Oracle:Mutate onto Eevee {2}{B}{B} [5/5]\nWhenever the weather changes, target player mills four cards.\n{B}: Prevent the next 1 damage that would be dealt to Espeon this turn.
 
 DeckHints:Name$Eevee
+SVar:SoundEffect:espeon.mp3

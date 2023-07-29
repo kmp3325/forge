@@ -10,3 +10,4 @@ Oracle:Mutate onto Clefairy {3}{W}{W} [3/5]\nHexproof\nWhenever you cast a mutat
 
 DeckHints:Name$Clefairy
 DeckHints:Ability$Counters
+SVar:SoundEffect:clefable.mp3

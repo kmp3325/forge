@@ -10,3 +10,4 @@ Oracle:Mutate onto Bellsprout {4}{G} [4/3]\nCaustic\nWeepinbell can block Insect
 DeckHints:Name$Bellsprout
 DeckHints:Name$Victreebel
 SVar:AntiBuffedBy:Creature.Insect
+SVar:SoundEffect:weepinbell.mp3

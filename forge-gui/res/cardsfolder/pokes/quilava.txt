@@ -11,3 +11,4 @@ Oracle:Mutate onto Cyndaquil {3}{R} [4/4]\nAt the beginning of your upkeep, you 
 
 DeckHints:Name$Cyndaquil
 DeckHints:Name$Typhlosion
+SVar:SoundEffect:quilava.mp3

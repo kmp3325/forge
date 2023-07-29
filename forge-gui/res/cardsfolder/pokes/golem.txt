@@ -11,3 +11,4 @@ SVar:X:Count$CardCounters.SHIELD
 Oracle:Mutate onto Graveler {4}{G}{W}{W} [7/7]\nWhenever Golem enters the battlefield or mutates, put a shield counter on it.\nOther creatures you control get +1/+1 for each shield counter on Golem.
 
 DeckHints:Name$Graveler
+SVar:SoundEffect:golem.mp3

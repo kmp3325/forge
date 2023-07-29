@@ -11,3 +11,4 @@ SVar:Y:ReplaceCount$DamageAmount/Twice
 Oracle:Mutate onto Wartortle {2}{U}{U}{U} [5/7]\n{U}, {T}: Blastoise deals damage to target attacking creature equal to the number of untapped Islands you control.\nIf Blastoise would deal noncombat damage to a creature, it deals double that damage instead.
 
 DeckHints:Name$Wartortle
+SVar:SoundEffect:blastoise.mp3

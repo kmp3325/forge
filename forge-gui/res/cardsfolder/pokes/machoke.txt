@@ -11,3 +11,4 @@ Oracle:Mutate onto Machop {1}{R}{W} [4/4]\n{R}{W}, {T}: Tap target creature you 
 
 DeckHints:Name$Machop
 DeckHints:Name$Machamp
+SVar:SoundEffect:machoke.mp3

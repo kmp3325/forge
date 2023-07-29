@@ -8,3 +8,4 @@ Oracle:When Slowpoke enters the battlefield, target player discards a card.
 
 DeckHints:Name$Slowbro
 DeckHints:Name$Slowking
+SVar:SoundEffect:slowpoke.mp3

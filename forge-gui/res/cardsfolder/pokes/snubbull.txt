@@ -6,3 +6,4 @@ K:Vigilance
 Oracle:Vigilance
 
 DeckHints:Name$Granbull
+SVar:SoundEffect:snubbull.mp3

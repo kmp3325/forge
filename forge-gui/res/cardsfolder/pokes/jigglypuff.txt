@@ -10,3 +10,4 @@ Oracle:Mutate onto Igglybuff {2}{W}{U} [2/2]\nWhenever Jigglypuff enters the bat
 
 DeckHints:Name$Wigglytuff
 DeckHints:Name$Igglybuff
+SVar:SoundEffect:jigglypuff.mp3

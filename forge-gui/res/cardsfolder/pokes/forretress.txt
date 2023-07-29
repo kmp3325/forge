@@ -9,3 +9,4 @@ A:AB$ DestroyAll | Cost$ Sac<1/CARDNAME> | ValidCards$ Creature | SpellDescripti
 Oracle:Mutate onto Pineco {4}{G} [4/7]\nDefender\nSteel skin\nSacrifice Forretress: Destroy all creatures.
 
 DeckHints:Name$Pineco
+SVar:SoundEffect:forretress.mp3

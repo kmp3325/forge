@@ -9,4 +9,4 @@ Oracle:Mutate onto Bulbasaur {1}{G}{G} [3/3]\nVigilance\n{B}{B}: Ivysaur gains c
 
 DeckHints:Name$Bulbasuar
 DeckHints:Name$Venusaur
-DeckHas:Keyword$Caustic
+DeckHas:Keyword$CausticSVar:SoundEffect:ivysaur.mp3

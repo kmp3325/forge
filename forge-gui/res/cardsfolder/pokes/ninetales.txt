@@ -10,3 +10,4 @@ Oracle:Mutate onto Vulpix {2}{R}{R} [4/6]\nWhenever Ninetales attacks, you may p
 
 DeckHints:Name$Vulpix
 SVar:HasAttackEffect:TRUE
+SVar:SoundEffect:ninetales.mp3

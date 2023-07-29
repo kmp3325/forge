@@ -9,3 +9,4 @@ SVar:TrigDmg:DB$ DealDamage | NumDmg$ 1 | DamageSource$ Targeted | Defined$ Targ
 Oracle:Mutate onto {2}{W}{U}{B} [4/9]\nWhenever a player mills one or more creature cards, you may tap target creature. If you do, it deals 1 damage to itself.
 
 DeckHints:Name$Slowpoke
+SVar:SoundEffect:slowking.mp3

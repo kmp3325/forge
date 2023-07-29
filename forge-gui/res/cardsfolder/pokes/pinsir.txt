@@ -7,3 +7,4 @@ SVar:SUN:Count$Sunny.1.0
 Oracle:Insect creatures you control get +1/+1 as long as it's sunny.
 
 DeckHints:Type$Insect
+SVar:SoundEffect:pinsir.mp3

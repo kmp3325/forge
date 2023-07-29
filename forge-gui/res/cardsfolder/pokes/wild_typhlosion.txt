@@ -8,3 +8,5 @@ SVar:TrigDestroy:DB$ Destroy | ValidTgts$ Artifact,Land,Creature.withSteel skin 
 S:Mode$ Continuous | Affected$ Card.Self | CheckSVar$ RAIN | SVarCompare$ GE1 | AddPower$ -1 | AddToughness$ -1 | Description$ CARDNAME gets -1/-1 as long as it's rainy.
 SVar:RAIN:Count$Rainy.1.0
 Oracle:Flash\nWhen Wild Typhlosion enters the battlefield, destroy target artifact, land, or creature with steel skin.\nWild Typhlosion gets -1/-1 as long as it's rainy.
+
+SVar:SoundEffect:typhlosion.mp3

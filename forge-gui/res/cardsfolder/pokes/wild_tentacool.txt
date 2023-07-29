@@ -7,3 +7,5 @@ K:Caustic
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigCounter | TriggerDescription$ When CARDNAME enters the battlefield, counter target creature spell.
 SVar:TrigCounter:DB$ Counter | TargetType$ Spell | ValidTgts$ Creature | TgtPrompt$ Select target creature spell
 Oracle:Flash\nCaustic\nWhen Wild Tentacool enters the battlefield, counter target creature spell.
+
+SVar:SoundEffect:tentacool.mp3

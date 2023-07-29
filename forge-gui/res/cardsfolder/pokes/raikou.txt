@@ -8,3 +8,4 @@ SVar:TrigPutCounter:DB$ PutCounter | ValidTgts$ Creature | TgtPrompt$ Select tar
 A:AB$ Pump | Cost$ R W | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | AILogic$ Fight | SubAbility$ DBFight | ActivationLimit$ 1 | SpellDescription$ Target creature you control fights target creature with a counter on it. Activate only once each turn.
 SVar:DBFight:DB$ Fight | Defined$ ParentTarget | ValidTgts$ Creature.HasCounters | TgtPrompt$ Select target creature with a counter on it
 Oracle:First strike\nAt the beginning of your upkeep, put a shield counter on target creature.\n{R}{W}: Target creature you control fights target creature with a counter on it. Activate only once each turn.
+SVar:SoundEffect:raikou.mp3

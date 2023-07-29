@@ -12,3 +12,4 @@ SVar:TrigPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | Counter
 Oracle:Mutate onto Remoraid {4}{U} [4/3]\nWhenever a +1/+1 counter is put on a creature you control, put a +1/+1 counter on Octillery. This ability triggers only once each turn.\n{U}, {T}: Target creature with power less than or equal to Octillery's power can't be blocked until end of turn.
 
 DeckHints:Name$Remoraid
+SVar:SoundEffect:octillery.mp3

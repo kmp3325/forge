@@ -7,3 +7,5 @@ SVar:DBBlastOff:DB$ ChangeZone | TargetMin$ 0 | TargetMax$ 2 | TargetsFromSingle
 SVar:DBShuffleChanged:DB$ Shuffle | Defined$ RememberedOwner | SubAbility$ DBCleanup | StackDescription$ None
 SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
 Oracle:{T}: Shuffle Team Rocket's Meowth and up to two other permanents you control into their owners' libraries.
+
+SVar:SoundEffect:meowth.mp3

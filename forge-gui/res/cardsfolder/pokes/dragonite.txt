@@ -11,3 +11,4 @@ SVar:TrigFight:DB$ Fight | Defined$ Self | ExtraDefined$ DelayTriggerRememberedL
 Oracle:Mutate onto Dragonair {3}{U}{R}{R}{W} [9/8]\nFlying, vigilance\nWhenever a creature an opponent controls becomes tapped, you may pay {U}{R}{W}. When you do, Dragonite fights it.
 
 DeckHints:Name$Dragonair
+SVar:SoundEffect:dragonite.mp3

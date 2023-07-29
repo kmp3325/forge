@@ -8,3 +8,4 @@ Oracle:Mutate onto Charmander {1}{R}{R} [4/2]\n{R}: Charmeleon gets +1/+0 until 
 
 DeckHints:Name$Charmander
 DeckHints:Name$Charizard
+SVar:SoundEffect:charmeleon.mp3

@@ -7,3 +7,4 @@ SVar:TrigReturn:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand | ChangeT
 Oracle:When Sentret enters the battlefield, you may return target land card from your graveyard to the battlefield.
 
 DeckHints:Name$Furret
+SVar:SoundEffect:sentret.mp3

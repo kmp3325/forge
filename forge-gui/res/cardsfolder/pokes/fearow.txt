@@ -14,3 +14,4 @@ Oracle:Mutate onto Spearow {3}{RW}{RW} [4/4]\nFlying, first strike\nWhenever Fea
 
 DeckHints:Name$Spearow
 DechHints:Type$Bird
+SVar:SoundEffect:fearow.mp3

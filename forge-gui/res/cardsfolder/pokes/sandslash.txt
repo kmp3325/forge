@@ -10,3 +10,4 @@ SVar:TrigPump:DB$ Pump | Defined$ Self | NumAtt$ 1
 Oracle:Mutate onto Sandshrew {2}{W}{B} [4/4]\nFirst strike, vigilance\nWhenever Sandslash is dealt noncombat damage, it gets +1/+0 until end of turn.
 
 DeckHints:Name$Sandshrew
+SVar:SoundEffect:sandslash.mp3

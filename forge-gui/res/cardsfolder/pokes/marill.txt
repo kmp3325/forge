@@ -9,3 +9,4 @@ SVar:PhaseAgain:DB$ Phases | Defined$ TriggeredCardLKICopy
 Oracle:When Marill enters the battlefield, target creature phases out. When it phases in, it phases out again.
 
 DeckHints:Name$Azumarill
+SVar:SoundEffect:marill.mp3

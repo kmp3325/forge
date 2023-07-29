@@ -7,3 +7,4 @@ SVar:X:Count$CardToughness
 Oracle:{T}: Target player mills X cards, where X is Staryu's toughness.
 
 DeckHints:Name$Starmie
+SVar:SoundEffect:staryu.mp3

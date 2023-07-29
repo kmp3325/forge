@@ -6,3 +6,4 @@ S:Mode$ CantPutCounter | ValidCard$ Card.Self | CounterType$ FROST | Description
 Oracle:Slugma can't have frost counters put on it.
 
 DeckHints:Name$Magcargo
+SVar:SoundEffect:slugma.mp3

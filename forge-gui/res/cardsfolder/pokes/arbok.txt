@@ -13,3 +13,4 @@ Oracle: Mutate onto Ekans {2}{B}{G} [4/4]\nCaustic\n{T}: Arbok deals 1 damage to
 
 DeckHints:Name$Ekans
 SVar:HasAttackEffect:TRUE
+SVar:SoundEffect:arbok.mp3

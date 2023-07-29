@@ -9,3 +9,4 @@ Oracle:When Caterpie leaves the battlefield, you gain life equal to the number o
 
 DeckHints:Name$Metapod
 DeckHints:Type$Creature
+SVar:SoundEffect:caterpie.mp3

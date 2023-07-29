@@ -8,3 +8,5 @@ SVar:TrigFreeze:DB$ PutCounter | CounterType$ FROST | CounterNum$ X | ValidTgts$
 SVar:X:Count$Snowy.3.2
 A:AB$ Weather | Cost$ S T | Value$ Snowy | SpellDescription$ It becomes snowy.
 Oracle:When Wild Lapras enters the battlefield, put two frost counters on target creature. If it’s snowy, put three frost counters on it instead.\n{S}, {T}: It becomes snowy.
+
+SVar:SoundEffect:lapras.mp3

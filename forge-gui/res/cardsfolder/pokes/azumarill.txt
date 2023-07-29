@@ -13,3 +13,4 @@ SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
 Oracle:Mutate onto Marill {3}{WU} [3/3]\nWhenever another creature phases in, scry 1.\nWhenever you scry, you may pay {WU}{WU}. When you do, exile target creature card from your graveyard. Until end of turn, you may cast that card.
 
 DeckHints:Name$Marill
+SVar:SoundEffect:azumarill.mp3

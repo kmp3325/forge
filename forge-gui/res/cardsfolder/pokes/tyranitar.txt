@@ -12,3 +12,4 @@ SVar:TrigRocks:DB$ DamageAll | ValidCards$ Creature.Other+withFlying | NumDmg$ 3
 Oracle:Mutate onto Pupitar {3}{W}{B}{G} [7/6]\nWhenever Tyranitar attacks, it deals 2 damage to each other creature without flying and 3 damage to each other creature with flying.\nWhenever a shield counter is removed from a creature you control, you may destroy target tapped land. If you do, that land’s controller may search their library for a basic land card, put it onto the battlefield tapped, then shuffle.
 
 DeckHints:Name$Pupitar
+SVar:SoundEffect:tyranitar.mp3

@@ -9,3 +9,4 @@ SVar:X:Count$CardPower
 Oracle:When Geodude enters the battlefield, put a shield counter on it.\n{T}, Remove a shield counter from Geodude: It deals damage equal to its power to each creature.
 
 DeckHints:Name$Graveler
+SVar:SoundEffect:geodude.mp3

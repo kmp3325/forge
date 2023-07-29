@@ -8,3 +8,4 @@ Oracle:Caustic\nWeedle gets +1/+0 as long as it's blocking.
 
 DeckHints:Name$Kakuna
 SVar:HasBlockEffect:TRUE
+SVar:SoundEffect:weedle.mp3

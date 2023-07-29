@@ -5,3 +5,4 @@ PT:0/1
 Oracle:
 
 DeckNeeds:Name$Gyarados
+SVar:SoundEffect:magikarp.mp3

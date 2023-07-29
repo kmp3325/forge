@@ -17,3 +17,4 @@ Oracle:Mutate onto Golbat {2}{B}{B} [4/5]\nFlying, first strike\nWhenever Crobat
 
 DeckHints:Name$Golbat
 SVar:HasCombatEffect:TRUE
+SVar:SoundEffect:crobat.mp3

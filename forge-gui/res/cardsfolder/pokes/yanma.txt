@@ -7,3 +7,4 @@ SVar:TrigSpeed:AB$ PutCounter | Cost$ G | Defined$ Self | CounterType$ SPEED | C
 S:Mode$ Continuous | Affected$ Card.Self | AddPower$ X | Description$ CARDNAME gets +1/+0 for each speed counter on it.
 SVar:X:Count$CardCounters.SPEED
 Oracle:Flying, first strike\nAt the beginning of your upkeep, you may pay {G}. If you do, put a speed counter on Yanma.\nYanma gets +1/+0 for each speed counter on it.
+SVar:SoundEffect:yanma.mp3

@@ -9,3 +9,4 @@ SVar:DBProliferate:DB$ Proliferate
 Oracle:Whenever Shellder enters the battlefield or mutates, put a +1/+1 counter on target creature, then proliferate.
 
 DeckHints:Name$Cloyster
+SVar:SoundEffect:shellder.mp3

@@ -15,3 +15,4 @@ Oracle:Mutate onto Pidgeotto {2}{W}{W} [4/5]\nFlying, first strike\nWhenever Pid
 
 DeckHints:Name$Pidgey
 DeckHints:Name$Pidgeotto
+SVar:SoundEffect:pidgeot.mp3

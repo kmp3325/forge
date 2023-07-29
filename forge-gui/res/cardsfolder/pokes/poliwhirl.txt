@@ -10,3 +10,4 @@ Oracle:Mutate onto Poliwag {4}{UR} [3/5]\n{T}: Tap target creature. If that crea
 DeckHints:Name$Poliwag
 DeckHints:Name$Poliwrath
 DeckHints:Name$Politoed
+SVar:SoundEffect:poliwhirl.mp3

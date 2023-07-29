@@ -7,3 +7,4 @@ SVar:TrigSearch:DB$ ChangeZone | Origin$ Library | Destination$ Battlefield | Ta
 Oracle:When Chikorita enters the battlefield, you may search your library for a basic land card and put it onto the battlefield tapped, then shuffle.
 
 DeckHints:Name$Bayleef
+SVar:SoundEffect:chikorita.mp3

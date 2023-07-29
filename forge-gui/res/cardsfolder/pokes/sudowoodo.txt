@@ -14,3 +14,4 @@ SVar:TrigComeBack:Mode$ WeatherChanged | Execute$ DBPhaseIn | TriggerZones$ Comm
 SVar:DBPhaseIn:DB$ Phases | Defined$ Remembered | PhaseInOrOut$ True | SubAbility$ DBExileSelf
 SVar:DBExileSelf:DB$ ChangeZone | Origin$ Command | Destination$ Exile | Defined$ Self
 Oracle:Mutate onto Bonsly {3}{GW} [2/3]\nAt the beginning of your upkeep, if there are no shield counters on Sudowoodo, put a shield counter on it.\nWhenever it becomes rainy, Sudowoodo phases out until it's not rainy.
+SVar:SoundEffect:sudowoodo.mp3

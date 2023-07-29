@@ -10,3 +10,4 @@ SVar:TrigMoreMill:DB$ Mill | NumCards$ 1 | Defined$ TriggeredPlayer
 Oracle:Mutate onto Staryu {4}{U}{B} [3/1+*]\nStarmie's toughness is equal to 1 plus the number of land cards in opponents' graveyards.\nWhenever a player mills a land card, they mill an additional card. This ability triggers only once each turn.
 
 DeckHints:Name$Staryu
+SVar:SoundEffect:starmie.mp3

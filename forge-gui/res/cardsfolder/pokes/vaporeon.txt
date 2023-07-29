@@ -11,3 +11,4 @@ SVar:DBPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNu
 Oracle:Mutate onto Eevee {2}{U}{U} [3/7]\nWard {2}\n{U}{U}: Vaporeon phases out. When it phases in, put a +1/+1 counter on it. Activate only if it's rainy and only before blockers are declared.
 
 DeckHints:Name$Eevee
+SVar:SoundEffect:vaporeon.mp3

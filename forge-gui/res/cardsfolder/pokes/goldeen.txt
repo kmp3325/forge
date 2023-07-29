@@ -8,3 +8,4 @@ SVar:TrigWeather:DB$ Weather | Value$ Rainy
 Oracle:When Goldeen enters the battlefield, draw a card. It becomes rainy.
 
 DeckHints:Name$Seaking
+SVar:SoundEffect:goldeen.mp3

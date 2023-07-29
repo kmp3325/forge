@@ -7,3 +7,4 @@ SVar:X:Count$CardPower
 Oracle:{T}: Voltorb deals damage equal to its power to each creature.
 
 DeckHints:Name$Electrode
+SVar:SoundEffect:voltorb.mp3

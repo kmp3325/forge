@@ -8,3 +8,4 @@ Oracle:{G}, {T}: You gain 1 life for each Insect on the battlefield.
 
 DeckHints:Name$Parasect
 DeckHints:Type$Insect
+SVar:SoundEffect:paras.mp3

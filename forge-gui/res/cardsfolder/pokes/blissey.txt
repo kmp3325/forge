@@ -8,3 +8,4 @@ SVar:DBRegenerate:DB$ Regenerate | Defined$ ParentTarget
 Oracle:Mutate onto Chansey {3}{G}{W}{U} [3/10]\n{G}{U}: Remove all counters from target creature and regenerate it.
 
 DeckHints:Name$Chansey
+SVar:SoundEffect:blissey.mp3

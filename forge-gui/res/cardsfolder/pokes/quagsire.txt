@@ -10,3 +10,4 @@ SVar:DBDraw:DB$ Draw | NumCards$ 1 | Defined$ You
 Oracle:Mutate onto Wooper {3}{W}{U} [5/6]\nWhenever Quagsire phases in, target creature phases out. Scry 1, then draw a card.
 
 DeckHints:Name$Wooper
+SVar:SoundEffect:quagsire.mp3

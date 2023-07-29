@@ -6,3 +6,4 @@ A:AB$ Phases | Cost$ C C | Defined$ Self | SpellDescription$ CARDNAME phases out
 Oracle:{C}{C}: Rattata phases out.
 
 DeckHints:Name$Raticate
+SVar:SoundEffect:rattata.mp3

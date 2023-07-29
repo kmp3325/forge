@@ -8,3 +8,4 @@ SVar:TrigDestroy:DB$ Destroy | ValidTgts$ Creature.nonBlack | TgtPrompt$ Select 
 Oracle:Caustic\nWhen Grimer enters the battlefield, destroy target nonblack creature.
 
 DeckHints:Name$Muk
+SVar:SoundEffect:grimer.mp3

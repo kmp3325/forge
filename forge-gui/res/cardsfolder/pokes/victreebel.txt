@@ -12,3 +12,4 @@ Oracle:Mutate onto Weepinbell {1}{B}{G}{U} [4/4]\nCaustic\nWhenever a creature d
 
 DeckHints:Name$Weepinbell
 SVar:AntiBuffedBy:Creature.Insect
+SVar:SoundEffect:victreebel.mp3

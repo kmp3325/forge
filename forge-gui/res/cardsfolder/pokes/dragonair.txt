@@ -9,3 +9,4 @@ Oracle:Mutate onto Dratini {3}{U}{R} [6/5]\nWhenever Dragonair mutates, it becom
 
 DeckHints:Name$Dratini
 DeckHints:Name$Dragonite
+SVar:SoundEffect:dragonair.mp3

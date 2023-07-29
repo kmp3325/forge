@@ -9,3 +9,4 @@ SVar:TrigCopyCounter:DB$ PutCounter | IsCurse$ True | TriggeredCounterType$ True
 Oracle:Mutate onto Natu {3}{B} [3/3]\nFlying\nWhenever a burn counter, frost counter, stun counter, or -0/-1 counter is put on a creature you control, you may put a counter of that kind on target creature you don't control.
 
 DeckHints:Name$Natu
+SVar:SoundEffect:xatu.mp3

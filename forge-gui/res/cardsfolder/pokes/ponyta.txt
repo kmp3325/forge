@@ -9,3 +9,4 @@ SVar:TrigSun:DB$ Weather | Value$ Sunny
 Oracle:Whenever Ponyta enters the battlefield or mutates, you may put up to three burn counters on target creature. It becomes sunny.
 
 DeckHints:Name$Rapidash
+SVar:SoundEffect:ponyta.mp3

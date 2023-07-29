@@ -12,3 +12,4 @@ Oracle:Mutate onto Charmeleon {2}{R}{R}{R} [6/5]\nFlying, first strike\nWhenever
 
 DeckHints:Name$Charmeleon
 SVar:HasAttackEffect:TRUE
+SVar:SoundEffect:charizard.mp3

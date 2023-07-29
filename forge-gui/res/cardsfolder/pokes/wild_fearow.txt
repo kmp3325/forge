@@ -8,3 +8,5 @@ T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefi
 SVar:TrigDmg:DB$ DealDamage | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumDmg$ X
 SVar:X:Count$Valid Creature.YouCtrl+Bird
 Oracle:Flash\nFlying\nWhen Wild Fearow enters the battlefield, it deals damage equal to the number of Bird creatures you control to target creature.
+
+SVar:SoundEffect:fearow.mp3

@@ -9,3 +9,4 @@ Oracle:Mutate onto Paras {6}{G} [4/4]\n{T}, Pay 2 life: Create a 0/1 green Plant
 
 DeckHints:Name$Paras
 DeckHints:Type$Insect
+SVar:SoundEffect:parasect.mp3

@@ -6,4 +6,4 @@ S:Mode$ Continuous | AffectedZone$ Hand | Affected$ Card.OppOwn | MayLookAt$ Pla
 Oracle:Your opponents play with their hands revealed as long as you control two or more mutated Insects.
 
 DeckHints:Name$Venomoth
-DeckHints:Type$Insect
+DeckHints:Type$InsectSVar:SoundEffect:venonat.mp3

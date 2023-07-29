@@ -11,3 +11,4 @@ Oracle:Mutate onto Cubone {1}{W}{B} [4/4]\nWhenever Marowak attacks, it deals 1 
 
 DeckHints:Name$Cubone
 SVar:HasAttackEffect:TRUE
+SVar:SoundEffect:marowak.mp3

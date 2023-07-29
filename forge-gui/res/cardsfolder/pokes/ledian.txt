@@ -10,3 +10,4 @@ Oracle:Mutate onto Ledyba {2}{G} [3/3]\nFlying\nAs long as Ledian is attacking, 
 
 DeckHints:Name$Ledybda
 DeckHints:Type$Insect
+SVar:SoundEffect:ledian.mp3

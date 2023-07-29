@@ -14,3 +14,4 @@ SVar:Z:Count$xPaid/HalfUp
 Oracle:Mutate onto Ivysaur {2}{G}{G}{G} [6/6]\n{X}{G}{G}: Put X solar counters on Venusaur. If it's sunny, put twice that many solar counters on it instead.\n{G}, {T}, Remove any number of solar counters from Venusaur: Venusaur deals that much damage to target creature. If that creature has flying, instead Venusaur deals half that damage to it, rounded up.
 
 DeckHints:Name$Ivysaur
+SVar:SoundEffect:venusaur.mp3

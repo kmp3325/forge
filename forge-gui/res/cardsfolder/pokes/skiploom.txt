@@ -9,3 +9,4 @@ Oracle:Mutate onto Hoppip {R}{G} [2/3]\nFlying\n{G}{G}, {T}: It becomes sunny.
 
 DeckHints:Name$Hoppip
 DeckHints:Name$Jumpluff
+SVar:SoundEffect:skiploom.mp3

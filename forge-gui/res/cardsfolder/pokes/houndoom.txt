@@ -9,3 +9,4 @@ SVar:TrigPutCounter:DB$ PutCounter | IsCurse$ True | Cost$ B R R | CounterType$ 
 Oracle:Mutate onto Houndour {3}{B}{R} [5/4]\n{T}: Gain control of target creature with three or more burn counters on it.\n{B}{R}{R}: It becomes foggy. Then put a burn counter on target creature.
 
 DeckHints:Name$Houndour
+SVar:SoundEffect:houndoom.mp3

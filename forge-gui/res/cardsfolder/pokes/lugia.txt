@@ -8,3 +8,4 @@ SVar:TrigPump:DB$ Pump | Defined$ Self | KW$ Indestructible & Creatures with cau
 T:Mode$ DamageDoneOnce | ValidTarget$ Creature.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigMill | TriggerDescription$ Whenever a creature you control is dealt damage, target player mills three cards.
 SVar:TrigMill:DB$ Mill | ValidTgts$ Player | TgtPrompt$ Select target player | NumCards$ 3
 Oracle:Flying\nWhenever a creature you control is dealt damage, target player mills three cards.\nWhenever Lugia blocks, until end of turn, it gains indestructible and creatures with caustic deal damage to it as though they didn't have caustic.
+SVar:SoundEffect:lugia.mp3

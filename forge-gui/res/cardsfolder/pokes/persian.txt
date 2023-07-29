@@ -15,3 +15,4 @@ DeckHints:Name$Meowth
 DeckHints:Type$Treasure
 DeckHas:Type$Treasure
 SVar:HasAttackEffect:TRUE
+SVar:SoundEffect:persian.mp3

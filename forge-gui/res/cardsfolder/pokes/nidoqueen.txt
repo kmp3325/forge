@@ -10,3 +10,4 @@ Oracle:Mutate onto Nidorina {4}{W}{B} [6/6]\nVigilance\nWhenever Nidoqueen deals
 
 DeckHints:Name$Nidorina
 SVar:HasCombatEffect:TRUE
+SVar:SoundEffect:nidoqueen.mp3

@@ -10,3 +10,4 @@ SVar:SUN:Count$Sunny.1.0
 Oracle:Flying\nWhen Hoppip enters the battlefield, it becomes sunny.\nHoppip gets +1/+0 as long as it's sunny.
 
 DeckHints:Name$Skiploom
+SVar:SoundEffect:hoppip.mp3

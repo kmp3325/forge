@@ -8,3 +8,4 @@ Oracle:Mutate onto Geodude {2}{G}{W} [4/4]\n{G}{W}, {T}: Put a shield counter on
 
 DeckHints:Name$Geodude
 DeckHints:Name$Golem
+SVar:SoundEffect:graveler.mp3

@@ -6,3 +6,4 @@ K:Hexproof
 T:Mode$ SpellCast | ValidCard$ Creature.sharesCreatureTypeWith | TriggerZones$ Battlefield | Execute$ MewCopy | OptionalDecider$ You | TriggerDescription$ Whenever a player casts a creature spell that shares a creature type with CARDNAME, you may copy it, except the copy is a mutating creature spell, targets CARDNAME, and CARDNAME is put on top.
 SVar:MewCopy:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | DefinedTarget$ Self | MakeMutate$ True
 Oracle:Hexproof\nWhenever a player casts a creature spell that shares a creature type with Mew, you may copy it, except the copy is a mutating creature spell, targets Mew, and Mew is put on top.
+SVar:SoundEffect:mew.mp3

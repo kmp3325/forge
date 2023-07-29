@@ -10,3 +10,4 @@ Oracle:Mutate onto Nidorino {4}{W}{B} [7/5]\nVigilance\nWhenever Nidoking deals 
 
 DeckHints:Name$Nidorino
 SVar:HasCombatEffect:TRUE
+SVar:SoundEffect:nidoking.mp3

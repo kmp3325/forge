@@ -10,3 +10,4 @@ SVar:X:ParentTargeted$CardPower/HalfUp
 Oracle:Vigilance\nWhen Larvitar enters the battlefield, you may have target creature you control deal damage equal to half its power, rounded up, to another target creature.
 
 DeckHints:Name$Pupitar
+SVar:SoundEffect:larvitar.mp3

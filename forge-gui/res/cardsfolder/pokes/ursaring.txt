@@ -13,3 +13,4 @@ Oracle:Mutate onto Teddiursa {3} [4/4]\nUrsaring can't attack unless you scarifi
 
 DeckHints:Name$Teddiursa
 SVar:BuffedBy:Food
+SVar:SoundEffect:ursaring.mp3

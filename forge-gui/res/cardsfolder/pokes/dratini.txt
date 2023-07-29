@@ -8,3 +8,4 @@ SVar:TrigPutCounter:DB$ PutCounter | IsCurse$ True | Defined$ Targeted | Counter
 Oracle:Whenever the weather changes, you may tap target creature and put a stun counter on it.
 
 DeckHints:Name$Dragonair
+SVar:SoundEffect:dratini.mp3

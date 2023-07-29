@@ -10,3 +10,4 @@ Oracle:Mutate onto Pichu {2}{R} [2/2]\nHaste\n{T}: Put a stun counter on Pikachu
 
 DeckHints:Name$Raichu
 DeckHints:Type$Creature
+SVar:SoundEffect:pikachu.mp3

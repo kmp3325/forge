@@ -12,3 +12,4 @@ SVar:SUN:Count$Sunny.1.0
 Oracle:Mutate onto Skiploom {R}{G} [3/5]\nFlying\n{T}: Look at the top card of your library. If it's a creature card, you may reveal it and put it into your hand.\n{T}: Add {R}{G}. Activate only if it's sunny.
 
 DeckHints:Name$Skiploom
+SVar:SoundEffect:jumpluff.mp3

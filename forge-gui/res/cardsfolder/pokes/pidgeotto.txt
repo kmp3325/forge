@@ -14,3 +14,4 @@ Oracle:Mutate onto Pidgey {2}{G} [2/2]\nFlying\nWhenever Pidgeotto attacks, you 
 DeckHints:Name$Pidgey
 DeckHints:Name$Pidgeot
 SVar:HasAttackEffect:TRUE
+SVar:SoundEffect:pidgeotto.mp3

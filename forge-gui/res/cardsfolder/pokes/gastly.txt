@@ -9,3 +9,4 @@ SVar:TrigFog:DB$ Weather | Value$ Foggy
 Oracle:Caustic\nWhen Gastly enters the battlefield, target player sacrifices a creature. It becomes foggy.
 
 DeckHints:Name$Haunter
+SVar:SoundEffect:gastly.mp3

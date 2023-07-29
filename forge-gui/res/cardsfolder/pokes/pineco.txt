@@ -10,3 +10,4 @@ SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
 Oracle:When Pineco enters the battlefield, you may search your library for up to two basic Forest cards, reveal those cards, put one onto the battlefield tapped and the other into your hand, then shuffle.
 
 DeckHints:Name$Forretress
+SVar:SoundEffect:pineco.mp3

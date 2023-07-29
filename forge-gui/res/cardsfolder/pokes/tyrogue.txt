@@ -11,3 +11,4 @@ Oracle:As Tyrogue enters the battlefield, you may switch its power and toughness
 DeckHints:Name$Hitmonchan
 DeckHints:Name$Hitmonlee
 DeckHints:Name$Hitmontop
+SVar:SoundEffect:tyrogue.mp3

@@ -7,3 +7,4 @@ SVar:TrigCounter:DB$ PutCounter | CounterType$ SHIELD | Defined$ Self | CounterN
 Oracle:Whenever Shuckle blocks, put a shield counter on it.
 
 SVar:HasBlockEffect:TRUE
+SVar:SoundEffect:shuckle.mp3

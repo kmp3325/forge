@@ -10,3 +10,4 @@ SVar:DBPutCounter:DB$ PutCounter | CounterType$ P1P1 | CounterNum$ 1 | Defined$ 
 Oracle:Mutate onto Pikachu {2}{R} [4/4]\nIf one or more stun counters would be put on a permanent you control, you may instead have Raichu deal 1 damage to itself. When you do, put a +1/+1 counter on Raichu.
 
 DeckHints:Name$Pikachu
+SVar:SoundEffect:raichu.mp3

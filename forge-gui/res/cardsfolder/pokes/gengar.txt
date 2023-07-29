@@ -14,3 +14,4 @@ SVar:TrigPhase:DB$ Phases | Defined$ Self | UnlessCost$ Sac<1/Creature> | Unless
 Oracle:Mutate onto Haunter {2B}{2B}{2B}{B}{B}{B} [5/3]\nFirst strike, caustic\nWhenever Gengar deals combat damage to a player, that player discards a card. If they discard a creature card this way, put it onto the battlefield under your control.\nAt the beginning of your upkeep, if you control a creature you don't own, Gengar phases out unless you sacrifice a creature.
 
 DeckHints:Name$Haunter
+SVar:SoundEffect:gengar.mp3

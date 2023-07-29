@@ -9,3 +9,4 @@ SVar:TrigStunBlocker:DB$ PutCounter | IsCurse$ True | CounterType$ STUN | Define
 Oracle:Whenever Mareep blocks or becomes blocked by a creature, put a stun counter on that creature.
 
 DeckHints:Name$Flaaffy
+SVar:SoundEffect:mareep.mp3

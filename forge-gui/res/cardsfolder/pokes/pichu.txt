@@ -9,3 +9,4 @@ SVar:TrigDmg:DB$ DealDamage | ValidTgts$ Player | NumDmg$ 5 | TgtPrompt$ Select 
 Oracle:When Pichu enters the battlefield, it deals 5 damage to target player chosen at random.\nWhenever Pichu mutates, it deals 5 damage to target player.
 
 DeckHints:Name$Pikachu
+SVar:SoundEffect:pichu.mp3

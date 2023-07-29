@@ -8,3 +8,4 @@ Oracle:Mutate onto Horsea {5}{U} [5/5]\n{1}{U}{U}: Counter target activated or t
 
 DeckHints:Name$Horsea
 DeckHints:Name$Kingdra
+SVar:SoundEffect:seadra.mp3

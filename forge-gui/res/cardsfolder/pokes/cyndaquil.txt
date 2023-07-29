@@ -9,3 +9,4 @@ SVar:Y:Count$CardCounters.BURN/Twice
 Oracle:Cyndaquil gets +0/+1 for each burn counter on it. If it's sunny, it gets +0/+2 for each burn counter on it instead.
 
 DeckHints:Name$Quilava
+SVar:SoundEffect:cyndaquil.mp3

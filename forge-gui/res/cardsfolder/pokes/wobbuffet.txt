@@ -8,3 +8,4 @@ T:Mode$ DamageDoneOnce | Execute$ TrigDamage | ValidTarget$ Card.Self | TriggerZ
 SVar:TrigDamage:DB$ DealDamage | NumDmg$ X | ValidTgts$ Any
 SVar:X:TriggerCount$DamageAmount
 Oracle:Mutate onto Wynut {2}{B} [1/4]\nDefender\nWhenever Wobbuffet is dealt damage, it deals that much damage to any target.
+SVar:SoundEffect:wobbuffet.mp3

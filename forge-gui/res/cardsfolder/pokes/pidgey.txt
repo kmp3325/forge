@@ -7,3 +7,4 @@ K:Vigilance
 Oracle:Flying, vigilance
 
 DeckHints:Name$Pidgeotto
+SVar:SoundEffect:pidgey.mp3

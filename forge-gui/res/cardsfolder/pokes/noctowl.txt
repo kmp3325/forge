@@ -11,3 +11,4 @@ Oracle:Mutate onto Hoothoot {3}{W}{W} [4/5]\nFlying\nWhenever a creature you con
 
 DeckHints:Name$Hoothoot
 DeckHints:Type$Bird
+SVar:SoundEffect:noctowl.mp3

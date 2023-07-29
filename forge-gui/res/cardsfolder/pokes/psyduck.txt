@@ -7,3 +7,4 @@ SVar:TrigCard:AB$ Draw | Cost$ Discard<1/Card> | NumCards$ 1
 Oracle:Whenever one or more creatures attack you, you may discard a card. If you do, draw a card.
 
 DeckHints:Name$Golduck
+SVar:SoundEffect:psyduck.mp3

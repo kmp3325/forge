@@ -10,3 +10,5 @@ Oracle:Mutate onto Oddish {1}{BG}{BG} [3/3]\nCaustic\n{1}{BG}, {T}: Remove up to
 DeckHints:Name$Oddish
 DeckHints:Name$Vileplume
 DeckHints:Name$Bellossom
+
+SVar:SoundEffect:gloom.mp3

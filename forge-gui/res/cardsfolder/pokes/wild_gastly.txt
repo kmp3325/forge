@@ -8,3 +8,5 @@ T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefi
 SVar:TrigDestroy:DB$ Destroy | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigFog
 SVar:TrigFog:DB$ Weather | Value$ Foggy
 Oracle:Flash\nCaustic\nWhen Wild Gastly enters the battlefield, destroy target creature. It becomes foggy.
+
+SVar:SoundEffect:gastly.mp3

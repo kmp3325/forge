@@ -11,3 +11,4 @@ SVar:DBPutCounter:DB$ PutCounter | IsCurse$ True | ValidTgts$ Creature | Counter
 Oracle: Whenever Lapras attacks, as long as it's snowy, another target creature can't be blocked this turn.\n{1}{S}: Put two frost counters on target creature. It becomes snowy. Activate only as a sorcery.
 
 SVar:HasAttackEffect:TRUE
+SVar:SoundEffect:lapras.mp3

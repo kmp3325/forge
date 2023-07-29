@@ -11,3 +11,4 @@ SVar:DBPutCounter:DB$ PutCounter | Defined$ Self | CounterNum$ 1 | CounterType$ 
 Oracle:Mutate onto Jigglypuff {4}{W}{U} [4/4]\nWhenever a creature an opponent controls enters the battlefield or mutates, it phases out.\nWhenever a creature phases in, put a +1/+1 counter on Wigglytuff.
 
 DeckHints:Name$Jigglypuff
+SVar:SoundEffect:wigglytuff.mp3

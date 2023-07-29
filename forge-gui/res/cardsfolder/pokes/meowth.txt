@@ -12,3 +12,4 @@ Oracle:Whenever Meowth enters the battlefield or mutates, create a Treasure toke
 DeckHints:Name$Persian
 DeckHints:Type$Treasure
 DeckHas:Type$Treasure
+SVar:SoundEffect:meowth.mp3

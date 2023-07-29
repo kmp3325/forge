@@ -6,3 +6,4 @@ A:AB$ Debuff | Cost$ 2 | ValidTgts$ Creature | TgtPrompt$ Select target creature
 SVar:DBPhase:DB$ Effect | RememberObjects$ Targeted | ForgetOnMoved$ Battlefield | StaticAbilities$ CantPhaseOut | Duration$ UntilEndOfTurn
 SVar:CantPhaseOut:Mode$ CantPhaseOut | ValidCard$ Card.IsRemembered | Description$ Remembered can't phase out until end of turn.
 Oracle:{2}: Target creature loses shadow and can't phase out until end of turn. Activate only once each turn.
+SVar:SoundEffect:lickitung.mp3

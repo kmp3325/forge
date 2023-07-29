@@ -9,3 +9,4 @@ Oracle:Mutate onto Male Nidoran {4}{B} [5/4]\nWhenever a creature you control is
 
 DeckHints:Name$Male Nidoran
 DeckHints:Name$Nidoking
+SVar:SoundEffect:nidorino.mp3

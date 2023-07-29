@@ -11,3 +11,4 @@ Oracle:Mutate onto Gastly {B}{B}{B} [3/2]\nCaustic\nWhenever Haunter enters the 
 
 DeckHints:Name$Gastly
 DeckHints:Name$Gengar
+SVar:SoundEffect:haunter.mp3

@@ -11,3 +11,5 @@ Oracle:Mutate onto Team Rocket's Magikarp {4}{B}{R} [7/7]\nFlying\nWhenever Team
 
 DeckHints:Name$Team Rocket's Magikarp
 SVar:HasAttackEffect:TRUE
+
+SVar:SoundEffect:gyarados.mp3

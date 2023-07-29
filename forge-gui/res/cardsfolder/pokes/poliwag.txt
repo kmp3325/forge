@@ -7,3 +7,4 @@ SVar:DBReplace:DB$ ReplaceDamage | Amount$ 1
 Oracle:If a creature would deal damage to Poliwag, prevent 1 of that damage.
 
 DeckHints:Name$Poliwhirl
+SVar:SoundEffect:poliwag.mp3

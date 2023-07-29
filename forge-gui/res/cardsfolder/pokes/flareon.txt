@@ -9,3 +9,4 @@ SVar:SUN:Count$Sunny.1.0
 Oracle:Mutate onto Eevee {2}{R}{R} [6/4]\nScorching\nFlareon gets +0/+2 as long as it's sunny.
 
 DeckHints:Name$Eevee
+SVar:SoundEffect:flareon.mp3

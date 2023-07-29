@@ -12,3 +12,4 @@ SVar:TrigDmgPlayers:DB$ DealDamage | NumDmg$ 5 | Defined$ Player
 Oracle:Mutate onto {4}{R}{R} [5/4]\nFirst strike\nWhenever Electrode deals damage to a creature, tap that creature and put a stun counter on it.\nWhen Electrode dies, it deals 5 damage to each player.
 
 DeckHints:Name$Voltorb
+SVar:SoundEffect:electrode.mp3

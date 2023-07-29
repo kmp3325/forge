@@ -11,3 +11,4 @@ K:MustBeBlockedByAll:Creature.counters_GE1_SLIME:Each creature with a slime coun
 Oracle:Mutate onto Grimer {2}{B}{B}{B} [7/9]\nCaustic\nAt the beginning of your upkeep, put a slime counter on target creature.\nEach creature with a slime counter on it gets -1/-1 and must block Muk each combat if able.
 
 DeckHints:Name$Grimer
+SVar:SoundEffect:muk.mp3

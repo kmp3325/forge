@@ -14,3 +14,4 @@ Oracle:Mutate onto Smoochum {3}{B}{B} [5/3]\nWhenever Jynx deals combat damage t
 
 DeckHints:Name$Smoochum
 SVar:HasAttackEffect:TRUE
+SVar:SoundEffect:jynx.mp3

@@ -9,3 +9,5 @@ SVar:DBFrost:DB$ PutCounter | CounterType$ FROST | CounterNum$ 1 | Defined$ Targ
 SVar:DBStun:DB$ PutCounter | IsCurse$ True | CounterType$ STUN | CounterNum$ 1 | Defined$ Targeted | SubAbility$ DBTap | SpellDescription$ 5-6 VERT Tap that creature and put a stun counter on it.
 SVar:DBTap:DB$ Tap | Defined$ Targeted
 Oracle:{B}{R}{R}: Team Rocket's Hitmonchan deals 1 damage to target creature, then roll a d6.\n1-2 | Put a burn counter on that creature.\n3-4 | Tap that creature and put a frost counter on it.\n5-6 | Tap that creature and put a stun counter on it.
+
+SVar:SoundEffect:hitmonchan.mp3

@@ -10,3 +10,4 @@ SVar:TrigSnow:DB$ Weather | Value$ Snowy
 Oracle:When Swinub enters the battlefield, you may search your library for a basic Plains card, reveal it, put it onto the battlfield tapped, then shuffle.\nWhenever Swinub enters the battlefield or mutates, it becomes snowy.
 
 DeckHints:Name$Piloswine
+SVar:SoundEffect:swinub.mp3

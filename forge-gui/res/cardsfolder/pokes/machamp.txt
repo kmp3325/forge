@@ -13,3 +13,4 @@ SVar:TrigPutCounter:DB$ PutCounterAll | ValidCards$ Creature.YouCtrl+FoughtThisT
 Oracle:Mutate onto Machoke {3}{R}{W} [6/5]\nIf a creature you control would be dealt damage in a fight, prevent 1 of that damage.\nIf another creature you control would fight, you may have Machamp fight instead.\nAt the beginning of your end step, put two +1/+1 counters on each creature you control that fought this turn.
 
 DeckHints:Name$Machoke
+SVar:SoundEffect:machamp.mp3

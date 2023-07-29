@@ -10,3 +10,4 @@ SVar:TrigPutCounter:DB$ PutCounter | CounterType$ BURN | CounterNum$ 1 | ValidTg
 Oracle:Mutate onto Ponyta {3}{R}{G} [7/6]\nCreatures you control have trample as long as there are three or more burn counters among creatures your opponents control.\nWhenever Rapidash attacks, put a burn counter on target creature.
 
 DeckHints:Name$Ponyta
+SVar:SoundEffect:rapidash.mp3

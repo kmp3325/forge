@@ -9,3 +9,4 @@ Oracle:Mutate onto Metapod {2}{G} [2/3]\nFlying\n{G}{G}, Exile Butterfree: Creat
 
 DeckHints:Name$Metapod
 DeckHints:Type$Creature
+SVar:SoundEffect:butterfree.mp3

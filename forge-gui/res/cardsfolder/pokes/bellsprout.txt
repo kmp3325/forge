@@ -8,3 +8,4 @@ SVar:TrigSun:DB$ Weather | Value$ Sunny
 Oracle:When Bellsprout enters the battlefield, destroy up to one target artifact, enchantment, or Insect. It becomes sunny.
 
 DeckHints:Name$Weepinbell
+SVar:SoundEffect:bellsprout.mp3

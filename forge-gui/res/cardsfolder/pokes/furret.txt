@@ -7,3 +7,4 @@ A:AB$ RemoveCounter | Cost$ T | CounterType$ SHIELD | CounterNum$ All | ValidTgt
 Oracle:Mutate onto Sentret {2} [3/3]\n{T}: Remove all shield counters from target creature.
 
 DeckHints:Name$Sentret
+SVar:SoundEffect:furret.mp3

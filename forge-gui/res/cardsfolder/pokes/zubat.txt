@@ -10,3 +10,4 @@ SVar:TrigMill:DB$ Mill | Defined$ TargetedPlayer | NumCards$ 3
 Oracle:Flying, lifelink\nWhen Zubat enters the battlefield, target player discards a card then mills three cards.
 
 DeckHints:Name$Golbat
+SVar:SoundEffect:zubat.mp3

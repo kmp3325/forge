@@ -8,3 +8,4 @@ A:AB$ DealDamage | Cost$ 1 R R | NumDmg$ 2 | ValidTgts$ Creature,Player,Planeswa
 Oracle:Mutate onto Growlithe {1}{R}{R}{R} [5/5]\nScorching\n{1}{R}{R}: Arcanine deals 2 damage to any target.
 
 DeckHints:Name$Growlithe
+SVar:SoundEffect:arcanine.mp3

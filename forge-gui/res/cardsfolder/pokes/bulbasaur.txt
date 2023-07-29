@@ -10,3 +10,4 @@ SVar:NumSolar:Count$CardCounters.SOLAR
 Oracle: Whenever Bulbasaur enters the battlefield or mutates, put a solar counter on it.\n{T}: You gain life equal to the number of solar counters on Bulbasaur.
 
 DeckHints:Name$Ivysaur
+SVar:SoundEffect:bulbasaur.mp3

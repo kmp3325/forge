@@ -13,3 +13,4 @@ SVar:TrigDmg:DB$ DamageAll | NumDmg$ 1 | ValidCards$ Creature.counters_GE1_FROST
 Oracle:Mutate onto Swinub {2}{GW}{S} [6/6]\nAt the beginning of each combat, add {c} for each frost counter on Piloswine. Until end of turn, you don't lose this mana as steps and phases end.\nWhenever Piloswine attacks, put a frost counter on target creature you control and target creature you don't control, then Piloswine deals 1 damage to each creature with a frost counter on it.
 
 DeckHints:Name$Swinub
+SVar:SoundEffect:piloswine.mp3

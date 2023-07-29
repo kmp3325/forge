@@ -8,3 +8,6 @@ Oracle:Caustic\nCreatures you control deal damage to creatures you control as th
 
 DeckHints:Name$Nidorino
 DeckNeeds:Keyword$Caustic
+
+SVar:SoundEffect:nidoran.mp3
+

@@ -12,3 +12,4 @@ Oracle:Mutate onto Quilava {4}{R}{R} [6/5]\nWhenever you cast a red spell, you m
 
 DeckHints:Name$Quilava
 SVar:HasAttackEffect:TRUE
+SVar:SoundEffect:typhlosion.mp3

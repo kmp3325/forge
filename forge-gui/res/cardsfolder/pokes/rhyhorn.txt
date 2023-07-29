@@ -8,3 +8,4 @@ SVar:TrigPutCounter:DB$ PutCounter | CounterType$ SHIELD | CounterNum$ 1 | Defin
 Oracle:Trample\nWhen Rhyhorn enters the battlefield, put a shield counter on it.
 
 DeckHints:Name$Rhydon
+SVar:SoundEffect:rhyhorn.mp3

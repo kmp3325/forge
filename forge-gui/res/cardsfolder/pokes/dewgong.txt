@@ -10,3 +10,4 @@ SVar:X:Targeted$CardCounters.FROST
 Oracle:Mutate onto Seel {4}{U}{U} [5/7]\n{1}{S}: Put a frost counter on target creature. It becomes snowy. Activate only as a sorcery.\n{S}, {T}: Dewgong deals damage to target creature equal to the number of frost counters on that creature.
 
 DeckHints:Name$Seel
+SVar:SoundEffect:dewgong.mp3

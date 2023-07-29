@@ -9,3 +9,4 @@ SVar:MoreMana:DB$ Mana | Produced$ R G
 Oracle:{T}: Add {R} or {G}. If it's sunny, add {R}{G} instead.
 
 DeckHints:Name$Sunflora
+SVar:SoundEffect:sunkern.mp3

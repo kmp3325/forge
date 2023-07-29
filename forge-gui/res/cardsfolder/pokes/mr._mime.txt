@@ -8,3 +8,5 @@ A:AB$ Effect | Cost$ T | ReplacementEffects$ RPrevent | SpellDescription$ Preven
 SVar:RPrevent:Event$ DamageDone | Prevent$ True | ActiveZones$ Command | ValidTarget$ Creature.YouCtrl | Description$ Prevent all damage that would be dealt to creatures you control this turn.
 A:AB$ Untap | Cost$ 5 W B | SpellDescription$ Untap CARDNAME.
 Oracle:Mutate onto Mime. Jr {3}{WB} [3/3]\nMr. Mime doesn't untap during your untap step.\n{T}: Prevent all damage that would be dealt to creatures you control this turn.\n{5}{W}{B}: Untap Mr. Mime.
+
+SVar:SoundEffect:mrmime.mp3

@@ -9,3 +9,4 @@ A:AB$ DamageAll | Cost$ U R | NumDmg$ 1 | ValidCards$ Creature.counters_GE1_STUN
 Oracle:When Elekid enters the battlefield, tap target creature and put a stun counter on it.\n{!}{R}: Elekid deals 1 damage to each creature with a stun counter on it.
 
 DeckHints:Name$Electabuzz
+SVar:SoundEffect:elekid.mp3

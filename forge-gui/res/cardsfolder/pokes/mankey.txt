@@ -6,3 +6,4 @@ K:Menace
 Oracle:Menace
 
 DeckHints:Name$Primeape
+SVar:SoundEffect:mankey.mp3

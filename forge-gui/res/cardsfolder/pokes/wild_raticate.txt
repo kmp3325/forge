@@ -7,3 +7,5 @@ SVar:TrigPump:DB$ Pump | NumAtt$ 3 | NumDef$ 3 | Defined$ Self | SubAbility$ Tri
 SVar:TrigFight:DB$ Fight | Defined$ TriggeredCardLKICopy | ValidTgts$ Creature | TgtPrompt$ Choose target creature | SubAbility$ TrigDebuff
 SVar:TrigDebuff:DB$ Debuff | Defined$ Targeted | Keywords$ Indesructible
 Oracle:When Wild Raticate enters the battlefield, you may have it fight target creature. If you do, until end of turn, that creature loses indestructible and Wild Raticate gets +3/+3.
+
+SVar:SoundEffect:raticate.mp3

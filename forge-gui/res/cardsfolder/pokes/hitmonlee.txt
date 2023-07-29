@@ -12,3 +12,4 @@ SVar:HurtSelf:DB$ DealDamage | Defined$ Self | NumDmg$ 2
 Oracle:Mutate onto Tyrogue {2}{R}{W} [5/4]\nWhenever Hitmonlee enters the battlefield or mutates, you may have it fight target creature.\n{R}: Hitmonlee gets +1/+0 and gains first strike until end of turn, then flip a coin. If you lose the flip, it deals 2 damage to itself.
 
 DeckHints:Name$Tyrogue
+SVar:SoundEffect:hitmonlee.mp3

@@ -13,3 +13,4 @@ SVar:X:Count$Valid Creature.YouCtrl$CardCounters.SOLAR
 Oracle:Mutate onto Sunkern {1}{R}{G}{G} [4/4]\n{T}: Put a solar counter on Sunflora. If it's sunny, put a solar counter on each creature you control instead.\n{RG}, Remove a solar counter from Sunflora: It becomes sunny. You gain life equal to the number of solar counters on creatures you control.
 
 DeckHints:Name$Sunkern
+SVar:SoundEffect:sunflora.mp3

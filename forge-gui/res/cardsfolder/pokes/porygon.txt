@@ -7,3 +7,4 @@ SVar:WEATHER:Count$WeatherChanged.1.0
 Oracle:{C}: Draw a card. Activate only once each turn and only if the weather changed this turn.
 
 DeckHints:Name$Porygon2
+SVar:SoundEffect:porygon.mp3

@@ -14,3 +14,4 @@ SVar:MinusSelf:DB$ PutCounter | CounterType$ M0M1 | CounterNum$ 1 | Defined$ Sel
 Oracle:Mutate onto Croconaw {5}{U} [5/6]\n{U}{U}, {Q}: Target attacking creature phases out until Feraligatr leaves the battlefield. If that creature phases out this way, Feraligatr phases out. When Feraligatr phases in, put a -0/-1 counter on it.
 
 DeckHints:Name$Croconaw
+SVar:SoundEffect:feraligatr.mp3

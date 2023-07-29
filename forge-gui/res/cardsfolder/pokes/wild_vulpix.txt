@@ -8,3 +8,5 @@ SVar:DBDraw:DB$ Draw | Defined$ You | NumCards$ X | SubAbility$ DBCleanup
 SVar:X:Remembered$Amount/Plus.2
 SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
 Oracle:When Wild Vulpix enters the battlefield, discard your hand, then draw cards equal to two plus the number of cards discarded this way.
+
+SVar:SoundEffect:vulpix.mp3

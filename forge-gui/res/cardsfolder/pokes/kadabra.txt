@@ -9,3 +9,4 @@ Oracle:Mutate onto Abra {3}{U}{B} [4/3]\n{T}: Target player draws a card, then d
 
 DeckHints:Name$Abra
 DeckHints:Name$Alakazam
+SVar:SoundEffect:kadabra.mp3

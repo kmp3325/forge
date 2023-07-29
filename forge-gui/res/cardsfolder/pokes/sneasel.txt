@@ -7,3 +7,4 @@ SVar:TrigFreeze:DB$ PutCounter | IsCurse$ True | CounterType$ FROST | TargetMin$
 SVar:DBImmediate:DB$ ImmediateTrigger | Execute$ TrigShatter | OptionalDecider$ You | TriggerDescription$ When you do, you may destroy target creature with a frost counter on it.
 SVar:TrigShatter:DB$ Destroy | ValidTgts$ Creature.counters_GE1_FROST | TgtPrompt$ Select target creature with a frost counter on it
 Oracle:When Sneasel enters the battlefield, put a frost counter on each of up to three target creatures. When you do, you may destroy target creature with a frost counter on it.
+SVar:SoundEffect:sneasel.mp3

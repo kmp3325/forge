@@ -9,3 +9,4 @@ Oracle:Mutate onto Female Nidoran {4}{B} [4/5]\nWhenever a creature you control 
 
 DeckHints:Name$Female Nidoran
 DeckHints:Name$Nidoqueen
+SVar:SoundEffect:nidorina.mp3

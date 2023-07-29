@@ -6,3 +6,4 @@ T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.S
 SVar:TrigGrave:DB$ ChangeZoneAll | ChangeType$ Card.YouOwn | Origin$ Graveyard | Destination$ Library | Shuffle$ True | SubAbility$ TrigDraw
 SVar:TrigDraw:DB$ Draw | NumCards$ 1
 Oracle:When Aipom enters the battlefield, you may shuffle your graveyard into your library, then draw a card.
+SVar:SoundEffect:aipom.mp3

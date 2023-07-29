@@ -8,3 +8,4 @@ SVar:DoFight:DB$ Fight | Optional$ True | Defined$ TriggeredCardLKICopy | ValidT
 Oracle:When Onix enters the battlefield, put a shield counter on it, then you may have it fight target creature.
 
 DeckHints:Name$Steelix
+SVar:SoundEffect:onix.mp3

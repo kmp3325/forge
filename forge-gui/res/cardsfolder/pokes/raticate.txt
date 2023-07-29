@@ -11,3 +11,4 @@ Oracle:Mutate onto Rattata {3}{W}[3/2]\nFirst strike\nWhenever Raticate enters t
 
 DeckHints:Name$Rattata
 SVar:PlayMain1:OPPONENTCREATURES
+SVar:SoundEffect:raticate.mp3

@@ -9,3 +9,4 @@ SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
 Oracle:{UB}, {T}: Exile target creature card from a graveyard. You gain life equal to its mana value.
 
 DeckHints:Name$Hypno
+SVar:SoundEffect:drowzee.mp3

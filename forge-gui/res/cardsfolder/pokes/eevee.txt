@@ -12,3 +12,4 @@ DeckHints:Name$Jolteon
 DeckHints:Name$Flareon
 DeckHints:Name$Espeon
 DeckHints:Name$Umbreon
+SVar:SoundEffect:eevee.mp3

@@ -14,3 +14,4 @@ Oracle:Mutate onto Chikorita {3}{G} [4/4]\nWhenever Bayleef enters the battlefie
 
 DeckHints:Name$Chikorita
 DeckHints:Name$Meganium
+SVar:SoundEffect:bayleef.mp3

@@ -10,3 +10,4 @@ S:Mode$ Continuous | Affected$ Creature.counters_GE1_PEACE | AddHiddenKeyword$ C
 Oracle:Mutate onto Togepi {1}{WU}{WU} [4/4]\nFlying\nWhenever Togetic blocks, you may put a peace counter on target creature.\nCreatures with peace counters on them can't attack.
 
 DeckHints:Name$Togepi
+SVar:SoundEffect:togetic.mp3

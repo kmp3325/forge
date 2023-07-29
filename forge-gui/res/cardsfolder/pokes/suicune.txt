@@ -17,3 +17,4 @@ SVar:DBPump:DB$ Pump | NumAtt$ 2 | NumDef$ 2 | Defined$ TriggeredCardLKICopy | S
 SVar:DBMill:DB$ Mill | Defined$ Player.Opponent | NumCards$ X
 SVar:X:TriggeredCard$CardPower
 Oracle:First strike\nThe first time another creature you control would be destroyed during each of your turns, instead remove all damage from it and it phases out.\nWhenever a creature you control phases in, it gets +2/+2 until end of turn. Then each opponent mills cards equal to its power.
+SVar:SoundEffect:suicune.mp3

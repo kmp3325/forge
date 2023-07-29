@@ -10,3 +10,4 @@ SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
 Oracle:When Seel enters the battlefield or mutates, you may destroy target creature with a frost counter on it. If you don't, draw a card.
 
 DeckHints:Name$Dewgong
+SVar:SoundEffect:seel.mp3

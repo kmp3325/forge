@@ -7,3 +7,4 @@ S:Mode$ Continuous | Affected$ Card.Self | AffectedZone$ Graveyard | EffectZone$
 Oracle:Caustic\nYou may cast Tentacool from your graveyard as long as you control two or more Islands.
 
 DeckHints:Name$Tentacruel
+SVar:SoundEffect:tentacool.mp3

@@ -8,3 +8,5 @@ SVar:TrigPumpAll:DB$ PumpAll | ValidCards$ Creature.Insect+YouCtrl | NumAtt$ +1 
 Oracle:Flash\nWhen Wild Beedrill enters the battlefield, Insect creatures you control +1/+1 and gain caustic until end of turn.
 
 DeckHints:Type$Insect
+
+SVar:SoundEffect:beedrill.mp3

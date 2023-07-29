@@ -9,3 +9,4 @@ T:Mode$ CounterRemoved | ValidCard$ Creature.YouCtrl | TriggerZones$ Battlefield
 SVar:TrigTap:DB$ Tap | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigStun
 SVar:TrigStun:DB$ PutCounter | CounterType$ STUN | CounterNum$ 1 | Defined$ Targeted
 Oracle:Flying\nWhenever Zapdos attacks, put a shield counter on it.\nWhenever a shield counter is removed from a creature you control, you may tap target creature and put a stun counter on it.
+SVar:SoundEffect:zapdos.mp3

@@ -9,3 +9,4 @@ SVar:TrigPutCounter:DB$ PutCounterAll | IsCurse$ True | ValidCards$ Creature.You
 Oracle:Mutate onto Elekid {3}{U}{R} [6/6]\nWhenever Electabuzz enters the battlefield or mutates, put a stun counter on each creature you don't control.
 
 DeckHints:Name$Elekid
+SVar:SoundEffect:electabuzz.mp3

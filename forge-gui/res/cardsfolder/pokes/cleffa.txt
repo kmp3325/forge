@@ -7,3 +7,4 @@ SVar:TrigDestroy:DB$ Destroy | ValidTgts$ Artifact,Enchantment | TgtPrompt$ Choo
 Oracle:When Cleffa enters the battlefield, you may destroy target artifact or enchantment.
 
 DeckHints:Name$Clefairy
+SVar:SoundEffect:cleffa.mp3

@@ -11,3 +11,4 @@ Oracle:Mutate onto Diglett {1}{W}{B} [3/3]\nAt the beginning of your upkeep, put
 
 DeckHints:Name$Diglett
 SVar:HasAttackEffect:TRUE
+SVar:SoundEffect:dugtrio.mp3

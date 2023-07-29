@@ -8,3 +8,4 @@ SVar:TrigArt:DB$ Destroy | ValidTgts$ Artifact | TgtPrompt$ Select target artifa
 Oracle:Whenever Phanpy leaves the battlefield or phases out, you may destroy target artifact.
 
 DeckHints:Name$Donphan
+SVar:SoundEffect:phanpy.mp3

@@ -7,3 +7,4 @@ K:Double strike
 Oracle: Flying, double strike
 
 DeckHints:Name$Dodrio
+SVar:SoundEffect:doduo.mp3

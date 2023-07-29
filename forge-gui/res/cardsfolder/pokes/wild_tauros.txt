@@ -5,3 +5,5 @@ PT:2/2
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigStuff | TriggerDescription$ When CARDNAME enters the battlefield, creatures you control get +1/+1 and gain indestructible until end of turn.
 SVar:TrigStuff:DB$ PumpAll | NumAtt$ 1 | NumDef$ 1 | KW$ Indestructible | ValidCards$ Creature.YouCtrl
 Oracle:When Wild Tauros enters the battlefield, creatures you control get +1/+1 and gains indestructible until end of turn.
+
+SVar:SoundEffect:tauros.mp3

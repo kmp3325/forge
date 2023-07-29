@@ -7,4 +7,4 @@ K:Flying
 T:Mode$ PhaseIn | ValidCard$ Creature.OppCtrl | Execute$ DBDmg | TriggerDescription$ Whenever a creature an opponent controls phases in, CARDNAME deals damage equal to its power to that creature.
 SVar:DBDmg:DB$ DealDamage | NumDmg$ X | Defined$ TriggeredCardLKICopy
 SVar:X:Count$CardPower
-Oracle:Mutate onto Mantyke {3}{W}{U} [4/7]\nFlying\nWhenever a creature an opponent controls phases in, Mantine deals damage equal to its power to that creature.
+Oracle:Mutate onto Mantyke {3}{W}{U} [4/7]\nFlying\nWhenever a creature an opponent controls phases in, Mantine deals damage equal to its power to that creature.SVar:SoundEffect:mantine.mp3

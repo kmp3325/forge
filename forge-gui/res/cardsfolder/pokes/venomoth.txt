@@ -16,3 +16,4 @@ Oracle:Mutate onto Venonat {2}{B}{G} [4/4]\nCaustic\n{T}: Choose a card name. un
 
 DeckHints:Name$Venonat
 SVar:HasBlockEffect:TRUE
+SVar:SoundEffect:venomoth.mp3

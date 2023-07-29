@@ -8,3 +8,5 @@ SVar:TrigWeather:DB$ Weather | Value$ Foggy
 Oracle:Trample\nWhen Team Rocket's Rhyhorn enters the battlefield, it becomes foggy.
 
 DeckHints:Name$Team Rocket's Rhydon
+
+SVar:SoundEffect:rhyhorn.mp3

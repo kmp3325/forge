@@ -9,3 +9,4 @@ SVar:TrigPump:DB$ Pump | ValidTgts$ Creature.YouCtrl+Other | TgtPrompt$ Select a
 Oracle:Whenever another creature you control is dealt noncombat damage by a creature, put a +1/+1 counter on Kangaskhan.\nWhenever Kangaskhan blocks, another target creature you control gains indestructible until end of turn.
 
 SVar:HasAttackEffect:TRUE
+SVar:SoundEffect:kangaskhan.mp3

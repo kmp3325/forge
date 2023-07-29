@@ -11,3 +11,4 @@ Oracle:Mutate onto Magikarp {3}{W}{U}{U} [9/9]\nFlying, vigilance\nWhenever Gyar
 
 DeckHints:Name$Magikarp
 SVar:HasAttackEffect:TRUE
+SVar:SoundEffect:gyarados.mp3

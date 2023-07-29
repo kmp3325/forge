@@ -7,3 +7,4 @@ SVar:TrigDiscard:AB$ Draw | Cost$ Discard<1/Card> | NumCards$ 1
 Oracle:When Remoraid enters the battlefield, you may discard a card. If you do, draw a card.
 
 DeckHints:Name$Octillery
+SVar:SoundEffect:remoraid.mp3

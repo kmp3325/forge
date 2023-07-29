@@ -9,4 +9,4 @@ Oracle:Mutate onto Squirtle {1}{U}{U} [2/4]\nWartortle can block as though it we
 
 DeckHints:Name$Squirtle
 DeckHints:Name$Blastoise
-SVar:HasBlockEffect:TRUE
+SVar:HasBlockEffect:TRUESVar:SoundEffect:wartortle.mp3

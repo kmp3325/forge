@@ -7,3 +7,4 @@ A:AB$ DealDamage | Cost$ BG BG | ActivationLimit$ 1 | NumDmg$ 2 | ValidTgts$ Cre
 Oracle:Caustic\n{BG}{BG}: Spinarak deals 2 damage to target creature with no -0/-1 counters on it. Activate only once each turn.
 
 DeckHints:Name$Ariados
+SVar:SoundEffect:spinarak.mp3

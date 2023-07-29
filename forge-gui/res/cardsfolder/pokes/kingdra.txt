@@ -10,3 +10,4 @@ SVar:TrigRain:DB$ Weather | Value$ Rainy | ConditionDefined$ ParentTarget | Cond
 Oracle:Mutate onto Seadra {3}{G}{U}{U} [6/6]\nWhenever a player plays an Island, put a +1/+1 counter on Kingdra.\n{1}{U}{U}: Return target land to its owner's hand. If it's an Island, it becomes rainy. Activate only once each turn.
 
 DeckHints:Name$Seadra
+SVar:SoundEffect:kingdra.mp3

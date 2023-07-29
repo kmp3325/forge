@@ -300,17 +300,17 @@ Foil=NotSupported
 9976 U Great Ball
 9977 R Ultra Ball
 9978 M Master Ball
-9979 C Mahogany Town Gym|PKM
-9980 C Violet City Gym|PKM
-9981 C Viridian City Gym|PKM
-9982 C Cianwood City Gym|PKM
-9983 C Olivine City Gym|PKM
-9984 C Saffron City Gym|PKM
-9985 C Vermilion City Gym|PKM
-9986 C Cerulean City Gym|PKM
-9987 C Ecruteak City Gym|PKM
-9988 C Azalea Town Gym|PKM
-9989 C Cinnabar Island Gym|PKM
+9979 C Mahogany Town Gym
+9980 C Violet City Gym
+9981 C Viridian City Gym
+9982 C Cianwood City Gym
+9983 C Olivine City Gym
+9984 C Saffron City Gym
+9985 C Vermilion City Gym
+9986 C Cerulean City Gym
+9987 C Ecruteak City Gym
+9988 C Azalea Town Gym
+9989 C Cinnabar Island Gym
 9990 L Snow-Covered Plains
 9991 L Snow-Covered Island
 9992 L Snow-Covered Swamp

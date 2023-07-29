@@ -3,7 +3,7 @@ ManaCost:2 B B
 Types:Creature Cat Pokémon
 PT:4/4
 K:Mutate onto:2 B B:Eevee:5/5
-T:Mode$ WeatherChanged | Execute$ TrigMill | TriggerDescription$ Whenever the weather changes, target player mills four cards.
+T:Mode$ WeatherChanged | TriggerZones$ Battlefield | Execute$ TrigMill | TriggerDescription$ Whenever the weather changes, target player mills four cards.
 SVar:TrigMill:DB$ Mill | ValidTgts$ Player | TgtPrompt$ Select target player | NumCards$ 4
 A:AB$ PreventDamage | Cost$ B | Amount$ 1 | Defined$ Self | SpellDescription$ Prevent the next 1 damage that would be dealt to CARDNAME this turn.
 Oracle:Mutate onto Eevee {2}{B}{B} [5/5]\nWhenever the weather changes, target player mills four cards.\n{B}: Prevent the next 1 damage that would be dealt to Espeon this turn.

@@ -253,6 +253,13 @@ public class CardView extends GameEntityView {
         set(TrackableProperty.IsBoon, c.isBoon());
     }
 
+    public boolean canSpecialize() {
+        return get(TrackableProperty.CanSpecialize);
+    }
+    public void updateSpecialize(Card c) {
+        set(TrackableProperty.CanSpecialize, c.canSpecialize());
+    }
+
     public boolean isTokenCard() { return get(TrackableProperty.TokenCard); }
     void updateTokenCard(Card c) { set(TrackableProperty.TokenCard, c.isTokenCard()); }
 
@@ -457,6 +464,15 @@ public class CardView extends GameEntityView {
     }
     void updateClassLevel(Card c) {
         set(TrackableProperty.ClassLevel, c.getClassLevel());
+    }
+
+    public int getRingLevel() {
+        return get(TrackableProperty.RingLevel);
+    }
+    void updateRingLevel(Card c) {
+        Player p = c.getController();
+        if (p != null && p.getTheRing() == c)
+            set(TrackableProperty.RingLevel, p.getNumRingTemptedYou());
     }
 
     private String getRemembered() {
@@ -917,6 +933,8 @@ public class CardView extends GameEntityView {
         updateName(c);
         updateZoneText(c);
         updateDamage(c);
+        updateSpecialize(c);
+        updateRingLevel(c);
 
         if (c.getIntensity(false) > 0) {
             updateIntensity(c);
@@ -1054,6 +1072,14 @@ public class CardView extends GameEntityView {
     void updateBlockAdditional(Card c) {
         set(TrackableProperty.BlockAdditional, c.canBlockAdditional());
         set(TrackableProperty.BlockAny, c.canBlockAny());
+    }
+
+    public boolean isRingBearer() {
+        return get(TrackableProperty.IsRingBearer);
+    }
+
+    void updateRingBearer(Card c) {
+        set(TrackableProperty.IsRingBearer, c.isRingBearer());
     }
 
     Set<String> getCantHaveKeyword() {
@@ -1266,8 +1292,13 @@ public class CardView extends GameEntityView {
             String rulesText = null;
 
             if (type.isVanguard() && rules != null) {
-                rulesText = "Hand Modifier: " + rules.getHand() +
-                        "\r\nLife Modifier: " + rules.getLife();
+                boolean decHand = rules.getHand() < 0;
+                boolean decLife = rules.getLife() < 0;
+                String handSize = Localizer.getInstance().getMessageorUseDefault("lblHandSize", "Hand Size")
+                        + (!decHand ? ": +" : ": ") + rules.getHand();
+                String startingLife = Localizer.getInstance().getMessageorUseDefault("lblStartingLife", "Starting Life")
+                        + (!decLife ? ": +" : ": ") + rules.getLife();
+                rulesText = handSize + "\r\n" + startingLife;
             }
             set(TrackableProperty.RulesText, rulesText);
         }
@@ -1452,7 +1483,7 @@ public class CardView extends GameEntityView {
         public boolean hasLandwalk() {
             return get(TrackableProperty.HasLandwalk);
         }
-        public boolean hasHasAftermath() {
+        public boolean hasAftermath() {
             return get(TrackableProperty.HasAftermath);
         }
 

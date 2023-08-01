@@ -262,9 +262,9 @@ public class MatchController extends AbstractGuiGame {
 
         if (ph != null && saveState && ph.isMain()) {
             phaseGameState = new GameState() {
-                @Override //todo get specific card edition for this function?
-                public IPaperCard getPaperCard(final String cardName) {
-                    return FModel.getMagicDb().getCommonCards().getCard(cardName);
+                @Override
+                public IPaperCard getPaperCard(final String cardName, final String setCode, final int artID) {
+                    return FModel.getMagicDb().getCommonCards().getCard(cardName, setCode, artID);
                 }
             };
             try {
@@ -313,10 +313,19 @@ public class MatchController extends AbstractGuiGame {
     public void finishGame() {
         if (Forge.isMobileAdventureMode) {
             if (Config.instance().getSettingData().disableWinLose) {
-                Forge.setCursor(null, "0");
-                if (!DuelScene.instance().hasCallbackExit())
-                    DuelScene.instance().exitDuelScene();
-                return;
+                if (getGameView().isMatchOver()){
+                    Forge.setCursor(null, "0");
+                    if (!DuelScene.instance().hasCallbackExit()){
+                        DuelScene.instance().GameEnd();
+                        DuelScene.instance().exitDuelScene();
+                    }
+                    return;
+                }
+                else{
+                    try { MatchController.getHostedMatch().continueMatch();
+                    } catch (NullPointerException e) {}
+                    return;
+                }
             }
         }
         if (hasLocalPlayers() || getGameView().isMatchOver()) {
@@ -632,8 +641,8 @@ public class MatchController extends AbstractGuiGame {
     }
 
     @Override
-    public String showInputDialog(final String message, final String title, final FSkinProp icon, final String initialInput, final List<String> inputOptions) {
-        return SOptionPane.showInputDialog(message, title, icon, initialInput, inputOptions);
+    public String showInputDialog(final String message, final String title, final FSkinProp icon, final String initialInput, final List<String> inputOptions, boolean isNumeric) {
+        return SOptionPane.showInputDialog(message, title, icon, initialInput, inputOptions, isNumeric);
     }
 
     @Override

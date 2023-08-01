@@ -2,10 +2,13 @@ Name:Phanpy
 ManaCost:3 W
 Types:Creature Elephant Pokémon
 PT:4/4
-T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Battlefield | Destination$ Any | Execute$ TrigArt | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME leaves the battlefield or phases out, you may destroy target artifact.
-T:Mode$ PhaseOut | ValidCard$ Card.phasedOutSelf | Execute$ TrigArt | Secondary$ True | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME leaves the battlefield or phases out, you may destroy target artifact.
-SVar:TrigArt:DB$ Destroy | ValidTgts$ Artifact | TgtPrompt$ Select target artifact
-Oracle:Whenever Phanpy leaves the battlefield or phases out, you may destroy target artifact.
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigDmg | TriggerDescription$ Whenever CARDNAME enters the battlefield or phases in, it deals 3 damage divided as you choose among one, two, or three target creatures.
+T:Mode$ PhaseIn | ValidCard$ Card.Self | Execute$ TrigDmg | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield or phases in, it deals 3 damage divided as you choose among one, two, or three target creatures.
+SVar:TrigDmg:DB$ DealDamage | ValidTgts$ Creature | TgtPrompt$ Select target creature to distribute damage to | NumDmg$ 3 | TargetMin$ 1 | TargetMax$ 3 | DividedAsYouChoose$ 3 | SpellDescription$ CARDNAME deals 3 damage divided as you choose among one, two, or three target creatures.
+T:Mode$ DamageDone | ValidTarget$ Creature.YouCtrl | CombatDamage$ False | TriggerZones$ Battlefield | Execute$ TrigRemoveCounters | OptionalDecider$ You | TriggerDescription$ Whenever a creature you control is dealt noncombat damage, you may remove any number of counters from it, then tap CARDNAME.
+SVar:TrigRemoveCounters:DB$ RemoveCounter | Defined$ TriggeredTargetLKICopy | CounterType$ Any | CounterNum$ Any | SubAbility$ TrigTap
+SVar:TrigTap:DB$ Tap | Defined$ Self
+Oracle:Whenever Phanpy enters the battlefield or phases in, it deals 3 damage divided as you choose among one, two, or three target creatures.\nWhenever a creature you control is dealt noncombat damage, you may remove any number of counters from it, then tap Phanpy.
 
 DeckHints:Name$Donphan
 SVar:SoundEffect:phanpy.mp3

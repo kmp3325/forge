@@ -1,12 +1,15 @@
 Name:Donphan
-ManaCost:5 W W
+ManaCost:5 WB WB
 Types:Creature Elephant Pokémon
 PT:6/6
-K:Mutate onto:5 W W:Phanpy:7/7
-S:Mode$ Continuous | Affected$ Card.Self | AddKeyword$ Indestructible | CheckSVar$ RAIN | SVarCompare$ GE1  | Description$ CARDNAME has indestructible as long as it's not rainy.
+K:Mutate onto:5 WB WB:Phanpy:7/7
+S:Mode$ Continuous | Affected$ Card.Self+attacking | AddKeyword$ Indestructible | CheckSVar$ RAIN | SVarCompare$ GE1  | Description$ CARDNAME has indestructible as long as it's not rainy.
 SVar:RAIN:Count$Rainy.0.1
-T:Mode$ AttackerBlockedByCreature | ValidCard$ Card.Self | ValidBlocker$ Creature | Execute$ TrigDebuff | TriggerDescription$ Whenever CARDNAME becomes blocked by a creature, that creature loses indestructible until end of turn.
-SVar:TrigDebuff:DB$ Debuff | Defined$ TriggeredBlockerLKICopy | Keywords$ Indestructible
-Oracle:Mutate onto Phanpy {5}{W}{W} [7/7]\nDonphan has indestructible as long as it's not rainy.\nWhenever Donphan becomes blocked by a creature, that creature loses indestructible until end of turn.
+T:Mode$ Phase | Phase$ BeginCombat | TriggerZones$ Battlefield | ValidPlayer$ You | Execute$ TrigImmediateTrig | TriggerDescription$ At the beginning of combat on your turn, if CARDNAME attacked during your last turn, it attacks this combat if able unless you pay {W}. When you do, tap it and put a stun counter on it. It deals 3 damage to itself.
+SVar:TrigImmediateTrig:AB$ ImmediateTrigger | Cost$ W | Execute$ TrigTap | SpellDescription$ At the beginning of combat on your turn, if CARDNAME attacked during your last turn, it attacks this combat if able unless you pay {W}. When you do, tap it and put a stun counter on it. It deals 3 damage to itself.
+SVar:TrigTap:DB$ Tap | Defined$ Self | SubAbility$ TrigStun
+SVar:TrigStun:DB$ PutCounter | CounterType$ STUN | CounterNum$ 1 | Defined$ Self | SubAbility$ TrigDmg
+SVar:TrigDmg:DB$ DealDamage | NumDmg$ 3 | Defined$ Self
+Oracle:Mutate onto Phanpy {5}{WB}{WB} [7/7]\nDonphan has indestructible as long as it’s attacking and it's not rainy.\nAt the beginning of combat on your turn, if Donphan attacked during your last turn, it attacks this combat if able unless you pay {W}. When you do, tap it and put a stun counter on it. It deals 3 damage to itself.
 
 DeckHints:Name$PhanpySVar:SoundEffect:donphan.mp3

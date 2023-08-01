@@ -1,15 +1,15 @@
 Name:Scizor
-ManaCost:4 RG
+ManaCost:4 RG RG
 Types:Creature Insect Pokémon
 PT:5/5
-K:Mutate onto:3 R G:Scyther:6/5
+K:Mutate onto:4 RG RG:Scyther:6/5
 K:First strike
 K:Steel skin
-T:Mode$ AttackerBlockedByCreature | ValidCard$ Creature | ValidBlocker$ Card.Self | Execute$ TrigOnAttacker | TriggerDescription$ Whenever CARDNAME blocks or becomes blocked by a creature, it deals 1 damage to that creature.
-T:Mode$ AttackerBlockedByCreature | ValidCard$ Card.Self | ValidBlocker$ Creature | Execute$ TrigOnBlocker | Secondary$ True | TriggerDescription$ Whenever CARDNAME blocks or becomes blocked by a creature, it deals 1 damage to that creature.
-SVar:TrigOnBlocker:DB$ DealDamage | Defined$ TriggeredBlockerLKICopy | NumDmg$ 1
-SVar:TrigOnAttacker:DB$ DealDamage | Defined$ TriggeredAttackerLKICopy | NumDmg$ 1
-Oracle:Mutate onto Scyther {3}{R}{G} [6/5]\nFirst strike, steel skin\nWhenever CARDNAME blocks or becomes blocked by a creature, it deals 1 damage to that creature.
+T:Mode$ Phase | Phase$ BeginCombat | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigPutCounter | OptionalDecider$ You | TriggerDescription$ At the beginning of combat on your turn, put a prey counter on target creature, then CARDNAME deals damage to that creature equal to the number of prey counters on it.
+SVar:TrigPutCounter:DB$ PutCounter | CounterType$ PREY | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigDmg
+SVar:TrigDmg:DB$ DealDamage | Defined$ Targeted | NumDmg$ X
+SVar:X:Targeted$CardCounters.PREY
+Oracle:Mutate onto Scyther {4}{RG}{RG} [6/5]\nFirst strike, steel skin\nAt the beginning of combat on your turn, put a prey counter on target creature, then Scizor deals damage to that creature equal to the number of prey counters on it.
 
 DeckHints:Name$Scyther
 SVar:SoundEffect:scizor.mp3

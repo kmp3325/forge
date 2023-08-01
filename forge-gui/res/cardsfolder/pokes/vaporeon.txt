@@ -4,7 +4,7 @@ Types:Creature Fish Cat Pokémon
 PT:2/6
 K:Mutate onto:2 U U:Eevee:3/7
 K:Ward:2
-A:AB$ Phases | Cost$ U U | Defined$ Self | CheckSVar$ RAIN | SVarCompare$ GE1 | ActivationPhases$ Upkeep->Declare Attackers | ActivationFirstCombat$ True | SubAbility$ PhaseInTrig | SpellDescription$ CARDNAME phases out. When it phases in, put a +1/+1 counter on it. Activate only if it's rainy and only before blockers are declared.
+A:AB$ Phases | Cost$ U U | Defined$ Self | CheckSVar$ RAIN | SVarCompare$ GE1 | SubAbility$ PhaseInTrig | SpellDescription$ CARDNAME phases out. When it phases in, put a +1/+1 counter on it. Activate only if it's rainy.
 SVar:RAIN:Count$Rainy.1.0
 SVar:PhaseInTrig:DB$ DelayedTrigger | Mode$ PhaseIn | ValidCard$ Card.Self | Execute$ DBPutCounter | TriggerDescription$ When CARDNAME phases in, put a +1/+1 counter on it.
 SVar:DBPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1

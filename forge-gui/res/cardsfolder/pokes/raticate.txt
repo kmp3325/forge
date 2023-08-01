@@ -4,10 +4,10 @@ Types:Creature Rat Pokémon
 PT:2/2
 K:Mutate onto:3 W:Rattata:3/2
 K:First strike
-T:Mode$ ChangesZone | Destination$ Battlefield | Origin$ Any | ValidCard$ Card.Self | Execute$ TrigDestroy | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, you may destroy target tapped creature.
-T:Mode$ Mutates | ValidCard$ Card.Self | Execute$ TrigDestroy | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, you may destroy target tapped creature.
-SVar:TrigDestroy:DB$ Destroy | ValidTgts$ Creature.tapped | TgtPrompt$ Select target tapped creature | OptionalDecider$ You
-Oracle:Mutate onto Rattata {3}{W}[3/2]\nFirst strike\nWhenever Raticate enters the battlefield or mutates, you may destroy target tapped creature.
+T:Mode$ ChangesZone | Destination$ Battlefield | Origin$ Any | ValidCard$ Card.Self | Execute$ TrigDestroy | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, you may destroy target tapped creature with toughness 4 or less.
+T:Mode$ Mutates | ValidCard$ Card.Self | Execute$ TrigDestroy | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, you may destroy target tapped creature with toughness 4 or less.
+SVar:TrigDestroy:DB$ Destroy | ValidTgts$ Creature.tapped+toughnessLE4 | TgtPrompt$ Select target tapped creature | OptionalDecider$ You
+Oracle:Mutate onto Rattata {3}{W}[3/2]\nFirst strike\nWhenever Raticate enters the battlefield or mutates, you may destroy target tapped creature with toughness 4 or less.
 
 DeckHints:Name$Rattata
 SVar:PlayMain1:OPPONENTCREATURES

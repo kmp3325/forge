@@ -2,10 +2,10 @@ Name:Wild Raticate
 ManaCost:2 W
 Types:Creature Rat Pokémon
 PT:2/1
-T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigPump | OptionalDecider$ You | SpellDescription$ When CARDNAME enters the battlefield, you may have it fight target creature. If you do, until end of turn, that creature loses indestructible and CARDNAME gets +3/+3.
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigPump | OptionalDecider$ You | SpellDescription$ When CARDNAME enters the battlefield, you may have it fight target creature that attacked this turn. If you do, until end of turn, that creature loses indestructible and CARDNAME gets +3/+3.
 SVar:TrigPump:DB$ Pump | NumAtt$ 3 | NumDef$ 3 | Defined$ Self | SubAbility$ TrigFight
-SVar:TrigFight:DB$ Fight | Defined$ TriggeredCardLKICopy | ValidTgts$ Creature | TgtPrompt$ Choose target creature | SubAbility$ TrigDebuff
+SVar:TrigFight:DB$ Fight | Defined$ TriggeredCardLKICopy | ValidTgts$ Creature.attackedThisTurn | TgtPrompt$ Choose target creature that attacked this turn | SubAbility$ TrigDebuff
 SVar:TrigDebuff:DB$ Debuff | Defined$ Targeted | Keywords$ Indesructible
-Oracle:When Wild Raticate enters the battlefield, you may have it fight target creature. If you do, until end of turn, that creature loses indestructible and Wild Raticate gets +3/+3.
+Oracle:When Wild Raticate enters the battlefield, you may have it fight target creature that attacked this turn. If you do, until end of turn, that creature loses indestructible and Wild Raticate gets +3/+3.
 
 SVar:SoundEffect:raticate.mp3

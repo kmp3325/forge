@@ -3,10 +3,10 @@ ManaCost:4 W B
 Types:Creature Dinosaur Rabbit Pokémon
 PT:5/5
 K:Mutate onto:4 W B:Nidorina:6/6
-K:Vigilance
-T:Mode$ DamageDone | ValidSource$ Card.Self | ValidTarget$ Player | CombatDamage$ True | Execute$ Earthquake | TriggerDescription$ Whenever CARDNAME deals combat damage to a player, it deals 1 damage to each other creature without flying.
-SVar:Earthquake:DB$ DamageAll | ValidCards$ Creature.withoutFlying+Other | NumDmg$ 1 | ValidDescription$ each other creature without flying
-Oracle:Mutate onto Nidorina {4}{W}{B} [6/6]\nVigilance\nWhenever Nidoqueen deals combat damage to a player, it deals 1 damage to each other creature without flying.
+K:Mentor
+T:Mode$ DamageDoneOnce | TriggerZones$ Battlefield | ValidTarget$ Creature.YouCtrl+Other | CombatDamage$ False | Execute$ DBPutCounter | TriggerDescription$ Whenever another creature you control is dealt noncombat damage by a creature, put a +1/+1 counter on CARDNAME.
+SVar:DBPutCounter:DB$ PutCounter | CounterType$ P1P1 | CounterNum$ 1 | Defined$ TriggeredTargetLKICopy
+Oracle:Mutate onto Nidorina {4}{W}{B} [6/6]\nMentor\nWhenever another creature you control is dealt noncombat damage, put a +1/+1 counter on it.
 
 DeckHints:Name$Nidorina
 SVar:HasCombatEffect:TRUE

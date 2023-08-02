@@ -483,7 +483,7 @@ public class ChangeZoneEffect extends SpellAbilityEffect {
                 continue;
             }
 
-            final SpellAbilityStackInstance si = game.getStack().getInstanceFromSpellAbility(tgtSA);
+            final SpellAbilityStackInstance si = game.getStack().getInstanceMatchingSpellAbilityID(tgtSA);
             if (si == null) {
                 continue;
             }
@@ -1250,6 +1250,10 @@ public class ChangeZoneEffect extends SpellAbilityEffect {
             // do not shuffle the library once we have placed a fetched card on top.
             if (origin.contains(ZoneType.Library) && destination == ZoneType.Library && shuffleMandatory) {
                 player.shuffle(sa);
+            }
+
+            if (sa.hasParam("Reorder")) {
+                chosenCards = new CardCollection(decider.getController().orderMoveToZoneList(chosenCards, destination, sa));
             }
 
             // remove Controlled While Searching

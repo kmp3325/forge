@@ -61,10 +61,6 @@ public class FightEffect extends DamageBaseEffect {
             return;
         }
 
-        if (sa.hasParam("RememberObjects")) {
-            host.addRemembered(AbilityUtils.getDefinedObjects(host, sa.getParam("RememberObjects"), sa));
-        }
-
         Player controller = host.getController();
         boolean isOptional = sa.hasParam("Optional");
 
@@ -152,7 +148,6 @@ public class FightEffect extends DamageBaseEffect {
     }
 
     private void dealDamage(final SpellAbility sa, Card fighterA, Card fighterB) {
-
         boolean usedDamageMap = true;
         CardDamageMap damageMap = sa.getDamageMap();
         CardDamageMap preventMap = sa.getPreventMap();

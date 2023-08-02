@@ -23,12 +23,12 @@
 "height": 0.5,
 "color": "efe697",
 "spriteNames": [
-	"PlainsRock",
 	"Skull"
 ],
 "enemies": [
 	"Adventurer",
 	"Camel",
+	"Cerodon",
 	"Dune Beetle",
 	"Falcon",
 	"Mummy",

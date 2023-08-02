@@ -3,9 +3,11 @@ ManaCost:4 B
 Types:Creature Dinosaur Rabbit Pokémon
 PT:4/3
 K:Mutate onto:4 B:Male Nidoran:5/4
-T:Mode$ DamageDone | ValidTarget$ Creature.YouCtrl | CombatDamage$ False | TriggerZones$ Battlefield | Execute$ TrigDrain | TriggerDescription$ Whenever a creature you control is dealt noncombat damage, CARDNAME deals 1 damage to each opponent.
-SVar:TrigDrain:DB$ DealDamage | NumDmg$ 1 | Defined$ Player.Opponent
-Oracle:Mutate onto Male Nidoran {4}{B} [5/4]\nWhenever a creature you control is dealt noncombat damage, Nidorino deals 1 damage to each opponent.
+K:Menace
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigHurt | TriggerDescription$ Whenever CARDNAME attacks or blocks, it deals 1 damage to another target creature you control.
+T:Mode$ Blocks | ValidCard$ Card.Self | Execute$ TrigHurt | Secondary$ True | TriggerDescription$ Whenever CARDNAME attacks or blocks, it deals 1 damage to another target creature you control.
+SVar:TrigHurt:DB$ DealDamage | ValidCards$ Creature.YouCtrl+Other | NumDmg$ 1
+Oracle:Mutate onto Male Nidoran {4}{B} [5/4]\nMenace\nWhenever Nidorino attacks or blocks, it deals 1 damage to another target creature you control.
 
 DeckHints:Name$Male Nidoran
 DeckHints:Name$Nidoking

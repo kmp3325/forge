@@ -16,6 +16,7 @@ import forge.adventure.data.ItemData;
 import forge.adventure.player.AdventurePlayer;
 import forge.adventure.stage.GameHUD;
 import forge.adventure.stage.IAfterMatch;
+import forge.adventure.util.AdventureEventController;
 import forge.adventure.util.Config;
 import forge.adventure.util.Current;
 import forge.assets.FBufferedImage;
@@ -305,7 +306,7 @@ public class DuelScene extends ForgeScene {
             } else if (this.eventData != null){
                 deck = eventData.nextOpponent.getDeck();
             } else {
-                deck = currentEnemy.copyPlayerDeck ? this.playerDeck : currentEnemy.generateDeck(Current.player().isFantasyMode(), Current.player().isUsingCustomDeck() || Current.player().getDifficulty().name.equalsIgnoreCase("Hard"));
+                deck = currentEnemy.copyPlayerDeck ? this.playerDeck : currentEnemy.generateDeck(Current.player().isFantasyMode(), Current.player().isUsingCustomDeck() || Current.player().getDifficulty().name.equalsIgnoreCase("Insane") || Current.player().getDifficulty().name.equalsIgnoreCase("Hard"));
             }
             RegisteredPlayer aiPlayer = RegisteredPlayer.forVariants(playerCount, appliedVariants, deck, null, false, null, null);
 
@@ -427,7 +428,7 @@ public class DuelScene extends ForgeScene {
         this.isArena = isArena;
         this.eventData = eventData;
         if (eventData!= null && eventData.eventRules == null)
-            eventData.eventRules = new AdventureEventData.AdventureEventRules();
+            eventData.eventRules = new AdventureEventData.AdventureEventRules(AdventureEventController.EventFormat.Constructed, 1.0f);
         this.arenaBattleChallenge = isArena
                 && (Current.player().getDifficulty().name.equalsIgnoreCase("Hard")
                 || Current.player().getDifficulty().name.equalsIgnoreCase("Insane"));

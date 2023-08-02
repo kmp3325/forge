@@ -3,13 +3,11 @@ ManaCost:3 RW
 Types:Creature Mutate Beast Pokémon
 PT:4/4
 K:Mutate onto:3 RW:Tyrogue:5/5
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigFight | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, you may have it fight target creature.
-T:Mode$ Mutates | ValidCard$ Card.Self | Execute$ TrigFight | Secondary$ True | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, you may have it fight target creature.
-SVar:TrigFight:DB$ Fight | Defined$ TriggeredCardLKICopy | ValidTgts$ Creature | TgtPrompt$ Choose target creature
+K:Mentor
 A:AB$ Pump | Cost$ R W | Defined$ Self | KW$ First strike | SubAbility$ TrigCoinFlip | SpellDescription$ CARDNAME gains first strike until end of turn, then flip a coin. If you win the flip, CARDNAME gets +1/+1 until end of turn.
 SVar:TrigCoinFlip:DB$ FlipACoin | WinSubAbility$ ExtraPump
 SVar:ExtraPump:DB$ Pump | Defined$ Self | NumAtt$ 1 | NumDef$ 1
-Oracle:Mutate onto Tyrogue {3}{RW} [5/5]\nWhenever Hitmontop enters the battlefield or mutates, you may have it fight target creature.\n{R}{W}: Hitmontop gains first strike until end of turn, then flip a coin. If you win the flip, Hitmontop gets +1/+1 until end of turn.
+Oracle:Mutate onto Tyrogue {3}{RW} [5/5]\nMentor\n{R}{W}: Hitmontop gains first strike until end of turn, then flip a coin. If you win the flip, Hitmontop gets +1/+1 until end of turn.
 
 DeckHints:Name$Tyrogue
 SVar:SoundEffect:hitmontop.mp3

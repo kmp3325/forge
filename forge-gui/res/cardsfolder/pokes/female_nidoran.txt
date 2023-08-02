@@ -3,8 +3,10 @@ ManaCost:1 B
 Types: Creature Dinosaur Rabbit Pokémon
 PT: 1/1
 K:Caustic
-S:Mode$ Continuous | Affected$ Creature.YouCtrl | AddKeyword$ Creatures you control with caustic deal damage to this creature as though they didn't have caustic. | Description$ Creatures you control deal damage to creatures you control as though they didn't have caustic.
-Oracle:Caustic\nCreatures you control deal damage to creatures you control as though they didn't have caustic.
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSearch | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, you may search your library and/or graveyard for a card named Male Nidoran or a card named Female Nidoran, reveal it, and put it into your hand. If you search your library this way, shuffle.
+T:Mode$ Mutates | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigSearch | Secondary$ True | Whenever CARDNAME enters the battlefield or mutates, you may search your library and/or graveyard for a card named Male Nidoran or a card named Female Nidoran, reveal it, and put it into your hand. If you search your library this way, shuffle.
+SVar:TrigSearch:DB$ ChangeZone | Origin$ Library | OriginAlternative$ Graveyard | AlternativeMessage$ Would you like to search your library with this ability? If you do, your library will be shuffled. | Destination$ Hand | ChangeType$ Card.YouOwn+namedMale Nidoran,Card.YouOwn+namedFemale Nidoran | ChangeNum$ 1 | Optional$ True
+Oracle:Caustic\nWhenever Female Nidoran enters the battlefield or mutates, you may search your library and/or graveyard for a card named Male Nidoran or a card named Female Nidoran, reveal it, and put it into your hand. If you search your library this way, shuffle.
 
 DeckHints:Name$Nidorina
 DeckNeeds:Keyword$Caustic

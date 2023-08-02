@@ -3,11 +3,12 @@ ManaCost:2 R
 Types:Creature Mouse Pokémon
 PT:3/3
 K:Mutate onto:2 R:Pikachu:4/4
+K:Mentor
 R:Event$ AddCounter | ActiveZones$ Battlefield | ValidCard$ Permanent.YouCtrl+inZoneBattlefield | ValidCounterType$ STUN | ReplaceWith$ DmgSelf | Optional$ True | OptionalDecider$ You | Description$ If one or more stun counters would be put on a permanent you control, you may instead have CARDNAME deal 1 damage to itself. When you do, put a +1/+1 counter on CARDNAME.
 SVar:DmgSelf:DB$ DealDamage | Defined$ Self | NumDmg$ 2 | SubAbility$ DBImmediateTrigger
 SVar:DBImmediateTrigger:DB$ ImmediateTrigger | Execute$ DBPutCounter | TriggerDescription$ Put a +1/+1 counter on CARDNAME.
 SVar:DBPutCounter:DB$ PutCounter | CounterType$ P1P1 | CounterNum$ 1 | Defined$ Self
-Oracle:Mutate onto Pikachu {2}{R} [4/4]\nIf one or more stun counters would be put on a permanent you control, you may instead have Raichu deal 1 damage to itself. When you do, put a +1/+1 counter on Raichu.
+Oracle:Mutate onto Pikachu {2}{R} [4/4]\nMentor\nIf one or more stun counters would be put on a permanent you control, you may instead have Raichu deal 1 damage to itself. When you do, put a +1/+1 counter on Raichu.
 
 DeckHints:Name$Pikachu
 SVar:SoundEffect:raichu.mp3

@@ -403,6 +403,7 @@ Urza
 Venser
 Vivien
 Vraska
+Vronos
 Will
 Windgrace
 Wrenn
@@ -422,7 +423,7 @@ Arcavios
 Arkhos
 Azgol
 Belenon
-Bolas's Meditation Realm
+Bolas's Meditation Realm
 Capenna
 Cridhe
 Dominaria

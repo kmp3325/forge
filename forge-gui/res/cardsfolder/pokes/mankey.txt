@@ -3,7 +3,8 @@ ManaCost:RW RW
 Types:Creature Monkey Pokémon
 PT:2/1
 K:Menace
-Oracle:Menace
+K:Training
+Oracle:Menace, training
 
 DeckHints:Name$Primeape
 SVar:SoundEffect:mankey.mp3

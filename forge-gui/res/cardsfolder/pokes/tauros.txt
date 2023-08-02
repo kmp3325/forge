@@ -2,10 +2,13 @@ Name:Tauros
 ManaCost:2 C
 Types:Creature Aurochs Pokémon
 PT:3/3
-T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigDig | TriggerDescrtiption$ When CARDNAME enters the battlefield, look at the top three cards of your library. You may reveal a creature card from among them and put it into your hand. Put the rest on the bottom of your library in any order.
-SVar:TrigDig:DB$ Dig | DigNum$ 3 | ChangeNum$ 1 | Optional$ True | ChangeValid$ Creature
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigScry | TriggerDescrtiption$ When CARDNAME enters the battlefield, scry 3, then you may reveal the top card of your library. If it's a creature card, draw a card.
+SVar:TrigScry:DB$ Scry | ScryNum$ 3 | SubAbility$ DBPeekAndReveal
+SVar:DBPeekAndReveal:DB$ PeekAndReveal | RevealOptional$ True | NoPeek$ True | RememberRevealed$ True | SubAbility$ DBDraw
+SVar:DBDraw:DB$ Draw | ConditionDefined$ Remembered | ConditionPresent$ Card.Creature | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
 S:Mode$ Continuous | Affected$ Card.Self | AddPower$ 1 | AddToughness$ 1 | AddKeyword$ Trample | CheckSVar$ X | SVarCompare$ GE3 | Description$ As long as you control three or more creatures, CARDNAME gets +1/+1 and has trample.
 SVar:X:Count$Valid Creature.YouCtrl
-Oracle:When Tauros enters the battlefield, look at the top three cards of your library. You may reveal a creature card from among them and put it into your hand. Put the rest on the bottom of your library in any order.\nAs long as you control three or more creatures, Tauros gets +1/+1 and has trample.
+Oracle:When Tauros enters the battlefield, scry 3, then you may reveal the top card of your library. If it's a creature card, draw a card.\nAs long as you control three or more creatures, Tauros gets +1/+1 and has trample.
 
 SVar:SoundEffect:tauros.mp3

@@ -97,7 +97,7 @@ Foil=NotSupported
 85 R Dodrio
 86 C Seel
 87 R Dewgong
-88 C Grimer
+88 U Grimer
 89 M Muk
 90 C Shellder
 91 U Cloyster
@@ -123,7 +123,7 @@ Foil=NotSupported
 111 C Rhyhorn
 112 R Rhydon
 113 R Chansey
-114 C Tangela
+114 U Tangela
 115 R Kangaskhan
 116 C Horsea
 117 U Seadra
@@ -186,7 +186,7 @@ Foil=NotSupported
 174 C Igglybuff
 175 U Togepi
 176 R Togetic
-177 U Natu
+177 C Natu
 178 R Xatu
 179 C Mareep
 180 U Flaaffy
@@ -295,7 +295,7 @@ Foil=NotSupported
 9971 C Wild Onix
 9972 U Wild Rhydon
 9973 U Wild Scyther
-9974 U Wild Kabutops
+9974 C Wild Kabutops
 9975 C Wild Bellossom
 9976 U Great Ball
 9977 R Ultra Ball

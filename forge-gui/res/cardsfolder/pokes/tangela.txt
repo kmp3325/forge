@@ -1,10 +1,14 @@
 Name:Tangela
 ManaCost:3 G
 Types:Creature Plant Pokémon
-PT:3/3
-T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigDig | TriggerDescrtiption$ When CARDNAME enters the battlefield, look at the top three cards of your library. You may reveal a creature card from among them and put it into your hand. Put the rest on the bottom of your library in any order.
-SVar:TrigDig:DB$ Dig | DigNum$ 3 | ChangeNum$ 1 | Optional$ True | ChangeValid$ Creature
-Oracle:When Tangela enters the battlefield, look at the top three cards of your library. You may reveal a creature card from among them and put it into your hand. Put the rest on the bottom of your library in any order.
+PT:0/0
+K:etbCounter:P1P1:3
+T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | Execute$ TrigPutCounter | TriggerZones$ Battlefield | OptionalDecider$ You | CheckSVar$ X | SVarCompare$ LE2 | TriggerDescription$ At the beginning of your upkeep, if CARDNAME has power 2 or less, you may put a +1/+1 counter on it.
+SVar:X:Count$CardToughness
+SVar:TrigPutCounter:DB$ PutCounter | CounterType$ P1P1 | CounterNum$ 1 | Defined$ Self
+T:Mode$ DamageDoneOnce | ValidTarget$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigMoveCounter | TriggerDescription$ Whenever CARDNAME is dealt damage, you may move a +1/+1 counter from it onto another target creature.
+SVar:TrigMoveCounter:DB$ MoveCounter | ValidTgts$ Creature.Other | TgtPrompt$ Select another target creature | Source$ Self | CounterType$ P1P1 | CounterNum$ 1
+Oracle:Tangela enters the battlefield with three +1/+1 counters on it.\nAt the beginning of your upkeep, if Tangela has power 2 or less, you may put a +1/+1 counter on it.\nWhenever Tangela is dealt damage, you may move a +1/+1 counter from it onto another target creature.
 
 SVar:PlayMain1:TRUE
 SVar:SoundEffect:tangela.mp3

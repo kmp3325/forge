@@ -1,5 +1,5 @@
 Name:Spinarak
-ManaCost:3 BG BG
+ManaCost:3 B G
 Types:Creature Spider Pokémon
 PT:2/2
 K:Caustic

@@ -1,14 +1,14 @@
 Name:Lanturn
-ManaCost:1 UR UR
+ManaCost:2 U R
 Types:Creature Fish Pokémon
 PT:3/3
-K:Mutate onto:1 UR UR:Chinchou:4/4
+K:Mutate onto:2 U R:Chinchou:4/4
 S:Mode$ Continuous | Affected$ Card.Self | AddPower$ X | AddToughness$ X | Description$ CARDNAME gets +1/+1 for each stun counter on creatures your opponents control.
 SVar:X:Count$Valid Creature.OppCtrl$CardCounters.STUN
 T:Mode$ Blocks | ValidCard$ Card.Self | Execute$ TrigImmediate | TriggerDescription$ Whenever CARDNAME blocks, you may pay {U}{R}. When you do, put a stun counter on target creature.
 SVar:TrigImmediate:AB$ ImmediateTrigger | Execute$ TrigPutCounter | Cost$ U R
 SVar:TrigPutCounter:DB$ PutCounter | IsCurse$ True | CounterType$ STUN | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature
-Oracle:Mutate onto Chinchou {1}{UR}{UR} [4/4]\nLanturn gets +1/+1 for each stun counter on creatures you opponents control.\nWhenever Lanturn blocks, you may pay {U}{R}. When you do, put a stun counter on target creature.
+Oracle:Mutate onto Chinchou {2}{U}{R} [4/4]\nLanturn gets +1/+1 for each stun counter on creatures you opponents control.\nWhenever Lanturn blocks, you may pay {U}{R}. When you do, put a stun counter on target creature.
 
 DeckHints:Name$Chinchou
 SVar:HasBlockEffect:TRUE

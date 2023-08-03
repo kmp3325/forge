@@ -1,13 +1,13 @@
 Name:Quagsire
-ManaCost:3 WU WU
+ManaCost:3 W U
 Types:Creature Salamander Pokémon
 PT:4/5
-K:Mutate onto:3 W U:Wooper:5/6
+K:Mutate onto:2 W U:Wooper:5/6
 T:Mode$ PhaseIn | ValidCard$ Creature.OppCtrl | Execute$ DBPhase | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME phases in, target creature phases out. Scry 1, then draw a card.
 SVar:DBPhase:DB$ Phases | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ DBScry
 SVar:DBScry:DB$ Scry | ScryNum$ 1 | SubAbility$ DBDraw
 SVar:DBDraw:DB$ Draw | NumCards$ 1 | Defined$ You
-Oracle:Mutate onto Wooper {3}{W}{U} [5/6]\nWhenever Quagsire phases in, target creature phases out. Scry 1, then draw a card.
+Oracle:Mutate onto Wooper {2}{W}{U} [5/6]\nWhenever Quagsire phases in, target creature phases out. Scry 1, then draw a card.
 
 DeckHints:Name$Wooper
 SVar:SoundEffect:quagsire.mp3

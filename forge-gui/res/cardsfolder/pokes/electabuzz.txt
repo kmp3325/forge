@@ -1,12 +1,12 @@
 Name:Electabuzz
-ManaCost:3 U R
+ManaCost:3 UR UR
 Types:Creature Cat Pokémon
 PT:5/5
-K:Mutate onto:3 U R:Elekid:6/6
+K:Mutate onto:3 UR UR:Elekid:6/6
 T:Mode$ Mutates | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, put a stun counter on each creature you don't control.
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, put a stun counter on each creature you don't control.
 SVar:TrigPutCounter:DB$ PutCounterAll | IsCurse$ True | ValidCards$ Creature.YouDontCtrl | CounterType$ STUN | CounterNum$ 1
-Oracle:Mutate onto Elekid {3}{U}{R} [6/6]\nWhenever Electabuzz enters the battlefield or mutates, put a stun counter on each creature you don't control.
+Oracle:Mutate onto Elekid {3}{UR}{UR} [6/6]\nWhenever Electabuzz enters the battlefield or mutates, put a stun counter on each creature you don't control.
 
 DeckHints:Name$Elekid
 SVar:SoundEffect:electabuzz.mp3

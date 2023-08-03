@@ -1,5 +1,5 @@
 Name:Ponyta
-ManaCost:3 RG RG
+ManaCost:3 R G
 Types:Creature Horse Pokémon
 PT:3/3
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounter | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, you may put a burn counter on target creature. If it's sunny, you may put two burn counters on that creature instead.

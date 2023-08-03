@@ -1,5 +1,5 @@
 Name:Voltorb
-ManaCost:3 UR UR
+ManaCost:2 UR UR
 Types:Artifact Creature Construct Pokémon
 PT:2/1
 A:AB$ DamageAll | Cost$ T | ActivationZone$ Battlefield | ValidCards$ Creature | NumDmg$ X | ValidDescription$ each creature | SpellDescription$ CARDNAME deals damage equal to its power to each creature.

@@ -1,5 +1,5 @@
 Name:Rhyhorn
-ManaCost:3 GW GW
+ManaCost:3 G W
 Types:Creature Dinosaur Rhino Pokémon
 PT:4/4
 K:Trample

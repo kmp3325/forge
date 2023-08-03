@@ -1,5 +1,5 @@
 Name:Qwilfish
-ManaCost:3 UB UB
+ManaCost:3 U B
 Types:Creature Fish Pokémon
 PT:1/1
 K:Caustic

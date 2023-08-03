@@ -1,5 +1,5 @@
 Name:Shellder
-ManaCost:3 GU GU
+ManaCost:3 G U
 Types:Creature Oyster Pokémon
 PT:2/2
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounters | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, put a +1/+1 counter on target creature, then proliferate.

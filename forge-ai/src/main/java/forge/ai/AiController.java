@@ -761,6 +761,10 @@ public class AiController {
     private AiPlayDecision canPlayAndPayForFace(final SpellAbility sa) {
         final Card host = sa.getHostCard();
 
+        if (!AiPokeSearch.okToActivate(sa)) {
+            return AiPlayDecision.AnotherTime;
+        };
+
         // Check a predefined condition
         if (sa.hasParam("AICheckSVar")) {
             final String svarToCheck = sa.getParam("AICheckSVar");

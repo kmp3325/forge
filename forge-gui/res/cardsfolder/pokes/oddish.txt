@@ -2,12 +2,10 @@ Name:Oddish
 ManaCost:BG
 Types:Creature Plant Pokémon
 PT:1/1
-T:Mode$ Taps | AILogic$ Good | ValidCard$ Card.Self | Execute$ TrigSolar | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME becomes tapped, you may put a solar counter on it. If you do, you gain life equal to the number of solar counters on it. Then if CARDNAME has three or more solar counters on it, you may return target land card from your graveyard to your hand.
-SVar:TrigSolar:DB$ PutCounter | Defined$ Self | CounterType$ SOLAR | CounterNum$ 1 | SubAbility$ DBGainLife
-SVar:DBGainLife:DB$ GainLife | Defined$ You | LifeAmount$ X | SubAbility$ TrigReturn
-SVar:TrigReturn:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand | ChangeType$ Land.YouOwn | ChangeNum$ 1 | ConditionPresent$ Card.Self+counters_GE3_SOLAR
-SVar:X:Count$CardCounters.SOLAR
-Oracle:Whenever Oddish becomes tapped, you may put a solar counter on it. If you do, you gain life equal to the number of solar counters on it. Then if Oddish has three or more solar counters on it, you may return target land card from your graveyard to your hand.
+A:AB$ PutCounter | Cost$ T | CounterType$ SOLAR | CounterNum$ 1 | Defined$ Self | SpellDescription$ Put a solar counter on CARDNAME.
+A:AB$ PutCounter | Cost$ T | CounterType$ M0M1 | CounterNum$ 1 | Defined$ Self | IsPresent$ Card.Self+counters_GE3_SOLAR | SubAbility$ TrigReturn | SpellDescription$ Put a -0/-1 counter on CARDNAME, then return target land card from your graveyard to your hand. Activate only if CARDNAME has three or more solar counters on it.
+SVar:TrigReturn:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand | ChangeType$ Land.YouOwn | ChangeNum$ 1
+Oracle:{T}: Put a solar counter on Oddish.\n{T}: Put a -0/-1 counter on Oddish, then return target land card from your graveyard to your hand. Activate only if Oddish has three or more solar counters on it.
 
 DeckHints:Name$Gloom Pokémon
 SVar:SoundEffect:oddish.mp3

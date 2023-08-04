@@ -151,6 +151,9 @@ public class CardFaceSymbols {
         Forge.getAssets().manaImages().put("shroud", FSkinImage.IMG_ABILITY_SHROUD);
         Forge.getAssets().manaImages().put("trample", FSkinImage.IMG_ABILITY_TRAMPLE);
         Forge.getAssets().manaImages().put("vigilance", FSkinImage.IMG_ABILITY_VIGILANCE);
+        Forge.getAssets().manaImages().put("steelskin", FSkinImage.IMG_ABILITY_STEEL_SKIN);
+        Forge.getAssets().manaImages().put("caustic", FSkinImage.IMG_ABILITY_CAUSTIC);
+        Forge.getAssets().manaImages().put("scorching", FSkinImage.IMG_ABILITY_SCORCHING);
         //hexproof from
         Forge.getAssets().manaImages().put("hexproofR", FSkinImage.IMG_ABILITY_HEXPROOF_R);
         Forge.getAssets().manaImages().put("hexproofG", FSkinImage.IMG_ABILITY_HEXPROOF_G);

@@ -163,6 +163,9 @@ public enum TrackableProperty {
     HasShroud(TrackableTypes.BooleanType),
     HasTrample(TrackableTypes.BooleanType),
     HasVigilance(TrackableTypes.BooleanType),
+    HasSteelSkin(TrackableTypes.BooleanType),
+    HasCaustic(TrackableTypes.BooleanType),
+    HasScorching(TrackableTypes.BooleanType),
     HasLandwalk(TrackableTypes.BooleanType),
     HasAftermath(TrackableTypes.BooleanType),
     //protectionkey

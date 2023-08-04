@@ -520,6 +520,9 @@ public enum FSkinProp {
     IMG_ABILITY_SHROUD         (new int[] {330, 330, 80, 80}, PropType.ABILITY),
     IMG_ABILITY_TRAMPLE        (new int[] {412, 330, 80, 80}, PropType.ABILITY),
     IMG_ABILITY_VIGILANCE      (new int[] {2, 412, 80, 80}, PropType.ABILITY),
+    IMG_ABILITY_STEEL_SKIN (new int[] {2, 658, 80, 80}, PropType.ABILITY),
+    IMG_ABILITY_CAUSTIC (new int[] {84, 658, 80, 80}, PropType.ABILITY),
+    IMG_ABILITY_SCORCHING (new int[] {166, 658, 80, 80}, PropType.ABILITY),
     //Hexproof From
     IMG_ABILITY_HEXPROOF_R       (new int[] {2, 494, 80, 80}, PropType.ABILITY),
     IMG_ABILITY_HEXPROOF_G       (new int[] {412, 412, 80, 80}, PropType.ABILITY),
@@ -534,7 +537,6 @@ public enum FSkinProp {
     IMG_BORDER_BLACK             (new int[] {2, 2, 672, 936}, PropType.BORDERS),
     IMG_BORDER_WHITE             (new int[] {676, 2, 672, 936}, PropType.BORDERS),
     //Protection From
-    // todo add caustic to this
     IMG_ABILITY_PROTECT_ALL           (new int[] {248, 84, 80, 80}, PropType.ABILITY),
     IMG_ABILITY_PROTECT_B             (new int[] {330, 84, 80, 80}, PropType.ABILITY),
     IMG_ABILITY_PROTECT_BU            (new int[] {412, 84, 80, 80}, PropType.ABILITY),

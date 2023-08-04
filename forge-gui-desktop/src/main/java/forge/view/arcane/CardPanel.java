@@ -668,6 +668,18 @@ public class CardPanel extends SkinnedPanel implements CardContainer, IDisposabl
                     CardFaceSymbols.drawAbilitySymbol("defender", g, abiX, abiY, abiScale, abiScale);
                     abiY += abiSpace;
                 }
+                if (card.getCurrentState().hasSteelSkin()) {
+                    CardFaceSymbols.drawAbilitySymbol("steelskin", g, abiX, abiY, abiScale, abiScale);
+                    abiY += abiSpace;
+                }
+                if (card.getCurrentState().hasCaustic()) {
+                    CardFaceSymbols.drawAbilitySymbol("caustic", g, abiX, abiY, abiScale, abiScale);
+                    abiY += abiSpace;
+                }
+                if (card.getCurrentState().hasScorching()) {
+                    CardFaceSymbols.drawAbilitySymbol("scorching", g, abiX, abiY, abiScale, abiScale);
+                    abiY += abiSpace;
+                }
                 //protection icons
                 if (!card.getCurrentState().getProtectionKey().isEmpty()){
                     if (card.getCurrentState().getProtectionKey().contains("everything") || card.getCurrentState().getProtectionKey().contains("allcolors")) {

@@ -1470,6 +1470,9 @@ public class CardView extends GameEntityView {
         public boolean hasShroud() { return get(TrackableProperty.HasShroud); }
         public boolean hasTrample() { return get(TrackableProperty.HasTrample); }
         public boolean hasVigilance() { return get(TrackableProperty.HasVigilance); }
+        public boolean hasSteelSkin() { return get(TrackableProperty.HasSteelSkin); }
+        public boolean hasCaustic() { return get(TrackableProperty.HasCaustic); }
+        public boolean hasScorching() { return get(TrackableProperty.HasScorching); }
 
         public boolean hasHaste() {
             return get(TrackableProperty.HasHaste);
@@ -1544,6 +1547,9 @@ public class CardView extends GameEntityView {
             set(TrackableProperty.HasShroud, c.hasKeyword(Keyword.SHROUD, state));
             set(TrackableProperty.HasTrample, c.hasKeyword(Keyword.TRAMPLE, state));
             set(TrackableProperty.HasVigilance, c.hasKeyword(Keyword.VIGILANCE, state));
+            set(TrackableProperty.HasSteelSkin, c.hasKeyword(Keyword.STEEL_SKIN, state));
+            set(TrackableProperty.HasCaustic, c.hasKeyword(Keyword.CAUSTIC, state));
+            set(TrackableProperty.HasScorching, c.hasKeyword(Keyword.SCORCHING, state));
             set(TrackableProperty.HasHaste, c.hasKeyword(Keyword.HASTE, state));
             set(TrackableProperty.HasInfect, c.hasKeyword(Keyword.INFECT, state));
             set(TrackableProperty.HasStorm, c.hasKeyword(Keyword.STORM, state));

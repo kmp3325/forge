@@ -173,6 +173,9 @@ public class CardFaceSymbols {
         MANA_IMAGES.put("shroud", FSkin.getImage(FSkinProp.IMG_ABILITY_SHROUD));
         MANA_IMAGES.put("trample", FSkin.getImage(FSkinProp.IMG_ABILITY_TRAMPLE));
         MANA_IMAGES.put("vigilance", FSkin.getImage(FSkinProp.IMG_ABILITY_VIGILANCE));
+        MANA_IMAGES.put("steelskin", FSkin.getImage(FSkinProp.IMG_ABILITY_STEEL_SKIN));
+        MANA_IMAGES.put("caustic", FSkin.getImage(FSkinProp.IMG_ABILITY_CAUSTIC));
+        MANA_IMAGES.put("scorching", FSkin.getImage(FSkinProp.IMG_ABILITY_SCORCHING));
         //hexproof from
         MANA_IMAGES.put("hexproofR", FSkin.getImage(FSkinProp.IMG_ABILITY_HEXPROOF_R));
         MANA_IMAGES.put("hexproofG", FSkin.getImage(FSkinProp.IMG_ABILITY_HEXPROOF_G));

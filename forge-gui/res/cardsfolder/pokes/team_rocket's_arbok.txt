@@ -1,7 +1,7 @@
 Name:Team Rocket's Arbok
 ManaCost:2 RB
 Types:Creature Snake Pokémon
-PT:3/1
+PT:3/2
 K:Deathtouch
 K:Caustic
 S:Mode$ Continuous | Affected$ Card.Self | AddKeyword$ First strike | IsPresent$ Creature.YouDontOwn+YouCtrl | Description$ CARDNAME has first strike as long as you control a creature you don't own.

@@ -6,8 +6,9 @@ K:Mutate onto:3 W W:Hoothoot:4/5
 K:Flying
 T:Mode$ PhaseIn | ValidCard$ Creature.YouCtrl | Execute$ TrigDmg | TriggerDescription$ Whenever a creature you control phases in, target player loses 1 life.
 SVar:TrigDmg:DB$ LoseLife | ValidTgts$ Player | TgtPrompt$ Select a player | LifeAmount$ 1
-S:Mode$ Continuous | Affected$ Creature.Bird+Other+YouCtrl | AddPower$ 1 | AddToughness$ 1 | Description$ Other Bird creatures you control get +1/+1.
-Oracle:Mutate onto Hoothoot {3}{W}{W} [4/5]\nFlying\nWhenever a creature you control phases in, target player loses 1 life.\nOther Bird creatures you control get +1/+1.
+S:Mode$ Continuous | Affected$ Creature.Bird+Other+YouCtrl | AddPower$ X | AddToughness$ X | Description$ Other Bird creatures you control get +1/+1. If it's windy, they get +2/+2 instead.
+SVar:X:Count$Windy.2.1
+Oracle:Mutate onto Hoothoot {3}{W}{W} [4/5]\nFlying\nWhenever a creature you control phases in, target player loses 1 life.\nOther Bird creatures you control get +1/+1. If it's windy, they get +2/+2 instead.
 
 DeckHints:Name$Hoothoot
 DeckHints:Type$Bird

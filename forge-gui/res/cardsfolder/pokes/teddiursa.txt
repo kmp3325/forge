@@ -1,5 +1,5 @@
 Name:Teddiursa
-ManaCost:C
+ManaCost:1
 Types:Creature Bear Pokémon
 PT:1/1
 A:AB$ Mana | Cost$ T | Produced$ C | SpellDescription$ Add {C}.

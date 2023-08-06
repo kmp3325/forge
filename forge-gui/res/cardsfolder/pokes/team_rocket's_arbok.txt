@@ -2,9 +2,10 @@ Name:Team Rocket's Arbok
 ManaCost:2 RB
 Types:Creature Snake Pokémon
 PT:3/2
-K:Deathtouch
 K:Caustic
-S:Mode$ Continuous | Affected$ Card.Self | AddKeyword$ First strike | IsPresent$ Creature.YouDontOwn+YouCtrl | Description$ CARDNAME has first strike as long as you control a creature you don't own.
-Oracle:Deathtouch, caustic\nTeam Rocket's Arbok has first strike as long as you control a creature you don't own.
+S:Mode$ Continuous | Affected$ Card.Self | AddKeyword$ First strike | AddPower$ 1 | IsPresent$ Creature.YouDontOwn+YouCtrl | Description$ As long as you control a creature you don't own, CARDNAME gets +1/+0 and has first strike.
+S:Mode$ Continuous | Affected$ Card.Self | AddKeyword$ Deathtouch | CheckSVar$ FOG | SVarCompare$ GE1 | Description$ As long as it's foggy, CARDNAME has deathtouch.
+SVar:FOG:Count$Foggy.1.0
+Oracle:Caustic\nAs long as it's foggy, Team Rocket's Arbok has deathtouch.\nAs long as you control a creature you don't own, Team Rocket's Arbok gets +1/+0 and has first strike.
 
 SVar:SoundEffect:arbok.mp3

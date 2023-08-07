@@ -4,9 +4,10 @@ Types:Creature Elemental Pokémon
 PT:3/5
 K:Mutate onto:3 B:Koffing:3/6
 A:AB$ Weather | Cost$ B B PayLife<2> | Value$ Foggy | SpellDescription$ It becomes foggy.
-S:Mode$ MinMaxBlocker | ValidCard$ Creature.YouCtrl | Max$ 1 | CheckSVar$ FOG | SVarCompare$ GE1 | Description$ Each creature you control can't be blocked by more than one creature as long as it's foggy.
+S:Mode$ MinMaxBlocker | ValidCard$ Creature.YouCtrl | Max$ 1 | CheckSVar$ FOG | SVarCompare$ GE1 | Description$ As long as it's foggy, each creature you control can't be blocked by more than one creature.
 SVar:FOG:Count$Foggy.1.0
-Oracle:Mutate onto Koffing {3}{B} [3/6]\n{B}{B}, Pay 2 life: It becomes foggy.\nEach creature you control can't be blocked by more than one creature as long as it's foggy.
-
+R:Event$ DamageDone | ActiveZones$ Battlefield | Prevent$ True | ValidTarget$ Card.Self | ValidSource$ Creature.withCaustic | ReplaceWith$ TrigPutCounter | PreventionEffect$ True | Description$ If a creature with caustic would deal damage to CARDNAME, prevent that damage and put a +1/+1 counter on CARDNAME.
+SVar:TrigPutCounter:DB$ PutCounter | CounterType$ P1P1 | CounterNum$ 1 | Defined$ Self
+Oracle:Mutate onto Koffing {3}{B} [3/6]\nIf a creature with caustic would deal damage to Weezing, prevent that damage and put a +1/+1 counter on Weezing.\n{B}{B}, Pay 2 life: It becomes foggy.\nAs long as it's foggy, each creature you control can’t be blocked by more than one creature.
 DeckHints:Name$Koffing
 SVar:SoundEffect:weezing.mp3

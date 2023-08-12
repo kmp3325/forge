@@ -2,12 +2,10 @@ Name:Hoppip
 ManaCost:RG
 Types:Creature Plant Saproling Pokémon
 PT:0/1
-K:Flying
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSun | TriggerDescription$ When CARDNAME enters the battlefield, it becomes sunny.
-SVar:TrigSun:DB$ Weather | Value$ Sunny
-S:Mode$ Continuous | Affected$ Card.Self | CheckSVar$ SUN | SVarCompare$ GE1 | AddPower$ 1 | Description$ As long as it's sunny, CARDNAME gets +1/+0.
-SVar:SUN:Count$Sunny.1.0
-Oracle:Flying\nWhen Hoppip enters the battlefield, it becomes sunny.\nAs long as it's sunny, Hoppip gets +1/+0.
+T:Mode$ WeatherChanged | ValidWeather$ Windy | Execute$ TrigPutCounter | TriggerZones$ Battlefield | TriggerDescription$ Whenever it becomes windy, put a flying counter on CARDNAME.
+SVar:PutCounter:DB$ PutCounter | CounterType$ FLYING | CounterNum$ 1 | Defined$ Self
+S:Mode$ Continuous | Affected$ Card.Self+counters_GE1_FLYING | AddAtt$ 1 | Description$ CARDNAME gets +1/+0 as long as it has a flying counter on it.
+Oracle:Whenever it becomes windy, put a flying counter on Hoppip.\nHoppip gets +1/+0 as long as it has a flying counter on it.
 
 DeckHints:Name$Skiploom
 SVar:SoundEffect:hoppip.mp3

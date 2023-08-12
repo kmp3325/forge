@@ -2,14 +2,15 @@ Name:Jumpluff
 ManaCost:1 R G
 Types:Creature Plant Saproling Pokémon
 PT:2/4
-K:Mutate onto:R G:Skiploom:3/5
-K:Flying
-A:AB$ PeekAndReveal | Cost$ T | PeekAmount$ 1 | RevealValid$ Creature | RevealOptional$ True | RememberRevealed$ True | SubAbility$ DBChangeZone | SpellDescription$ Look at the top card of your library. If it's a creature card, you may reveal it and put it into your hand.
-SVar:DBChangeZone:DB$ ChangeZone | Defined$ TopOfLibrary | Origin$ Library | Destination$ Hand | ConditionDefined$ Remembered | ConditionPresent$ Creature | ConditionCompare$ EQ1 | SubAbility$ DBCleanup
-SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
-A:AB$ Mana | Cost$ T | Produced$ R G | ConditionCheckSVar$ SUN | ConditionSVarCompare$ GE1 | SpellDescription$ Add {R}{G}. Activate only if it's sunny.
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, put a flying counter on it.
+T:Mode$ Mutates | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigPutCounter | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, put a flying counter on it.
+SVar:TrigPutCounter:DB$ PutCounter | CounterType$ FLYING | CounterNum$ 1 | Defined$ Self
+T:Mode$ TapsForMana | ValidCard$ Permanent | Activator$ You | Execute$ TrigMana | TriggerZones$ Battlefield | Static$ True | CheckSVar$ SUN | SVarCompare$ GE1 | TriggerDescription$ Whenever you tap a permanent for mana, if it's sunny, add an additional {R}.
+SVar:TrigMana:DB$ Mana | Produced$ R
 SVar:SUN:Count$Sunny.1.0
-Oracle:Mutate onto Skiploom {R}{G} [3/5]\nFlying\n{T}: Look at the top card of your library. If it's a creature card, you may reveal it and put it into your hand.\n{T}: Add {R}{G}. Activate only if it's sunny.
+A:AB$ Weather | Cost$ R | Value$ Sunny | ActivationLimit$ 1 | SpellDescription$ It becomes sunny. Activate only once each turn.
+A:AB$ Weather | Cost$ W | Value$ Windy | ActivationLimit$ 1 | SpellDescription$ It becomes windy. Activate only once each turn.
+Oracle:Mutate onto Skiploom {R}{G} [3/5]Whenever Jumpluff enters the battlefield or mutates, put a flying counter on it.\nWhenever you tap a permanent for mana, if it’s sunny, add an additional {R}.\n{R}: It becomes sunny. Activate only once each turn.\n{W}: It becomes windy. Activate only once each turn.
 
 DeckHints:Name$Skiploom
 SVar:SoundEffect:jumpluff.mp3

@@ -3,7 +3,7 @@ ManaCost:U B
 Types:Creature Starfish Pokémon
 PT:3/1
 K:Mutate onto:2 U B:Staryu:3/1
-S:Mode$ Continuous | EffectZone$ Battlefield | AddToughness$ X | Description$ CARDNAME gets +0/+1 for each land card in all graveyards.
+S:Mode$ Continuous | EffectZone$ Battlefield | AddToughness$ X | Affected$ Card.Self | Description$ CARDNAME gets +0/+1 for each land card in all graveyards.
 SVar:X:Count$ValidGraveyard Land
 T:Mode$ MilledAll | ValidPlayer$ Player | ValidCard$ Land | TriggerZones$ Battlefield | ActivationLimit$ 1 | Execute$ TrigMoreMill | TriggerDescription$ Whenever a player mills one or more land cards, they mill an additional card. This ability triggers only once each turn.
 SVar:TrigMoreMill:DB$ Mill | NumCards$ 1 | Defined$ TriggeredPlayer

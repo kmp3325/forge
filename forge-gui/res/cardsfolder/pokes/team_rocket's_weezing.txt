@@ -4,10 +4,10 @@ Types:Creature Elemental Pokémon
 PT:3/2
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigWeather | TriggerDescription$ When CARDNAME enters the battlefield, it becomes foggy.
 SVar:TrigWeather:DB$ Weather | Value$ Foggy
-S:Mode$ CantBlockBy | ValidAttacker$ Card.Self | CheckSVar$ X | SVarCompare$ GE1 | Description$ CARDNAME can't be blocked as long as it's foggy.
+S:Mode$ CantBlockBy | ValidAttacker$ Card.Self | CheckSVar$ X | SVarCompare$ GE1 | Description$ As long as it's foggy, CARDNAME can't be blocked.
 SVar:X:Count$Foggy.1.0
 T:Mode$ DamageDone | ValidSource$ Card.Self | ValidTarget$ Opponent | CombatDamage$ True | Execute$ TrigPayment | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME deals combat damage to a player, you may pay 2 life. If you do, gain control of target creature that player controls until end of turn.
 SVar:TrigPayment:AB$ GainControl | Cost$ PayLife<2> | ValidTgts$ Creature.ControlledBy TriggeredTarget | TgtPrompt$ Select target creature | LoseControl$ EOT
-Oracle:When Team Rocket's Weezing enters the battlefield, it becomes foggy.\nTeam Rocket's Weezing can't be blocked as long as it's foggy.\nWhenever Team Rocket's Weezing deals combat damage to a player, you may pay 2 life. If you do, gain control of target creature that player controls until end of turn.
+Oracle:When Team Rocket's Weezing enters the battlefield, it becomes foggy.\nAs long as it's foggy, Team Rocket's Weezing can't be blocked.\nWhenever Team Rocket's Weezing deals combat damage to a player, you may pay 2 life. If you do, gain control of target creature that player controls until end of turn.
 
 SVar:SoundEffect:weezing.mp3

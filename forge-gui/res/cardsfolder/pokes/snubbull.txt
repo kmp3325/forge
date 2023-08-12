@@ -1,5 +1,5 @@
 Name:Snubbull
-ManaCost:RW
+ManaCost:1 RW
 Types:Creature Dog Faerie Pokémon
 PT:1/2
 K:Vigilance

@@ -2,13 +2,13 @@ Name:Lapras
 ManaCost:4 U U
 Types:Snow Creature Dinosaur Pokémon
 PT:6/6
-T:Mode$ Attacks | ValidCard$ Card.Self | CheckSVar$ SNOW | SVarCompare$ GE1 | Execute$ TrigCantBlock | TriggerDescription$ Whenever CARDNAME attacks, as long as it's snowy, another target creature can't be blocked this turn.
+T:Mode$ Attacks | ValidCard$ Card.Self | CheckSVar$ SNOW | SVarCompare$ GE1 | Execute$ TrigCantBlock | TriggerDescription$ Whenever CARDNAME attacks, if it's snowy, another target creature can't be blocked this turn.
 SVar:SNOW:Count$Snowy.1.0
 SVar:TrigCantBlock:DB$ Effect | TgtPrompt$ Select up to one target attacking creature | ValidTgts$ Creature.attacking | TargetMin$ 0 | TargetMax$ 1 | RememberObjects$ Targeted | ExileOnMoved$ Battlefield | StaticAbilities$ Unblockable | AILogic$ Pump
 SVar:Unblockable:Mode$ CantBlockBy | ValidAttacker$ Card.IsRemembered | Description$ This creature can't be blocked this turn.
 A:AB$ Weather | Cost$ 1 S | Value$ Snowy | SubAbility$ DBPutCounter | SorcerySpeed$ True | SpellDescription$ Put two frost counters on target creature. It becomes snowy. Activate only as a sorcery.
 SVar:DBPutCounter:DB$ PutCounter | IsCurse$ True | ValidTgts$ Creature | CounterType$ FROST | CounterNum$ 2 | TgtPrompt$ Select target creature
-Oracle: Whenever Lapras attacks, as long as it's snowy, another target creature can't be blocked this turn.\n{1}{S}: Put two frost counters on target creature. It becomes snowy. Activate only as a sorcery.
+Oracle: Whenever Lapras attacks, if it's snowy, another target creature can't be blocked this turn.\n{1}{S}: Put two frost counters on target creature. It becomes snowy. Activate only as a sorcery.
 
 SVar:HasAttackEffect:TRUE
 SVar:SoundEffect:lapras.mp3

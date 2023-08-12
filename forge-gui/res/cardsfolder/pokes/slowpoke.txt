@@ -2,9 +2,10 @@ Name:Slowpoke
 ManaCost:UB
 Types:Creature Hippo Pokémon
 PT:1/1
-T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigDiscard | TriggerDescription$ When CARDNAME enters the battlefield, target player discards a card.
-SVar:TrigDiscard:DB$ Discard | ValidTgts$ Player | TgtPrompt$ Select target player | Mode$ TgtChoose | NumCards$ 1
-Oracle:When Slowpoke enters the battlefield, target player discards a card.
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigDiscard | TriggerDescription$ When CARDNAME enters the battlefield, target player discards a card, then they scry 1.
+SVar:TrigDiscard:DB$ Discard | ValidTgts$ Player | TgtPrompt$ Select target player | Mode$ TgtChoose | NumCards$ 1 | SubAbility$ TrigScry
+SVar:TrigScry:DB$ Scry | ScryNum$ 1 | Defined$ Targeted
+Oracle:When Slowpoke enters the battlefield, target player discards a card, then they scry 1.
 
 DeckHints:Name$Slowbro
 DeckHints:Name$Slowking

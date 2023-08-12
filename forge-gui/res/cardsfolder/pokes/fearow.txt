@@ -8,9 +8,9 @@ K:First strike
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigWindy | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, it becomes windy.
 T:Mode$ Mutates | ValidCard$ Card.Self | Execute$ TrigWindy | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, it becomes windy.
 SVar:TrigWindy:DB$ Weather | Value$ Windy
-S:Mode$ Continuous | Affected$ Creature.Other+YouCtrl+Bird | AddKeyword$ First strike | CheckSVar$ WIND | SVarCompare$ GE1 | Description$ Other Bird creatures you control have first strike as long as it's windy.
+S:Mode$ Continuous | Affected$ Creature.Other+YouCtrl+Bird | AddKeyword$ First strike | CheckSVar$ WIND | SVarCompare$ GE1 | Description$ As long as it's windy, other Bird creatures you control have first strike.
 SVar:WIND:Count$Windy.1.0
-Oracle:Mutate onto Spearow {3}{RW}{RW} [4/4]\nFlying, first strike\nWhenever Fearow enters the battlefield or mutates, it becomes windy.\nOther Bird creatures you control have first strike as long as it's windy.
+Oracle:Mutate onto Spearow {3}{RW}{RW} [4/4]\nFlying, first strike\nWhenever Fearow enters the battlefield or mutates, it becomes windy.\nAs long as it's windy, other Bird creatures you control have first strike.
 
 DeckHints:Name$Spearow
 DechHints:Type$Bird

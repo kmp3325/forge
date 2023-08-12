@@ -6,7 +6,7 @@ K:Mutate onto:4 B:Male Nidoran:5/4
 K:Menace
 T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigHurt | TriggerDescription$ Whenever CARDNAME attacks or blocks, it deals 1 damage to another target creature you control.
 T:Mode$ Blocks | ValidCard$ Card.Self | Execute$ TrigHurt | Secondary$ True | TriggerDescription$ Whenever CARDNAME attacks or blocks, it deals 1 damage to another target creature you control.
-SVar:TrigHurt:DB$ DealDamage | ValidCards$ Creature.YouCtrl+Other | NumDmg$ 1
+SVar:TrigHurt:DB$ DealDamage | ValidTgts$ Creature.YouCtrl+Other | TgtPrompt$ Select another target creature you control | NumDmg$ 1
 Oracle:Mutate onto Male Nidoran {4}{B} [5/4]\nMenace\nWhenever Nidorino attacks or blocks, it deals 1 damage to another target creature you control.
 
 DeckHints:Name$Male Nidoran

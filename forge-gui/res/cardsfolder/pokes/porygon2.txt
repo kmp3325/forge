@@ -3,12 +3,12 @@ ManaCost:3
 Types:Artifact Creature Construct Pokémon
 PT:2/2
 K:Mutate onto:3:Porygon:3/3
-A:AB$ Weather | Cost$ 2 W | Value$ Windy | SpellDescription$ It becomes windy.
-A:AB$ Weather | Cost$ 2 U | Value$ Rainy | SpellDescription$ It becomes rainy.
-A:AB$ Weather | Cost$ 2 B | Value$ Foggy | SpellDescription$ It becomes foggy.
-A:AB$ Weather | Cost$ 2 RG | Value$ Sunny | SpellDescription$ It becomes sunny.
-A:AB$ Weather | Cost$ 2 S | Value$ Snowy | SpellDescription$ It becomes snowy.
-Oracle:Mutate onto Porygon {3} [3/3]\n{2}{W}: It becomes windy.\n{2}{U}: It becomes rainy.\n{2}{B}: It becomes foggy.\n{2}{RG}: It becomes sunny.\n{2}{S}: It becomes snowy.
+S:Mode$ Continuous | Affected$ You | RaiseMaxHandSize$ 2 | Description$ Your maximum hand size is increased by two.
+T:Mode$ Mutates | ValidCard$ Creature | TriggerZones$ Battlefield | Execute$ TrigImmediateTrig | TriggerDescription$ Whenever a creature mutates, you may pay {C}. When you do, draw a card.
+SVar:TrigImmediateTrig:AB$ ImmediateTrigger | Cost$ C | Execute$ TrigDraw | SpellDescription$ Whenever a creature mutates, you may pay {C}. When you do, draw a card.
+SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ 1
+A:AB$ PutCounter | Discard<1/Card> | CounterType$ P1P1 | CounterNum$ 1 | Defined$ Self | SorcerySpeed$ True | SpellDescription$ Put a +1/+1 counter on CARDNAME. Activate only as a sorcery.
+Oracle:Mutate onto Porygon {3} [3/3]\nYour maximum hand size is increased by two.\nWhenever a creature mutates, you may pay {C}. When you do, draw a card.\nDiscard a card: Put a +1/+1 counter on Porygon2. Activate only as a sorcery.
 
 DeckHints:Name$Porygon
 SVar:SoundEffect:porygon2.mp3

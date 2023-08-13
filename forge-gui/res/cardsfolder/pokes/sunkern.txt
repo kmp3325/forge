@@ -2,11 +2,12 @@ Name:Sunkern
 ManaCost:R G
 Types:Creature Saproling Pokémon
 PT:0/1
-A:AB$ Branch | Cost$ T | BranchConditionSVar$ SUN | BranchConditionSVarCompare$ EQ1 | FalseSubAbility$ LessMana | TrueSubAbility$ MoreMana | SpellDescription$ Add {R} or {G}. If it's sunny, add {R}{G} instead.
+A:AB$ PutCounter | Cost$ T | Defined$ Self | CounterNum$ 1 | CounterType$ SOLAR | SpellDescription$ Put a solar counter on CARDNAME.
+A:AB$ Mana | Produced$ G | Cost$ T | ConditionCheckSVar$ SUN | ConditionSVarCompare$ EQ0 | SubAbility$ DBCombo | SpellDescription$ Add {G}. If it’s sunny, add X mana in any combination of {R} and/or {G} instead, where X is the number of solar counters on CARDNAME.
 SVar:SUN:Count$Sunny.1.0
-SVar:LessMana:DB$ Mana | Produced$ Combo R G
-SVar:MoreMana:DB$ Mana | Produced$ R G
-Oracle:{T}: Add {R} or {G}. If it's sunny, add {R}{G} instead.
+SVar:DBCombo:DB$ Mana | Produced$ Combo R G | Amount$ X | ConditionCheckSVar$ SUN | ConditionSVarCompare$ GE1
+SVar:X:Count$CardCounters.SOLAR
+Oracle:{T}: Put a solar counter on Sunkern.\n{T}: Add {G}. If it’s sunny, add X mana in any combination of {R} and/or {G} instead, where X is the number of solar counters on Sunkern.
 
 DeckHints:Name$Sunflora
 SVar:SoundEffect:sunkern.mp3

@@ -3,14 +3,14 @@ ManaCost:1 R G G
 Types:Creature Plant Pokémon
 PT:3/3
 K:Mutate onto:1 R G G:Sunkern:4/4
-A:AB$ Branch | Cost$ T | BranchConditionSVar$ SUN | BranchConditionSVarCompare$ EQ1 | FalseSubAbility$ DBPutCounter | TrueSubAbility$ TrigPutCounters | SpellDescription$ Put a solar counter on CARDNAME. If it's sunny, put a solar counter on each of up to three target creatures instead.
-SVar:SUN:Count$Sunny.1.0
-SVar:DBPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ SOLAR | CounterNum$ 1
-SVar:TrigPutCounters:DB$ PutCounter | CounterType$ SOLAR | CounterNum$ 3 | TargetMin$ 0 | TargetMax$ 2 | ValidTgts$ Creature | TgtPrompt$ Select up to three target creatures
-A:AB$ Weather | Cost$ RG SubCounter<All/SOLAR> | Value$ Sunny | SpellDescription$ It becomes sunny.
-SVar:X:Count$Valid Creature.YouCtrl$CardCounters.SOLAR
-S:Mode$ Continuous | Affected$ Creature.YouCtrl+counters_GE1_SOLAR | CheckSVar$ SUN | SVarCompare$ GE1 | AddPower$ 1 | AddToughness$ 1 | Description$ As long as it's sunny, creatures you control with solar counters on them get +1/+1.
-Oracle:Mutate onto Sunkern {1}{R}{G}{G} [4/4]\n{T}: Put a solar counter on Sunflora. If it's sunny, put a solar counter on each of up to three target creatures instead.\n{RG}, Remove all solar counters from Sunflora: It becomes sunny.\nAs long as it's sunny, creatures you control with solar counters on them get +1/+1.
+T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | OptionalDecider$ You | Execute$ TrigSolar | TriggerZones$ Battlefield | TriggerDescription$ At the beginning of your upkeep, you may pay {G}. If you do, put a solar counter on CARDANME.
+SVar:TrigSolar:AB$ PutCounter | Cost$ G | CounterType$ SOLAR | CounterNum$ 1 | Defined$ Self
+A:AB$ Weather | Cost$ R T SubCounter<1/SOLAR> | Value$ Sunny | SpellDescription$ It becomes sunny.
+A:AB$ Pump | Cost$ R R G | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumAtt$ X | NumDef$ X | SubAbility$ TrigLife | SpellDescription$ Target creature gets +1/+1 until end of turn. If it's sunny, that creature gets +X/+X until end of turn instead, where X is the number of solar counters on CARDNAME. You gain 2 life.
+SVar:X:Count$Sunny.Y.1
+SVar:Y:Count$CardCounters.SOLAR
+SVar:TrigLife:DB$ GainLife | LifeAmount$ 2
+Oracle:Mutate onto Sunkern {1}{R}{G}{G} [4/4]\nAt the beginning of your upkeep, you may pay {g}. If you do, put a solar counter on Sunflora.\n{R}, {t}, Remove a solar counter from Sunflora: It becomes sunny.\n{R}{R}{G}: Target creature gets +1/+1 until end of turn. If it's sunny, that creature gets +X/+X until end of turn instead, where X is the number of solar counters on Sunflora. You gain 2 life.
 
 DeckHints:Name$Sunkern
 SVar:SoundEffect:sunflora.mp3

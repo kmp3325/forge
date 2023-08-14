@@ -261,44 +261,42 @@ Foil=NotSupported
 249 M Lugia
 250 M Ho-Oh
 251 M Celebi
-9940 U Team Rocket's Beedrill
-9941 U Team Rocket's Arbok
-9942 C Team Rocket's Meowth
-9943 U Team Rocket's Tentacruel
-9944 U Team Rocket's Hitmonchan
-9945 C Team Rocket's Lickitung
-9946 U Team Rocket's Weezing
-9947 U Team Rocket's Rhyhorn
-9948 R Team Rocket's Rhydon
-9949 C Team Rocket's Magikarp
-9950 M Team Rocket's Gyarados
-9951 R Giovanni's Persian
-9952 M Giovanni's Armor
-9953 C Wild Pidgey
-9954 U Wild Pidgeot
-9955 U Wild Raticate
-9956 U Wild Fearow
-9957 U Wild Tauros
-9958 U Wild Poliwhirl
-9959 U Wild Tentacool
-9960 U Wild Lapras
-9961 C Wild Zubat
-9962 C Wild Gastly
-9963 C Wild Charmander
-9964 C Wild Vulpix
-9965 U Wild Ninetales
-9966 U Wild Arcanine
-9967 C Wild Cyndaquil
-9968 C Wild Typhlosion
-9969 C Wild Venusaur
-9970 U Wild Beedrill
-9971 C Wild Onix
-9972 U Wild Rhydon
-9973 U Wild Scyther
-9974 C Wild Kabutops
-9975 C Wild Bellossom
-9976 U Great Ball
-9977 R Ultra Ball
+9942 U Team Rocket's Beedrill
+9943 U Team Rocket's Arbok
+9944 C Team Rocket's Meowth
+9945 U Team Rocket's Tentacruel
+9946 U Team Rocket's Hitmonchan
+9947 C Team Rocket's Lickitung
+9948 U Team Rocket's Weezing
+9949 U Team Rocket's Rhyhorn
+9950 R Team Rocket's Rhydon
+9951 C Team Rocket's Magikarp
+9952 M Team Rocket's Gyarados
+9953 R Giovanni's Persian
+9954 M Giovanni's Armor
+9955 C Wild Pidgey
+9956 U Wild Pidgeot
+9957 U Wild Raticate
+9958 U Wild Fearow
+9959 U Wild Tauros
+9960 U Wild Poliwhirl
+9961 U Wild Tentacool
+9962 U Wild Lapras
+9963 C Wild Zubat
+9964 C Wild Gastly
+9965 C Wild Charmander
+9966 C Wild Vulpix
+9967 U Wild Ninetales
+9968 U Wild Arcanine
+9969 C Wild Cyndaquil
+9970 C Wild Typhlosion
+9971 C Wild Venusaur
+9972 U Wild Beedrill
+9973 C Wild Onix
+9974 U Wild Rhydon
+9975 U Wild Scyther
+9976 C Wild Kabutops
+9977 C Wild Bellossom
 9978 M Master Ball
 9979 C Mahogany Town Gym
 9980 C Violet City Gym

@@ -733,7 +733,6 @@
 #93|Tyranitar|R|PKM
 #94|Team Rocket's Rhydon|R|PKM
 #95|Giovanni's Persian|R|PKM
-#96|Ultra Ball|R|PKM
 #97|Ivysaur|U|PKM
 #98|Charmeleon|U|PKM
 #99|Wartortle|U|PKM
@@ -818,7 +817,6 @@
 #178|Wild Rhydon|U|PKM
 #179|Wild Scyther|U|PKM
 #180|Wild Kabutops|U|PKM
-#181|Great Ball|U|PKM
 #182|Bulbasaur|C|PKM
 #183|Charmander|C|PKM
 #184|Squirtle|C|PKM

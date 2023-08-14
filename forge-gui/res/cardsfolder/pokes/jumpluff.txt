@@ -1,16 +1,17 @@
 Name:Jumpluff
 ManaCost:1 R G
 Types:Creature Plant Saproling Pokémon
-PT:2/4
+PT:2/3
+K:Mutate onto:1 R G:Skiploom:3/4
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, put a flying counter on it.
 T:Mode$ Mutates | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigPutCounter | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, put a flying counter on it.
 SVar:TrigPutCounter:DB$ PutCounter | CounterType$ FLYING | CounterNum$ 1 | Defined$ Self
 T:Mode$ TapsForMana | ValidCard$ Permanent | Activator$ You | Execute$ TrigMana | TriggerZones$ Battlefield | Static$ True | CheckSVar$ SUN | SVarCompare$ GE1 | TriggerDescription$ Whenever you tap a permanent for mana, if it's sunny, add an additional {R}.
 SVar:TrigMana:DB$ Mana | Produced$ R
 SVar:SUN:Count$Sunny.1.0
-A:AB$ Weather | Cost$ R | Value$ Sunny | ActivationLimit$ 1 | SpellDescription$ It becomes sunny. Activate only once each turn.
+A:AB$ Weather | Cost$ R R | Value$ Sunny | ActivationLimit$ 1 | SpellDescription$ It becomes sunny. Activate only once each turn.
 A:AB$ Weather | Cost$ W | Value$ Windy | ActivationLimit$ 1 | SpellDescription$ It becomes windy. Activate only once each turn.
-Oracle:Mutate onto Skiploom {R}{G} [3/5]Whenever Jumpluff enters the battlefield or mutates, put a flying counter on it.\nWhenever you tap a permanent for mana, if it’s sunny, add an additional {R}.\n{R}: It becomes sunny. Activate only once each turn.\n{W}: It becomes windy. Activate only once each turn.
+Oracle:Mutate onto Skiploom {R}{G} [3/5]Whenever Jumpluff enters the battlefield or mutates, put a flying counter on it.\nWhenever you tap a permanent for mana, if it’s sunny, add an additional {R}.\n{R}{R}: It becomes sunny. Activate only once each turn.\n{W}: It becomes windy. Activate only once each turn.
 
 DeckHints:Name$Skiploom
 SVar:SoundEffect:jumpluff.mp3

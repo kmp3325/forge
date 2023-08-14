@@ -218,7 +218,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
 
     private boolean foretold;
     private boolean foretoldThisTurn;
-    private boolean foretoldByEffect;
+    private boolean foretoldCostByEffect;
 
     private boolean specialized;
 
@@ -2189,7 +2189,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
                 } else if (inst.getKeyword().equals(Keyword.COMPANION)) {
                     sbLong.append("Companion — ");
                     sbLong.append(((Companion)inst).getDescription());
-                } else if (keyword.startsWith("Presence") || keyword.startsWith("MayFlash")) {
+                } else if (keyword.startsWith("MayFlash")) {
                     // Pseudo keywords, only print Reminder
                     sbLong.append(inst.getReminderText()).append("\r\n");
                 } else if (keyword.contains("At the beginning of your upkeep, ")
@@ -2252,7 +2252,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
                 } else if (keyword.startsWith("Modular") || keyword.startsWith("Bloodthirst") || keyword.startsWith("Dredge")
                         || keyword.startsWith("Fabricate") || keyword.startsWith("Soulshift") || keyword.startsWith("Bushido")
                         || keyword.startsWith("Crew") || keyword.startsWith("Tribute") || keyword.startsWith("Absorb")
-                        || keyword.startsWith("Graft") || keyword.startsWith("Fading") || keyword.startsWith("Vanishing")
+                        || keyword.startsWith("Graft") || keyword.startsWith("Fading") || keyword.startsWith("Vanishing:")
                         || keyword.startsWith("Afterlife") || keyword.startsWith("Hideaway") || keyword.startsWith("Toxic")
                         || keyword.startsWith("Afflict") || keyword.startsWith ("Poisonous") || keyword.startsWith("Rampage")
                         || keyword.startsWith("Renown") || keyword.startsWith("Annihilator") || keyword.startsWith("Devour")) {
@@ -2860,7 +2860,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
                         sbBefore.append(n + 1 == costs.length ? ".\r\n\r\n" : n + 2 == costs.length && costs.length > 2
                                 ? ", or " : n + 2 == costs.length ? " or " : ", ");
                     }
-                } else if (keyword.startsWith("Presence") || keyword.startsWith("MayFlash")) {
+                } else if (keyword.startsWith("MayFlash")) {
                     // Pseudo keywords, only print Reminder
                     sbBefore.append(inst.getReminderText());
                     sbBefore.append("\r\n");
@@ -6059,11 +6059,11 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
         this.foretold = foretold;
     }
 
-    public boolean isForetoldByEffect() {
-        return foretoldByEffect;
+    public boolean isForetoldCostByEffect() {
+        return foretoldCostByEffect;
     }
-    public void setForetoldByEffect(final boolean val) {
-        this.foretoldByEffect = val;
+    public void setForetoldCostByEffect(final boolean val) {
+        this.foretoldCostByEffect = val;
     }
 
     public boolean isForetoldThisTurn() {

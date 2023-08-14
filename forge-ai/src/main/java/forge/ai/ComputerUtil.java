@@ -1498,7 +1498,7 @@ public class ComputerUtil {
             }
         }
 
-        all.addAll(ai.getCardsActivableInExternalZones(true));
+        all.addAll(ai.getCardsActivatableInExternalZones(true));
         all.addAll(ai.getCardsIn(ZoneType.Hand));
 
         for (final Card c : all) {
@@ -1539,7 +1539,7 @@ public class ComputerUtil {
     public static boolean hasAFogEffect(final Player defender, final Player ai, boolean checkingOther) {
         final CardCollection all = new CardCollection(defender.getCardsIn(ZoneType.Battlefield));
 
-        all.addAll(defender.getCardsActivableInExternalZones(true));
+        all.addAll(defender.getCardsActivatableInExternalZones(true));
         // TODO check if cards can be viewed instead
         if (!checkingOther) {
             all.addAll(defender.getCardsIn(ZoneType.Hand));
@@ -1591,7 +1591,7 @@ public class ComputerUtil {
     public static int possibleNonCombatDamage(final Player ai, final Player enemy) {
         int damage = 0;
         final CardCollection all = new CardCollection(ai.getCardsIn(ZoneType.Battlefield));
-        all.addAll(ai.getCardsActivableInExternalZones(true));
+        all.addAll(ai.getCardsActivatableInExternalZones(true));
         all.addAll(CardLists.filter(ai.getCardsIn(ZoneType.Hand), Predicates.not(Presets.PERMANENTS)));
 
         for (final Card c : all) {

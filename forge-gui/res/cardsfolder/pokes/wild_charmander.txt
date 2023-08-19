@@ -4,8 +4,8 @@ Types:Creature Lizard Pokémon
 PT:1/1
 K:Flash
 K:Scorching
-T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigDmg | TriggerDescription$ When CARDNAME enters the battlefield, it deals 2 damage to any target.
-SVar:TrigDmg:DB$ DealDamage | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumDmg$ 2
-Oracle:Flash\nScorching\nWhen Wild Charmander enters the battlefield, it deals 2 damage to any target.
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigDmg | TriggerDescription$ When CARDNAME enters the battlefield, it deals 3 damage to any target.
+SVar:TrigDmg:DB$ DealDamage | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumDmg$ 3
+Oracle:Flash\nScorching\nWhen Wild Charmander enters the battlefield, it deals 3 damage to any target.
 
 SVar:SoundEffect:charmander.mp3

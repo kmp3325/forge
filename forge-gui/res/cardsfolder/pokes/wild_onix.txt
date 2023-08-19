@@ -2,9 +2,9 @@ Name:Wild Onix
 ManaCost:4 2G G G
 Types:Creature Golem Serpent Pokémon
 PT:2/3
-T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigShield | TriggerDescription$ When CARDNAME enters the battlefield, put a shield counter on target creature. That creature gets +1/+1 and gains trample until end of turn.
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigShield | TriggerDescription$ When CARDNAME enters the battlefield, put a shield counter on target creature. That creature gets +3/+3 and gains trample until end of turn.
 SVar:TrigShield:DB$ PutCounter | CounterType$ SHIELD | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigPump
-SVar:TrigPump:DB$ Pump | Defined$ Targeted | NumAtt$ +1 | NumDef$ +1 | KW$ Trample
-Oracle:When Wild Onix enters the battlefield, put a shield counter on target creature. That creature gets +1/+1 and gains trample until end of turn.
+SVar:TrigPump:DB$ Pump | Defined$ Targeted | NumAtt$ +3 | NumDef$ +3 | KW$ Trample
+Oracle:When Wild Onix enters the battlefield, put a shield counter on target creature. That creature gets +3/+3 and gains trample until end of turn.
 
 SVar:SoundEffect:onix.mp3

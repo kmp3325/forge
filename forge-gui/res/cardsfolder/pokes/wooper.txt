@@ -2,8 +2,9 @@ Name:Wooper
 ManaCost:WU WU
 Types:Creature Salamander Pokémon
 PT:2/2
-A:AB$ Phases | Cost$ W U | Defined$ Self | PlayerTurn$ True | SpellDescription$ CARDNAME phases out. Activate only during your turn.
-Oracle:{W}{U}: Wooper phases out. Activate only during your turn.
+A:AB$ RemoveCounter | Cost$ W U | PlayerTurn$ True | Defined$ Self | CounterType$ TOXIC | CounterNum$ All | SubAbility$ TrigPhase | SpellDescription$ Remove all toxic counters from CARDNAME, then it phases out. Activate only during your turn.
+SVar:TrigPhase:DB$ Phases | Defined$ Self
+Oracle:{W}{U}: Remove all toxic counters from Wooper, then it phases out. Activate only during your turn.
 
 DeckHints:Name$Quagsire
 SVar:SoundEffect:wooper.mp3

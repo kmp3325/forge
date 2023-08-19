@@ -3,11 +3,14 @@ ManaCost:3 B
 Types:Creature Elemental Pokémon
 PT:3/5
 K:Mutate onto:3 B:Koffing:3/6
+R:Event$ AddCounter | ActiveZones$ Battlefield | ValidCard$ Card.Self | ValidCounterType$ TOXIC | ReplaceWith$ ActuallyP1P1 | Description$ If a toxic counter would be put on CARDNAME, put a +1/+1 counter on it instead.
+SVar:ActuallyP1P1:DB$ ReplaceCounter | CounterType$ P1P1
 A:AB$ Weather | Cost$ B B PayLife<2> | Value$ Foggy | SpellDescription$ It becomes foggy.
-S:Mode$ MinMaxBlocker | ValidCard$ Creature.YouCtrl | Max$ 1 | CheckSVar$ FOG | SVarCompare$ GE1 | Description$ As long as it's foggy, each creature you control can't be blocked by more than one creature.
+R:Event$ AddCounter | ActiveZones$ Battlefield | ValidCard$ Creature.inZoneBattlefield | ValidCounterType$ TOXIC | ReplaceWith$ AddOneMoreCounters | CheckSVar$ FOG | SVarCompare$ GE1 | Description$ If one or more toxic counters would be put on a creature, that many plus one toxic counters are put on it instead.
+SVar:AddOneMoreCounters:DB$ ReplaceCounter | ValidCounterType$ TOXIC | ChooseCounter$ True | Amount$ Y
+SVar:Y:ReplaceCount$CounterNum/Plus.1
 SVar:FOG:Count$Foggy.1.0
-R:Event$ DamageDone | ActiveZones$ Battlefield | Prevent$ True | ValidTarget$ Card.Self | ValidSource$ Creature.withCaustic | ReplaceWith$ TrigPutCounter | PreventionEffect$ True | Description$ If a creature with caustic would deal damage to CARDNAME, prevent that damage and put a +1/+1 counter on CARDNAME.
-SVar:TrigPutCounter:DB$ PutCounter | CounterType$ P1P1 | CounterNum$ 1 | Defined$ Self
-Oracle:Mutate onto Koffing {3}{B} [3/6]\nIf a creature with caustic would deal damage to Weezing, prevent that damage and put a +1/+1 counter on Weezing.\n{B}{B}, Pay 2 life: It becomes foggy.\nAs long as it's foggy, each creature you control can’t be blocked by more than one creature.
+Oracle:Mutate onto Koffing {3}{B} [3/6]\nIf a toxic counter would be put on Weezing, put a +1/+1 counter on it instead.\n{B}{B}, Pay 4 life: It becomes foggy.\nAs long as it’s foggy, if one or more toxic counters would be put on a creature, that many plus one toxic counters are put on it instead.
+
 DeckHints:Name$Koffing
 SVar:SoundEffect:weezing.mp3

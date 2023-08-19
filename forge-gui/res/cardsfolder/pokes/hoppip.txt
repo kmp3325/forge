@@ -3,7 +3,7 @@ ManaCost:RG
 Types:Creature Plant Saproling Pokémon
 PT:0/1
 T:Mode$ WeatherChanged | ValidWeather$ Windy | Execute$ TrigPutCounter | TriggerZones$ Battlefield | TriggerDescription$ Whenever it becomes windy, put a flying counter on CARDNAME.
-SVar:PutCounter:DB$ PutCounter | CounterType$ FLYING | CounterNum$ 1 | Defined$ Self
+SVar:TrigPutCounter:DB$ PutCounter | CounterType$ FLYING | CounterNum$ 1 | Defined$ Self
 S:Mode$ Continuous | Affected$ Card.Self+counters_GE1_FLYING | AddAtt$ 1 | Description$ CARDNAME gets +1/+0 as long as it has a flying counter on it.
 Oracle:Whenever it becomes windy, put a flying counter on Hoppip.\nHoppip gets +1/+0 as long as it has a flying counter on it.
 

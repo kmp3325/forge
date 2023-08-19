@@ -1,5 +1,5 @@
 Name:Tentacool
-ManaCost:1 UB
+ManaCost:2 UB
 Types:Creature Squid Pokémon
 PT:1/1
 K:Caustic

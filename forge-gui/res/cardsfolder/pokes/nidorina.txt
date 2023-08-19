@@ -3,10 +3,10 @@ ManaCost:4 B
 Types:Creature Dinosaur Rabbit Pokémon
 PT:3/4
 K:Mutate onto:4 B:Female Nidoran:4/5
-T:Mode$ CounterAdded | ValidCard$ Creature | TriggerZones$ Battlefield | CounterType$ P1P1 | Execute$ TrigRemoveCounter | OptionalDecider$ You | TriggerDescription$ Whenever a +1/+1 counter is put on a creature you control, you may remove a -0/-1 counter from it.
-SVar:TrigRemoveCounter:DB$ RemoveCounter | CounterType$ M0M1 | CounterNum$ 1 | Defined$ TriggeredTargetLKICopy
+T:Mode$ CounterAdded | ValidCard$ Creature | TriggerZones$ Battlefield | CounterType$ P1P1 | Execute$ TrigRemoveCounter | OptionalDecider$ You | TriggerDescription$ Whenever a +1/+1 counter is put on a creature you control, you may remove a toxic counter from it.
+SVar:TrigRemoveCounter:DB$ RemoveCounter | CounterType$ TOXIC | CounterNum$ 1 | Defined$ TriggeredTargetLKICopy
 SVar:DBGainLife:DB$ GainLife | Defined$ You | LifeAmount$ 3
-Oracle:Mutate onto Female Nidoran {4}{B} [4/5]\nWhenever a +1/+1 counter is put on a creature you control, you may remove a -0/-1 counter from it.
+Oracle:Mutate onto Female Nidoran {4}{B} [4/5]\nWhenever a +1/+1 counter is put on a creature you control, you may remove a toxic counter from it.
 
 DeckHints:Name$Female Nidoran
 DeckHints:Name$Nidoqueen

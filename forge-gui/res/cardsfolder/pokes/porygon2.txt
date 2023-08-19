@@ -7,7 +7,7 @@ S:Mode$ Continuous | Affected$ You | RaiseMaxHandSize$ 2 | Description$ Your max
 T:Mode$ Mutates | ValidCard$ Creature | TriggerZones$ Battlefield | Execute$ TrigImmediateTrig | TriggerDescription$ Whenever a creature mutates, you may pay {C}. When you do, draw a card.
 SVar:TrigImmediateTrig:AB$ ImmediateTrigger | Cost$ C | Execute$ TrigDraw | SpellDescription$ Whenever a creature mutates, you may pay {C}. When you do, draw a card.
 SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ 1
-A:AB$ PutCounter | Discard<1/Card> | CounterType$ P1P1 | CounterNum$ 1 | Defined$ Self | SorcerySpeed$ True | SpellDescription$ Put a +1/+1 counter on CARDNAME. Activate only as a sorcery.
+A:AB$ PutCounter | Cost$ Discard<1/Card> | CounterType$ P1P1 | CounterNum$ 1 | Defined$ Self | SorcerySpeed$ True | SpellDescription$ Put a +1/+1 counter on CARDNAME. Activate only as a sorcery.
 Oracle:Mutate onto Porygon {3} [3/3]\nYour maximum hand size is increased by two.\nWhenever a creature mutates, you may pay {C}. When you do, draw a card.\nDiscard a card: Put a +1/+1 counter on Porygon2. Activate only as a sorcery.
 
 DeckHints:Name$Porygon

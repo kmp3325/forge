@@ -4,8 +4,8 @@ Types:Creature Insect Pokémon
 PT:1/2
 K:Mutate onto:2 G:Metapod:2/3
 K:Flying
-A:AB$ PumpAll | Cost$ G G G Exile<1/CARDNAME> | ValidCards$ Creature.YouCtrl | NumAtt$ +2 | NumDef$ +2 | KW$ KW$ Indestructible & Caustic | SpellDescription$ Creatures you control get +2/+2 and gain trample until end of turn.
-Oracle:Mutate onto Metapod {2}{G} [2/3]\nFlying\n{G}{G}, Exile Butterfree: Creatures you control get +2/+2 and gain indestructible and caustic until end of turn.
+A:AB$ PumpAll | Cost$ G G G Exile<1/CARDNAME> | ValidCards$ Creature.YouCtrl | NumAtt$ +3 | NumDef$ +3 | KW$ Caustic | SpellDescription$ Creatures you control get +3/+3 and gain caustic until end of turn.
+Oracle:Mutate onto Metapod {2}{G} [2/3]\nFlying\n{G}{G}, Exile Butterfree: Creatures you control get +3/+3 and gain caustic until end of turn.
 
 DeckHints:Name$Metapod
 DeckHints:Type$Creature

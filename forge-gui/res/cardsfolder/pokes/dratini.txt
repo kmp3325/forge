@@ -2,10 +2,9 @@ Name:Dratini
 ManaCost:4 U
 Types:Creature Dragon Pokémon
 PT:3/3
-T:Mode$ WeatherChanged | OptionalDecider$ You | Execute$ TrigTap | TriggerDescription$ Whenever the weather changes, you may tap target creature and put a stun counter on it.
-SVar:TrigTap:DB$ Tap | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigPutCounter
-SVar:TrigPutCounter:DB$ PutCounter | IsCurse$ True | Defined$ Targeted | CounterType$ STUN | CounterNum$ 1
-Oracle:Whenever the weather changes, you may tap target creature and put a stun counter on it.
+T:Mode$ WeatherChanged | Execute$ TrigRemoveCounters | TriggerDescription$ Whenever the weather changes, remove all toxic counters from CARDNAME.
+SVar:TrigRemoveCounters:DB$ RemoveCounter | CounterType$ TOXIC | CounterNum$ All | Defined$ Self
+Oracle:Whenever the weather changes, remove all toxic counters from CARDNAME.
 
 DeckHints:Name$Dragonair
 SVar:SoundEffect:dratini.mp3

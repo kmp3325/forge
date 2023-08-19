@@ -3,9 +3,12 @@ ManaCost:UB UB UB UB UB UB
 Types:Legendary Creature Bird Pokémon
 PT:6/7
 K:Flying
-T:Mode$ Blocks | ValidCard$ Card.Self | Execute$ TrigPump | TriggerDescription$ Whenever CARDNAME blocks, until end of turn, it gains indestructible and creatures with caustic deal damage to it as though they didn't have caustic.
-SVar:TrigPump:DB$ Pump | Defined$ Self | KW$ Indestructible & Creatures with caustic deal damage to this creature as though they didn't have caustic.
-T:Mode$ DamageDoneOnce | ValidTarget$ Creature.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigMill | TriggerDescription$ Whenever a creature you control is dealt damage, target player mills three cards.
-SVar:TrigMill:DB$ Mill | ValidTgts$ Player | TgtPrompt$ Select target player | NumCards$ 3
-Oracle:Flying\nWhenever a creature you control is dealt damage, target player mills three cards.\nWhenever Lugia blocks, until end of turn, it gains indestructible and creatures with caustic deal damage to it as though they didn't have caustic.
+T:Mode$ Blocks | ValidCard$ Card.Self | Execute$ TrigPump | TriggerDescription$ Whenever CARDNAME blocks, it gains indestructible until end of turn.
+SVar:TrigPump:DB$ Pump | Defined$ Self | KW$ Indestructible
+T:Mode$ DamageDoneOnce | ValidTarget$ Creature.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigMill | TriggerDescription$ Whenever a creature you control is dealt damage, target player mills that many cards.
+SVar:TrigMill:DB$ Mill | ValidTgts$ Player | TgtPrompt$ Select target player | NumCards$ X
+SVar:X:TriggerCount$DamageAmount
+S:Mode$ CantPutCounter | ValidCard$ Creature.YouCtrl+Other | CounterType$ TOXIC | Description$ Other creatures you control can't have toxic counters put on them.
+Oracle:Flying\nOther creatures you control can’t have toxic counters put on them.\nWhenever Lugia blocks, it gains indestructible until end of turn.\nWhenever a creature you control is dealt damage, target player mills that many cards.
+
 SVar:SoundEffect:lugia.mp3

@@ -1814,7 +1814,7 @@ public class CardFactoryUtil {
             String trigStr = "Mode$ DamageDone | " +
                     "ValidSource$ Card.Self | " +
                     "ValidTarget$ Creature | " +
-                    "TriggerZones$ Battlefield | " +
+                    "TriggerZones$ Battlefield | CombatDamage$ True | " +
                     "TriggerDescription$ Whenever this deals damage to a creature," +
                     " put that many burn counters on that creature.";
             final Trigger parsedTrigger = TriggerHandler.parseTrigger(trigStr, card, intrinsic);
@@ -2517,7 +2517,7 @@ public class CardFactoryUtil {
 
             inst.addReplacement(re);
         } else if (keyword.startsWith("Steel skin")) {
-            final String sb = "Event$ DamageDone | ActiveZones$ Battlefield | ValidSource$ Card.withCaustic,Card.withInfect,Card.withWither | ValidTarget$ Card.Self | PreventionEffect$ True | Description$ If damage would be dealt to this in the form of counters, prevent that damage.";
+            final String sb = "Event$ DamageDone | IsCombat$ True | ActiveZones$ Battlefield | ValidSource$ Creature.withCaustic | ValidTarget$ Card.Self | PreventionEffect$ True | Description$ If a creature with caustic would deal combat damage to this, prevent that damage.";
             final ReplacementEffect re = ReplacementHandler.parseReplacement(sb, host, intrinsic, card);
             inst.addReplacement(re);
         } else if (keyword.equals("Sunburst")) {
@@ -3859,6 +3859,10 @@ public class CardFactoryUtil {
                     " | Description$ Skulk ( " + inst.getReminderText() + ")";
             StaticAbility st = StaticAbility.create(effect, state.getCard(), state, intrinsic);
             st.setSVar("X", "Count$CardPower");
+            inst.addStaticAbility(st);
+        } else if (keyword.startsWith("Steel skin")) {
+            final String effect = "Mode$ CantPutCounter | ValidCard$ Card.Self | CounterType$ TOXIC | Description$ CARDNAME can't have toxic counters put on it.";
+            StaticAbility st = StaticAbility.create(effect, state.getCard(), state, intrinsic);
             inst.addStaticAbility(st);
         } else if (keyword.startsWith("Strive")) {
             final String[] k = keyword.split(":");

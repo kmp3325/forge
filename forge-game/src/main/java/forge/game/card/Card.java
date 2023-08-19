@@ -17,14 +17,54 @@
  */
 package forge.game.card;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.EnumSet;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.NavigableMap;
+import java.util.Objects;
+import java.util.Set;
+
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.mutable.MutableBoolean;
+import org.apache.commons.lang3.tuple.Pair;
+import org.apache.commons.lang3.tuple.Triple;
+
 import com.esotericsoftware.minlog.Log;
 import com.google.common.base.Predicates;
-import com.google.common.collect.*;
+import com.google.common.collect.HashBasedTable;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableTable;
+import com.google.common.collect.Iterables;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.MultimapBuilder;
+import com.google.common.collect.Sets;
+import com.google.common.collect.Table;
+import com.google.common.collect.Tables;
+import com.google.common.collect.TreeBasedTable;
 
 import forge.GameCommand;
 import forge.StaticData;
-import forge.card.*;
+import forge.card.CardChangedType;
+import forge.card.CardDb;
 import forge.card.CardDb.CardArtPreference;
+import forge.card.CardEdition;
+import forge.card.CardRarity;
+import forge.card.CardRules;
+import forge.card.CardSplitType;
+import forge.card.CardStateName;
+import forge.card.CardType;
+import forge.card.CardTypeView;
+import forge.card.ColorSet;
+import forge.card.MagicColor;
+import forge.card.RemoveType;
 import forge.card.mana.ManaCost;
 import forge.card.mana.ManaCostParser;
 import forge.game.CardTraitBase;
@@ -43,9 +83,19 @@ import forge.game.ability.ApiType;
 import forge.game.combat.Combat;
 import forge.game.combat.CombatLki;
 import forge.game.cost.Cost;
-import forge.game.event.*;
+import forge.game.event.GameEventCardAttachment;
+import forge.game.event.GameEventCardCounters;
+import forge.game.event.GameEventCardDamaged;
 import forge.game.event.GameEventCardDamaged.DamageType;
-import forge.game.keyword.*;
+import forge.game.event.GameEventCardPhased;
+import forge.game.event.GameEventCardStatsChanged;
+import forge.game.event.GameEventCardTapped;
+import forge.game.event.GameEventTokenStateUpdate;
+import forge.game.keyword.Companion;
+import forge.game.keyword.Keyword;
+import forge.game.keyword.KeywordCollection;
+import forge.game.keyword.KeywordInterface;
+import forge.game.keyword.KeywordsChange;
 import forge.game.player.Player;
 import forge.game.player.PlayerCollection;
 import forge.game.replacement.ReplaceMoved;
@@ -53,8 +103,28 @@ import forge.game.replacement.ReplacementEffect;
 import forge.game.replacement.ReplacementHandler;
 import forge.game.replacement.ReplacementResult;
 import forge.game.replacement.ReplacementType;
-import forge.game.spellability.*;
-import forge.game.staticability.*;
+import forge.game.spellability.LandAbility;
+import forge.game.spellability.OptionalCost;
+import forge.game.spellability.SpellAbility;
+import forge.game.spellability.SpellAbilityPredicates;
+import forge.game.spellability.SpellPermanent;
+import forge.game.spellability.TargetRestrictions;
+import forge.game.staticability.StaticAbility;
+import forge.game.staticability.StaticAbilityActivateAbilityAsIfHaste;
+import forge.game.staticability.StaticAbilityAttackVigilance;
+import forge.game.staticability.StaticAbilityCantAttackBlock;
+import forge.game.staticability.StaticAbilityCantPhaseIn;
+import forge.game.staticability.StaticAbilityCantPhaseOut;
+import forge.game.staticability.StaticAbilityCantPreventDamage;
+import forge.game.staticability.StaticAbilityCantPutCounter;
+import forge.game.staticability.StaticAbilityCantRegenerate;
+import forge.game.staticability.StaticAbilityCantSacrifice;
+import forge.game.staticability.StaticAbilityCantTarget;
+import forge.game.staticability.StaticAbilityCantTransform;
+import forge.game.staticability.StaticAbilityCombatDamageToughness;
+import forge.game.staticability.StaticAbilityIgnoreLegendRule;
+import forge.game.staticability.StaticAbilityNumLoyaltyAct;
+import forge.game.staticability.StaticAbilityWitherDamage;
 import forge.game.trigger.Trigger;
 import forge.game.trigger.TriggerHandler;
 import forge.game.trigger.TriggerType;
@@ -64,18 +134,15 @@ import forge.item.IPaperCard;
 import forge.item.PaperCard;
 import forge.trackable.TrackableProperty;
 import forge.trackable.Tracker;
-import forge.util.*;
+import forge.util.CardTranslation;
+import forge.util.Lang;
+import forge.util.Localizer;
+import forge.util.TextUtil;
+import forge.util.Visitor;
 import forge.util.collect.FCollection;
 import forge.util.collect.FCollectionView;
 import io.sentry.Breadcrumb;
 import io.sentry.Sentry;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.mutable.MutableBoolean;
-import org.apache.commons.lang3.tuple.Pair;
-import org.apache.commons.lang3.tuple.Triple;
-
-import java.util.*;
-import java.util.Map.Entry;
 
 /**
  * <p>
@@ -4300,7 +4367,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
         return getCounters(CounterEnumType.P1P1) + 2 * getCounters(CounterEnumType.P1P2) - getCounters(CounterEnumType.M1M1)
                 + getCounters(CounterEnumType.P0P1) - 2 * getCounters(CounterEnumType.M0M2) + 2 * getCounters(CounterEnumType.P2P2)
                 - getCounters(CounterEnumType.M0M1) - getCounters(CounterEnumType.M2M1) - 2 * getCounters(CounterEnumType.M2M2)
-                + 2 * getCounters(CounterEnumType.P0P2) - isBurning * getCounters(CounterEnumType.BURN);
+                + 2 * getCounters(CounterEnumType.P0P2) - isBurning * getCounters(CounterEnumType.BURN) - getCounters(CounterEnumType.TOXIC);
     }
 
     public final StatBreakdown getNetToughnessBreakdown() {
@@ -5882,12 +5949,9 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
             subtractCounter(CounterType.get(CounterEnumType.DEFENSE), damageIn, true);
         }
         if (isCreature()) {
-            if (source.isWitherDamage() && !source.hasKeyword(Keyword.CAUSTIC)) { // 120.3d
+            if (source.isWitherDamage()) { // 120.3d
                 addCounter(CounterEnumType.M1M1, damageIn, source.getController(), counterTable);
                 damageType = DamageType.M1M1Counters;
-            } else if (source.hasKeyword(Keyword.CAUSTIC) && !takesCausticAsRegularDamage(source)) {
-                addCounter(CounterEnumType.M0M1, damageIn, source.getController(), counterTable);
-                damageType = DamageType.M0M1Counters;
             } else { // 120.3e
                 int old = damage.getOrDefault(Objects.hash(source.getId(), source.getTimestamp()), 0);
                 damage.put(Objects.hash(source.getId(), source.getTimestamp()), old + damageIn);
@@ -5909,12 +5973,6 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
         }
 
         return damageIn;
-    }
-
-    public boolean takesCausticAsRegularDamage(Card source) {
-        return (hasKeyword("Creatures you control with caustic deal damage to this creature as though they didn't have caustic.")
-            && source.getController().equals(getController())) ||
-                hasKeyword("Creatures with caustic deal damage to this creature as though they didn't have caustic.");
     }
 
     public final String getSetCode() {

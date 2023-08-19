@@ -4,9 +4,9 @@ Types:Creature Fox Pokémon
 PT:5/3
 K:Mutate onto:2 R R:Eevee:6/4
 K:Scorching
-S:Mode$ Continuous | Affected$ Card.Self | CheckSVar$ SUN | SVarCompare$ GE1 | AddToughness$ +2 | Description$ As long as it's sunny, CARDNAME gets +0/+2.
-SVar:SUN:Count$Sunny.1.0
-Oracle:Mutate onto Eevee {2}{R}{R} [6/4]\nScorching\nAs long as it's sunny, Flareon gets +0/+2.
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Creature.counters_GE1_BURN | Execute$ TrigPutCounter | TriggerDescription$ Whenever a creature with a burn counter on it dies, put a +1/+1 counter on CARDNAME.
+SVar:TrigPutCounter:DB$ PutCounter | CounterType$ P1P1 | CounterNum$ 1 | Defined$ Self
+Oracle:Mutate onto Eevee {2}{R}{R} [6/4]\nScorching\nWhenever a creature with a burn counter on it dies, put a +1/+1 counter on Flareon.
 
 DeckHints:Name$Eevee
 SVar:SoundEffect:flareon.mp3

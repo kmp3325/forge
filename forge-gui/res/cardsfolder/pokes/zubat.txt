@@ -3,11 +3,10 @@ ManaCost:1 B
 Types:Creature Bat Pokémon
 PT:1/1
 K:Flying
-K:Lifelink
-T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigDiscard | TriggerDescription$ When CARDNAME enters the battlefield, target player discards a card then mills three cards.
-SVar:TrigDiscard:DB$ Discard | Mode$ TgtChoose | ValidTgts$ Player | TgtPrompt$ Select target player | NumCards$ 1 | SubAbility$ TrigMill
+K:Caustic
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigMill | TriggerDescription$ When CARDNAME enters the battlefield, target player mills three cards.
 SVar:TrigMill:DB$ Mill | Defined$ TargetedPlayer | NumCards$ 3
-Oracle:Flying, lifelink\nWhen Zubat enters the battlefield, target player discards a card then mills three cards.
+Oracle:Flying, caustic\nWhen Zubat enters the battlefield, target player mills three cards.
 
 DeckHints:Name$Golbat
 SVar:SoundEffect:zubat.mp3

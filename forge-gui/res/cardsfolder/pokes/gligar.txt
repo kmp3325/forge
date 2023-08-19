@@ -3,8 +3,8 @@ ManaCost:2 W
 Types:Creature Scorpion Bat Pokémon
 PT:2/2
 K:Flying
-A:AB$ Pump | Cost$ 1 WB | Defined$ Self | KW$ Caustic | SubAbility$ TrigDebuff | SpellDescription$ CARDNAME gains caustic and loses flying until end of turn. Then it deals 1 damage to target creature.
-SVar:TrigDebuff:DB$ Debuff | Defined$ Self | Keywords$ Flying | SubAbility$ TrigDmg
-SVar:TrigDmg:DB$ DealDamage | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumDmg$ 1
-Oracle:Flying\n{1}{WB}: Gligar gains caustic and loses flying until end of turn. Then it deals 1 damage to target creature.
+A:AB$ Pump | Cost$ B | Defined$ Self | KW$ Caustic | SubAbility$ TrigDebuff | ActivationPhases$ Upkeep->Main1 | SpellDescription$ Until end of turn, CARDNAME gains caustic and loses flying. Activate only before combat.
+SVar:TrigDebuff:DB$ Debuff | Defined$ Self | Keywords$ Flying
+Oracle:Flying\n{B}: Until end of turn, Gligar gains caustic and loses flying. Activate only before combat.
+
 SVar:SoundEffect:gligar.mp3

@@ -4,11 +4,11 @@ Types:Creature Bird Pokémon
 PT:3/4
 K:Mutate onto:3 W W:Hoothoot:4/5
 K:Flying
-T:Mode$ PhaseIn | ValidCard$ Creature.YouCtrl | Execute$ TrigDmg | TriggerDescription$ Whenever a creature you control phases in, target player loses 1 life.
-SVar:TrigDmg:DB$ LoseLife | ValidTgts$ Player | TgtPrompt$ Select a player | LifeAmount$ 1
+T:Mode$ PhaseIn | ValidCard$ Creature.YouCtrl | Execute$ TrigRemoveToxic | TriggerDescription$ Whenever a creature you control phases in, you may remove up to two toxic counters from it.
+SVar:TrigRemoveToxic:DB$ RemoveCounter | CounterType$ TOXIC | CounterNum$ 2 | UpTo$ True | Defined$ TriggeredTargetLKICopy
 S:Mode$ Continuous | Affected$ Creature.Bird+Other+YouCtrl | AddPower$ X | AddToughness$ X | Description$ Other Bird creatures you control get +1/+1. If it's windy, they get +2/+2 instead.
 SVar:X:Count$Windy.2.1
-Oracle:Mutate onto Hoothoot {3}{W}{W} [4/5]\nFlying\nWhenever a creature you control phases in, target player loses 1 life.\nOther Bird creatures you control get +1/+1. If it's windy, they get +2/+2 instead.
+Oracle:Mutate onto Hoothoot {3}{W}{W} [4/5]\nFlying\nOther Bird creatures you control get +1/+1. If it's windy, they get +2/+2 instead.\nWhenever a creature you control phases in, you may remove up to two toxic counters from it.
 
 DeckHints:Name$Hoothoot
 DeckHints:Type$Bird

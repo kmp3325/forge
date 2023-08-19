@@ -2,13 +2,12 @@ Name:Grimer
 ManaCost:3 B
 Types:Creature Ooze Horror Pokémon
 PT:1/1
-K:Caustic
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounter | TriggerDescription$ When CARDNAME enters the battlefield, put a slime counter on target non-Ooze creature.
 SVar:TrigPutCounter:DB$ PutCounter | CounterType$ SLIME | CounterNum$ 1 | ValidTgts$ Creature.nonOoze | TgtPrompt$ Select target creature
 T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | TriggerZones$ Battlefield | ValidCard$ Creature.nonOoze+counters_GE1_SLIME | Execute$ TrigCopy | TriggerDescription$ Whenever a non-Ooze creature with a slime counter on it dies, create a token that's a copy of CARDNAME.
 SVar:TrigCopy:DB$ CopyPermanent | Defined$ Self | NumCopies$ 1
-A:AB$ DealDamage | Cost$ T | ValidTgts$ Creature.counters_GE1_SLIME | TgtPrompt$ Select target creature | NumDmg$ 1 | SpellDescription$ CARDNAME deals 1 damage to target creature with a slime counter on it.
-Oracle:Caustic\nWhen Grimer enters the battlefield, put a slime counter on target non-Ooze creature.\nWhenever a non-Ooze creature with a slime counter on it dies, create a token that's a copy of Grimer.\n{T}: Grimer deals 1 damage to target creature with a slime counter on it.
+A:AB$ PutCounter | Cost$ B B T | ValidTgts$ Creature.counters_GE1_SLIME | TgtPrompt$ Select target creature | CounterType$ TOXIC | CounterNum$ 1 | SpellDescription$ Put a toxic counter on target creature with a slime counter on it.
+Oracle:When Grimer enters the battlefield, put a slime counter on target non-Ooze creature.\nWhenever a non-Ooze creature with a slime counter on it dies, create a token that's a copy of Grimer.\n{B}{B}, {T}: Put a toxic counter on target creature with a slime counter on it.
 
 DeckHints:Name$Muk
 SVar:SoundEffect:grimer.mp3

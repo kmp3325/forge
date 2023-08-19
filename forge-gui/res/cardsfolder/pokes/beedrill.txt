@@ -1,11 +1,11 @@
 Name:Beedrill
 ManaCost:B G
 Types: Creature Insect Pokémon
-PT:3/1
-K:Mutate onto:B G:Kakuna:4/1
+PT:2/1
+K:Mutate onto:B G:Kakuna:3/1
 K:First strike
 K:Caustic
-Oracle:Mutate onto Kakuna {1}{B}{G} [4/1]\nFirst strike, caustic
+Oracle:Mutate onto Kakuna {B}{G} [3/1]\nFirst strike, caustic
 
 DeckHints:Name$Kakuna
 SVar:SoundEffect:beedrill.mp3

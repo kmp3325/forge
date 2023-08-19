@@ -5,11 +5,11 @@ PT:5/5
 K:Mutate onto:4 RG RG:Scyther:6/5
 K:First strike
 K:Steel skin
-T:Mode$ Phase | Phase$ BeginCombat | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigPutCounter | OptionalDecider$ You | TriggerDescription$ At the beginning of combat on your turn, put a prey counter on target creature, then CARDNAME deals damage to that creature equal to the number of prey counters on it.
-SVar:TrigPutCounter:DB$ PutCounter | CounterType$ PREY | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigDmg
+T:Mode$ Phase | Phase$ BeginCombat | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ At the beginning of combat on your turn, put a prey counter on target creature you don't control, then CARDNAME deals damage to that creature equal to the number of prey counters on it.
+SVar:TrigPutCounter:DB$ PutCounter | CounterType$ PREY | CounterNum$ 1 | ValidTgts$ Creature.YouDontCtrl | TgtPrompt$ Select target creature | SubAbility$ TrigDmg
 SVar:TrigDmg:DB$ DealDamage | Defined$ Targeted | NumDmg$ X
 SVar:X:Targeted$CardCounters.PREY
-Oracle:Mutate onto Scyther {4}{RG}{RG} [6/5]\nFirst strike, steel skin\nAt the beginning of combat on your turn, put a prey counter on target creature, then Scizor deals damage to that creature equal to the number of prey counters on it.
+Oracle:Mutate onto Scyther {4}{RG}{RG} [6/5]\nFirst strike, steel skin\nAt the beginning of combat on your turn, put a prey counter on target creature you don't control, then Scizor deals damage to that creature equal to the number of prey counters on it.
 
 DeckHints:Name$Scyther
 SVar:SoundEffect:scizor.mp3

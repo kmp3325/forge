@@ -4,9 +4,9 @@ Types:Creature Demon Dog Pokémon
 PT:4/3
 K:Mutate onto:3 B R:Houndour:5/4
 A:AB$ GainControl | Cost$ T | ValidTgts$ Creature.counters_GE3_BURN | TgtPrompt$ Select target creature | SpellDescription$ Gain control of target creature with three or more burn counters on it.
-A:AB$ Weather | Cost$ B R R | Value$ Foggy | SubAbility$ TrigPutCounter | SpellDescription$ It becomes foggy. Then put a burn counter on target creature.
+A:AB$ Weather | Cost$ B R | Value$ Foggy | SubAbility$ TrigPutCounter | SpellDescription$ It becomes foggy. Then put a burn counter on target creature.
 SVar:TrigPutCounter:DB$ PutCounter | IsCurse$ True | Cost$ B R R | CounterType$ BURN | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature
-Oracle:Mutate onto Houndour {3}{B}{R} [5/4]\n{T}: Gain control of target creature with three or more burn counters on it.\n{B}{R}{R}: It becomes foggy. Then put a burn counter on target creature.
+Oracle:Mutate onto Houndour {3}{B}{R} [5/4]\n{T}: Gain control of target creature with three or more burn counters on it.\n{B}{R}: It becomes foggy. Then put a burn counter on target creature.
 
 DeckHints:Name$Houndour
 SVar:SoundEffect:houndoom.mp3

@@ -4,7 +4,9 @@ Types:Creature Insect Pokémon
 PT:3/3
 S:Mode$ Continuous | Affected$ Creature.Insect+YouCtrl | AddPower$ 1 | AddToughness$ 1 | CheckSVar$ SUN | SVarCompare$ GE1 | Description$ As long as it's sunny, Insect creatures you control get +1/+1.
 SVar:SUN:Count$Sunny.1.0
-Oracle:As long as it's sunny, Insect creatures you control get +1/+1.
+S:Mode$ Continuous | Affected$ Card.Self | CheckSVar$ SNOW | SVarCompare$ GE1 | AddHiddenKeyword$ CARDNAME can't attack or block. | Description$ As long as it's snowy, CARDNAME can't attack or block.
+SVar:SNOW:Count$Snowy.1.0
+Oracle:As long as it's sunny, Insect creatures you control get +1/+1.\nAs long as it's snowy, Pinsir can't attack or block.
 
 DeckHints:Type$Insect
 SVar:SoundEffect:pinsir.mp3

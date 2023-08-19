@@ -29,6 +29,7 @@ import com.google.common.collect.Maps;
 import forge.GameCommand;
 import forge.card.CardType;
 import forge.game.Game;
+import forge.game.GameEntityCounterTable;
 import forge.game.GlobalRuleChange;
 import forge.game.ability.ApiType;
 import forge.game.ability.effects.FlipCoinEffect;
@@ -78,6 +79,7 @@ public class Untap extends Phase {
 
         game.getAction().checkStaticAbilities();
 
+        doToxicCounters(game.getPhaseHandler().getPlayerTurn());
         doUntap();
 
 //        doBurn(game.getPhaseHandler().getPlayerTurn());
@@ -298,6 +300,26 @@ public class Untap extends Phase {
             game.setDayTime(true);
         } else if (game.isNight() && CardLists.count(casted, CardPredicates.isController(previous)) > 1) {
             game.setDayTime(false);
+        }
+    }
+
+    private static void doToxicCounters(final Player turn) {
+        if (turn == null) {
+            return;
+        }
+
+        HashSet<Card> toxicCards = new HashSet<>();
+        GameEntityCounterTable table = new GameEntityCounterTable();
+        for (Card card : turn.getCreaturesInPlay()) {
+            if (card.isPhasedOut() || card.getCounters(CounterEnumType.TOXIC) == 0) {
+                continue;
+            }
+            card.addCounter(CounterEnumType.TOXIC, 1, turn, table);
+            toxicCards.add(card);
+        }
+        table.replaceCounterEffect(turn.getGame(), null, false);
+        for (Card card : toxicCards) {
+            card.updatePowerToughnessForView();
         }
     }
 

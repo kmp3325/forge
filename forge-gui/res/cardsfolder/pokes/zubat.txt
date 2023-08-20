@@ -5,7 +5,7 @@ PT:1/1
 K:Flying
 K:Caustic
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigMill | TriggerDescription$ When CARDNAME enters the battlefield, target player mills three cards.
-SVar:TrigMill:DB$ Mill | Defined$ TargetedPlayer | NumCards$ 3
+SVar:TrigMill:DB$ Mill | ValidTgts$ Player | TgtPrompt$ Select target player | NumCards$ 3
 Oracle:Flying, caustic\nWhen Zubat enters the battlefield, target player mills three cards.
 
 DeckHints:Name$Golbat

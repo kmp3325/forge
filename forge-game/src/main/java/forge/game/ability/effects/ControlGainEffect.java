@@ -61,6 +61,8 @@ public class ControlGainEffect extends SpellAbilityEffect {
                 sb.append(" for as long as that creature remains enchanted");
             } else if (loseCont.equals("UntilTheEndOfYourNextTurn")) {
                 sb.append(" until the end of your next turn");
+            } else if (loseCont.equals("UntilYourNextUpkeep")) {
+                sb.append(" until the beginning of your next upkeep");
             }
         }
         sb.append(".");
@@ -232,6 +234,13 @@ public class ControlGainEffect extends SpellAbilityEffect {
                         game.getEndOfTurn().registerUntilEnd(sa.getActivatingPlayer(), loseControl);
                     } else {
                         game.getEndOfTurn().addUntilEnd(sa.getActivatingPlayer(), loseControl);
+                    }
+                }
+                if (lose.contains("UntilYourNextUpkeep")) {
+                    if (game.getPhaseHandler().isPlayerTurn(sa.getActivatingPlayer())) {
+                        game.getUpkeep().addUntil(sa.getActivatingPlayer(), loseControl);
+                    } else {
+                        game.getUpkeep().registerUntilEnd(sa.getActivatingPlayer(), loseControl);
                     }
                 }
             }

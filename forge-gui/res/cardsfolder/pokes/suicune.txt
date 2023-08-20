@@ -3,7 +3,7 @@ ManaCost:1 W U U B
 Types:Legendary Creature Cat Beast Pokémon
 PT:4/4
 K:First strike
-T:Mode$ Moved | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Creature.YouCtrl+Other | Execute$ TrackDeath | Static$ True
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Creature.YouCtrl+Other | Execute$ TrackDeath | Static$ True
 SVar:TrackDeath:DB$ Pump | RememberObjects$ TriggeredCard
 T:Mode$ TurnBegin | Execute$ TrigReset | Static$ True
 SVar:TrigReset:DB$ Cleanup | ClearRemembered$ True

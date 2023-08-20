@@ -1815,12 +1815,26 @@ public class CardFactoryUtil {
                     "ValidSource$ Card.Self | " +
                     "ValidTarget$ Creature | " +
                     "TriggerZones$ Battlefield | CombatDamage$ True | " +
-                    "TriggerDescription$ Whenever this deals damage to a creature," +
+                    "TriggerDescription$ Whenever this deals combat damage to a creature," +
                     " put that many burn counters on that creature.";
             final Trigger parsedTrigger = TriggerHandler.parseTrigger(trigStr, card, intrinsic);
 
             SpellAbility sa = AbilityFactory.getAbility("DB$ PutCounter | Defined$ TriggeredTargetLKICopy | CounterType$ BURN | CounterNum$ DamageDoneSVar", card);
             sa.setSVar("DamageDoneSVar", "TriggerCount$DamageAmount");
+            sa.setIntrinsic(intrinsic);
+            parsedTrigger.setOverridingAbility(sa);
+
+            inst.addTrigger(parsedTrigger);
+        }  else if (keyword.startsWith("Caustic")) {
+            String trigStr = "Mode$ DamageDone | " +
+                "ValidSource$ Card.Self | " +
+                "ValidTarget$ Creature.counters_EQ0_TOXIC | " +
+                "TriggerZones$ Battlefield | CombatDamage$ True | " +
+                "TriggerDescription$ Whenever this deals combat damage to a creature," +
+                " put a toxic counter on that creature if it has none.";
+            final Trigger parsedTrigger = TriggerHandler.parseTrigger(trigStr, card, intrinsic);
+
+            SpellAbility sa = AbilityFactory.getAbility("DB$ PutCounter | Defined$ TriggeredTargetLKICopy | CounterType$ TOXIC | CounterNum$ 1", card);
             sa.setIntrinsic(intrinsic);
             parsedTrigger.setOverridingAbility(sa);
 

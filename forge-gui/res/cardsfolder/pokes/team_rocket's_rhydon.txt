@@ -1,14 +1,10 @@
 Name:Team Rocket's Rhydon
-ManaCost:5 B R
+ManaCost:3 B R
 Types:Creature Dinosaur Rhino Pokémon
 PT:5/6
-K:Mutate onto:4 B R:Team Rocket's Rhyhorn:6/7
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigWeather | TriggerDescription$ When CARDNAME enters the battlefield, it becomes foggy.
+SVar:TrigWeather:DB$ Weather | Value$ Foggy
 S:Mode$ CantPutCounter | ValidCard$ Card.Self | CounterType$ BURN | Description$ CARDNAME can't have burn counters put on it.
-SVar:FOG:Count$Foggy.1.0
-A:AB$ GainControl | Cost$ B B R | ActivationLimit$ 1 | ValidTgts$ Creature.powerLEX | TgtPrompt$ Select target creature with power less than or equal to the number of creatures you control | ConditionCheckSVar$ FOG | ConditionSVarCompare$ GE1 | SpellDescription$ Gain control of target creature with power less than or equal to the number of creatures you control. Activate only once each turn and only if it's foggy.
-SVar:X:Count$Valid Creature.YouCtrl
-Oracle:Mutate onto Team Rocket's Rhyhorn {4}{B}{R} [6/7]\nTeam Rocket's Rhydon can't have burn counters put on it.\n{B}{B}{R}: Gain control of target creature with power less than or equal to the number of creatures you control. Activate only once each turn and only if it's foggy.
-
-DeckHints:Name$Team Rocket's Rhyhorn
+Oracle:When Team Rocket's Rhydon enters the battlefield, it becomes foggy.\nTeam Rocket's Rhydon can't have burn counters put on it.
 
 SVar:SoundEffect:rhydon.mp3

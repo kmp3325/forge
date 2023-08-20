@@ -1,15 +1,12 @@
 Name:Tyranitar
 ManaCost:3 W B G
 Types:Creature Dinosaur Pokémon
-PT:6/4
-K:Mutate onto:3 W B G:Pupitar:7/6
+PT:7/5
+K:Mutate onto:3 W B G:Pupitar:8/6
 T:Mode$ CounterRemoved | ValidCard$ Creature.YouCtrl | TriggerZones$ Battlefield | CounterType$ SHIELD | Execute$ TrigDestroy | TriggerDescription$ Whenever a shield counter is removed from a creature you control, destroy target tapped land. If you do, that land’s controller may search their library for a basic land card, put it onto the battlefield tapped, then shuffle.
 SVar:TrigDestroy:DB$ Destroy | ValidTgts$ Land.tapped | TgtPrompt$ Select target land | SubAbility$ TrigSearch
 SVar:TrigSearch:DB$ ChangeZone | Origin$ Library | Destination$ Battlefield | DefinedPlayer$ TargetedController | ChangeType$ Land.Basic | ChangeNum$ 1 | Tapped$ True | StackDescription$ That land's controller may search their library for a basic land card, put it onto the battlefield tapped, then shuffle.
-T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigQuake | TriggerDescription$ Whenever CARDNAME attacks, it deals 2 damage to each other creature. Damage that would be dealt to opponent's creatures this way can't be prevented by shield counters.
-SVar:TrigQuake:DB$ DamageAll | ValidCards$ Creature.Other+withoutFlying | NumDmg$ 2 | SubAbility$ TrigRocks
-SVar:TrigRocks:DB$ DamageAll | ValidCards$ Creature.Other+withFlying | NumDmg$ 3
-Oracle:Mutate onto Pupitar {3}{W}{B}{G} [7/6]\nWhenever Tyranitar attacks, it deals 2 damage to each other creature without flying and 3 damage to each other creature with flying.\nWhenever a shield counter is removed from a creature you control, destroy target tapped land. If you do, that land’s controller may search their library for a basic land card, put it onto the battlefield tapped, then shuffle.
+Oracle:Mutate onto Pupitar {3}{W}{B}{G} [8/6]\nWhenever a shield counter is removed from a creature you control, destroy target tapped land. If you do, that land’s controller may search their library for a basic land card, put it onto the battlefield tapped, then shuffle.
 
 DeckHints:Name$Pupitar
 SVar:SoundEffect:tyranitar.mp3

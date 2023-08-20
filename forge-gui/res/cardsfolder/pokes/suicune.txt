@@ -8,7 +8,8 @@ SVar:TrackDeath:DB$ Pump | RememberObjects$ TriggeredCard
 T:Mode$ TurnBegin | Execute$ TrigReset | Static$ True
 SVar:TrigReset:DB$ Cleanup | ClearRemembered$ True
 SVar:HadDeath:Remembered$Amount
-R:Event$ Destroy | ActiveZones$ Battlefield | ValidCard$ Creature.YouCtrl+Other | CheckSVar$ HadDeath | SVarCompare$ EQ0 | ReplaceWith$ DBRemoveDmg | Description$ The first time another creature you control would be destroyed during each of your turns, instead remove all damage from it and it phases out.
+R:Event$ Moved | ActiveZones$ Battlefield | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Creature.YouCtrl+Other | CheckSVar$ HadDeath | SVarCompare$ EQ0 | ReplaceWith$ DBRemoveCounters | Description$ The first time another creature you control would die during each of your turns, instead remove all damage from it, remove all counters from it, and it phases out.
+SVar:DBRemoveCounters:DB$ RemoveCounter | CounterType$ All | CounterNum$ All | Defined$ ReplacedCard | SubAbility$ DBRemoveDmg
 SVar:DBRemoveDmg:DB$ DealDamage | Defined$ ReplacedCard | Remove$ All | SubAbility$ DBPhaseOut
 SVar:DBPhaseOut:DB$ Phases | Defined$ ReplacedCard | SubAbility$ TrackUse
 SVar:TrackUse:DB$ Pump | RememberObjects$ Self
@@ -16,5 +17,5 @@ T:Mode$ PhaseIn | ValidCard$ Creature.YouCtrl | Execute$ DBPump | TriggerZones$ 
 SVar:DBPump:DB$ Pump | NumAtt$ 2 | NumDef$ 2 | Defined$ TriggeredCardLKICopy | SubAbility$ DBMill
 SVar:DBMill:DB$ Mill | Defined$ Player.Opponent | NumCards$ X
 SVar:X:TriggeredCard$CardPower
-Oracle:First strike\nThe first time another creature you control would be destroyed during each of your turns, instead remove all damage from it and it phases out.\nWhenever a creature you control phases in, it gets +2/+2 until end of turn. Then each opponent mills cards equal to its power.
+Oracle:First strike\nThe first time another creature you control would die during each of your turns, instead remove all damage from it, remove all counters from it, and it phases out.\nWhenever a creature you control phases in, it gets +2/+2 until end of turn. Then each opponent mills cards equal to its power.
 SVar:SoundEffect:suicune.mp3

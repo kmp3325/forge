@@ -1,5 +1,5 @@
 Name:Vulpix
-ManaCost:1 R
+ManaCost:2 R
 Types:Creature Fox Pokémon
 PT:2/2
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | OptionalDecider$ You | Execute$ TrigDraw | TriggerDescription$ When CARDNAME enters the battlefield, you may discard a card. If you do, draw a card.

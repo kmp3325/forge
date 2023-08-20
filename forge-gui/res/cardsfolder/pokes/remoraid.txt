@@ -2,9 +2,10 @@ Name:Remoraid
 ManaCost:2 U
 Types:Creature Fish Pokémon
 PT:2/1
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | OptionalDecider$ You | Execute$ TrigDiscard | TriggerDescription$ When CARDNAME enters the battlefield, you may discard a card. If you do, draw a card.
-SVar:TrigDiscard:AB$ Draw | Cost$ Discard<1/Card> | NumCards$ 1
-Oracle:When Remoraid enters the battlefield, you may discard a card. If you do, draw a card.
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDraw | TriggerDescription$ When CARDNAME enters the battlefield, draw a card, then discard a card.
+SVar:TrigDraw:DB$ Draw | NumCards$ 1 | SubAbility$ TrigDiscard
+SVar:TrigDiscard:DB$ Discard | Defined$ You | Mode$ TgtChoose
+Oracle:When Remoraid enters the battlefield, draw a card, then discard a card.
 
 DeckHints:Name$Octillery
 SVar:SoundEffect:remoraid.mp3

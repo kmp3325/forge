@@ -152,7 +152,7 @@ Foil=NotSupported
 140 C Kabuto
 141 R Kabutops
 142 R Aerodactyl
-143 M Snorlax
+143 R Snorlax
 144 M Articuno
 145 M Zapdos
 146 M Moltres
@@ -268,10 +268,10 @@ Foil=NotSupported
 9946 U Team Rocket's Hitmonchan
 9947 C Team Rocket's Lickitung
 9948 U Team Rocket's Weezing
-9949 U Team Rocket's Rhyhorn
-9950 R Team Rocket's Rhydon
-9951 C Team Rocket's Magikarp
-9952 M Team Rocket's Gyarados
+9949 U Team Rocket's Rhydon
+9950 C Team Rocket's Magikarp
+9951 M Team Rocket's Gyarados
+9951 R Team Rocket's Tyranitar
 9953 R Giovanni's Persian
 9954 M Giovanni's Armor
 9955 C Wild Pidgey
@@ -339,3 +339,9 @@ Foil=NotSupported
 1 Ecruteak City Gym|PKM
 2 Azalea Town Gym|PKM
 2 Cinnabar Island Gym|PKM
+
+[tokens]
+g_0_1_plant_parasect
+c_a_treasure_sac
+c_a_food_sac
+skarmory_feather

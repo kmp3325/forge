@@ -1,12 +1,11 @@
 Name:Nidorina
 ManaCost:4 B
 Types:Creature Dinosaur Rabbit Pokémon
-PT:3/4
-K:Mutate onto:4 B:Female Nidoran:4/5
-T:Mode$ CounterAdded | ValidCard$ Creature | TriggerZones$ Battlefield | CounterType$ P1P1 | Execute$ TrigRemoveCounter | OptionalDecider$ You | TriggerDescription$ Whenever a +1/+1 counter is put on a creature you control, you may remove a toxic counter from it.
-SVar:TrigRemoveCounter:DB$ RemoveCounter | CounterType$ TOXIC | CounterNum$ 1 | Defined$ TriggeredTargetLKICopy
-SVar:DBGainLife:DB$ GainLife | Defined$ You | LifeAmount$ 3
-Oracle:Mutate onto Female Nidoran {4}{B} [4/5]\nWhenever a +1/+1 counter is put on a creature you control, you may remove a toxic counter from it.
+PT:2/3
+K:Mutate onto:4 B:Female Nidoran:3/4
+T:Mode$ DamageDone | TriggerZones$ Battlefield | ValidTarget$ Creature.YouCtrl | CombatDamage$ False | Execute$ TrigPutCounter | ActivationLimit$ 1 | TriggerDescription$ Whenever another creature you control is dealt noncombat damage, put a toxic counter on target creature you don’t control. This ability triggers only once each turn.
+SVar:TrigPutCounter:DB$ PutCounter | CounterType$ TOXIC | CounterNum$ 1 | ValidTgts$ Creature.YouDontCtrl | TgtPrompt$ Select target creature you don't control
+Oracle:Mutate onto Female Nidoran {4}{B} [3/4]\nWhenever another creature you control is dealt noncombat damage, put a toxic counter on target creature you don’t control. This ability triggers only once each turn.
 
 DeckHints:Name$Female Nidoran
 DeckHints:Name$Nidoqueen

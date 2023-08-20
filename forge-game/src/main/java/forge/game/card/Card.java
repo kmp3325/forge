@@ -2351,7 +2351,8 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
                          || keyword.equals("Horsemanship") || keyword.equals("Infect")|| keyword.equals("Persist")
                          || keyword.equals("Phasing") || keyword.equals("Shadow")|| keyword.equals("Skulk")
                          || keyword.equals("Undying") || keyword.equals("Wither")
-                         || keyword.equals("Mentor") || keyword.equals("Training") || keyword.equals("Caustic")) {
+                         || keyword.equals("Mentor") || keyword.equals("Training")
+                         || keyword.equals("Caustic") || keyword.equals("Steel skin") || keyword.equals("Scorching")) {
                     if (sb.length() != 0) {
                         sb.append("\r\n");
                     }

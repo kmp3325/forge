@@ -1,8 +1,8 @@
 Name:Gengar
-ManaCost:2B 2B 2B B B B
+ManaCost:B B B B B
 Types:Creature Nightmare Spirit Pokémon
 PT:5/4
-K:Mutate onto:2B 2B 2B B B B:Haunter:6/4
+K:Mutate onto:B B B B B:Haunter:6/4
 K:First strike
 K:Menace
 K:Caustic
@@ -12,7 +12,7 @@ SVar:TrigRevive:DB$ ChangeZoneAll | ChangeType$ Card.IsRemembered | Origin$ Grav
 SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
 T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | Execute$ TrigPhase | TriggerZones$ Battlefield | IsPresent$ Card.YouCtrl+YouDontOwn | PresentZone$ Battlefield | PresentCompare$ GE1 | TriggerDescription$ At the beginning of your upkeep, if you control a creature you don't own, CARDNAME phases out unless you sacrifice a creature.
 SVar:TrigPhase:DB$ Phases | Defined$ Self | UnlessCost$ Sac<1/Creature> | UnlessPayer$ You
-Oracle:Mutate onto Haunter {2B}{2B}{2B}{B}{B}{B} [6/4]\nFirst strike, menace, caustic\nWhenever Gengar deals combat damage to a player, that player discards a card. If they discard a creature card this way, put it onto the battlefield under your control.\nAt the beginning of your upkeep, if you control a creature you don't own, Gengar phases out unless you sacrifice a creature.
+Oracle:Mutate onto Haunter {B}{B}{B}{B}{B} [6/4]\nFirst strike, menace, caustic\nWhenever Gengar deals combat damage to a player, that player discards a card. If they discard a creature card this way, put it onto the battlefield under your control.\nAt the beginning of your upkeep, if you control a creature you don't own, Gengar phases out unless you sacrifice a creature.
 
 DeckHints:Name$Haunter
 SVar:SoundEffect:gengar.mp3

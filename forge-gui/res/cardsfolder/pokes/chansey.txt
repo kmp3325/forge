@@ -3,14 +3,14 @@ ManaCost:4 W U
 Types:Creature Rabbit Pokémon
 PT:2/8
 K:Mutate onto:4 W U:Happiny:2/10
-T:Mode$ PhaseIn | ValidCard$ Creature.YouCtrl | Execute$ DBHeal | TriggerZones$ Battlefield | TriggerDescription$ Whenever a creature you control phases in, remove any number of counters from it. If any counters are removed this way, scry 2 then draw a card.
+T:Mode$ PhaseIn | ValidCard$ Creature.YouCtrl | Execute$ DBHeal | TriggerZones$ Battlefield | TriggerDescription$ Whenever a creature you control phases in, remove any number of counters from it. If any counters are removed this way, scry 2, then draw a card.
 SVar:DBHeal:DB$ RemoveCounter | Defined$ TriggeredCardLKICopy | CounterType$ Any | CounterNum$ Any | RememberRemoved$ True | SubAbility$ DBScry
 SVar:DBScry:DB$ Scry | ConditionCheckSVar$ X | ConditionSVarCompare$ GE1 | ScryNum$ 2 | StackDescription$ {p:You} scries 2 | SubAbility$ DBDraw
 SVar:DBDraw:DB$ Draw | NumCards$ 1 | Defined$ You | SubAbility$ DBCleanup
 SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
 SVar:X:Count$RememberedSize
 A:AB$ Phases | Cost$ W U | ValidTgts$ Creature.YouCtrl+Other | TgtPrompt$ Select another target creature you control | SpellDescription$ Another target creature you control phases out.
-Oracle:Mutate onto Happiny {4}{W}{U} [2/10]\nWhenever a creature you control phases in, remove any number of counters from it. If any counters are removed this way, scry 2 then draw a card.\n{W}{U}: Another target creature you control phases out.
+Oracle:Mutate onto Happiny {4}{W}{U} [2/10]\nWhenever a creature you control phases in, remove any number of counters from it. If any counters are removed this way, scry 2, then draw a card.\n{W}{U}: Another target creature you control phases out.
 
 DeckHints:Name$Blissey
 SVar:SoundEffect:chansey.mp3

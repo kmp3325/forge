@@ -1817,8 +1817,19 @@ public class CardProperty {
             if (property.equals("pseudokicked")) {
                 if (!card.isOptionalCostPaid(OptionalCost.Generic)) return false;
             }
+        } else if (property.equals("bargained")) {
+            if (card.getCastSA() == null) {
+                return false;
+            }
+            if (AbilityUtils.isUnlinkedFromCastSA(spellAbility, card)) {
+                return false;
+            }
+            return card.getCastSA().isBargain();
         } else if (property.equals("surged")) {
             if (card.getCastSA() == null) {
+                return false;
+            }
+            if (AbilityUtils.isUnlinkedFromCastSA(spellAbility, card)) {
                 return false;
             }
             return card.getCastSA().isSurged();
@@ -1826,9 +1837,15 @@ public class CardProperty {
             if (card.getCastSA() == null) {
                 return false;
             }
+            if (AbilityUtils.isUnlinkedFromCastSA(spellAbility, card)) {
+                return false;
+            }
             return card.getCastSA().isBlitz();
         } else if (property.equals("dashed")) {
             if (card.getCastSA() == null) {
+                return false;
+            }
+            if (AbilityUtils.isUnlinkedFromCastSA(spellAbility, card)) {
                 return false;
             }
             return card.getCastSA().isDash();
@@ -1836,9 +1853,15 @@ public class CardProperty {
             if (card.getCastSA() == null) {
                 return false;
             }
+            if (AbilityUtils.isUnlinkedFromCastSA(spellAbility, card)) {
+                return false;
+            }
             return card.getCastSA().isEscape();
         } else if (property.equals("evoked")) {
             if (card.getCastSA() == null) {
+                return false;
+            }
+            if (AbilityUtils.isUnlinkedFromCastSA(spellAbility, card)) {
                 return false;
             }
             return card.getCastSA().isEvoke();
@@ -1846,9 +1869,15 @@ public class CardProperty {
             if (card.getCastSA() == null) {
                 return false;
             }
+            if (AbilityUtils.isUnlinkedFromCastSA(spellAbility, card)) {
+                return false;
+            }
             return card.getCastSA().isProwl();
         } else if (property.equals("spectacle")) {
             if (card.getCastSA() == null) {
+                return false;
+            }
+            if (AbilityUtils.isUnlinkedFromCastSA(spellAbility, card)) {
                 return false;
             }
             return card.getCastSA().isSpectacle();

@@ -2345,14 +2345,15 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
                     }
                     sb.append(")");
                 } else if (keyword.equals("Convoke") || keyword.equals("Dethrone")|| keyword.equals("Fear")
+                         ||  keyword.equals("Caustic") || keyword.equals("Steel skin") || keyword.equals("Scorching")
                          || keyword.equals("Melee") || keyword.equals("Improvise")|| keyword.equals("Shroud")
                          || keyword.equals("Banding") || keyword.equals("Intimidate")|| keyword.equals("Evolve")
                          || keyword.equals("Exalted") || keyword.equals("Extort")|| keyword.equals("Flanking")
                          || keyword.equals("Horsemanship") || keyword.equals("Infect")|| keyword.equals("Persist")
                          || keyword.equals("Phasing") || keyword.equals("Shadow")|| keyword.equals("Skulk")
                          || keyword.equals("Undying") || keyword.equals("Wither")
-                         || keyword.equals("Mentor") || keyword.equals("Training")
-                         || keyword.equals("Caustic") || keyword.equals("Steel skin") || keyword.equals("Scorching")) {
+                         || keyword.equals("Bargain")
+                         || keyword.equals("Mentor") || keyword.equals("Training")) {
                     if (sb.length() != 0) {
                         sb.append("\r\n");
                     }
@@ -2874,6 +2875,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
                         || keyword.equals("Improvise") || keyword.equals("Retrace")
                         || keyword.equals("Undaunted") || keyword.equals("Cascade")
                         || keyword.equals("Devoid") ||  keyword.equals("Lifelink")
+                        || keyword.equals("Bargain")
                         || keyword.equals("Split second")) {
                     sbBefore.append(keyword).append(" (").append(inst.getReminderText()).append(")");
                     sbBefore.append("\r\n\r\n");

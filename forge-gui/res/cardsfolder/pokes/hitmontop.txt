@@ -4,10 +4,10 @@ Types:Creature Mutate Beast Pokémon
 PT:4/4
 K:Mutate onto:3 RW:Tyrogue:5/5
 K:Mentor
-A:AB$ Pump | Cost$ R W | Defined$ Self | KW$ First strike | SubAbility$ TrigCoinFlip | SpellDescription$ CARDNAME gains first strike until end of turn, then flip a coin. If you win the flip, CARDNAME gets +1/+1 until end of turn.
+A:AB$ Pump | Cost$ RW | Defined$ Self | KW$ First strike | SubAbility$ TrigCoinFlip | SpellDescription$ CARDNAME gains first strike until end of turn, then flip a coin. If you win the flip, CARDNAME gets +1/+1 until end of turn.
 SVar:TrigCoinFlip:DB$ FlipACoin | WinSubAbility$ ExtraPump
 SVar:ExtraPump:DB$ Pump | Defined$ Self | NumAtt$ 1 | NumDef$ 1
-Oracle:Mutate onto Tyrogue {3}{RW} [5/5]\nMentor\n{R}{W}: Hitmontop gains first strike until end of turn, then flip a coin. If you win the flip, Hitmontop gets +1/+1 until end of turn.
+Oracle:Mutate onto Tyrogue {3}{RW} [5/5]\nMentor\n{RW}: Hitmontop gains first strike until end of turn, then flip a coin. If you win the flip, Hitmontop gets +1/+1 until end of turn.
 
 DeckHints:Name$Tyrogue
 SVar:SoundEffect:hitmontop.mp3

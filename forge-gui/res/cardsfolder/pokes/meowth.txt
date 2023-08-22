@@ -1,5 +1,5 @@
 Name:Meowth
-ManaCost:W W
+ManaCost:W
 Types:Creature Cat Pokémon
 PT:1/1
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigMakeTreasure | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, create a Treasure token.

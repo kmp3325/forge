@@ -2,8 +2,8 @@ Name:Rattata
 ManaCost:W
 Types:Creature Rat Pokémon
 PT:1/1
-A:AB$ Phases | Cost$ C C | Defined$ Self | SpellDescription$ CARDNAME phases out.
-Oracle:{C}{C}: Rattata phases out.
+A:AB$ Phases | Cost$ W W | Defined$ Self | SpellDescription$ CARDNAME phases out.
+Oracle:{W}{W}: Rattata phases out.
 
 DeckHints:Name$Raticate
 SVar:SoundEffect:rattata.mp3

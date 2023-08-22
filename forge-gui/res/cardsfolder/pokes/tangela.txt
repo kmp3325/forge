@@ -2,13 +2,18 @@ Name:Tangela
 ManaCost:3 G
 Types:Creature Plant Pokémon
 PT:0/0
-K:etbCounter:P1P1:3
-T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | Execute$ TrigPutCounter | TriggerZones$ Battlefield | OptionalDecider$ You | CheckSVar$ X | SVarCompare$ LE2 | TriggerDescription$ At the beginning of your upkeep, if CARDNAME has power 2 or less, you may put a +1/+1 counter on it.
-SVar:X:Count$CardToughness
-SVar:TrigPutCounter:DB$ PutCounter | CounterType$ P1P1 | CounterNum$ 1 | Defined$ Self
-T:Mode$ DamageDoneOnce | ValidTarget$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigMoveCounter | TriggerDescription$ Whenever CARDNAME is dealt damage, you may move a +1/+1 counter from it onto another target creature.
-SVar:TrigMoveCounter:DB$ MoveCounter | ValidTgts$ Creature.Other | TgtPrompt$ Select another target creature | Source$ Self | CounterType$ P1P1 | CounterNum$ 1
-Oracle:Tangela enters the battlefield with three +1/+1 counters on it.\nAt the beginning of your upkeep, if Tangela has power 2 or less, you may put a +1/+1 counter on it.\nWhenever Tangela is dealt damage, you may move a +1/+1 counter from it onto another target creature.
+K:etbCounter:P1P1:4
+T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | Execute$ TrigPutCounter | TriggerZones$ Battlefield | OptionalDecider$ You | CheckSVar$ P1C | SVarCompare$ LE2 | TriggerDescription$ At the beginning of your upkeep, if CARDNAME has less than four +1/+1 counters on it, put a number of +1/+1 counters on it equal to the difference.
+SVar:P1C:Count$CardCounters.P1P1
+SVar:TrigPutCounter:DB$ PutCounter | CounterType$ P1P1 | CounterNum$ P1CRecover | Defined$ Self
+SVar:P1CRecover:Count$4/Minus.P1C
+R:Event$ DamageDone | ActiveZones$ Battlefield | ValidTarget$ Card.Self+counters_GE1_P1P1 | ReplaceWith$ Counters | PreventionEffect$ True | AlwaysReplace$ True | Description$ If damage would be dealt to CARDNAME while it has a +1/+1 counter on it, prevent that damage and remove that many +1/+1 counters from it. Then distribute those counters among any number of other creatures.
+SVar:Counters:DB$ RemoveCounter | Defined$ ReplacedTarget | CounterType$ P1P1 | CounterNum$ Y | RememberRemoved$ True | SubAbility$ TrigDistribute
+SVar:Y:ReplaceCount$DamageAmount
+SVar:X:Count$RememberedSize
+SVar:TrigDistribute:DB$ PutCounter | Choices$ Creature.Other | ChoiceTitle$ Choose any number of other target creatures to distribute counters to | CounterType$ P1P1 | CounterNum$ X | ChoiceAmount$ X | MinChoiceAmount$ 0 | DividedAsYouChoose$ X | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+Oracle:Tangela enters the battlefield with four +1/+1 counters on it.\nAt the beginning of your upkeep, if Tangela has less than four +1/+1 counters on it, put a number of +1/+1 counters on it equal to the difference.\nIf damage would be dealt to Tangela while it has a +1/+1 counter on it, prevent that damage and remove that many +1/+1 counters from it. Then distribute those counters among any number of other creatures.
 
 SVar:PlayMain1:TRUE
 SVar:SoundEffect:tangela.mp3

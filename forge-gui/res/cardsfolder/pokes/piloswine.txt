@@ -3,13 +3,13 @@ ManaCost:3 GW GW
 Types:Snow Creature Boar Pokémon
 PT:5/5
 K:Mutate onto:3 GW GW:Swinub:6/6
-T:Mode$ Phase | Phase$ BeginCombat | TriggerZones$ Battlefield | Execute$ TrigMana | TriggerDescription$ At the beginning of each combat, add {c} for each frost counter on CARDNAME. Until end of turn, you don't lose this mana as steps and phases end.
-SVar:TrigMana:DB$ Mana | Produced$ C | Amount$ X | PersistentMana$ True
-SVar:X:Count$CardCounters.FROST
-A:AB$ PutCounter | Cost$ S S | CounterType$ FROST | CounterNum$ 1 | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | SubAbility$ TrigFrostAgain | SpellDescription$ Put a frost counter on target creature you control and target creature you don't control, then CARDNAME deals 1 damage to each creature with a frost counter on it.
-SVar:TrigFrostAgain:DB$ PutCounter | CounterType$ FROST | CounterNum$ 1 | ValidTgts$ Creature.YouDontCtrl | TgtPrompt$ Select target creature you don't control | SubAbility$ TrigDmg
-SVar:TrigDmg:DB$ DamageAll | NumDmg$ 1 | ValidCards$ Creature.counters_GE1_FROST
-Oracle:Mutate onto Swinub {3}{GW}{GW} [6/6]\nAt the beginning of each combat, add {c} for each frost counter on Piloswine. Until end of turn, you don't lose this mana as steps and phases end.\n{S}{S}: Put a frost counter on target creature you control and target creature you don't control, then Piloswine deals 1 damage to each creature with a frost counter on it.
+R:Event$ AddCounter | ActiveZones$ Battlefield | ValidCard$ Card.Self | ValidCounterType$ FROST | ReplaceWith$ ActuallyShield | Description$ If a frost counter would be put on CARDNAME, put a +1/+1 counter on it instead.
+SVar:ActuallyShield:DB$ ReplaceCounter | CounterType$ P1P1
+A:AB$ Token | Cost$ S T | TokenAmount$ 1 | TokenScript$ c_a_food_sac | TokenOwner$ You | SpellDescription$ Create a Food token.
+A:AB$ DamageAll | Cost$ X Sac<X/Food> | ValidCards$ Creature.Other | NumDmg$ X | SubAbility$ TrigLife | SpellDescription$ CARDNAME deals X damage to each other creature. You gain X life.
+SVar:X:Count$xPaid
+SVar:TrigLife:DB$ GainLife | LifeAmount$ X | Defined$ You
+Oracle:Mutate onto Swinub {3}{GW}{GW} [6/6]\nIf a frost counter would be put on Piloswine, put a +1/+1 counter on it instead.\n{S}, {T}: Create a Food token.\n{X}, Sacrifice X Foods: Piloswine deals X damage to each other creature. You gain X life.
 
 DeckHints:Name$Swinub
 SVar:SoundEffect:piloswine.mp3

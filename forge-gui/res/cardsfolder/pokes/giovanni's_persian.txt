@@ -1,7 +1,7 @@
 Name:Giovanni's Persian
-ManaCost:4 BR BR
+ManaCost:2 BR BR
 Types:Legendary Creature Cat Pokémon
-PT:3/3
+PT:2/2
 K:Double strike
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigCharm | TriggerDescription$ When CARDNAME enters the battlefield, ABILITY
 SVar:TrigCharm:DB$ Charm | Choices$ DBGainCtrl,DBSearch

@@ -123,7 +123,7 @@ Foil=NotSupported
 111 C Rhyhorn
 112 R Rhydon
 113 R Chansey
-114 U Tangela
+114 R Tangela
 115 R Kangaskhan
 116 C Horsea
 117 U Seadra
@@ -175,7 +175,7 @@ Foil=NotSupported
 163 C Hoothoot
 164 R Noctowl
 165 U Ledyba
-166 R Ledian
+166 U Ledian
 167 C Spinarak
 168 U Ariados
 169 R Crobat
@@ -227,7 +227,7 @@ Foil=NotSupported
 215 U Sneasel
 216 C Teddiursa
 217 R Ursaring
-218 C Slugma
+218 U Slugma
 219 U Magcargo
 220 C Swinub
 221 R Piloswine
@@ -286,7 +286,7 @@ Foil=NotSupported
 9964 C Wild Gastly
 9965 C Wild Charmander
 9966 C Wild Vulpix
-9967 U Wild Ninetales
+9967 C Wild Ninetales
 9968 U Wild Arcanine
 9969 C Wild Cyndaquil
 9970 C Wild Typhlosion

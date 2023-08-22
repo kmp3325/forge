@@ -1,8 +1,8 @@
 Name:Cyndaquil
-ManaCost:1 R
+ManaCost:R
 Types:Creature Mouse Pokémon
 PT:1/1
-S:Mode$ Continuous | Affected$ Card.Self | AddToughness$ X | Description$ CARDNAME gets +0/+1 for each burn counter on it. If it's sunny, it gets +0/+2 for each burn counter on it instead.
+S:Mode$ Continuous | Affected$ Card.Self | AddToughness$ SUN | Description$ CARDNAME gets +0/+1 for each burn counter on it. If it's sunny, it gets +0/+2 for each burn counter on it instead.
 SVar:SUN:Count$Sunny.Y.X
 SVar:X:Count$CardCounters.BURN
 SVar:Y:Count$CardCounters.BURN/Twice

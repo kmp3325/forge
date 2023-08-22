@@ -2,9 +2,10 @@ Name:Wild Rhydon
 ManaCost:5 G G
 Types:Creature Dinosaur Rhino Pokémon
 PT:5/5
-T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigMove | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters the battlefield, you may move any number of counters from target creature onto CARDNAME. If any counters are moved this way, destroy that creature.
-SVar:TrigMove:DB$ MoveCounter | ValidTgts$ Creature | TgtPrompt$ Select target creature | CounterType$ Any | CounterNum$ Any | Defined$ Self | SubAbility$ DBDestroy
-SVar:DBDestroy:DB$ Destroy | Defined$ Targeted
-Oracle:When Wild Rhydon enters the battlefield, you may move any number of counters from target creature onto Wild Rhydon. If any counters are moved this way, destroy that creature.
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigRepeat | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters the battlefield, it deals 1 damage to target creature X times.
+SVar:TrigRepeat:DB$ Repeat | ValidTgts$ Creature | TgtPrompt$ Select target creature | RepeatSubAbility$ TrigDmg | MaxRepeat$ X | StackDescription$ SpellDescription
+SVar:X:Count$xPaid
+SVar:TrigDmg:DB$ DealDamage | Defined$ Targeted | NumDmg$ 1
+Oracle:When Wild Rhydon enters the battlefield, it deals 1 damage to target creature X times.
 
 SVar:SoundEffect:rhydon.mp3

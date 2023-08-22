@@ -4,11 +4,10 @@ Types:Creature Ooze Horror Pokémon
 PT:2/6
 K:Mutate onto:3 B B B:Grimer:3/8
 K:Caustic
-T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ At the beginning of your upkeep, put a slime counter on target creature.
-SVar:TrigPutCounter:DB$ PutCounter | IsCurse$ True | ValidTgts$ Creature | TgtPrompt$ Select target creature | CounterType$ SLIME | CounterNum$ 1 | AILogic$ Curse
-S:Mode$ Continuous | Affected$ Creature.counters_GE1_SLIME | AddPower$ -1 | AddToughness$ -1 | Description$ Creatures with slime counters on them get -1/-1 and block Muk each combat if able.
-K:MustBeBlockedByAll:Creature.counters_GE1_SLIME:Each creature with a slime counter on it gets -1/-1 and must block Muk each combat if able.
-Oracle:Mutate onto Grimer {3}{B}{B}{B} [3/8]\nCaustic\nCreatures with slime counters on them get -1/-1 and block Muk each combat if able.\nAt the beginning of your upkeep, put a slime counter on target creature.
+T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ At the beginning of your upkeep, put a slime counter on target non-Ooze creature.
+SVar:TrigPutCounter:DB$ PutCounter | IsCurse$ True | ValidTgts$ Creature.nonOoze | TgtPrompt$ Select target creature | CounterType$ SLIME | CounterNum$ 1 | AILogic$ Curse
+K:MustBeBlockedByAll:Creature.counters_GE1_SLIME:Creatures with slime counters on them block Muk each combat if able.
+Oracle:Mutate onto Grimer {3}{B}{B}{B} [3/8]\nCaustic\nAt the beginning of your upkeep, put a slime counter on target non-Ooze creature.\nCreatures with slime counters on them block Muk each combat if able.
 
 DeckHints:Name$Grimer
 SVar:SoundEffect:muk.mp3

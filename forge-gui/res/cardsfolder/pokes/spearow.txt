@@ -3,12 +3,8 @@ ManaCost:1 W
 Types:Creature Bird Pokémon
 PT:1/1
 K:Flying
-A:AB$ ChangeZone | Cost$ 1 W T | Origin$ Library | Destination$ Battlefield | Tapped$ True | ChangeType$ Card.namedSpearow | ShuffleNonMandatory$ True | SubAbility$ FetchFearow | SpellDescription$ Search your library for a card named Spearow and put it onto the battlefield tapped, then shuffle. Then if you control three or more creatures named Spearow, you may search your library for a card named Fearow, reveal it, put it into your hand, then shuffle and you may cast any spells named Fearow without paying their mutate costs until the end of your next turn.
-SVar:FetchFearow:DB$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Card.namedFearow | ShuffleNonMandatory$ True | OptionalDecider$ You | ConditionCheckSVar$ X | ConditionSVarCompare$ GE3 | SubAbility$ DBEffect | Description$ Then if you control three or more creatures named Spearow, you may search your library for a card named Fearow, reveal it, put it into your hand, then shuffle and you may cast any spells named Fearow without paying their mutate costs until the end of your next turn.
-SVar:X:Count$NamedYouCtrl.Spearow
-SVar:DBEffect:DB$ Effect | StaticAbilities$ FreeFearow | Duration$ UntilTheEndOfYourNextTurn
-SVar:FreeFearow:Mode$ Continuous | Affected$ Creature.YouOwn+namedFearow | AffectedZone$ Hand | AddKeyword$ Mutate onto:0:Spearow:4/4 | Description$ You may cast any spells named Fearow without paying their mutate costs until the end of your next turn.
-Oracle:Flying\n{1}{W}, {T}: Search your library for a card named Spearow and put it onto the battlefield tapped, then shuffle. Then if you control three or more creatures named Spearow, you may search your library for a card named Fearow, put it into your hand, then shuffle and you may cast any spells named Fearow without paying their mutate costs until the end of your next turn.
+A:AB$ ChangeZone | Cost$ 1 W T | Origin$ Library | Destination$ Battlefield | Tapped$ True | ChangeType$ Card.namedSpearow | SpellDescription$ Search your library for a card named Spearow and put it onto the battlefield tapped, then shuffle.
+Oracle:Flying\n{1}{W}, {T}: Search your library for a card named ~ and put it onto the battlefield tapped, then shuffle.
 
 DeckNeeds:Name$Fearow
 SVar:SoundEffect:spearow.mp3

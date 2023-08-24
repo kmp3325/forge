@@ -3,12 +3,13 @@ ManaCost:2 U R R
 Types:Creature Sheep Pokémon
 PT:4/4
 K:Mutate onto:2 U R R:Flaaffy:5/5
-T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, put a stun counter on each of up to X target creatures, where X is CARDNAME's power.
-T:Mode$ Mutates | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigPutCounter | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, put a stun counter on each of up to X target creatures, where X is CARDNAME's power.
-SVar:TrigPutCounter:DB$ PutCounter | IsCurse$ True | CounterType$ STUN | TargetMin$ 0 | TargetMax$ X | ValidTgts$ Creature | TgtPrompt$ Select up to X target creatures
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigTap | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, tap up to X target creatures, where X is CARDNAME's power. Put a stun counter on each of them.
+T:Mode$ Mutates | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigTap | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, tap up to X target creatures, where X is CARDNAME's power. Put a stun counter on each of them.
+SVar:TrigTap:DB$ Tap | Defined$ Targeted | TargetMin$ 0 | TargetMax$ X | ValidTgts$ Creature | TgtPrompt$ Select up to X target creatures | SubAbility$ TrigPutCounter
 SVar:X:Count$CardPower
-A:AB$ DamageAll | Cost$ U R | ValidCards$ Creature.YouDontCtrl+counters_GE1_STUN | NumDmg$ 1 | ValidDescription$ each creature you don't control with a stun counter on it. | SpellDescription$ CARDNAME deals 1 damage to each creature you don't control with a stun counter on it.
-Oracle:Mutate onto Flaaffy {2}{U}{R}{R} [5/5]\nWhenever Ampharos enters the battlefield or mutates, put a stun counter on each of up to X target creatures, where X is Ampharos's power.\n{U}{R}: Ampharos deals 1 damage to each creature you don't control with a stun counter on it.
+SVar:TrigPutCounter:DB$ PutCounter | IsCurse$ True | CounterType$ STUN | Defined$ Targeted
+A:AB$ DamageAll | Cost$ UR | ValidCards$ Creature.YouDontCtrl+counters_GE1_STUN | NumDmg$ 1 | ValidDescription$ each creature you don't control with a stun counter on it. | SpellDescription$ CARDNAME deals 1 damage to each creature you don't control with a stun counter on it.
+Oracle:Mutate onto Flaaffy {2}{U}{R}{R} [5/5]\nWhenever Ampharos enters the battlefield or mutates, tap up to X target creatures, where X is Ampharos's power. Put a stun counter on each of them.\n{UR}: Ampharos deals 1 damage to each creature you don't control with a stun counter on it.
 
 DeckHints:Name$Flaaffy
 SVar:SoundEffect:ampharos.mp3

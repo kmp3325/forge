@@ -4,11 +4,11 @@ Types:Artifact Creature Construct Pokémon
 PT:4/3
 K:Mutate onto:5 UR:Magnemite:5/4
 K:Steel skin
-T:Mode$ Mutates | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, put a stun counter on each of up to three target creatures. Tap those creatures.
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, put a stun counter on each of up to three target creatures. Tap those creatures.
-SVar:TrigPutCounter:DB$ PutCounter | IsCurse$ True | ValidTgts$ Creature | TgtPrompt$ Select target creature | TargetMin$ 0 | TargetMax$ 3 | CounterType$ STUN | CounterNum$ 1 | SubAbility$ TrigTap
-SVar:TrigTap:DB$ Tap | Defined$ Targeted
-Oracle:Mutate onto Magnemite {5}{UR} [5/4]\nSteel skin\nWhenever Magneton enters the battlefield or mutates, put a stun counter on each of up to three target creatures. Tap those creatures.
+T:Mode$ Mutates | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigTap | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, tap up to three target creatures, then put a stun counter on each of them.
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigTap | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, tap up to three target creatures, then put a stun counter on each of them.
+SVar:TrigTap:DB$ Tap | ValidTgts$ Creature | TgtPrompt$ Select target creature | TargetMin$ 0 | TargetMax$ 3 | SubAbility$ TrigPutCounter
+SVar:TrigPutCounter:DB$ PutCounter | Defined$ Targeted | IsCurse$ True | CounterType$ STUN | CounterNum$ 1
+Oracle:Mutate onto Magnemite {5}{UR} [5/4]\nSteel skin\nWhenever Magneton enters the battlefield or mutates, tap up to three target creatures, then put a stun counter on each of them.
 
 DeckHints:Name$Magnemite
 SVar:SoundEffect:magneton.mp3

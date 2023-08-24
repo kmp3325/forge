@@ -77,6 +77,9 @@ public class Mana {
             if (mp.isPersistentMana() != mp2.isPersistentMana()) {
                 return false;
             }
+            if (mp.isPersistedOverTurnsMana() != mp2.isPersistedOverTurnsMana()) {
+                return false;
+            }
         }
 
         return mp == mp2 || (mp.getManaRestrictions().equals(mp2.getManaRestrictions()) && mp.getExtraManaRestriction().equals(mp2.getExtraManaRestriction()));

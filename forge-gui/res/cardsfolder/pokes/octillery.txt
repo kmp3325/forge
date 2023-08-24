@@ -3,13 +3,15 @@ ManaCost:2 U
 Types:Creature Octopus Pokémon
 PT:3/2
 K:Mutate onto:2 U:Remoraid:4/3
-A:AB$ Effect | Cost$ U T | SubAbility$ Eject | ValidTgts$ Creature.powerLEX | StaticAbilities$ Unblockable | RememberObjects$ Targeted | SpellDescription$ Target creature with power less than or equal to CARDNAME's power can't be blocked until end of turn.
-SVar:Unblockable:Mode$ CantBlockBy | ValidAttacker$ Card.IsRemembered | Description$ {c:Targeted} can't be blocked until end of turn.
-SVar:Eject:DB$ ChangeZone | Defined$ Self | Origin$ Command | Destination$ Exile
+T:Mode$ PhaseIn | ValidCard$ Creature.YouCtrl | Execute$ DBPutCounter | TriggerZones$ Battlefield | TriggerDescription$ Whenever a creature you control phases in, put a +1/+1 counter on it.
+SVar:DBPutCounter:DB$ PutCounter | CounterType$ P1P1 | CounterNum$ 1 | Defined$ TriggeredCardLKICopy
+T:Mode$ PhaseIn | ValidCard$ Card.Self | OptionalDecider$ You | Execute$ DBTap | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME phases in, you may tap it. When you do, tap target creature with power less than CARDNAME's power and put a stun counter on it.
+SVar:DBTap:DB$ Tap | Defined$ Self | SubAbility$ TrigTap
+SVar:TrigTap:DB$ Tap | ValidTgts$ Creature.powerLTX | TgtPrompt$ Select target creature with power less than CARDNAME's power | SubAbility$ TrigStun
+SVar:TrigStun:DB$ PutCounter | Defined$ Targeted | CounterType$ STUN | CounterNum$ 1
 SVar:X:Count$CardPower
-T:Mode$ CounterAdded | ValidCard$ Creature.YouCtrl | TriggerZones$ Battlefield | CounterType$ P1P1 | Execute$ TrigPutCounter | ActivationLimit$ 1 | TriggerDescription$ Whenever a +1/+1 counter is put on a creature you control, put a +1/+1 counter on CARDNAME. This ability triggers only once each turn.
-SVar:TrigPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1
-Oracle:Mutate onto Remoraid {4}{U} [4/3]\nWhenever a +1/+1 counter is put on a creature you control, put a +1/+1 counter on Octillery. This ability triggers only once each turn.\n{U}, {T}: Target creature with power less than or equal to Octillery's power can't be blocked until end of turn.
+A:AB$ Phases | Cost$ U T | ValidTgts$ Creature | TgtPrompt$ Select target creature | SpellDescription$ Target creature phases out.
+Oracle:Mutate onto Remoraid {4}{U} [4/3]\nWhenever a creature you control phases in, put a +1/+1 counter on it.\nWhenever Octillery phases in, you may tap it. When you do, tap target creature with power less than Octillery's power and put a stun counter on it.\n{U}, {T}: Target creature phases out.
 
 DeckHints:Name$Remoraid
 SVar:SoundEffect:octillery.mp3

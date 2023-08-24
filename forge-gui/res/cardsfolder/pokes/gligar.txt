@@ -3,8 +3,9 @@ ManaCost:2 W
 Types:Creature Scorpion Bat Pokémon
 PT:2/2
 K:Flying
+K:Lifelink
 A:AB$ Pump | Cost$ B | Defined$ Self | KW$ Caustic | SubAbility$ TrigDebuff | ActivationPhases$ Upkeep->Main1 | SpellDescription$ Until end of turn, CARDNAME gains caustic and loses flying. Activate only before combat.
 SVar:TrigDebuff:DB$ Debuff | Defined$ Self | Keywords$ Flying
-Oracle:Flying\n{B}: Until end of turn, Gligar gains caustic and loses flying. Activate only before combat.
+Oracle:Flying, lifelink\n{B}: Until end of turn, Gligar gains caustic and loses flying. Activate only before combat.
 
 SVar:SoundEffect:gligar.mp3

@@ -1,12 +1,17 @@
 Name:Xatu
 ManaCost:3 B
 Types:Creature Bird Pokémon
-PT:3/3
-K:Mutate onto:3 B:Natu:4/4
+PT:3/2
+K:Mutate onto:3 B:Natu:4/3
 K:Flying
-T:Mode$ CounterAdded | ValidCard$ Creature.YouCtrl | TriggerZones$ Battlefield | CounterTypes$ BURN,FROST,STUN,TOXIC,M0M1 | Execute$ TrigCopyCounter | OptionalDecider$ You | TriggerDescription$ Whenever a burn counter, frost counter, stun counter, toxic counter, or -0/-1 counter is put on a creature you control, you may put a counter of that kind on target creature you don't control.
-SVar:TrigCopyCounter:DB$ PutCounter | IsCurse$ True | TriggeredCounterType$ True | ValidTgts$ Creature.YouDontCtrl | TgtPrompt$ Select target creature you don't control | CounterNum$ 1
-Oracle:Mutate onto Natu {3}{B} [4/4]\nFlying\nWhenever a burn counter, frost counter, stun counter, toxic counter, or -0/-1 counter is put on a creature you control, you may put a counter of that kind on target creature you don't control.
+T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | OptionalDecider$ You | IsPresent$ Creature.YouCtrl | PresentZone$ Graveyard | PresentCompare$ GT3 | TriggerZones$ Battlefield | Execute$ TrigReturn | TriggerDescription$ At the beginning of your upkeep, if you have four or more creature cards in your graveyard, you may put target creature card from your graveyard on top of your library. Then if it's foggy, draw a card.
+SVar:TrigReturn:DB$ ChangeZone | TgtPrompt$ Choose target creature card in your graveyard | ValidTgts$ Creature.YouCtrl | Origin$ Graveyard | Destination$ Library | SubAbility$ TrigDraw
+SVar:TrigDraw:DB$ Draw | NumCards$ 1 | Defined$ You | ConditionCheckSVar$ FOG | ConditionSVarCompare$ GE1
+SVar:FOG:Count$Foggy.1.0
+T:Mode$ BecomesTarget | OptionalDecider$ You | ValidTarget$ Creature.inZoneBattlefield+YouCtrl | ValidSource$ Ability | TriggerZones$ Battlefield | Execute$ TrigMill | TriggerDescription$ Whenever a creature you control becomes the target of an ability, you may mill a card and gain 1 life.
+SVar:TrigMill:DB$ Mill | NumCards$ 1 | Defined$ You | SubAbility$ TrigGainLife
+SVar:TrigGainLife:DB$ GainLife | LifeAmount$ 1 | Defined$ You
+Oracle:Mutate onto Natu {3}{B} [4/3]\nAt the beginning of your upkeep, if you have four or more creature cards in your graveyard, you may put target creature card from your graveyard on top of your library. Then if it's foggy, draw a card.\nWhenever a creature you control becomes the target of an ability, you may mill a card and gain 1 life.
 
 DeckHints:Name$Natu
 SVar:SoundEffect:xatu.mp3

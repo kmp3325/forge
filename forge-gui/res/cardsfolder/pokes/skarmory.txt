@@ -4,9 +4,9 @@ Types:Creature Bird Pokémon
 PT:2/5
 K:Flying
 K:Steel skin
-T:Mode$ DamageDoneOnce | Execute$ TrigFeather | ValidTarget$ Card.Self | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME is dealt damage, create a white Equipment artifact token named Skarmory Feather with "Equipped creature gets +1/+1," and Equip {1}.
-SVar:TrigFeather:DB$ Token | TokenAmount$ 1 | TokenScript$ icingdeath_frost_tongue | TokenOwner$ You
-Oracle:Flying, Steel skin\nWhenever Skarmory is dealt damage, create a white Equipment artifact token named Skarmory Feather with "Equipped creature gets +1/+1," and Equip {1}.
+T:Mode$ DamageDoneOnce | Execute$ TrigFeather | ValidTarget$ Card.Self | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME is dealt damage, create a white Equipment artifact token named Skarmory Feather with "Equipped creature gets +1/+1" and Equip {1}.
+SVar:TrigFeather:DB$ Token | TokenAmount$ 1 | TokenScript$ skarmory_feather | TokenOwner$ You
+Oracle:Flying, Steel skin\nWhenever Skarmory is dealt damage, create a white Equipment artifact token named Skarmory Feather with "Equipped creature gets +1/+1" and Equip {1}.
 
 SVar:HasAttackEffect:TRUE
 SVar:SoundEffect:skarmory.mp3

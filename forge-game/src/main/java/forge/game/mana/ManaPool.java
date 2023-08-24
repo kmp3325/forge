@@ -149,9 +149,14 @@ public class ManaPool extends ManaConversionMatrix implements Iterable<Mana> {
         for (Byte b : keys) {
             Collection<Mana> cm = floatingMana.get(b);
             final List<Mana> pMana = Lists.newArrayList();
-            if (isEndOfPhase && !owner.getGame().getPhaseHandler().is(PhaseType.CLEANUP)) {
+            if (isEndOfPhase) {
                 for (final Mana mana : cm) {
-                    if (mana.getManaAbility() != null && mana.getManaAbility().isPersistentMana()) {
+                    if (
+                        mana.getManaAbility() != null && (
+                        (mana.getManaAbility().isPersistentMana() && !owner.getGame().getPhaseHandler().is(PhaseType.CLEANUP))
+                            || (mana.getManaAbility().isPersistedOverTurnsMana())
+                        )
+                    ) {
                         pMana.add(mana);
                     }
                 }

@@ -73,6 +73,7 @@ public class AbilityManaPart implements java.io.Serializable {
     private final String addsCounters;
     private final String triggersWhenSpent;
     private final boolean persistentMana;
+    private final boolean persistOverTurns;
 
     private transient List<Mana> lastManaProduced = Lists.newArrayList();
 
@@ -108,6 +109,7 @@ public class AbilityManaPart implements java.io.Serializable {
         this.addsCounters = params.get("AddsCounters");
         this.triggersWhenSpent = params.get("TriggersWhenSpent");
         this.persistentMana = null != params.get("PersistentMana") && "True".equalsIgnoreCase(params.get("PersistentMana"));
+        this.persistOverTurns = null != params.get("PersistOverTurns") && "True".equalsIgnoreCase(params.get("PersistOverTurns"));
     }
 
     /**
@@ -686,6 +688,10 @@ public class AbilityManaPart implements java.io.Serializable {
      */
     public boolean isPersistentMana() {
         return this.persistentMana;
+    }
+
+    public boolean isPersistedOverTurnsMana() {
+        return this.persistOverTurns;
     }
 
     boolean abilityProducesManaColor(final SpellAbility am, final byte neededColor) {

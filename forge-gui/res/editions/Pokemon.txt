@@ -92,7 +92,7 @@ Foil=NotSupported
 80 U Slowbro
 81 C Magnemite
 82 U Magneton
-83 C Farfetch'd
+83 U Farfetch'd
 84 C Doduo
 85 R Dodrio
 86 C Seel
@@ -275,7 +275,7 @@ Foil=NotSupported
 9953 R Giovanni's Persian
 9954 M Giovanni's Armor
 9955 C Wild Pidgey
-9956 U Wild Pidgeot
+9956 C Wild Pidgeot
 9957 U Wild Raticate
 9958 U Wild Fearow
 9959 U Wild Tauros

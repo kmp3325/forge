@@ -1,4 +1,4 @@
-Name:Stalk Blade
+Name:Leek Blade
 ManaCost:no cost
 Types:Artifact Equipment
 Colors:green

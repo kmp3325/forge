@@ -5,10 +5,10 @@ PT:3/3
 S:Mode$ Continuous | Affected$ Card.Self | AddKeyword$ Flying | CheckSVar$ WIND | SVarCompare$ GE1 | Description$ As long as it's windy, CARDNAME has flying.
 SVar:WIND:Count$Windy.1.0
 S:Mode$ Continuous | Affected$ Card.Self+equipped | AddKeyword$ First strike | Description$ As long as CARDNAME is equipped, it has first strike.
-T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigCreate | TriggerDescription$ When CARDNAME enters the battlefield, create a green Equipment artifact token with “Equipped creature gets +1/+0 and has training” and Equip {1}.
-SVar:TrigCreate:DB$ Token | TokenAmount$ 1 | TokenScript$ stalk_blade | TokenOwner$ You
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigCreate | TriggerDescription$ When CARDNAME enters the battlefield, create a green Equipment artifact token named Leek Blade with “Equipped creature gets +1/+0 and has training” and Equip {1}.
+SVar:TrigCreate:DB$ Token | TokenAmount$ 1 | TokenScript$ leek_blade | TokenOwner$ You
 
-Oracle:As long as it’s windy, Farfetch'd has flying.\nAs long as Farfetch'd is equipped, it has first strike.\nWhen Farfetch'd enters the battlefield, create a green Equipment artifact token with “Equipped creature gets +1/+0 and has training” and Equip {1}.
+Oracle:As long as it’s windy, Farfetch'd has flying.\nAs long as Farfetch'd is equipped, it has first strike.\nWhen Farfetch'd enters the battlefield, create a green Equipment artifact token named Leek Blade with “Equipped creature gets +1/+0 and has training” and Equip {1}.
 
 SVar:EquipMe:Once
 SVar:SoundEffect:farfetchd.mp3

@@ -3,8 +3,10 @@ ManaCost:5 U
 Types:Creature Fish Pokémon
 PT:4/4
 K:Mutate onto:5 U:Horsea:5/5
+S:Mode$ ReduceCost | ValidCard$ Card.Self | Type$ Ability | Amount$ U | CheckSVar$ RAIN | SVarCompare$ GE1 | Description$ As long as it's rainy, CARDNAME's activated abilities cost {U} less to activate.
+SVar:RAIN:Count$Rainy.1.0
 A:AB$ Counter | Cost$ 1 U U | TargetType$ Activated,Triggered | ValidTgts$ Card,Emblem | TgtPrompt$ Select target activated or triggered ability | SpellDescription$ Counter target activated or triggered ability.
-Oracle:Mutate onto Horsea {5}{U} [5/5]\n{1}{U}{U}: Counter target activated or triggered ability.
+Oracle:Mutate onto Horsea {5}{U} [5/5]\nAs long as it's rainy, Seadra's activated abilities cost {U} less to activate.\n{1}{U}{U}: Counter target activated or triggered ability.
 
 DeckHints:Name$Horsea
 DeckHints:Name$Kingdra

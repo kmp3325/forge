@@ -1,8 +1,8 @@
 Name:Scizor
 ManaCost:4 RG RG
 Types:Creature Insect Pokémon
-PT:5/5
-K:Mutate onto:4 RG RG:Scyther:6/5
+PT:5/3
+K:Mutate onto:4 RG RG:Scyther:6/3
 K:First strike
 K:Steel skin
 T:Mode$ Phase | Phase$ BeginCombat | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ At the beginning of combat on your turn, put a prey counter on target creature you don't control, then CARDNAME deals damage to that creature equal to the number of prey counters on it.

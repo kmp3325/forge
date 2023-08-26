@@ -1,5 +1,5 @@
 Name:Tauros
-ManaCost:2 C
+ManaCost:6
 Types:Creature Aurochs Pokémon
 PT:3/3
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigScry | TriggerDescrtiption$ When CARDNAME enters the battlefield, scry 3, then you may reveal the top card of your library. If it's a creature card, draw a card.

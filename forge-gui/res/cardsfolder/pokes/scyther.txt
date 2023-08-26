@@ -1,13 +1,16 @@
 Name:Scyther
-ManaCost:4 RG
+ManaCost:2 RG
 Types:Creature Insect Pokémon
 PT:3/3
 K:Flying
-T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigWeather | TriggerDescription$ When CARDNAME enters the battlefield, it becomes sunny.
-SVar:TrigWeather:DB$ Weather | Value$ Sunny
-A:AB$ Pump | Cost$ X RG RG | Defined$ Self | NumAtt$ +X | SpellDescription$ CARDNAME gets +X/+0 until end of turn.
-SVar:X:Count$xPaid
-Oracle:Flying\n{X}{RG}{RG}: Scyther gets +X/+0 until end of turn.
+S:Mode$ Continuous | Affected$ Card.Self | AddToughness$ X | Description$ CARDNAME gets +1/+0 for each speed counter on it.
+SVar:X:Count$CardCounters.SPEED
+T:Mode$ BecomesTarget | ValidTarget$ Card.Self | ValidSource$ Ability | TriggerZones$ Battlefield | Execute$ TrigSpeed | TriggerDescription$ Whenever CARDNAME becomes the target of an ability, put a speed counter on it and it gains first strike until end of turn. Then you may flip a coin. If you win the flip, counter that ability.
+SVar:TrigSpeed:DB$ PutCounter | Defined$ Self | CounterType$ SPEED | CounterNum$ 1 | SubAbility$ TrigPump
+SVar:TrigPump:DB$ Pump | Defined$ Self | KW$ First strike | SubAbility$ TrigFlip
+SVar:TrigFlip:DB$ FlipACoin | WinSubAbility$ TrigCounter | Optional$ True
+SVar:TrigCounter:DB$ Counter | Defined$ TriggeredSourceSA
+Oracle:Flying\nScyther gets +1/+0 for each speed counter on it.\nWhenever Scyther becomes the target of an ability, put a speed counter on it and it gains first strike until end of turn. Then you may flip a coin. If you win the flip, counter that ability.
 
 DeckHints:Name$Scizor
 SVar:SoundEffect:scyther.mp3

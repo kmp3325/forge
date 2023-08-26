@@ -1,10 +1,10 @@
 Name:Furret
-ManaCost:C
+ManaCost:3
 Types:Creature Ferret Pokémon
 PT:2/2
-K:Mutate onto:C:Sentret:3/3
+K:Mutate onto:3:Sentret:3/3
 A:AB$ RemoveCounter | Cost$ T | CounterType$ SHIELD | CounterNum$ All | ValidTgts$ Creature | TgtPrompt$ Select target creature | SpellDescription$ Remove all shield counters from target creature.
-Oracle:Mutate onto Sentret {2} [3/3]\n{T}: Remove all shield counters from target creature.
+Oracle:Mutate onto Sentret {3} [3/3]\n{T}: Remove all shield counters from target creature.
 
 DeckHints:Name$Sentret
 SVar:SoundEffect:furret.mp3

@@ -1,5 +1,5 @@
 Name:Sentret
-ManaCost:C
+ManaCost:2
 Types:Creature Squirrel Pokémon
 PT:1/1
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigReturn | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters the battlefield, you may return target land card from your graveyard to your hand.

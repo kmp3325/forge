@@ -261,64 +261,65 @@ Foil=NotSupported
 249 M Lugia
 250 M Ho-Oh
 251 M Celebi
-9942 U Team Rocket's Beedrill
-9943 U Team Rocket's Arbok
-9944 C Team Rocket's Meowth
-9945 U Team Rocket's Tentacruel
-9946 U Team Rocket's Hitmonchan
-9947 C Team Rocket's Lickitung
-9948 U Team Rocket's Weezing
-9949 U Team Rocket's Rhydon
-9950 C Team Rocket's Magikarp
-9951 M Team Rocket's Gyarados
+9941 U Team Rocket's Beedrill
+9942 U Team Rocket's Arbok
+9943 C Team Rocket's Meowth
+9944 U Team Rocket's Tentacruel
+9945 U Team Rocket's Hitmonchan
+9946 C Team Rocket's Lickitung
+9947 U Team Rocket's Weezing
+9948 U Team Rocket's Rhydon
+9949 C Team Rocket's Magikarp
+9950 M Team Rocket's Gyarados
 9951 R Team Rocket's Tyranitar
-9953 R Giovanni's Persian
-9954 M Giovanni's Armor
-9955 C Wild Pidgey
-9956 C Wild Pidgeot
-9957 U Wild Raticate
-9958 U Wild Fearow
-9959 U Wild Tauros
-9960 U Wild Poliwhirl
-9961 U Wild Tentacool
-9962 U Wild Lapras
-9963 C Wild Zubat
-9964 C Wild Gastly
-9965 C Wild Charmander
-9966 C Wild Vulpix
-9967 C Wild Ninetales
-9968 U Wild Arcanine
-9969 C Wild Cyndaquil
-9970 C Wild Typhlosion
-9971 C Wild Venusaur
-9972 U Wild Beedrill
-9973 C Wild Onix
-9974 U Wild Rhydon
-9975 U Wild Scyther
-9976 C Wild Kabutops
-9977 C Wild Bellossom
-9978 M Master Ball
-9979 C Mahogany Town Gym
-9980 C Violet City Gym
-9981 C Viridian City Gym
-9982 C Cianwood City Gym
-9983 C Olivine City Gym
-9984 C Saffron City Gym
-9985 C Vermilion City Gym
-9986 C Cerulean City Gym
-9987 C Ecruteak City Gym
-9988 C Azalea Town Gym
-9989 C Cinnabar Island Gym
-9990 L Snow-Covered Plains
-9991 L Snow-Covered Island
-9992 L Snow-Covered Swamp
-9993 L Snow-Covered Mountain
-9994 L Snow-Covered Forest
-9995 L Plains
-9996 L Island
-9997 L Swamp
-9998 L Mountain
-9999 L Forest
+9952 R Giovanni's Persian
+9953 M Giovanni's Armor
+9954 C Wild Pidgey
+9955 C Wild Pidgeot
+9956 U Wild Raticate
+9957 U Wild Fearow
+9958 U Wild Tauros
+9959 U Wild Poliwhirl
+9960 U Wild Tentacool
+9961 U Wild Lapras
+9962 C Wild Zubat
+9963 C Wild Gastly
+9964 C Wild Charmander
+9965 C Wild Vulpix
+9966 C Wild Ninetales
+9967 U Wild Arcanine
+9968 C Wild Cyndaquil
+9969 C Wild Typhlosion
+9970 C Wild Venusaur
+9971 U Wild Beedrill
+9972 C Wild Onix
+9973 U Wild Rhydon
+9974 U Wild Scyther
+9975 C Wild Kabutops
+9976 C Wild Bellossom
+9977 M Master Ball
+9978 C Mahogany Town Gym
+9979 C Violet City Gym
+9980 C Viridian City Gym
+9981 C Cianwood City Gym
+9982 C Olivine City Gym
+9983 C Saffron City Gym
+9984 C Vermilion City Gym
+9985 C Cerulean City Gym
+9986 C Ecruteak City Gym
+9987 C Azalea Town Gym
+9988 C Cinnabar Island Gym
+9989 L Snow-Covered Plains
+9990 L Snow-Covered Island
+9991 L Snow-Covered Swamp
+9992 L Snow-Covered Mountain
+9993 L Snow-Covered Forest
+9994 L Plains
+9995 L Island
+9996 L Swamp
+9997 L Mountain
+9998 L Forest
+9999 L Wastes
 
 [Snow Lands]
 5 Snow-Covered Plains|PKM
@@ -345,3 +346,4 @@ g_0_1_plant_parasect
 c_a_treasure_sac
 c_a_food_sac
 skarmory_feather
+leek_blade

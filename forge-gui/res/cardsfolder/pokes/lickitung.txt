@@ -1,5 +1,5 @@
 Name:Lickitung
-ManaCost:3 C
+ManaCost:5
 Types:Creature Frog Horror Pokémon
 PT:4/4
 A:AB$ Debuff | Cost$ 2 | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ DBPhase | SpellDescription$ Target creature can't phase out until end of turn.

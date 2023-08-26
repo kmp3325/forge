@@ -1,5 +1,5 @@
 Name:Stantler
-ManaCost:1 C
+ManaCost:3
 Types:Creature Caribou Pokémon
 PT:2/2
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | OptionalDecider$ You | Execute$ TrigRemoveStun | TriggerDescription$ When CARDNAME enters the battlefield, you may remove a stun counter from target creature and untap it.

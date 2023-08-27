@@ -151,6 +151,7 @@ public enum SpellApiToAi {
             .put(ApiType.ReorderZone, AlwaysPlayAi.class)
             .put(ApiType.Repeat, RepeatAi.class)
             .put(ApiType.RepeatEach, RepeatEachAi.class)
+            .put(ApiType.ReplacePhaseOutCounters, AlwaysPlayAi.class)
             .put(ApiType.ReplaceCounter, AlwaysPlayAi.class)
             .put(ApiType.ReplaceEffect, AlwaysPlayAi.class)
             .put(ApiType.ReplaceDamage, ReplaceDamageAi.class)

@@ -1,6 +1,6 @@
 Name:Male Nidoran
 ManaCost:1 B
-Types: Creature Dinosaur Rabbit Pokémon
+Types: Creature Rhino Rabbit Pokémon
 PT: 1/1
 K:Caustic
 Oracle:Caustic

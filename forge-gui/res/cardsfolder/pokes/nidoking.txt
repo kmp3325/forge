@@ -1,6 +1,6 @@
 Name:Nidoking
 ManaCost:4 B R
-Types:Creature Dinosaur Rabbit Pokémon
+Types:Creature Rhino Rabbit Pokémon
 PT:6/4
 K:Mutate onto:4 B R:Nidorino:7/5
 T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ Earthquake | TriggerDescription$ Whenever CARDNAME attacks, it deals 1 damage to each other creature without flying.

@@ -4,11 +4,14 @@ Types:Creature Bird Pokémon
 PT:3/4
 K:Mutate onto:3 W W:Hoothoot:4/5
 K:Flying
-T:Mode$ PhaseIn | ValidCard$ Creature.YouCtrl | Execute$ TrigRemoveToxic | TriggerDescription$ Whenever a creature you control phases in, you may remove up to two toxic counters from it.
-SVar:TrigRemoveToxic:DB$ RemoveCounter | CounterType$ TOXIC | CounterNum$ 2 | UpTo$ True | Defined$ TriggeredTargetLKICopy
-S:Mode$ Continuous | Affected$ Creature.Bird+Other+YouCtrl | AddPower$ X | AddToughness$ X | Description$ Other Bird creatures you control get +1/+1. If it's windy, they get +2/+2 instead.
+K:Vigilance
+T:Mode$ PhaseIn | ValidCard$ Creature.YouCtrl | Execute$ TrigRemoveToxic | TriggerDescription$ Whenever a creature you control phases in, you may remove up to two status counters from it, then scry 1. It becomes windy.
+SVar:TrigRemoveToxic:DB$ RemoveCounter | CounterType$ TOXIC,STUN,FROST,BURN | CounterNum$ 2 | UpTo$ True | Defined$ TriggeredTargetLKICopy | SubAbility$ TrigScry
+SVar:TrigScry:DB$ Scry | Optional$ True | ScryNum$ 1 | Defined$ You | SubAbility$ TrigWeather
+SVar:TrigWeather:DB$ Weather | Value$ Windy
+S:Mode$ Continuous | Affected$ Creature.Bird+Other+YouCtrl | AddPower$ X | AddToughness$ X | Description$ Other Bird creatures you control get +1/+1. If it's windy, instead they get +1/+1 and have vigilance.
 SVar:X:Count$Windy.2.1
-Oracle:Mutate onto Hoothoot {3}{W}{W} [4/5]\nFlying\nOther Bird creatures you control get +1/+1. If it's windy, they get +2/+2 instead.\nWhenever a creature you control phases in, you may remove up to two toxic counters from it.
+Oracle:Mutate onto Hoothoot {3}{W}{W} [4/5]\nFlying, vigilance\nOther Bird creatures you control get +1/+1. If it's windy, instead they get +1/+1 and have vigilance.\nWhenever a creature you control phases in, you may remove up to two status counters from it, then scry 1. It becomes windy.
 
 DeckHints:Name$Hoothoot
 DeckHints:Type$Bird

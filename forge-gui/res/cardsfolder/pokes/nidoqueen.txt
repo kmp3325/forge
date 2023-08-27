@@ -1,6 +1,6 @@
 Name:Nidoqueen
 ManaCost:4 B R
-Types:Creature Dinosaur Rabbit Pokémon
+Types:Creature Rhino Rabbit Pokémon
 PT:5/5
 K:Mutate onto:4 B R:Nidorina:6/6
 A:AB$ GainControl | Cost$ B B R | ActivationLimit$ 1 | ValidTgts$ Creature.powerLEX | TgtPrompt$ Select target creature with power less than or equal to the number of creatures you control | ConditionCheckSVar$ FOG | ConditionSVarCompare$ GE1 | SpellDescription$ Gain control of target creature with power less than or equal to the number of creatures you control. Activate only once each turn and only if it's foggy.

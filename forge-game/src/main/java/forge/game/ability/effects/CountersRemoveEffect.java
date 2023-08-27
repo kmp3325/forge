@@ -1,16 +1,20 @@
 package forge.game.ability.effects;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import forge.game.card.*;
 import org.apache.commons.lang3.tuple.Pair;
 
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import com.google.common.collect.Sets;
 
 import forge.game.Game;
 import forge.game.GameEntity;
@@ -90,7 +94,7 @@ public class CountersRemoveEffect extends SpellAbilityEffect {
 
         CounterType counterType = null;
 
-        if (!type.equals("Any") && !type.equals("All")) {
+        if (!type.equals("Any") && !type.equals("All") && !type.contains(",")) {
             try {
                 counterType = CounterType.getType(type);
             } catch (Exception e) {
@@ -116,7 +120,9 @@ public class CountersRemoveEffect extends SpellAbilityEffect {
                     cntToRemove = tgtPlayer.getCounters(counterType);
                 }
                 if (type.equals("Any")) {
-                    removeAnyType(tgtPlayer, cntToRemove, sa, false);
+                    removeAnyType(tgtPlayer, cntToRemove, sa, false, Collections.emptySet());
+                } else if (type.contains(",")) {
+                    removeAnyType(tgtPlayer, cntToRemove, sa, false, Arrays.stream(type.split(",")).map(CounterType::getType).collect(Collectors.toSet()));
                 } else {
                     tgtPlayer.subtractCounter(counterType, cntToRemove);
                 }
@@ -176,7 +182,9 @@ public class CountersRemoveEffect extends SpellAbilityEffect {
             }
 
             if (type.equals("Any")) {
-                removeAnyType(gameCard, cntToRemove, sa, num.equals("Any"));
+                removeAnyType(gameCard, cntToRemove, sa, num.equals("Any"), Collections.emptySet());
+            } else if (type.contains(",")) {
+                removeAnyType(gameCard, cntToRemove, sa, num.equals("Any"), Arrays.stream(type.split(",")).map(CounterType::getType).collect(Collectors.toSet()));
             } else {
                 cntToRemove = Math.min(cntToRemove, gameCard.getCounters(counterType));
 
@@ -210,7 +218,7 @@ public class CountersRemoveEffect extends SpellAbilityEffect {
         }
     }
 
-    protected void removeAnyType(GameEntity entity, int cntToRemove, SpellAbility sa, boolean isAnyNum) {
+    protected void removeAnyType(GameEntity entity, int cntToRemove, SpellAbility sa, boolean isAnyNum, Set<CounterType> types) {
         boolean rememberRemoved = sa.hasParam("RememberRemoved");
 
         final Card card = sa.getHostCard();
@@ -219,7 +227,9 @@ public class CountersRemoveEffect extends SpellAbilityEffect {
 
         PlayerController pc = player.getController();
 
-        Set<CounterType> counterTypesLeftToReview = isAnyNum ? new HashSet<>(entity.getCounters().keySet()) : Collections.emptySet();
+        Set<CounterType> validCounterTypesOnCard = filterCounterTypes(entity.getCounters().keySet(), types);
+
+        Set<CounterType> counterTypesLeftToReview = isAnyNum ? validCounterTypesOnCard : Collections.emptySet();
         while ((cntToRemove > 0 || !counterTypesLeftToReview.isEmpty()) && entity.hasCounters()) {
             final Map<CounterType, Integer> tgtCounters = entity.getCounters();
             Map<String, Object> params = Maps.newHashMap();
@@ -227,7 +237,7 @@ public class CountersRemoveEffect extends SpellAbilityEffect {
 
             String prompt = Localizer.getInstance().getMessage("lblSelectCountersTypeToRemove");
             CounterType chosenType = pc.chooseCounterType(
-                    ImmutableList.copyOf(tgtCounters.keySet()), sa, prompt, params);
+                    ImmutableList.copyOf(filterCounterTypes(tgtCounters.keySet(), types)), sa, prompt, params);
             if (!counterTypesLeftToReview.isEmpty()) {
                 counterTypesLeftToReview.remove(chosenType);
             }
@@ -254,6 +264,14 @@ public class CountersRemoveEffect extends SpellAbilityEffect {
             } else if (sa.hasParam("UpTo")) {
                 break;
             }
+        }
+    }
+
+    private Set<CounterType> filterCounterTypes(Set<CounterType> countersOnCard, Set<CounterType> validTypes) {
+        if (validTypes.isEmpty()) {
+            return ImmutableSet.copyOf(countersOnCard);
+        } else {
+            return Sets.intersection(countersOnCard, validTypes);
         }
     }
 }

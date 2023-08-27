@@ -2,9 +2,9 @@ Name:Dratini
 ManaCost:4 U
 Types:Creature Dragon Pokémon
 PT:3/3
-T:Mode$ WeatherChanged | Execute$ TrigRemoveCounters | TriggerDescription$ Whenever the weather changes, remove all toxic counters from CARDNAME.
-SVar:TrigRemoveCounters:DB$ RemoveCounter | CounterType$ TOXIC | CounterNum$ All | Defined$ Self
-Oracle:Whenever the weather changes, remove all toxic counters from CARDNAME.
+T:Mode$ WeatherChanged | Execute$ TrigRemoveCounters | TriggerDescription$ Whenever the weather changes, remove all status counters from CARDNAME.
+SVar:TrigRemoveCounters:DB$ RemoveCounter | CounterType$ TOXIC,STUN,FROST,BURN | CounterNum$ All | Defined$ Self
+Oracle:Whenever the weather changes, remove all status counters from CARDNAME.
 
 DeckHints:Name$Dragonair
 SVar:SoundEffect:dratini.mp3

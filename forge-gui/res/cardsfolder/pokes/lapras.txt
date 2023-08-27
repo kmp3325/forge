@@ -1,14 +1,18 @@
 Name:Lapras
-ManaCost:4 U U
+ManaCost:3 U U
 Types:Snow Creature Dinosaur Pokémon
-PT:6/6
-T:Mode$ Attacks | ValidCard$ Card.Self | CheckSVar$ SNOW | SVarCompare$ GE1 | Execute$ TrigCantBlock | TriggerDescription$ Whenever CARDNAME attacks, if it's snowy, another target creature can't be blocked this turn.
-SVar:SNOW:Count$Snowy.1.0
-SVar:TrigCantBlock:DB$ Effect | TgtPrompt$ Select up to one target attacking creature | ValidTgts$ Creature.attacking | TargetMin$ 0 | TargetMax$ 1 | RememberObjects$ Targeted | ExileOnMoved$ Battlefield | StaticAbilities$ Unblockable | AILogic$ Pump
-SVar:Unblockable:Mode$ CantBlockBy | ValidAttacker$ Card.IsRemembered | Description$ This creature can't be blocked this turn.
-A:AB$ Weather | Cost$ 1 S | Value$ Snowy | SubAbility$ DBPutCounter | SorcerySpeed$ True | SpellDescription$ Put two frost counters on target creature. It becomes snowy. Activate only as a sorcery.
-SVar:DBPutCounter:DB$ PutCounter | IsCurse$ True | ValidTgts$ Creature | CounterType$ FROST | CounterNum$ 2 | TgtPrompt$ Select target creature
-Oracle: Whenever Lapras attacks, if it's snowy, another target creature can't be blocked this turn.\n{1}{S}: Put two frost counters on target creature. It becomes snowy. Activate only as a sorcery.
+PT:4/6
+S:Mode$ CantPutCounter | ValidCard$ Creature.YouCtrl | CounterType$ TOXIC,STUN,FROST,BURN | CheckSVar$ WEATHER | SVarCompare$ GE1 | Description$ As long as it's rainy or snowy, creatures you control can't have status counters put on them.
+SVar:WEATHER:Count$Rainy.1.SNOW
+SVar:SNOW:Counter$Snowy.1.0
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigIslandwalk | TriggerDescription$ Whenever CARDNAME attacks, another target creature gains Islandwalk until end of turn.
+SVar:TrigIslandwalk:DB$ Pump | ValidTgts$ Creature.YouCtrl+Other | TgtPrompt$ Select another target creature you control | KW$ Islandwalk
+A:AB$ Branch | Cost$ 1 U | BranchConditionSVar$ S | BranchConditionSVarCompare$ EQ1 | TrueSubAbility$ DBEither | FalseSubAbility$ DBRain
+SVar:S:Count$CastTotalManaSpent Snow
+SVar:DBEither:DB$ GenericChoice | Choices$ DBRain,DBSnow
+SVar:DBRain:DB$ Weather | Value$ Rainy
+SVar:DBSnow:DB$ Weather | Value$ Snowy
+Oracle: As long as it’s rainy or snowy, creatures you control can’t have status counters put on them.\nWhenever Lapras attacks, another target creature you control gains Islandwalk until end of turn.\n{1}{U}: It becomes rainy. If {S} was spent to activate this ability, you may have it become snowy instead.
 
 SVar:HasAttackEffect:TRUE
 SVar:SoundEffect:lapras.mp3

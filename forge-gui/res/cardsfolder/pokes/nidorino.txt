@@ -1,10 +1,9 @@
 Name:Nidorino
 ManaCost:4 B
-Types:Creature Dinosaur Rabbit Pokémon
+Types:Creature Rhino Rabbit Pokémon
 PT:3/3
 K:Mutate onto:4 B:Male Nidoran:4/4
-T:Mode$ DamageDone | ValidSource$ Card.Self | ValidTarget$ Player | CombatDamage$ True | Execute$ DBToxic | TriggerDescription$ Whenever CARDNAME deals combat damage to a player, put a toxic counter on target creature that player controls.
-SVar:DBToxic:DB$ PutCounter | CounterType$ TOXIC | CounterNum$ 1 | ValidTgts$ Creature.ControlledBy TriggeredTarget | TgtPrompt$ Select target creature that player controls
+K:Menace
 Oracle:Mutate onto Male Nidoran {4}{B} [4/4]\nWhenever Nidorino deals combat damage to a player, put a toxic counter on target creature that player controls.
 
 DeckHints:Name$Male Nidoran

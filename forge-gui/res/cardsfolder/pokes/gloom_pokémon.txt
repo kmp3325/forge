@@ -3,9 +3,8 @@ ManaCost:1 BG BG
 Types:Creature Plant Pokémon
 PT:3/3
 K:Mutate onto:1 BG BG:Oddish:3/3
-K:Caustic
-A:AB$ RemoveCounter | Cost$ 1 GB T | CounterType$ TOXIC | CounterNum$ 2 | UpTo$ True | ValidTgts$ Creature | TgtPrompt$ Select target creature | SpellDescription$ Remove up to two toxic counters from target creature.
-Oracle:Mutate onto Oddish {1}{BG}{BG} [3/3]\nCaustic\n{1}{BG}, {T}: Remove up to two toxic counters from target creature.
+A:AB$ RemoveCounter | Cost$ GB T | CounterType$ TOXIC | CounterNum$ 2 | UpTo$ True | ValidTgts$ Creature | TgtPrompt$ Select target creature | SpellDescription$ Remove up to two toxic counters from target creature.
+Oracle:Mutate onto Oddish {1}{BG}{BG} [3/3]\n{BG}, {T}: Remove up to two toxic counters from target creature.
 
 DeckHints:Name$Oddish
 DeckHints:Name$Vileplume

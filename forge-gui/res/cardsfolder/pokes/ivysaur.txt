@@ -4,8 +4,8 @@ Types:Creature Plant Frog Pokémon
 PT:2/2
 K:Mutate onto:1 G G:Bulbasaur:3/3
 K:Vigilance
-A:AB$ Pump | Cost$ B B | Defined$ Self | KW$ Caustic | SpellDescription$ CARDNAME gains caustic until end of turn.
-Oracle:Mutate onto Bulbasaur {1}{G}{G} [3/3]\nVigilance\n{B}{B}: Ivysaur gains caustic until end of turn.
+K:Caustic
+Oracle:Mutate onto Bulbasaur {1}{G}{G} [3/3]\nVigilance, caustic
 
 DeckHints:Name$Bulbasuar
 DeckHints:Name$Venusaur

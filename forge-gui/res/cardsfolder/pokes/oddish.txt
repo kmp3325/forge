@@ -5,7 +5,7 @@ PT:1/1
 A:AB$ PutCounter | Cost$ T | CounterType$ SOLAR | CounterNum$ 1 | Defined$ Self | SpellDescription$ Put a solar counter on CARDNAME.
 A:AB$ PutCounter | Cost$ T | CounterType$ M0M1 | CounterNum$ 1 | Defined$ Self | IsPresent$ Card.Self+counters_GE3_SOLAR | SubAbility$ TrigReturn | SpellDescription$ Put a -0/-1 counter on CARDNAME, then return target land card from your graveyard to your hand. Activate only if CARDNAME has three or more solar counters on it.
 SVar:TrigReturn:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand | ChangeType$ Land.YouOwn | ChangeNum$ 1
-Oracle:{T}: Put a solar counter on Oddish.\n{T}: Put a -0/-1 counter on Oddish, then return target land card from your graveyard to your hand. Activate only if Oddish has three or more solar counters on it.
+Oracle:{T}: Put a solar counter on Oddish.\n{T}: Put a -0/-1 counter on Oddish, then return target land card from your graveyard to your hand. Activate only if Oddish has two or more solar counters on it.
 
 DeckHints:Name$Gloom Pokémon
 SVar:SoundEffect:oddish.mp3

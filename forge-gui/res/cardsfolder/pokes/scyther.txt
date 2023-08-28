@@ -1,16 +1,15 @@
 Name:Scyther
 ManaCost:2 RG
 Types:Creature Insect Pokémon
-PT:3/3
+PT:2/3
 K:Flying
 S:Mode$ Continuous | Affected$ Card.Self | AddToughness$ X | Description$ CARDNAME gets +1/+0 for each speed counter on it.
 SVar:X:Count$CardCounters.SPEED
-T:Mode$ BecomesTarget | ValidTarget$ Card.Self | ValidSource$ Ability | TriggerZones$ Battlefield | Execute$ TrigSpeed | TriggerDescription$ Whenever CARDNAME becomes the target of an ability, put a speed counter on it and it gains first strike until end of turn. Then you may flip a coin. If you win the flip, counter that ability.
-SVar:TrigSpeed:DB$ PutCounter | Defined$ Self | CounterType$ SPEED | CounterNum$ 1 | SubAbility$ TrigPump
-SVar:TrigPump:DB$ Pump | Defined$ Self | KW$ First strike | SubAbility$ TrigFlip
+T:Mode$ BecomesTarget | ValidTarget$ Card.Self | ValidSource$ Ability | TriggerZones$ Battlefield | Execute$ TrigSpeed | TriggerDescription$ Whenever CARDNAME becomes the target of an ability, put a speed counter on it, then you may flip a coin. If you win the flip, counter that ability.
+SVar:TrigSpeed:DB$ PutCounter | Defined$ Self | CounterType$ SPEED | CounterNum$ 1 | SubAbility$ TrigFlip
 SVar:TrigFlip:DB$ FlipACoin | WinSubAbility$ TrigCounter | Optional$ True
 SVar:TrigCounter:DB$ Counter | Defined$ TriggeredSourceSA
-Oracle:Flying\nScyther gets +1/+0 for each speed counter on it.\nWhenever Scyther becomes the target of an ability, put a speed counter on it and it gains first strike until end of turn. Then you may flip a coin. If you win the flip, counter that ability.
+Oracle:Flying\nScyther gets +1/+0 for each speed counter on it.\nWhenever Scyther becomes the target of an ability, put a speed counter on it, then you may flip a coin. If you win the flip, counter that ability.
 
 DeckHints:Name$Scizor
 SVar:SoundEffect:scyther.mp3

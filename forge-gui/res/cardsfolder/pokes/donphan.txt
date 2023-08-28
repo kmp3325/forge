@@ -3,13 +3,10 @@ ManaCost:5 WB WB
 Types:Creature Elephant Pokémon
 PT:6/6
 K:Mutate onto:5 WB WB:Phanpy:7/7
-S:Mode$ Continuous | Affected$ Card.Self+attacking | AddKeyword$ Indestructible | CheckSVar$ RAIN | SVarCompare$ GE1 | Description$ CARDNAME has indestructible as long as it's attacking and it's not rainy.
-SVar:RAIN:Count$Rainy.0.1
-T:Mode$ Phase | Phase$ BeginCombat | TriggerZones$ Battlefield | ValidPlayer$ You | Execute$ TrigImmediateTrig | TriggerDescription$ At the beginning of combat on your turn, if CARDNAME attacked during your last turn, it attacks this combat if able unless you pay {W}. When you do, tap it and put a stun counter on it. It deals 3 damage to itself.
-SVar:TrigImmediateTrig:AB$ ImmediateTrigger | Cost$ W | Execute$ TrigTap | SpellDescription$ At the beginning of combat on your turn, if CARDNAME attacked during your last turn, it attacks this combat if able unless you pay {W}. When you do, tap it and put a stun counter on it. It deals 3 damage to itself.
-SVar:TrigTap:DB$ Tap | Defined$ Self | SubAbility$ TrigStun
-SVar:TrigStun:DB$ PutCounter | CounterType$ STUN | CounterNum$ 1 | Defined$ Self | SubAbility$ TrigDmg
-SVar:TrigDmg:DB$ DealDamage | NumDmg$ 3 | Defined$ Self
-Oracle:Mutate onto Phanpy {5}{WB}{WB} [7/7]\nDonphan has indestructible as long as it’s attacking and it's not rainy.\nAt the beginning of combat on your turn, if Donphan attacked during your last turn, it attacks this combat if able unless you pay {W}. When you do, tap it and put a stun counter on it. It deals 3 damage to itself.
+S:Mode$ Continuous | Affected$ Card.Self | AddKeyword$ Indestructible & Trample | IsPresent$ Creature.YouOwn | PresentCompare$ GE4 | PresentZone$ Graveyard | Description$ As long as there are four or more creature cards in your graveyard, CARDNAME has indestructible and trample.
+A:AB$ Pump | Cost$ W B | Defined$ Self | KW$ Vigilance | SubAbility$ TrigDmg | SpellDescription$ CARDNAME gains vigilance until end of turn, then it deals 1 damage to each creature you control.
+SVar:TrigDmg:DB$ DamageAll | ValidCards$ Creature.YouCtrl | NumDmg$ 1
+Oracle:Mutate onto Phanpy {5}{WB}{WB} [7/7]\nAs long as there are four or more creature cards in your graveyard, Donphan has indestructible and trample.\n{W}{B}: Donphan gains vigilance until end of turn, then it deals 1 damage to each creature you control.
 
-DeckHints:Name$PhanpySVar:SoundEffect:donphan.mp3
+DeckHints:Name$Phanpy
+SVar:SoundEffect:donphan.mp3

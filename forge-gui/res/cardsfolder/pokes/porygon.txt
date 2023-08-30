@@ -2,9 +2,10 @@ Name:Porygon
 ManaCost:1
 Types:Artifact Creature Construct Pokémon
 PT:1/1
+A:AB$ Mana | Cost$ T | Produced$ C | SpellDescription$ Add {C}.
 A:AB$ Draw | Cost$ C | Defined$ You | NumCards$ 1 | ActivationLimit$ 1 | CheckSVar$ WEATHER | SVarCompare$ GE1 | SpellDescription$ Draw a card. Activate only once each turn and only if the weather changed this turn.
 SVar:WEATHER:Count$WeatherChanged.1.0
-Oracle:{C}: Draw a card. Activate only once each turn and only if the weather changed this turn.
+Oracle:{T}: Add {C}.\n{C}: Draw a card. Activate only once each turn and only if the weather changed this turn.
 
 DeckHints:Name$Porygon2
 SVar:SoundEffect:porygon.mp3

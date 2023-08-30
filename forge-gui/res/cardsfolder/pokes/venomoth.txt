@@ -3,14 +3,14 @@ ManaCost:2 B G
 Types:Creature Insect Pokémon
 PT:4/4
 K:Mutate onto:2 B G:Venonat:4/4
-A:AB$ NameCard | Cost$ T | Defined$ You | SubAbility$ DBEffect | SpellDescription$ Choose a card name. Until the beginning of your next upkeep, spells with the chosen name cost {3} more to cast.
-SVar:DBEffect:DB$ Effect | Duration$ UntilYourNextUpkeep | StaticAbilities$ RaiseCost
-SVar:RaiseCost:Mode$ RaiseCost | ValidCard$ Card.NamedCard | Type$ Spell | Amount$ 3 | Description$ Spells with the chosen name cost {3} more to cast.
 T:Mode$ ChangesZone | ValidCard$ Creature.Insect+powerLTX | Execute$ DBImmediate | TriggerDescription$ Whenever an Insect creature with lesser power enters the battlefield, you may pay {B}. When you do, put a toxic counter on that creature.
 SVar:X:Count$CardPower
 SVar:DBImmediate:AB$ ImmediateTrigger | Cost$ B | Execute$ DBToxic | TriggerDescription$ When you do, put a toxic counter on that creature.
 SVar:DBToxic:DB$ PutCounter | CounterNum$ 1 | CounterType$ TOXIC | Defined$ TriggeredCardLKICopy
-Oracle:Mutate onto Venonat {2}{B}{G} [4/4]\nWhenever an Insect creature with lesser power enters the battlefield, you may pay {B}. When you do, put a toxic counter on that creature.\n{T}: Choose a card name. Until the beginning of your next upkeep, spells with the chosen name cost {3} more to cast.
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Creature.Insect | TriggerZones$ Battlefield | Execute$ TrigGainLife | TriggerDescription$ Whenever an Insect creature dies, you gain 2 life and draw a card.
+SVar:TrigGainLife:DB$ GainLife | Defined$ You | LifeAmount$ 2 | SubAbility$ DBDraw
+SVar:DBDraw:DB$ Draw | Defined$ You | NumCards$ 1
+Oracle:Mutate onto Venonat {2}{B}{G} [4/4]\nWhenever an Insect creature with lesser power enters the battlefield, you may pay {B}. When you do, put a toxic counter on that creature.\nWhenever an Insect creature dies, you gain 2 life and draw a card.
 
 DeckHints:Name$Venonat
 SVar:HasBlockEffect:TRUE

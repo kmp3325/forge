@@ -4,14 +4,12 @@ Types: Creature Bird Pokémon
 K:Mutate onto:2 W W:Pidgeotto:4/5
 K:Flying
 K:First strike
-T:Mode$ PhaseOut | ValidCard$ Card.phasedOutSelf | Execute$ PhaseInTrig | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME phases out, you may have it phase in.
+T:Mode$ PhaseOut | ValidCard$ Card.phasedOutSelf | Execute$ PhaseInTrig | OptionalDecider$ You | CheckSVar$ WIND | SVarCompare$ GE1 | TriggerDescription$ Whenever CARDNAME phases out, if it's windy, you may have it phase in.
 SVar:PhaseInTrig:DB$ Phases | PhaseIn$ True
-T:Mode$ PhaseIn | ValidCard$ Card.Self | Execute$ DBBranch | TriggerDescription$ Whenever CARDNAME phases in, it gets +1/+1 until end of turn. If it's windy, put a +1/+1 counter on it instead.
-SVar:DBBranch:DB$ Branch | BranchConditionSVar$ X | BranchConditionSVarCompare$ EQ1 | TrueSubAbility$ PutCounter | FalseSubAbility$ Pump
-SVar:X:Count$Windy.1.0
-SVar:PutCounter:DB$ PutCounter | Defined$ Valid Card.Self | CounterType$ P1P1 | CounterNum$ 1
-SVar:Pump:DB$ Pump | Defined$ Valid Card.Self | NumAtt$ 1 | NumDef$ 1
-Oracle:Mutate onto Pidgeotto {2}{W}{W} [4/5]\nFlying, first strike\nWhenever Pidgeot phases out, you may have it phase in.\nWhenever Pidgeot phases in, it gets +1/+1 until end of turn. If it's windy, put a +1/+1 counter on it instead.
+T:Mode$ PhaseIn | ValidCard$ Card.Self | Execute$ DBPutCounter | TriggerDescription$ Whenever CARDNAME phases in, put a +1/+1 counter on it.
+SVar:WIND:Count$Windy.1.0
+SVar:DBPutCounter:DB$ PutCounter | Defined$ Valid Card.Self | CounterType$ P1P1 | CounterNum$ 1
+Oracle:Mutate onto Pidgeotto {2}{W}{W} [4/5]\nFlying, first strike\nWhenever Pidgeot phases out, if it's windy, you may have it phase in.\nWhenever Pidgeot phases in, put a +1/+1 counter on it.
 
 DeckHints:Name$Pidgey
 DeckHints:Name$Pidgeotto

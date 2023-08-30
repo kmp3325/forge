@@ -1,5 +1,5 @@
 Name:Wild Lapras
-ManaCost:5 U
+ManaCost:4 U
 Types:Snow Creature Dinosaur Pokémon
 PT:1/3
 K:Flash

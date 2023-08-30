@@ -9,5 +9,9 @@ T:Mode$ MilledAll | ValidPlayer$ Player | ValidCard$ Land | TriggerZones$ Battle
 SVar:TrigMoreMill:DB$ Mill | NumCards$ 1 | Defined$ TriggeredPlayer
 Oracle:Mutate onto Staryu {2}{U}{B} [3/2]\nStarmie gets +0/+1 for each land card in all graveyards.\nWhenever a player mills a land card, they mill an additional card. This ability triggers only once each turn.
 
+~ gets +0/+1 for each land card in all graveyards.
+{T}, Exile a land card from a graveyard: Add {U} or {B}.
+{1}{U}, Sacrifice a land: Draw two cards.
+
 DeckHints:Name$Staryu
 SVar:SoundEffect:starmie.mp3

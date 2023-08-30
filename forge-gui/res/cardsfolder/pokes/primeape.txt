@@ -1,16 +1,11 @@
 Name:Primeape
-ManaCost:4 R W
-Types:Creature Monkey Pokémon
+ManaCost:3 R W
+Types:Creature Ape Pokémon
 PT:4/3
-K:Mutate onto:4 R W:Mankey:5/4
+K:Mutate onto:3 R W:Mankey:5/4
 K:Vigilance
-T:Mode$ Blocks | ValidCard$ Creature.Other | Execute$ TrigFightBlo | OptionalDecider$ You | TriggerZones$ Battlefield | TriggerDescription$ Whenever another creature blocks a creature other than CARDNAME, becomes blocked by a creature other than CARDNAME, or fights a creature other than CARDNAME, you may have CARDNAME fight that creature.
-T:Mode$ AttackerBlocked | ValidCard$ Creature.Other | Secondary$ True | Execute$ TrigFightAtt | OptionalDecider$ You | TriggerZones$ Battlefield | TriggerDescription$ Whenever another creature blocks a creature other than CARDNAME, becomes blocked by a creature other than CARDNAME, or fights a creature other than CARDNAME, you may have CARDNAME fight that creature.
-T:Mode$ Fight | ValidCard$ Creature.Other | ValidFighter2$ Creature.Other | Secondary$ True | Execute$ TrigFightFig | OptionalDecider$ You | TriggerZones$ Battlefield | TriggerDescription$ Whenever another creature blocks a creature other than CARDNAME, becomes blocked by a creature other than CARDNAME, or fights a creature other than CARDNAME, you may have CARDNAME fight that creature.
-SVar:TrigFightFig:DB$ Fight | Defined$ Self | ExtraDefined$ TriggeredFighterLKICopy
-SVar:TrigFightBlo:DB$ Fight | Defined$ Self | ExtraDefined$ TriggeredBlockerLKICopy
-SVar:TrigFightAtt:DB$ Fight | Defined$ Self | ExtraDefined$ TriggeredAttackerLKICopy
-Oracle:Mutate onto Mankey {4}{R}{W} [5/4]\nVigilance\nWhenever another creature blocks a creature other than Primeape, becomes blocked by a creature other than Primeape, or fights a creature other than Primeape, you may have Primeape fight that creature.
+A:AB$ Fight | Cost$ T | Defined$ Self | ValidTgts$ Creature.attacking,Creature.blocking | TgtPrompt$ Select target attacking or blocking creature | SpellDescription$ CARDNAME fights target attacking or blocking creature.
+Oracle:Mutate onto Mankey {3}{R}{W} [5/4]\nVigilance\n{T}: Primeape fights target attacking or blocking creature.
 
 DeckHints:Name$Mankey
 SVar:HasAttackEffect:TRUE

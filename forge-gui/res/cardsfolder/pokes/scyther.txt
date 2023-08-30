@@ -1,7 +1,7 @@
 Name:Scyther
 ManaCost:2 RG
 Types:Creature Insect Pokémon
-PT:2/3
+PT:3/3
 K:Flying
 S:Mode$ Continuous | Affected$ Card.Self | AddToughness$ X | Description$ CARDNAME gets +1/+0 for each speed counter on it.
 SVar:X:Count$CardCounters.SPEED

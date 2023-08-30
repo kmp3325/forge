@@ -1,15 +1,15 @@
 Name:Kingler
 ManaCost:4 GU
 Types:Creature Crab Pokémon
-PT:5/4
-K:Mutate onto:4 G U:Krabby:6/5
+PT:4/3
+K:Mutate onto:4 G U:Krabby:5/4
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigSmallPump | TriggerDescription$ When CARDNAME enters the battlefield, put a +1/+1 counter on it.
 SVar:TrigSmallPump:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1
 T:Mode$ Mutates | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigDestroy | TriggerDescription$ Whenever CARDNAME mutates, destroy target creature with a vicegrip counter on it. If a creature is destroyed this way, put a number of +1/+1 counters on CARDNAME equal to half that creature's toughness, rounded up.
 SVar:TrigDestroy:DB$ Destroy | ValidTgts$ Creature.counters_GE1_VICEGRIP | TgtPrompt$ Select target creature with a vicegrip counter on it | SubAbility$ TrigPutCounter
 SVar:TrigPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ X
 SVar:X:Targeted$CardToughness/HalfUp
-Oracle:Mutate onto Krabby {4}{G}{U} [6/5]\nWhen Kingler enters the battlefield, put a +1/+1 counter on it.\nWhenever Kingler mutates, destroy target creature with a vicegrip counter on it. If a creature is destroyed this way, put a number of +1/+1 counters on Kingler equal to half that creature's toughness, rounded up.
+Oracle:Mutate onto Krabby {4}{G}{U} [5/4]\nWhen Kingler enters the battlefield, put a +1/+1 counter on it.\nWhenever Kingler mutates, destroy target creature with a vicegrip counter on it. If a creature is destroyed this way, put a number of +1/+1 counters on Kingler equal to half that creature's toughness, rounded up.
 
 DeckHints:Name$Krabby
 SVar:SoundEffect:kingler.mp3

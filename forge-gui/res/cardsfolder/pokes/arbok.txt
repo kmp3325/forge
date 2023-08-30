@@ -3,13 +3,12 @@ ManaCost:2 B G
 Types:Creature Snake Pokémon
 PT:3/3
 K:Mutate onto:2 B G:Ekans:4/4
-K:Caustic
 A:AB$ PutCounter | Cost$ B G T | CounterType$ TOXIC | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature | SpellDescription$ Put a toxic counter on target creature.
 T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigProvoke | TriggerDescription$ Whenever CARDNAME attacks, target creature with a toxic counter on it blocks it this turn if able. When it does, CARDNAME gains first strike until end of turn.
 SVar:TrigProvoke:DB$ MustBlock | ValidTgts$ Creature.counters_GE1_TOXIC | TgtPrompt$ Select target creature with a toxic counter on it | SubAbility$ DelayTrig
 SVar:DelayTrig:DB$ DelayedTrigger | Mode$ AttackerBlockedByCreature | ValidCard$ Card.Self | ValidBlocker$ ParentTarget | Execute$ TrigPump | TriggerDescription$ When it does, CARDNAME gains first strike until end of turn.
 SVar:TrigPump:DB$ Pump | Defined$ Self | KW$ First strike
-Oracle: Mutate onto Ekans {2}{B}{G} [4/4]\nCaustic\n{B}{G}, {T}: Put a toxic counter on target creature.\nWhenever Arbok attacks, target creature with a toxic counter on it blocks it this turn if able. When it does, Arbok gains first strike until end of turn.
+Oracle: Mutate onto Ekans {2}{B}{G} [4/4]\n{B}{G}, {T}: Put a toxic counter on target creature.\nWhenever Arbok attacks, target creature with a toxic counter on it blocks it this turn if able. When it does, Arbok gains first strike until end of turn.
 
 DeckHints:Name$Ekans
 SVar:HasAttackEffect:TRUE

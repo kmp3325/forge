@@ -10,6 +10,11 @@ SVar:TrigDamageBlocker:DB$ DealDamage | Defined$ TriggeredBlockerLKICopy | NumDm
 A:AB$ RemoveCounter | Cost$ T | ValidTgts$ Creature | CounterType$ FROST | CounterNum$ All | TgtPrompt$ Select target creature | SpellDescription$ Remove all frost counters from target creature.
 Oracle:Mutate onto Goldeen {4}{U} [4/4]\nWhenever Seaking blocks or becomes blocked by a creature, you may remove all shield counters from that creature.\n{T}: Remove all frost counters from target creature.
 
+Other blue creatures you control get +1/+1.
+{T}: Choose a kind of status counter. Remove all counters of the chosen kind from target creature. Activate only if it's rainy.
+{T}: Remove all shield counters from target creature.
+
+
 DeckHints:Name$Goldeen
 SVar:HasAttackEffect:TRUE
 SVar:HasBlockEffect:TRUE

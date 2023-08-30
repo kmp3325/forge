@@ -3,9 +3,7 @@ ManaCost:WU WU WU WU WU WU
 Types:Legendary Snow Creature Bird Pokémon
 PT:6/8
 K:Flying
-T:Mode$ Blocks | ValidCard$ Card.Self | Execute$ TrigImmediate | TriggerDescription$ Whenever CARDNAME blocks, you may pay {S}. When you do, it becomes snowy, then CARDNAME phases out.
-SVar:TrigImmediate:AB$ ImmediateTrigger | Execute$ TrigSnow | Cost$ S | TriggerDescription$ When you do, it becomes snowy, then CARDNAME phases out.
-SVar:TrigSnow:DB$ Weather | Value$ Snowy | SubAbility$ TrigPhase
+AB$ Weather | Cost$ S T | Value$ Snowy | SubAbility$ TrigPhase | SpellDescription$ It becomes snowy, then CARDNAME phases out.
 SVar:TrigPhase:DB$ Phases | Defined$ Self
 T:Mode$ PhaseIn | ValidCard$ Creature.YouCtrl | TriggerZones$ Battlefield | CheckSVar$ SNOW | SVarCompare$ GE1 | Execute$ TrigTrap | TriggerDescription$ Whenever a creature you control phases in, if it's snowy, ABILITY
 SVar:SNOW:Count$Snowy.1.0
@@ -13,5 +11,5 @@ SVar:TrigTrap:DB$ Charm | Choices$DBFrost,DBDmg
 SVar:DBFrost:DB$ PutCounter | CounterType$ FROST | CounterNum$ 2 | IsCurse$ True | ValidTgts$ Creature | TgtPrompt$ Select target creature | SpellDescription$ Put two frost counters on target creature.
 SVar:DBDmg:DB$ DealDamage | NumDmg$ X | ValidTgts$ Creature.counters_GE1_FROST | TgtPrompt$ Select target creature with a frost counter on it | SpellDescription$ It deals damage equal to its power to target creature with a frost counter on it.
 SVar:X:TriggeredCard$CardPower
-Oracle:Flying\nWhenever Articuno blocks, you may pay {S}. When you do, it becomes snowy, then Articuno phases out.\nWhenever a creature you control phases in, if it's snowy, choose one —\n• Put two frost counters on target creature.\n• It deals damage equal to its power to target creature with a frost counter on it.
+Oracle:Flying\n{S}, {T}: It becomes snowy, then Articuno phases out.\nWhenever a creature you control phases in, if it's snowy, choose one —\n• Put two frost counters on target creature.\n• It deals damage equal to its power to target creature with a frost counter on it.
 SVar:SoundEffect:articuno.mp3

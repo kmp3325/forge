@@ -3,19 +3,11 @@ ManaCost:4 U
 Types:Creature Fish Pokémon
 PT:3/3
 K:Mutate onto:4 U:Goldeen:4/4
-T:Mode$ AttackerBlockedByCreature | ValidCard$ Creature | ValidBlocker$ Card.Self | Execute$ TrigDamageAttacker | TriggerDescription$ Whenever CARDNAME blocks or becomes blocked by a creature, CARDNAME deals 1 damage to that creature.
-T:Mode$ AttackerBlockedByCreature | ValidCard$ Card.Self | ValidBlocker$ Creature | Execute$ TrigDamageBlocker | Secondary$ True | TriggerDescription$ Whenever CARDNAME blocks or becomes blocked by a creature, CARDNAME deals 1 damage to that creature.
-SVar:TrigDamageAttacker:DB$ DealDamage | Defined$ TriggeredAttackerLKICopy | NumDmg$ 1
-SVar:TrigDamageBlocker:DB$ DealDamage | Defined$ TriggeredBlockerLKICopy | NumDmg$ 1
-A:AB$ RemoveCounter | Cost$ T | ValidTgts$ Creature | CounterType$ FROST | CounterNum$ All | TgtPrompt$ Select target creature | SpellDescription$ Remove all frost counters from target creature.
-Oracle:Mutate onto Goldeen {4}{U} [4/4]\nWhenever Seaking blocks or becomes blocked by a creature, you may remove all shield counters from that creature.\n{T}: Remove all frost counters from target creature.
-
-Other blue creatures you control get +1/+1.
-{T}: Choose a kind of status counter. Remove all counters of the chosen kind from target creature. Activate only if it's rainy.
-{T}: Remove all shield counters from target creature.
-
+S:Mode$ Continuous | Affected$ Creature.Blue+Other+YouCtrl | AddPower$ 1 | AddToughness$ 1 | Description$ Other blue creatures you control get +1/+1.
+A:AB$ RemoveCounter | CounterNum$ All | CounterType$ TOXIC,STUN,FROST,BURN | CounterTypePerDefined$ True | ValidTgts$ Creature | TgtPrompt$ Select target creature | Cost$ T | ConditionCheckSVar$ RAIN | ConditionSVarCompare$ GE1 | SpellDescription$ Choose a kind of status counter. Remove all counters of the chosen kind from target creature. Activate only if it's rainy.
+SVar:RAIN:Count$Rainy.1.0
+A:AB$ RemoveCounter | Cost$ T | CounterNum$ All | CounterType$ SHIELD | ValidTgts$ Creature | TgtPrompt$ Select target creature | SpellDescription$ Remove all shield counters from target creature.
+Oracle:Mutate onto Goldeen {4}{U} [4/4]\nOther blue creatures you control get +1/+1.\n{T}: Choose a kind of status counter. Remove all counters of the chosen kind from target creature. Activate only if it's rainy.\n{T}: Remove all shield counters from target creature.
 
 DeckHints:Name$Goldeen
-SVar:HasAttackEffect:TRUE
-SVar:HasBlockEffect:TRUE
 SVar:SoundEffect:seaking.mp3

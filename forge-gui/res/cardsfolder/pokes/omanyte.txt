@@ -4,11 +4,9 @@ Types:Creature Nautilus Pokémon
 PT:1/2
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ DBTrigger | TriggerDescription$ When CARDNAME enters the battlefield, put a +1/+1 counter on target creature.
 SVar:DBTrigger:DB$ PutCounter | CounterType$ P1P1 | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature
-A:AB$ Discard | Defined$ You | Mode$ TgtChoose | Cost$ SubCounter<1/P1P1> | RememberDiscarded$ True | SubAbility$ DBScry | SpellDescription$ Discard a card. If a card is discarded this way, scry 1, then draw a card.
-SVar:DBScry:DB$ Scry | Defined$ You | ScryNum$ 1 | ConditionDefined$ Remembered | ConditionPresent$ Card | ConditionCompare$ EQ1 | SubAbility$ DBDraw
-SVar:DBDraw:DB$ Draw | Defined$ You | NumCards$ 1 | ConditionDefined$ Remembered | ConditionPresent$ Card | ConditionCompare$ EQ1 | SubAbility$ DBCleanup
-SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
-Oracle:When Omanyte enters the battlefield, put a +1/+1 counter on target creature.\nRemove a +1/+1 counter from Omanyte: Discard a card. If a card is discarded this way, scry 1, then draw a card.
+A:AB$ Scry | Cost$ SubCounter<1/P1P1> Discard<1/Card> | ScryNum$ 1 | Defined$ You | SubAbility$ DBDraw | SpellDescription$ Scy 1, then draw a card.
+SVar:DBDraw:DB$ Draw | Defined$ You | NumCards$ 1
+Oracle:When Omanyte enters the battlefield, put a +1/+1 counter on target creature.\nRemove a +1/+1 counter from Omanyte, Discard a card: Scry 1, then draw a card.
 
 DeckHints:Name$Omastar
 SVar:SoundEffect:omanyte.mp3

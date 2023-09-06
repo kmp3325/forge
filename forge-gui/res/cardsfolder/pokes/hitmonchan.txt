@@ -1,6 +1,6 @@
 Name:Hitmonchan
 ManaCost:2 R W
-Types:Creature Mutant Beast Pokémon
+Types:Creature Beast Warrior Pokémon
 PT:3/4
 K:Mutate onto:2 R W:Tyrogue:4/5
 K:Mentor

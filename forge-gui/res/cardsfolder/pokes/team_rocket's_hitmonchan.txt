@@ -1,6 +1,6 @@
 Name:Team Rocket's Hitmonchan
 ManaCost:2 B R
-Types:Creature Mutant Beast Pokémon
+Types:Creature Beast Warrior Pokémon
 PT:3/3
 A:AB$ DealDamage | Cost$ B R R | NumDmg$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ DBRollDice | StackDescription$ SpellDescription | SpellDescription$ CARDNAME deals 1 damage to target creature,
 SVar:DBRollDice:DB$ RollDice | Sides$ 6 | ResultSubAbilities$ 1-2:DBBurn,3-4:DBFrost,5-6:DBStun | SpellDescription$ then roll a d6.

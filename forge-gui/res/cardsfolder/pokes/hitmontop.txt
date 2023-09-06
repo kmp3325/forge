@@ -1,6 +1,6 @@
 Name:Hitmontop
 ManaCost:3 RW
-Types:Creature Mutate Beast Pokémon
+Types:Creature Beast Warrior Pokémon
 PT:4/4
 K:Mutate onto:3 RW:Tyrogue:5/5
 K:Mentor

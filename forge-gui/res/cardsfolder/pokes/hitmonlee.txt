@@ -1,6 +1,6 @@
 Name:Hitmonlee
 ManaCost:2 R W
-Types:Creature Mutant Beast Pokémon
+Types:Creature Beast Warrior Pokémon
 PT:4/3
 K:Mutate onto:2 R W:Tyrogue:5/4
 K:Mentor

@@ -1,6 +1,6 @@
 Name:Tyrogue
 ManaCost:RW
-Types:Creature Mutant Beast Pokémon
+Types:Creature Beast Warrior Pokémon
 PT:2/1
 K:ETBReplacement:Other:DBSwap:Optional
 SVar:DBSwap:DB$ Pump | Defined$ Self | PumpZone$ Stack | KW$ HIDDEN CARDNAME's power and toughness are switched | SpellDescription$ As CARDNAME enters the battlefield, you may switch its power and toughness until end of turn.

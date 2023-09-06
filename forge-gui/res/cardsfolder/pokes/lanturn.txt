@@ -6,8 +6,8 @@ K:Mutate onto:2 U R:Chinchou:4/4
 S:Mode$ Continuous | Affected$ Card.Self | AddPower$ X | AddToughness$ X | Description$ CARDNAME gets +1/+1 for each stun counter on creatures your opponents control.
 SVar:X:Count$Valid Creature.OppCtrl$CardCounters.STUN
 T:Mode$ AttackersDeclared | AttackedTarget$ You | TriggerZones$ Battlefield | Execute$ DBImmediate | TriggerDescription$ Whenever one or more creatures attack you, you may pay {U}{R}. When you do, put two stun counters on target attacking creature.
-SVar:DBImmediate:DB$ ImmediateTrigger | Execute$ TrigStun | TriggerDescription$ When you do, put two stun counters on target attacking creature.
-SVar:TrigStun:AB$ PutCounter | Cost$ U R | CounterType$ STUN | CounterNum$ 2 | ValidTgts$ Creature.attacking | TgtPrompt$ Select target attacking creature
+SVar:DBImmediate:AB$ ImmediateTrigger | Cost$ U R | Execute$ TrigStun | TriggerDescription$ When you do, put two stun counters on target attacking creature.
+SVar:TrigStun:DB$ PutCounter | CounterType$ STUN | CounterNum$ 2 | ValidTgts$ Creature.attacking | TgtPrompt$ Select target attacking creature
 
 Oracle:Mutate onto Chinchou {2}{U}{R} [4/4]\nLanturn gets +1/+1 for each stun counter on creatures you opponents control.\nWhenever one or more creatures attack you, you may pay {U}{R}. When you do, put two stun counters on target attacking creature.
 

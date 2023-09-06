@@ -4,7 +4,7 @@ Types:Creature Fox Pokémon
 PT:2/2
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigFog | TriggerDescription$ When CARDNAME enters the battlefield, it becomes foggy, then you may discard a card. If you do, draw a card.
 SVar:TrigFog:DB$ Weather | Value$ Foggy | SubAbility$ TrigDraw
-SVar:TrigDraw:AB$ Draw | Cost$ Discard<1/Card> | NumCards$ 1
+SVar:TrigDraw:DB$ Draw | NumCards$ 1 | UnlessCost$ Discard<1/Card> | UnlessPayer$ You | UnlessSwitched$ True | StackDescription$ {p:You} may discard a card. If they do, they draw a card.
 Oracle:When Vulpix enters the battlefield, it becomes foggy, then you may discard a card. If you do, draw a card.
 
 DeckHints:Name$Ninetales

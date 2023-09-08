@@ -2109,7 +2109,7 @@
 	"count": 1,
 	"spriteAtlas": "../common/maps/tileset/buildingsbosses.atlas",
 	"sprite": "Kiora",
-	"map": "../common/maps/map/kiora_island.tmx",
+	"map": "../common/maps/map/kiora/kiora_island.tmx",
 	"radiusFactor": 0.8,
 	"questTags": [
 		"Boss",
@@ -2868,6 +2868,18 @@
 	"radiusFactor": 0.8
 },
 {
+	"name": "Quest_APortalToNowhere",
+	"type": "dungeon",
+	"count": 1,
+	"spriteAtlas": "../common/maps/tileset/buildings.atlas",
+	"sprite": "WasteTown",
+	"map": "../common/maps/map/main_story/waste_town_abandoned.tmx",
+	"radiusFactor": 0.8,
+	"questTags": [
+		"Quest_APortalToNowhere"
+	]
+},
+{
 	"name": "Red Castle",
 	"type": "castle",
 	"count": 1,
@@ -3196,7 +3208,7 @@
 	"count": 1,
 	"spriteAtlas": "../common/maps/tileset/buildings.atlas",
 	"sprite": "Jace",
-	"map": "../common/maps/map/teferi.tmx",
+	"map": "../common/maps/map/teferi/teferi.tmx",
 	"radiusFactor": 0.8,
 	"questTags": [
 		"Hostile",
@@ -3388,7 +3400,7 @@
 	"count": 1,
 	"spriteAtlas": "../common/maps/tileset/buildings.atlas",
 	"sprite": "WurmPond",
-	"map": "../common/maps/evilgrove/evilgrove_8_troll.tmx",
+	"map": "../common/maps/map/evilgrove/evilgrove_8_troll.tmx",
 	"radiusFactor": 0.8,
 	"questTags": [
 		"DungeonEffect",

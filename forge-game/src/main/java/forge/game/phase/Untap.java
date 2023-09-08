@@ -17,8 +17,13 @@
  */
 package forge.game.phase;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
@@ -33,17 +38,19 @@ import forge.game.GameEntityCounterTable;
 import forge.game.GlobalRuleChange;
 import forge.game.ability.ApiType;
 import forge.game.ability.effects.FlipCoinEffect;
-import forge.game.card.*;
+import forge.game.card.Card;
+import forge.game.card.CardCollection;
+import forge.game.card.CardLists;
+import forge.game.card.CardPredicates;
 import forge.game.card.CardPredicates.Presets;
-import forge.game.event.GameEventBurnCounterBurned;
-import forge.game.event.GameEventCardStatsChanged;
+import forge.game.card.CounterEnumType;
 import forge.game.event.GameEventFrozen;
 import forge.game.keyword.Keyword;
 import forge.game.keyword.KeywordInterface;
 import forge.game.player.Player;
 import forge.game.player.PlayerController.BinaryChoiceType;
 import forge.game.spellability.SpellAbility;
-import forge.game.staticability.StaticAbility;
+import forge.game.staticability.StaticAbilityCantPhaseOut;
 import forge.game.zone.ZoneType;
 
 /**
@@ -272,14 +279,14 @@ public class Untap extends Phase {
         // If c is attached to something, it will phase out on its own, and try
         // to attach back to that thing when it comes back
         for (final Card c : list) {
-            if (c.isPhasedOut()) {
+            if (c.isPhasedOut() && c.isDirectlyPhasedOut()) {
                 c.phase(true);
             } else if (c.hasKeyword(Keyword.PHASING)) {
                 // CR 702.26h If an object would simultaneously phase out directly
                 // and indirectly, it just phases out indirectly.
                 if (c.isAttachment()) {
                     final Card ent = c.getAttachedTo();
-                    if (ent != null && list.contains(ent)) {
+                    if (ent != null && list.contains(ent) && !StaticAbilityCantPhaseOut.cantPhaseOut(ent)) {
                         continue;
                     }
                 }

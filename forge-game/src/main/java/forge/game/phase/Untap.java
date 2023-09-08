@@ -18,12 +18,10 @@
 package forge.game.phase;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Set;
 
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
@@ -31,20 +29,17 @@ import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
-import forge.GameCommand;
 import forge.card.CardType;
 import forge.game.Game;
 import forge.game.GameEntityCounterTable;
 import forge.game.GlobalRuleChange;
 import forge.game.ability.ApiType;
-import forge.game.ability.effects.FlipCoinEffect;
 import forge.game.card.Card;
 import forge.game.card.CardCollection;
 import forge.game.card.CardLists;
 import forge.game.card.CardPredicates;
 import forge.game.card.CardPredicates.Presets;
 import forge.game.card.CounterEnumType;
-import forge.game.event.GameEventFrozen;
 import forge.game.keyword.Keyword;
 import forge.game.keyword.KeywordInterface;
 import forge.game.player.Player;
@@ -327,71 +322,6 @@ public class Untap extends Phase {
         table.replaceCounterEffect(turn.getGame(), null, false);
         for (Card card : toxicCards) {
             card.updatePowerToughnessForView();
-        }
-    }
-
-    private static void doBurn(Player player) {
-        if (player == null) {
-            return;
-        }
-        Set<Card> burnedCards = new HashSet<>();
-        for (Card card : player.getOpponents().getCreaturesInPlay()) {
-            if (card.isPhasedOut() || card.getCounters(CounterEnumType.BURN) == 0) {
-                continue;
-            }
-            burnedCards.add(card);
-        }
-        if (burnedCards.isEmpty()) {
-            return;
-        }
-        boolean won = FlipCoinEffect.flipCoinCallNotSpellAbility(player, "Flip for burn counters. Heads or tails?");
-        if (won) {
-            Game game = player.getGame();
-            game.setBurning(true);
-            for (Card card : burnedCards) {
-                card.updatePowerToughnessForView();
-            }
-            game.getEndOfTurn().addUntil(new GameCommand() {
-                private static final long serialVersionUID = -422445424L;
-                @Override
-                public void run() {
-                    game.setBurning(false);
-                    for (Card card : game.getCardsIn(ZoneType.Battlefield)) {
-                        card.updatePowerToughnessForView();
-                    }
-                }
-            });
-        }
-    }
-
-    private static void doFrozen(Player player) {
-        if (player == null) {
-            return;
-        }
-        Map<Card, Integer> frozenCards = new HashMap<>();
-        for (Card card : player.getCreaturesInPlay()) {
-            if (card.isPhasedOut() || card.isTapped() || card.getCounters(CounterEnumType.FROST) == 0) {
-                continue;
-            }
-            int numberOfFrozenCountersOnCard = card.getCounters(CounterEnumType.FROST);
-            if (numberOfFrozenCountersOnCard == 0) {
-                continue;
-            }
-            frozenCards.put(card, numberOfFrozenCountersOnCard);
-        }
-        if (frozenCards.isEmpty()) {
-            return;
-        }
-
-        boolean won = FlipCoinEffect.flipCoinCallNotSpellAbility(player, "Flip for frozen counters. Heads or tails?");
-        if (!won) {
-            Game game = player.getGame();
-            for (Entry<Card, Integer> frozen : frozenCards.entrySet()) {
-                frozen.getKey().tap(true);
-                frozen.getKey().subtractCounter(CounterEnumType.FROST, 1);
-                GameEventFrozen gameEvent = new GameEventFrozen(frozen.getKey());
-                game.fireEvent(gameEvent);
-            }
         }
     }
 }

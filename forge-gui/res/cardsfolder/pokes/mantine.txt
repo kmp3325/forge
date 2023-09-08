@@ -1,12 +1,12 @@
 Name:Mantine
-ManaCost:5 W U
+ManaCost:4 W U
 Types:Creature Fish Pokémon
-PT:3/6
-K:Mutate onto:5 W U:Mantyke:4/7
+PT:2/5
+K:Mutate onto:4 W U:Mantyke:3/6
 K:Flying
 S:Mode$ Continuous | Affected$ Fish.Other+YouCtrl | AddPower$ 1 | AddToughness$ 1 | Description$ Other Fish you control get +1/+1.
 R:Event$ PhaseOut | ValidCard$ Creature.YouCtrl | ReplaceWith$ DBHealAndPhase | ReplaceCounters$ TOXIC,STUN,FROST,BURN
 SVar:DBHealAndPhase:DB$ ReplacePhaseOutCounters | CounterType$ TOXIC,STUN,FROST,BURN
-Oracle:Mutate onto Mantyke {5}{W}{U} [4/7]\nFlying\nOther Fish you control get +1/+1.\nCreatures you control lose all status counters as they phase out.
+Oracle:Mutate onto Mantyke {4}{W}{U} [3/6]\nFlying\nOther Fish you control get +1/+1.\nCreatures you control lose all status counters as they phase out.
 
 SVar:SoundEffect:mantine.mp3

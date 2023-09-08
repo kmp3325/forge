@@ -1,7 +1,8 @@
 Name:Miltank
-ManaCost:4
+ManaCost:3
 Types:Creature Ox Pokémon
 PT:1/3
-A:AB$ Pump | Cost$ C T Return<1/Land> | KW$ Prevent all damage that would be dealt to CARDNAME. | ValidTgts$ Creature.Other | TgtPrompt$ Select another target creature | SpellDescription$ Prevent all damage that would be dealt to another target creature this turn.
-Oracle:{C}, {T}: Return a land you control to its owner's hand: Prevent all damage that would be dealt to another target creature this turn.
+A:AB$ Token | Cost$ T Return<1/Land> | TokenAmount$ 1 | TokenScript$ c_a_food_sac | TokenOwner$ You | SpellDescription$ Create a Food token.
+Oracle:{T}, Return a land you control to its owner’s hand: Create a Food token.
+
 SVar:SoundEffect:miltank.mp3

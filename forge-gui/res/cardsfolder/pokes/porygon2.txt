@@ -1,6 +1,6 @@
 Name:Porygon2
 ManaCost:2
-Types:Artifact Creature Construct Pokémon
+Types:Artifact Creature Duck Construct Pokémon
 PT:2/2
 K:Mutate onto:2:Porygon:4/4
 S:Mode$ Continuous | Affected$ You | RaiseMaxHandSize$ 2 | Description$ Your maximum hand size is increased by two.

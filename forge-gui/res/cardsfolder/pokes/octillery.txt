@@ -10,8 +10,8 @@ SVar:DBTap:DB$ Tap | Defined$ Self | SubAbility$ TrigTap
 SVar:TrigTap:DB$ Tap | ValidTgts$ Creature.powerLTX | TgtPrompt$ Select target creature with power less than CARDNAME's power | SubAbility$ TrigStun
 SVar:TrigStun:DB$ PutCounter | Defined$ Targeted | CounterType$ STUN | CounterNum$ 1
 SVar:X:Count$CardPower
-A:AB$ Phases | Cost$ U T | ValidTgts$ Creature | TgtPrompt$ Select target creature | SpellDescription$ Target creature phases out.
-Oracle:Mutate onto Remoraid {4}{U} [4/3]\nWhenever a creature you control phases in, put a +1/+1 counter on it.\nWhenever Octillery phases in, you may tap it. When you do, tap target creature with power less than Octillery's power and put a stun counter on it.\n{U}, {T}: Target creature phases out.
+A:AB$ Phases | Cost$ U T | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | SpellDescription$ Target creature you control phases out.
+Oracle:Mutate onto Remoraid {4}{U} [4/3]\nWhenever a creature you control phases in, put a +1/+1 counter on it.\nWhenever Octillery phases in, you may tap it. When you do, tap target creature with power less than Octillery's power and put a stun counter on it.\n{U}, {T}: Target creature you control phases out.
 
 DeckHints:Name$Remoraid
 SVar:SoundEffect:octillery.mp3

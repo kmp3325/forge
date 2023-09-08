@@ -5,11 +5,13 @@ PT:5/5
 K:Mutate onto:3 GW GW:Swinub:6/6
 R:Event$ AddCounter | ActiveZones$ Battlefield | ValidCard$ Card.Self | ValidCounterType$ FROST | ReplaceWith$ ActuallyShield | Description$ If a frost counter would be put on CARDNAME, put a +1/+1 counter on it instead.
 SVar:ActuallyShield:DB$ ReplaceCounter | CounterType$ P1P1
-A:AB$ Token | Cost$ S T | TokenAmount$ 1 | TokenScript$ c_a_food_sac | TokenOwner$ You | SpellDescription$ Create a Food token.
-A:AB$ DamageAll | Cost$ X Sac<X/Food> | ValidCards$ Creature.Other | NumDmg$ X | SubAbility$ TrigLife | SpellDescription$ CARDNAME deals X damage to each other creature. You gain X life.
+A:AB$ Token | Cost$ 2 T | TokenAmount$ 1 | TokenScript$ c_a_food_sac | TokenOwner$ You | SpellDescription$ Create a Food token.
+A:AB$ DamageAll | Cost$ X Sac<X/Food> | ValidCards$ Creature.Other | NumDmg$ X | SubAbility$ TrigFrost | ActivationLimit$ 1 | SorcerySpeed$ True | RememberDamaged$ True | SpellDescription$ CARDNAME deals X damage to each other creature. If {S} was spent to activate this ability, put a frost counter on each creature dealt damage this way. Activate only as a sorcery and only once each turn.
 SVar:X:Count$xPaid
-SVar:TrigLife:DB$ GainLife | LifeAmount$ X | Defined$ You
-Oracle:Mutate onto Swinub {3}{GW}{GW} [6/6]\nIf a frost counter would be put on Piloswine, put a +1/+1 counter on it instead.\n{S}, {T}: Create a Food token.\n{X}, Sacrifice X Foods: Piloswine deals X damage to each other creature. You gain X life.
+SVar:TrigFrost:DB$ PutCounterAll | ConditionCheckSVar$ S | ConditionSVarCompare$ GE1 | ValidCards$ Card.IsRemembered | CounterType$ FROST | CounterNum$ 1 | SubAbility$ DBCleanup
+SVar:S:Count$CastTotalManaSpent Snow
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+Oracle:Mutate onto Swinub {3}{GW}{GW} [6/6]\n{2}, {T}: Create a Food token.\n{X}, Sacrifice X Foods: Piloswine deals X damage to each other creature. If {S} was spent to activate this ability, put a frost counter on each creature dealt damage this way. Activate only as a sorcery and only once each turn.
 
 DeckHints:Name$Swinub
 SVar:SoundEffect:piloswine.mp3

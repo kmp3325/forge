@@ -2,9 +2,9 @@ Name:Cubone
 ManaCost:WB WB
 Types:Creature Dinosaur Pokémon
 PT:2/2
-R:Event$ DamageDone | ValidSource$ Creature.Other+YouCtrl | ValidTarget$ Card.Self | ActiveZones$ Battlefield | PreventionEffect$ True | ReplaceWith$ DBPump | Description$ If CARDNAME would be dealt damage by another creature you control, prevent that damage. If damage is prevented this way, put a +1/+1 counter on CARDNAME.
-SVar:DBPump:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1
-Oracle:If Cubone would be dealt damage by another creature you control, prevent that damage. If damage is prevented this way, put a +1/+1 counter on Cubone.
+T:Mode$ DamageDoneOnce | ValidTarget$ Card.Self | ValidSource$ Creature.Other+YouCtrl | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME is dealt damage by another creature you control, put a +1/+1 counter on it.
+SVar:TrigPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1
+Oracle:Whenever Cubone is dealt damage by another creature you control, put a +1/+1 counter on it.
 
 DeckHints:Name$Marowak
 SVar:SoundEffect:cubone.mp3

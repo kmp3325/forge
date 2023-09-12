@@ -3,11 +3,9 @@ ManaCost:3 R
 Types:Creature Mouse Pokémon
 PT:3/3
 K:Mutate onto:3 R:Cyndaquil:4/4
-T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ BurnSelf | OptionalDecider$ You | TriggerDescription$ At the beginning of your upkeep, you may put a burn counter on CARDNAME. When you do, put a burn counter on another target creature.
-SVar:BurnSelf:DB$ PutCounter | CounterType$ BURN | CounterNum$ 1 | Defined$ Self | SubAbility$ TrigImmediate
-SVar:TrigImmediate:DB$ ImmediateTrigger | Execute$ BurnOther | TriggerDescription$ When you do, put a burn counter on another target creature.
-SVar:BurnOther:DB$ PutCounter | IsCurse$ True | CounterType$ BURN | CounterNum$ 1 | ValidTgts$ Creature.Other | TgtPrompt$ Select another target creature
-Oracle:Mutate onto Cyndaquil {3}{R} [4/4]\nAt the beginning of your upkeep, you may put a burn counter on Quilava. When you do, put a burn counter on another target creature.
+K:Menace
+A:AB$ Weather | Cost$ T SubCounter<1/BURN> | Value$ Sunny | SpellDescription$ It becomes sunny.
+Oracle:Mutate onto Cyndaquil {3}{R} [4/4]\nMenace\n{T}, Remove a burn counter from Quilava: It becomes sunny.
 
 DeckHints:Name$Cyndaquil
 DeckHints:Name$Typhlosion

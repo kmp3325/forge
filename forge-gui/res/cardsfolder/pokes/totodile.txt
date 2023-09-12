@@ -1,9 +1,10 @@
 Name:Totodile
-ManaCost:1 U
+ManaCost:U
 Types:Creature Crocodile Pokémon
 PT:1/1
-A:AB$ Tap | Cost$ U T | ValidTgts$ Creature | TgtPrompt$ Select target creature | SpellDescription$ Tap target creature.
-Oracle:{U}, {T}: Tap target creature.
+T:Mode$ PhaseIn | ValidCard$ Card.Self | Execute$ TrigDraw | TriggerDescription$ Whenever CARDNAME phases in, draw a card.
+SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ 1
+Oracle:Whenever Totodile phases in, draw a card.
 
 DeckHints:Name$Croconaw
 SVar:SoundEffect:totodile.mp3

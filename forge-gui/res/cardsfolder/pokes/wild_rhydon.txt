@@ -1,5 +1,5 @@
 Name:Wild Rhydon
-ManaCost:5 G G
+ManaCost:X G G G
 Types:Creature Dinosaur Rhino Pokémon
 PT:5/5
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigRepeat | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters the battlefield, it deals 1 damage to target creature X times.

@@ -1,6 +1,6 @@
 Name:Vileplume
 ManaCost:3 BG BG
-Types:Creature Plant Pokémon
+Types:Creature Plant Fungus Pokémon
 PT:5/5
 K:Mutate onto:3 BG BG:Gloom Pokémon:6/6
 A:AB$ Pump | Cost$ 1 BG | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ DBRollDice | SpellDescription$ choose target creature,

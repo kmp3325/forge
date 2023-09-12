@@ -9,7 +9,9 @@ SVar:TrigTap:DB$ Tap | Defined$ Targeted | TargetMin$ 0 | TargetMax$ X | ValidTg
 SVar:X:Count$CardPower
 SVar:TrigPutCounter:DB$ PutCounter | IsCurse$ True | CounterType$ STUN | Defined$ Targeted
 A:AB$ DamageAll | Cost$ UR | ValidCards$ Creature.YouDontCtrl+counters_GE1_STUN | NumDmg$ 1 | ValidDescription$ each creature you don't control with a stun counter on it. | SpellDescription$ CARDNAME deals 1 damage to each creature you don't control with a stun counter on it.
-Oracle:Mutate onto Flaaffy {2}{U}{R}{R} [5/5]\nWhenever Ampharos enters the battlefield or mutates, tap up to X target creatures, where X is Ampharos's power. Put a stun counter on each of them.\n{UR}: Ampharos deals 1 damage to each creature you don't control with a stun counter on it.
+T:Mode$ CounterRemoved | ValidCard$ Creature | TriggerZones$ Battlefield | CounterType$ STUN | Execute$ TrigDmg | TriggerDescription$ Whenever a stun counter is removed from a creature, CARDNAME deals 1 damage to any target.
+SVar:TrigDmg:DB$ DealDamage | NumDmg$ 1 | ValidTgts$ Any | TgtPrompt$ Select any target
+Oracle:Mutate onto Flaaffy {2}{U}{R}{R} [5/5]\nWhenever Ampharos enters the battlefield or mutates, tap up to X target creatures, where X is Ampharos's power. Put a stun counter on each of them.\nWhenever a stun counter is removed from a creature, Ampharos deals 1 damage to any target.
 
 DeckHints:Name$Flaaffy
 SVar:SoundEffect:ampharos.mp3

@@ -1,8 +1,8 @@
 Name:Magmar
 ManaCost:3 R R
 Types:Creature Salamander Duck Pokémon
-PT:5/5
-K:Mutate onto:3 R R:Magby:6/6
+PT:4/4
+K:Mutate onto:3 R R:Magby:5/5
 T:Mode$ Mutates | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, put a burn counter on each creature you don't control.
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, put a burn counter on each creature you don't control.
 SVar:TrigPutCounter:DB$ PutCounterAll | IsCurse$ True | ValidCards$ Creature.YouDontCtrl | CounterType$ BURN | CounterNum$ 1
@@ -10,7 +10,7 @@ R:Event$ AddCounter | ActiveZones$ Battlefield | ValidCard$ Creature | ValidCoun
 SVar:AddOneMoreCounters:DB$ ReplaceCounter | ValidCounterType$ BURN | ChooseCounter$ True | Amount$ Y
 SVar:Y:ReplaceCount$CounterNum/Plus.1
 SVar:SUN:Count$Sunny.1.0
-Oracle:Mutate onto Magby {4}{R} [6/6]\nWhenever Magmar enters the battlefield or mutates, put a burn counter on each creature you don't control.\ns long as it's sunny, if one or more burn counters would be put on a creature, that many plus one burn counters are put on it instead.
+Oracle:Mutate onto Magby {4}{R} [5/5]\nWhenever Magmar enters the battlefield or mutates, put a burn counter on each creature you don't control.\ns long as it's sunny, if one or more burn counters would be put on a creature, that many plus one burn counters are put on it instead.
 
 DeckHints:Name$Magby
 SVar:SoundEffect:magmar.mp3

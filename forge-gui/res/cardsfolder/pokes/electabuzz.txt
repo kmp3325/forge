@@ -1,12 +1,15 @@
 Name:Electabuzz
 ManaCost:3 UR UR
 Types:Creature Cat Pokémon
-PT:5/5
-K:Mutate onto:3 UR UR:Elekid:6/6
-T:Mode$ Mutates | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigPutCounter | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, put a stun counter on each creature you don't control.
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, put a stun counter on each creature you don't control.
-SVar:TrigPutCounter:DB$ PutCounterAll | IsCurse$ True | ValidCards$ Creature.YouDontCtrl | CounterType$ STUN | CounterNum$ 1
-Oracle:Mutate onto Elekid {3}{UR}{UR} [6/6]\nWhenever Electabuzz enters the battlefield or mutates, put a stun counter on each creature you don't control.
+PT:3/3
+K:Mutate onto:3 UR UR:Elekid:4/4
+T:Mode$ SpellCast | ValidCard$ Card.Blue | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigStun | OptionalDecider$ You | TriggerDescription$ Whenever you cast a blue spell, you may tap target creature and put a stun counter on it.
+SVar:TrigStun:DB$ Tap | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigCounter
+SVar:TrigCounter:DB$ PutCounter | CounterType$ STUN | CounterNum$ 1 | Defined$ Targeted
+T:Mode$ SpellCast | ValidCard$ Card.Red | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigDmg | OptionalDecider$ You | TriggerDescription$ Whenever you cast a red spell, you may have CARDNAME deal X damage to target creature, where X is 1 plus the number of stun counters on that creature.
+SVar:TrigDmg:DB$ DealDamage | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumDmg$ X
+SVar:X:Targeted$CardCounters.STUN/Plus.1
+Oracle:Mutate onto Elekid {3}{UR}{UR} [4/4]\nWhenever you cast a blue spell, you may tap target creature and put a stun counter on it.\nWhenever you cast a red spell, you may have Electabuzz deal X damage to target creature, where X is 1 plus the number of stun counters on that creature.
 
 DeckHints:Name$Elekid
 SVar:SoundEffect:electabuzz.mp3

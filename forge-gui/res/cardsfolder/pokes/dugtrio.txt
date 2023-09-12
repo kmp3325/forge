@@ -3,11 +3,15 @@ ManaCost:1 W B
 Types:Creature Mole Pokémon
 PT:3/3
 K:Mutate onto:1 W B:Diglett:3/3
-T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | Execute$ TrigPutCounter | TriggerZones$ Battlefield | TriggerDescription$ At the beginning of your upkeep, put a dig counter on CARDNAME.
-SVar:TrigPutCounter:DB$ PutCounter | CounterNum$ 1 | CounterType$ DIG
-S:Mode$ CantBlockBy | ValidAttacker$ Creature.Self | ValidBlocker$ Creature.powerLEX | Description$ CARDNAME can't be blocked by creatures with power less than or equal to the number of dig counters on it.
-SVar:X:Count$CardCounters.DIG
-Oracle:Mutate onto Diglett {1}{W}{B} [3/3]\nAt the beginning of your upkeep, put a dig counter on Dugtrio.\nDugtrio can't be blocked by creatures with power less than or equal to the number of dig counters on it.
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigDig | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, put three dig counters on it.
+T:Mode$ Mutates | ValidCard$ Card.Self | Execute$ TrigDig | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, put three dig counters on it.
+SVar:TrigDig:DB$ PutCounter | Defined$ Self | CounterNum$ 3 | CounterType$ DIG
+T:Mode$ DamageDoneOnce | Execute$ TrigAnotherDig | ValidTarget$ Card.Self | TriggerZones$ Battlefield | CombatDamage$ False | TriggerDescription$ Whenever CARDNAME is dealt noncombat damage, put that many dig counters on it.
+SVar:TrigAnotherDig:DB$ PutCounter | Defined$ Self | CounterType$ DIG | CounterNum$ DmgNum
+SVar:DmgNum:TriggerCount$DamageAmount
+A:AB$ ChangeZone | ValidTgts$ Creature.cmcLEX+YouOwn | TgtPrompt$ Select target creature card with mana value X or less | Origin$ Graveyard | Destination$ Battlefield | Cost$ T SubCounter<X/DIG> | SpellDescription$ Return target creature card with mana value X or less from your graveyard to your hand. CARDNAME deals 1 damage to each other creature you control.
+SVar:X:Count$xPaid
+Oracle:Mutate onto Diglett {1}{W}{B} [3/3]\nWhenever Dugtrio enters the battlefield or mutates, put three dig counters on it.\nWhenever Dugtrio is dealt noncombat damage, put that many dig counters on it.\n{T}, Remove X dig counters from Dugtrio: Return target creature card with mana value X or less from your graveyard to your hand. Dugtrio deals 1 damage to each other creature you control.
 
 DeckHints:Name$Diglett
 SVar:HasAttackEffect:TRUE

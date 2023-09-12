@@ -2,11 +2,10 @@ Name:Cyndaquil
 ManaCost:R
 Types:Creature Mouse Pokémon
 PT:1/1
-S:Mode$ Continuous | Affected$ Card.Self | AddToughness$ SUN | Description$ CARDNAME gets +0/+1 for each burn counter on it. If it's sunny, it gets +0/+2 for each burn counter on it instead.
-SVar:SUN:Count$Sunny.Y.X
+S:Mode$ Continuous | Affected$ Card.Self | AddToughness$ SUN | AddPower$ SUN | Description$ As long as it's sunny, CARDNAME gets +1/+1 for each burn counter on it.
+SVar:SUN:Count$Sunny.X.0
 SVar:X:Count$CardCounters.BURN
-SVar:Y:Count$CardCounters.BURN/Twice
-Oracle:Cyndaquil gets +0/+1 for each burn counter on it. If it's sunny, it gets +0/+2 for each burn counter on it instead.
+Oracle:As long as it's sunny, Cyndaquil gets +1/+1 for each burn counter on it.
 
 DeckHints:Name$Quilava
 SVar:SoundEffect:cyndaquil.mp3

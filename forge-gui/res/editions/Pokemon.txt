@@ -63,7 +63,7 @@ Foil=NotSupported
 51 U Dugtrio
 52 U Meowth
 53 M Persian
-54 C Psyduck
+54 U Psyduck
 55 R Golduck
 56 C Mankey
 57 U Primeape
@@ -238,7 +238,7 @@ Foil=NotSupported
 226 U Mantine
 227 R Skarmory
 228 C Houndour
-229 R Houndoom
+229 M Houndoom
 230 M Kingdra
 231 U Phanpy
 232 R Donphan
@@ -281,14 +281,13 @@ Foil=NotSupported
 9958 U Wild Tauros
 9959 U Wild Poliwhirl
 9960 U Wild Tentacool
-9961 U Wild Lapras
+9961 C Wild Lapras
 9962 C Wild Zubat
 9963 C Wild Gastly
 9964 C Wild Charmander
 9965 C Wild Vulpix
 9966 C Wild Ninetales
 9967 U Wild Arcanine
-9968 C Wild Cyndaquil
 9969 C Wild Typhlosion
 9970 C Wild Venusaur
 9971 U Wild Beedrill
@@ -296,6 +295,7 @@ Foil=NotSupported
 9973 U Wild Rhydon
 9974 U Wild Scyther
 9975 C Wild Kabutops
+9975 C Wild Pikachu
 9976 C Wild Bellossom
 9977 M Master Ball
 9978 C Mahogany Town Gym

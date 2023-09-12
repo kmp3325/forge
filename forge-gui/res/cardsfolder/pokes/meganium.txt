@@ -3,10 +3,15 @@ ManaCost:5 G
 Types:Creature Plant Dinosaur Pokémon
 PT:4/5
 K:Mutate onto:5 G:Bayleef:5/6
-A:AB$ PutCounter | Cost$ T | Defined$ Self | CounterType$ SOLAR | CounterNum$ 2 | SpellDescription$ Put two solar counters on CARDNAME.
-A:AB$ Pump | Cost$ 2 G | ActivationLimit$ 1 | Defined$ Self | NumAtt$ X | NumDef$ X | SpellDescription$ CARDNAME gets +X/+X until end of turn, where X is the number of solar counters on it. Activate only once each turn.
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ When CARDNAME enters the battlefield, put a solar counter on it.
+A:AB$ RemoveCounter | Cost$ T | CounterType$ TOXIC | CounterNum$ 1 | UpTo$ True | ValidTgts$ Plant.Other | TgtPrompt$ Select another target Plant | SubAbility$ TrigRegen | SpellDescription$ Remove up to one toxic counter from another target Plant and regenerate it.
+SVar:TrigRegen:DB$ Regenerate | Defined$ ParentTarget
+A:AB$ PumpAll | Cost$ 2 G | ActivationLimit$ 1 | ValidCards$ Creature.YouCtrl | NumAtt$ X | NumDef$ X | SubAbility$ TrampSelf | SpellDescription$ Plants you control get +X/+X until end of turn, where X is the number of solar counters on CARDNAME. If it's sunny or rainy, CARDNAME gains trample until end of turn. Activate only once each turn.
 SVar:X:Count$CardCounters.SOLAR
-Oracle:Mutate onto Bayleef {5}{G} [5/6]\n{T}: Put two solar counters on Meganium.\n{2}{G}: Meganium gets +X/+X until end of turn, where X is the number of solar counters on it. Activate only once each turn.
+SVar:TrampSelf:DB$ Pump | Defined$ Self | KW$ Trample | ConditionCheckSVar$ WEATHER | ConditionSVarCompare$ GE1
+SVar:WEATHER:Count$Rainy.1.SUN
+SVar:SUN:Count$Sunny.1.0
+Oracle:Mutate onto Bayleef {5}{G} [5/6]\nWhen Meganium enters the battlefield, put a solar counter on it.\n{T}: Remove up to one toxic counter from another target Plant and regenerate it.\n{2}{G}: Plants you control get +X/+X until end of turn, where X is the number of solar counters on Meganium. If it's sunny or rainy, Meganium gains trample until end of turn. Activate only once each turn.
 
 DeckHints:Name$Bayleef
 SVar:SoundEffect:meganium.mp3

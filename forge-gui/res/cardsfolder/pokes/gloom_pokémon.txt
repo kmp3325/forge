@@ -1,6 +1,6 @@
 Name:Gloom Pokémon
 ManaCost:1 BG BG
-Types:Creature Plant Pokémon
+Types:Creature Plant Fungus Pokémon
 PT:3/3
 K:Mutate onto:1 BG BG:Oddish:3/3
 A:AB$ RemoveCounter | Cost$ GB T | CounterType$ TOXIC | CounterNum$ 2 | UpTo$ True | ValidTgts$ Creature | TgtPrompt$ Select target creature | SpellDescription$ Remove up to two toxic counters from target creature.

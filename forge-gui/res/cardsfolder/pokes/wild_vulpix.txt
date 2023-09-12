@@ -2,11 +2,9 @@ Name:Wild Vulpix
 ManaCost:3 R
 Types:Creature Fox Pokémon
 PT:1/1
-T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigDiscard | TriggerDescription$ When CARDNAME enters the battlefield, discard your hand, then draw cards equal to one plus the number of cards discarded this way.
-SVar:TrigDiscard:DB$ Discard | Mode$ Hand | Defined$ You | RememberDiscarded$ True | SubAbility$ DBDraw
-SVar:DBDraw:DB$ Draw | Defined$ You | NumCards$ X | SubAbility$ DBCleanup
-SVar:X:Remembered$Amount/Plus.1
-SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
-Oracle:When Wild Vulpix enters the battlefield, discard your hand, then draw cards equal to one plus the number of cards discarded this way.
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigDiscard | TriggerDescription$ When CARDNAME enters the battlefield, discard your hand, then draw two cards.
+SVar:TrigDiscard:DB$ Discard | Mode$ Hand | Defined$ You | SubAbility$ DBDraw
+SVar:DBDraw:DB$ Draw | Defined$ You | NumCards$ 2
+Oracle:When Wild Vulpix enters the battlefield, discard your hand, then draw two cards.
 
 SVar:SoundEffect:vulpix.mp3

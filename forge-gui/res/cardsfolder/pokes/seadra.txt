@@ -5,8 +5,8 @@ PT:3/3
 K:Mutate onto:3 U:Horsea:4/4
 S:Mode$ ReduceCost | ValidCard$ Card.Self | Type$ Ability | Amount$ U | CheckSVar$ RAIN | SVarCompare$ GE1 | Description$ As long as it's rainy, CARDNAME's activated abilities cost {U} less to activate.
 SVar:RAIN:Count$Rainy.1.0
-A:AB$ Counter | Cost$ 1 U U | TargetType$ Activated,Triggered | ValidTgts$ Card,Emblem | TgtPrompt$ Select target activated or triggered ability | SpellDescription$ Counter target activated or triggered ability.
-Oracle:Mutate onto Horsea {3}{U} [4/4]\nAs long as it's rainy, Seadra's activated abilities cost {U} less to activate.\n{1}{U}{U}: Counter target activated or triggered ability.
+A:AB$ Counter | Cost$ U U | TargetType$ Activated,Triggered | ValidTgts$ Card,Emblem | TgtPrompt$ Select target activated or triggered ability | SpellDescription$ Counter target activated or triggered ability.
+Oracle:Mutate onto Horsea {3}{U} [4/4]\nAs long as it's rainy, Seadra's activated abilities cost {U} less to activate.\n{U}{U}: Counter target activated or triggered ability.
 
 DeckHints:Name$Horsea
 DeckHints:Name$Kingdra

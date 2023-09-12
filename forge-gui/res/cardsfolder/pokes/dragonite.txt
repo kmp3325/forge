@@ -2,13 +2,13 @@ Name:Dragonite
 ManaCost:3 U R R W
 Types:Creature Dragon Pokémon
 PT:7/6
-K:Mutate onto:3 U R R W:Dragonair:9/8
+K:Mutate onto:3 U R R W:Dragonair:8/7
 K:Flying
 K:Vigilance
 T:Mode$ Taps | ValidCard$ Creature.OppCtrl | Execute$ DBTrigger | TriggerDescription$ Whenever a creature an opponent controls becomes tapped, you may pay {U}{R}{W}. When you do, CARDNAME fights it.
 SVar:DBTrigger:AB$ ImmediateTrigger | Cost$ U R W | Execute$ TrigFight | RememberObjects$ TriggeredCardLKICopy | TriggerDescription$ When you do, CARDNAME fights it.
 SVar:TrigFight:DB$ Fight | Defined$ Self | ExtraDefined$ DelayTriggerRememberedLKI
-Oracle:Mutate onto Dragonair {3}{U}{R}{R}{W} [9/8]\nFlying, vigilance\nWhenever a creature an opponent controls becomes tapped, you may pay {U}{R}{W}. When you do, Dragonite fights it.
+Oracle:Mutate onto Dragonair {3}{U}{R}{R}{W} [8/7]\nFlying, vigilance\nWhenever a creature an opponent controls becomes tapped, you may pay {U}{R}{W}. When you do, Dragonite fights it.
 
 DeckHints:Name$Dragonair
 SVar:SoundEffect:dragonite.mp3

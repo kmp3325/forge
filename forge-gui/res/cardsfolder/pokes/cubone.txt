@@ -2,9 +2,9 @@ Name:Cubone
 ManaCost:WB WB
 Types:Creature Dinosaur Pokémon
 PT:2/2
-T:Mode$ DamageDoneOnce | ValidTarget$ Card.Self | ValidSource$ Creature.Other+YouCtrl | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME is dealt damage by another creature you control, put a +1/+1 counter on it.
+T:Mode$ DamageDoneOnce | ValidTarget$ Card.Self | ValidSource$ Creature.YouCtrl | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME is dealt damage by a creature you control, put a +1/+1 counter on it.
 SVar:TrigPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1
-Oracle:Whenever Cubone is dealt damage by another creature you control, put a +1/+1 counter on it.
+Oracle:Whenever Cubone is dealt damage by a creature you control, put a +1/+1 counter on it.
 
 DeckHints:Name$Marowak
 SVar:SoundEffect:cubone.mp3

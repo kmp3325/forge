@@ -1,12 +1,13 @@
 Name:Dragonair
-ManaCost:3 U R
+ManaCost:4 U R
 Types:Creature Dragon Pokémon
 PT:5/5
-K:Mutate onto:3 U R:Dratini:6/5
+K:Mutate onto:4 U R:Dratini:6/5
 K:Mentor
-T:Mode$ Mutates | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigChooseWeather | TriggerDescription$ Whenever CARDNAME mutates, it becomes the weather of your choice.
-SVar:TrigChooseWeather:DB$ Weather | Value$ Choose
-Oracle:Mutate onto Dratini {3}{U}{R} [6/5]\nMentor\nWhenever Dragonair mutates, it becomes the weather of your choice.
+T:Mode$ WeatherChanged | TriggerZones$ Battlefield | Execute$ TrigTap | OptionalDecider$ You | TriggerDescription$ Whenever the weather changes, you may tap target creature and put a stun counter on it.
+SVar:TrigTap:DB$ Tap | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigPutCounter
+SVar:TrigPutCounter:DB$ PutCounter | IsCurse$ True | Defined$ Targeted | CounterType$ STUN | CounterNum$ 1
+Oracle:Mutate onto Dratini {4}{U}{R} [6/5]\nMentor\nWhenever the weather changes, you may tap target creature and put a stun counter on it.
 
 DeckHints:Name$Dratini
 DeckHints:Name$Dragonite

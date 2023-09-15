@@ -4,12 +4,9 @@ Types:Creature Dog Pokémon
 PT:5/3
 K:Mutate onto:2 R R:Eevee:6/4
 K:First strike
-T:Mode$ Blocks | ValidCard$ Card.Self | Execute$ TrigFlip | TriggerDescription$ Whenever CARDNAME blocks, flip a coin unless you pay {U}{R}. If you lose the flip, tap another target creature chosen at random and put a stun counter on it. CARDNAME deals 1 damage to that creature.
-SVar:TrigFlip:DB$ FlipACoin | Caller$ You | LoseSubAbility$ TrigTap | UnlessCost$ U R | ValidTgts$ Creature | TargetsAtRandom$ True
-SVar:TrigTap:DB$ Tap | Defined$ Targeted | SubAbility$ TrigStun
-SVar:TrigStun:DB$ PutCounter | CounterType$ STUN | CounterNum$ 1 | Defined$ Targeted | SubAbility$ TrigDmg
-SVar:TrigDmg:DB$ DealDamage | NumDmg$ 1 | Defined$ Targeted
-Oracle:Mutate onto Eevee {2}{R}{R} [6/4]\nFirst strike\nWhenever CARDNAME blocks, flip a coin unless you pay {U}{R}. If you lose the flip, tap another creature chosen at random and put a stun counter on it. CARDNAME deals 1 damage to that creature.
+T:Mode$ Phase | Phase$ BeginCombat | TriggerZones$ Battlefield | ValidPlayer$ Opponent | Execute$ TrigShock | TriggerDescription$ At the beginning of combat on each opponent's turn, if CARDNAME is untapped, it deals 2 damage to another target creature you control unless you pay {U}{R}.
+SVar:TrigShock:DB$ DealDamage | UnlessCost$ U R | ValidTgts$ Creature.Other+YouCtrl | NumDmg$ 2
+Oracle:Mutate onto Eevee {2}{R}{R} [6/4]\nFirst strike\nAt the beginning of combat on each opponent's turn, if Jolteon is untapped, it deals 2 damage to another target creature you control unless you pay {U}{R}.
 
 DeckHints:Name$Eevee
 SVar:SoundEffect:jolteon.mp3

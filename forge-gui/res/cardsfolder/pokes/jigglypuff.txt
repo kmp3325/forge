@@ -1,12 +1,12 @@
 Name:Jigglypuff
-ManaCost:2 W U
+ManaCost:2 W U U
 Types:Creature Faerie Rabbit Pokémon
 PT:1/1
-K:Mutate onto:2 W U:Igglybuff:2/2
+K:Mutate onto:2 W U U:Igglybuff:2/2
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigTapAll | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, tap all creatures you don't control.
 T:Mode$ Mutates | ValidCard$ Card.Self | Execute$ TrigTapAll | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, tap all creatures you don't control.
 SVar:TrigTapAll:DB$ TapAll | ValidCards$ Creature.YouDontCtrl
-Oracle:Mutate onto Igglybuff {2}{W}{U} [2/2]\nWhenever Jigglypuff enters the battlefield or mutates, tap all creatures you don't control.
+Oracle:Mutate onto Igglybuff {2}{W}{U}{U} [2/2]\nWhenever Jigglypuff enters the battlefield or mutates, tap all creatures you don't control.
 
 DeckHints:Name$Wigglytuff
 DeckHints:Name$Igglybuff

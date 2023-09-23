@@ -1,12 +1,13 @@
 Name:Wild Pikachu
-ManaCost:1 UR UR UR
+ManaCost:UR UR UR
 Types:Creature Mouse Pokémon
 PT:1/1
 K:Flash
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigTap | TriggerDescription$ When CARDNAME enters the battlefield, tap target creature and put a stun counter on it. Then CARDNAME deals 3 damage to target tapped creature.
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigTap | TriggerDescription$ When CARDNAME enters the battlefield, tap target creature and put a stun counter on it. When you do, CARDNAME deals 3 damage to target tapped creature.
 SVar:TrigTap:DB$ Tap | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigStun
-SVar:TrigStun:DB$ PutCounter | Defined$ Targeted | CounterType$ STUN | CounterNum$ 1 | SubAbility$ TrigDmg
+SVar:TrigStun:DB$ PutCounter | Defined$ Targeted | CounterType$ STUN | CounterNum$ 1 | SubAbility$ TrigImmediateTrig
+SVar:TrigImmediateTrig:AB$ ImmediateTrigger | Execute$ TrigDmg | SpellDescription$ When you do, Wild Pikachu deals 3 damage to target tapped creature.
 SVar:TrigDmg:DB$ DealDamage | NumDmg$ 3 | ValidTgts$ Creature.Tapped | TgtPrompt$ Select target tapped creature
-Oracle:Flash\nWhen Wild Pikachu enters the battlefield, tap target creature and put a stun counter on it. Then Wild Pikachu deals 3 damage to target tapped creature.
+Oracle:Flash\nWhen Wild Pikachu enters the battlefield, tap target creature and put a stun counter on it. When you do, Wild Pikachu deals 3 damage to target tapped creature.
 
 SVar:SoundEffect:pikachu.mp3

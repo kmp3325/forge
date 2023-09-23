@@ -5,7 +5,9 @@ PT:2/3
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounter | TriggerDescription$ When CARDNAME enters the battlefield, put a shield counter on it, then you may have it fight target creature.
 SVar:TrigPutCounter:DB$ PutCounter | CounterType$ SHIELD | CounterNum$ 1 | Defined$ TriggeredCardLKICopy | SubAbility$ DoFight
 SVar:DoFight:DB$ Fight | Optional$ True | Defined$ TriggeredCardLKICopy | ValidTgts$ Creature | TgtPrompt$ Choose target creature
-Oracle:When Onix enters the battlefield, put a shield counter on it, then you may have it fight target creature.
+T:Mode$ Mutates | ValidCard$ Card.Self | Execute$ TrigShield | TriggerDescription$ Whenever CARDNAME mutates, put a shield counter on each other creature you control.
+SVar:TrigShield:DB$ PutCounterAll | CounterType$ SHIELD | CounterNum$ 1 | ValidCards$ Creature.YouCtrl+Other
+Oracle:When Onix enters the battlefield, put a shield counter on it, then you may have it fight target creature.\nWhenever Onix mutates, put a shield counter on each other creature you control.
 
 DeckHints:Name$Steelix
 SVar:SoundEffect:onix.mp3

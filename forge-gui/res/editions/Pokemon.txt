@@ -70,7 +70,7 @@ Foil=NotSupported
 58 C Growlithe
 59 M Arcanine
 60 C Poliwag
-61 U Poliwhirl
+61 C Poliwhirl
 62 R Poliwrath
 63 U Abra
 64 U Kadabra
@@ -295,7 +295,7 @@ Foil=NotSupported
 9973 U Wild Rhydon
 9974 U Wild Scyther
 9975 C Wild Kabutops
-9975 C Wild Pikachu
+9975 U Wild Pikachu
 9976 C Wild Bellossom
 9977 M Master Ball
 9978 C Mahogany Town Gym

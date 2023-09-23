@@ -7,8 +7,8 @@ SVar:TrigScry:DB$ Scry | ScryNum$ 3 | SubAbility$ DBPeekAndReveal
 SVar:DBPeekAndReveal:DB$ PeekAndReveal | RevealOptional$ True | NoPeek$ True | RememberRevealed$ True | SubAbility$ DBDraw
 SVar:DBDraw:DB$ Draw | ConditionDefined$ Remembered | ConditionPresent$ Card.Creature | SubAbility$ DBCleanup
 SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
-S:Mode$ Continuous | Affected$ Card.Self | AddPower$ 1 | AddToughness$ 1 | AddKeyword$ Trample | CheckSVar$ X | SVarCompare$ GE3 | Description$ As long as you control three or more creatures, CARDNAME gets +1/+1 and has trample.
+S:Mode$ Continuous | Affected$ Card.Self | AddPower$ 2 | AddToughness$ 2 | AddKeyword$ Trample | CheckSVar$ X | SVarCompare$ GE3 | Description$ As long as you control three or more creatures, CARDNAME gets +2/+2 and has trample.
 SVar:X:Count$Valid Creature.YouCtrl
-Oracle:When Tauros enters the battlefield, scry 3, then you may reveal the top card of your library. If it's a creature card, draw a card.\nAs long as you control three or more creatures, Tauros gets +1/+1 and has trample.
+Oracle:When Tauros enters the battlefield, scry 3, then you may reveal the top card of your library. If it's a creature card, draw a card.\nAs long as you control three or more creatures, Tauros gets +2/+2 and has trample.
 
 SVar:SoundEffect:tauros.mp3

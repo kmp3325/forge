@@ -3,14 +3,14 @@ ManaCost:1 R G G
 Types:Creature Plant Pokémon
 PT:3/3
 K:Mutate onto:1 R G G:Sunkern:4/4
-T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | OptionalDecider$ You | Execute$ TrigSolar | TriggerZones$ Battlefield | TriggerDescription$ At the beginning of your upkeep, you may pay {G}. If you do, put a solar counter on CARDANME.
-SVar:TrigSolar:AB$ PutCounter | Cost$ G | CounterType$ SOLAR | CounterNum$ 1 | Defined$ Self
+T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | OptionalDecider$ You | Execute$ TrigSolar | TriggerZones$ Battlefield | TriggerDescription$ At the beginning of your upkeep, you may pay {G} any number of times. Put that many solar counters on CARDNAME.
+SVar:TrigSolar:AB$ PutCounter | Cost$ Mana<G\NumTimes> | CounterType$ SOLAR | CounterNum$ XPAY | Defined$ Self
+SVar:XPAY:Count$TriggerRememberAmount
 A:AB$ Weather | Cost$ R T SubCounter<1/SOLAR> | Value$ Sunny | SpellDescription$ It becomes sunny.
-A:AB$ Pump | Cost$ R R G | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumAtt$ X | NumDef$ X | SubAbility$ TrigLife | SpellDescription$ Target creature gets +1/+1 until end of turn. If it's sunny, that creature gets +X/+X until end of turn instead, where X is the number of solar counters on CARDNAME. You gain 2 life.
-SVar:X:Count$Sunny.Y.1
-SVar:Y:Count$CardCounters.SOLAR
-SVar:TrigLife:DB$ GainLife | LifeAmount$ 2
-Oracle:Mutate onto Sunkern {1}{R}{G}{G} [4/4]\nAt the beginning of your upkeep, you may pay {g}. If you do, put a solar counter on Sunflora.\n{R}, {t}, Remove a solar counter from Sunflora: It becomes sunny.\n{R}{R}{G}: Target creature gets +1/+1 until end of turn. If it's sunny, that creature gets +X/+X until end of turn instead, where X is the number of solar counters on Sunflora. You gain 2 life.
+A:AB$ Pump | Cost$ R G | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumAtt$ X | NumDef$ X | ConditionCheckSVar$ SUN | ConditionSVarCompare$ GE1 | SpellDescription$ Target creature gets +X/+X until end of turn, where X is the number of solar counters on CARDNAME. Activate only if it's sunny.
+SVar:X:Count$CardCounters.SOLAR
+SVar:SUN:Count$Sunny.1.0
+Oracle:Mutate onto Sunkern {1}{R}{G}{G} [4/4]\nAt the beginning of your upkeep, you may pay {G} any number of times. Put that many solar counters on Sunflora.\n{R}, {T}, Remove a solar counter from Sunflora: It becomes sunny.\n{R}{G}: Target creature gets +X/+X until end of turn, where X is the number of solar counters on Sunflora. Activate only if it's sunny.
 
 DeckHints:Name$Sunkern
 SVar:SoundEffect:sunflora.mp3

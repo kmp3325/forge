@@ -3,8 +3,8 @@ ManaCost:4 B
 Types:Creature Rhino Rabbit Pokémon
 PT:3/3
 K:Mutate onto:4 B:Male Nidoran:4/4
-K:Menace
-Oracle:Mutate onto Male Nidoran {4}{B} [4/4]\nWhenever Nidorino deals combat damage to a player, put a toxic counter on target creature that player controls.
+K:First strike
+Oracle:Mutate onto Male Nidoran {4}{B} [4/4]\nFirst strike
 
 DeckHints:Name$Male Nidoran
 DeckHints:Name$Nidoking

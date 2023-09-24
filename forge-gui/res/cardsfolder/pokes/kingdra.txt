@@ -3,7 +3,7 @@ ManaCost:2 G U U
 Types:Creature Dragon Fish Pokémon
 PT:4/4
 K:Mutate onto:2 G U U:Seadra:5/5
-T:Mode$ LandPlayed | ValidCard$ Land.Island | Execute$ PumpUp | TriggerDescription$ Whenever a player plays an Island, put a +1/+1 counter on CARDNAME.
+T:Mode$ LandPlayed | ValidCard$ Land.Island | Execute$ PumpUp | TriggerZones$ Battlefield | TriggerDescription$ Whenever a player plays an Island, put a +1/+1 counter on CARDNAME.
 SVar:PumpUp:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1
 A:AB$ ChangeZone | Cost$ U U | ActivationLimit$ 1 | ValidTgts$ Land | TgtPrompt$ Select target land | Origin$ Battlefield | Destination$ Hand | SubAbility$ TrigRain | SpellDescription$ Return target land to its owner's hand. If it's an Island, it becomes rainy. Activate only once each turn.
 SVar:TrigRain:DB$ Weather | Value$ Rainy | ConditionDefined$ ParentTarget | ConditionPresent$ Island

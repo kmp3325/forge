@@ -4,6 +4,7 @@ Types:Creature Plant Dinosaur Pokémon
 PT:4/5
 K:Mutate onto:5 G:Bayleef:5/6
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ When CARDNAME enters the battlefield, put a solar counter on it.
+SVar:TrigPutCounter:DB$ PutCounter | CounterType$ SOLAR | CounterNum$ 1 | Defined$ Self
 A:AB$ RemoveCounter | Cost$ T | CounterType$ TOXIC | CounterNum$ 1 | UpTo$ True | ValidTgts$ Plant.Other | TgtPrompt$ Select another target Plant | SubAbility$ TrigRegen | SpellDescription$ Remove up to one toxic counter from another target Plant and regenerate it.
 SVar:TrigRegen:DB$ Regenerate | Defined$ ParentTarget
 A:AB$ PumpAll | Cost$ 2 G | ActivationLimit$ 1 | ValidCards$ Creature.YouCtrl | NumAtt$ X | NumDef$ X | SubAbility$ TrampSelf | SpellDescription$ Plants you control get +X/+X until end of turn, where X is the number of solar counters on CARDNAME. If it's sunny or rainy, CARDNAME gains trample until end of turn. Activate only once each turn.

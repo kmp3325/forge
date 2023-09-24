@@ -1815,7 +1815,7 @@ public class CardFactoryUtil {
             String trigStr = "Mode$ DamageDone | " +
                     "ValidSource$ Card.Self | " +
                     "ValidTarget$ Creature | " +
-                    "TriggerZones$ Battlefield | CombatDamage$ True | " +
+                    "TriggerZones$ Battlefield | CombatDamage$ True | Secondary$ True | " +
                     "TriggerDescription$ Whenever this deals combat damage to a creature," +
                     " put that many burn counters on that creature.";
             final Trigger parsedTrigger = TriggerHandler.parseTrigger(trigStr, card, intrinsic);
@@ -1830,7 +1830,7 @@ public class CardFactoryUtil {
             String trigStr = "Mode$ DamageDone | " +
                 "ValidSource$ Card.Self | " +
                 "ValidTarget$ Creature.counters_EQ0_TOXIC | " +
-                "TriggerZones$ Battlefield | CombatDamage$ True | " +
+                "TriggerZones$ Battlefield | CombatDamage$ True | Secondary$ True | " +
                 "TriggerDescription$ Whenever this deals combat damage to a creature," +
                 " put a toxic counter on that creature if it has none.";
             final Trigger parsedTrigger = TriggerHandler.parseTrigger(trigStr, card, intrinsic);

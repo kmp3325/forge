@@ -36,6 +36,7 @@ public enum ReplacementType {
     Mill(ReplaceMill.class),
     Moved(ReplaceMoved.class),
     PhaseOut(ReplacePhaseOut.class),
+    PayLife(ReplacePayLife.class),
     PlanarDiceResult(ReplacePlanarDiceResult.class),
     ProduceMana(ReplaceProduceMana.class),
     Proliferate(ReplaceProliferate.class),

@@ -900,20 +900,14 @@ public class GameAction {
         return changeZone(game.getZoneOf(c), deck, c, deckPosition, cause, params);
     }
 
-    public final Card exile(final Card c, SpellAbility cause) {
-        if (c == null) {
-            return null;
-        }
-        return exile(new CardCollection(c), cause).get(0);
-    }
-    public final CardCollection exile(final CardCollection cards, SpellAbility cause) {
+    public final CardCollection exile(final CardCollection cards, SpellAbility cause, Map<AbilityKey, Object> params) {
         CardZoneTable table = new CardZoneTable();
         CardCollection result = new CardCollection();
         for (Card card : cards) {
             if (cause != null) {
                 table.put(card.getZone().getZoneType(), ZoneType.Exile, card);
             }
-            result.add(exile(card, cause, null));
+            result.add(exile(card, cause, params));
         }
         if (cause != null) {
             table.triggerChangesZoneAll(game, cause);
@@ -1080,9 +1074,6 @@ public class GameAction {
         game.getStaticEffects().clearStaticEffects(affectedCards);
 
         for (final Player p : game.getPlayers()) {
-            if (!game.getStack().isFrozen()) {
-                p.getManaPool().restoreColorReplacements();
-            }
             p.clearStaticAbilities();
         }
 
@@ -1105,7 +1096,7 @@ public class GameAction {
                  }
                  return true;
             }
-        });
+        }, true);
 
         final Comparator<StaticAbility> comp = new Comparator<StaticAbility>() {
             @Override
@@ -2453,7 +2444,7 @@ public class GameAction {
                     lethalDamage.put(c, c.getExcessDamageValue(false));
                 }
 
-                e.setValue(Integer.valueOf(e.getKey().addDamageAfterPrevention(e.getValue(), sourceLKI, isCombat, counterTable)));
+                e.setValue(Integer.valueOf(e.getKey().addDamageAfterPrevention(e.getValue(), sourceLKI, cause, isCombat, counterTable)));
                 sum += e.getValue();
 
                 sourceLKI.getDamageHistory().registerDamage(e.getValue(), isCombat, sourceLKI, e.getKey(), lkiCache);

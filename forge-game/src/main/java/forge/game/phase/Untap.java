@@ -83,9 +83,6 @@ public class Untap extends Phase {
 
         doToxicCounters(game.getPhaseHandler().getPlayerTurn());
         doUntap();
-
-//        doBurn(game.getPhaseHandler().getPlayerTurn());
-//        doFrozen(game.getPhaseHandler().getPlayerTurn());
     }
 
     /**

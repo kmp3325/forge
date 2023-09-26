@@ -3,8 +3,8 @@ ManaCost:4 R
 Types:Creature Wolf Dog Pokémon
 PT:2/2
 K:Flash
-T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigPump | SpellDescription$ When CARDNAME enters the battlefield, until end of turn, red creatures you control get +2/+0 and gain scorching.
-SVar:TrigPump:DB$ PumpAll | ValidCards$ Creature.YouCtrl+Red | NumAtt$ 2 | KW$ Scorching
-Oracle:Flash\nWhen Wild Arcanine enters the battlefield, until end of turn, red creatures you control get +2/+0 and gain scorching.
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigPump | SpellDescription$ When CARDNAME enters the battlefield, until end of turn, red creatures you control get +1/+0 and gain first strike and scorching.
+SVar:TrigPump:DB$ PumpAll | ValidCards$ Creature.YouCtrl+Red | NumAtt$ 1 | KW$ First strike & Scorching
+Oracle:Flash\nWhen Wild Arcanine enters the battlefield, until end of turn, red creatures you control get +1/+0 and gain first strike and scorching.
 
 SVar:SoundEffect:arcanine.mp3

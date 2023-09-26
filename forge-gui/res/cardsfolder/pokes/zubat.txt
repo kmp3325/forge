@@ -1,5 +1,5 @@
 Name:Zubat
-ManaCost:1 B
+ManaCost:2 B
 Types:Creature Bat Pokémon
 PT:1/1
 K:Flying

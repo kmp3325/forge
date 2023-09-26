@@ -1,5 +1,5 @@
 Name:Gyarados
-ManaCost:3 W U U
+ManaCost:4 W U U
 Types:Creature Leviathan Pokémon
 PT:6/6
 K:Mutate onto:3 W U U:Magikarp:9/9

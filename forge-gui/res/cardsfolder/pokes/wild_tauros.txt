@@ -7,3 +7,4 @@ SVar:TrigStuff:DB$ PumpAll | NumAtt$ 1 | NumDef$ 1 | KW$ Indestructible | ValidC
 Oracle:When Wild Tauros enters the battlefield, creatures you control get +1/+1 and gains indestructible until end of turn.
 
 SVar:SoundEffect:tauros.mp3
+SVar:PlayMain1:TRUE

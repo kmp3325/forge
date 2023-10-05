@@ -2,10 +2,10 @@ Name:Poliwrath
 ManaCost:3 U U R
 Types:Creature Frog Pokémon
 PT:5/6
-K:Mutate onto:3 U UR R:Poliwhirl:6/7
+K:Evolve from:3 U UR R:Poliwhirl:6/7
 A:AB$ DealDamage | Cost$ U R R | ValidTgts$ Creature.tapped | TgtPrompt$ Select target tapped creature | NumDmg$ 3 | SubAbility$ HurtSelf | SpellDescription$ CARDNAME deals 3 damage to target tapped creature and 3 damage to itself.
 SVar:HurtSelf:DB$ DealDamage | Defined$ Self | NumDmg$ 3
-Oracle:Mutate onto Poliwhirl {3}{U}{UR}{R} [6/7]\n{U}{R}{R}: Poliwrath deals 3 damage to target tapped creature and 3 damage to itself.
+Oracle:Evolve from Poliwhirl {3}{U}{UR}{R} [6/7]\n{U}{R}{R}: Poliwrath deals 3 damage to target tapped creature and 3 damage to itself.
 
 DeckHints:Name$Poliwhirl
 SVar:SoundEffect:poliwrath.mp3

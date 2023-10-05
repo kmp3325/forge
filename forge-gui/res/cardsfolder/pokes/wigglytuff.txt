@@ -2,13 +2,13 @@ Name:Wigglytuff
 ManaCost:3 W W U
 Types:Creature Faerie Rabbit Pokémon
 PT:3/3
-K:Mutate onto:3 W W U:Jigglypuff:4/4
+K:Evolve from:3 W W U:Jigglypuff:4/4
 T:Mode$ ChangesZone | ValidCard$ Creature.OppCtrl | TriggerZones$ Battlefield | Origin$ Any | Destination$ Battlefield | Execute$ TrigPhase | TriggerDescription$ Whenever a creature an opponent controls enters the battlefield or mutates, it phases out.
 T:Mode$ Mutates | ValidCard$ Creature.OppCtrl | TriggerZones$ Battlefield | Execute$ TrigPhase | Secondary$ True | TriggerDescription$ Whenever a creature an opponent controls enters the battlefield or mutates, it phases out.
 SVar:TrigPhase:DB$ Phases | Defined$ TriggeredCardLKICopy
 T:Mode$ PhaseIn | ValidCard$ Creature | TriggerZones$ Battlefield | Execute$ DBPutCounter | TriggerDescription$ Whenever a creature phases in, put a +1/+1 counter on CARDNAME.
 SVar:DBPutCounter:DB$ PutCounter | Defined$ Self | CounterNum$ 1 | CounterType$ P1P1
-Oracle:Mutate onto Jigglypuff {3}{W}{W}{U} [4/4]\nWhenever a creature an opponent controls enters the battlefield or mutates, it phases out.\nWhenever a creature phases in, put a +1/+1 counter on Wigglytuff.
+Oracle:Evolve from Jigglypuff {3}{W}{W}{U} [4/4]\nWhenever a creature an opponent controls enters the battlefield or mutates, it phases out.\nWhenever a creature phases in, put a +1/+1 counter on Wigglytuff.
 
 DeckHints:Name$Jigglypuff
 SVar:SoundEffect:wigglytuff.mp3

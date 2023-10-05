@@ -2,10 +2,10 @@ Name:Poliwhirl
 ManaCost:4 UR
 Types:Creature Frog Pokémon
 PT:2/3
-K:Mutate onto:4 UR:Poliwag:3/4
+K:Evolve from:4 UR:Poliwag:3/4
 A:AB$ Tap | Cost$ T | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ DBStun | SpellDescription$ Tap target creature. If that creature is an Insect, put a stun counter on it.
 SVar:DBStun:DB$ PutCounter | CounterNum$ 1 | CounterType$ STUN | Defined$ Targeted | ConditionDefined$ Targeted | ConditionPresent$ Creature.Insect
-Oracle:Mutate onto Poliwag {4}{UR} [3/4]\n{T}: Tap target creature. If that creature is an Insect, put a stun counter on it.
+Oracle:Evolve from Poliwag {4}{UR} [3/4]\n{T}: Tap target creature. If that creature is an Insect, put a stun counter on it.
 
 DeckHints:Name$Poliwag
 DeckHints:Name$Poliwrath

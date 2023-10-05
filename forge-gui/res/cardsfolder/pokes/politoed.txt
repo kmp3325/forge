@@ -2,13 +2,13 @@ Name:Politoed
 ManaCost:2 G U R
 Types:Creature Frog Pokémon
 PT:4/5
-K:Mutate onto:2 G U R:Poliwhirl:5/6
+K:Evolve from:2 G U R:Poliwhirl:5/6
 T:Mode$ Taps | ValidCard$ Creature.YouCtrl | OptionalDecider$ You | Execute$ TrigMoveCounter | TriggerZones$ Battlefield | TriggerDescription$ Whenever a creature you control becomes tapped, you may move a counter from that creature onto another target creature you control.
 SVar:TrigMoveCounter:DB$ MoveCounter | Source$ TriggeredCardLKICopy | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select another target creature you control | CounterType$ Any | CounterNum$ 1
 R:Event$ AddCounter | ActiveZones$ Battlefield | ValidCard$ Creature.YouCtrl+inZoneBattlefield | ValidCounterType$ P1P1 | ReplaceWith$ AddOneMoreCounters | Description$ If one or more +1/+1 counters would be put on a creature you control, that many plus one +1/+1 counters are put on it instead.
 SVar:AddOneMoreCounters:DB$ ReplaceCounter | ValidCounterType$ P1P1 | ChooseCounter$ True | Amount$ Y
 SVar:Y:ReplaceCount$CounterNum/Plus.1
-Oracle:Mutate onto Poliwhirl {2}{G}{U}{R} [5/6]\nWhenever a creature you control becomes tapped, you may move a counter from that creature onto another target creature you control.\nIf one or more +1/+1 counters would be put on a creature you control, that many plus one +1/+1 counters are put on it instead.
+Oracle:Evolve from Poliwhirl {2}{G}{U}{R} [5/6]\nWhenever a creature you control becomes tapped, you may move a counter from that creature onto another target creature you control.\nIf one or more +1/+1 counters would be put on a creature you control, that many plus one +1/+1 counters are put on it instead.
 
 DeckHints:Name$Poliwhirl
 SVar:SoundEffect:politoed.mp3

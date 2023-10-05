@@ -1,11 +1,11 @@
 Name:Cerulean City Gym
 Types:Legendary Artifact Land Gym
 A:AB$ Mana | Cost$ T | Produced$ C | SpellDescription$ Add {C}.
-A:AB$ Mana | Cost$ GU T | Produced$ G U | SpellDescription$ Add {G}{U}.
-A:AB$ Reveal | Cost$ GU T | RevealValid$ Card.Creature+Pokémon+withMutate onto | AILogic$ Never | RememberRevealed$ True | SubAbility$ DBNameCard | AISpecificPokeSearch$ True | SpellDescription$ Reveal a Pokémon creature card that mutates onto a named card from your hand. If you do, search your library for the named card, reveal it, put it into your hand, then shuffle.
-SVar:DBNameCard:DB$ NameCard | Defined$ You | ChooseFromMutateOnto$ Remembered | SubAbility$ DBFetch
+A:AB$ Mana | Cost$ 1 T | Produced$ G U | SpellDescription$ Add {G}{U}.
+A:AB$ Reveal | Cost$ GU T | RevealValid$ Card.Creature+Pokémon+withEvolve from | AILogic$ Never | RememberRevealed$ True | SubAbility$ DBNameCard | AISpecificPokeSearch$ True | SpellDescription$ Reveal a Pokémon creature card with evolve from your hand. If you do, search your library for a card it evolves from, reveal that card, put it into your hand, then shuffle.
+SVar:DBNameCard:DB$ NameCard | Defined$ You | ChooseFromEvolveFrom$ Remembered | SubAbility$ DBFetch
 SVar:DBFetch:DB$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Card.NamedCard | ChangeNum$ 1 | SubAbility$ DBCleanup | ConditionDefined$ Remembered | ConditionPresent$ Card | ConditionCompare$ GE1
 SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
-Oracle:{T}: Add {C}.\n{GU}, {T}: Add {G}{U}.\n{GU}, {T}: Reveal a Pokémon creature card that mutates onto a named card from your hand. If you do, search your library for the named card, reveal it, put it into your hand, then shuffle.
+Oracle:{T}: Add {C}.\n{1}, {T}: Add {G}{U}.\n{GU}, {T}: Reveal a Pokémon creature card with evolve from your hand. If you do, search your library for a card it evolves from, reveal that card, put it into your hand, then shuffle.
 
 DeckNeeds:Type$Pokémon

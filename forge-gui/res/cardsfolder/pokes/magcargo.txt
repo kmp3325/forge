@@ -2,12 +2,12 @@ Name:Magcargo
 ManaCost:R G W
 Types:Creature Elemental Slug Pokémon
 PT:2/4
-K:Mutate onto:R G W:Slugma:3/6
+K:Evolve from:R G W:Slugma:3/6
 R:Event$ AddCounter | ActiveZones$ Battlefield | ValidCard$ Card.Self | ValidCounterType$ TOXIC | ReplaceWith$ ActuallyShield | Description$ If a toxic counter would be put on CARDNAME, put a shield counter on it instead.
 SVar:ActuallyShield:DB$ ReplaceCounter | CounterType$ SHIELD
 R:Event$ AddCounter | ActiveZones$ Battlefield | ValidCard$ Card.Self | ValidCounterType$ FROST | ReplaceWith$ ActuallyDmg | Description$ If a frost counter would be put on CARDNAME, it deals 1 damage to itself instead.
 SVar:ActuallyDmg:DB$ DealDamage | NumDmg$ 1 | Defined$ Self
-Oracle:Mutate onto Slugma {R}{G}{W} [3/6]\nIf a toxic counter would be put on Magcargo, put a shield counter on it instead. / If a frost counter would be put on Magcargo, it deals 1 damage to itself instead.
+Oracle:Evolve from Slugma {R}{G}{W} [3/6]\nIf a toxic counter would be put on Magcargo, put a shield counter on it instead. / If a frost counter would be put on Magcargo, it deals 1 damage to itself instead.
 
 DeckHints:Name$Slugma
 SVar:SoundEffect:magcargo.mp3

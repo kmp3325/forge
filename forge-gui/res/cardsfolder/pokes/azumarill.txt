@@ -2,7 +2,7 @@ Name:Azumarill
 ManaCost:2 WU
 Types:Creature Faerie Mouse Pokémon
 PT:2/2
-K:Mutate onto:2 WU:Marill:3/3
+K:Evolve from:2 WU:Marill:3/3
 T:Mode$ PhaseIn | ValidCard$ Creature.Other | TriggerZones$ Battlefield | Execute$ TrigScry | TriggerDescription$ Whenever another creature phases in, scry 1.
 SVar:TrigScry:DB$ Scry | ScryNum$ 1
 T:Mode$ Scry | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigExile | TriggerDescription$ Whenever you scry, you may pay {WU}{WU}. When you do, exile target creature card from your graveyard. Until end of turn, you may cast that card.
@@ -10,7 +10,7 @@ SVar:TrigExile:AB$ ChangeZone | Cost$ WU WU | Origin$ Graveyard | Destination$ E
 SVar:DBEffect:DB$ Effect | StaticAbilities$ STPlay | ForgetOnMoved$ Exile | RememberObjects$ Remembered | SubAbility$ DBCleanup
 SVar:STPlay:Mode$ Continuous | MayPlay$ True | EffectZone$ Command | Affected$ Card.IsRemembered+nonLand | AffectedZone$ Exile | Description$ Until end of turn, you may cast that card.
 SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
-Oracle:Mutate onto Marill {3}{WU} [3/3]\nWhenever another creature phases in, scry 1.\nWhenever you scry, you may pay {WU}{WU}. When you do, exile target creature card from your graveyard. Until end of turn, you may cast that card.
+Oracle:Evolve from Marill {3}{WU} [3/3]\nWhenever another creature phases in, scry 1.\nWhenever you scry, you may pay {WU}{WU}. When you do, exile target creature card from your graveyard. Until end of turn, you may cast that card.
 
 DeckHints:Name$Marill
 SVar:SoundEffect:azumarill.mp3

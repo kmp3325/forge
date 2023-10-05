@@ -2,9 +2,9 @@ Name:Graveler
 ManaCost:2 G W
 Types:Creature Golem Pokémon
 PT:3/3
-K:Mutate onto:2 G W:Geodude:4/4
+K:Evolve from:2 G W:Geodude:4/4
 A:AB$ PutCounter | Cost$ G W T | CounterType$ SHIELD | CounterNum$ 1 | SpellDescription$ Put a shield counter on CARDNAME.
-Oracle:Mutate onto Geodude {2}{G}{W} [4/4]\n{G}{W}, {T}: Put a shield counter on Graveler.
+Oracle:Evolve from Geodude {2}{G}{W} [4/4]\n{G}{W}, {T}: Put a shield counter on Graveler.
 
 DeckHints:Name$Geodude
 DeckHints:Name$Golem

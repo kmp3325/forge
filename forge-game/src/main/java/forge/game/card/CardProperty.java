@@ -171,6 +171,10 @@ public class CardProperty {
             if (!card.isMutated()) {
                 return false;
             }
+        } else if (property.equals("Evolved")) {
+            if (!card.isEvolved()) {
+                return false;
+            }
         } else if (property.equals("IsRingbearer")) {
             if (!card.isRingBearer()) {
                 return false;

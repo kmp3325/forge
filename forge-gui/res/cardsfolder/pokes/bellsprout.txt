@@ -1,11 +1,12 @@
 Name:Bellsprout
-ManaCost:2 G
+ManaCost:1 G
 Types:Creature Plant Pokémon
 PT:1/1
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDestroy | TriggerDescription$ When CARDNAME enters the battlefield, destroy up to one target artifact, enchantment, or Insect. It becomes sunny.
-SVar:TrigDestroy:DB$ Destroy | TargetMin$ 0 | TargetMax$ 1 | ValidTgts$ Artifact,Enchantment,Insect | TgtPrompt$ Choose target artifact, enchantment, or Insect | SubAbility$ TrigSun
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDestroy | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, you may destroy up to one target artifact or Insect. It becomes sunny.
+T:Mode$ Evolves | ValidCard$ Card.Self | Execute$ TrigDestroy | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, you may destroy up to one target artifact or Insect. It becomes sunny.
+SVar:TrigDestroy:DB$ Destroy | TargetMin$ 0 | TargetMax$ 1 | ValidTgts$ Artifact,Insect | TgtPrompt$ Choose target artifact or Insect | SubAbility$ TrigSun
 SVar:TrigSun:DB$ Weather | Value$ Sunny
-Oracle:When Bellsprout enters the battlefield, destroy up to one target artifact, enchantment, or Insect. It becomes sunny.
+Oracle:Whenever Bellsprout enters the battlefield or evolves, you may destroy up to one target artifact or Insect. It becomes sunny.
 
 DeckHints:Name$Weepinbell
 SVar:SoundEffect:bellsprout.mp3

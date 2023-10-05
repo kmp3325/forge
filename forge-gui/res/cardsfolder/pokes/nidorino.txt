@@ -2,9 +2,9 @@ Name:Nidorino
 ManaCost:4 B
 Types:Creature Rhino Rabbit Pokémon
 PT:3/3
-K:Mutate onto:4 B:Male Nidoran:4/4
+K:Evolve from:4 B:Male Nidoran:4/4
 K:First strike
-Oracle:Mutate onto Male Nidoran {4}{B} [4/4]\nFirst strike
+Oracle:Evolve from Male Nidoran {4}{B} [4/4]\nFirst strike
 
 DeckHints:Name$Male Nidoran
 DeckHints:Name$Nidoking

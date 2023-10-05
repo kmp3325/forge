@@ -2,7 +2,7 @@ Name:Vileplume
 ManaCost:3 BG BG
 Types:Creature Plant Fungus Pokémon
 PT:5/5
-K:Mutate onto:3 BG BG:Gloom Pokémon:6/6
+K:Evolve from:3 BG BG:Gloom Pokémon:6/6
 A:AB$ Pump | Cost$ 1 BG | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ DBRollDice | SpellDescription$ choose target creature,
 SVar:DBRollDice:DB$ RollDice | Sides$ 6 | ResultSubAbilities$ 1:DBHurtSelf,2-4:DBSolar,5-6:DBHurtOthers | SpellDescription$ then roll a d6.
 SVar:DBHurtSelf:DB$ PutCounter | CounterType$ SOLAR | CounterNum$ 1 | Defined$ Self | SubAbility$ DBConfused | SpellDescription$ 1 VERT Put a solar counter on CARDNAME, then it deals 2 damage to itself.
@@ -10,7 +10,7 @@ SVar:DBConfused:DB$ DealDamage | Defined$ Self | NumDmg$ 2
 SVar:DBSolar:DB$ PutCounter | CounterType$ SOLAR | CounterNum$ 2 | Defined$ Self | SpellDescription$ 2-4 VERT Put two solar counters on CARDNAME.
 SVar:DBHurtOthers:DB$ DealDamage | NumDmg$ X | Defined$ Targeted | SpellDescription$ 5-6 VERT CARDNAME deals damage to that creature equal to the number of solar counters on CARDNAME.
 SVar:X:Count$CardCounters.SOLAR
-Oracle:Mutate onto Gloom {3}{BG}{BG} [6/6]\n{1}{BG}: Choose target creature, then roll a d6.\n1 | Put a solar counter on Vileplume, then Vileplume deals 2 damage to itself.\n2-4 | Vileplume deals 1 damage to that creature. Put two solar counters on Vileplume.\n5-6 | Vileplume deals damage to that creature equal to the number of solar counters on Vileplume.
+Oracle:Evolve from Gloom {3}{BG}{BG} [6/6]\n{1}{BG}: Choose target creature, then roll a d6.\n1 | Put a solar counter on Vileplume, then Vileplume deals 2 damage to itself.\n2-4 | Vileplume deals 1 damage to that creature. Put two solar counters on Vileplume.\n5-6 | Vileplume deals damage to that creature equal to the number of solar counters on Vileplume.
 
 DeckHints:Name$Gloom Pokémon
 SVar:SoundEffect:vileplume.mp3

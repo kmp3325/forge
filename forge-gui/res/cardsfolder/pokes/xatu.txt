@@ -2,7 +2,7 @@ Name:Xatu
 ManaCost:3 B
 Types:Creature Bird Pokémon
 PT:3/2
-K:Mutate onto:3 B:Natu:4/3
+K:Evolve from:3 B:Natu:4/3
 K:Flying
 T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | OptionalDecider$ You | IsPresent$ Creature.YouCtrl | PresentZone$ Graveyard | PresentCompare$ GT3 | TriggerZones$ Battlefield | Execute$ TrigReturn | TriggerDescription$ At the beginning of your upkeep, if you have four or more creature cards in your graveyard, you may put target creature card from your graveyard on top of your library. Then if it's foggy, draw a card.
 SVar:TrigReturn:DB$ ChangeZone | TgtPrompt$ Choose target creature card in your graveyard | ValidTgts$ Creature.YouCtrl | Origin$ Graveyard | Destination$ Library | SubAbility$ TrigDraw
@@ -11,7 +11,7 @@ SVar:FOG:Count$Foggy.1.0
 T:Mode$ BecomesTarget | OptionalDecider$ You | ValidTarget$ Creature.inZoneBattlefield+YouCtrl | ValidSource$ Ability | TriggerZones$ Battlefield | Execute$ TrigMill | TriggerDescription$ Whenever a creature you control becomes the target of an ability, you may mill a card and gain 1 life.
 SVar:TrigMill:DB$ Mill | NumCards$ 1 | Defined$ You | SubAbility$ TrigGainLife
 SVar:TrigGainLife:DB$ GainLife | LifeAmount$ 1 | Defined$ You
-Oracle:Mutate onto Natu {3}{B} [4/3]\nAt the beginning of your upkeep, if you have four or more creature cards in your graveyard, you may put target creature card from your graveyard on top of your library. Then if it's foggy, draw a card.\nWhenever a creature you control becomes the target of an ability, you may mill a card and gain 1 life.
+Oracle:Evolve from Natu {3}{B} [4/3]\nAt the beginning of your upkeep, if you have four or more creature cards in your graveyard, you may put target creature card from your graveyard on top of your library. Then if it's foggy, draw a card.\nWhenever a creature you control becomes the target of an ability, you may mill a card and gain 1 life.
 
 DeckHints:Name$Natu
 SVar:SoundEffect:xatu.mp3

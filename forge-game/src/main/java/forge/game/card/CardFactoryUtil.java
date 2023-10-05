@@ -3193,24 +3193,24 @@ public class CardFactoryUtil {
             } else {
                 sa.addAnnounceVar("Multikicker");
             }
-        } else if (keyword.startsWith("Mutate onto")) {
+        } else if (keyword.startsWith("Evolve from")) {
             final String[] params = keyword.split(":");
             final String cost = params[1];
             final String onto = params[2];
 
-            final StringBuilder sbMutate = new StringBuilder();
-            sbMutate.append("SP$ MutateOnto | Cost$ ");
-            sbMutate.append(cost);
-            sbMutate.append(" | ValidTgts$ Creature.sharesOwnerWith+named");
-            sbMutate.append(onto);
-            sbMutate.append(" | TgtPrompt$ Select target ");
-            sbMutate.append(onto);
+            final StringBuilder sbEvolve = new StringBuilder();
+            sbEvolve.append("SP$ EvolveFrom | Cost$ ");
+            sbEvolve.append(cost);
+            sbEvolve.append(" | ValidTgts$ Creature.sharesOwnerWith+named");
+            sbEvolve.append(onto);
+            sbEvolve.append(" | TgtPrompt$ Select target ");
+            sbEvolve.append(onto);
 
-            final SpellAbility sa = AbilityFactory.getAbility(sbMutate.toString(), card);
-            sa.setDescription("Mutate onto " + onto + " " + ManaCostParser.parse(cost) +
+            final SpellAbility sa = AbilityFactory.getAbility(sbEvolve.toString(), card);
+            sa.setDescription("Evolve from " + onto + " " + ManaCostParser.parse(cost) +
                     " (" + inst.getReminderText() + ")");
-            sa.setStackDescription("Mutate onto - " + card.getName());
-            sa.setAlternativeCost(AlternativeCost.Mutate);
+            sa.setStackDescription("Evolve from - " + card.getName());
+            sa.setAlternativeCost(AlternativeCost.EvolveFrom);
             sa.setIntrinsic(intrinsic);
             inst.addSpellAbility(sa);
         } else if (keyword.startsWith("Mutate")) {

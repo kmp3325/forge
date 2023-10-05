@@ -1,12 +1,14 @@
 package forge.game.ability.effects;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
-
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
+
 import forge.StaticData;
 import forge.card.CardFacePredicates;
 import forge.card.CardRules;
@@ -17,9 +19,8 @@ import forge.game.ability.SpellAbilityEffect;
 import forge.game.card.Card;
 import forge.game.card.CardCollection;
 import forge.game.card.CardLists;
+import forge.game.keyword.EvolveFrom;
 import forge.game.keyword.Keyword;
-import forge.game.keyword.KeywordInterface;
-import forge.game.keyword.MutateOnto;
 import forge.game.player.Player;
 import forge.game.spellability.SpellAbility;
 import forge.util.Aggregates;
@@ -55,7 +56,7 @@ public class ChooseCardNameEffect extends SpellAbilityEffect {
         boolean chooseFromDefined = sa.hasParam("ChooseFromDefinedCards");
         boolean chooseFromList = sa.hasParam("ChooseFromList");
         boolean chooseFromOneTimeList = sa.hasParam("ChooseFromOneTimeList");
-        boolean chooseFromMutate = sa.hasParam("ChooseFromMutateOnto");
+        boolean chooseFromEvolve = sa.hasParam("ChooseFromEvolveFrom");
 
         if (!randomChoice) {
             if (sa.hasParam("SelectPrompt")) {
@@ -133,14 +134,14 @@ public class ChooseCardNameEffect extends SpellAbilityEffect {
                     sb.append(name);
                 }
                 sa.putParam("ChooseFromOneTimeList", sb.toString());
-            } else if (chooseFromMutate) {
-                CardCollection choices = AbilityUtils.getDefinedCards(host, sa.getParam("ChooseFromMutateOnto"), sa);
+            } else if (chooseFromEvolve) {
+                CardCollection choices = AbilityUtils.getDefinedCards(host, sa.getParam("ChooseFromEvolveFrom"), sa);
                 choices = CardLists.getValidCards(choices, valid, host.getController(), host, sa);
                 Card parent = Aggregates.random(choices);
                 if (parent != null) {
-                    chosen = parent.getKeywords(Keyword.MUTATE_ONTO).stream().findFirst()
-                            .map(m -> (MutateOnto) m)
-                            .flatMap(MutateOnto::getOnto)
+                    chosen = parent.getKeywords(Keyword.EVOLVE_FROM).stream().findFirst()
+                            .map(m -> (EvolveFrom) m)
+                            .flatMap(EvolveFrom::getFrom)
                             .orElse("");
                 }
             } else {

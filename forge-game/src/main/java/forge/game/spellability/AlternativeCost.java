@@ -10,6 +10,7 @@ public enum AlternativeCost {
     Emerge,
     Escape,
     Evoke,
+    EvolveFrom,
     Flashback,
     Foretold,
     Madness,

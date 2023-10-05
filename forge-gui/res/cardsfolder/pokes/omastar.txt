@@ -2,12 +2,12 @@ Name:Omastar
 ManaCost:4 GU GU
 Types:Creature Nautilus Pokémon
 PT:2/6
-K:Mutate onto:4 GU GU:Omanyte:3/7
+K:Evolve from:4 GU GU:Omanyte:3/7
 T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ At the beginning of your upkeep, put a +1/+1 counter on CARDNAME. Then if it has five or more +1/+1 counters on it, sacrifice it and draw five cards.
 SVar:TrigPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ DBSac
 SVar:DBSac:DB$ Destroy | Defined$ Self | Sacrifice$ True | ConditionDefined$ Self | ConditionPresent$ Card.counters_GE5_P1P1 | SubAbility$ DBDraw
 SVar:DBDraw:DB$ Draw | NumCards$ 5 | Defined$ You | ConditionDefined$ Self | ConditionPresent$ Card.counters_GE5_P1P1
-Oracle:Mutate onto Omanyte {4}{GU}{GU} [3/7]\nAt the beginning of your upkeep, put a +1/+1 counter on Omastar. Then if it has five or more +1/+1 counters on it, sacrifice it and draw five cards.
+Oracle:Evolve from Omanyte {4}{GU}{GU} [3/7]\nAt the beginning of your upkeep, put a +1/+1 counter on Omastar. Then if it has five or more +1/+1 counters on it, sacrifice it and draw five cards.
 
 DeckHints:Name$Omanyte
 SVar:SoundEffect:omastar.mp3

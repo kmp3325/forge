@@ -2,7 +2,7 @@ Name:Noctowl
 ManaCost:4 W
 Types:Creature Bird Pokémon
 PT:3/4
-K:Mutate onto:4 W:Hoothoot:4/5
+K:Evolve from:4 W:Hoothoot:4/5
 K:Flying
 K:Vigilance
 T:Mode$ PhaseIn | ValidCard$ Creature.YouCtrl | Execute$ TrigRemoveToxic | TriggerDescription$ Whenever a creature you control phases in, you may remove up to two status counters from it, then scry 1. It becomes windy.
@@ -11,7 +11,7 @@ SVar:TrigScry:DB$ Scry | Optional$ True | ScryNum$ 1 | Defined$ You | SubAbility
 SVar:TrigWeather:DB$ Weather | Value$ Windy
 S:Mode$ Continuous | Affected$ Creature.Bird+Other+YouCtrl | AddPower$ X | AddToughness$ X | Description$ Other Bird creatures you control get +1/+1. If it's windy, instead they get +1/+1 and have vigilance.
 SVar:X:Count$Windy.2.1
-Oracle:Mutate onto Hoothoot {4}{W} [4/5]\nFlying, vigilance\nOther Bird creatures you control get +1/+1. If it's windy, instead they get +1/+1 and have vigilance.\nWhenever a creature you control phases in, you may remove up to two status counters from it, then scry 1. It becomes windy.
+Oracle:Evolve from Hoothoot {4}{W} [4/5]\nFlying, vigilance\nOther Bird creatures you control get +1/+1. If it's windy, instead they get +1/+1 and have vigilance.\nWhenever a creature you control phases in, you may remove up to two status counters from it, then scry 1. It becomes windy.
 
 DeckHints:Name$Hoothoot
 DeckHints:Type$Bird

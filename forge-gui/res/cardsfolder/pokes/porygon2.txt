@@ -2,14 +2,14 @@ Name:Porygon2
 ManaCost:2
 Types:Artifact Creature Duck Construct Pokémon
 PT:2/2
-K:Mutate onto:2:Porygon:4/4
+K:Evolve from:2:Porygon:4/4
 S:Mode$ Continuous | Affected$ You | RaiseMaxHandSize$ 2 | Description$ Your maximum hand size is increased by two.
 T:Mode$ Mutates | ValidCard$ Creature.Other | TriggerZones$ Battlefield | Execute$ TrigDraw | TriggerDescription$ Whenever another creature mutates, draw two cards.
 SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ 2
 A:AB$ PutCounter | Cost$ Discard<2/Card> | CounterType$ P1P1 | CounterNum$ 2 | Defined$ Self | SorcerySpeed$ True | SubAbility$ DBDiscount | SpellDescription$ Put two +1/+1 counters on CARDNAME. Until end of turn, spells you cast cost {2} less to cast. Activate only as a sorcery.
 SVar:DBDiscount:DB$ Effect | Duration$ UntilEndOfTurn | StaticAbilities$ ReduceCost
 SVar:ReduceCost:Mode$ ReduceCost | Amount$ 2 | Type$ Spell | Description$ Until end of turn, spells you cast cost {2} less to cast. | Activator$ Player.You
-Oracle:Mutate onto Porygon {2} [4/4]\nYour maximum hand size is increased by two.\nWhenever another creature mutates, draw two cards.\nDiscard two cards: Put two +1/+1 counter on Porygon2. Until end of turn, spells you cast cost {2} less to cast. Activate only as a sorcery.
+Oracle:Evolve from Porygon {2} [4/4]\nYour maximum hand size is increased by two.\nWhenever another creature mutates, draw two cards.\nDiscard two cards: Put two +1/+1 counter on Porygon2. Until end of turn, spells you cast cost {2} less to cast. Activate only as a sorcery.
 
 DeckHints:Name$Porygon
 SVar:SoundEffect:porygon2.mp3

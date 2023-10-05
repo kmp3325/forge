@@ -2,13 +2,13 @@ Name:Ninetales
 ManaCost:2 R R
 Types: Creature Fox Pokémon
 PT:3/4
-K:Mutate onto:2 R R:Vulpix:4/6
+K:Evolve from:2 R R:Vulpix:4/6
 T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ BurnEm | TriggerDescription$ Whenever CARDNAME attacks, you may put a burn counter on target creature. It becomes foggy.
 SVar:BurnEm:DB$ PutCounter | Optional$ True | IsCurse$ True | CounterType$ BURN | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigFog
 SVar:TrigFog:DB$ Weather | Value$ Foggy
-A:AB$ GainControl | Cost$ T | ValidTgts$ Creature.counters_GE1_BURN | TgtPrompt$ Select target creature with a burn counter on it | LoseControl$ EOT | AddKWs$ Haste | CheckSVar$ FOG | SVarCompare$ GE1 | SpellDescription$ {T}: Until end of turn, gain control of target creature with a burn counter on it. It gains haste. Activate only if it’s foggy.
+A:AB$ GainControl | Cost$ T | ValidTgts$ Creature.counters_GE1_BURN | TgtPrompt$ Select target creature with a burn counter on it | LoseControl$ EOT | AddKWs$ Haste | CheckSVar$ FOG | SVarCompare$ GE1 | Untap$ True | SpellDescription$ {T}: Until end of turn, gain control of target creature with a burn counter on it. Untap it. It gains haste until end of turn. Activate only if it’s foggy.
 SVar:FOG:Count$Foggy.1.0
-Oracle:Mutate onto Vulpix {2}{R}{R} [4/6]\nWhenever Ninetales attacks, you may put a burn counter on target creature.\n{T}: Until end of turn, gain control of target creature with a burn counter on it. It gains haste. Activate only if it’s foggy.
+Oracle:Evolve from Vulpix {2}{R}{R} [4/6]\nWhenever Ninetales attacks, you may put a burn counter on target creature.\n{T}: Until end of turn, gain control of target creature with a burn counter on it. Untap it. It gains haste until end of turn. Activate only if it’s foggy.
 
 DeckHints:Name$Vulpix
 SVar:HasAttackEffect:TRUE

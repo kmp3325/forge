@@ -2,12 +2,12 @@ Name:Starmie
 ManaCost:U B
 Types:Creature Starfish Pokémon
 PT:3/1
-K:Mutate onto:2 U B:Staryu:3/1
+K:Evolve from:2 U B:Staryu:3/1
 S:Mode$ Continuous | EffectZone$ Battlefield | AddToughness$ X | Affected$ Card.Self | Description$ CARDNAME gets +0/+1 for each land card in all graveyards.
 SVar:X:Count$ValidGraveyard Land
 A:AB$ Mana | Cost$ T ExileAnyGrave<1/Land> | Produced$ Combo U B | InstantSpeed$ True | SpellDescription$ Add {U} or {B}.
 A:AB$ Draw | Cost$ 1 U Sac<1/Land> | Defined$ You | NumCards$ 2 | SpellDescription$ Draw two cards.
-Oracle:Mutate onto Staryu {2}{U}{B} [3/2]\nStarmie gets +0/+1 for each land card in all graveyards.\n{T}, Exile a land card from a graveyard: Add {U} or {B}. Activate only as an instant.\n{1}{U}, Sacrifice a land: Draw two cards.
+Oracle:Evolve from Staryu {2}{U}{B} [3/2]\nStarmie gets +0/+1 for each land card in all graveyards.\n{T}, Exile a land card from a graveyard: Add {U} or {B}. Activate only as an instant.\n{1}{U}, Sacrifice a land: Draw two cards.
 
 DeckHints:Name$Staryu
 SVar:SoundEffect:starmie.mp3

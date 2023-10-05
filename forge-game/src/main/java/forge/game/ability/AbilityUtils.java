@@ -2060,6 +2060,9 @@ public class AbilityUtils {
         if (sq[0].contains("TimesMutated")) {
             return doXMath(c.getTimesMutated(), expr, c, ctb);
         }
+        if (sq[0].contains("TimesEvolved")) {
+            return doXMath(c.getTimesEvolved(), expr, c, ctb);
+        }
 
         if (sq[0].equals("RegeneratedThisTurn")) {
             return doXMath(c.getRegeneratedThisTurn(), expr, c, ctb);

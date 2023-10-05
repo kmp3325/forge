@@ -2,12 +2,13 @@ Name:Smoochum
 ManaCost:1 U
 Types:Snow Creature Vampire Demon Pokémon
 PT:0/1
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounter | TriggerDescription$ When CARDNAME enters the battlefield, put two frost counters on target creature. It becomes snowy.
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, put two frost counters on target creature. It becomes snowy.
+T:Mode$ Mutates | ValidCard$ Card.Self | Execute$ TrigPutCounter | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, put two frost counters on target creature. It becomes snowy.
 SVar:TrigPutCounter:DB$ PutCounter | ValidTgts$ Creature | TgtPrompt$ Select target creature | IsCurse$ True | CounterType$ FROST | CounterNum$ 2 | SubAbility$ TrigSnow
 SVar:TrigSnow:DB$ Weather | Value$ Snowy
 A:AB$ PutCounter | IsCurse$ True | Cost$ 1 U | CounterType$ FROST | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigSnow | SpellDescription$ Put a frost counter on target creature. If {S} was spent to activate this ability, it becomes snowy.
 SVar:TrigSnow:DB$ Weather | ConditionCheckSVar$ S | ConditionSVarCompare$ GE1 | Value$ Snowy
 SVar:S:Count$CastTotalManaSpent Snow
-Oracle:When Smoochum enters the battlefield, put two frost counters on target creature. It becomes snowy.\n{1}{U}: Put a frost counter on target creature. If {S} was spent to activate this ability, it becomes snowy.
+Oracle:Whenever Smoochum enters the battlefield or evolves, put two frost counters on target creature. It becomes snowy.\n{1}{U}: Put a frost counter on target creature. If {S} was spent to activate this ability, it becomes snowy.
 
 DeckHints:Name$JynxSVar:SoundEffect:smoochum.mp3

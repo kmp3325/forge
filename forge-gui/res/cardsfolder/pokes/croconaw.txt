@@ -2,9 +2,9 @@ Name:Croconaw
 ManaCost:4 U
 Types:Creature Crocodile Pokémon
 PT:3/3
-K:Mutate onto:4 U:Totodile:4/4
+K:Evolve from:4 U:Totodile:4/4
 A:AB$ Tap | Cost$ U T | ValidTgts$ Creature | TgtPrompt$ Select target creature | SpellDescription$ Tap target creature.
-Oracle:Mutate onto Totodile {4}{U} [4/4]\n{U}, {T}: Tap target creature.
+Oracle:Evolve from Totodile {4}{U} [4/4]\n{U}, {T}: Tap target creature.
 
 DeckHints:Name$Totodile
 DeckHints:Name$Feraligatr

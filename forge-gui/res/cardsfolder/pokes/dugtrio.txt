@@ -2,7 +2,7 @@ Name:Dugtrio
 ManaCost:1 W B
 Types:Creature Mole Pokémon
 PT:3/3
-K:Mutate onto:1 W B:Diglett:3/3
+K:Evolve from:1 W B:Diglett:3/3
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigDig | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, put three dig counters on it.
 T:Mode$ Mutates | ValidCard$ Card.Self | Execute$ TrigDig | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, put three dig counters on it.
 SVar:TrigDig:DB$ PutCounter | Defined$ Self | CounterNum$ 3 | CounterType$ DIG
@@ -11,7 +11,7 @@ SVar:TrigAnotherDig:DB$ PutCounter | Defined$ Self | CounterType$ DIG | CounterN
 SVar:DmgNum:TriggerCount$DamageAmount
 A:AB$ ChangeZone | ValidTgts$ Creature.cmcLEX+YouOwn | TgtPrompt$ Select target creature card with mana value X or less | Origin$ Graveyard | Destination$ Battlefield | Cost$ T SubCounter<X/DIG> | SpellDescription$ Return target creature card with mana value X or less from your graveyard to your hand. CARDNAME deals 1 damage to each other creature you control.
 SVar:X:Count$xPaid
-Oracle:Mutate onto Diglett {1}{W}{B} [3/3]\nWhenever Dugtrio enters the battlefield or mutates, put three dig counters on it.\nWhenever Dugtrio is dealt noncombat damage, put that many dig counters on it.\n{T}, Remove X dig counters from Dugtrio: Return target creature card with mana value X or less from your graveyard to your hand. Dugtrio deals 1 damage to each other creature you control.
+Oracle:Evolve from Diglett {1}{W}{B} [3/3]\nWhenever Dugtrio enters the battlefield or mutates, put three dig counters on it.\nWhenever Dugtrio is dealt noncombat damage, put that many dig counters on it.\n{T}, Remove X dig counters from Dugtrio: Return target creature card with mana value X or less from your graveyard to your hand. Dugtrio deals 1 damage to each other creature you control.
 
 DeckHints:Name$Diglett
 SVar:HasAttackEffect:TRUE

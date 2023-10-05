@@ -2,12 +2,12 @@ Name:Furret
 ManaCost:3
 Types:Creature Ferret Pokémon
 PT:2/2
-K:Mutate onto:3:Sentret:3/3
+K:Evolve from:3:Sentret:3/3
 K:First strike
 K:Hexproof
 K:Vigilance
 A:AB$ ChangeZone | Cost$ T | ValidTgts$ Card | TgtPrompt$ Select target card | Origin$ Graveyard | Destination$ Library | LibraryPosition$ -1 | SpellDescription$ Put target card from a graveyard on the bottom of its owner's library.
-Oracle:Mutate onto Sentret {3} [3/3]\nFirst strike, hexproof, vigilance\n{T}: Put target card from a graveyard on the bottom of its owner’s library.
+Oracle:Evolve from Sentret {3} [3/3]\nFirst strike, hexproof, vigilance\n{T}: Put target card from a graveyard on the bottom of its owner’s library.
 
 DeckHints:Name$Sentret
 SVar:SoundEffect:furret.mp3

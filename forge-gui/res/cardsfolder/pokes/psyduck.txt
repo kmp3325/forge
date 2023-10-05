@@ -3,7 +3,7 @@ ManaCost:3 U
 Types:Creature Bird Pokémon
 PT:2/2
 T:Mode$ AttackersDeclared | AttackedTarget$ You | TriggerZones$ Battlefield | Execute$ TrigCard | TriggerDescription$ Whenever one or more creatures attack you, you may draw two cards. If you do, discard a card.
-SVar:TrigCard:AB$ Discard | Cost$ Draw<2/You> | NumCards$ 1
+SVar:TrigCard:AB$ Discard | Cost$ Draw<2/You> | NumCards$ 1 | Mode$ TgtChoose
 Oracle:Whenever one or more creatures attack you, you may draw two cards. If you do, discard a card.
 
 DeckHints:Name$Golduck

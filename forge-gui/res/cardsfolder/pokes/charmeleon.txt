@@ -2,9 +2,9 @@ Name:Charmeleon
 ManaCost:1 R R
 Types:Creature Lizard Pokémon
 PT:3/2
-K:Mutate onto:1 R R:Charmander:4/2
+K:Evolve from:1 R R:Charmander:4/2
 K:Double strike
-Oracle:Mutate onto Charmander {1}{R}{R} [4/2]\nDouble strike
+Oracle:Evolve from Charmander {1}{R}{R} [4/2]\nDouble strike
 
 DeckHints:Name$Charmander
 DeckHints:Name$Charizard

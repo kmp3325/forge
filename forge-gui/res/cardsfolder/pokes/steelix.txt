@@ -2,14 +2,14 @@ Name:Steelix
 ManaCost:1 G G W
 Types:Creature Golem Serpent Pokémon
 PT:3/6
-K:Mutate onto:3 G G W:Onix:4/8
+K:Evolve from:3 G G W:Onix:4/8
 K:Indestructible
 K:Vigilance
 K:Steel skin
 T:Mode$ Phase | Phase$ BeginCombat | ValidPlayer$ You | CheckSVar$ X | SVarCompare$ GE3 | TriggerZones$ Battlefield | Execute$ TrigTrample | TriggerDescription$ At the beginning of combat on your turn, if there are three or more shield counters among creatures you control, creatures you control gain trample until end of turn.
 SVar:X:Count$Valid Creature.YouCtrl
 SVar:TrigTrample:DB$ PumpAll | ValidCards$ Creature.YouCtrl | KW$ Trample
-Oracle:Mutate onto Onix {3}{G}{G}{W}\nIndestructible, vigilance, steel skin\nAt the beginning of combat on your turn, if there are three or more shield counters among creatures you control, creatures you control gain trample until end of turn.
+Oracle:Evolve from Onix {3}{G}{G}{W}\nIndestructible, vigilance, steel skin\nAt the beginning of combat on your turn, if there are three or more shield counters among creatures you control, creatures you control gain trample until end of turn.
 
 DeckHints:Name$Onix
 SVar:SoundEffect:steelix.mp3

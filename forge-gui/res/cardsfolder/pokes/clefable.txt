@@ -2,12 +2,12 @@ Name:Clefable
 ManaCost:3 W W
 Types:Creature Faerie Rabbit Pokémon
 PT:3/4
-K:Mutate onto:3 W W:Clefairy:3/5
+K:Evolve from:3 W W:Clefairy:3/5
 K:Ward:Discard<1/Card>
 T:Mode$ BecomesTarget | ValidCard$ Creature.YouCtrl | ValidSource$ Spell.Mutate | TriggerZones$ Battlefield | Execute$ TrigHeal | TriggerDescription$ Whenever a creature you control becomes the target of a mutating creature spell, remove any number of counters from it, then proliferate.
 SVar:TrigHeal:DB$ RemoveCounter | CounterType$ Any | CounterNum$ Any | Defined$ TriggeredTargetLKICopy | SubAbility$ TrigProliferate
 SVar:TrigProliferate:DB$ Proliferate
-Oracle:Mutate onto Clefairy {3}{W}{W} [3/5]\nHexproof\nWhenever a creature you control becomes the target of a mutating creature spell, remove any number of counters from it, then proliferate.
+Oracle:Evolve from Clefairy {3}{W}{W} [3/5]\nHexproof\nWhenever a creature you control becomes the target of a mutating creature spell, remove any number of counters from it, then proliferate.
 
 DeckHints:Name$Clefairy
 DeckHints:Ability$Counters

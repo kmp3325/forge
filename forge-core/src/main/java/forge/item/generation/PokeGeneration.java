@@ -49,21 +49,21 @@ public class PokeGeneration {
   }
 
   private static Optional<PaperCard> getEvo(PaperCard card) {
-    Optional<String> mutate = Optional.empty();
+    Optional<String> evo = Optional.empty();
     for (String keyword : card.getRules().getMainPart().getKeywords()) {
-      if (keyword.startsWith("Mutate onto")) {
-        mutate = Optional.of(keyword);
+      if (keyword.startsWith("Evolve from")) {
+        evo = Optional.of(keyword);
         break;
       }
     }
-    if (!mutate.isPresent()) {
+    if (!evo.isPresent()) {
       return Optional.empty();
     }
-    String[] mutateParts = mutate.get().split(":");
-    if (mutateParts.length < 3) {
+    String[] evolveParts = evo.get().split(":");
+    if (evolveParts.length < 3) {
       return Optional.empty();
     }
-    String evoName = mutateParts[2];
+    String evoName = evolveParts[2];
     return Optional.ofNullable(StaticData.instance().getCommonCards().getCard(evoName));
   }
 }

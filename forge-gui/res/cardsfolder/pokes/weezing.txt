@@ -2,7 +2,7 @@ Name:Weezing
 ManaCost:3 B
 Types:Creature Elemental Pokémon
 PT:3/5
-K:Mutate onto:3 B:Koffing:3/6
+K:Evolve from:3 B:Koffing:3/6
 R:Event$ AddCounter | ActiveZones$ Battlefield | ValidCard$ Card.Self | ValidCounterType$ TOXIC | ReplaceWith$ ActuallyP1P1 | Description$ If a toxic counter would be put on CARDNAME, put a +1/+1 counter on it instead.
 SVar:ActuallyP1P1:DB$ ReplaceCounter | CounterType$ P1P1
 A:AB$ Weather | Cost$ B B PayLife<3> | Value$ Foggy | SpellDescription$ It becomes foggy.
@@ -10,7 +10,7 @@ R:Event$ AddCounter | ActiveZones$ Battlefield | ValidCard$ Creature.inZoneBattl
 SVar:AddOneMoreCounters:DB$ ReplaceCounter | ValidCounterType$ TOXIC | ChooseCounter$ True | Amount$ Y
 SVar:Y:ReplaceCount$CounterNum/Plus.1
 SVar:FOG:Count$Foggy.1.0
-Oracle:Mutate onto Koffing {3}{B} [3/6]\nIf a toxic counter would be put on Weezing, put a +1/+1 counter on it instead.\n{B}{B}, Pay 3 life: It becomes foggy.\nAs long as it’s foggy, if one or more toxic counters would be put on a creature, that many plus one toxic counters are put on it instead.
+Oracle:Evolve from Koffing {3}{B} [3/6]\nIf a toxic counter would be put on Weezing, put a +1/+1 counter on it instead.\n{B}{B}, Pay 3 life: It becomes foggy.\nAs long as it’s foggy, if one or more toxic counters would be put on a creature, that many plus one toxic counters are put on it instead.
 
 DeckHints:Name$Koffing
 SVar:SoundEffect:weezing.mp3

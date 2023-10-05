@@ -13,8 +13,6 @@ import forge.game.card.Card;
 import forge.game.card.CardCollection;
 import forge.game.card.CardCollectionView;
 import forge.game.card.CardFactory;
-import forge.game.keyword.Keyword;
-import forge.game.keyword.MutateOnto;
 import forge.game.player.Player;
 import forge.game.spellability.SpellAbility;
 import forge.game.trigger.TriggerType;
@@ -41,16 +39,7 @@ public class MutateEffect extends SpellAbilityEffect {
 
         CardCollectionView view = CardCollection.getView(Lists.newArrayList(host, target));
         final Card topCard;
-        if (sa.getKeyword().getKeyword().equals(Keyword.MUTATE_ONTO)) {
-            MutateOnto mutateOntoKeyword = (MutateOnto) sa.getKeyword();
-            if (mutateOntoKeyword.getNewPower().isPresent()) {
-                host.setBasePower(mutateOntoKeyword.getNewPower().get());
-            }
-            if (mutateOntoKeyword.getNewToughness().isPresent()) {
-                host.setBaseToughness(mutateOntoKeyword.getNewToughness().get());
-            }
-            topCard = host;
-        } else if (sa.hasParam("Bottom")) {
+        if (sa.hasParam("Bottom")) {
             topCard = target;
         } else {
             topCard = host.getController().getController().chooseSingleEntityForEffect(

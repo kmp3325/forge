@@ -530,7 +530,7 @@ public class MagicStack /* extends MyObservable */ implements Iterable<SpellAbil
                 first.setActivatingPlayer(sa.getActivatingPlayer());
                 game.fireEvent(new GameEventCardStatsChanged(source));
                 AbilityUtils.resolve(first);
-            } else if (sa.isMutate()) {
+            } else if (sa.isMutate() || sa.isEvolve()) {
                 SpellAbility first = source.getFirstSpellAbility();
                 // need to set activating player
                 first.setActivatingPlayer(sa.getActivatingPlayer());

@@ -2,7 +2,7 @@ Name:Meganium
 ManaCost:5 G
 Types:Creature Plant Dinosaur Pokémon
 PT:4/5
-K:Mutate onto:5 G:Bayleef:5/6
+K:Evolve from:5 G:Bayleef:5/6
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ When CARDNAME enters the battlefield, put a solar counter on it.
 SVar:TrigPutCounter:DB$ PutCounter | CounterType$ SOLAR | CounterNum$ 1 | Defined$ Self
 A:AB$ RemoveCounter | Cost$ T | CounterType$ TOXIC | CounterNum$ 1 | UpTo$ True | ValidTgts$ Plant.Other | TgtPrompt$ Select another target Plant | SubAbility$ TrigRegen | SpellDescription$ Remove up to one toxic counter from another target Plant and regenerate it.
@@ -12,7 +12,7 @@ SVar:X:Count$CardCounters.SOLAR
 SVar:TrampSelf:DB$ Pump | Defined$ Self | KW$ Trample | ConditionCheckSVar$ WEATHER | ConditionSVarCompare$ GE1
 SVar:WEATHER:Count$Rainy.1.SUN
 SVar:SUN:Count$Sunny.1.0
-Oracle:Mutate onto Bayleef {5}{G} [5/6]\nWhen Meganium enters the battlefield, put a solar counter on it.\n{T}: Remove up to one toxic counter from another target Plant and regenerate it.\n{2}{G}: Plants you control get +X/+X until end of turn, where X is the number of solar counters on Meganium. If it's sunny or rainy, Meganium gains trample until end of turn. Activate only once each turn.
+Oracle:Evolve from Bayleef {5}{G} [5/6]\nWhen Meganium enters the battlefield, put a solar counter on it.\n{T}: Remove up to one toxic counter from another target Plant and regenerate it.\n{2}{G}: Plants you control get +X/+X until end of turn, where X is the number of solar counters on Meganium. If it's sunny or rainy, Meganium gains trample until end of turn. Activate only once each turn.
 
 DeckHints:Name$Bayleef
 SVar:SoundEffect:meganium.mp3

@@ -2,14 +2,14 @@ Name:Nidoqueen
 ManaCost:4 W B
 Types:Creature Rhino Rabbit Pokémon
 PT:5/5
-K:Mutate onto:4 W B:Nidorina:6/6
+K:Evolve from:4 W B:Nidorina:6/6
 A:AB$ GainControl | Cost$ W B B | ActivationLimit$ 1 | ValidTgts$ Creature.toughnessLEX | TgtPrompt$ Select target creature with toughness less than or equal to the number of creatures you control | ConditionCheckSVar$ FOG | ConditionSVarCompare$ GE1 | SpellDescription$ Gain control of target creature with toughness less than or equal to the number of creatures you control. Activate only once each turn and only if it's foggy.
 SVar:X:Count$Valid Creature.YouCtrl
 SVar:FOG:Count$Foggy.1.0
 T:Mode$ DamageDoneOnce | ValidTarget$ Creature.YouCtrl | ValidSource$ Creature.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigPlus | TriggerDescription$ Whenever a creature you control is dealt damage by a creature you control, put a +1/+1 counter on each of them.
 SVar:TrigPlus:DB$ PutCounter | Defined$ TriggeredTargetLKICopy | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ TrigPlus2
 SVar:TrigPlus2:DB$ PutCounter | Defined$ TriggeredSourceLKICopy | CounterType$ P1P1 | CounterNum$ 1
-Oracle:Mutate onto Nidorina {4}{W}{B} [6/6]\n{W}{B}{B}: Gain control of target creature with toughness less than or equal to the number of creatures you control. Activate only once each turn and only if it’s foggy.\nWhenever a creature you control is dealt damage by another creature you control, put a +1/+1 counter on each of them.
+Oracle:Evolve from Nidorina {4}{W}{B} [6/6]\n{W}{B}{B}: Gain control of target creature with toughness less than or equal to the number of creatures you control. Activate only once each turn and only if it’s foggy.\nWhenever a creature you control is dealt damage by another creature you control, put a +1/+1 counter on each of them.
 
 DeckHints:Name$Nidorina
 SVar:HasCombatEffect:TRUE

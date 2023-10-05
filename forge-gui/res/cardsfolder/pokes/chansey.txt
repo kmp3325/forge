@@ -2,13 +2,13 @@ Name:Chansey
 ManaCost:4 W U
 Types:Creature Rabbit Pokémon
 PT:2/8
-K:Mutate onto:4 W U:Happiny:2/10
+K:Evolve from:4 W U:Happiny:2/10
 T:Mode$ PhaseIn | ValidCard$ Creature.YouCtrl | Execute$ DBScry | TriggerZones$ Battlefield | TriggerDescription$ Whenever a creature you control phases in, scry 2, then draw a card.
 SVar:DBScry:DB$ Scry | ScryNum$ 2 | StackDescription$ {p:You} scries 2 | SubAbility$ DBDraw
 SVar:DBDraw:DB$ Draw | NumCards$ 1 | Defined$ You
 A:AB$ RemoveCounter | Cost$ W U | ValidTgts$ Creature.Other | TgtPrompt$ Select another target creature | CounterType$ TOXIC,STUN,FROST,BURN | CounterNum$ All | SubAbility$ TrigPhases | SpellDescription$ Remove all status counters from another target creature, then it phases out.
 SVar:TrigPhases:DB$ Phases | Defined$ Targeted
-Oracle:Mutate onto Happiny {4}{W}{U} [2/10]\nWhenever a creature you control phases in, scry 2, then draw a card.\n{W}{U}: Remove all status counters from another target creature, then it phases out.
+Oracle:Evolve from Happiny {4}{W}{U} [2/10]\nWhenever a creature you control phases in, scry 2, then draw a card.\n{W}{U}: Remove all status counters from another target creature, then it phases out.
 
 DeckHints:Name$Blissey
 SVar:SoundEffect:chansey.mp3

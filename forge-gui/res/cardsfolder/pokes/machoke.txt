@@ -2,10 +2,10 @@ Name:Machoke
 ManaCost:1 R W
 Types:Creature Frog Ape Pokémon
 PT:3/3
-K:Mutate onto:1 R W:Machop:4/4
+K:Evolve from:1 R W:Machop:4/4
 K:Vigilance
 K:Mentor
-Oracle:Mutate onto Machop {1}{R}{W} [4/4]\nVigilance, mentor
+Oracle:Evolve from Machop {1}{R}{W} [4/4]\nVigilance, mentor
 
 DeckHints:Name$Machop
 DeckHints:Name$Machamp

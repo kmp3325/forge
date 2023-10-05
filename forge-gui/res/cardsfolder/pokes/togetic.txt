@@ -2,12 +2,12 @@ Name:Togetic
 ManaCost:1 WU WU
 Types:Creature Faerie Bird Pokémon
 PT:2/3
-K:Mutate onto:1 WU WU:Togepi:4/5
+K:Evolve from:1 WU WU:Togepi:4/5
 K:Flying
 T:Mode$ AttackerBlocked | ValidCard$ Creature | ValidBlocker$ Card.Self | Execute$ TrigPutCounter | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME blocks a creature, you may put a peace counter on that creature.
 SVar:TrigPutCounter:DB$ PutCounter | IsCurse$ True | CounterType$ PEACE | CounterNum$ 1 | Defined$ TriggeredAttackerLKICopy
 S:Mode$ Continuous | Affected$ Creature.counters_GE1_PEACE | AddHiddenKeyword$ CARDNAME can't attack. | Description$ Creatures with peace counters on them can't attack.
-Oracle:Mutate onto Togepi {1}{WU}{WU} [4/5]\nFlying\nWhenever Togetic blocks a creature, you may put a peace counter on that creature.\nCreatures with peace counters on them can't attack.
+Oracle:Evolve from Togepi {1}{WU}{WU} [4/5]\nFlying\nWhenever Togetic blocks a creature, you may put a peace counter on that creature.\nCreatures with peace counters on them can't attack.
 
 DeckHints:Name$Togepi
 SVar:SoundEffect:togetic.mp3

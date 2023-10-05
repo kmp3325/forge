@@ -295,8 +295,10 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
     private long bestowTimestamp = -1;
     private long transformedTimestamp = 0;
     private long mutatedTimestamp = -1;
+    private long evolvedTimestamp = -1;
     private long prototypeTimestamp = -1;
     private int timesMutated = 0;
+    private int timesEvolved = 0;
     private boolean tributed = false;
     private boolean discarded = false;
 
@@ -678,6 +680,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
             // Need to remove mutated states, otherwise the changeToState() will fail
             if (hasMergedCard()) {
                 removeMutatedStates();
+                removeEvolvedStates();
             }
             CardCollectionView cards = hasMergedCard() ? getMergedCards() : new CardCollection(this);
             boolean retResult = false;
@@ -692,6 +695,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
             }
             if (hasMergedCard()) {
                 rebuildMutatedStates(cause);
+                rebuildEvolvedStates(cause);
             }
 
             // run valid Replacement here
@@ -720,6 +724,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
                 // Need to remove mutated states, otherwise the changeToState() will fail
                 if (hasMergedCard()) {
                     removeMutatedStates();
+                    removeEvolvedStates();
                 }
                 CardCollectionView cards = hasMergedCard() ? getMergedCards() : new CardCollection(this);
                 for (final Card c : cards) {
@@ -810,7 +815,9 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
         }
         if (retResult && hasMergedCard()) {
             removeMutatedStates();
+            removeEvolvedStates();
             rebuildMutatedStates(null);
+            rebuildEvolvedStates(null);
             game.getTriggerHandler().clearActiveTriggers(this, null);
             game.getTriggerHandler().registerActiveTrigger(this, false);
         }
@@ -856,7 +863,9 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
             }
             if (retResult && hasMergedCard()) {
                 removeMutatedStates();
+                removeEvolvedStates();
                 rebuildMutatedStates(cause);
+                rebuildEvolvedStates(cause);
                 game.getTriggerHandler().clearActiveTriggers(this, null);
                 game.getTriggerHandler().registerActiveTrigger(this, false);
             }
@@ -1270,6 +1279,39 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
         return getMergedToCard() != null;
     }
 
+    public final boolean isEvolved() {
+        return evolvedTimestamp != -1;
+    }
+
+    public final long getEvolvedTimestamp() {
+        return evolvedTimestamp;
+    }
+
+    public final void setEvolvedTimestamp(final long t) {
+        evolvedTimestamp = t;
+    }
+
+    public final int getTimesEvolved() {
+        return timesEvolved;
+    }
+
+    public final void setTimesEvolved(final int t) {
+        timesEvolved = t;
+    }
+
+    public final void removeEvolvedStates() {
+        if (isEvolved()) {
+            removeCloneState(getEvolvedTimestamp());
+        }
+    }
+
+    public final void rebuildEvolvedStates(final CardTraitBase sa) {
+        if (!isFaceDown()) {
+            final CardCloneStates evolvedStatus = CardFactory.getMutatedCloneStates(this, sa);
+            addCloneState(evolvedStatus, getEvolvedTimestamp());
+        }
+    }
+
     public final boolean isMutated() {
         return mutatedTimestamp != -1;
     }
@@ -1318,6 +1360,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
 
             if (newTop != null) {
                 removeMutatedStates();
+                removeEvolvedStates();
                 newTop.mergedCards = mergedCards;
                 newTop.mergedTo = null;
                 mergedCards = null;
@@ -1327,6 +1370,11 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
                 newTop.timesMutated = timesMutated;
                 mutatedTimestamp = -1;
                 timesMutated = 0;
+
+                newTop.evolvedTimestamp = evolvedTimestamp;
+                newTop.timesEvolved = timesEvolved;
+                evolvedTimestamp = -1;
+                timesEvolved = 0;
 
                 zone.remove(this);
                 newTop.getZone().add(this);
@@ -1344,6 +1392,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
             topCard.removeMergedCard(this);
             topCard.removeMutatedStates();
             topCard.rebuildMutatedStates(cause);
+            topCard.rebuildEvolvedStates(cause);
         }
     }
 
@@ -2414,7 +2463,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
                         || keyword.startsWith("Encore") || keyword.startsWith("Mutate") || keyword.startsWith("Dungeon")
                         || keyword.startsWith("Class") || keyword.startsWith("Blitz")
                         || keyword.startsWith("Specialize") || keyword.equals("Ravenous")
-                        || keyword.equals("For Mirrodin")) {
+                        || keyword.equals("For Mirrodin") || keyword.startsWith("EvolveFrom")) {
                     // keyword parsing takes care of adding a proper description
                 } else if (keyword.startsWith("Read ahead")) {
                     sb.append(Localizer.getInstance().getMessage("lblReadAhead")).append(" (").append(Localizer.getInstance().getMessage("lblReadAheadDesc"));

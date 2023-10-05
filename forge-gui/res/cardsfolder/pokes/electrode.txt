@@ -2,14 +2,14 @@ Name:Electrode
 ManaCost:4 R
 Types:Artifact Creature Construct Pokémon
 PT:5/4
-K:Mutate onto:4 R R:Voltorb:5/4
+K:Evolve from:4 R R:Voltorb:5/4
 K:First strike
 T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.Self | Execute$ TrigBranch | TriggerDescription$ When CARDNAME dies, if it was attacking, it deals 5 damage to each opponent. Otherwise, it deals 5 damage to each player.
 SVar:TrigBranch:DB$ Branch | BranchConditionSVar$ X | BranchConditionSVarCompare$ GE1 | TrueSubAbility$ DmgOpps | FalseSubAbility$ DmgAll
 SVar:X:TriggeredCard$Valid Creature.attackingLKI
 SVar:DmgOpps:DB$ DealDamage | NumDmg$ 5 | Defined$ Player.Opponent
 SVar:DmgAll:DB$ DealDamage | NumDmg$ 5 | Defined$ Player
-Oracle:Mutate onto {4}{R}{R} [5/4]\nFirst strike\nWhen Electrode dies, if it was attacking, it deals 5 damage to each opponent. Otherwise, it deals 5 damage to each player.
+Oracle:Evolve from {4}{R}{R} [5/4]\nFirst strike\nWhen Electrode dies, if it was attacking, it deals 5 damage to each opponent. Otherwise, it deals 5 damage to each player.
 
 DeckHints:Name$Voltorb
 SVar:SoundEffect:electrode.mp3

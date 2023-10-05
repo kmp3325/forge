@@ -2,7 +2,7 @@ Name:Fearow
 ManaCost:3 RW RW
 Types:Creature Bird Pokémon
 PT:3/3
-K:Mutate onto:3 RW RW:Spearow:4/4
+K:Evolve from:3 RW RW:Spearow:4/4
 K:Flying
 K:First strike
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigWindy | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, it becomes windy.
@@ -10,7 +10,7 @@ T:Mode$ Mutates | ValidCard$ Card.Self | Execute$ TrigWindy | TriggerDescription
 SVar:TrigWindy:DB$ Weather | Value$ Windy
 S:Mode$ Continuous | Affected$ Creature.Other+YouCtrl+Bird | AddKeyword$ First strike | CheckSVar$ WIND | SVarCompare$ GE1 | Description$ As long as it's windy, other Bird creatures you control have first strike.
 SVar:WIND:Count$Windy.1.0
-Oracle:Mutate onto Spearow {3}{RW}{RW} [4/4]\nFlying, first strike\nWhenever Fearow enters the battlefield or mutates, it becomes windy.\nAs long as it's windy, other Bird creatures you control have first strike.
+Oracle:Evolve from Spearow {3}{RW}{RW} [4/4]\nFlying, first strike\nWhenever Fearow enters the battlefield or mutates, it becomes windy.\nAs long as it's windy, other Bird creatures you control have first strike.
 
 DeckHints:Name$Spearow
 DechHints:Type$Bird

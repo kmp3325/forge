@@ -2,12 +2,12 @@ Name:Rapidash
 ManaCost:3 R R G
 Types:Creature Unicorn Pokémon
 PT:6/5
-K:Mutate onto:3 R R G:Ponyta:7/6
+K:Evolve from:3 R R G:Ponyta:7/6
 S:Mode$ Continuous | Affected$ Creature.YouCtrl | AddKeyword$ Trample | CheckSVar$ NUMBURN | SVarCompare$ GE3 | Description$ As long as there are three or more burn counters among creatures your opponents control, creatures you control have trample.
 SVar:NUMBURN:Valid$ Creature.OppCtrl$CardCounters.BURN
 T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME attacksl, put a burn counter on target creature.
 SVar:TrigPutCounter:DB$ PutCounter | CounterType$ BURN | CounterNum$ 1 | ValidTgts$ Creature | IsCurse$ True | TgtPrompt$ Select target creature
-Oracle:Mutate onto Ponyta {3}{R}{R}{G} [7/6]\nAs long as there are three or more burn counters among creatures your opponents control, creatures you control have trample.\nWhenever Rapidash attacks, put a burn counter on target creature.
+Oracle:Evolve from Ponyta {3}{R}{R}{G} [7/6]\nAs long as there are three or more burn counters among creatures your opponents control, creatures you control have trample.\nWhenever Rapidash attacks, put a burn counter on target creature.
 
 DeckHints:Name$Ponyta
 SVar:SoundEffect:rapidash.mp3

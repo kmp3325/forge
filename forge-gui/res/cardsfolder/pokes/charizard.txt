@@ -2,13 +2,13 @@ Name:Charizard
 ManaCost:2 R R R
 Types:Creature Dragon Pokémon
 PT:5/4
-K:Mutate onto:2 R R R:Charmeleon:6/5
+K:Evolve from:2 R R R:Charmeleon:6/5
 K:Flying
 K:First strike
 T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigImmediateTrig | TriggerDescription$ Whenever CARDNAME attacks, you may pay {R}{R}{R}. When you do, it fights another target creature.
 SVar:TrigImmediateTrig:AB$ ImmediateTrigger | Cost$ R R R | Execute$ TrigDamage | TriggerDescription$ When you do, it fights another target creature.
 SVar:TrigDamage:DB$ Fight | Defined$ Self | ValidTgts$ Creature.Other | TgtPrompt$ Select target creature
-Oracle:Mutate onto Charmeleon {2}{R}{R}{R} [6/5]\nFlying, first strike\nWhenever Charizard attacks, you may pay {R}{R}{R}. When you do, it fights another target creature.
+Oracle:Evolve from Charmeleon {2}{R}{R}{R} [6/5]\nFlying, first strike\nWhenever Charizard attacks, you may pay {R}{R}{R}. When you do, it fights another target creature.
 
 DeckHints:Name$Charmeleon
 SVar:HasAttackEffect:TRUE

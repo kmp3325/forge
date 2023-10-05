@@ -2,14 +2,14 @@ Name:Umbreon
 ManaCost:2 B B
 Types:Creature Dog Fox Pokémon
 PT:3/5
-K:Mutate onto:2 B B:Eevee:4/6
+K:Evolve from:2 B B:Eevee:4/6
 T:Mode$ Blocks | ValidCard$ Card.Self | Execute$ TrigPhaseOut | CheckSVar$ FOG | SVarCompare$ GE1 | TriggerDescription$ Whenever CARDNAME blocks, if it's foggy, you may pay {B}. If you do, it phases out until end of combat. When it phases in, it deals 3 damage to target creature and 1 damage to itself.
 SVar:TrigPhaseOut:AB$ Phases | Cost$ B | Defined$ Self | WontPhaseInNormal$ True | Duration$ UntilEndOfCombat | SubAbility$ PhaseInTrig
 SVar:FOG:Count$Foggy.1.0
 SVar:PhaseInTrig:DB$ DelayedTrigger | Mode$ PhaseIn | ValidCard$ Card.Self | Execute$ DBDmgOther | TriggerDescription$ When CARDNAME phases in, it deals 3 damage to target creature and 1 damage to itself.
 SVar:DBDmgOther:DB$ DealDamage | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumDmg$ 3 | SubAbility$ DmgSelf
 SVar:DmgSelf:DB$ DealDamage | Defined$ Self | NumDmg$ 1
-Oracle:Mutate onto Eevee {2}{B}{B} [4/6]\nWhenever Umbreon becomes blocked, you may pay {B}. When you do, it phases out until end of combat. When it phases in, it deals 3 damage to any target and 1 damage to itself.
+Oracle:Evolve from Eevee {2}{B}{B} [4/6]\nWhenever Umbreon becomes blocked, you may pay {B}. When you do, it phases out until end of combat. When it phases in, it deals 3 damage to any target and 1 damage to itself.
 
 DeckHints:Name$Eevee
 SVar:SoundEffect:umbreon.mp3

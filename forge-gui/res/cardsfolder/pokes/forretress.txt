@@ -2,11 +2,11 @@ Name:Forretress
 ManaCost:4 G
 Types:Creature Plant Insect Pokémon
 PT:3/6
-K:Mutate onto:4 G:Pineco:4/7
+K:Evolve from:4 G:Pineco:4/7
 K:Defender
 K:Steel skin
 A:AB$ DestroyAll | Cost$ Sac<1/CARDNAME> | ValidCards$ Creature | SpellDescription$ Destroy all creatures.
-Oracle:Mutate onto Pineco {4}{G} [4/7]\nDefender\nSteel skin\nSacrifice Forretress: Destroy all creatures.
+Oracle:Evolve from Pineco {4}{G} [4/7]\nDefender\nSteel skin\nSacrifice Forretress: Destroy all creatures.
 
 DeckHints:Name$Pineco
 SVar:SoundEffect:forretress.mp3

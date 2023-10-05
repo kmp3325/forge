@@ -1,8 +1,8 @@
 package forge.ai;
 
 import forge.game.card.Card;
+import forge.game.keyword.EvolveFrom;
 import forge.game.keyword.Keyword;
-import forge.game.keyword.MutateOnto;
 import forge.game.spellability.SpellAbility;
 import forge.game.zone.ZoneType;
 
@@ -14,12 +14,12 @@ public class AiPokeSearch {
     }
 
     for (Card card : sa.getActivatingPlayer().getCardsIn(ZoneType.Hand)) {
-      if (card.hasKeyword(Keyword.MUTATE_ONTO)) {
-        String onto = card.getKeywords(Keyword.MUTATE_ONTO).stream().findFirst()
-            .map(m -> (MutateOnto) m)
-            .flatMap(MutateOnto::getOnto)
+      if (card.hasKeyword(Keyword.EVOLVE_FROM)) {
+        String onto = card.getKeywords(Keyword.EVOLVE_FROM).stream().findFirst()
+            .map(m -> (EvolveFrom) m)
+            .flatMap(EvolveFrom::getFrom)
             .orElse("");
-        if (onto.equals("")) {
+        if (onto.isEmpty()) {
           continue;
         }
         for (Card cardInDeck : sa.getActivatingPlayer().getCardsIn(ZoneType.Library)) {

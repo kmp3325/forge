@@ -1889,7 +1889,7 @@ public class CardDbCardMockTestCase extends CardMockTestCase {
         PaperCard landCard = this.cardDb.getCard(snowCoveredLand);
         assertNotNull(landCard);
         assertEquals(landCard.getName(), snowCoveredLand);
-        assertEquals(landCard.getEdition(), "J22");
+        assertEquals(landCard.getEdition(), "PKM");
 
         this.cardDb.setCardArtPreference(true, true);
         assertEquals(this.cardDb.getCardArtPreference(),
@@ -1898,7 +1898,7 @@ public class CardDbCardMockTestCase extends CardMockTestCase {
         landCard = this.cardDb.getCard(snowCoveredLand);
         assertNotNull(landCard);
         assertEquals(landCard.getName(), snowCoveredLand);
-        assertEquals(landCard.getEdition(), "KHM");
+        assertEquals(landCard.getEdition(), "PKM");
 
         // reset default
         this.cardDb.setCardArtPreference(true, false);

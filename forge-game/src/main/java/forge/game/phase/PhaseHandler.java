@@ -1064,7 +1064,6 @@ public class PhaseHandler implements java.io.Serializable {
         // do setup
         this.setupFirstTurn(goesFirst, startGameHook);
 
-
         // MAIN GAME LOOP
         while (!game.isGameOver()) {
            this.mainLoopStep();

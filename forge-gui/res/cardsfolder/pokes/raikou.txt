@@ -3,10 +3,11 @@ ManaCost:2 R G W
 Types:Legendary Creature Cat Beast Pokémon
 PT:4/4
 K:First strike
+K:Ward:2
 T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ At the beginning of your upkeep, put a +1/+1 counter on target creature.
 SVar:TrigPutCounter:DB$ PutCounter | ValidTgts$ Creature | TgtPrompt$ Select target creature | CounterType$ P1P1 | CounterNum$ 1
 A:AB$ PutCounter | Cost$ R G W | CounterType$ SHIELD | CounterNum$ 1 | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | AILogic$ Fight | SubAbility$ DBFight | ActivationLimit$ 1 | SpellDescription$ Put a shield counter on target creature you control, then it fights another target creature with a counter on it. Activate only once each turn.
 SVar:DBFight:DB$ Fight | Defined$ ParentTarget | ValidTgts$ Creature.HasCounters | TgtPrompt$ Select another target creature with a counter on it | TargetUnique$ True
-Oracle:First strike\nAt the beginning of your upkeep, put a +1/+1 counter on target creature.\n{R}{G}{W}: Put a shield counter on target creature you control, then it fights another target creature with a counter on it. Activate only once each turn.
+Oracle:First strike, ward {2}\nAt the beginning of your upkeep, put a +1/+1 counter on target creature.\n{R}{G}{W}: Put a shield counter on target creature you control, then it fights another target creature with a counter on it. Activate only once each turn.
 
 SVar:SoundEffect:raikou.mp3

@@ -3,6 +3,7 @@ ManaCost:1 W U U B
 Types:Legendary Creature Cat Beast Pokémon
 PT:4/4
 K:First strike
+K:Ward {2}
 R:Event$ DamageDone | ActiveZones$ Battlefield | ValidTarget$ Creature.YouCtrl | ReplaceWith$ Mill | Optional$ True | Description$ If a creature you control would be dealt damage or destroyed, you may instead mill three cards. If you do, remove all counters from it and it phases out.
 SVar:Mill:DB$ Mill | NumCards$ 3 | Defined$ You | SubAbility$ RemoveCounters
 SVar:RemoveCounters:DB$ RemoveCounter | CounterType$ All | CounterNum$ All | SubAbility$ PhaseOut
@@ -11,6 +12,6 @@ T:Mode$ PhaseIn | ValidCard$ Creature.YouCtrl | Execute$ DBPump | TriggerZones$ 
 SVar:DBPump:DB$ Pump | NumAtt$ 2 | NumDef$ 2 | Defined$ TriggeredCardLKICopy | SubAbility$ DBMill
 SVar:DBMill:DB$ Mill | Defined$ Player.Opponent | NumCards$ X
 SVar:X:TriggeredCard$CardPower
-Oracle:First strike\nIf a creature you control would be dealt damage or destroyed, you may instead mill three cards. If you do, remove all counters from it and it phases out.\nWhenever a creature you control phases in, it gets +2/+2 until end of turn. Then each opponent mills cards equal to its power.
+Oracle:First strike, ward {2}\nIf a creature you control would be dealt damage or destroyed, you may instead mill three cards. If you do, remove all counters from it and it phases out.\nWhenever a creature you control phases in, it gets +2/+2 until end of turn. Then each opponent mills cards equal to its power.
 
 SVar:SoundEffect:suicune.mp3

@@ -926,7 +926,7 @@ public class AbilityUtils {
             if (index >= 0) {
                 char reference = valid.charAt(index + 2); // take whatever goes after EQ
                 if (Character.isLetter(reference)) {
-                    String varName = valid.split(",")[0].split(t)[1].split("\\+")[0];
+                    String varName = valid.substring(index).split(",")[0].split(t)[1].split("\\+")[0];
                     if (!sa.getSVar(varName).isEmpty() || source.hasSVar(varName)) {
                         valid = TextUtil.fastReplace(valid, TextUtil.concatNoSpace(t, varName),
                                 TextUtil.concatNoSpace(t, Integer.toString(calculateAmount(source, varName, sa))));
@@ -1163,6 +1163,9 @@ public class AbilityUtils {
         else if (defined.startsWith("Non")) {
             players.addAll(game.getPlayersInTurnOrder());
             players.removeAll(getDefinedPlayers(card, defined.substring(3), sa));
+        }
+        else if (defined.equals("Registered")) {
+            players.addAll(game.getRegisteredPlayers());
         }
         else if (defined.equals("EnchantedPlayer")) {
             final Object o = sa.getHostCard().getEntityAttachedTo();
@@ -2359,7 +2362,7 @@ public class AbilityUtils {
             String[] props = l[0].split(" ");
             Boolean isCombat = null;
             if (sq[0].contains("CombatDamage")) {
-                isCombat = true;
+                isCombat = !sq[0].contains("Non");
             }
             int num;
             List<Integer> dmgInstances = game.getDamageDoneThisTurn(isCombat, false, props[1], props[2], c, player, ctb);

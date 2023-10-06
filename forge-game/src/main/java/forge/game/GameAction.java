@@ -372,7 +372,6 @@ public class GameAction {
 
                     copied.clearDevoured();
                     copied.clearDelved();
-                    copied.clearConvoked();
                     copied.clearExploited();
                 } else if (toBattlefield && !c.isInPlay()) {
                     // was replaced with another Zone Change
@@ -647,7 +646,6 @@ public class GameAction {
         if (!c.isRealToken() && !toBattlefield) {
             copied.clearDevoured();
             copied.clearDelved();
-            copied.clearConvoked();
             copied.clearExploited();
         }
 
@@ -1160,18 +1158,6 @@ public class GameAction {
                 }
             }
             c.getStaticCommandList().removeAll(toRemove);
-        }
-        // Exclude cards in hidden zones from update
-        /*
-         * Refactoring this code to affectedCards.removeIf((Card c) -> c.isInZone(ZoneType.Library));
-         * causes Android build not to compile
-         * */
-        Iterator<Card> it = affectedCards.iterator();
-        while (it.hasNext()) {
-            Card c = it.next();
-            if (c.isInZone(ZoneType.Library)) {
-                it.remove();
-            }
         }
 
         // preList means that this is run by a pre Check with LKI objects

@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import forge.game.ability.effects.*;
-import forge.game.replacement.ReplaceFight;
 import forge.util.ReflectionUtil;
 
 /**

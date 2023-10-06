@@ -25,7 +25,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import forge.game.ability.effects.FightEffect;
 import org.apache.commons.lang3.StringUtils;
 
 import com.google.common.base.Predicate;

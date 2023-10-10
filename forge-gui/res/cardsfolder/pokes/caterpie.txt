@@ -2,9 +2,9 @@ Name:Caterpie
 ManaCost:G
 Types:Creature Insect Pokémon
 PT:0/1
-T:Mode$ Mutates | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigCounter | TriggerDescription$ Whenever CARDNAME mutates, put a +1/+1 counter on target creature you control.
+T:Mode$ Evolves | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigCounter | TriggerDescription$ Whenever CARDNAME evolves, put a +1/+1 counter on target creature you control.
 SVar:TrigCounter:DB$ PutCounter | CounterType$ P1P1 | CounterNum$ 1 | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control
-Oracle:Whenever Caterpie mutates, put a +1/+1 counter on target creature you control.
+Oracle:Whenever Caterpie evolves, put a +1/+1 counter on target creature you control.
 
 DeckHints:Name$Metapod
 DeckHints:Type$Creature

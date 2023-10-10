@@ -321,6 +321,70 @@ Foil=NotSupported
 9998 L Forest
 9999 L Wastes
 
+[extended art]
+7000 U Ivysaur
+7001 U Charmeleon
+7002 U Wartortle
+7003 C Metapod
+7004 C Kakuna
+7005 C Pidgeotto
+7006 C Pikachu
+7007 C Nidorina
+7008 C Nidorino
+7009 C Clefairy
+7010 U Jigglypuff
+7011 C Golbat
+7012 U Gloom
+7013 U Poliwhirl
+7014 U Kadabra
+7015 U Machoke
+7016 C Weepinbell
+7017 U Graveler
+7018 U Haunter
+7019 U Seadra
+7020 U Dragonair
+7021 C Bayleef
+7022 C Quilava
+7023 C Croconaw
+7024 U Flaaffy
+7025 C Skiploom
+7026 U Pupitar
+
+[borderless]
+7027 C Bulbasaur
+7028 U Ivysaur
+7029 C Charmander
+7030 C Squirtle
+7031 C Metapod
+7032 R Nidoqueen
+7033 C Golbat
+7034 U Abra
+7035 U Kadabra
+7036 M Alakazam
+7037 R Tentacruel
+7038 R Golem
+7039 U Farfetch'd
+7040 U Cloyster
+7041 C Onix
+7042 R Hitmonlee
+7043 R Hitmonchan
+7044 R Electabuzz
+7045 R Magmar
+7046 M Gyarados
+7047 M Articuno
+7048 M Zapdos
+7049 M Moltres
+7050 C Chikorita
+7051 M Sunflora
+7052 M Lugia
+7053 M Ho-Oh
+7054 M Celebi
+7055 U Team Rocket's Tentacruel
+7056 M Team Rocket's Gyarados
+7057 R Team Rocket's Tyranitar
+7058 R Giovanni's Persian
+7059 C Wild Onix
+
 [Snow Lands]
 5 Snow-Covered Plains|PKM
 5 Snow-Covered Island|PKM

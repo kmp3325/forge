@@ -1,6 +1,6 @@
 Name:Wobbuffet
 ManaCost:2 B
-Types:Creature Mutate Pokémon
+Types:Creature Atog Pokémon
 PT:1/2
 K:Evolve from:2 B:Wynut:1/4
 K:Defender

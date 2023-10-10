@@ -3,9 +3,9 @@ ManaCost:2
 Types:Creature Fox Pokémon
 PT:1/1
 S:Mode$ ReduceCost | ValidCard$ Creature.SharesColorWith | Type$ Spell | Activator$ You | Amount$ 1 | Description$ Spells you cast that share a color with CARDNAME cost {1} less to cast.
-T:Mode$ Mutates | ValidCard$ Creature.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigGainLife | TriggerDescription$ Whenever a creature you control mutates, you gain 4 life.
+T:Mode$ Evolves | ValidCard$ Creature.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigGainLife | TriggerDescription$ Whenever a creature you control evolves, you gain 4 life.
 SVar:TrigGainLife:DB$ GainLife | LifeAmount$ 4
-Oracle:Spells you cast that share a color with Eevee cost {1} less to cast.\nWhenever a creature you control mutates, you gain 4 life.
+Oracle:Spells you cast that share a color with Eevee cost {1} less to cast.\nWhenever a creature you control evolves, you gain 4 life.
 
 DeckHints:Name$Vaporoen
 DeckHints:Name$Jolteon

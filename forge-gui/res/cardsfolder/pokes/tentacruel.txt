@@ -6,8 +6,8 @@ K:Caustic
 K:Evolve from:5 UB:Tentacool:5/5
 T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigMill | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME attacks, defending player mills five cards.
 SVar:TrigMill:DB$ Mill | NumCards$ 5 | Defined$ TriggeredDefendingPlayer
-S:Mode$ Continuous | Affected$ Card.Self | MayPlay$ True | ValidSA$ Spell.Mutate | AffectedZone$ Graveyard | EffectZone$ Graveyard | Description$ You may cast CARDNAME from your graveyard using its mutate ability.
-Oracle:Evolve from Tentacool {5}{UB} [5/5]\nCaustic\nWhenever Tentacruel attacks, defending player mills five cards.\nYou may cast Tentacruel from your graveyard using its mutate ability.
+S:Mode$ Continuous | Affected$ Card.Self | MayPlay$ True | ValidSA$ Spell.Evolve | AffectedZone$ Graveyard | EffectZone$ Graveyard | Description$ You may cast CARDNAME from your graveyard using its evolve ability.
+Oracle:Evolve from Tentacool {5}{UB} [5/5]\nCaustic\nWhenever Tentacruel attacks, defending player mills five cards.\nYou may cast Tentacruel from your graveyard using its evolve ability.
 
 DeckHints:Name$Tentacool
 SVar:SoundEffect:tentacruel.mp3

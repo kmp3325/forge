@@ -6,12 +6,12 @@ K:Evolve from:4 W:Doduo:4/2
 K:Flying
 K:First strike
 K:Vigilance
-T:Mode$ Mutates | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigWeather | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, it becomes windy.
-T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigWeather | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, it becomes windy.
+T:Mode$ Evolves | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigWeather | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, it becomes windy.
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigWeather | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, it becomes windy.
 SVar:TrigWeather:DB$ Weather | Value$ Windy
 S:Mode$ Continuous | Affected$ Card.Self | CheckSVar$ WIND | SVarCompare$ GE1 | CanBlockAmount$ 1 | Description$ As long as it's windy, CARDNAME can block an additional creature each combat.
 SVar:WIND:Count$Windy.1.0
-Oracle:Evolve from Doduo {4}{W} [4/2]\nFlying, first strike, vigilance\nWhenever Dodrio enters the battlefield or mutates, it becomes windy.\nAs long as it's windy, Dodrio can block an additional creature each combat.
+Oracle:Evolve from Doduo {4}{W} [4/2]\nFlying, first strike, vigilance\nWhenever Dodrio enters the battlefield or evolves, it becomes windy.\nAs long as it's windy, Dodrio can block an additional creature each combat.
 
 DeckHints:Name$Doduo
 SVar:SoundEffect:dodrio.mp3

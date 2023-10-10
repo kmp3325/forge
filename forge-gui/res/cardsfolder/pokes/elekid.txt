@@ -3,7 +3,7 @@ ManaCost:R
 Types:Creature Cat Pokémon
 PT:1/1
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigTap | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, tap target creature and put a stun counter on it.
-T:Mode$ Mutates | ValidCard$ Card.Self | Execute$ TrigTap | Secondary$ True | TriggerDescription$ Whenenever CARDNAME enters the battlefield or evolves, tap target creature and put a stun counter on it.
+T:Mode$ Evolves | ValidCard$ Card.Self | Execute$ TrigTap | Secondary$ True | TriggerDescription$ Whenenever CARDNAME enters the battlefield or evolves, tap target creature and put a stun counter on it.
 SVar:TrigTap:DB$ Tap | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigPutCounter
 SVar:TrigPutCounter:DB$ PutCounter | IsCurse$ True | Defined$ Targeted | CounterType$ STUN | CounterNum$ 1
 T:Mode$ CounterAdded | ValidCard$ Creature.Other | TriggerZones$ Battlefield | CounterType$ P1P1 | Execute$ TrigDmg | TriggerDescription$ Whenever a stun counter is put on another creature, CARDNAME deals 1 damage to it.

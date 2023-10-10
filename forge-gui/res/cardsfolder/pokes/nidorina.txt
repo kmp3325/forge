@@ -3,10 +3,10 @@ ManaCost:4 B
 Types:Creature Rhino Rabbit Pokémon
 PT:2/3
 K:Evolve from:4 B:Female Nidoran:3/4
-T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigToxic | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, you may put a toxic counter on target creature.
-T:Mode$ Mutates | ValidCard$ Card.Self | Execute$ TrigToxic | Secondary$ True | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, you may put a toxic counter on target creature.
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigToxic | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, you may put a toxic counter on target creature.
+T:Mode$ Evolves | ValidCard$ Card.Self | Execute$ TrigToxic | Secondary$ True | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, you may put a toxic counter on target creature.
 SVar:TrigToxic:DB$ PutCounter | CounterType$ TOXIC | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature
-Oracle:Evolve from Female Nidoran {4}{B} [3/4]\nWhenever Nidorina enters the battlefield or mutates, you may put a toxic counter on target creature.
+Oracle:Evolve from Female Nidoran {4}{B} [3/4]\nWhenever Nidorina enters the battlefield or evolves, you may put a toxic counter on target creature.
 
 DeckHints:Name$Female Nidoran
 DeckHints:Name$Nidoqueen

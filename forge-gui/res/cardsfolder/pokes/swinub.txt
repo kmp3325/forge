@@ -4,10 +4,10 @@ Types:Snow Creature Boar Pokémon
 PT:1/2
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | OptionalDecider$ You | Execute$ TrigSearch | TriggerDescription$ When CARDNAME enters the battlefield, you may search your library for a basic Plains card, reveal it, put it onto the battlfield tapped, then shuffle.
 SVar:TrigSearch:DB$ ChangeZone | Origin$ Library | Destination$ Battlefield | ChangeType$ Land.Plains+Basic | Tapped$ True | ChangeNum$ 1
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSnow | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, it becomes snowy.
-T:Mode$ Mutates | ValidCard$ Card.Self | Execute$ TrigSnow | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, it becomes snowy.
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSnow | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, it becomes snowy.
+T:Mode$ Evolves | ValidCard$ Card.Self | Execute$ TrigSnow | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, it becomes snowy.
 SVar:TrigSnow:DB$ Weather | Value$ Snowy
-Oracle:When Swinub enters the battlefield, you may search your library for a basic Plains card, reveal it, put it onto the battlfield tapped, then shuffle.\nWhenever Swinub enters the battlefield or mutates, it becomes snowy.
+Oracle:When Swinub enters the battlefield, you may search your library for a basic Plains card, reveal it, put it onto the battlfield tapped, then shuffle.\nWhenever Swinub enters the battlefield or evolves, it becomes snowy.
 
 DeckHints:Name$Piloswine
 SVar:SoundEffect:swinub.mp3

@@ -3,7 +3,7 @@ ManaCost:2
 Types:Creature Squirrel Pokémon
 PT:1/1
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigReturn | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, you may return target land card from your graveyard to your hand.
-T:Mode$ Mutates | ValidCard$ Card.Self | Execute$ TrigReturn | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, you may return target land card from your graveyard to your hand.
+T:Mode$ Evolves | ValidCard$ Card.Self | Execute$ TrigReturn | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, you may return target land card from your graveyard to your hand.
 SVar:TrigReturn:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand | ChangeType$ Land.YouOwn | ChangeNum$ 1
 Oracle:Whenever Sentret enters the battlefield or evolves, you may return target land card from your graveyard to the battlefield.
 

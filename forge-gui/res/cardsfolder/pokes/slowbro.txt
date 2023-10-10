@@ -3,12 +3,12 @@ ManaCost:2 UB UB
 Types:Creature Hippo Pokémon
 PT:2/5
 K:Evolve from:2 UB UB:Slowpoke:2/6
-T:Mode$ Mutates | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigMill | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, target player mills six cards. If two or more land cards are milled this way, draw a card.
-T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigMill | TriggerDescription$ Whenever CARDNAME enters the battlefield or mutates, target player mills six cards. If two or more land cards were milled this way, draw a card.
+T:Mode$ Evolves | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigMill | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, target player mills six cards. If two or more land cards are milled this way, draw a card.
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigMill | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, target player mills six cards. If two or more land cards were milled this way, draw a card.
 SVar:TrigMill:DB$ Mill | ValidTgts$ Player | TgtPrompt$ Select target player | NumCards$ 6 | RememberMilled$ True | SubAbility$ DBDraw
 SVar:DBDraw:DB$ Draw | Defined$ You | ConditionDefined$ Remembered | ConditionPresent$ Land | ConditionCompare$ GE2 | SubAbility$ DBCleanup
 SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
-Oracle:Evolve from Slowpoke {2}{UB}{UB} [2/6]\nWhenever Slowbro enters the battlefield or mutates, target player mills six cards. If two or more land cards are milled this way, draw a card.
+Oracle:Evolve from Slowpoke {2}{UB}{UB} [2/6]\nWhenever Slowbro enters the battlefield or evolves, target player mills six cards. If two or more land cards are milled this way, draw a card.
 
 DeckHints:Name$Slowpoke
 SVar:SoundEffect:slowbro.mp3

@@ -189,9 +189,9 @@ public enum Keyword {
     VIGILANCE("Vigilance", SimpleKeyword.class, true, "Attacking doesn't cause this creature to tap."),
     WARD("Ward", KeywordWithCost.class, false, "Whenever this permanent becomes the target of a spell or ability an opponent controls, counter it unless that player pays %s."),
     WITHER("Wither", SimpleKeyword.class, true, "This deals damage to creatures in the form of -1/-1 counters."),
-    CAUSTIC("Caustic", SimpleKeyword.class, true, "Whenever this deals combat damage to a creature, put a toxic counter on that creature if it has none."),
-    SCORCHING("Scorching", SimpleKeyword.class, false, "Whenever this deals combat damage to a creature, put that many burn counters on that creature."),
-    STEEL_SKIN("Steel skin", SimpleKeyword.class, true, "This can’t have toxic counters put on it. If a creature with caustic would deal combat damage to this, prevent that damage."),
+    CAUSTIC("Caustic", SimpleKeyword.class, true, "A creature dealt combat damage by this also gets a poison counter if it has none."),
+    SCORCHING("Scorching", SimpleKeyword.class, false, "A creature dealt combat damage by this also gets that many burn counters."),
+    STEEL_SKIN("Steel skin", SimpleKeyword.class, true, "This can’t have poison counters put on it. If a creature with caustic would deal combat damage to this, prevent that damage."),
     // mayflash additional cast
     MAYFLASHCOST("MayFlashCost", KeywordWithCost.class, false, "You may cast CARDNAME as though it had flash if you pay %s more to cast it."),
     MAYFLASHSAC("MayFlashSac", SimpleKeyword.class, false, "You may cast CARDNAME as though it had flash. If you cast it any time a sorcery couldn't have been cast, the controller of the permanent it becomes sacrifices it at the beginning of the next cleanup step."),

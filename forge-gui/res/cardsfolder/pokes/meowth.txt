@@ -3,7 +3,7 @@ ManaCost:W
 Types:Creature Cat Pokémon
 PT:1/1
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigMakeTreasure | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, create a Treasure token.
-T:Mode$ Evolves | ValidCard$ Card.Self | Execute$ TrigMakeTreasure | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, create a Treasure token.
+T:Mode$ Evolved | ValidCard$ Card.Self | Execute$ TrigMakeTreasure | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, create a Treasure token.
 SVar:TrigMakeTreasure:DB$ Token | TokenScript$ c_a_treasure_sac | TokenAmount$ 1 | TokenOwner$ You
 T:Mode$ Sacrificed | ValidCard$ Treasure.YouCtrl | Execute$ TrigLifeGain | TriggerZones$ Battlefield | TriggerDescription$ Whenever you sacrifice a Treasure, you gain 2 life.
 SVar:TrigLifeGain:DB$ GainLife | Defined$ You | LifeAmount$ 2

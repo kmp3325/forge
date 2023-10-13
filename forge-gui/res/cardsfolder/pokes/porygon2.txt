@@ -4,7 +4,7 @@ Types:Artifact Creature Duck Construct Pokémon
 PT:2/2
 K:Evolve from:2:Porygon:4/4
 S:Mode$ Continuous | Affected$ You | RaiseMaxHandSize$ 2 | Description$ Your maximum hand size is increased by two.
-T:Mode$ Evolves | ValidCard$ Creature.Other | TriggerZones$ Battlefield | Execute$ TrigDraw | TriggerDescription$ Whenever another creature evolves, draw two cards.
+T:Mode$ Evolved | ValidCard$ Creature.Other | TriggerZones$ Battlefield | Execute$ TrigDraw | TriggerDescription$ Whenever another creature evolves, draw two cards.
 SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ 2
 A:AB$ PutCounter | Cost$ Discard<2/Card> | CounterType$ P1P1 | CounterNum$ 2 | Defined$ Self | SorcerySpeed$ True | SubAbility$ DBDiscount | SpellDescription$ Put two +1/+1 counters on CARDNAME. Until end of turn, spells you cast cost {2} less to cast. Activate only as a sorcery.
 SVar:DBDiscount:DB$ Effect | Duration$ UntilEndOfTurn | StaticAbilities$ ReduceCost

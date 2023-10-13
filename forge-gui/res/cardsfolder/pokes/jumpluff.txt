@@ -4,7 +4,7 @@ Types:Creature Plant Saproling Pokémon
 PT:2/3
 K:Evolve from:1 R G:Skiploom:3/4
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, put a flying counter on it.
-T:Mode$ Evolves | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigPutCounter | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, put a flying counter on it.
+T:Mode$ Evolved | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigPutCounter | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, put a flying counter on it.
 SVar:TrigPutCounter:DB$ PutCounter | CounterType$ FLYING | CounterNum$ 1 | Defined$ Self
 T:Mode$ TapsForMana | ValidCard$ Permanent | Activator$ You | Execute$ TrigMana | TriggerZones$ Battlefield | Static$ True | CheckSVar$ SUN | SVarCompare$ GE1 | TriggerDescription$ Whenever you tap a permanent for mana, if it's sunny, add an additional {G}.
 SVar:TrigMana:DB$ Mana | Produced$ G

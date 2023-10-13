@@ -3,7 +3,7 @@ ManaCost:G
 Types:Creature Plant Frog Pokémon
 PT:1/1
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, put a solar counter on it.
-T:Mode$ Evolves | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigPutCounter | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, put a solar counter on it.
+T:Mode$ Evolved | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigPutCounter | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, put a solar counter on it.
 SVar:TrigPutCounter:DB$ PutCounter | Defined$ TriggeredCardLKICopy | CounterType$ SOLAR | CounterNum$ 1
 A:AB$ GainLife | Cost$ T | LifeAmount$ NumSolar | SpellDescription$ You gain life equal to the number of solar counters on CARDNAME.
 SVar:NumSolar:Count$CardCounters.SOLAR

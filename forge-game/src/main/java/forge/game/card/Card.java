@@ -6011,6 +6011,15 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
                 damageType = DamageType.Deathtouch;
             }
 
+            if (isCombat) {
+                if (source.hasKeyword(Keyword.CAUSTIC) && getCounters(CounterEnumType.POISON) <= 0) {
+                    addCounter(CounterEnumType.POISON, 1, source.getController(), counterTable);
+                }
+                if (source.hasKeyword(Keyword.SCORCHING)) {
+                    addCounter(CounterEnumType.BURN, damageIn, source.getController(), counterTable);
+                }
+            }
+
             // 704.8: if it looks like the creature might die from SBA make sure the LKI is refreshed
             if (hasBeenDealtDeathtouchDamage() || (getDamage() > 0 && getLethal() <= getDamage())) {
                 game.updateLastStateForCard(this);

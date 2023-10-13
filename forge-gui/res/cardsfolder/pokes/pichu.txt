@@ -4,7 +4,7 @@ Types:Creature Mouse Pokémon
 PT:0/1
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigRandomDmg | TriggerDescription$ When CARDNAME enters the battlefield, it deals 5 damage to target opponent chosen at random.
 SVar:TrigRandomDmg:DB$ DealDamage | ValidTgts$ Player | NumDmg$ 5 | TargetsAtRandom$ True
-T:Mode$ Evolves | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigDmg | TriggerDescription$ Whenever CARDNAME evolves, it deals 5 damage to target player.
+T:Mode$ Evolved | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigDmg | TriggerDescription$ Whenever CARDNAME evolves, it deals 5 damage to target player.
 SVar:TrigDmg:DB$ DealDamage | ValidTgts$ Player | NumDmg$ 5 | TgtPrompt$ Select target player
 Oracle:When Pichu enters the battlefield, it deals 5 damage to target player chosen at random.\nWhenever Pichu evolves, it deals 5 damage to target player.
 

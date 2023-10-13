@@ -4,7 +4,7 @@ Types:Artifact Creature Construct Pokémon
 PT:4/3
 K:Evolve from:5 UR:Magnemite:5/4
 K:Steel skin
-T:Mode$ Evolves | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigTap | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, tap up to three target creatures, then put a stun counter on each of them.
+T:Mode$ Evolved | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigTap | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, tap up to three target creatures, then put a stun counter on each of them.
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigTap | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, tap up to three target creatures, then put a stun counter on each of them.
 SVar:TrigTap:DB$ Tap | ValidTgts$ Creature | TgtPrompt$ Select target creature | TargetMin$ 0 | TargetMax$ 3 | SubAbility$ TrigPutCounter
 SVar:TrigPutCounter:DB$ PutCounter | Defined$ Targeted | IsCurse$ True | CounterType$ STUN | CounterNum$ 1

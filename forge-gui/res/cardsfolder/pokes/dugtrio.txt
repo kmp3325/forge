@@ -4,7 +4,7 @@ Types:Creature Mole Pokémon
 PT:3/3
 K:Evolve from:1 W B:Diglett:3/3
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigDig | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, put three dig counters on it.
-T:Mode$ Evolves | ValidCard$ Card.Self | Execute$ TrigDig | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, put three dig counters on it.
+T:Mode$ Evolved | ValidCard$ Card.Self | Execute$ TrigDig | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, put three dig counters on it.
 SVar:TrigDig:DB$ PutCounter | Defined$ Self | CounterNum$ 3 | CounterType$ DIG
 T:Mode$ DamageDoneOnce | Execute$ TrigAnotherDig | ValidTarget$ Card.Self | TriggerZones$ Battlefield | CombatDamage$ False | TriggerDescription$ Whenever CARDNAME is dealt noncombat damage, put that many dig counters on it.
 SVar:TrigAnotherDig:DB$ PutCounter | Defined$ Self | CounterType$ DIG | CounterNum$ DmgNum

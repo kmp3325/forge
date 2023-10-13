@@ -3,7 +3,7 @@ ManaCost:3 R R
 Types:Creature Salamander Duck Pokémon
 PT:4/4
 K:Evolve from:3 R R:Magby:5/5
-T:Mode$ Evolves | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, put a burn counter on each creature you don't control.
+T:Mode$ Evolved | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, put a burn counter on each creature you don't control.
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, put a burn counter on each creature you don't control.
 SVar:TrigPutCounter:DB$ PutCounterAll | IsCurse$ True | ValidCards$ Creature.YouDontCtrl | CounterType$ BURN | CounterNum$ 1
 R:Event$ AddCounter | ActiveZones$ Battlefield | ValidCard$ Creature | ValidCounterType$ BURN | ReplaceWith$ AddOneMoreCounters | CheckSVar$ SUN | SVarCompare$ GE1 | Description$ As long as it's sunny, if one or more burn counters would be put on a creature, that many plus one burn counters are put on it instead.

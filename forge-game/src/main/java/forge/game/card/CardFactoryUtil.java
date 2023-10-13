@@ -1811,35 +1811,6 @@ public class CardFactoryUtil {
                     inst.addTrigger(t);
                 }
             }
-        } else if (keyword.startsWith("Scorching")) {
-            String trigStr = "Mode$ DamageDone | " +
-                    "ValidSource$ Card.Self | " +
-                    "ValidTarget$ Creature | " +
-                    "TriggerZones$ Battlefield | CombatDamage$ True | Secondary$ True | " +
-                    "TriggerDescription$ Whenever this deals combat damage to a creature," +
-                    " put that many burn counters on that creature.";
-            final Trigger parsedTrigger = TriggerHandler.parseTrigger(trigStr, card, intrinsic);
-
-            SpellAbility sa = AbilityFactory.getAbility("DB$ PutCounter | Defined$ TriggeredTargetLKICopy | CounterType$ BURN | CounterNum$ DamageDoneSVar", card);
-            sa.setSVar("DamageDoneSVar", "TriggerCount$DamageAmount");
-            sa.setIntrinsic(intrinsic);
-            parsedTrigger.setOverridingAbility(sa);
-
-            inst.addTrigger(parsedTrigger);
-        }  else if (keyword.startsWith("Caustic")) {
-            String trigStr = "Mode$ DamageDone | " +
-                "ValidSource$ Card.Self | " +
-                "ValidTarget$ Creature.counters_EQ0_TOXIC | " +
-                "TriggerZones$ Battlefield | CombatDamage$ True | Secondary$ True | " +
-                "TriggerDescription$ Whenever this deals combat damage to a creature," +
-                " put a toxic counter on that creature if it has none.";
-            final Trigger parsedTrigger = TriggerHandler.parseTrigger(trigStr, card, intrinsic);
-
-            SpellAbility sa = AbilityFactory.getAbility("DB$ PutCounter | Defined$ TriggeredTargetLKICopy | CounterType$ TOXIC | CounterNum$ 1", card);
-            sa.setIntrinsic(intrinsic);
-            parsedTrigger.setOverridingAbility(sa);
-
-            inst.addTrigger(parsedTrigger);
         } else if (keyword.equals("Soulbond")) {
             // Setup ETB trigger for card with Soulbond keyword
             final String actualTriggerSelf = "Mode$ ChangesZone | Destination$ Battlefield | "
@@ -3876,7 +3847,7 @@ public class CardFactoryUtil {
             st.setSVar("X", "Count$CardPower");
             inst.addStaticAbility(st);
         } else if (keyword.startsWith("Steel skin")) {
-            final String effect = "Mode$ CantPutCounter | ValidCard$ Card.Self | CounterType$ TOXIC | Description$ CARDNAME can't have toxic counters put on it.";
+            final String effect = "Mode$ CantPutCounter | ValidCard$ Card.Self | CounterType$ POISON | Description$ CARDNAME can't have poison counters put on it.";
             StaticAbility st = StaticAbility.create(effect, state.getCard(), state, intrinsic);
             inst.addStaticAbility(st);
         } else if (keyword.startsWith("Strive")) {

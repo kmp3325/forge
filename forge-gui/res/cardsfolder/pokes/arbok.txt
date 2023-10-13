@@ -3,12 +3,12 @@ ManaCost:2 B G
 Types:Creature Snake Pokémon
 PT:3/3
 K:Evolve from:2 B G:Ekans:4/4
-A:AB$ PutCounter | Cost$ B G T | CounterType$ TOXIC | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature | SpellDescription$ Put a toxic counter on target creature.
-T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigProvoke | TriggerDescription$ Whenever CARDNAME attacks, target creature with a toxic counter on it blocks it this turn if able. When it does, CARDNAME gains first strike until end of turn.
-SVar:TrigProvoke:DB$ MustBlock | ValidTgts$ Creature.counters_GE1_TOXIC | TgtPrompt$ Select target creature with a toxic counter on it | SubAbility$ DelayTrig
+A:AB$ PutCounter | Cost$ B G T | CounterType$ POISON | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature | SpellDescription$ Put a poison counter on target creature.
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigProvoke | TriggerDescription$ Whenever CARDNAME attacks, target creature with a poison counter on it blocks it this turn if able. When it does, CARDNAME gains first strike until end of turn.
+SVar:TrigProvoke:DB$ MustBlock | ValidTgts$ Creature.counters_GE1_POISON | TgtPrompt$ Select target creature with a poison counter on it | SubAbility$ DelayTrig
 SVar:DelayTrig:DB$ DelayedTrigger | Mode$ AttackerBlockedByCreature | ValidCard$ Card.Self | ValidBlocker$ ParentTarget | Execute$ TrigPump | TriggerDescription$ When it does, CARDNAME gains first strike until end of turn.
 SVar:TrigPump:DB$ Pump | Defined$ Self | KW$ First strike
-Oracle: Evolve from Ekans {2}{B}{G} [4/4]\n{B}{G}, {T}: Put a toxic counter on target creature.\nWhenever Arbok attacks, target creature with a toxic counter on it blocks it this turn if able. When it does, Arbok gains first strike until end of turn.
+Oracle: Evolve from Ekans {2}{B}{G} [4/4]\n{B}{G}, {T}: Put a poison counter on target creature.\nWhenever Arbok attacks, target creature with a poison counter on it blocks it this turn if able. When it does, Arbok gains first strike until end of turn.
 
 DeckHints:Name$Ekans
 SVar:HasAttackEffect:TRUE

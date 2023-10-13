@@ -4,7 +4,7 @@ Types:Creature Golem Pokémon
 PT:6/6
 K:Evolve from:4 G W W:Graveler:7/7
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, put a shield counter on it.
-T:Mode$ Evolves | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, put a shield counter on it.
+T:Mode$ Evolved | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, put a shield counter on it.
 SVar:TrigPutCounter:DB$ PutCounter | Defined$ TriggeredCardLKICopy | CounterType$ SHIELD | CounterNum$ 1
 S:Mode$ Continuous | Affected$ Card.Other+YouCtrl | AddPower$ X | AddToughness$ X | CheckSVar$ RAIN | SVarCompare$ GE1 | Description$ As long as it's not rainy, other creatures you control get +1/+1 for each shield counter on CARDNAME
 SVar:X:Count$CardCounters.SHIELD

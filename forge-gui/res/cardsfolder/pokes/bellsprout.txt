@@ -3,7 +3,7 @@ ManaCost:1 G
 Types:Creature Plant Pokémon
 PT:1/1
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDestroy | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, you may destroy up to one target artifact or Insect. It becomes sunny.
-T:Mode$ Evolves | ValidCard$ Card.Self | Execute$ TrigDestroy | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, you may destroy up to one target artifact or Insect. It becomes sunny.
+T:Mode$ Evolved | ValidCard$ Card.Self | Execute$ TrigDestroy | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, you may destroy up to one target artifact or Insect. It becomes sunny.
 SVar:TrigDestroy:DB$ Destroy | TargetMin$ 0 | TargetMax$ 1 | ValidTgts$ Artifact,Insect | TgtPrompt$ Choose target artifact or Insect | SubAbility$ TrigSun
 SVar:TrigSun:DB$ Weather | Value$ Sunny
 Oracle:Whenever Bellsprout enters the battlefield or evolves, you may destroy up to one target artifact or Insect. It becomes sunny.

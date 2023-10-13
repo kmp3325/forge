@@ -4,7 +4,7 @@ Types:Creature Faerie Rabbit Pokémon
 PT:1/1
 K:Evolve from:2 W U U:Igglybuff:2/2
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigTapAll | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, tap all creatures you don't control.
-T:Mode$ Evolves | ValidCard$ Card.Self | Execute$ TrigTapAll | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, tap all creatures you don't control.
+T:Mode$ Evolved | ValidCard$ Card.Self | Execute$ TrigTapAll | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, tap all creatures you don't control.
 SVar:TrigTapAll:DB$ TapAll | ValidCards$ Creature.YouDontCtrl
 Oracle:Evolve from Igglybuff {2}{W}{U}{U} [2/2]\nWhenever Jigglypuff enters the battlefield or evolves, tap all creatures you don't control.
 

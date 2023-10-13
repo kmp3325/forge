@@ -6,8 +6,8 @@ T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefi
 SVar:TrigWeather:DB$ Weather | Value$ Foggy
 S:Mode$ CantBlockBy | ValidAttacker$ Card.Self | CheckSVar$ X | SVarCompare$ GE1 | Description$ As long as it's foggy, CARDNAME can't be blocked.
 SVar:X:Count$Foggy.1.0
-A:AB$ RemoveCounter | Cost$ B | CounterType$ TOXIC | CounterNum$ 1 | ValidTgts$ Creature.counters_GE1_TOXIC | TgtPrompt$ Select target creature with a toxic counter on it | SubAbility$ TrigPutCounter | SpellDescription$ Remove a toxic counter from target creature with a toxic counter on it. Put a +1/+1 counter on CARDNAME.
+A:AB$ RemoveCounter | Cost$ B | CounterType$ POISON | CounterNum$ 1 | ValidTgts$ Creature.counters_GE1_POISON | TgtPrompt$ Select target creature with a poison counter on it | SubAbility$ TrigPutCounter | SpellDescription$ Remove a poison counter from target creature with a poison counter on it. Put a +1/+1 counter on CARDNAME.
 SVar:TrigPutCounter:DB$ PutCounter | CounterType$ P1P1 | CounterNum$ 1 | Defined$ Self
-Oracle:When Team Rocket's Weezing enters the battlefield, it becomes foggy.\nAs long as it's foggy, Team Rocket's Weezing can't be blocked.\n{B}: Remove a toxic counter from target creature with a toxic counter on it. Put a +1/+1 counter on Team Rocket's Weezing.
+Oracle:When Team Rocket's Weezing enters the battlefield, it becomes foggy.\nAs long as it's foggy, Team Rocket's Weezing can't be blocked.\n{B}: Remove a poison counter from target creature with a poison counter on it. Put a +1/+1 counter on Team Rocket's Weezing.
 
 SVar:SoundEffect:weezing.mp3

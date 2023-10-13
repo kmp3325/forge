@@ -4,7 +4,7 @@ Types:Creature Plant Dinosaur Pokémon
 PT:1/1
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSearch | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters the battlefield, you may search your library for a basic land card and put it onto the battlefield tapped, then shuffle.
 SVar:TrigSearch:DB$ ChangeZone | Origin$ Library | Destination$ Battlefield | Tapped$ True | ChangeType$ Land.Basic | ChangeNum$ 1
-T:Mode$ Evolves | ValidCard$ Card.Self | Execute$ TrigSun | TriggerDescription$ Whenever CARDNAME evolves, it becomes sunny.
+T:Mode$ Evolved | ValidCard$ Card.Self | Execute$ TrigSun | TriggerDescription$ Whenever CARDNAME evolves, it becomes sunny.
 SVar:TrigSun:DB$ Weather | Value$ Sunny
 Oracle:When Chikorita enters the battlefield, you may search your library for a basic land card and put it onto the battlefield tapped, then shuffle.\nWhenever Chikorita evolves, it becomes sunny.
 

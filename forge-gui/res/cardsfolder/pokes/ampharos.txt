@@ -4,7 +4,7 @@ Types:Creature Sheep Pokémon
 PT:4/4
 K:Evolve from:2 U R R:Flaaffy:5/5
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigTap | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, tap up to X target creatures, where X is CARDNAME's power. Put a stun counter on each of them.
-T:Mode$ Evolves | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigTap | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, tap up to X target creatures, where X is CARDNAME's power. Put a stun counter on each of them.
+T:Mode$ Evolved | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigTap | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, tap up to X target creatures, where X is CARDNAME's power. Put a stun counter on each of them.
 SVar:TrigTap:DB$ Tap | Defined$ Targeted | TargetMin$ 0 | TargetMax$ X | ValidTgts$ Creature | TgtPrompt$ Select up to X target creatures | SubAbility$ TrigPutCounter
 SVar:X:Count$CardPower
 SVar:TrigPutCounter:DB$ PutCounter | IsCurse$ True | CounterType$ STUN | Defined$ Targeted

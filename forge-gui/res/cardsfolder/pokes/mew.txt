@@ -3,7 +3,9 @@ ManaCost:W U B R G
 Types:Legendary Creature Pokémon
 PT:4/4
 K:Hexproof
-T:Mode$ SpellCast | ValidCard$ Creature.sharesCreatureTypeWith | TriggerZones$ Battlefield | Execute$ MewCopy | OptionalDecider$ You | TriggerDescription$ Whenever a player casts a creature spell that shares a creature type with CARDNAME, you may copy it, except the copy is a mutating creature spell, targets CARDNAME, and CARDNAME is put on top.
-SVar:MewCopy:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | DefinedTarget$ Self | MakeMutate$ True
-Oracle:Hexproof\nWhenever a player casts a creature spell that shares a creature type with Mew, you may copy it, except the copy is a mutating creature spell, targets Mew, and Mew is put on top.
+A:AB$ ChooseCard | Cost$ T | Mandatory$ True | Choices$ Creature.sharesCreatureTypeWith+Other | ChoiceTitle$ Choose a creature | Note$ True | SubAbility$ DBSteal | SpellDescription$ Choose another creature that shares a creature type with CARDNAME whose name hasn't been noted for CARDNAME and note its name. CARDNAME gains all abilities of that creature.
+SVar:DBSteal:DB$ StealAbilities | Defined$ ChosenCard | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearChosenCard$ True
+Oracle:Hexproof\n{T}: Choose another creature that shares a creature type with Mew whose name hasn't been noted for Mew and note its name. Mew gains all abilities of that creature.
+
 SVar:SoundEffect:mew.mp3

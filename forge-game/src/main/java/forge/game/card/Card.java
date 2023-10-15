@@ -355,6 +355,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
     private String chosenType = "";
     private String chosenType2 = "";
     private List<String> notedTypes = new ArrayList<>();
+    private List<String> notedNames = new ArrayList<>();
     private List<String> chosenColors;
     private String chosenName = "";
     private String chosenName2 = "";
@@ -1260,7 +1261,9 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
         mergedCards.remove(c);
     }
     public final void clearMergedCards() {
-        mergedCards.clear();
+        if (mergedCards != null) {
+            mergedCards.clear();
+        }
     }
 
     public final Card getMergedToCard() {
@@ -1962,6 +1965,18 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
             return Lists.newArrayList();
         }
         return notedTypes;
+    }
+
+    public final void addNotedName(final String name) {
+        notedNames.add(name);
+        view.updateNotedNames(this);
+    }
+
+    public final Iterable<String> getNotedNames() {
+        if (notedNames == null) {
+            return Collections.emptyList();
+        }
+        return notedNames;
     }
 
     public final int getNumNotedTypes() {

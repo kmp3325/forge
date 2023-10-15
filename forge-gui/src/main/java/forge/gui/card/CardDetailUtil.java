@@ -446,6 +446,20 @@ public class CardDetailUtil {
             area.append(")");
         }
 
+        // noted names
+        if (card.getNotedNames() != null && !card.getNotedNames().isEmpty()) {
+            if (area.length() != 0) {
+                area.append("\n");
+            }
+            area.append("(noted name");
+            if (card.getNotedNames().size() > 1) {
+                area.append("s");
+            }
+            area.append(card.getNotedNames().size() == 1 ? ": " : "s: ");
+            area.append(Lang.joinHomogenous(card.getNotedNames()));
+            area.append(")");
+        }
+
         // chosen color
         if (card.getChosenColors() != null && !card.getChosenColors().isEmpty()) {
             if (area.length() != 0) {

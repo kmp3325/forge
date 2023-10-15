@@ -381,6 +381,14 @@ public class CardView extends GameEntityView {
         set(TrackableProperty.NotedTypes, c.getNotedTypes());
     }
 
+    public List<String> getNotedNames() {
+        return get(TrackableProperty.NotedNames);
+    }
+
+    void updateNotedNames(Card c) {
+        set(TrackableProperty.NotedNames, c.getNotedNames());
+    }
+
     public String getChosenNumber() {
         return get(TrackableProperty.ChosenNumber);
     }

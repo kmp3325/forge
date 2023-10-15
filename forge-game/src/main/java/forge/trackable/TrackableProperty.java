@@ -63,6 +63,7 @@ public enum TrackableProperty {
     ChosenType(TrackableTypes.StringType),
     ChosenType2(TrackableTypes.StringType),
     NotedTypes(TrackableTypes.StringListType),
+    NotedNames(TrackableTypes.StringListType),
     ChosenColors(TrackableTypes.StringListType),
     ChosenCards(TrackableTypes.CardViewCollectionType),
     ChosenNumber(TrackableTypes.StringType),

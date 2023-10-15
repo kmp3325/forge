@@ -68,6 +68,16 @@ public class ChooseCardEffect extends SpellAbilityEffect {
         CardCollectionView choices = sa.hasParam("AllCards") ? game.getCardsInGame() : game.getCardsIn(choiceZone);
         if (sa.hasParam("Choices")) {
             choices = CardLists.getValidCards(choices, sa.getParam("Choices"), activator, host, sa);
+            if (sa.hasParam("Note")) {
+                choices = CardLists.filter(choices, card -> {
+                   for (String noted : host.getNotedNames()) {
+                       if (card.getName().equals(noted)) {
+                           return false;
+                       }
+                   }
+                   return true;
+                });
+            }
         }
         if (sa.hasParam("TargetControls")) {
             choices = CardLists.filterControlledBy(choices, tgtPlayers.get(0));
@@ -276,6 +286,11 @@ public class ChooseCardEffect extends SpellAbilityEffect {
             }
         }
         host.setChosenCards(chosen);
+        if (sa.hasParam("Note")) {
+            for (Card choice : chosen) {
+                host.addNotedName(choice.getName());
+            }
+        }
         if (sa.hasParam("ForgetOtherRemembered")) {
             host.clearRemembered();
         }

@@ -1,6 +1,7 @@
 Name:Pidgeot
 ManaCost:2 W W
 Types: Creature Bird Pokémon
+PT:3/4
 K:Evolve from:2 W W:Pidgeotto:4/5
 K:Flying
 K:First strike

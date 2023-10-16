@@ -794,7 +794,18 @@ public class CardView extends GameEntityView {
             sb.append("\r\n\r\n").append("(").append(getRightSplitState().getName()).append(") ");
             sb.append(getRightSplitState().getAbilityText());
         } else {
-            sb.append(state.getAbilityText());
+            sb.append("\r\n\r\n");
+            String abilityText = state.getAbilityText();
+            ZoneType zone = getZone();
+            if (!abilityText.isEmpty() && zone == ZoneType.Battlefield) {
+                for (String line : abilityText.split("\n")) {
+                    if (!line.startsWith("Evolve from")) {
+                        sb.append(line).append("\n");
+                    }
+                }
+            } else {
+                sb.append(abilityText);
+            }
         }
 
         String nonAbilityText = get(TrackableProperty.NonAbilityText);

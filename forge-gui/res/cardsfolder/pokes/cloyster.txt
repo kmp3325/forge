@@ -6,8 +6,9 @@ K:Evolve from:4 G U:Shellder:2/4
 R:Event$ AddCounter | ValidCard$ Card.Self | ValidCounterType$ P1P1 | ReplaceWith$ PutShield | Optional$ True | OptionalDecider$ You | IsPresent$ Card.Self+untapped | Description$ If one or more +1/+1 counters would be put on CARDNAME and it's untapped, you may tap it and put that many shield counters on it instead.
 SVar:PutShield:DB$ ReplaceCounter | CounterType$ SHIELD | SubAbility$ DBTap
 SVar:DBTap:DB$ Tap | Defined$ Self
-A:AB$ PutCounter | IsCurse$ True | Cost$ S Q | CounterNum$ 1 | CounterType$ FROST | ValidTgts$ Creature | TgtPrompt$ Select target creature | SpellDescription$ Put a frost counter on target creature.
-Oracle:Evolve from Shellder {4}{G}{U} [2/4]\nIf one or more +1/+1 counters would be put on Cloyster and it's untapped, you may tap it and put that many shield counters on it instead.\n{S}, {Q}: Put a frost counter on target creature.
+A:AB$ PutCounter | IsCurse$ True | Cost$ S Q | CounterNum$ 1 | CounterType$ FROST | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigSnow | SpellDescription$ Put a frost counter on target creature. It becomes snowy.
+SVar:TrigSnow:DB$ Weather | Value$ Snowy
+Oracle:Evolve from Shellder {4}{G}{U} [2/4]\nIf one or more +1/+1 counters would be put on Cloyster and it's untapped, you may tap it and put that many shield counters on it instead.\n{S}, {Q}: Put a frost counter on target creature. It becomes snowy.
 
 DeckHints:Name$Shellder
 SVar:SoundEffect:cloyster.mp3

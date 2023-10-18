@@ -2,12 +2,13 @@ Name:Magby
 ManaCost:1 R
 Types:Creature Salamander Duck Pokémon
 PT:1/1
-T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | OptionalDecider$ You | Execute$ TrigRemoveFrost | TriggerDescription$ When CARDNAME enters the battlefield, you may remove all frost counters from target creature. CARDNAME deals damage to each opponent equal to the number of frost counters removed this way.
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | OptionalDecider$ You | Execute$ TrigRemoveFrost | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, you may remove all frost counters from target creature. CARDNAME deals damage to each opponent equal to the number of frost counters removed this way.
+T:Mode$ Evolved | ValidCard$ Card.Self | Execute$ TrigRemoveFrost | OptionalDecider$ You | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, you may remove all frost counters from target creature. CARDNAME deals damage to each opponent equal to the number of frost counters removed this way.
 SVar:TrigRemoveFrost:DB$ RemoveCounter | CounterType$ FROST | CounterNum$ All | ValidTgts$ Creature | TgtPrompt$ Select target creature | RememberRemoved$ True | SubAbility$ DBDmg
 SVar:DBDmg:DB$ DealDamage | Defined$ Player.Opponent | NumDmg$ X | SubAbility$ DBCleanup
 SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
 SVar:X:Count$RememberedSize
-Oracle:When Magby enters the battlefield, you may remove all frost counters from target creature. Magby deals damage to each opponent equal to the number of frost counters removed this way.
+Oracle:Whenever Magby enters the battlefield or evolves, you may remove all frost counters from target creature. Magby deals damage to each opponent equal to the number of frost counters removed this way.
 
 DeckHints:Name$Magmar
 SVar:SoundEffect:magby.mp3

@@ -3,10 +3,10 @@ ManaCost:1 BG BG
 Types:Creature Plant Fungus Pokémon
 PT:3/3
 K:Evolve from:1 BG BG:Oddish:3/3
-A:AB$ RemoveCounter | Cost$ GB | CounterType$ POISON | CounterNum$ 1 | ValidTgts$ Creature | ActivationLimit$ 1 | TgtPrompt$ Select target creature | SpellDescription$ Remove a poison counter from target creature. Activate only once each turn.
+A:AB$ RemoveCounter | Cost$ GB | CounterType$ POISON | CounterNum$ 2 | UpTo$ True | ValidTgts$ Creature | ActivationLimit$ 1 | TgtPrompt$ Select target creature | SpellDescription$ Remove up to two poison counters from target creature. Activate only once each turn.
 T:Mode$ CounterAdded | ValidCard$ Creature | TriggerZones$ Battlefield | CounterType$ POISON | Execute$ TrigHeal | TriggerDescription$ Whenever a poison counter is put on a creature, you gain 2 life.
 SVar:TrigHeal:DB$ GainLife | LifeAmount$ 2 | Defined$ You
-Oracle:Evolve from Oddish {1}{BG}{BG} [3/3]\n{BG}: Remove a poison counter from target creature. Activate only once each turn.\nWhenever a poison counter is put on a creature, you gain 2 life.
+Oracle:Evolve from Oddish {1}{BG}{BG} [3/3]\n{BG}: Remove up to two poison counters from target creature. Activate only once each turn.\nWhenever a poison counter is put on a creature, you gain 2 life.
 
 DeckHints:Name$Oddish
 DeckHints:Name$Vileplume

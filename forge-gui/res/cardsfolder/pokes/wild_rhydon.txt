@@ -1,11 +1,11 @@
 Name:Wild Rhydon
 ManaCost:X G G G
 Types:Creature Dinosaur Rhino Pokémon
-PT:5/5
-T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigRepeat | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters the battlefield, it deals 1 damage to target creature X times.
+PT:4/4
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigRepeat | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters the battlefield, it deals 2 damage to target creature X times.
 SVar:TrigRepeat:DB$ Repeat | ValidTgts$ Creature | TgtPrompt$ Select target creature | RepeatSubAbility$ TrigDmg | MaxRepeat$ X | StackDescription$ SpellDescription
 SVar:X:Count$xPaid
-SVar:TrigDmg:DB$ DealDamage | Defined$ Targeted | NumDmg$ 1
-Oracle:When Wild Rhydon enters the battlefield, it deals 1 damage to target creature X times.
+SVar:TrigDmg:DB$ DealDamage | Defined$ Targeted | NumDmg$ 2
+Oracle:When Wild Rhydon enters the battlefield, it deals 2 damage to target creature X times.
 
 SVar:SoundEffect:rhydon.mp3

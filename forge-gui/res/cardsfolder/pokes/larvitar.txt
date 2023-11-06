@@ -1,13 +1,16 @@
 Name:Larvitar
-ManaCost:GW GW
+ManaCost:GW
 Types:Creature Dinosaur Pokémon
 PT:1/1
-K:Training
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigBite | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters the battlefield, you may have target creature you control deal damage equal to half its power, rounded down, to another target creature.
-SVar:TrigBite:DB$ Pump | ValidTgts$ Creature.YouCtrl | AILogic$ PowerDmg | TgtPrompt$ Select target creature you control | SubAbility$ SoulsDamage
-SVar:SoulsDamage:DB$ DealDamage | ValidTgts$ Creature | TargetUnique$ True | AILogic$ PowerDmg | TgtPrompt$ Select another target creature | NumDmg$ X | DamageSource$ ParentTarget
-SVar:X:ParentTargeted$CardPower/HalfUp
-Oracle:Vigilance\nWhen Larvitar enters the battlefield, you may have target creature you control deal damage equal to half its power, rounded up, to another target creature.
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Land.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigFood | TriggerDescription$ Landfall — Whenever a land enters the battlefield under your control, create a Food token.
+SVar:TrigFood:DB$ Token | TokenAmount$ 1 | TokenScript$ c_a_food_sac | TokenOwner$ You
+T:Mode$ Evolved | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigEat | TriggerDescription$ Whenever CARDNAME evolves, you may sacrifice any number of Foods. If you do, put that many shield counters on CARDNAME.
+SVar:TrigEat:DB$ Sacrifice | Defined$ You | Amount$ SacX | SacValid$ Food | RememberSacrificed$ True | Optional$ True | SubAbility$ TrigShields
+SVar:SacX:Count$Valid Food.YouCtrl
+SVar:TrigShields:DB$ PutCounter | Defined$ Self | CounterNum$ ShieldX | CounterType$ SHIELD | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:ShieldX:Remembered$Amount
+Oracle:Landfall — Whenever a land enters the battlefield under your control, create a Food token.\nWhenever Larvitar evolves, you may sacrifice any number of Foods. If you do, put that many shield counters on Larvitar.
 
 DeckHints:Name$Pupitar
 SVar:SoundEffect:larvitar.mp3

@@ -1,12 +1,11 @@
 Name:Mareep
-ManaCost:UR UR
+ManaCost:UR
 Types:Creature Sheep Pokémon
-PT:2/2
-T:Mode$ AttackerBlockedByCreature | ValidCard$ Creature | ValidBlocker$ Card.Self | Execute$ TrigStunAttacker | TriggerDescription$ Whenever CARDNAME blocks or becomes blocked by a creature, put a stun counter on that creature.
-T:Mode$ AttackerBlockedByCreature | ValidCard$ Card.Self | ValidBlocker$ Creature | Execute$ TrigStunBlocker | Secondary$ True | TriggerDescription$ Whenever CARDNAME blocks or becomes blocked by a creature, put a stun counter on that creature.
-SVar:TrigStunAttacker:DB$ PutCounter | IsCurse$ True | CounterType$ STUN | Defined$ TriggeredAttackerLKICopy | CounterNum$ 1
-SVar:TrigStunBlocker:DB$ PutCounter | IsCurse$ True | CounterType$ STUN | Defined$ TriggeredBlockerLKICopy | CounterNum$ 1
-Oracle:Whenever Mareep blocks or becomes blocked by a creature, put a stun counter on that creature.
+PT:1/1
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigTap | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters the battlefield, you may tap target creature and put a stun counter on it.
+SVar:TrigTap:DB$ Tap | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigPutCounter
+SVar:TrigPutCounter:DB$ PutCounter | IsCurse$ True | Defined$ Targeted | CounterType$ STUN | CounterNum$ 1
+Oracle:When Mareep enters the battlefield, you may tap target creature and put a stun counter on it.
 
 DeckHints:Name$Flaaffy
 SVar:SoundEffect:mareep.mp3

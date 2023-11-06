@@ -1,5 +1,5 @@
 Name:Machop
-ManaCost:1 RW
+ManaCost:RW
 Types:Creature Frog Ape Pokémon
 PT:1/1
 K:Training

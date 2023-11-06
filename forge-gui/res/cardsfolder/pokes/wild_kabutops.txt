@@ -2,8 +2,9 @@ Name:Wild Kabutops
 ManaCost:5 G
 Types:Creature Scorpion Pokémon
 PT:3/3
-T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ When CARDNAME enters the battlefield, put a +1/+1 counter on each of up to four target creatures.
-SVar:TrigPutCounter:DB$ PutCounter | ValidTgts$ Creature | CounterType$ P1P1 | CounterNum$ 1 | TargetMin$ 0 | TargetMax$ 4
-Oracle:When Wild Kabutops enters the battlefield, put a +1/+1 counter on each of up to four target creatures.
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ When CARDNAME enters the battlefield, put two +1/+1 counters on target creature you control. Then that creature fights target creature you don't control.
+SVar:TrigPutCounter:DB$ PutCounter | AILogic$ Fight | ValidTgts$ Creature.YouCtrl | CounterType$ P1P1 | CounterNum$ 2 | SubAbility$ TrigFight
+SVar:TrigFight:DB$ Fight | Defined$ ParentTarget | ValidTgts$ Creature.YouDontCtrl | AILogic$ Always | TgtPrompt$ Select target creature you don't control
+Oracle:When Wild Kabutops enters the battlefield, put two +1/+1 counters on target creature you control. Then that creature fights target creature you don't control.
 
 SVar:SoundEffect:kabutops.mp3

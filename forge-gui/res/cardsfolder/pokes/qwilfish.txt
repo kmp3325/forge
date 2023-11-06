@@ -3,7 +3,10 @@ ManaCost:3 U B
 Types:Creature Fish Pokémon
 PT:1/1
 K:Caustic
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDestroy | TriggerDescription$ Whenever CARDNAME enters the battlefield, destroy target creature without steel skin.
-SVar:TrigDestroy:DB$ Destroy | ValidTgts$ Creature.withoutSteel skin | TgtPrompt$ Select target creature
-Oracle:Caustic\nWhen Qwilfish enters the battlefield, destroy target creature without steel skin.
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDestroy | TriggerDescription$ Whenever CARDNAME enters the battlefield, destroy target creature without steel skin. Its controller mills cards equal to its mana value.
+SVar:TrigDestroy:DB$ Destroy | ValidTgts$ Creature.withoutSteel skin | TgtPrompt$ Select target creature | AlwaysRemember$ True | RememberLKI$ True | SubAbility$ TrigMill
+SVar:DBMill:DB$ Mill | NumCards$ X | Defined$ RememberedController | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:X:TargetedLKI$CardManaCost
+Oracle:Caustic\nWhen Qwilfish enters the battlefield, destroy target creature without steel skin. Its controller mills cards equal to its mana value.
 SVar:SoundEffect:qwilfish.mp3

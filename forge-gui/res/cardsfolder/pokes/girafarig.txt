@@ -1,5 +1,5 @@
 Name:Girafarig
-ManaCost:1 WB
+ManaCost:WB
 Types:Creature Antelop Demon Pokémon
 PT:1/2
 T:Mode$ Phase | Phase$ BeginCombat | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ DBDmg | TriggerDescription$ At the beginning of combat on your turn, CARDNAME deals 1 damage to target creature you control, then flip a coin. If you win the flip, remove all status counters from that creature.

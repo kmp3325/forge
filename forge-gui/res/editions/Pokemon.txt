@@ -401,7 +401,7 @@ Foil=NotSupported
 2 Saffron City Gym|PKM
 2 Vermilion City Gym|PKM
 2 Cerulean City Gym|PKM
-1 Ecruteak City Gym|PKM
+2 Ecruteak City Gym|PKM
 2 Azalea Town Gym|PKM
 2 Cinnabar Island Gym|PKM
 

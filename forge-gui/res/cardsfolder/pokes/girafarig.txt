@@ -5,5 +5,5 @@ PT:1/2
 T:Mode$ Phase | Phase$ BeginCombat | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ DBDmg | TriggerDescription$ At the beginning of combat on your turn, CARDNAME deals 1 damage to target creature you control, then flip a coin. If you win the flip, remove all status counters from that creature.
 SVar:DBDmg:DB$ DealDamage | NumDmg$ 1 | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | SubAbility$ DBFlip
 SVar:DBFlip:DB$ FlipACoin | WinSubAbility$ DBRemoveCounters | Optional$ True
-SVar:DBRemoveCounters:DB$ RemoveCounter | Defined$ Targeted | CounterType$ TOXIC,STUN,FROST,BURN | CounterNum$ All
+SVar:DBRemoveCounters:DB$ RemoveCounter | Defined$ Targeted | CounterType$ POISON,STUN,FROST,BURN | CounterNum$ All
 Oracle:At the beginning of combat on your turn, Girafarig deals 1 damage to target creature you control, then you may flip a coin. If you win the flip, remove all status counters from that creature.SVar:SoundEffect:girafarig.mp3

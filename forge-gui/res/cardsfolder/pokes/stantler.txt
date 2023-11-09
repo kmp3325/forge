@@ -3,7 +3,7 @@ ManaCost:3
 Types:Creature Caribou Pokémon
 PT:2/2
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | OptionalDecider$ You | Execute$ TrigRemoveStun | TriggerDescription$ When CARDNAME enters the battlefield, you may remove a status counters from target creature and untap it.
-SVar:TrigRemoveStun:DB$ RemoveCounter | CounterType$ TOXIC,STUN,FROST,BURN | CounterNum$ All | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigUntap
+SVar:TrigRemoveStun:DB$ RemoveCounter | CounterType$ POISON,STUN,FROST,BURN | CounterNum$ All | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigUntap
 SVar:TrigUntap:DB$ Untap | Defined$ Targeted
 Oracle:When Stantler enters the battlefield, you may remove a status counters from target creature and untap it.
 SVar:SoundEffect:stantler.mp3

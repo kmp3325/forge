@@ -2,7 +2,7 @@ Name:Lapras
 ManaCost:3 U U
 Types:Snow Creature Dinosaur Pokémon
 PT:4/6
-S:Mode$ CantPutCounter | ValidCard$ Creature.YouCtrl | CounterType$ TOXIC,STUN,FROST,BURN | CheckSVar$ WEATHER | SVarCompare$ GE1 | Description$ As long as it's rainy or snowy, creatures you control can't have status counters put on them.
+S:Mode$ CantPutCounter | ValidCard$ Creature.YouCtrl | CounterType$ POISON,STUN,FROST,BURN | CheckSVar$ WEATHER | SVarCompare$ GE1 | Description$ As long as it's rainy or snowy, creatures you control can't have status counters put on them.
 SVar:WEATHER:Count$Rainy.1.SNOW
 SVar:SNOW:Counter$Snowy.1.0
 T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigIslandwalk | TriggerDescription$ Whenever CARDNAME attacks, another target creature gains Islandwalk until end of turn.

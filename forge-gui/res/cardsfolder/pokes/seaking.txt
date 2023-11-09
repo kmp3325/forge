@@ -4,7 +4,7 @@ Types:Creature Fish Pokémon
 PT:3/3
 K:Evolve from:4 U:Goldeen:4/4
 S:Mode$ Continuous | Affected$ Creature.Blue+Other+YouCtrl | AddPower$ 1 | AddToughness$ 1 | Description$ Other blue creatures you control get +1/+1.
-A:AB$ RemoveCounter | CounterNum$ All | CounterType$ TOXIC,STUN,FROST,BURN | CounterTypePerDefined$ True | ValidTgts$ Creature | TgtPrompt$ Select target creature | Cost$ T | ConditionCheckSVar$ RAIN | ConditionSVarCompare$ GE1 | SpellDescription$ Choose a kind of status counter. Remove all counters of the chosen kind from target creature. Activate only if it's rainy.
+A:AB$ RemoveCounter | CounterNum$ All | CounterType$ POISON,STUN,FROST,BURN | CounterTypePerDefined$ True | ValidTgts$ Creature | TgtPrompt$ Select target creature | Cost$ T | ConditionCheckSVar$ RAIN | ConditionSVarCompare$ GE1 | SpellDescription$ Choose a kind of status counter. Remove all counters of the chosen kind from target creature. Activate only if it's rainy.
 SVar:RAIN:Count$Rainy.1.0
 A:AB$ RemoveCounter | Cost$ T | CounterNum$ All | CounterType$ SHIELD | ValidTgts$ Creature | TgtPrompt$ Select target creature | SpellDescription$ Remove all shield counters from target creature.
 Oracle:Evolve from Goldeen {4}{U} [4/4]\nOther blue creatures you control get +1/+1.\n{T}: Choose a kind of status counter. Remove all counters of the chosen kind from target creature. Activate only if it's rainy.\n{T}: Remove all shield counters from target creature.

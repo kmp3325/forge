@@ -3,7 +3,7 @@ ManaCost:4 G W U
 Types:Creature Faerie Rabbit Pokémon
 PT:2/8
 K:Evolve from:3 G W U:Chansey:3/10
-A:AB$ RemoveCounter | Cost$ G U | ValidTgts$ Creature | TgtPrompt$ Select target creature | CounterNum$ All | CounterType$ TOXIC,STUN,FROST,BURN | SubAbility$ DBRegenerate | SpellDescription$ Remove all status counters from target creature and regenerate it.
+A:AB$ RemoveCounter | Cost$ G U | ValidTgts$ Creature | TgtPrompt$ Select target creature | CounterNum$ All | CounterType$ POISON,STUN,FROST,BURN | SubAbility$ DBRegenerate | SpellDescription$ Remove all status counters from target creature and regenerate it.
 SVar:DBRegenerate:DB$ Regenerate | Defined$ ParentTarget
 Oracle:Evolve from Chansey {3}{G}{W}{U} [3/10]\n{G}{U}: Remove all status counters from target creature and regenerate it.
 

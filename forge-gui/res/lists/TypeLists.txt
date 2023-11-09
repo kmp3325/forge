@@ -5,6 +5,7 @@ Swamp:Swamps
 Mountain:Mountains
 Forest:Forests
 [LandTypes]
+Cave:Caves
 Desert:Deserts
 Gate:Gates
 Lair
@@ -51,6 +52,7 @@ Brushwagg:Brushwaggs
 Camarid:Camarids
 C'tan:C'tan
 Camel:Camels
+Capybara:Capybaras
 Caribou:Caribous
 Carrier:Carriers
 Cat:Cats
@@ -161,6 +163,7 @@ Leviathan:Leviathans
 Lhurgoyf:Lhurgoyfs
 Licid:Licids
 Lizard:Lizards
+Llama:Llamas
 Lobster:Lobsters
 Mammoth:Mammoths
 Manticore:Manticores
@@ -330,6 +333,7 @@ Fortification
 Gold
 Incubator:Incubators
 Key:Keys
+Map
 Powerstone
 Treasure
 Vehicle
@@ -419,6 +423,7 @@ Undercity
 [BattleTypes]
 Siege
 [PlanarTypes]
+Androzani Minor
 Alara
 Alfava Metraxis
 Amonkhet
@@ -463,7 +468,10 @@ Mirrodin
 Moag
 Mongseng
 Muraganda
+Necros
+New Earth
 New Phyrexia
+Outside Mutter's Spiral
 Phyrexia
 Pyrulea
 Rabiah
@@ -476,10 +484,13 @@ Shadowmoor
 Shandalar
 Shenmeng
 Skaro
+Spacecraft
 Tarkir
 The Abyss
+The Dalek Asylum
 The Library
 Theros
+Time
 Trenzalore
 Ulgrotha
 Valla

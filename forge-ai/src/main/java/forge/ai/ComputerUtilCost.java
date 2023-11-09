@@ -35,6 +35,10 @@ import java.util.Set;
 
 
 public class ComputerUtilCost {
+    private static boolean suppressRecursiveSacCostCheck = false;
+    public static void setSuppressRecursiveSacCostCheck(boolean shouldSuppress) {
+        suppressRecursiveSacCostCheck = shouldSuppress;
+    }
 
     /**
      * Check add m1 m1 counter cost.
@@ -344,6 +348,10 @@ public class ComputerUtilCost {
         }
         for (final CostPart part : cost.getCostParts()) {
             if (part instanceof CostSacrifice) {
+                if (suppressRecursiveSacCostCheck) {
+                    return false;
+                }
+
                 final CostSacrifice sac = (CostSacrifice) part;
                 final int amount = AbilityUtils.calculateAmount(source, sac.getAmount(), sourceAbility);
 
@@ -355,6 +363,20 @@ public class ComputerUtilCost {
                     }
                     if (!CardLists.filterControlledBy(source.getEnchantedBy(), source.getController()).isEmpty()) {
                         return false;
+                    }
+                    if (source.isCreature()) {
+                        // e.g. Sakura Tribe-Elder
+                        final Combat combat = ai.getGame().getCombat();
+                        final boolean beforeNextTurn = ai.getGame().getPhaseHandler().is(PhaseType.END_OF_TURN) && ai.getGame().getPhaseHandler().getNextTurn().equals(ai);
+                        final boolean creatureInDanger = ComputerUtil.predictCreatureWillDieThisTurn(ai, source, sourceAbility, false)
+                                && !ComputerUtilCombat.willOpposingCreatureDieInCombat(ai, source, combat);
+                        final int lifeThreshold = ai.getController().isAI() ? (((PlayerControllerAi) ai.getController()).getAi().getIntProperty(AiProps.AI_IN_DANGER_THRESHOLD)) : 4;
+                        final boolean aiInDanger = ai.getLife() <= lifeThreshold && ai.canLoseLife() && !ai.cantLoseForZeroOrLessLife();
+                        if (creatureInDanger && !ComputerUtilCombat.isDangerousToSacInCombat(ai, source, combat)) {
+                            return true;
+                        } else if (aiInDanger || !beforeNextTurn) {
+                            return false;
+                        }
                     }
                     continue;
                 }
@@ -592,6 +614,20 @@ public class ComputerUtilCost {
                         }
                     });
                     if (nonManaSources.size() < part.convertAmount()) {
+                        return false;
+                    }
+                }
+            }
+        }
+
+        // Bail early on Casualty in case there are no cards that would make sense to pay with
+        if (sa.getHostCard().hasKeyword(Keyword.CASUALTY)) {
+            for (final CostPart part : sa.getPayCosts().getCostParts()) {
+                if (part instanceof CostSacrifice) {
+                    CardCollection valid = CardLists.getValidCards(player.getCardsIn(ZoneType.Battlefield), part.getType().split(";"),
+                            sa.getActivatingPlayer(), sa.getHostCard(), sa);
+                    valid = CardLists.filter(valid, Predicates.not(CardPredicates.hasSVar("AIDontSacToCasualty")));
+                    if (valid.isEmpty()) {
                         return false;
                     }
                 }

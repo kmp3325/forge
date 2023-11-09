@@ -233,9 +233,11 @@ public class StaticEffect {
             }
 
             // remove abilities
-            if (hasParam("AddAbility") || hasParam("GainsAbilitiesOf") || hasParam("GainsAbilitiesOfDefined")
-                    || hasParam("AddTrigger") || hasParam("AddStaticAbility") || hasParam("AddReplacementEffects")
-                    || hasParam("RemoveAllAbilities") || hasParam("RemoveLandTypes")) {
+            if (hasParam("AddAbility") || hasParam("GainsAbilitiesOf")
+                    || hasParam("GainsAbilitiesOfDefined") || hasParam("GainsTriggerAbsOf")
+                    || hasParam("AddTrigger") || hasParam("AddStaticAbility")
+                    || hasParam("AddReplacementEffects") || hasParam("RemoveAllAbilities")
+                    || hasParam("RemoveLandTypes")) {
                 affectedCard.removeChangedCardTraits(getTimestamp(), ability.getId());
             }
 
@@ -287,6 +289,8 @@ public class StaticEffect {
             }
 
             affectedCard.removeChangedSVars(getTimestamp(), ability.getId());
+
+            affectedCard.updateAbilityTextForView(); // need to update keyword cache for clean reapply
         }
         return affectedCards;
     }

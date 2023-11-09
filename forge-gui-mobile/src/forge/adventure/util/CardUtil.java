@@ -745,13 +745,22 @@ public class CardUtil {
     }
 
     public static PaperCard getCardByName(String cardName) {
-        return Aggregates.random(Iterables.filter(getFullCardPool(Config.instance().getSettingData().useAllCardVariants),
-                input -> input.getCardName().equals(cardName)));
+        List<PaperCard> validCards = Arrays.asList(Iterables.toArray(Iterables.filter(getFullCardPool(Config.instance().getSettingData().useAllCardVariants),
+                input -> input.getCardName().equals(cardName)), PaperCard.class));
+
+        return validCards.get(Current.world().getRandom().nextInt(validCards.size()));
     }
 
     public static PaperCard getCardByNameAndEdition(String cardName, String edition) {
-        return Aggregates.random(Iterables.filter(getFullCardPool(Config.instance().getSettingData().useAllCardVariants),
-                input -> input.getCardName().equals(cardName) && input.getEdition().equals(edition)));
+        List<PaperCard> validCards = Arrays.asList(Iterables.toArray(Iterables.filter(getFullCardPool(Config.instance().getSettingData().useAllCardVariants),
+                input -> input.getCardName().equals(cardName) && input.getEdition().equals(edition)), PaperCard.class));
+
+        if (validCards.isEmpty()) {
+            System.err.println("Unexpected behavior: tried to call getCardByNameAndEdition for card " + cardName + " from the edition " + edition + ", but didn't find it in the DB. A random existing instance will be returned.");
+            return getCardByName(cardName);
+        }
+
+        return validCards.get(Current.world().getRandom().nextInt(validCards.size()));
     }
 
     public static Collection<PaperCard> getFullCardPool(boolean allCardVariants) {

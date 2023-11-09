@@ -21,6 +21,7 @@ import forge.game.mana.Mana;
 import forge.game.mana.ManaConversionMatrix;
 import forge.game.mana.ManaCostBeingPaid;
 import forge.game.phase.PhaseHandler;
+import forge.game.phase.PhaseType;
 import forge.game.player.Player;
 import forge.game.player.PlayerCollection;
 import forge.game.player.PlayerPredicates;
@@ -532,10 +533,11 @@ public class AbilityUtils {
             val = xCount(ability.getOriginalHost(), calcX[1], ability);
         } else if (calcX[0].startsWith("ExiledWith")) {
             val = handlePaid(card.getExiledCards(), calcX[1], card, ability);
-	    } else if (calcX[0].startsWith("Convoked")) {
-	        val = handlePaid(card.getConvoked(), calcX[1], card, ability);
-	    }
-        else if (calcX[0].startsWith("Remembered")) {
+        } else if (calcX[0].startsWith("Convoked")) {
+            val = handlePaid(card.getConvoked(), calcX[1], card, ability);
+        } else if (calcX[0].startsWith("Emerged")) {
+            val = handlePaid(card.getEmerged(), calcX[1], card, ability);
+        } else if (calcX[0].startsWith("Remembered")) {
             // Add whole Remembered list to handlePaid
             final CardCollection list = new CardCollection();
             Card newCard = card;
@@ -1955,7 +1957,10 @@ public class AbilityUtils {
             return doXMath(calculateAmount(c, sq[!isUnlinkedFromCastSA(ctb, c) && c.getKickerMagnitude() > 0 ? 1 : 2], ctb), expr, c, ctb);
         }
         if (sq[0].startsWith("Escaped")) {
-            return doXMath(calculateAmount(c, sq[c.getCastSA() != null && c.getCastSA().isEscape() ? 1 : 2], ctb), expr, c, ctb);
+            return doXMath(calculateAmount(c, sq[!isUnlinkedFromCastSA(ctb, c) && c.getCastSA() != null && c.getCastSA().isEscape() ? 1 : 2], ctb), expr, c, ctb);
+        }
+        if (sq[0].startsWith("Emerged")) {
+            return doXMath(calculateAmount(c, sq[!isUnlinkedFromCastSA(ctb, c) && c.getCastSA() != null && c.getCastSA().isEmerge() ? 1 : 2], ctb), expr, c, ctb);
         }
         if (sq[0].startsWith("AltCost")) {
             return doXMath(calculateAmount(c, sq[c.isOptionalCostPaid(OptionalCost.AltCost) ? 1 : 2], ctb), expr, c, ctb);
@@ -1966,6 +1971,9 @@ public class AbilityUtils {
 
         if (sq[0].contains("CardPower")) {
             return doXMath(c.getNetPower(), expr, c, ctb);
+        }
+        if (sq[0].contains("CardBasePower")) {
+            return doXMath(c.getCurrentPower(), expr, c, ctb);
         }
         if (sq[0].contains("CardToughness")) {
             return doXMath(c.getNetToughness(), expr, c, ctb);
@@ -2108,6 +2116,11 @@ public class AbilityUtils {
             return doXMath(Integer.parseInt(sq[isMyMain ? 1 : 2]), expr, c, ctb);
         }
 
+        // Count$FinishedUpkeepsThisTurn
+        if (sq[0].startsWith("FinishedUpkeepsThisTurn")) {
+            return doXMath(game.getPhaseHandler().getNumUpkeep() - (game.getPhaseHandler().is(PhaseType.UPKEEP) ? 1 : 0), expr, c, ctb);
+        }
+
         // Count$AttachedTo <restriction>
         if (sq[0].startsWith("AttachedTo")) {
             final String[] k = l[0].split(" ");
@@ -2248,6 +2261,10 @@ public class AbilityUtils {
 
         if (sq[0].equals("YouSurveilThisTurn")) {
             return doXMath(player.getSurveilThisTurn(), expr, c, ctb);
+        }
+
+        if (sq[0].equals("YouDescendedThisTurn")) {
+            return doXMath(player.getDescended(), expr, c, ctb);
         }
 
         if (sq[0].equals("YouCastThisGame")) {
@@ -2646,6 +2663,25 @@ public class AbilityUtils {
 
         if (sq[0].equals("MaxDistinctOnStack")) {
             return doXMath(game.getStack().getMaxDistinctSources(), expr, c, ctb);
+        }
+
+        if (sq[0].equals("MaxSameStoredRolls")) {
+            int max = 0;
+            List<Integer> rolls = c.getStoredRolls();
+            if (rolls != null) {
+                int lastNum = 0;
+                for (Integer roll : rolls) {
+                    if (roll.equals(lastNum)) {
+                        continue; // no need to count instances of the same roll multiple times
+                    }
+                    int tally = Collections.frequency(rolls, roll);
+                    if (tally > max) {
+                        max = tally;
+                    }
+                    lastNum = roll;
+                }
+            }
+            return doXMath(max, expr, c, ctb);
         }
 
         //Count$Random.<Min>.<Max>

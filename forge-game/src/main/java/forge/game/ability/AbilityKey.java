@@ -63,6 +63,7 @@ public enum AbilityKey {
     EffectOnly("EffectOnly"),
     Enlisted("Enlisted"),
     Exploited("Exploited"),
+    Explored("Explored"),
     Explorer("Explorer"),
     ExtraTurn("ExtraTurn"),
     Event("Event"),
@@ -74,6 +75,7 @@ public enum AbilityKey {
     Fizzle("Fizzle"),
     FoundSearchingLibrary("FoundSearchingLibrary"),
     Ignore("Ignore"),
+    IgnoreChosen("IgnoreChosen"),
     IsCombat("IsCombat"), // TODO confirm that this and IsCombatDamage can be merged
     IsCombatDamage("IsCombatDamage"),
     IsDamage("IsDamage"),

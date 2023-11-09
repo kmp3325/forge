@@ -1227,7 +1227,7 @@ public class SpecialCardAi {
                 return false;
             }
 
-            final CardCollectionView cards = ai.getCardsIn(new ZoneType[] {ZoneType.Hand, ZoneType.Battlefield, ZoneType.Command});
+            final CardCollectionView cards = ai.getCardsIn(Arrays.asList(ZoneType.Hand, ZoneType.Battlefield, ZoneType.Command));
             List<SpellAbility> all = ComputerUtilAbility.getSpellAbilities(cards, ai);
 
             int numManaSrcs = CardLists.filter(ComputerUtilMana.getAvailableManaSources(ai, true), CardPredicates.Presets.UNTAPPED).size();
@@ -1607,6 +1607,22 @@ public class SpecialCardAi {
             }
 
             return bestInLib;
+        }
+    }
+
+    // The One Ring
+    public static class TheOneRing {
+        public static boolean consider(final Player ai, final SpellAbility sa) {
+            if (!ai.canLoseLife() || ai.cantLoseForZeroOrLessLife()) {
+                return true;
+            }
+
+            AiController aic = ((PlayerControllerAi) ai.getController()).getAi();
+            int lifeInDanger = aic.getIntProperty(AiProps.AI_IN_DANGER_THRESHOLD);
+            int numCtrs = sa.getHostCard().getCounters(CounterEnumType.BURDEN);
+
+            return ai.getLife() > numCtrs + 1 && ai.getLife() > lifeInDanger
+                    && ai.getMaxHandSize() >= ai.getCardsIn(ZoneType.Hand).size() + numCtrs + 1;
         }
     }
 

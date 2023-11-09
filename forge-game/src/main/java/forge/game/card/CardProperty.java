@@ -1595,6 +1595,9 @@ public class CardProperty {
             // check this always first to make sure lki is only used when the card provides it
             if (!(property.contains("LKI") ? lki : card).isAttacking()) return false;
             if (property.equals("attacking")) return true;
+            if (property.endsWith("Alone")) {
+                return CardLists.count(card.getGame().getLastStateBattlefield(), c -> c.isAttacking()) == 1;
+            }
             if (property.equals("attackingYou")) return combat.isAttacking(card, sourceController);
             if (property.equals("attackingSame")) {
                 final GameEntity attacked = combat.getDefenderByAttacker(source);
@@ -1661,17 +1664,18 @@ public class CardProperty {
                 return false;
             }
         } else if (property.startsWith("blocking")) {
-            if (null == combat) return false;
+            if (combat == null || !combat.isBlocking(card)) return false;
             String what = property.substring("blocking".length());
-
-            if (StringUtils.isEmpty(what)) return combat.isBlocking(card);
+            if (what.endsWith("Alone")) {
+                return CardLists.count(card.getGame().getLastStateBattlefield(), c -> c.getCombatLKI() != null && !c.getCombatLKI().isAttacker) == 1;
+            }
             if (what.startsWith("Source")) return combat.isBlocking(card, source);
             if (what.startsWith("CreatureYouCtrl")) {
                 for (final Card c : sourceController.getCreaturesInPlay())
                     if (combat.isBlocking(card, c))
                         return true;
                 return false;
-            } else {
+            } else if (!StringUtils.isEmpty(what)) {
                 for (Card c : AbilityUtils.getDefinedCards(source, what, spellAbility)) {
                     if (combat.isBlocking(card, c)) {
                         return true;
@@ -1687,9 +1691,7 @@ public class CardProperty {
                 return false;
             }
 
-            CardCollection sourceBlocking = new CardCollection(combat.getAttackersBlockedBy(source));
-            CardCollection thisBlocking = new CardCollection(combat.getAttackersBlockedBy(card));
-            if (Collections.disjoint(sourceBlocking, thisBlocking)) {
+            if (Collections.disjoint(combat.getAttackersBlockedBy(source), combat.getAttackersBlockedBy(card))) {
                 return false;
             }
         } else if (property.startsWith("notblocking")) {
@@ -1714,10 +1716,8 @@ public class CardProperty {
                 return false;
             }
             String valid = property.split(" ")[1];
-            for (Card c : blocked) {
-                if (c.isValid(valid, card.getController(), source, spellAbility)) {
-                    return true;
-                }
+            if (Iterables.any(blocked, CardPredicates.restriction(valid, card.getController(), source, spellAbility))) {
+                return true;
             }
             for (Card c : AbilityUtils.getDefinedCards(source, valid, spellAbility)) {
                 if (blocked.contains(c)) {
@@ -1740,8 +1740,6 @@ public class CardProperty {
                 }
             }
             return false;
-        } else if (property.startsWith("blockedSource")) {
-            return null != combat && combat.isBlocking(card, source);
         } else if (property.startsWith("isBlockedByRemembered")) {
             if (null == combat) return false;
             for (final Object o : source.getRemembered()) {

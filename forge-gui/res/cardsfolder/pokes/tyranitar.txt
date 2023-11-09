@@ -3,10 +3,11 @@ ManaCost:3 W B G
 Types:Creature Dinosaur Pokémon
 PT:7/5
 K:Evolve from:3 W B G:Pupitar:8/6
-T:Mode$ CounterRemoved | ValidCard$ Creature.YouCtrl | TriggerZones$ Battlefield | CounterType$ SHIELD | Execute$ TrigDestroy | TriggerDescription$ Whenever a shield counter is removed from a creature you control, destroy target tapped land. If you do, that land’s controller may search their library for a basic land card, put it onto the battlefield tapped, then shuffle.
-SVar:TrigDestroy:DB$ Destroy | ValidTgts$ Land.tapped | TgtPrompt$ Select target land | SubAbility$ TrigSearch
-SVar:TrigSearch:DB$ ChangeZone | Origin$ Library | Destination$ Battlefield | DefinedPlayer$ TargetedController | ChangeType$ Land.Basic | ChangeNum$ 1 | Tapped$ True | StackDescription$ That land's controller may search their library for a basic land card, put it onto the battlefield tapped, then shuffle.
-Oracle:Evolve from Pupitar {3}{W}{B}{G} [8/6]\nWhenever a shield counter is removed from a creature you control, destroy target tapped land. If you do, that land’s controller may search their library for a basic land card, put it onto the battlefield tapped, then shuffle.
+T:Mode$ CounterRemoved | ValidCard$ Creature.YouCtrl | TriggerZones$ Battlefield | CounterType$ SHIELD | Execute$ TrigSac | TriggerDescription$ Whenever a shield counter is removed from a creature you control, destroy target tapped land. If you do, that land’s controller may search their library for a basic land card, put it onto the battlefield tapped, then shuffle.
+SVar:TrigSac:DB$ Sacrifice | ValidTgts$ Player | TgtPrompt$ Select target player | SacMessage$ Creature | RememberSacrificed$ True | SubAbility$ TrigSearch
+SVar:TrigSearch:DB$ ChangeZone | ConditionDefined$ Remembered | ConditionPresent$ Card | Origin$ Library | Destination$ Battlefield | DefinedPlayer$ Targeted | ChangeType$ Land.Basic | ChangeNum$ 1 | Tapped$ True | OptionalDecider$ Targeted | SubAbility$ DBCleanup | StackDescription$ They may search their library for a basic land card, put it onto the battlefield tapped, then shuffle.
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+Oracle:Evolve from Pupitar {3}{W}{B}{G} [8/6]\nWhenever a shield counter is removed from a creature you control, target player sacrifices a land. If they do, they may search their library for a basic land card, put it onto the battlefield tapped, then shuffle.
 
 DeckHints:Name$Pupitar
 SVar:SoundEffect:tyranitar.mp3

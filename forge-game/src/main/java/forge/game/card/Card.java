@@ -265,6 +265,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
     private boolean startsGameInPlay = false;
     private boolean drawnThisTurn = false;
     private boolean foughtThisTurn = false;
+    private boolean phasedInOrOutThisTurn = false;
     private boolean becameTargetThisTurn = false;
     private boolean startedTheTurnUntapped = false;
     private boolean cameUnderControlSinceLastUpkeep = true; // for Echo
@@ -2122,6 +2123,13 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
     }
     public final void setFoughtThisTurn(final boolean b) {
         foughtThisTurn = b;
+    }
+
+    public final boolean getPhasedInOrOutThisTurn() {
+        return phasedInOrOutThisTurn;
+    }
+    public final void setPhasedInOrOutThisTurn(final boolean b) {
+        phasedInOrOutThisTurn = b;
     }
 
     public final CardCollectionView getGainControlTargets() { //used primarily with AbilityFactory_GainControl
@@ -4415,7 +4423,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
         return getCounters(CounterEnumType.P1P1) + 2 * getCounters(CounterEnumType.P1P2) - getCounters(CounterEnumType.M1M1)
                 + getCounters(CounterEnumType.P0P1) - 2 * getCounters(CounterEnumType.M0M2) + 2 * getCounters(CounterEnumType.P2P2)
                 - getCounters(CounterEnumType.M0M1) - getCounters(CounterEnumType.M2M1) - 2 * getCounters(CounterEnumType.M2M2)
-                + 2 * getCounters(CounterEnumType.P0P2) - isBurning * getCounters(CounterEnumType.BURN) - getCounters(CounterEnumType.TOXIC);
+                + 2 * getCounters(CounterEnumType.P0P2) - isBurning * getCounters(CounterEnumType.BURN) - getCounters(CounterEnumType.POISON);
     }
 
     public final StatBreakdown getNetToughnessBreakdown() {
@@ -5314,6 +5322,8 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
             // Switch Phase State bails early if the Permanent can't Phase Out
             return;
         }
+
+        setPhasedInOrOutThisTurn(true);
 
         if (!phasingIn) {
             setDirectlyPhasedOut(direct);
@@ -6719,6 +6729,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
         resetShieldCount();
         setBecameTargetThisTurn(false);
         setFoughtThisTurn(false);
+        setPhasedInOrOutThisTurn(false);
         clearMustBlockCards();
         getDamageHistory().setCreatureAttackedLastTurnOf(turn, getDamageHistory().getCreatureAttacksThisTurn() > 0);
         getDamageHistory().newTurn();

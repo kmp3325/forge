@@ -310,10 +310,10 @@ public class Untap extends Phase {
         HashSet<Card> toxicCards = new HashSet<>();
         GameEntityCounterTable table = new GameEntityCounterTable();
         for (Card card : turn.getCreaturesInPlay()) {
-            if (card.isPhasedOut() || card.getCounters(CounterEnumType.TOXIC) == 0) {
+            if (card.isPhasedOut() || card.getCounters(CounterEnumType.POISON) == 0) {
                 continue;
             }
-            card.addCounter(CounterEnumType.TOXIC, 1, turn, table);
+            card.addCounter(CounterEnumType.POISON, 1, turn, table);
             toxicCards.add(card);
         }
         table.replaceCounterEffect(turn.getGame(), null, false);

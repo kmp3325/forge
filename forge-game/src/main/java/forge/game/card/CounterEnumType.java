@@ -382,7 +382,6 @@ public enum CounterEnumType {
     TIME("TIME", 255, 121, 255),
 
     TOWER("tower", "TOWER", 0, 239, 255),
-    TOXIC("TOXIC", 102, 203, 105),
 
     TRAINING("TRAIN", 220, 201, 0),
 

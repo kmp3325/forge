@@ -2727,6 +2727,8 @@ public class AbilityUtils {
             CardCollectionView cardsInZones = null;
             if (lparts[0].contains("All")) {
                 cardsInZones = game.getCardsInGame();
+            } else if (lparts[0].contains("IncludePhasedOut")) {
+                cardsInZones = game.getCardsIncludePhasingIn(ZoneType.Battlefield); // this is horrible, I should get all the zones, but I don't care
             } else {
                 final List<ZoneType> zones = ZoneType.listValueOf(lparts[0].length() > 5 ? lparts[0].substring(5) : "Battlefield");
                 boolean usedLastState = false;

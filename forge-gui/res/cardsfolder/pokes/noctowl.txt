@@ -5,13 +5,12 @@ PT:3/4
 K:Evolve from:4 W:Hoothoot:4/5
 K:Flying
 K:Vigilance
-T:Mode$ PhaseIn | ValidCard$ Creature.YouCtrl | Execute$ TrigRemoveToxic | TriggerDescription$ Whenever a creature you control phases in, you may remove up to two status counters from it, then scry 1. It becomes windy.
-SVar:TrigRemoveToxic:DB$ RemoveCounter | CounterType$ TOXIC,STUN,FROST,BURN | CounterNum$ 2 | UpTo$ True | Defined$ TriggeredTargetLKICopy | SubAbility$ TrigScry
-SVar:TrigScry:DB$ Scry | Optional$ True | ScryNum$ 1 | Defined$ You | SubAbility$ TrigWeather
-SVar:TrigWeather:DB$ Weather | Value$ Windy
-S:Mode$ Continuous | Affected$ Creature.Bird+Other+YouCtrl | AddPower$ X | AddToughness$ X | Description$ Other Bird creatures you control get +1/+1. If it's windy, instead they get +1/+1 and have vigilance.
-SVar:X:Count$Windy.2.1
-Oracle:Evolve from Hoothoot {4}{W} [4/5]\nFlying, vigilance\nOther Bird creatures you control get +1/+1. If it's windy, instead they get +1/+1 and have vigilance.\nWhenever a creature you control phases in, you may remove up to two status counters from it, then scry 1. It becomes windy.
+S:Mode$ Continuous | Affected$ Card.Other+YouCtrl+Bird | AddPower$ 2 | AddToughness$ 2 | AddKeyword$ Vigilance | CheckSVar$ WIND | SVarCompare$ GE1 | Description$ As long as it's windy, other Bird creatures you control get +2/+2 and have vigilance.
+SVar:WIND:Count$Windy.1.0
+A:AB$ Scry | Cost$ W | ScryNum$ X | SubAbility$ TrigWind | ActivationLimit$ 1 | SpellDescription$ Scry X, where X is the number of creatures that phased in or out this turn. If X is greater than 1, it becomes windy. Activate only once each turn.
+SVar:X:Count$ValidIncludePhasedOut Creature.phasedThisTurn
+SVar:TrigWind:DB$ Weather | Value$ Windy | ConditionCheckSVar$ X | ConditionSVarCompare$ GE1
+Oracle:Evolve from Hoothoot {4}{W} [4/5]\nFlying, vigilance\nAs long as it’s windy, other Bird creatures you control get +2/+2 and have vigilance.\n{w}: Scry X, where X is the number of creatures that phased in or out this turn. If X is greater than 1, it becomes windy. Activate only once each turn.
 
 DeckHints:Name$Hoothoot
 DeckHints:Type$Bird

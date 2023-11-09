@@ -50,7 +50,7 @@ public class CardProperty {
         if (card.isPhasedOut()) {
             if (property.startsWith("phasedOut")) {
                 property = property.substring(9);
-            } else {
+            } else if (!property.startsWith("phasedThisTurn")) {
                 return false;
             }
         }
@@ -1139,6 +1139,10 @@ public class CardProperty {
             }
         } else if (property.startsWith("FoughtThisTurn")) {
             if (!card.getFoughtThisTurn()) {
+                return false;
+            }
+        } else if (property.startsWith("phasedThisTurn")) {
+            if (!card.getPhasedInOrOutThisTurn()) {
                 return false;
             }
         } else if (property.startsWith("firstTurnControlled")) {

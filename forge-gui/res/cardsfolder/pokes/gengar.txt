@@ -5,13 +5,13 @@ PT:5/4
 K:Evolve from:2 B B B:Haunter:6/5
 K:First strike
 K:Menace
-T:Mode$ DamageDone | ValidSource$ Card.Self | ValidTarget$ Player | Execute$ TrigDiscard | CombatDamage$ True | TriggerDescription$ Whenever CARDNAME deals combat damage to a player, that player discards a card. If they discard a creature card this way, return it from their graveyard to the battlefield under your control.
-SVar:TrigDiscard:DB$ Discard | Defined$ TriggeredTarget | NumCards$ 1 | Mode$ TgtChoose | RememberDiscarded$ True | SubAbility$ TrigRevive
-SVar:TrigRevive:DB$ ChangeZoneAll | ChangeType$ Card.IsRemembered | Origin$ Graveyard | Destination$ Battlefield | GainControl$ True | ConditionDefined$ Remembered | ConditionPresent$ Card.Creature | ConditionCompare$ EQ1 | SubAbility$ DBCleanup
+T:Mode$ Attacks | ValidSource$ Card.Self | Execute$ TrigDiscard | CombatDamage$ True | TriggerDescription$ Whenever CARDNAME attacks, defending player discards a card. If they discarded a creature card this way, return it from their graveyard to the battlefield under your control with a finality counter on it.
+SVar:TrigDiscard:DB$ Discard | Defined$ TriggeredDefendingPlayer | NumCards$ 1 | Mode$ TgtChoose | RememberDiscarded$ True | SubAbility$ TrigRevive
+SVar:TrigRevive:DB$ ChangeZoneAll | ChangeType$ Card.IsRemembered | Origin$ Graveyard | Destination$ Battlefield | GainControl$ True | ConditionDefined$ Remembered | ConditionPresent$ Card.Creature | ConditionCompare$ EQ1 | WithCountersType$ FINALITY | SubAbility$ DBCleanup
 SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
 T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | Execute$ TrigPhase | TriggerZones$ Battlefield | IsPresent$ Card.YouCtrl+YouDontOwn | PresentZone$ Battlefield | PresentCompare$ GE1 | TriggerDescription$ At the beginning of your upkeep, if you control a creature you don't own, CARDNAME phases out unless you sacrifice a creature.
 SVar:TrigPhase:DB$ Phases | Defined$ Self | UnlessCost$ Sac<1/Creature> | UnlessPayer$ You
-Oracle:Evolve from Haunter {2}{B}{B}{B} [6/5]\nFirst strike, menace\nWhenever Gengar deals combat damage to a player, that player discards a card. If they discard a creature card this way, return it from their graveyard to the battlefield under your control.\nAt the beginning of your upkeep, if you control a creature you don't own, Gengar phases out unless you sacrifice a creature.
+Oracle:Evolve from Haunter {2}{B}{B}{B} [6/5]\nFirst strike, menace\nWhenever Gengar attacks, defending player discards a card. If they discarded a creature card this way, return it from their graveyard to the battlefield under your control with a finality counter on it.\nAt the beginning of your upkeep, if you control a creature you don't own, Gengar phases out unless you sacrifice a creature.
 
 DeckHints:Name$Haunter
 SVar:SoundEffect:gengar.mp3

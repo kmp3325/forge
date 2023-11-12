@@ -1,6 +1,6 @@
 Name:Team Rocket's Gyarados
 ManaCost:5 W B
-Types:Creature Leviathan Pokémon
+Types:Creature Serpent Pokémon
 PT:4/4
 K:Evolve from:5 W B:Team Rocket's Magikarp:7/7
 K:Flying

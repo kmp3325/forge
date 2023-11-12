@@ -4,7 +4,7 @@ Types:Creature Crab Pokémon
 PT:1/1
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigPutCounter | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters the battlefield, you may put a +1/+1 counter on another target creature. It becomes rainy.
 SVar:TrigPutCounter:DB$ PutCounter | CounterType$ P1P1 | CounterNum$ 1 | ValidTgts$ Creature.Other | TgtPrompt$ Select another target creature | SubAbility$ TrigWeather
-SVar:TrigWeather:DB$ Weather | Value$ Rainy | SubAbility$ TrigPutCounter
+SVar:TrigWeather:DB$ Weather | Value$ Rainy
 Oracle:When Kabuto enters the battlefield, you may put a +1/+1 counter on another target creature. It becomes rainy.
 
 DeckHints:Name$Kabutops

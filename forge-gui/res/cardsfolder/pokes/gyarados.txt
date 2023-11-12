@@ -1,6 +1,6 @@
 Name:Gyarados
 ManaCost:4 W U U
-Types:Creature Leviathan Pokémon
+Types:Creature Serpent Pokémon
 PT:6/6
 K:Evolve from:3 W U U:Magikarp:9/9
 K:Flying

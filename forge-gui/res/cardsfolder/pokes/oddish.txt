@@ -1,11 +1,11 @@
 Name:Oddish
-ManaCost:BG
+ManaCost:1 BG
 Types:Creature Plant Pokémon
 PT:1/1
 A:AB$ PutCounter | Cost$ T | CounterType$ SOLAR | CounterNum$ 1 | Defined$ Self | SpellDescription$ Put a solar counter on CARDNAME.
-A:AB$ ChangeZone | Cost$ T | Origin$ Graveyard | Destination$ Hand | ChangeType$ Land.YouOwn | ChangeNum$ 1 | IsPresent$ Card.Self+counters_GE3_SOLAR | SubAbility$ TrigPoison | SpellDescription$ Return target land card from your graveyard to your hand, then put a poison counter on CARDNAME. Activate only if CARDNAME has two or more solar counters on it.
+A:AB$ ChangeZone | Cost$ T | Origin$ Graveyard | Destination$ Battlefield | ChangeType$ Land.YouOwn | ChangeNum$ 1 | IsPresent$ Card.Self+counters_GE3_SOLAR | SubAbility$ TrigPoison | SpellDescription$ Return target land card from your graveyard to the battlefield, then put a poison counter on CARDNAME. Activate only if CARDNAME has two or more solar counters on it.
 SVar:TrigPoison:DB$ PutCounter | CounterType$ POISON | CounterNum$ 1 | Defined$ Self
-Oracle:{T}: Put a solar counter on Oddish.\n{T}: Return target land card from your graveyard to your hand, then put a poison counter on Oddish. Activate only if Oddish has two or more solar counters on it.
+Oracle:{T}: Put a solar counter on Oddish.\n{T}: Return target land card from your graveyard to the battlefield, then put a poison counter on Oddish. Activate only if Oddish has two or more solar counters on it.
 
 DeckHints:Name$Gloom Pokémon
 SVar:SoundEffect:oddish.mp3

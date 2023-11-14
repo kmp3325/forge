@@ -1,5 +1,5 @@
 Name:Wild Raticate
-ManaCost:2 W
+ManaCost:1 W W
 Types:Creature Rat Pokémon
 PT:2/1
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigPump | OptionalDecider$ You | SpellDescription$ When CARDNAME enters the battlefield, you may have it fight target tapped creature. If you do, until end of turn, that creature loses indestructible and CARDNAME gets +3/+3.

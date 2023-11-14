@@ -334,8 +334,8 @@ Foil=NotSupported
 7009 C Clefairy
 7010 U Jigglypuff
 7011 C Golbat
-7012 U Gloom
-7013 U Poliwhirl
+7012 U Gloom Pokémon
+7013 C Poliwhirl
 7014 U Kadabra
 7015 U Machoke
 7016 C Weepinbell

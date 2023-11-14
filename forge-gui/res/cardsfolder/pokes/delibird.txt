@@ -1,5 +1,5 @@
 Name:Delibird
-ManaCost:5
+ManaCost:4
 Types:Snow Creature Bird Pokémon
 PT:3/3
 K:Flying

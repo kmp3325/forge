@@ -3,7 +3,8 @@ ManaCost:1 RW
 Types:Creature Dog Faerie Pokémon
 PT:1/2
 K:Vigilance
-Oracle:Vigilance
+A:AB$ Fight | Cost$ 5 RW T | Defined$ Self | ValidTgts$ Creature.Other | TgtPrompt$ Select another target creature | SpellDescription$ NICKNAME fights another target creature.
+Oracle:Vigilance\n{5}{RW}, {T}: Snubbull fights another target creature.
 
 DeckHints:Name$Granbull
 SVar:SoundEffect:snubbull.mp3

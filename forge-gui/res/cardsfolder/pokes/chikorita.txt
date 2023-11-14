@@ -2,11 +2,11 @@ Name:Chikorita
 ManaCost:1 G
 Types:Creature Plant Dinosaur Pokémon
 PT:1/1
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSearch | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters the battlefield, you may search your library for a basic land card and put it onto the battlefield tapped, then shuffle.
-SVar:TrigSearch:DB$ ChangeZone | Origin$ Library | Destination$ Battlefield | Tapped$ True | ChangeType$ Land.Basic | ChangeNum$ 1
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSearch | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters the battlefield, you may search your library for a basic land card, reveal it, put it into your hand, then shuffle.
+SVar:TrigSearch:DB$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Land.Basic | ChangeNum$ 1
 T:Mode$ Evolved | ValidCard$ Card.Self | Execute$ TrigSun | TriggerDescription$ Whenever CARDNAME evolves, it becomes sunny.
 SVar:TrigSun:DB$ Weather | Value$ Sunny
-Oracle:When Chikorita enters the battlefield, you may search your library for a basic land card and put it onto the battlefield tapped, then shuffle.\nWhenever Chikorita evolves, it becomes sunny.
+Oracle:When Chikorita enters the battlefield, you may search your library for a basic land card, reveal it, put it into your hand, then shuffle.\nWhenever Chikorita evolves, it becomes sunny.
 
 DeckHints:Name$Bayleef
 SVar:SoundEffect:chikorita.mp3

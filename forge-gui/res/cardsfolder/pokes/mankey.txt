@@ -1,5 +1,5 @@
 Name:Mankey
-ManaCost:RW RW
+ManaCost:1 RW
 Types:Creature Monkey Pokémon
 PT:2/1
 K:Menace

@@ -1,5 +1,5 @@
 Name:Smoochum
-ManaCost:1 U
+ManaCost:U
 Types:Snow Creature Vampire Demon Pokémon
 PT:0/1
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, put two frost counters on target creature. It becomes snowy.

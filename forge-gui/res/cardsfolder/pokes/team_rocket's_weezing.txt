@@ -4,10 +4,13 @@ Types:Creature Elemental Pokémon
 PT:3/2
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigWeather | TriggerDescription$ When CARDNAME enters the battlefield, it becomes foggy.
 SVar:TrigWeather:DB$ Weather | Value$ Foggy
-S:Mode$ CantBlockBy | ValidAttacker$ Card.Self | CheckSVar$ X | SVarCompare$ GE1 | Description$ As long as it's foggy, CARDNAME can't be blocked.
-SVar:X:Count$Foggy.1.0
-A:AB$ RemoveCounter | Cost$ B | CounterType$ POISON | CounterNum$ 1 | ValidTgts$ Creature.counters_GE1_POISON | TgtPrompt$ Select target creature with a poison counter on it | SubAbility$ TrigPutCounter | SpellDescription$ Remove a poison counter from target creature with a poison counter on it. Put a +1/+1 counter on CARDNAME.
-SVar:TrigPutCounter:DB$ PutCounter | CounterType$ P1P1 | CounterNum$ 1 | Defined$ Self
-Oracle:When Team Rocket's Weezing enters the battlefield, it becomes foggy.\nAs long as it's foggy, Team Rocket's Weezing can't be blocked.\n{B}: Remove a poison counter from target creature with a poison counter on it. Put a +1/+1 counter on Team Rocket's Weezing.
+T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | CheckSVar$ FOG | SVarCompare$ GE1 | Execute$ TrigSac | TriggerDescription$ At the beginning of your upkeep, if it's foggy, you may sacrifice a creature. If you do, put a poison counter on target creature.
+SVar:FOG:Count$Foggy.1.0
+SVar:TrigSac:AB$ PutCounter | Cost$ Sac<1/Creature> | CounterType$ POISON | ValidTgts$ Creature | TgtPrompt$ Select target creature | IsCurse$ True
+A:AB$ RemoveCounter | Cost$ 1 B | CounterType$ POISON | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigPutCounter | RememberRemoved$ True | SpellDescription$ Remove a poison counter from target creature. If you do, put a +1/+1 counter on CARDNAME.
+SVar:TrigPutCounter:DB$ PutCounter | CounterType$ P1P1 | CounterNum$ 1 | Defined$ Self | ConditionCheckSVar$ X | ConditionSVarCompare$ GE1 | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:X:Count$RememberedSize
+Oracle:When Team Rocket's Weezing enters the battlefield, it becomes foggy.\nAt the beginning of your upkeep, if it's foggy, you may sacrifice a creature. If you do, put a poison counter on target creature.\n{1}{B}: Remove a poison counter from target creature. If you do, put a +1/+1 counter on Team Rocket's Weezing.
 
 SVar:SoundEffect:weezing.mp3

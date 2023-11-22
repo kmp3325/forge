@@ -2,10 +2,11 @@ Name:Team Rocket's Tyranitar
 ManaCost:5 B B R
 Types:Creature Dinosaur Pokémon
 PT:6/6
+K:Vigilance
 K:Menace
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigFog | TriggerDescription$ When CARDNAME enters the battlefield, it becomes foggy.
 SVar:TrigFog:DB$ Weather | Value$ Foggy
 T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigQuake | TriggerDescription$ Whenever CARDNAME attacks, it deals 2 damage to each other creature without flying and 3 damage to each other creature with flying.
 SVar:TrigQuake:DB$ DamageAll | ValidCards$ Creature.Other+withoutFlying | NumDmg$ 2 | SubAbility$ TrigRocks
 SVar:TrigRocks:DB$ DamageAll | ValidCards$ Creature.Other+withFlying | NumDmg$ 3
-Oracle:Menace\nWhen Team Rocket's Tyranitar enters the battlefield, it becomes foggy.\nWhenever Team Rocket's Tyranitar attacks, it deals 2 damage to each other creature without flying and 3 damage to each other creature with flying.
+Oracle:Vigilance, menace\nWhen Team Rocket's Tyranitar enters the battlefield, it becomes foggy.\nWhenever Team Rocket's Tyranitar attacks, it deals 2 damage to each other creature without flying and 3 damage to each other creature with flying.

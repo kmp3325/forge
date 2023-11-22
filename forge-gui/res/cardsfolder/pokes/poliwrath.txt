@@ -1,5 +1,5 @@
 Name:Poliwrath
-ManaCost:3 U U R
+ManaCost:3 U UR R
 Types:Creature Frog Pokémon
 PT:5/6
 K:Evolve from:3 U UR R:Poliwhirl:6/7

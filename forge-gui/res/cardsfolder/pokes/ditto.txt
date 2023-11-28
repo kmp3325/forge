@@ -1,10 +1,8 @@
 Name:Ditto
 ManaCost:3
 Types:Creature Shapeshifter Ooze Pokémon
-PT:2/2
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | TriggerZones$ Battlefield | ValidCard$ Creature.Other | Execute$ DittoCopy | SecondaryGainsWithCopy$ True | TriggerDescription$ Whenever another creature enters the battlefield or evolves, you may have CARDNAME become a copy of that creature, except its name is Ditto, it's not legendary, and it has this ability.
-T:Mode$ Evolved | ValidCard$ Creature.Other | TriggerZones$ Battlefield | TriggerZones$ Battlefield | Execute$ DittoCopy | Secondary$ True | SecondaryGainsWithCopy$ True | TriggerDescription$ Whenever another creature enters the battlefield or evolves, you may have CARDNAME become a copy of that creature, except its name is Ditto, it's not legendary, and it has this ability.
-SVar:DittoCopy:DB$ Clone | Defined$ TriggeredCard | NewName$ Ditto | NonLegendary$ True | GainThisAbility$ True | GainSecondary$ True | Optional$ True | AddSVars$ DittoCopy | AILogic$ IfDefinedCreatureIsBetter
-Oracle:Whenever another creature enters the battlefield or evolves, you may have Ditto become a copy of that creature, except its name is Ditto, it's not legendary, and it has this ability.
+PT:0/3
+A:AB$ Clone | Cost$ 3 | ValidTgts$ Creature | TgtPrompt$ Select target creature | NewName$ Ditto | NonLegendary$ True | GainThisAbility$ True | SorcerySpeed$ True | AILogic$ IfDefinedCreatureIsBetter | SpellDescription$ CARDNAME become a copy of target creature, except its name is CARDNAME, it's not legendary, and it has this ability. Activate only as a sorcery.
+Oracle:{3}: Ditto become a copy of target creature, except its name is Ditto, it's not legendary, and it has this ability. Activate only as a sorcery.
 
 SVar:SoundEffect:ditto.mp3

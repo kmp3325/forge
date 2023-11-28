@@ -6,10 +6,10 @@ K:Evolve from:2:Teddiursa:3/3
 S:Mode$ CantAttackUnless | ValidCard$ Creature.Self | Target$ Player,Planeswalker | Cost$ Sac<1/Food> | Description$ CARDNAME can't attack unless you sacrifice a Food. (This cost is paid as attackers are declared.)
 S:Mode$ Continuous | Affected$ Card.Self | AddPower$ X | AddToughness$ X | Description$ CARDNAME gets +1/+1 for each Food you control.
 SVar:X:Count$Valid Food.YouCtrl
-T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | OptionalDecider$ You | Execute$ TrigImmediateTrig | TriggerZones$ Battlefield | TriggerDescription$ At the beginning of your upkeep, you may pay {C}. When you do, create a Food token.
-SVar:TrigImmediateTrig:AB$ ImmediateTrigger | Cost$ C | Execute$ TrigFood | SpellDescription$ At the beginning of your upkeep, you may pay {C}. When you do, create a Food token.
+T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | OptionalDecider$ You | Execute$ TrigImmediateTrig | TriggerZones$ Battlefield | TriggerDescription$ At the beginning of your upkeep, you may pay {1}. When you do, create a Food token.
+SVar:TrigImmediateTrig:AB$ ImmediateTrigger | Cost$ 1 | Execute$ TrigFood | SpellDescription$ At the beginning of your upkeep, you may pay {1}. When you do, create a Food token.
 SVar:TrigFood:DB$ Token | TokenAmount$ 1 | TokenScript$ c_a_food_sac | TokenOwner$ You
-Oracle:Evolve from Teddiursa {2} [4/4]\nUrsaring can't attack unless you scarifice a Food.\nUrsaring gets +1/+1 for each Food you control.\nAt the beginning of your upkeep, you may pay {C}. When you do, create a Food token.
+Oracle:Evolve from Teddiursa {2} [4/4]\nUrsaring can't attack unless you scarifice a Food.\nUrsaring gets +1/+1 for each Food you control.\nAt the beginning of your upkeep, you may pay {1}. When you do, create a Food token.
 
 DeckHints:Name$Teddiursa
 SVar:BuffedBy:Food

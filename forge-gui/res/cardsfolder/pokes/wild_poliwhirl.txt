@@ -3,11 +3,12 @@ ManaCost:X U U U
 Types:Creature Frog Pokémon
 PT:2/2
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigWeather | TriggerDescription$ When CARDNAME enters the battlefield, it becomes rainy. Then each player discards X cards, mills X cards, and you scry X.
-SVar:TrigWeather:DB$ Weather | Value$ Rainy | SubAbility$ TrigDiscard
+SVar:TrigWeather:DB$ Weather | Value$ Rainy | SubAbility$ TrigScry
 SVar:TrigDiscard:DB$ Discard | Defined$ Player | Mode$ TgtChoose | NumCards$ X | SubAbility$ TrigMill
-SVar:TrigMill:DB$ Mill | Defined$ Player | NumCards$ X | SubAbility$ TrigScry
-SVar:TrigScry:DB$ Scry | Defined$ You | ScryNum$ X
+SVar:TrigMill:DB$ Mill | Defined$ Player | NumCards$ X | SubAbility$ TrigDraw
+SVar:TrigScry:DB$ Scry | Defined$ You | ScryNum$ X | SubAbility$ TrigDiscard
+SVar:TrigDraw:DB$ Draw | NumCards$ 1 | Defined$ You
 SVar:X:Count$xPaid
-Oracle:When Wild Poliwhirl enters the battlefield, it becomes rainy. Then each player discards X cards, mills X cards, and you scry X.
+Oracle:When Wild Poliwhirl enters the battlefield, it becomes rainy. Scry X, then each player discards X cards and mills X cards. You draw a card.
 
 SVar:SoundEffect:poliwhirl.mp3

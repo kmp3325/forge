@@ -1,13 +1,13 @@
 Name:Azumarill
-ManaCost:2 WU
+ManaCost:3 WU
 Types:Creature Faerie Mouse Pokémon
 PT:2/2
-K:Evolve from:2 WU:Marill:3/3
+K:Evolve from:3 WU:Marill:3/3
 T:Mode$ PhaseIn | ValidCard$ Creature.Other+SharesColorWith ActivationColor | TriggerZones$ Battlefield | Execute$ TrigLand | OptionalDecider$ You | ActivationLimit$ 1 | TriggerDescription$ Whenever another creature that shares a color with CARDNAME phases in, you may search your library for a basic land card, reveal it, put it into your hand, then shuffle. Do this only once each turn.
 SVar:TrigLand:DB$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Land.Basic
 A:AB$ ChangeZone | Cost$ WB T | Origin$ Graveyard | Destination$ Hand | ValidTgts$ Card.YouOwn | TgtPrompt$ Select target card | CheckSVar$ X | SVarCompare$ GE7 | SpellDescription$ Return target card from your graveyard to your hand. Activate only if you have seven or more cards in hand.
 SVar:X:Count$InYourHand
-Oracle:Evolve from Marill {2}{WU} [3/3]\nWhenever another creature that shares a color with Azumarill phases in, you may search your library for a basic land card, reveal it, put it into your hand, then shuffle. Do this only once each turn.\n{WU}, {T}: Return target card from your graveyard to your hand. Activate only if you have seven or more cards in hand.
+Oracle:Evolve from Marill {3}{WU} [3/3]\nWhenever another creature that shares a color with Azumarill phases in, you may search your library for a basic land card, reveal it, put it into your hand, then shuffle. Do this only once each turn.\n{WU}, {T}: Return target card from your graveyard to your hand. Activate only if you have seven or more cards in hand.
 
 DeckHints:Name$Marill
 SVar:SoundEffect:azumarill.mp3

@@ -4,7 +4,7 @@ Types:Legendary Creature Cat Beast Pokémon
 PT:4/4
 K:First strike
 K:Ward:2
-T:Mode$ SpellCast | ValidCard$ Card.Self+namedSuicune | Static$ True | Execute$ EncounterSuicune | CheckSVar$ HasCast | SVarCompare$ EQ0
+T:Mode$ SpellCast | ValidCard$ Card.Self+namedSuicune | Static$ True | Execute$ EncounterSuicune | CheckSVar$ HasCast | SVarCompare$ EQ0 | TriggerDescription$ When you cast this spell, if it's the first time you’ve cast a spell named CARDNAME this game, it gains “When CARDNAME enters the battlefield, shuffle it into its owner’s library.”
 SVar:HasCast:Count$ValidCommand Effect.YouCtrl+namedEncounteredSuicune
 SVar:EncounterSuicune:DB$ Effect | Name$ EncounteredSuicune | Duration$ Permanent | SubAbility$ GrantShuffle
 SVar:GrantShuffle:DB$ Animate | Defined$ TriggeredCard | Duration$ Permanent | Triggers$ EtbShuffle
@@ -15,6 +15,6 @@ SVar:TrigPhaseOut:DB$ Phases | ValidTgts$ Creature.Other | TgtPrompt$ Select ano
 SVar:TrigMill:DB$ Mill | NumCards$ X | Defined$ Opponent | SubAbility$ DBCleanup
 SVar:X:Remembered$CardManaCost/Times.2
 SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
-Oracle:First strike, ward {2}\nWhen you cast this spell, if it is the first time you’ve cast a spell named Suicune this game, it gains “When Suicune enters the battlefield, shuffle it into its owner’s library.”\nWhen Suicune enters the battlefield, another target creature phases out. Each opponent mills cards equal to twice the phased out creature’s mana value.
+Oracle:First strike, ward {2}\nWhen you cast this spell, if it's the first time you’ve cast a spell named Suicune this game, it gains “When Suicune enters the battlefield, shuffle it into its owner’s library.”\nWhen Suicune enters the battlefield, another target creature phases out. Each opponent mills cards equal to twice the phased out creature’s mana value.
 
 SVar:SoundEffect:suicune.mp3

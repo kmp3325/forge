@@ -1095,7 +1095,6 @@ public class AiController {
                     return discards;
                 }
             }
-
         }
 
         // look for good discards
@@ -1103,9 +1102,7 @@ public class AiController {
             Card prefCard = null;
             if (sa != null && sa.getActivatingPlayer() != null && sa.getActivatingPlayer().isOpponentOf(player)) {
                 for (Card c : validCards) {
-                    if (c.hasKeyword("If a spell or ability an opponent controls causes you to discard CARDNAME,"
-                            + " put it onto the battlefield instead of putting it into your graveyard.")
-                            || !c.getSVar("DiscardMeByOpp").isEmpty()) {
+                    if (c.hasSVar("DiscardMeByOpp")) {
                         prefCard = c;
                         break;
                     }

@@ -20,6 +20,7 @@ import java.util.stream.Collectors;
 import java.util.TreeSet;
 
 import forge.game.Weather;
+import forge.game.trigger.TriggerType;
 import forge.trackable.TrackableCollection;
 import forge.util.ImageUtil;
 import org.apache.commons.lang3.ObjectUtils;
@@ -773,17 +774,19 @@ public class PlayerControllerHuman extends PlayerController implements IGameCont
      */
     @Override
     public boolean confirmAction(final SpellAbility sa, final PlayerActionConfirmMode mode, final String message,
-                                 Card cardToShow, Map<String, Object> params) {
+                                 List<String> options, Card cardToShow, Map<String, Object> params) {
         // Another card should be displayed in the prompt on mouse over rather than the SA source
         if (cardToShow != null) {
             tempShowCard(cardToShow);
-            boolean result = InputConfirm.confirm(this, cardToShow.getView(), sa, message);
+            boolean result = options.isEmpty() ? InputConfirm.confirm(this, cardToShow.getView(), sa, message)
+                    : InputConfirm.confirm(this, cardToShow.getView(), message, true, options);
             endTempShowCards();
             return result;
         }
 
         // The general case: display the source of the SA in the prompt on mouse over
-        return InputConfirm.confirm(this, sa, message);
+        return options.isEmpty() ? InputConfirm.confirm(this, sa, message) :
+                InputConfirm.confirm(this, sa.getHostCard().getView(), sa, message, true, options);
     }
 
     @Override
@@ -2634,8 +2637,14 @@ public class PlayerControllerHuman extends PlayerController implements IGameCont
                 inp.setMessage(localizer.getMessage("lblChoosePermanentstoTap"));
                 inp.showAndWait();
                 if (!inp.hasCancelled()) {
+                    CardCollection tapped = new CardCollection();
                     for (final Card c : inp.getSelected()) {
-                        c.tap(true, null, null);
+                        if (c.tap(true, null, null)) tapped.add(c);
+                    }
+                    if (!tapped.isEmpty()) {
+                        final Map<AbilityKey, Object> runParams = AbilityKey.newMap();
+                        runParams.put(AbilityKey.Cards, tapped);
+                        getGame().getTriggerHandler().runTrigger(TriggerType.TapAll, runParams, false);
                     }
                 }
             });
@@ -2657,8 +2666,16 @@ public class PlayerControllerHuman extends PlayerController implements IGameCont
                 inp.setMessage(localizer.getMessage("lblChoosePermanentstoUntap"));
                 inp.showAndWait();
                 if (!inp.hasCancelled()) {
+                    CardCollection untapped = new CardCollection();
                     for (final Card c : inp.getSelected()) {
-                        c.untap(true);
+                        if (c.untap(true)) untapped.add(c);
+                    }
+                    if (!untapped.isEmpty()) {
+                        final Map<AbilityKey, Object> runParams = AbilityKey.newMap();
+                        final Map<Player, CardCollection> map = Maps.newHashMap();
+                        map.put(getPlayer(), untapped);
+                        runParams.put(AbilityKey.Map, map);
+                        getGame().getTriggerHandler().runTrigger(TriggerType.UntapAll, runParams, false);
                     }
                 }
             });

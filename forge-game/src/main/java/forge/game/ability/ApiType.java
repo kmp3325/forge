@@ -73,6 +73,7 @@ public enum ApiType {
     DigMultiple (DigMultipleEffect.class),
     DigUntil (DigUntilEffect.class),
     Discard (DiscardEffect.class),
+    Discover (DiscoverEffect.class),
     DrainMana (DrainManaEffect.class),
     Draft (DraftEffect.class),
     Draw (DrawEffect.class),

@@ -2,8 +2,10 @@ package forge.player;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import forge.ImageKeys;
+import forge.game.ability.AbilityKey;
 import forge.game.cost.*;
 
 import com.google.common.collect.Iterables;
@@ -537,15 +539,18 @@ public class HumanPlay {
         }
         if (ability.getTappedForConvoke() != null) {
             game.getTriggerHandler().suppressMode(TriggerType.Taps);
+            CardCollection tapped = new CardCollection();
             for (final Card c : ability.getTappedForConvoke()) {
                 c.setTapped(false);
                 if (!manaInputCancelled) {
-                    c.tap(true, ability, ability.getActivatingPlayer());
+                    if (c.tap(true, ability, ability.getActivatingPlayer())) tapped.add(c);
                 }
             }
             game.getTriggerHandler().clearSuppression(TriggerType.Taps);
-            if (manaInputCancelled) {
-                ability.clearTappedForConvoke();
+            if (!tapped.isEmpty()) {
+                final Map<AbilityKey, Object> runParams = AbilityKey.newMap();
+                runParams.put(AbilityKey.Cards, tapped);
+                game.getTriggerHandler().runTrigger(TriggerType.TapAll, runParams, false);
             }
         }
         if (!table.isEmpty() && !manaInputCancelled) {

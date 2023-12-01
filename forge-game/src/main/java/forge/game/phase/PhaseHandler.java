@@ -609,11 +609,17 @@ public class PhaseHandler implements java.io.Serializable {
 
             } while (!success);
 
+            CardCollection tapped = new CardCollection();
             for (final Card attacker : combat.getAttackers()) {
                 if (!attacker.attackVigilance()) {
                     attacker.setTapped(false);
-                    attacker.tap(true, true, null, null);
+                    if (attacker.tap(true, true, null, null)) tapped.add(attacker);
                 }
+            }
+            if (!tapped.isEmpty()) {
+                final Map<AbilityKey, Object> runParams = AbilityKey.newMap();
+                runParams.put(AbilityKey.Cards, tapped);
+                whoDeclares.getGame().getTriggerHandler().runTrigger(TriggerType.TapAll, runParams, false);
             }
         }
 
@@ -776,13 +782,11 @@ public class PhaseHandler implements java.io.Serializable {
                 continue;
             }
 
-            if (!c1.getDamageHistory().getCreatureBlockedThisCombat()) {
-                // Run triggers
-                final Map<AbilityKey, Object> runParams = AbilityKey.newMap();
-                runParams.put(AbilityKey.Blocker, c1);
-                runParams.put(AbilityKey.Attackers, combat.getAttackersBlockedBy(c1));
-                game.getTriggerHandler().runTrigger(TriggerType.Blocks, runParams, false);
-            }
+            // Run triggers
+            final Map<AbilityKey, Object> runParams = AbilityKey.newMap();
+            runParams.put(AbilityKey.Blocker, c1);
+            runParams.put(AbilityKey.Attackers, combat.getAttackersBlockedBy(c1));
+            game.getTriggerHandler().runTrigger(TriggerType.Blocks, runParams, false);
 
             c1.getDamageHistory().setCreatureBlockedThisCombat(true);
             c1.getDamageHistory().clearNotBlockedSinceLastUpkeepOf();

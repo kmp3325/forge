@@ -1,12 +1,12 @@
 Name:Kangaskhan
 ManaCost:3 W
 Types:Creature Dinosaur Pokémon
-PT:5/6
-T:Mode$ DamageDoneOnce | TriggerZones$ Battlefield | ValidTarget$ Creature.YouCtrl+Other | CombatDamage$ False | Execute$ DBPutCounter | TriggerDescription$ Whenever another creature you control is dealt noncombat damage by a creature, put a +1/+1 counter on CARDNAME.
-SVar:DBPutCounter:DB$ PutCounter | CounterType$ P1P1 | CounterNum$ 1 | Defined$ Self
-T:Mode$ Blocks | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigPump | TriggerDescription$ Whenever CARDNAME attacks, another target creature you control gains indestructible until end of turn.
-SVar:TrigPump:DB$ Pump | ValidTgts$ Creature.YouCtrl+Other | TgtPrompt$ Select another target creature you control | KW$ Indestructible
-Oracle:Whenever another creature you control is dealt noncombat damage by a creature, put a +1/+1 counter on Kangaskhan.\nWhenever Kangaskhan blocks, another target creature you control gains indestructible until end of turn.
+PT:2/3
+T:Mode$ DamageDone | TriggerZones$ Battlefield | ValidTarget$ Creature.YouCtrl | CombatDamage$ False | Execute$ TrigPlus | TriggerDescription$ Whenever a creature you control is dealt noncombat damage or a shield counter is removed from a creature you control, put a +1/+1 counter on CARDNAME.
+T:Mode$ CounterRemoved | ValidCard$ Creature.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigPlus | Secondary$ True | TriggerDescription$ Whenever a creature you control is dealt noncombat damage or a shield counter is removed from a creature you control, put a +1/+1 counter on CARDNAME.
+SVar:TrigPlus:DB$ PutCounter | Defined$ Card.Self | CounterType$ P1P1 | CounterNum$ 1
+T:Mode$ Blocks | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigShield | TriggerDescription$ Whenever CARDNAME blocks, put a shield counter on another target creature you control.
+SVar:TrigShield:DB$ PutCounter | ValidTgts$ Creature.Other+YouCtrl | TgtPrompt$ Select another target creature you control | CounterType$ SHIELD | CounterNum$ 1
+Oracle:Whenever a creature you control is dealt noncombat damage or a shield counter is removed from a creature you control, put a +1/+1 counter on Kangaskhan.\nWhenever Kangaskhan blocks, put a shield counter on another target creature you control.
 
-SVar:HasAttackEffect:TRUE
 SVar:SoundEffect:kangaskhan.mp3

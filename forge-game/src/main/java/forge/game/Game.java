@@ -1297,6 +1297,9 @@ public class Game {
         }
         if (previous == null || !previous.equals(weather)) {
             weatherChangedThisTurn = true;
+            for (Card c : getCardsIn(ZoneType.Battlefield)) {
+                c.updatePowerToughnessForView();
+            }
             getTriggerHandler().runTrigger(TriggerType.WeatherChanged, runParams, false);
         }
         if (!isNoWeather()) {

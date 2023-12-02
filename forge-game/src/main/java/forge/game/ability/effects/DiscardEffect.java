@@ -133,9 +133,9 @@ public class DiscardEffect extends SpellAbilityEffect {
             // In this case the target need not be the discarding player
             discarders = getDefinedPlayersOrTargeted(sa);
             firstTarget = Iterables.getFirst(targets, null);
-        } else if (mode.equals("RevealTriggeredTgtChoose")) {
+        } else if (mode.equals("RevealDefendingPlayerChoose")) {
             discarders = getDefinedPlayersOrTargeted(sa);
-            firstTarget = (Player) sa.getTriggeringObjects().get(AbilityKey.Target);
+            firstTarget = (Player) sa.getTriggeringObject(AbilityKey.DefendingPlayer);
         } else {
             discarders = targets;
         }
@@ -148,7 +148,7 @@ public class DiscardEffect extends SpellAbilityEffect {
             }
 
             CardCollectionView toBeDiscarded = new CardCollection();
-            if (((mode.equals("RevealTgtChoose") || mode.equals("RevealTriggeredTgtChoose")) && firstTarget != null) || !sa.usesTargeting() || p.canBeTargetedBy(sa)) {
+            if (((mode.equals("RevealTgtChoose") || mode.equals("RevealDefendingPlayerChoose")) && firstTarget != null) || !sa.usesTargeting() || p.canBeTargetedBy(sa)) {
                 final int numCardsInHand = p.getCardsIn(ZoneType.Hand).size();
                 if (mode.equals("Defined")) {
                     if (!p.canDiscardBy(sa, true)) {
@@ -234,7 +234,7 @@ public class DiscardEffect extends SpellAbilityEffect {
 
                     toBeDiscarded = CardLists.getValidCards(dPHand, valid, source.getController(), source, sa);
                     toBeDiscarded = GameActionUtil.orderCardsByTheirOwners(game, toBeDiscarded, ZoneType.Graveyard, sa);
-                } else if (mode.endsWith("YouChoose") || mode.endsWith("TgtChoose")) {
+                } else if (mode.endsWith("YouChoose") || mode.endsWith("TgtChoose") || mode.endsWith("PlayerChoose")) {
                     CardCollectionView dPHand = p.getCardsIn(ZoneType.Hand);
                     if (dPHand.isEmpty())
                         continue; // for loop over players
@@ -247,7 +247,7 @@ public class DiscardEffect extends SpellAbilityEffect {
                     Player chooser = p;
                     if (mode.endsWith("YouChoose")) {
                         chooser = source.getController();
-                    } else if (mode.equals("RevealTgtChoose") || mode.equals("RevealTriggeredTgtChoose")) {
+                    } else if (mode.equals("RevealTgtChoose") || mode.equals("RevealDefendingPlayerChoose")) {
                         chooser = firstTarget;
                     }
 

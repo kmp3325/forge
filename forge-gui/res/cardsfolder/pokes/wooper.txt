@@ -2,7 +2,10 @@ Name:Wooper
 ManaCost:1 WU
 Types:Creature Salamander Pokémon
 PT:2/2
-A:AB$ RemoveCounter | Cost$ W U | PlayerTurn$ True | Defined$ Self | CounterType$ POISON,STUN,FROST,BURN | CounterNum$ All | SubAbility$ TrigPhase | SpellDescription$ Remove all status counters from CARDNAME, then it phases out. Activate only during your turn.
+A:AB$ RemoveCounter | Cost$ W U | PlayerTurn$ True | Defined$ Self | CounterType$ POISON | CounterNum$ All | SubAbility$ DBRemoveStun | SpellDescription$ Remove all status counters from CARDNAME, then it phases out. Activate only during your turn.
+SVar:DBRemoveStun:DB$ RemoveCounter | Defined$ Self | CounterNum$ All | CounterType$ STUN | SubAbility$ DBRemoveFrost
+SVar:DBRemoveFrost:DB$ RemoveCounter | Defined$ Self | CounterNum$ All | CounterType$ FROST | SubAbility$ DBRemoveBurn
+SVar:DBRemoveBurn:DB$ RemoveCounter | Defined$ Self | CounterNum$ All | CounterType$ BURN | SubAbility$ TrigPhase
 SVar:TrigPhase:DB$ Phases | Defined$ Self
 Oracle:{W}{U}: Remove all status counters from Wooper, then it phases out. Activate only during your turn.
 

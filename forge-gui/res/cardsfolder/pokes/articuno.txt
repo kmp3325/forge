@@ -3,7 +3,7 @@ ManaCost:WU WU WU WU WU WU
 Types:Legendary Snow Creature Bird Pokémon
 PT:6/8
 K:Flying
-AB$ Weather | Cost$ S T | Value$ Snowy | SubAbility$ TrigPhase | SpellDescription$ It becomes snowy, then CARDNAME phases out.
+A:AB$ Weather | Cost$ S T | Value$ Snowy | SubAbility$ TrigPhase | SpellDescription$ It becomes snowy, then CARDNAME phases out.
 SVar:TrigPhase:DB$ Phases | Defined$ Self
 T:Mode$ PhaseIn | ValidCard$ Creature.YouCtrl | TriggerZones$ Battlefield | CheckSVar$ SNOW | SVarCompare$ GE1 | Execute$ TrigTrap | TriggerDescription$ Whenever a creature you control phases in, if it's snowy, ABILITY
 SVar:SNOW:Count$Snowy.1.0

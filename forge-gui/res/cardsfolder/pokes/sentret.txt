@@ -2,10 +2,11 @@ Name:Sentret
 ManaCost:2
 Types:Creature Squirrel Pokémon
 PT:1/1
-T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigReturn | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, you may return target land card from your graveyard to your hand.
-T:Mode$ Evolved | ValidCard$ Card.Self | Execute$ TrigReturn | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, you may return target land card from your graveyard to your hand.
-SVar:TrigReturn:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand | ChangeType$ Land.YouOwn | ChangeNum$ 1
-Oracle:Whenever Sentret enters the battlefield or evolves, you may return target land card from your graveyard to the battlefield.
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigReturn | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME enters the battlefield, evolves, or phases in, you may return target land card from your graveyard to your hand.
+T:Mode$ Evolved | ValidCard$ Card.Self | Execute$ TrigReturn | TriggerDescription$ Whenever CARDNAME enters the battlefield, evolves, or phases in, you may return target land card from your graveyard to your hand.
+T:Mode$ PhaseIn | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigReturn | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield, evolves, or phases in, you may return target land card from your graveyard to your hand.
+SVar:TrigReturn:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand | ValidTgts$ Land.YouCtrl | TgtPrompt$ Select target land in your graveyard
+Oracle:Whenever Sentret enters the battlefield, evolves, or phases in, you may return target land card from your graveyard to the battlefield.
 
 DeckHints:Name$Furret
 SVar:SoundEffect:sentret.mp3

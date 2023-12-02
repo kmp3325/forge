@@ -4,7 +4,10 @@ Types:Creature Fish Cat Pokémon
 PT:2/6
 K:Evolve from:2 U U:Eevee:3/7
 K:Ward:2
-A:AB$ RemoveCounter | Cost$ U U | CounterType$ POISON,STUN,FROST,BURN | CounterNum$ All | Defined$ Self | CheckSVar$ RAIN | SVarCompare$ GE1 | SubAbility$ DBPhases | SpellDescription$ Remove all status counters from CARDNAME, then it phases out. When it phases in, put a +1/+1 counter on it. Activate only if it’s rainy.
+A:AB$ RemoveCounter | Cost$ U U | CounterType$ POISON | CounterNum$ All | Defined$ Self | CheckSVar$ RAIN | SVarCompare$ GE1 | SubAbility$ DBRemoveStun | SpellDescription$ Remove all status counters from CARDNAME, then it phases out. When it phases in, put a +1/+1 counter on it. Activate only if it’s rainy.
+SVar:DBRemoveStun:DB$ RemoveCounter | Defined$ Self | CounterNum$ All | CounterType$ STUN | SubAbility$ DBRemoveFrost
+SVar:DBRemoveFrost:DB$ RemoveCounter | Defined$ Self | CounterNum$ All | CounterType$ FROST | SubAbility$ DBRemoveBurn
+SVar:DBRemoveBurn:DB$ RemoveCounter | Defined$ Self | CounterNum$ All | CounterType$ BURN | SubAbility$ DBPhases
 SVar:RAIN:Count$Rainy.1.0
 SVar:DBPhases:DB$ Phases | Defined$ Self | SubAbility$ PhaseInTrig
 SVar:PhaseInTrig:DB$ DelayedTrigger | Mode$ PhaseIn | ValidCard$ Card.Self | Execute$ DBPutCounter | TriggerDescription$ When CARDNAME phases in, put a +1/+1 counter on it.

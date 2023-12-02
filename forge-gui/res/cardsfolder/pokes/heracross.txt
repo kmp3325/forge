@@ -4,7 +4,7 @@ Types:Creature Insect Pokémon
 PT:4/5
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigFood | TriggerDescription$ When CARDNAME enters the battlefield, create a Food token.
 SVar:TrigFood:DB$ Token | TokenAmount$ 1 | TokenScript$ c_a_food_sac | TokenOwner$ You
-T:Mode$ Sacrificed | ValidPlayer$ You | ValidCard$ Food.YouCtrl | Origin$ Any | Destination$ Battlefield | Execute$ TrigFight | OptionalDecider$ You | TriggerDescription$ Whenever you sacrifice a Food, you may have CARDNAME fight another target creature.
+T:Mode$ Sacrificed | TriggerZones$ Battlefield | ValidPlayer$ You | ValidCard$ Food.YouCtrl | Origin$ Any | Destination$ Battlefield | Execute$ TrigFight | OptionalDecider$ You | TriggerDescription$ Whenever you sacrifice a Food, you may have CARDNAME fight another target creature.
 SVar:TrigFight:DB$ Fight | Defined$ Self | ValidTgts$ Creature.Other | TgtPrompt$ Select another target creature
 Oracle:When Heracross enters the battlefield, create a Food token.\nWhenever you sacrifice a Food, you may have Heracross fight another target creature.
 SVar:SoundEffect:heracross.mp3

@@ -2507,7 +2507,7 @@ public class CardFactoryUtil {
 
             inst.addReplacement(re);
         } else if (keyword.startsWith("Steel skin")) {
-            final String sb = "Event$ DamageDone | IsCombat$ True | ActiveZones$ Battlefield | ValidSource$ Creature.withCaustic | ValidTarget$ Card.Self | PreventionEffect$ True | Description$ If a creature with caustic would deal combat damage to this, prevent that damage.";
+            final String sb = "Event$ DamageDone | IsCombat$ True | ActiveZones$ Battlefield | ValidSource$ Creature.withCaustic | ValidTarget$ Card.Self | PreventionEffect$ True";
             final ReplacementEffect re = ReplacementHandler.parseReplacement(sb, host, intrinsic, card);
             inst.addReplacement(re);
         } else if (keyword.equals("Sunburst")) {

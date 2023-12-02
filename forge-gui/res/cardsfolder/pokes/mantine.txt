@@ -5,7 +5,7 @@ PT:2/5
 K:Evolve from:4 W U:Mantyke:3/6
 K:Flying
 S:Mode$ Continuous | Affected$ Fish.Other+YouCtrl | AddPower$ 1 | AddToughness$ 1 | Description$ Other Fish you control get +1/+1.
-R:Event$ PhaseOut | ValidCard$ Creature.YouCtrl | ReplaceWith$ DBHealAndPhase | ReplaceCounters$ POISON,STUN,FROST,BURN
+R:Event$ PhaseOut | TriggerZones$ Battlefield | ValidCard$ Creature.YouCtrl | ReplaceWith$ DBHealAndPhase | ReplaceCounters$ POISON,STUN,FROST,BURN | Description$ Creatures you control lose all status counters as they phase out.
 SVar:DBHealAndPhase:DB$ ReplacePhaseOutCounters | CounterType$ POISON,STUN,FROST,BURN
 Oracle:Evolve from Mantyke {4}{W}{U} [3/6]\nFlying\nOther Fish you control get +1/+1.\nCreatures you control lose all status counters as they phase out.
 

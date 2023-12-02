@@ -1,6 +1,7 @@
 package forge.game.replacement;
 
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.apache.commons.lang3.ObjectUtils;
 
@@ -78,6 +79,15 @@ public class ReplaceAddCounter extends ReplacementEffect {
             sa.setReplacingObject(AbilityKey.Player, o);
         }
         sa.setReplacingObject(AbilityKey.Object, o);
+        if (sa.getMapParams().containsKey("CounterType")) {
+            CounterType ct = CounterType.getType(sa.getMapParams().get("CounterType"));
+            // What a damn mess. I don't give a shit though.
+            java.util.Optional<Entry<Optional<Player>, Map<CounterType, Integer>>> shit = ((Map<Optional<Player>, Map<CounterType, Integer>>)runParams.get(AbilityKey.CounterMap))
+                .entrySet().stream().findFirst();
+            if (shit.isPresent()) {
+                sa.setReplacingObject(AbilityKey.CounterNum, shit.get().getValue().get(ct));
+            }
+        }
     }
 
     public boolean hasAnyInCounterMap(Map<AbilityKey, Object> runParams) {

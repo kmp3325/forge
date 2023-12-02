@@ -3,9 +3,12 @@ ManaCost:4 G W U
 Types:Creature Faerie Rabbit Pokémon
 PT:2/8
 K:Evolve from:3 G W U:Chansey:3/10
-A:AB$ RemoveCounter | Cost$ G U | ValidTgts$ Creature | TgtPrompt$ Select target creature | CounterNum$ All | CounterType$ POISON,STUN,FROST,BURN | SubAbility$ DBRegenerate | SpellDescription$ Remove all status counters from target creature and regenerate it.
+A:AB$ RemoveCounter | Cost$ G U | ValidTgts$ Creature.Other | TgtPrompt$ Select another target creature | CounterNum$ All | CounterType$ POISON | SubAbility$ DBRemoveStun | SpellDescription$ Remove all status counters from another target creature and regenerate it.
+SVar:DBRemoveStun:DB$ RemoveCounter | Defined$ ParentTarget | CounterNum$ All | CounterType$ STUN | SubAbility$ DBRemoveFrost
+SVar:DBRemoveFrost:DB$ RemoveCounter | Defined$ ParentTarget | CounterNum$ All | CounterType$ FROST | SubAbility$ DBRemoveBurn
+SVar:DBRemoveBurn:DB$ RemoveCounter | Defined$ ParentTarget | CounterNum$ All | CounterType$ BURN | SubAbility$ DBRegenerate
 SVar:DBRegenerate:DB$ Regenerate | Defined$ ParentTarget
-Oracle:Evolve from Chansey {3}{G}{W}{U} [3/10]\n{G}{U}: Remove all status counters from target creature and regenerate it.
+Oracle:Evolve from Chansey {3}{G}{W}{U} [3/10]\n{G}{U}: Remove all status counters from another target creature and regenerate it.
 
 DeckHints:Name$Chansey
 SVar:SoundEffect:blissey.mp3

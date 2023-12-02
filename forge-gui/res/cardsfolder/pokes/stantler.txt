@@ -2,8 +2,12 @@ Name:Stantler
 ManaCost:3
 Types:Creature Caribou Pokémon
 PT:2/2
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | OptionalDecider$ You | Execute$ TrigRemoveStun | TriggerDescription$ When CARDNAME enters the battlefield, you may remove a status counters from target creature and untap it.
-SVar:TrigRemoveStun:DB$ RemoveCounter | CounterType$ POISON,STUN,FROST,BURN | CounterNum$ All | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigUntap
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | OptionalDecider$ You | Execute$ TrigRemovePoison | TriggerDescription$ When CARDNAME enters the battlefield, you may remove a status counters from target creature and untap it.
+SVar:TrigRemovePoison:DB$ RemoveCounter | CounterType$ POISON | CounterNum$ All | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigRemoveStun
+SVar:TrigRemoveStun:DB$ RemoveCounter | CounterType$ STUN | CounterNum$ All | Defined$ Targeted | SubAbility$ TrigRemoveFrost
+SVar:TrigRemoveFrost:DB$ RemoveCounter | CounterType$ FROST | CounterNum$ All | Defined$ Targeted | SubAbility$ TrigRemoveBurn
+SVar:TrigRemoveBurn:DB$ RemoveCounter | CounterType$ BURN | CounterNum$ All | Defined$ Targeted | SubAbility$ TrigUntap
 SVar:TrigUntap:DB$ Untap | Defined$ Targeted
 Oracle:When Stantler enters the battlefield, you may remove a status counters from target creature and untap it.
+
 SVar:SoundEffect:stantler.mp3

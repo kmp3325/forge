@@ -5,8 +5,8 @@ PT:2/2
 K:Evolve from:2 U:Remoraid:3/3
 T:Mode$ PhaseIn | ValidCard$ Creature.YouCtrl | Execute$ DBPutCounter | TriggerZones$ Battlefield | TriggerDescription$ Whenever a creature you control phases in, put a +1/+1 counter on it.
 SVar:DBPutCounter:DB$ PutCounter | CounterType$ P1P1 | CounterNum$ 1 | Defined$ TriggeredCardLKICopy
-T:Mode$ PhaseIn | ValidCard$ Card.Self | OptionalDecider$ You | Execute$ DBTap | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME phases in, you may tap it. When you do, tap target creature with power less than CARDNAME's power and put a stun counter on it.
-SVar:DBTap:DB$ Tap | Defined$ Self | SubAbility$ TrigTap
+T:Mode$ PhaseIn | ValidCard$ Card.Self | OptionalDecider$ You | Execute$ TrigImmediate | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME phases in, you may tap it. When you do, tap target creature with power less than CARDNAME's power and put a stun counter on it.
+SVar:TrigImmediate:AB$ ImmediateTrigger | Cost$ tapXType<1/Card.Self/CARDNAME> | Execute$ TrigTap | SpellDescription$ When you do, tap target creature with power less than CARDNAME's power and put a stun counter on it.
 SVar:TrigTap:DB$ Tap | ValidTgts$ Creature.powerLTX | TgtPrompt$ Select target creature with power less than CARDNAME's power | SubAbility$ TrigStun
 SVar:TrigStun:DB$ PutCounter | Defined$ Targeted | CounterType$ STUN | CounterNum$ 1
 SVar:X:Count$CardPower

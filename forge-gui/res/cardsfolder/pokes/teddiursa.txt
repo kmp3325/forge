@@ -3,7 +3,7 @@ ManaCost:2
 Types:Creature Bear Pokémon
 PT:1/1
 A:AB$ Mana | Cost$ T | Produced$ C | SpellDescription$ Add {C}.
-A:AB$ Token | Cost$ T | ConditionCheckSVar$ SNOW | ConditionSVarCompare$ GE1 | TokenAmount$ 1 | TokenScript$ c_a_food_sac | TokenOwner$ You | SpellDescription$ Create a Food token. Activate only if it's not snowy.
+A:AB$ Token | Cost$ T | CheckSVar$ SNOW | SVarCompare$ GE1 | TokenAmount$ 1 | TokenScript$ c_a_food_sac | TokenOwner$ You | SpellDescription$ Create a Food token. Activate only if it's not snowy.
 SVar:SNOW:Count$Snowy.0.1
 Oracle:{T}:Add {C}.\n{T}: Create a Food token. Activate only if it's not snowy.
 

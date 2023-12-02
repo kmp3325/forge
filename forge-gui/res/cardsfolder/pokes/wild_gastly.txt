@@ -4,9 +4,9 @@ Types:Creature Spirit Horror Pokémon
 PT:1/1
 K:Flash
 K:Caustic
-T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigDestroy | TriggerDescription$ When CARDNAME enters the battlefield, destroy target creature. It becomes foggy.
-SVar:TrigDestroy:DB$ Destroy | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigFog
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigDestroy | TriggerDescription$ When CARDNAME enters the battlefield, choose target creature. Its controller sacrifices it. It becomes foggy.
+SVar:TrigDestroy:DB$ Destroy | ValidTgts$ Creature | Sacrifice$ True | TgtPrompt$ Select target creature
 SVar:TrigFog:DB$ Weather | Value$ Foggy
-Oracle:Flash\nCaustic\nWhen Wild Gastly enters the battlefield, destroy target creature. It becomes foggy.
+Oracle:Flash\nCaustic\nWhen Wild Gastly enters the battlefield, choose target creature. Its controller sacrifices it. It becomes foggy.
 
 SVar:SoundEffect:gastly.mp3

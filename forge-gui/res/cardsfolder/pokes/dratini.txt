@@ -2,7 +2,7 @@ Name:Dratini
 ManaCost:4 U
 Types:Creature Dragon Pokémon
 PT:3/3
-T:Mode$ WeatherChanged | Execute$ TrigRemoveCounters | TriggerDescription$ Whenever the weather changes, remove all status counters from CARDNAME.
+T:Mode$ WeatherChanged | TriggerZones$ Battlefield | Execute$ TrigRemoveCounters | TriggerDescription$ Whenever the weather changes, remove all status counters from CARDNAME.
 SVar:TrigRemoveCounters:DB$ RemoveCounter | CounterType$ POISON,STUN,FROST,BURN | CounterNum$ All | Defined$ Self
 Oracle:Whenever the weather changes, remove all status counters from CARDNAME.
 

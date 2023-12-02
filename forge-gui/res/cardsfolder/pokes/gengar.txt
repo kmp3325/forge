@@ -5,7 +5,7 @@ PT:5/4
 K:Evolve from:2 B B B:Haunter:6/5
 K:First strike
 K:Menace
-T:Mode$ Attacks | ValidSource$ Card.Self | Execute$ TrigDiscard | CombatDamage$ True | TriggerDescription$ Whenever CARDNAME attacks, defending player discards a card. If they discarded a creature card this way, return it from their graveyard to the battlefield under your control with a finality counter on it.
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigDiscard | CombatDamage$ True | TriggerDescription$ Whenever CARDNAME attacks, defending player discards a card. If they discarded a creature card this way, return it from their graveyard to the battlefield under your control with a finality counter on it.
 SVar:TrigDiscard:DB$ Discard | Defined$ TriggeredDefendingPlayer | NumCards$ 1 | Mode$ TgtChoose | RememberDiscarded$ True | SubAbility$ TrigRevive
 SVar:TrigRevive:DB$ ChangeZoneAll | ChangeType$ Card.IsRemembered | Origin$ Graveyard | Destination$ Battlefield | GainControl$ True | ConditionDefined$ Remembered | ConditionPresent$ Card.Creature | ConditionCompare$ EQ1 | WithCountersType$ FINALITY | SubAbility$ DBCleanup
 SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True

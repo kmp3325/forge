@@ -2,7 +2,6 @@ Name:Wild Lapras
 ManaCost:5 U
 Types:Snow Creature Dinosaur Pokémon
 PT:1/3
-K:Flash
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigFreeze | TriggerDescription$ When CARDNAME enters the battlefield, put a frost counter on each creature you don’t control. If it’s snowy, put two frost counters on each of those creatures instead.
 SVar:TrigFreeze:DB$ PutCounterAll | CounterType$ FROST | CounterNum$ X | ValidCards$ Creature.YouDontCtrl
 SVar:X:Count$Snowy.2.1

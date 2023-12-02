@@ -2,11 +2,11 @@ Name:Togepi
 ManaCost:1 WU
 Types:Creature Faerie Egg Pokémon
 PT:0/1
-T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ BuildCounter | TriggerDescription$ At the beginning of your upkeep, you may put a peace counter on target creature. Then you gain life equal to the number of creatures with peace counters on them.
-SVar:BuildCounter:DB$ PutCounter | IsCurse$ True | CounterType$ PEACE | CounterNum$ 1 | TargetMin$ 0 | TargetMax$ 1 | SubAbility$ TrigLifeGain | ValidTgts$ Creature | TgtPrompt$ Select target creature
+T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ BuildCounter | OptionalDecider$ You | TriggerDescription$ At the beginning of your upkeep, you may put a peace counter on target creature. If you do, you gain life equal to the number of creatures with peace counters on them.
+SVar:BuildCounter:DB$ PutCounter | CounterType$ PEACE | CounterNum$ 1 | TargetMin$ 0 | TargetMax$ 1 | SubAbility$ TrigLifeGain | ValidTgts$ Creature | TgtPrompt$ Select target creature
 SVar:TrigLifeGain:DB$ GainLife | LifeAmount$ X | Defined$ You
 SVar:X:Count$Valid Creature.OppCtrl+counters_GE1_PEACE
-Oracle:At the beginning of your upkeep, you may put a peace counter on target creature. Then you gain life equal to the number of creatures with peace counters on them.
+Oracle:At the beginning of your upkeep, you may put a peace counter on target creature. If you do, you gain life equal to the number of creatures with peace counters on them.
 
 DeckHints:Name$Togetic
 SVar:SoundEffect:togepi.mp3

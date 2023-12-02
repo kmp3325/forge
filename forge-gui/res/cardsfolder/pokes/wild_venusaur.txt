@@ -1,5 +1,5 @@
 Name:Wild Venusaur
-ManaCost:5 G
+ManaCost:3 2G G
 Types:Creature Frog Plant Pokémon
 PT:3/3
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigSolar | TriggerDescription$ When CARDNAME enters the battlefield, put two solar counters on target creature. Until end of turn, that creature gets +1/+1 for each solar counter on it and gains trample.

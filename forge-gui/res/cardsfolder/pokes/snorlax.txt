@@ -7,7 +7,7 @@ T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | E
 SVar:TrigChoice:DB$ GenericChoice | Choices$ PayStuff,PaySacFood
 SVar:PayStuff:DB$ Tap | UnlessCost$ W B B | UnlessPayer$ You | Defined$ Card.Self
 SVar:PaySacFood:DB$ Tap | UnlessCost$ Sac<1/Food> | UnlessPayer$ You | Defined$ Card.Self
-T:Mode$ Blocks | Execute$ TrigBigHurt | TriggerDescription$ Whenever CARDNAME blocks, it deals 2 damage to two other target creatures you control.
+T:Mode$ Blocks | ValidCard$ Card.Self | Execute$ TrigBigHurt | TriggerDescription$ Whenever CARDNAME blocks, it deals 2 damage to two other target creatures you control.
 SVar:TrigBigHurt:DB$ DealDamage | TargetMin$ 2 | TargetMax$ 2 | ValidTgts$ Creature.Other+YouCtrl | TgtPrompt$ Select another target creature you control | NumDmg$ 2
 A:AB$ GainLife | Cost$ 1 | Defined$ You | LifeAmount$ 1 | SubAbility$ DBRemoveCounter | PlayerTurn$ True | ActivationPhases$ Upkeep->BeginCombat | ActivationFirstCombat$ True | SpellDescription$ You gain 1 life. Remove up to one counter from CARDNAME. Activate only during your turn before attackers are declared and only if CARDNAME is tapped.
 SVar:DBRemoveCounter:DB$ RemoveCounter | Defined$ Self | CounterType$ Any | CounterNum$ 1 | UpTo$ True

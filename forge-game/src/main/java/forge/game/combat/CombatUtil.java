@@ -321,7 +321,7 @@ public class CombatUtil {
                 }
             }
         }
-        if (game.isFrosty() && attacker.getCounters(CounterEnumType.FROST) > 0) {
+        if (game.isSnowy() && attacker.getCounters(CounterEnumType.FROST) > 0) {
             attackCost.add(new Cost(String.valueOf(attacker.getCounters(CounterEnumType.FROST)), false));
             hasCost = true;
         }
@@ -369,7 +369,7 @@ public class CombatUtil {
                 }
             }
         }
-        if (game.isFrosty() && blocker.getCounters(CounterEnumType.FROST) > 0) {
+        if (game.isSnowy() && blocker.getCounters(CounterEnumType.FROST) > 0) {
             blockCost.add(new Cost(String.valueOf(blocker.getCounters(CounterEnumType.FROST)), false));
             noCost = false;
         }

@@ -3,7 +3,7 @@ ManaCost:2 B G
 Types:Creature Insect Pokémon
 PT:4/4
 K:Evolve from:2 B G:Venonat:4/4
-T:Mode$ ChangesZone | ValidCard$ Creature.Insect+powerLTX | Execute$ DBImmediate | TriggerDescription$ Whenever an Insect creature with lesser power enters the battlefield, you may pay {B}. When you do, put a poison counter on that creature.
+T:Mode$ ChangesZone | TriggerZones$ Battlefield | ValidCard$ Creature.Insect+powerLTX | Execute$ DBImmediate | TriggerDescription$ Whenever an Insect creature with lesser power enters the battlefield, you may pay {B}. When you do, put a poison counter on that creature.
 SVar:X:Count$CardPower
 SVar:DBImmediate:AB$ ImmediateTrigger | Cost$ B | Execute$ DBPoison | TriggerDescription$ When you do, put a poison counter on that creature.
 SVar:DBPoison:DB$ PutCounter | CounterNum$ 1 | CounterType$ POISON | Defined$ TriggeredCardLKICopy

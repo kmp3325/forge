@@ -1,5 +1,5 @@
 Name:Wild Pidgey
-ManaCost:2W W
+ManaCost:2 W
 Types:Creature Bird Pokémon
 PT:2/2
 K:Flash

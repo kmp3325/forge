@@ -2,12 +2,12 @@ Name:Team Rocket's Hitmonchan
 ManaCost:2 B R
 Types:Creature Beast Warrior Pokémon
 PT:3/3
-A:AB$ DealDamage | Cost$ B R R | NumDmg$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ DBRollDice | StackDescription$ SpellDescription | SpellDescription$ CARDNAME deals 1 damage to target creature,
+A:AB$ DealDamage | Cost$ B BR R | NumDmg$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ DBRollDice | StackDescription$ SpellDescription | SpellDescription$ CARDNAME deals 1 damage to target creature,
 SVar:DBRollDice:DB$ RollDice | Sides$ 6 | ResultSubAbilities$ 1-2:DBBurn,3-4:DBFrost,5-6:DBStun | SpellDescription$ then roll a d6.
 SVar:DBBurn:DB$ PutCounter | IsCurse$ True | CounterType$ BURN | CounterNum$ 1 | Defined$ Targeted | SpellDescription$ 1-2 VERT Put a burn counter on that creature.
 SVar:DBFrost:DB$ PutCounter | CounterType$ FROST | CounterNum$ 1 | Defined$ Targeted | SpellDescription$ 3-4 VERT Put a frost counter on that creature.
 SVar:DBStun:DB$ PutCounter | IsCurse$ True | CounterType$ STUN | CounterNum$ 1 | Defined$ Targeted | SubAbility$ DBTap | SpellDescription$ 5-6 VERT Tap that creature and put a stun counter on it.
 SVar:DBTap:DB$ Tap | Defined$ Targeted
-Oracle:{B}{R}{R}: Team Rocket's Hitmonchan deals 1 damage to target creature, then roll a d6.\n1-2 | Put a burn counter on that creature.\n3-4 | Put a frost counter on that creature.\n5-6 | Tap that creature and put a stun counter on it.
+Oracle:{B}{BR}{R}: Team Rocket's Hitmonchan deals 1 damage to target creature, then roll a d6.\n1-2 | Put a burn counter on that creature.\n3-4 | Put a frost counter on that creature.\n5-6 | Tap that creature and put a stun counter on it.
 
 SVar:SoundEffect:hitmonchan.mp3

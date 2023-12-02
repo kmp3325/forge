@@ -1,5 +1,5 @@
 Name:Wild Scyther
-ManaCost:3 G
+ManaCost:4 G
 Types:Creature Insect Pokémon
 PT:3/3
 K:Flash

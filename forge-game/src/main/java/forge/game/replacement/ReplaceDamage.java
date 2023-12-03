@@ -23,6 +23,7 @@ import forge.game.Game;
 import forge.game.GameEntity;
 import forge.game.ability.AbilityKey;
 import forge.game.ability.AbilityUtils;
+import forge.game.ability.ApiType;
 import forge.game.card.Card;
 import forge.game.player.Player;
 import forge.game.spellability.SpellAbility;
@@ -90,6 +91,13 @@ public class ReplaceDamage extends ReplacementEffect {
         if (hasParam("IsCombat")) {
             if (getParam("IsCombat").equals("True") != ((Boolean) runParams.get(AbilityKey.IsCombat))) {
                 return false;
+            }
+        }
+        if (hasParam("IsFight")) {
+            if (runParams.get(AbilityKey.Cause) instanceof SpellAbility) {
+                if (getParam("IsFight").equals("True") != (((SpellAbility) runParams.get(AbilityKey.Cause)).getApi() == ApiType.Fight)) {
+                    return false;
+                }
             }
         }
         if (hasParam("IsEquipping") && !getHostCard().isEquipping()) {

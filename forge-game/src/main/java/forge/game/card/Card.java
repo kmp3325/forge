@@ -2425,7 +2425,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
                     sbLong.append(" (").append(inst.getReminderText()).append(")");
                 } else if (keyword.startsWith("Starting intensity")) {
                     sbLong.append(TextUtil.fastReplace(keyword, ":", " "));
-                } else if (keyword.contains("Haunt")) {
+                } else if (keyword.contains("Haunt") && !keyword.contains("Haunter")) {
                     sb.append("\r\nHaunt (");
                     if (isCreature()) {
                         sb.append("When this creature dies, exile it haunting target creature.");

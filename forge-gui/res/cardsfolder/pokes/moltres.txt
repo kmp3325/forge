@@ -5,7 +5,7 @@ PT:7/7
 K:Flying
 T:Mode$ Phase | Phase$ Upkeep | TriggerZones$ Battlefield | Execute$ TrigBurn | ValidPlayer$ You | TriggerDescription$ At the beginning of your upkeep, put a burn counter on each creature.
 SVar:TrigBurn:DB$ PutCounterAll | ValidCards$ Creature.Other | CounterType$ BURN | CounterNum$ 1
-S:Mode$ Continuous | Affected$ Card.Self | AddPower$ X | AddToughness$ X | Description$ CARDNAME gets +1/+1 for each burn counter on each creature.
+S:Mode$ Continuous | Affected$ Card.Self | AddPower$ X | AddToughness$ X | Description$ CARDNAME gets +1/+1 for each burn counter among creatures on the battlefield.
 SVar:X:Count$Valid Permanent.Creature$CardCounters.BURN
-Oracle:Flying\nAt the beginning of your upkeep, put a burn counter on each other creature.\nMoltres gets +1/+1 for each burn counter on each creature.
+Oracle:Flying\nAt the beginning of your upkeep, put a burn counter on each other creature.\nMoltres gets +1/+1 for each burn counter among creatures on the battlefield.
 SVar:SoundEffect:moltres.mp3

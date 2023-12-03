@@ -4,7 +4,7 @@ Types:Creature Frog Ape Pokémon
 PT:5/4
 K:Evolve from:4 R W:Machoke:6/5
 T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigSuperMentor | TriggerDescription$ Whenever CARDNAME attacks, put a +1/+1 counter on each creature you control with lesser power.
-SVar:TrigSuperMentor:DB$ PutCounterAll | ValidCards$ Creature.YouCtrl+PowerLTX | CounterType$ P1P1 | CounterNum$ 1
+SVar:TrigSuperMentor:DB$ PutCounterAll | ValidCards$ Creature.YouCtrl+powerLTX | CounterType$ P1P1 | CounterNum$ 1
 SVar:X:Count$CardPower
 R:Event$ DamageDone | ActiveZones$ Battlefield | ValidTarget$ Creature.YouCtrl | IsFight$ True | ReplaceWith$ DBReplace | PreventionEffect$ True | Description$ If a creature you control would be dealt damage in a fight, prevent 1 of that damage.
 SVar:DBReplace:DB$ ReplaceDamage | Amount$ 1

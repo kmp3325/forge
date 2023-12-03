@@ -24,4 +24,6 @@ public class ReplaceFight extends ReplacementEffect {
         }
         return true;
     }
+
+
 }

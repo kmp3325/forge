@@ -3,7 +3,7 @@ ManaCost:3 U
 Types:Creature Fish Pokémon
 PT:3/3
 K:Evolve from:3 U:Horsea:4/4
-S:Mode$ ReduceCost | ValidCard$ Card.Self | Type$ Ability | Amount$ U | CheckSVar$ RAIN | SVarCompare$ GE1 | Description$ As long as it's rainy, CARDNAME's activated abilities cost {U} less to activate.
+S:Mode$ ReduceCost | ValidCard$ Card.Self | Type$ Ability | Amount$ 1 | Color$ U | CheckSVar$ RAIN | SVarCompare$ GE1 | AffectedZone$ Battlefield | Description$ As long as it's rainy, CARDNAME's activated abilities cost {U} less to activate.
 SVar:RAIN:Count$Rainy.1.0
 A:AB$ Counter | Cost$ U U | TargetType$ Activated,Triggered | ValidTgts$ Card,Emblem | TgtPrompt$ Select target activated or triggered ability | SpellDescription$ Counter target activated or triggered ability.
 Oracle:Evolve from Horsea {3}{U} [4/4]\nAs long as it's rainy, Seadra's activated abilities cost {U} less to activate.\n{U}{U}: Counter target activated or triggered ability.

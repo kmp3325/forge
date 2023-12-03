@@ -7,6 +7,7 @@ import com.google.common.collect.Iterables;
 
 import forge.game.Game;
 import forge.game.GameActionUtil;
+import forge.game.GameEntityCounterTable;
 import forge.game.ability.AbilityKey;
 import forge.game.ability.AbilityUtils;
 import forge.game.ability.SpellAbilityEffect;
@@ -18,6 +19,7 @@ import forge.game.card.CardLists;
 import forge.game.card.CardPredicates;
 import forge.game.card.CardUtil;
 import forge.game.card.CardZoneTable;
+import forge.game.card.CounterType;
 import forge.game.player.Player;
 import forge.game.spellability.SpellAbility;
 import forge.game.trigger.TriggerType;
@@ -194,6 +196,12 @@ public class ChangeZoneAllEffect extends SpellAbilityEffect {
                     CardFactoryUtil.setFaceDownState(c, sa);
                 }
             }
+            if (sa.hasParam("WithCountersType")) {
+                Player placer = sa.getActivatingPlayer();
+                CounterType cType = CounterType.getType(sa.getParam("WithCountersType"));
+                int cAmount = AbilityUtils.calculateAmount(sa.getHostCard(), sa.getParamOrDefault("WithCountersAmount", "1"), sa);
+                c.addEtbCounter(cType, cAmount, placer);
+            }
             Card movedCard = null;
             if (sa.hasParam("GainControl")) {
                 c.setController(sa.getActivatingPlayer(), game.getNextTimestamp());
@@ -207,6 +215,8 @@ public class ChangeZoneAllEffect extends SpellAbilityEffect {
                     movedCard.turnFaceDown(true);
                 }
             }
+
+
 
             if (!movedCard.getZone().equals(originZone)) {
                 if (remember != null) {

@@ -3,6 +3,6 @@ ManaCost:no cost
 Types:Artifact Equipment
 Colors:green
 K:Equip:1
-S:Mode$ Continuous | Affected$ Creature.EquippedBy | AddPower$ 1 | KW$ Training | Description$ Equipped creature gets +1/+0 and has training.
+S:Mode$ Continuous | Affected$ Creature.EquippedBy | AddPower$ 1 | AddKeyword$ Training | Description$ Equipped creature gets +1/+0 and has training.
 
 Oracle:Equipped creature gets +1/+0 and training.\nEquip {1}

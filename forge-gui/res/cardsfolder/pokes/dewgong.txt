@@ -4,7 +4,7 @@ Types:Snow Creature Walrus Pokémon
 PT:2/5
 K:Evolve from:3 U U:Seel:3/6
 A:AB$ Weather | Cost$ 2 U | Value$ Snowy | SubAbility$ DBFrost | SorcerySpeed$ True | SpellDescription$ Put two frost counters on target creature. It becomes snowy. Activate only as a sorcery.
-SVar:DBFrost:DB$ PutCounter | IsCurse$ True | ValidTgts$ Creature | TgtPrompt$ Select target creature | CounterType$ FROST | CounterNum$ 1
+SVar:DBFrost:DB$ PutCounter | IsCurse$ True | ValidTgts$ Creature | TgtPrompt$ Select target creature | CounterType$ FROST | CounterNum$ 2
 A:AB$ DealDamage | Cost$ S T | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumDmg$ X | SpellDescription$ CARDNAME deals damage to target creature equal to the number of frost counters on that creature.
 SVar:X:Targeted$CardCounters.FROST
 Oracle:Evolve from Seel {3}{U}{U} [3/6]\n{2}{U}: Put two frost counters on target creature. It becomes snowy. Activate only as a sorcery.\n{S}, {T}: Dewgong deals damage to target creature equal to the number of frost counters on that creature.

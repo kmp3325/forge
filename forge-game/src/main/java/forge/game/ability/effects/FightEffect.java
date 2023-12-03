@@ -67,6 +67,7 @@ public class FightEffect extends DamageBaseEffect {
         if (isOptional && !controller.getController().confirmAction(sa, null, Localizer.getInstance().getMessage("lblWouldYouLikeFight", CardTranslation.getTranslatedName(fighters.get(0).getName()), CardTranslation.getTranslatedName(fighters.get(1).getName())), null)) {
             return;
         }
+        fighters = selectFighterAndRunReplacements(fighters);
 
         dealDamage(sa, fighters.get(0), fighters.get(1));
 
@@ -96,7 +97,7 @@ public class FightEffect extends DamageBaseEffect {
         if (sa.usesTargeting()) {
             tgts = sa.getTargets().getTargetCards();
             if (!tgts.isEmpty()) {
-                fighter1 = selectFighterAndRunReplacements(Collections.singleton(tgts.get(0))).get(0);
+                fighter1 = tgts.get(0);
             }
         }
         if (sa.hasParam("Defined")) {
@@ -105,7 +106,6 @@ public class FightEffect extends DamageBaseEffect {
             if (sa.hasParam("ExtraDefined")) {
                 defined.addAll(AbilityUtils.getDefinedCards(host, sa.getParam("ExtraDefined"), sa));
             }
-            defined = selectFighterAndRunReplacements(defined);
 
             List<Card> newDefined = Lists.newArrayList();
             for (final Card d : defined) {
@@ -136,11 +136,9 @@ public class FightEffect extends DamageBaseEffect {
         }
 
         if (fighter1 != null) {
-            fighter1.getGame().getReplacementHandler().run(ReplacementType.Fight, AbilityKey.mapFromAffected(fighter1));
             fighterList.add(fighter1);
         }
         if (fighter2 != null) {
-            fighter2.getGame().getReplacementHandler().run(ReplacementType.Fight, AbilityKey.mapFromAffected(fighter2));
             fighterList.add(fighter2);
         }
 

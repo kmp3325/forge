@@ -9,8 +9,9 @@ SVar:TrigDig:DB$ PutCounter | Defined$ Self | CounterNum$ 3 | CounterType$ DIG
 T:Mode$ DamageDoneOnce | Execute$ TrigAnotherDig | ValidTarget$ Card.Self | TriggerZones$ Battlefield | CombatDamage$ False | TriggerDescription$ Whenever CARDNAME is dealt noncombat damage, put that many dig counters on it.
 SVar:TrigAnotherDig:DB$ PutCounter | Defined$ Self | CounterType$ DIG | CounterNum$ DmgNum
 SVar:DmgNum:TriggerCount$DamageAmount
-A:AB$ ChangeZone | ValidTgts$ Creature.cmcLEX+YouOwn | TgtPrompt$ Select target creature card with mana value X or less | Origin$ Graveyard | Destination$ Battlefield | Cost$ T SubCounter<X/DIG> | SpellDescription$ Return target creature card with mana value X or less from your graveyard to your hand. CARDNAME deals 1 damage to each other creature you control.
+A:AB$ ChangeZone | ValidTgts$ Creature.cmcLEX+YouOwn | TgtPrompt$ Select target creature card with mana value X or less | Origin$ Graveyard | Destination$ Hand | Cost$ T SubCounter<X/DIG> | SubAbility$ TrigWide | SpellDescription$ Return target creature card with mana value X or less from your graveyard to your hand. CARDNAME deals 1 damage to each other creature you control.
 SVar:X:Count$xPaid
+SVar:TrigWide:DB$ DamageAll | ValidCards$ Creature.YouCtrl+Other | NumDmg$ 1 | ValidDescription$ each other creature you control
 Oracle:Evolve from Diglett {1}{W}{B} [3/3]\nWhenever Dugtrio enters the battlefield or evolves, put three dig counters on it.\nWhenever Dugtrio is dealt noncombat damage, put that many dig counters on it.\n{T}, Remove X dig counters from Dugtrio: Return target creature card with mana value X or less from your graveyard to your hand. Dugtrio deals 1 damage to each other creature you control.
 
 DeckHints:Name$Diglett

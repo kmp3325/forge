@@ -4,7 +4,7 @@ Types:Creature Insect Fungus Pokémon
 PT:3/3
 K:Evolve from:2 G G:Paras:4/4
 A:AB$ Token | Cost$ G G T | IsPresent$ Card.Insect+YouCtrl | PresentCompare$ GTX | TokenScript$ g_0_1_fungus_parasect | TokenAmount$ 1 | SpellDescription$ Create a 0/1 green Fungus creature token with "Insects you control get +1/+1." Activate only if you control more Insects than Fungi.
-SVar:X:Count$Valid Card.Plant+YouCtrl
+SVar:X:Count$Valid Card.Fungus+YouCtrl
 Oracle:Evolve from Paras {2}{G}{G} [4/4]\n{G}{G}, {T}: Create a 0/1 green Fungus creature token with "Insects you control get +1/+1." Activate only if you control more Insects than Fungi.
 
 DeckHints:Name$Paras

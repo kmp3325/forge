@@ -2,15 +2,14 @@ package forge.game.ability.effects;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import forge.game.card.*;
 import org.apache.commons.lang3.tuple.Pair;
 
 import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
@@ -19,6 +18,11 @@ import forge.game.Game;
 import forge.game.GameEntity;
 import forge.game.ability.AbilityUtils;
 import forge.game.ability.SpellAbilityEffect;
+import forge.game.card.Card;
+import forge.game.card.CardCollection;
+import forge.game.card.CardCollectionView;
+import forge.game.card.CardLists;
+import forge.game.card.CounterType;
 import forge.game.player.Player;
 import forge.game.player.PlayerController;
 import forge.game.spellability.SpellAbility;
@@ -268,7 +272,7 @@ public class CountersRemoveEffect extends SpellAbilityEffect {
 
     private Set<CounterType> filterCounterTypes(Set<CounterType> countersOnCard, Set<CounterType> validTypes) {
         if (validTypes.isEmpty()) {
-            return ImmutableSet.copyOf(countersOnCard);
+            return new HashSet<>(countersOnCard);
         } else {
             return Sets.intersection(countersOnCard, validTypes);
         }

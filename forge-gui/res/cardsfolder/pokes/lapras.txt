@@ -1,5 +1,5 @@
 Name:Lapras
-ManaCost:3 U U
+ManaCost:4 U
 Types:Snow Creature Dinosaur Pokémon
 PT:4/6
 S:Mode$ CantPutCounter | ValidCard$ Creature.YouCtrl | CounterType$ POISON | CheckSVar$ WEATHER | SVarCompare$ GE1 | Description$ As long as it's rainy or snowy, creatures you control can't have status counters put on them.

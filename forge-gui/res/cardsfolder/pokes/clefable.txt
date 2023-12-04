@@ -1,13 +1,13 @@
 Name:Clefable
-ManaCost:3 W W
+ManaCost:4 W
 Types:Creature Faerie Rabbit Pokémon
 PT:3/4
-K:Evolve from:3 W W:Clefairy:3/5
+K:Evolve from:4 W:Clefairy:3/5
 K:Ward:Discard<1/Card>
 T:Mode$ BecomesTarget | ValidTarget$ Creature.YouCtrl+Evolved | TriggerZones$ Battlefield | Execute$ TrigHeal | TriggerDescription$ Whenever an evolved creature you control becomes the target of a spell or ability, you may remove any number of counters from it, then proliferate. Do this only once each turn.
 SVar:TrigHeal:DB$ RemoveCounter | CounterType$ Any | CounterNum$ Any | Defined$ TriggeredTargetLKICopy | SubAbility$ TrigProliferate
 SVar:TrigProliferate:DB$ Proliferate
-Oracle:Evolve from Clefairy {3}{W}{W} [3/5]\nWard—Discard a card.\nWhenever an evolved creature you control becomes the target of a spell or ability, you may remove any number of counters from it, then proliferate. Do this only once each turn.
+Oracle:Evolve from Clefairy {4}{W} [3/5]\nWard—Discard a card.\nWhenever an evolved creature you control becomes the target of a spell or ability, you may remove any number of counters from it, then proliferate. Do this only once each turn.
 
 DeckHints:Name$Clefairy
 DeckHints:Ability$Counters

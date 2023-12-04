@@ -1,8 +1,8 @@
 Name:Vaporeon
-ManaCost:2 U U
+ManaCost:3 U
 Types:Creature Fish Cat Pokémon
 PT:2/6
-K:Evolve from:2 U U:Eevee:3/7
+K:Evolve from:3 U:Eevee:3/7
 K:Ward:2
 A:AB$ RemoveCounter | Cost$ U U | CounterType$ POISON | CounterNum$ All | Defined$ Self | CheckSVar$ RAIN | SVarCompare$ GE1 | SubAbility$ DBRemoveStun | SpellDescription$ Remove all status counters from CARDNAME, then it phases out. When it phases in, put a +1/+1 counter on it. Activate only if it’s rainy.
 SVar:DBRemoveStun:DB$ RemoveCounter | Defined$ Self | CounterNum$ All | CounterType$ STUN | SubAbility$ DBRemoveFrost
@@ -12,7 +12,7 @@ SVar:RAIN:Count$Rainy.1.0
 SVar:DBPhases:DB$ Phases | Defined$ Self | SubAbility$ PhaseInTrig
 SVar:PhaseInTrig:DB$ DelayedTrigger | Mode$ PhaseIn | ValidCard$ Card.Self | Execute$ DBPutCounter | TriggerDescription$ When CARDNAME phases in, put a +1/+1 counter on it.
 SVar:DBPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1
-Oracle:Evolve from Eevee {2}{U}{U} [3/7]\nWard {2}\n{u}{u}: Remove all status counters from Vaporeon, then it phases out. When it phases in, put a +1/+1 counter on it. Activate only if it’s rainy.
+Oracle:Evolve from Eevee {3}{U} [3/7]\nWard {2}\n{u}{u}: Remove all status counters from Vaporeon, then it phases out. When it phases in, put a +1/+1 counter on it. Activate only if it’s rainy.
 
 DeckHints:Name$Eevee
 SVar:SoundEffect:vaporeon.mp3

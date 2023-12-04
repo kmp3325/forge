@@ -1,8 +1,8 @@
 Name:Pidgeot
-ManaCost:2 W W
+ManaCost:3 W
 Types: Creature Bird Pokémon
 PT:3/4
-K:Evolve from:2 W W:Pidgeotto:4/5
+K:Evolve from:3 W:Pidgeotto:4/5
 K:Flying
 K:First strike
 T:Mode$ PhaseOut | ValidCard$ Card.phasedOutSelf | Execute$ PhaseInTrig | OptionalDecider$ You | CheckSVar$ WIND | SVarCompare$ GE1 | TriggerDescription$ Whenever CARDNAME phases out, if it's windy, you may have it phase in.
@@ -10,7 +10,7 @@ SVar:PhaseInTrig:DB$ Phases | PhaseIn$ True
 T:Mode$ PhaseIn | ValidCard$ Card.Self | Execute$ DBPutCounter | TriggerDescription$ Whenever CARDNAME phases in, put a +1/+1 counter on it.
 SVar:WIND:Count$Windy.1.0
 SVar:DBPutCounter:DB$ PutCounter | Defined$ Valid Card.Self | CounterType$ P1P1 | CounterNum$ 1
-Oracle:Evolve from Pidgeotto {2}{W}{W} [4/5]\nFlying, first strike\nWhenever Pidgeot phases out, if it's windy, you may have it phase in.\nWhenever Pidgeot phases in, put a +1/+1 counter on it.
+Oracle:Evolve from Pidgeotto {3}{W} [4/5]\nFlying, first strike\nWhenever Pidgeot phases out, if it's windy, you may have it phase in.\nWhenever Pidgeot phases in, put a +1/+1 counter on it.
 
 DeckHints:Name$Pidgey
 DeckHints:Name$Pidgeotto

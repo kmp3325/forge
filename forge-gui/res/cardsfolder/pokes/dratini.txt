@@ -2,12 +2,13 @@ Name:Dratini
 ManaCost:4 U
 Types:Creature Dragon Pokémon
 PT:3/3
-T:Mode$ WeatherChanged | TriggerZones$ Battlefield | Execute$ DBRemovePoison | TriggerDescription$ Whenever the weather changes, remove all status counters from CARDNAME.
+T:Mode$ WeatherChanged | TriggerZones$ Battlefield | Execute$ DBRemovePoison | TriggerDescription$ Whenever the weather changes, remove all status counters from CARDNAME. It gets +1/+1 until end of turn.
 SVar:DBRemovePoison:DB$ RemoveCounter | CounterType$ POISON | CounterNum$ All | Defined$ Self | SubAbility$ DBRemoveStun
 SVar:DBRemoveStun:DB$ RemoveCounter | Defined$ Self | CounterNum$ All | CounterType$ STUN | SubAbility$ DBRemoveFrost
 SVar:DBRemoveFrost:DB$ RemoveCounter | Defined$ Self | CounterNum$ All | CounterType$ FROST | SubAbility$ DBRemoveBurn
-SVar:DBRemoveBurn:DB$ RemoveCounter | Defined$ Self | CounterNum$ All | CounterType$ BURN
-Oracle:Whenever the weather changes, remove all status counters from CARDNAME.
+SVar:DBRemoveBurn:DB$ RemoveCounter | Defined$ Self | CounterNum$ All | CounterType$ BURN | SubAbility$ TrigPump
+SVar:TrigPump:DB$ Pump | Defined$ Self | NumAtt$ 1 | NumDef$ 1
+Oracle:Whenever the weather changes, remove all status counters from CARDNAME. It gets +1/+1 until end of turn.
 
 DeckHints:Name$Dragonair
 SVar:SoundEffect:dratini.mp3

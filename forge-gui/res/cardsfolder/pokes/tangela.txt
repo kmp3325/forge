@@ -1,5 +1,5 @@
 Name:Tangela
-ManaCost:3 G
+ManaCost:4 G
 Types:Creature Plant Pokémon
 PT:0/0
 K:etbCounter:P1P1:4

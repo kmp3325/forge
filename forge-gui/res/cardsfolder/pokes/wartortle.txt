@@ -3,9 +3,9 @@ ManaCost:1 U U
 Types:Creature Turtle Pokémon
 PT:2/3
 K:Evolve from:1 U U:Squirtle:2/4
-K:CARDNAME can block as though it were untapped.
-R:Event$ DamageDone | ValidSource$ Card.Self+tapped+blocking | ActiveZones$ Battlefield | Prevent$ True | IsCombat$ True | Description$ Prevent all combat damage that would be dealt by CARDNAME as long as it's tapped and blocking.
-Oracle:Evolve from Squirtle {1}{U}{U} [2/4]\nWartortle can block as though it were untapped.\nPrevent all combat damage that would be dealt by Wartortle as long as it's tapped and blocking.
+S:Mode$ CombatDamageToughness | ValidCard$ Card.Self | IsPresent$ Card.Self+blocking | Description$ As long as CARDNAME is blocking, it assigns combat damage equal to its toughness rather than its power.
+
+Oracle:Evolve from Squirtle {1}{U}{U} [2/4]\nAs long as Wartortle is blocking, it assigns combat damage equal to its toughness rather than its power.
 
 DeckHints:Name$Squirtle
 DeckHints:Name$Blastoise

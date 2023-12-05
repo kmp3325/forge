@@ -1,5 +1,5 @@
 Name:Magby
-ManaCost:1 R
+ManaCost:R
 Types:Creature Salamander Duck Pokémon
 PT:1/1
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | OptionalDecider$ You | Execute$ TrigRemoveFrost | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, you may remove all frost counters from target creature. CARDNAME deals damage to each opponent equal to 1 plus the number of frost counters removed this way.

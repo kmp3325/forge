@@ -1,15 +1,15 @@
 Name:Golem
-ManaCost:4 G W W
+ManaCost:4 G W
 Types:Creature Golem Pokémon
 PT:6/6
-K:Evolve from:4 G W W:Graveler:7/7
+K:Evolve from:4 G W:Graveler:7/7
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, put a shield counter on it.
 T:Mode$ Evolved | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, put a shield counter on it.
 SVar:TrigPutCounter:DB$ PutCounter | Defined$ TriggeredCardLKICopy | CounterType$ SHIELD | CounterNum$ 1
 S:Mode$ Continuous | Affected$ Card.Other+YouCtrl | AddPower$ X | AddToughness$ X | CheckSVar$ RAIN | SVarCompare$ GE1 | Description$ As long as it's not rainy, other creatures you control get +1/+1 for each shield counter on CARDNAME.
 SVar:X:Count$CardCounters.SHIELD
 SVar:RAIN:Count$Rainy.0.1
-Oracle:Evolve from Graveler {4}{G}{W}{W} [7/7]\nWhenever Golem enters the battlefield or evolves, put a shield counter on it.\nAs long as it's not rainy, other creatures you control get +1/+1 for each shield counter on Golem.
+Oracle:Evolve from Graveler {4}{G}{W} [7/7]\nWhenever Golem enters the battlefield or evolves, put a shield counter on it.\nAs long as it's not rainy, other creatures you control get +1/+1 for each shield counter on Golem.
 
 DeckHints:Name$Graveler
 SVar:SoundEffect:golem.mp3

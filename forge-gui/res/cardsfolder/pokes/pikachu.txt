@@ -3,10 +3,11 @@ ManaCost:1 R
 Types:Creature Mouse Pokémon
 PT:1/1
 K:Evolve from:1 R:Pichu:2/2
-K:Haste
-A:AB$ PutCounter | Cost$ T | Defined$ Self | CounterType$ STUN | CounterNum$ 1 | SubAbility$ DBPumpAll | SpellDescription$ Put a stun counter on CARDNAME. Creatures you control get +1/+1 until end of turn.
-SVar:DBPumpAll:DB$ PumpAll | ValidCards$ Creature.YouCtrl | NumAtt$ +1 | NumDef$ +1
-Oracle:Evolve from Pichu {1}{R} [2/2]\nHaste\n{T}: Put a stun counter on Pikachu. Creatures you control get +1/+1 until end of turn.
+K:First strike
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigPump | TriggerDescription$ Whenever CARDNAME attacks, other creatures you control get +1/+0 until end of turn. Put a stun counter on CARDNAME.
+SVar:TrigPump:DB$ PumpAll | ValidCards$ Creature.YouCtrl+Other | NumAtt$ +1 | SubAbility$ TrigStun
+SVar:TrigStun:DB$ PutCounter | Defined$ Self | CounterType$ STUN | CounterNum$ 1
+Oracle:Evolve from Pichu {1}{R} [2/2]\nFirst strike\nWhenever Pikachu attacks, other creatures you control get +1/+0 until end of turn. Put a stun counter on Pikachu.
 
 DeckHints:Name$Raichu
 DeckHints:Type$Creature

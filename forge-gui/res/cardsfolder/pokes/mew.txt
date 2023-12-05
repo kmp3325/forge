@@ -3,9 +3,9 @@ ManaCost:W U B R G
 Types:Legendary Creature Pokémon
 PT:4/4
 K:Hexproof
-A:AB$ ChooseCard | Cost$ T | Mandatory$ True | Choices$ Creature.sharesCreatureTypeWith+Other | ChoiceTitle$ Choose a creature | Note$ True | SubAbility$ DBSteal | SpellDescription$ Choose another creature that shares a creature type with CARDNAME whose name hasn't been noted for CARDNAME and note its name. CARDNAME gains all abilities of that creature.
+A:AB$ ChooseCard | Cost$ T | Mandatory$ True | ValidTgts$ Creature.sharesCreatureTypeWith+Other | TgtPrompt$ Choose another target creature | Note$ True | SubAbility$ DBSteal | SpellDescription$ Choose another target creature that shares a creature type with CARDNAME whose name hasn't been noted for CARDNAME and note its name. CARDNAME gains all abilities of that creature.
 SVar:DBSteal:DB$ StealAbilities | Defined$ ChosenCard | SubAbility$ DBCleanup
 SVar:DBCleanup:DB$ Cleanup | ClearChosenCard$ True
-Oracle:Hexproof\n{T}: Choose another creature that shares a creature type with Mew whose name hasn't been noted for Mew and note its name. Mew gains all abilities of that creature.
+Oracle:Hexproof\n{T}: Choose another target creature that shares a creature type with Mew whose name hasn't been noted for Mew and note its name. Mew gains all abilities of that creature.
 
 SVar:SoundEffect:mew.mp3

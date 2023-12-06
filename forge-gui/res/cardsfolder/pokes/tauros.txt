@@ -2,13 +2,10 @@ Name:Tauros
 ManaCost:6
 Types:Creature Aurochs Pokémon
 PT:3/3
-T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigScry | TriggerDescrtiption$ When CARDNAME enters the battlefield, scry 3, then you may reveal the top card of your library. If it's a creature card, draw a card.
-SVar:TrigScry:DB$ Scry | ScryNum$ 3 | SubAbility$ DBPeekAndReveal
-SVar:DBPeekAndReveal:DB$ PeekAndReveal | RevealOptional$ True | NoPeek$ True | RememberRevealed$ True | SubAbility$ DBDraw
-SVar:DBDraw:DB$ Draw | ConditionDefined$ Remembered | ConditionPresent$ Card.Creature | SubAbility$ DBCleanup
-SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigToken | TriggerDescrtiption$ When CARDNAME enters the battlefield, create two colorless 1/1 Aurochs Pokémon creature tokens named Tauros.
+SVar:TrigToken:DB$ Token | TokenAmount$ 2 | TokenScript$ c_1_1_tauros
 S:Mode$ Continuous | Affected$ Card.Self | AddPower$ 2 | AddToughness$ 2 | AddKeyword$ Trample | CheckSVar$ X | SVarCompare$ GE3 | Description$ As long as you control three or more creatures, CARDNAME gets +2/+2 and has trample.
 SVar:X:Count$Valid Creature.YouCtrl
-Oracle:When Tauros enters the battlefield, scry 3, then you may reveal the top card of your library. If it's a creature card, draw a card.\nAs long as you control three or more creatures, Tauros gets +2/+2 and has trample.
+Oracle:When Tauros enters the battlefield, create two colorless 1/1 Aurochs Pokémon creature tokens named Tauros.\nAs long as you control three or more creatures, Tauros gets +2/+2 and has trample.
 
 SVar:SoundEffect:tauros.mp3

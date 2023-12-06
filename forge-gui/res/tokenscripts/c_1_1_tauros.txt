@@ -1,0 +1,5 @@
+Name:Tauros
+ManaCost:no cost
+Types:Creature Rat Pokémon
+PT:1/1
+Oracle:

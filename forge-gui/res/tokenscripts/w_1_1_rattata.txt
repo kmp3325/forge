@@ -1,0 +1,6 @@
+Name:Rattata
+ManaCost:no cost
+Types:Creature Rat Pokémon
+Colors:white
+PT:1/1
+Oracle:

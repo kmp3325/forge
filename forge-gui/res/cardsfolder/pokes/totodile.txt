@@ -2,9 +2,10 @@ Name:Totodile
 ManaCost:U
 Types:Creature Crocodile Pokémon
 PT:1/1
-T:Mode$ PhaseIn | ValidCard$ Card.Self | Execute$ TrigDraw | TriggerDescription$ Whenever CARDNAME phases in, draw a card.
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDraw | TriggerDescription$ Whenever CARDNAME enters the battlefield or phases in, draw a card.
+T:Mode$ PhaseIn | ValidCard$ Card.Self | Execute$ TrigDraw | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield or phases in, draw a card.
 SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ 1
-Oracle:Whenever Totodile phases in, draw a card.
+Oracle:Whenever Totodile enters the battlefield or phases in, draw a card.
 
 DeckHints:Name$Croconaw
 SVar:SoundEffect:totodile.mp3

@@ -2,8 +2,11 @@ Name:Rattata
 ManaCost:W
 Types:Creature Rat Pokémon
 PT:1/1
-A:AB$ Phases | Cost$ W W | Defined$ Self | SpellDescription$ CARDNAME phases out.
-Oracle:{W}{W}: Rattata phases out.
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ Whenever CARDNAME enters the battlefield, evolves, or phases in, create a 1/1 white Rat Pokémon creature token named Rattata.
+T:Mode$ Evolved | ValidCard$ Card.Self | Execute$ TrigToken | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield, evolves, or phases in, create a 1/1 white Rat Pokémon creature token named Rattata.
+T:Mode$ PhaseIn | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigToken | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield, evolves, or phases in, create a 1/1 white Rat Pokémon creature token named Rattata.
+SVar:TrigToken:DB$ Token | TokenAmount$ 1 | TokenScript$ w_1_1_rattata
+Oracle:Whenever Rattata enters the battlefield, evolves, or phases in, create a 1/1 white Rat Pokémon creature token named Rattata.
 
 DeckHints:Name$Raticate
 SVar:SoundEffect:rattata.mp3

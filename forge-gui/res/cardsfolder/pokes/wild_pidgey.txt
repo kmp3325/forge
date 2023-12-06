@@ -4,8 +4,10 @@ Types:Creature Bird Pokémon
 PT:2/2
 K:Flash
 K:Flying
-T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigWeather | TriggerDescription$ When CARDNAME enters the battlefield, it becomes windy.
+K:CARDNAME enters the battlefield tapped.
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigPump | TriggerDescription$ When CARDNAME enters the battlefield, target creature gets +1/+2 and gains flying until end of turn. It becomes windy.
+SVar:TrigPump:DB$ Pump | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumAtt$ 1 | NumDef$ 2 | KW$ Flying | SubAbility$ TrigWeather
 SVar:TrigWeather:DB$ Weather | Value$ Windy
-Oracle:Flash\nFlying\nWhen Wild Pidgey enters the battlefield, it becomes windy.
+Oracle:Flash\nFlying\nWild Pidgey enters the battlefield tapped.\nWhen Wild Pidgey enters the battlefield, target creature gets +1/+2 and gains flying until end of turn. It becomes windy.
 
 SVar:SoundEffect:pidgey.mp3

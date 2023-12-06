@@ -2,8 +2,8 @@ Name:Lickitung
 ManaCost:5
 Types:Creature Frog Horror Pokémon
 PT:4/4
-A:AB$ Debuff | Cost$ 2 | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ DBPhase | SpellDescription$ Target creature can't phase out until end of turn.
+A:AB$ Debuff | Cost$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ DBPhase | SpellDescription$ Target creature can't phase out until end of turn.
 SVar:DBPhase:DB$ Effect | RememberObjects$ Targeted | ForgetOnMoved$ Battlefield | StaticAbilities$ CantPhaseOut | Duration$ UntilEndOfTurn
 SVar:CantPhaseOut:Mode$ CantPhaseOut | ValidCard$ Card.IsRemembered | Description$ Remembered can't phase out until end of turn.
-Oracle:{2}: Target creature can't phase out until end of turn.
+Oracle:{1}: Target creature can't phase out until end of turn.
 SVar:SoundEffect:lickitung.mp3

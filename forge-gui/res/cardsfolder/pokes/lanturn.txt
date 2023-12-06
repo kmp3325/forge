@@ -5,10 +5,10 @@ PT:3/3
 K:Evolve from:2 U R:Chinchou:4/4
 T:Mode$ CounterAddedOnce | ValidCard$ Creature | TriggerZones$ Battlefield | CounterType$ STUN | Execute$ TrigScry | TriggerDescription$ Whenever one or more stun counters are put on a creature, scry 2.
 SVar:TrigScry:DB$ Scry | ScryNum$ 2 | Defined$ You
-T:Mode$ AttackersDeclared | AttackedTarget$ You | TriggerZones$ Battlefield | Execute$ DBImmediate | TriggerDescription$ Whenever one or more creatures attack you, you may pay {U}{R}. When you do, put two stun counters on target attacking creature.
-SVar:DBImmediate:AB$ ImmediateTrigger | Cost$ U R | Execute$ TrigStun | TriggerDescription$ When you do, put two stun counters on target attacking creature.
+T:Mode$ AttackersDeclared | AttackedTarget$ You | TriggerZones$ Battlefield | Execute$ DBImmediate | TriggerDescription$ Whenever one or more creatures attack you, you may pay {UR}. When you do, put two stun counters on target attacking creature.
+SVar:DBImmediate:AB$ ImmediateTrigger | Cost$ UR | Execute$ TrigStun | TriggerDescription$ When you do, put two stun counters on target attacking creature.
 SVar:TrigStun:DB$ PutCounter | CounterType$ STUN | CounterNum$ 2 | ValidTgts$ Creature.attacking | TgtPrompt$ Select target attacking creature
-Oracle:Evolve from Chinchou {2}{U}{R} [4/4]\nWhenever one or more stun counters are put on a creature, scry 2.\nWhenever one or more creatures attack you, you may pay {U}{R}. When you do, put two stun counters on target attacking creature.
+Oracle:Evolve from Chinchou {2}{U}{R} [4/4]\nWhenever one or more stun counters are put on a creature, scry 2.\nWhenever one or more creatures attack you, you may pay {UR}. When you do, put two stun counters on target attacking creature.
 
 DeckHints:Name$Chinchou
 SVar:HasBlockEffect:TRUE

@@ -1,12 +1,12 @@
 Name:Nidorina
 ManaCost:4 B
 Types:Creature Rhino Rabbit Pokémon
-PT:2/3
-K:Evolve from:4 B:Female Nidoran:3/4
+PT:3/4
+K:Evolve from:4 B:Female Nidoran:4/5
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigPoison | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, you may put a poison counter on target creature.
 T:Mode$ Evolved | ValidCard$ Card.Self | Execute$ TrigPoison | Secondary$ True | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, you may put a poison counter on target creature.
 SVar:TrigPoison:DB$ PutCounter | CounterType$ POISON | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature
-Oracle:Evolve from Female Nidoran {4}{B} [3/4]\nWhenever Nidorina enters the battlefield or evolves, you may put a poison counter on target creature.
+Oracle:Evolve from Female Nidoran {4}{B} [4/5]\nWhenever Nidorina enters the battlefield or evolves, you may put a poison counter on target creature.
 
 DeckHints:Name$Female Nidoran
 DeckHints:Name$Nidoqueen

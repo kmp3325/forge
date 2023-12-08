@@ -2,11 +2,12 @@ Name:Poliwag
 ManaCost:1 U
 Types:Creature Frog Pokémon
 PT:0/1
+K:Flash
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigCounter | TriggerDescription$ When CARDNAME enters the battlefield, counter target spell unless its controller pays {2}.
+SVar:TrigCounter:DB$ Counter | TargetType$ Spell | ValidTgts$ Card | TgtPrompt$ Select target spell | UnlessCost$ 2 | UnlessPayer$ TargetedController
 R:Event$ DamageDone | ActiveZones$ Battlefield | ValidSource$ Creature.inZoneBattlefield | ValidTarget$ Card.Self | ReplaceWith$ DBReplace | PreventionEffect$ True | Description$ If a creature would deal damage to CARDNAME, prevent 1 of that damage.
 SVar:DBReplace:DB$ ReplaceDamage | Amount$ 1
-A:AB$ Pump | Cost$ 4 U | NumDef$ X | SpellDescription$ CARDNAME gets +0/+1 until end of turn for each tapped creature your opponents control.
-SVar:X:Count$Valid Creature.tapped+OppCtrl
-Oracle:If a creature would deal damage to Poliwag, prevent 1 of that damage.\nPoliwag gets +0/+1 until end of turn for each tapped creature your opponents control.
+Oracle:Flash\nWhen Poliwag enters the battlefield, counter target spell unless its controller pays {2}.\nIf a creature would deal damage to Poliwag, prevent 1 of that damage.
 
 DeckHints:Name$Poliwhirl
 SVar:SoundEffect:poliwag.mp3

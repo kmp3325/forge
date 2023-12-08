@@ -1,5 +1,5 @@
 Name:Bellsprout
-ManaCost:1 G
+ManaCost:2 G
 Types:Creature Plant Pokémon
 PT:1/1
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDestroy | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, you may destroy up to one target artifact or Insect. It becomes sunny.

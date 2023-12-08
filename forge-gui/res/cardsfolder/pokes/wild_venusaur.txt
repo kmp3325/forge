@@ -1,13 +1,13 @@
 Name:Wild Venusaur
-ManaCost:3 2G G
+ManaCost:4 G G
 Types:Creature Frog Plant Pokémon
 PT:3/3
-T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigSolar | TriggerDescription$ When CARDNAME enters the battlefield, put two solar counters on target creature. Until end of turn, that creature gets +1/+1 for each solar counter on it and gains trample.
-SVar:TrigSolar:DB$ PutCounter | CounterType$ SOLAR | CounterNum$ 2 | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigPump
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigSolar | TriggerDescription$ When CARDNAME enters the battlefield, put three solar counters on target creature. Until end of turn, that creature gets +1/+1 for each solar counter on it and gains trample.
+SVar:TrigSolar:DB$ PutCounter | CounterType$ SOLAR | CounterNum$ 3 | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigPump
 SVar:TrigPump:DB$ Pump | Defined$ Targeted | NumAtt$ X | NumDef$ X | KW$ Trample
 SVar:X:TargetedCard$CardCounters.SOLAR
 S:Mode$ Continuous | Affected$ Card.Self | CheckSVar$ SUN | SVarCompare$ GE1 | AddPower$ 1 | AddToughness$ 1 | Description$ As long as it's sunny, CARDNAME gets +1/+1.
 SVar:SUN:Count$Sunny.1.0
-Oracle:When Wild Venusaur enters the battlefield, put two solar counters on target creature. Until end of turn, that creature gets +1/+1 for each solar counter on it and gains trample.\nAs long as it's sunny, Wild Venusar gets +1/+1.
+Oracle:When Wild Venusaur enters the battlefield, put three solar counters on target creature. Until end of turn, that creature gets +1/+1 for each solar counter on it and gains trample.\nAs long as it's sunny, Wild Venusar gets +1/+1.
 
 SVar:SoundEffect:venusaur.mp3

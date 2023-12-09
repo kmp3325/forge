@@ -1106,7 +1106,7 @@ public class ComputerUtilMana {
         // * pay hybrids
         // * pay phyrexian, keep mana for colorless
         // * pay generic
-        return cost.getShardToPayByPriority(cost.getDistinctShards(), ColorSet.ALL_COLORS.getColor());
+        return cost.getShardToPayByPriority(shardsToPay, ColorSet.ALL_COLORS.getColor());
     }
 
     private static void adjustManaCostToAvoidNegEffects(ManaCostBeingPaid cost, final Card card, Player ai) {
@@ -1323,7 +1323,7 @@ public class ComputerUtilMana {
                 manaToAdd = AbilityUtils.calculateAmount(card, "X", sa) * xCounter;
             }
 
-            if (manaToAdd < 1 && !payCosts.getCostMana().canXbe0()) {
+            if (manaToAdd < 1 && payCosts != null && payCosts.getCostMana().getXMin() > 0) {
                 // AI cannot really handle X costs properly but this keeps AI from violating rules
                 manaToAdd = 1;
             }

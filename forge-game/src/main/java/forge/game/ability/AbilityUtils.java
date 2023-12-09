@@ -2878,6 +2878,12 @@ public class AbilityUtils {
             return doXMath(CardUtil.getColorsFromCards(list).countColors(), expr, c, ctb);
         }
 
+        if (sq[0].startsWith("ColorsDefined")) {
+            final String restriction = l[0].substring(14);
+            final CardCollection list = getDefinedCards(c, restriction, ctb);
+            return doXMath(CardUtil.getColorsFromCards(list).countColors(), expr, c, ctb);
+        }
+
         // TODO move below to handlePaid
         if (sq[0].startsWith("SumPower")) {
             final String[] restrictions = l[0].split("_");
@@ -3536,6 +3542,10 @@ public class AbilityUtils {
 
         if (value.contains("CardsDiscardedThisTurn")) {
             return doXMath(player.getNumDiscardedThisTurn(), m, source, ctb);
+        }
+
+        if (value.contains("ExploredThisTurn")) {
+            return doXMath(player.getNumExploredThisTurn(), m, source, ctb);
         }
 
         if (value.contains("AttackersDeclared")) {

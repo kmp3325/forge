@@ -311,6 +311,7 @@ Zubera:Zuberas
 [SpellTypes]
 Adventure
 Arcane
+Chorus
 Lesson
 Trap
 [EnchantmentTypes]
@@ -440,6 +441,7 @@ Belenon
 Bolas's Meditation Realm
 Capenna
 Cridhe
+Darillium
 Dominaria
 Earth
 Echoir

@@ -1403,6 +1403,16 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
         }
     }
 
+    public final void retainPaidList(final SpellAbility cause, final String list) {
+        for (Card craft : cause.getPaidList(list)) {
+            if (!craft.equals(this) && !craft.isToken()) {
+                addExiledCard(craft);
+                craft.setExiledWith(this);
+                craft.setExiledBy(cause.getActivatingPlayer());
+            }
+        }
+    }
+
     public final List<Integer> getStoredRolls() {
         return storedRolls;
     }
@@ -1940,6 +1950,11 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
         view.updateChosenNumber(this);
     }
 
+    public final void clearChosenNumber() {
+        chosenNumber = null;
+        view.clearChosenNumber();
+    }
+
     public final Card getExiledWith() {
         return exiledWith;
     }
@@ -2252,11 +2267,6 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
                 } else if (keyword.startsWith("Protection:") || keyword.startsWith("DeckLimit")) {
                     final String[] k = keyword.split(":");
                     sbLong.append(k[2]).append("\r\n");
-                } else if (keyword.startsWith("Creatures can't attack unless their controller pays")) {
-                    final String[] k = keyword.split(":");
-                    if (!k[3].equals("no text")) {
-                        sbLong.append(k[3]).append("\r\n");
-                    }
                 } else if (keyword.startsWith("Enchant")) {
                     String k = keyword;
                     k = TextUtil.fastReplace(k, "Curse", "");
@@ -2350,9 +2360,6 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
                 } else if (keyword.startsWith("MayFlash")) {
                     // Pseudo keywords, only print Reminder
                     sbLong.append(inst.getReminderText()).append("\r\n");
-                } else if (keyword.contains("At the beginning of your upkeep, ")
-                        && keyword.contains(" unless you pay")) {
-                    sbLong.append(keyword).append("\r\n");
                 } else if (keyword.startsWith("Strive") || keyword.startsWith("Escalate")
                         || keyword.startsWith("ETBReplacement")
                         || keyword.startsWith("Affinity")
@@ -2505,7 +2512,8 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
                         || keyword.startsWith("Encore") || keyword.startsWith("Mutate") || keyword.startsWith("Dungeon")
                         || keyword.startsWith("Class") || keyword.startsWith("Blitz")
                         || keyword.startsWith("Specialize") || keyword.equals("Ravenous")
-                        || keyword.equals("For Mirrodin") || keyword.startsWith("Evolve from")) {
+                        || keyword.startsWith("Evolve from")
+                        || keyword.equals("For Mirrodin") || keyword.startsWith("Craft")) {
                     // keyword parsing takes care of adding a proper description
                 } else if (keyword.startsWith("Read ahead")) {
                     sb.append(Localizer.getInstance().getMessage("lblReadAhead")).append(" (").append(Localizer.getInstance().getMessage("lblReadAheadDesc"));

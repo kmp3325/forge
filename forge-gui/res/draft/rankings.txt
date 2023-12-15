@@ -1289,7 +1289,7 @@
 #17|Mewtwo|M|PKM
 #18|Mew|M|PKM
 #19|Ampharos|M|PKM
-#20|Bellossom|M|PKM
+#20|Bellossom|R|PKM
 #21|Sunflora|M|PKM
 #22|Steelix|M|PKM
 #23|Kingdra|M|PKM
@@ -1338,7 +1338,7 @@
 #66|Ditto|R|PKM
 #67|Omastar|R|PKM
 #68|Kabutops|R|PKM
-#69|Aerodactyl|R|PKM
+#69|Aerodactyl|M|PKM
 #70|Snorlax|R|PKM
 #71|Dragonite|R|PKM
 #72|Meganium|R|PKM

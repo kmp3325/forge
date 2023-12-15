@@ -1,12 +1,12 @@
 Name:Haunter
-ManaCost:B B B
+ManaCost:1 B B
 Types:Creature Nightmare Spirit Pokémon
 PT:2/2
-K:Evolve from:B B B:Gastly:3/2
-T:Mode$ Evolved | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigDiscard | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, you may discard a card. If you do, return up to three target creature cards from your graveyard to your hand.
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDiscard | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, you may discard a card. If you do, return up to three target creature cards from your graveyard to your hand.
-SVar:TrigDiscard:AB$ ChangeZone | Cost$ Discard<1/Card> | Origin$ Graveyard | Destination$ Hand | TargetMin$ 0 | TargetMax$ 3 | TgtPrompt$ Select up to three target creature cards in your graveyard | ValidTgts$ Creature.YouOwn
-Oracle:Evolve from Gastly {B}{B}{B} [3/2]\nWhenever Haunter enters the battlefield or evolves, you may discard a card. If you do, return up to three target creature cards from your graveyard to your hand.
+K:Evolve from:1 B B:Gastly:3/2
+T:Mode$ Evolved | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigDiscard | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, you may discard a card. If you do, return up to three target creature cards with total mana value 6 or less from your graveyard to your hand.
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDiscard | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, you may discard a card. If you do, return up to three target creature cards with total mana value 6 or less from your graveyard to your hand.
+SVar:TrigDiscard:AB$ ChangeZone | Cost$ Discard<1/Card> | Origin$ Graveyard | Destination$ Hand | TargetMin$ 0 | TargetMax$ 3 | TgtPrompt$ Select up to three target creature cards with total mana value 6 or less in your graveyard | ValidTgts$ Creature.YouOwn | MaxTotalTargetCMC$ 6
+Oracle:Evolve from Gastly {1}{B}{B} [3/2]\nWhenever Haunter enters the battlefield or evolves, you may discard a card. If you do, return up to three target creature cards with total mana value 6 or less from your graveyard to your hand.
 
 DeckHints:Name$Gastly
 DeckHints:Name$Gengar

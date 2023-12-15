@@ -3,15 +3,16 @@ ManaCost:1 G G
 Types:Creature Plant Pokémon
 PT:2/3
 K:Evolve from:1 G G:Gloom Pokémon:3/5
-A:AB$ PutCounter | Cost$ T | Defined$ Self | CounterType$ SOLAR | CounterNum$ LAND | SpellDescription$ Put a solar counter on CARDNAME for each land you control.
-SVar:LAND:Count$Valid Land.YouCtrl
-A:AB$ ChangeZone | Cost$ T Sac<1/Land> SubCounter<3/SOLAR> | Origin$ Library | Destination$ Battlefield | ChangeType$ Land.Basic | ChangeNum$ 1 | SubAbility$ TrigRain | SpellDescription$ Search your library for a basic land card, put it onto the battlefield, then shuffle. It becomes rainy.
-SVar:TrigRain:DB$ Weather | Value$ Rainy
-R:Event$ DamageDone | ValidTarget$ Card.Self | ActiveZones$ Battlefield | PreventionEffect$ True | ReplaceWith$ DBRemoveSolar | CheckSVar$ NumSolar | SVarCompare$ GE1 | Description$ If CARDNAME would be dealt damage and it has a solar counter on it, remove that many solar counters from it instead.
-SVar:NumSolar:Count$CardCounters.SOLAR
-SVar:DBRemoveSolar:DB$ RemoveCounter | CounterType$ SOLAR | CounterNum$ Dmg | Defined$ Self
-SVar:Dmg:ReplaceCount$DamageAmount
-Oracle:Evolve from Gloom {1}{G}{G} [3/5]\nIf Bellossom would be dealt damage and it has a solar counter on it, remove that many solar counters from it instead.\n{T}: Put a solar counter on Bellossom for each land you control.\n{T}, Remove three solar counters from Bellossom, Sacrifice a land: Search your library for a basic land card, put it onto the battlefield, then shuffle. It becomes rainy.
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Land.YouCtrl | Execute$ TrigChoice | TriggerZones$ Battlefield | TriggerDescription$ Landfall — Whenever a land enters the battlefield under your control, it becomes your choice of sunny or rainy.
+SVar:TrigChoice:DB$ GenericChoice | Choices$ ChooseSun,ChooseRain
+SVar:ChooseSun:DB$ Weather | Value$ Sunny | SpellDescription$ It becomes sunny.
+SVar:ChooseRain:DB$ Weather | Value$ Rainy | SpellDescription$ It becomes rainy.
+A:AB$ PutCounter | Cost$ X | Defined$ Self | CounterType$ SOLAR | CounterNum$ X | CheckSVar$ SUN | SVarCompare$ GE1 | SpellDescription$ Put X solar counters on CARDNAME. Activate only if it's sunny.
+SVar:SUN:Count$Sunny.1.0
+SVar:X:Count$xPaid
+A:AB$ PutCounter | Cost$ SubCounter<X/SOLAR> | ValidTgts$ Creature.Other+YouCtrl | TgtPrompt$ Select any number of other target creatures you control | CounterType$ P1P1 | CounterNum$ X | CheckSVar$ RAIN | SVarCompare$ GE1 | TargetMin$ 0 | TargetMax$ X | DividedAsYouChoose$ X | SpellDescription$ Distribute X +1/+1 counters among any number of other target creatures you control. Activate only if it's rainy.
+SVar:RAIN:Count$Rainy.1.0
+Oracle:Evolve from Gloom {1}{G}{G} [3/5]\nLandfall — Whenever a land enters the battlefield under your control, it becomes your choice of sunny or rainy.\n{X}: Put X solar counters on Bellossom. Activate only if it's sunny.\nRemove X solar counters from Bellossom: Distribute X +1/+1 counters among any number of other target creatures you control. Activate only if it's rainy.
 
 DeckHints:Name$Gloom Pokémon
 SVar:SoundEffect:bellossom.mp3

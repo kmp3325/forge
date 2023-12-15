@@ -151,7 +151,7 @@ Foil=NotSupported
 139 R Omastar
 140 C Kabuto
 141 R Kabutops
-142 R Aerodactyl
+142 M Aerodactyl
 143 R Snorlax
 144 M Articuno
 145 M Zapdos
@@ -191,7 +191,7 @@ Foil=NotSupported
 179 C Mareep
 180 U Flaaffy
 181 M Ampharos
-182 M Bellossom
+182 R Bellossom
 183 C Marill
 184 U Azumarill
 185 U Sudowoodo

@@ -1,5 +1,5 @@
 Name:Team Rocket's Arbok
-ManaCost:2 RB
+ManaCost:2 WB
 Types:Creature Snake Pokémon
 PT:3/2
 K:Caustic

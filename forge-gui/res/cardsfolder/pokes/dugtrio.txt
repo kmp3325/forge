@@ -1,18 +1,17 @@
 Name:Dugtrio
-ManaCost:1 W B
+ManaCost:1 B R
 Types:Creature Mole Pokémon
 PT:3/3
-K:Evolve from:1 W B:Diglett:3/3
-T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigDig | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, put three dig counters on it.
-T:Mode$ Evolved | ValidCard$ Card.Self | Execute$ TrigDig | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, put three dig counters on it.
-SVar:TrigDig:DB$ PutCounter | Defined$ Self | CounterNum$ 3 | CounterType$ DIG
-T:Mode$ DamageDoneOnce | Execute$ TrigAnotherDig | ValidTarget$ Card.Self | TriggerZones$ Battlefield | CombatDamage$ False | TriggerDescription$ Whenever CARDNAME is dealt noncombat damage, put that many dig counters on it.
-SVar:TrigAnotherDig:DB$ PutCounter | Defined$ Self | CounterType$ DIG | CounterNum$ DmgNum
-SVar:DmgNum:TriggerCount$DamageAmount
-A:AB$ ChangeZone | ValidTgts$ Creature.cmcLEX+YouOwn | TgtPrompt$ Select target creature card with mana value X or less | Origin$ Graveyard | Destination$ Hand | Cost$ T SubCounter<X/DIG> | SubAbility$ TrigWide | SpellDescription$ Return target creature card with mana value X or less from your graveyard to your hand. CARDNAME deals 1 damage to each other creature you control.
-SVar:X:Count$xPaid
-SVar:TrigWide:DB$ DamageAll | ValidCards$ Creature.YouCtrl+Other | NumDmg$ 1 | ValidDescription$ each other creature you control
-Oracle:Evolve from Diglett {1}{W}{B} [3/3]\nWhenever Dugtrio enters the battlefield or evolves, put three dig counters on it.\nWhenever Dugtrio is dealt noncombat damage, put that many dig counters on it.\n{T}, Remove X dig counters from Dugtrio: Return target creature card with mana value X or less from your graveyard to your hand. Dugtrio deals 1 damage to each other creature you control.
+K:Evolve from:1 B R:Diglett:4/4
+A:AB$ PutCounter | Cost$ BR | CounterType$ BURROW | CounterNum$ 1 | ValidTgts$ Creature.Other+YouCtrl | TgtPrompt$ Select another target creature you control | SubAbility$ DBCounterAgain | SpellDescription$ Put a burrow counter on another target creature you control and target creature you don't control.
+SVar:DBCounterAgain:DB$ PutCounter | CounterType$ BURROW | CounterNum$ 1 | ValidTgts$ Creature.YouDontCtrl | TgtPrompt$ Select target creature you don't control
+A:AB$ Pump | Cost$ BR T | ImprintCards$ Valid Creature.counters_GE1_BURROW | SubAbility$ DBRepeat | SpellDescription$ For each creature, remove all burrow counters from it, then Dugtrio deals that much damage to that creature. Excess damage is dealt to that creature’s controller instead.
+SVar:DBRepeat:DB$ RepeatEach | RepeatCards$ Card.IsImprinted | RepeatSubAbility$ DBDmg
+SVar:DBDmg:DB$ DealDamage | Defined$ Remembered | NumDmg$ X | SubAbility$ DBRemove
+SVar:X:Remembered$CardCounters.BURROW
+SVar:DBRemove:DB$ RemoveCounter | CounterType$ BURROW | CounterNum$ All | Defined$ Remembered | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+Oracle:Evolve from Diglett {1}{B}{R} [4/4]\n{BR}: Put a burrow counter on another target creature you control and target creature you don’t control.\n{BR}, {T}: For each creature, remove all burrow counters from it, then Dugtrio deals that much damage to that creature. Excess damage is dealt to that creature’s controller instead.
 
 DeckHints:Name$Diglett
 SVar:HasAttackEffect:TRUE

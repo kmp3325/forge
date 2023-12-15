@@ -1,12 +1,10 @@
 Name:Sandshrew
 ManaCost:2 WB
 Types:Creature Mouse Pokémon
-PT:2/2
-A:AB$ Phases | Cost$ WB | Defined$ Self | ConditionCheckSVar$ X | ConditionSVarCompare$ GE1 | SubAbility$ PhaseInTrig | SpellDescription$ CARDNAME phases out. When it phases in, it deals 1 damage to itself. Activate only if it's not rainy.
-SVar:PhaseInTrig:DB$ DelayedTrigger | Mode$ PhaseIn | ValidCard$ Card.Self | Execute$ DamageTrig | TriggerDescription$ When CARDNAME phases in, it deals 1 damage to itself.
-SVar:DamageTrig:DB$ DealDamage | Defined$ Self | NumDmg$ 1
-SVar:X:Count$Rainy.0.1
-Oracle:{WB}: Sandshrew phases out. When it phases in, it deals 1 damage to itself. Activate only if it's not rainy.
+PT:1/2
+R:Event$ DamageDone | ActiveZones$ Battlefield | ValidTarget$ Creature.YouCtrl | ValidSource$ Creature.YouCtrl | ReplaceWith$ Dmg1 | Description$ If a creature you control would deal damage to another creature you control, you may have it deal 1 damage to that creature instead.
+SVar:Dmg1:DB$ ReplaceEffect | VarName$ DamageAmount | VarValue$ 1
+Oracle:If a creature you control would deal damage to another creature you control, you may have it deal 1 damage to that creature instead.
 
 DeckHints:Name$Sandslash
 SVar:SoundEffect:sandshrew.mp3

@@ -1433,22 +1433,22 @@
 #161|Elekid|U|PKM
 #162|Blissey|U|PKM
 #163|Pupitar|U|PKM
-#164|Team Rocket's Beedrill|U|PKM
-#165|Team Rocket's Arbok|U|PKM
-#166|Team Rocket's Tentacruel|U|PKM
-#167|Team Rocket's Hitmonchan|U|PKM
-#168|Team Rocket's Weezing|U|PKM
-#169|Team Rocket's Rhydon|U|PKM
-#170|Wild Raticate|U|PKM
-#171|Wild Fearow|U|PKM
-#172|Wild Tauros|U|PKM
-#173|Wild Poliwhirl|U|PKM
-#174|Wild Tentacool|U|PKM
-#175|Wild Lapras|U|PKM
-#176|Wild Arcanine|U|PKM
-#177|Wild Beedrill|U|PKM
-#178|Wild Rhydon|U|PKM
-#179|Wild Scyther|U|PKM
+#164|Team Rocket's Arbok|U|PKM
+#165|Wild Tentacruel|U|PKM
+#166|Team Rocket's Hitmonchan|U|PKM
+#167|Team Rocket's Weezing|U|PKM
+#168|Team Rocket's Rhydon|U|PKM
+#169|Wild Raticate|U|PKM
+#170|Wild Fearow|U|PKM
+#171|Wild Tauros|U|PKM
+#172|Wild Poliwhirl|U|PKM
+#173|Wild Tentacool|U|PKM
+#174|Wild Lapras|U|PKM
+#175|Wild Arcanine|U|PKM
+#176|Wild Beedrill|U|PKM
+#177|Wild Rhydon|U|PKM
+#178|Wild Scyther|U|PKM
+#179|Wild Ivysaur|C|PKM
 #180|Bulbasaur|C|PKM
 #181|Charmander|C|PKM
 #182|Squirtle|C|PKM

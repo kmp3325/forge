@@ -1,5 +1,5 @@
 Name:Team Rocket's Meowth
-ManaCost:RB
+ManaCost:WB
 Types:Legendary Creature Cat Pokémon
 PT:1/1
 A:AB$ ChangeZone | Cost$ T | Origin$ Battlefield | Destination$ Library | Shuffle$ False | RememberChanged$ True | Defined$ Self | SubAbility$ DBBlastOff | SpellDescription$ Shuffle CARDNAME and up to two other permanents you control into their owners' libraries.

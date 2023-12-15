@@ -1,12 +1,13 @@
 Name:Wild Beedrill
-ManaCost:3 G G
+ManaCost:B R G
 Types:Creature Insect Pokémon
 PT:1/1
-K:Flash
-T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigPumpAll | TriggerDescription$ When CARDNAME enters the battlefield, Insect creatures you control +1/+3 and gain caustic until end of turn.
-SVar:TrigPumpAll:DB$ PumpAll | ValidCards$ Creature.Insect+YouCtrl | NumAtt$ +1 | NumDef$ +3 | KW$ Caustic
-Oracle:Flash\nWhen Wild Beedrill enters the battlefield, Insect creatures you control +1/+3 and gain caustic until end of turn.
+K:Double strike
+R:Event$ DamageDone | Prevent$ True | CheckSVar$ WEATHER | SVarCompare$ GE1 | IsCombat$ False | Description$ As long as it's not snowy, prevent all noncombat damage that would be dealt to CARDNAME.
+SVar:WEATHER:Count$Snowy.0.1
+T:Mode$ ChangesZone | ValidCard$ Creature.Insect | Origin$ Battlefield | Destination$ Graveyard | Execute$ TrigCounter | TriggerZones$ Battlefield | TriggerDescription$ Whenever an Insect creature dies, put a +1/+1 counter on CARDNAME.
+SVar:TrigCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1
+Oracle:Double strike\nAs long as it’s not snowy, prevent all noncombat damage that would be dealt to Wild Beedrill.\nWhenever an Insect creature dies, put a +1/+1 counter on Wild Beedrill.
 
 DeckHints:Type$Insect
-
 SVar:SoundEffect:beedrill.mp3

@@ -1,5 +1,5 @@
 Name:Team Rocket's Rhydon
-ManaCost:4 B R
+ManaCost:4 W B
 Types:Creature Dinosaur Rhino Pokémon
 PT:4/5
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigSteal | TriggerDescription$ When CARDNAME enters the battlefield, gain control of target creature.

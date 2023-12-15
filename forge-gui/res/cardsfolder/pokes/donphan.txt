@@ -1,12 +1,12 @@
 Name:Donphan
-ManaCost:5 WB
+ManaCost:5 BR
 Types:Creature Elephant Pokémon
 PT:5/5
-K:Evolve from:5 WB:Phanpy:6/6
-S:Mode$ Continuous | Affected$ Card.Self | AddKeyword$ Indestructible & Trample | IsPresent$ Creature.YouOwn | PresentCompare$ GE4 | PresentZone$ Graveyard | Description$ As long as there are four or more creature cards in your graveyard, CARDNAME has indestructible and trample.
-A:AB$ Pump | Cost$ WB WB | Defined$ Self | KW$ Vigilance | SubAbility$ TrigDmg | SpellDescription$ CARDNAME gains vigilance until end of turn, then it deals 1 damage to each other creature you control.
+K:Evolve from:5 BR:Phanpy:6/6
+S:Mode$ Continuous | Affected$ Card.Self | AddKeyword$ Trample | IsPresent$ Creature.YouOwn | PresentCompare$ GE4 | PresentZone$ Graveyard | Description$ As long as there are four or more creature cards in your graveyard, CARDNAME has trample.
+A:AB$ Pump | Cost$ B R | Defined$ Self | KW$ Menace | SubAbility$ TrigDmg | SpellDescription$ CARDNAME gains menace until end of turn, then it deals 1 damage to each other creature you control.
 SVar:TrigDmg:DB$ DamageAll | ValidCards$ Creature.YouCtrl+Other | NumDmg$ 1
-Oracle:Evolve from Phanpy {5}{WB} [6/6]\nAs long as there are four or more creature cards in your graveyard, Donphan has indestructible and trample.\n{WB}{WB}: Donphan gains vigilance until end of turn, then it deals 1 damage to each other creature you control.
+Oracle:Evolve from Phanpy {5}{BR} [6/6]\nAs long as there are four or more creature cards in your graveyard, Donphan has trample.\n{B}{R}: Donphan gains menace until end of turn, then it deals 1 damage to each other creature you control.
 
 DeckHints:Name$Phanpy
 SVar:SoundEffect:donphan.mp3

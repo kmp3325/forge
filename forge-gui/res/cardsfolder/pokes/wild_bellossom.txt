@@ -1,5 +1,5 @@
 Name:Wild Bellossom
-ManaCost:RG RG RG
+ManaCost:2 RG RG
 Types:Creature Plant Pokémon
 PT:1/1
 A:AB$ Weather | Cost$ T | Value$ Sunny | SpellDescription$ It becomes sunny.

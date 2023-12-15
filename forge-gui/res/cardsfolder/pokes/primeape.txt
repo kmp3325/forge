@@ -1,11 +1,11 @@
 Name:Primeape
-ManaCost:3 R W
+ManaCost:4 R W
 Types:Creature Ape Pokémon
 PT:4/3
-K:Evolve from:3 R W:Mankey:5/4
+K:Evolve from:4 R W:Mankey:5/4
 K:Vigilance
 A:AB$ Fight | Cost$ T | Defined$ Self | ValidTgts$ Creature.attacking,Creature.blocking | TgtPrompt$ Select target attacking or blocking creature | SpellDescription$ CARDNAME fights target attacking or blocking creature.
-Oracle:Evolve from Mankey {3}{R}{W} [5/4]\nVigilance\n{T}: Primeape fights target attacking or blocking creature.
+Oracle:Evolve from Mankey {4}{R}{W} [5/4]\nVigilance\n{T}: Primeape fights target attacking or blocking creature.
 
 DeckHints:Name$Mankey
 SVar:HasAttackEffect:TRUE

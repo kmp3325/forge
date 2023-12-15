@@ -37,7 +37,7 @@ public enum CounterEnumType {
     FROST("FROST", 42, 170, 249),
     SAMPLE("SAMPLE", 150, 150, 150),
     VICEGRIP("VICEGRIP", 138, 166, 210),
-    DIG("DIG", 150, 75, 0),
+    BURROW("BURROW", 150, 75, 0),
 
     LOYALTY("LOYAL", 198, 198, 198),
 

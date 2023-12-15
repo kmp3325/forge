@@ -1,5 +1,5 @@
 Name:Giovanni's Persian
-ManaCost:2 BR BR
+ManaCost:2 WB WB
 Types:Legendary Creature Cat Pokémon
 PT:2/2
 K:Double strike

@@ -5,7 +5,8 @@ PT:1/1
 S:Mode$ Continuous | Affected$ Card.Self | AddToughness$ SUN | AddPower$ SUN | Description$ As long as it's sunny, CARDNAME gets +1/+1 for each burn counter on it.
 SVar:SUN:Count$Sunny.X.0
 SVar:X:Count$CardCounters.BURN
-Oracle:As long as it's sunny, Cyndaquil gets +1/+1 for each burn counter on it.
+A:AB$ PutCounter | Cost$ 2 R | CounterType$ BURN | CounterNum$ 1 | SpellDescription$ Put a burn counter on CARDNAME.
+Oracle:As long as it's sunny, Cyndaquil gets +1/+1 for each burn counter on it.\n{2}{R}: Put a burn counter on Cyndaquil.
 
 DeckHints:Name$Quilava
 SVar:SoundEffect:cyndaquil.mp3

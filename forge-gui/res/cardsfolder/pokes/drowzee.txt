@@ -1,5 +1,5 @@
 Name:Drowzee
-ManaCost:2 UB UB
+ManaCost:4 UB
 Types:Creature Boar Pokémon
 PT:1/3
 A:AB$ ChangeZone | Cost$ UB T | Origin$ Graveyard | Destination$ Exile | TgtPrompt$ Select target creature in a graveyard | ValidTgts$ Creature | RememberChanged$ True | SubAbility$ DBGainLife | SpellDescription$ Exile target creature card from a graveyard. If you have two or more cards in hand, you gain life equal to its mana value.

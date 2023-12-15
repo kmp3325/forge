@@ -261,10 +261,9 @@ Foil=NotSupported
 249 M Lugia
 250 M Ho-Oh
 251 M Celebi
-9941 U Team Rocket's Beedrill
 9942 U Team Rocket's Arbok
 9943 C Team Rocket's Meowth
-9944 U Team Rocket's Tentacruel
+9944 U Wild Tentacruel
 9945 U Team Rocket's Hitmonchan
 9946 C Team Rocket's Lickitung
 9947 U Team Rocket's Weezing
@@ -289,6 +288,7 @@ Foil=NotSupported
 9966 C Wild Ninetales
 9967 U Wild Arcanine
 9969 C Wild Typhlosion
+9970 C Wild Ivysaur
 9970 C Wild Venusaur
 9971 U Wild Beedrill
 9972 C Wild Onix

@@ -1,5 +1,5 @@
 Name:Team Rocket's Lickitung
-ManaCost:3 B R
+ManaCost:3 W B
 Types:Creature Frog Horror Pokémon
 PT:1/3
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigGainCtrl | TriggerDescription$ When CARDNAME enters the battlefield, you may pay 2 life. If you do, until end of turn, gain control of target creature and it gains haste. Tap it and put a stun counter on it at the beginning of the next turn's upkeep.

@@ -4,7 +4,8 @@ Types:Creature Faerie Rabbit Pokémon
 PT:0/1
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDestroy | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters the battlefield, you may destroy target artifact or enchantment.
 SVar:TrigDestroy:DB$ Destroy | ValidTgts$ Artifact,Enchantment | TgtPrompt$ Choose target artifact or enchantment.
-Oracle:When Cleffa enters the battlefield, you may destroy target artifact or enchantment.
+A:AB$ PumpAll | Cost$ 3 W | ValidCards$ Creature.YouCtrl+Evolved | NumAtt$ 1 | NumDef$ 1
+Oracle:When Cleffa enters the battlefield, you may destroy target artifact or enchantment.\n{3}{W}: Evolved creatures you control get +1/+1 until end of turn.
 
 DeckHints:Name$Clefairy
 SVar:SoundEffect:cleffa.mp3

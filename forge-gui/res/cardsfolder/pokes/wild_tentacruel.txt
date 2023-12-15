@@ -1,0 +1,11 @@
+Name:Wild Tentacruel
+ManaCost:2 U B R
+Types:Creature Squid Pokémon
+PT:3/4
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDamageAll | TriggerDescription$ When CARDNAME enters the battlefield, it deals 3 damage to each creature. Then target player mills cards equal to the damage dealt this way.
+SVar:TrigDamageAll:DB$ DamageAll | ValidCards$ Creature | NumDmg$ 3 | ValidDescription$ each creature. | SubAbility$ TrigMill
+SVar:TrigMill:DB$ Mill | NumCards$ X | ValidTgts$ Player | TgtPrompt$ Select target player
+SVar:X:Count$TotalDamageDoneByThisTurn
+Oracle:When Wild Tentacruel enters the battlefield, it deals 3 damage to each creature. Then target player mills cards equal to the damage dealt this way.
+
+SVar:SoundEffect:tentacruel.mp3

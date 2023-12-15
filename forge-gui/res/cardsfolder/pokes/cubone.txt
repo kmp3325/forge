@@ -1,5 +1,5 @@
 Name:Cubone
-ManaCost:1 WB
+ManaCost:1 BR
 Types:Creature Dinosaur Pokémon
 PT:2/2
 T:Mode$ DamageDoneOnce | ValidTarget$ Card.Self | ValidSource$ Creature.YouCtrl | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME is dealt damage by a creature you control, put a +1/+1 counter on it.

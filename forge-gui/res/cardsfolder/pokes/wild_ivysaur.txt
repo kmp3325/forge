@@ -1,0 +1,10 @@
+Name:Wild Ivysaur
+ManaCost:2G G
+Types:Creature Frog Plant Pokémon
+PT:1/2
+K:Flash
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPump | TriggerDescription$ When CARDNAME enters the battlefield, target creature gets +1/+2 and gains caustic and trample until end of turn.
+SVar:TrigPump:DB$ Pump | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumAtt$ 1 | NumDef$ 2 | KW$ Caustic & Trample
+Oracle:Flash\nWhen Wild Ivysaur enters the battlefield, target creature gets +1/+2 and gains caustic and trample until end of turn.
+
+SVar:SoundEffect:ivysaur.mp3

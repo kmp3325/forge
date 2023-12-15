@@ -1,12 +1,6 @@
 Name:Girafarig
 ManaCost:WB
-Types:Creature Antelop Demon Pokémon
+Types:Creature Antelope Demon Pokémon
 PT:1/2
-T:Mode$ Phase | Phase$ BeginCombat | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ DBDmg | TriggerDescription$ At the beginning of combat on your turn, CARDNAME deals 1 damage to target creature you control, then flip a coin. If you win the flip, remove all status counters from that creature.
-SVar:DBDmg:DB$ DealDamage | NumDmg$ 1 | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | SubAbility$ DBFlip
-SVar:DBFlip:DB$ FlipACoin | WinSubAbility$ DBRemovePoison | Optional$ True
-SVar:DBRemovePoison:DB$ RemoveCounter | Defined$ Targeted | CounterType$ POISON | CounterNum$ All | SubAbility$ DBRemoveStun
-SVar:DBRemoveStun:DB$ RemoveCounter | Defined$ ParentTarget | CounterNum$ All | CounterType$ STUN | SubAbility$ DBRemoveFrost
-SVar:DBRemoveFrost:DB$ RemoveCounter | Defined$ ParentTarget | CounterNum$ All | CounterType$ FROST | SubAbility$ DBRemoveBurn
-SVar:DBRemoveBurn:DB$ RemoveCounter | Defined$ ParentTarget | CounterNum$ All | CounterType$ BURN
-Oracle:At the beginning of combat on your turn, Girafarig deals 1 damage to target creature you control, then you may flip a coin. If you win the flip, remove all status counters from that creature.SVar:SoundEffect:girafarig.mp3
+A:AB$ DealDamage | Cost$ WB | ValidTgts$ Creature.YouCtrl+YouDontOwn | TgtPrompt$ Select target creature you control that you don't own | NumDmg$ 2
+Oracle:{WB}: Girafarig deals 2 damage to target creature you control that you don’t own.

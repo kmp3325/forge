@@ -1,10 +1,10 @@
 Name:Staryu
-ManaCost:1 UB UB
+ManaCost:2 UB
 Types:Creature Starfish Pokémon
 PT:2/2
-A:AB$ Mill | Cost$ U T | ValidTgts$ Player | NumCards$ X | TgtPrompt$ Select target player | SpellDescription$ Target player mills X cards, where X is CARDNAME's toughness.
+A:AB$ Mill | Cost$ UB T | ValidTgts$ Player | NumCards$ X | TgtPrompt$ Select target player | SpellDescription$ Target player mills X cards, where X is CARDNAME's toughness.
 SVar:X:Count$CardToughness
-Oracle:{U}, {T}: Target player mills X cards, where X is Staryu's toughness.
+Oracle:{UB}, {T}: Target player mills X cards, where X is Staryu's toughness.
 
 DeckHints:Name$Starmie
 SVar:SoundEffect:staryu.mp3

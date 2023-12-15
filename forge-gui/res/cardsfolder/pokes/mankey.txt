@@ -1,10 +1,11 @@
 Name:Mankey
-ManaCost:1 RW
+ManaCost:3 R W
 Types:Creature Monkey Pokémon
-PT:2/1
+PT:3/2
 K:Menace
-K:Training
-Oracle:Menace, training
+T:Mode$ Fight | ValidCard$ Creature.OppCtrl | TriggerZones$ Battlefield | Execute$ TrigDmg | TriggerDescription$ Whenever a creature an opponent controls fights, Mankey deals 2 damage to that creature’s controller.
+SVar:TrigDmg:DB$ DealDamage | NumDmg$ 2 | Defined$ TriggeredCardController
+Oracle:Menace\nWhenever a creature an opponent controls fights, Mankey deals 2 damage to that creature’s controller.
 
 DeckHints:Name$Primeape
 SVar:SoundEffect:mankey.mp3

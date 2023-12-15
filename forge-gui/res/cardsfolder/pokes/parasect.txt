@@ -1,5 +1,5 @@
 Name:Parasect
-ManaCost:1 G G U
+ManaCost:1 G G G
 Types:Creature Insect Fungus Pokémon
 PT:3/3
 K:Evolve from:2 G G:Paras:4/4

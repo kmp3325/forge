@@ -5,7 +5,9 @@ PT:2/1
 K:Evolve from:B G:Kakuna:3/1
 K:First strike
 K:Caustic
-Oracle:Evolve from Kakuna {B}{G} [3/1]\nFirst strike, caustic
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.Self | Execute$ TrigReturn | TriggerDescription$ When CARDNAME dies, you may pay {B}{G}. If you do, return it to its owner's hand.
+SVar:TrigReturn:AB$ ChangeZone | Cost$ B G | Origin$ Graveyard | Destination$ Hand | Defined$ TriggeredNewCardLKICopy
+Oracle:Evolve from Kakuna {B}{G} [3/1]\nFirst strike, caustic\nWhen Beedrill dies, you may pay {B}{G}. If you do, return it to its owner's hand.
 
 DeckHints:Name$Kakuna
 SVar:SoundEffect:beedrill.mp3

@@ -1,16 +1,15 @@
 Name:Alakazam
-ManaCost:3 U U B
+ManaCost:3 U UB B
 Types:Creature Fox Wizard Pokémon
 PT:6/3
-K:Evolve from:3 U U B:Kadabra:7/4
+K:Evolve from:3 U UB B:Kadabra:7/4
 K:First strike
 T:Mode$ Discarded | ValidCard$ Card.OppOwn | TriggerZones$ Battlefield | Execute$ DBMill | TriggerDescription$ Whenever an opponent discards a card, they mill cards equal to that card's mana value.
 SVar:DBMill:DB$ Mill | Defined$ TriggeredCardController | NumCards$ X
 SVar:X:TriggeredCard$CardManaCost
-T:Mode$ Drawn | ValidCard$ Card.OppOwn | TriggerZones$ Battlefield | Execute$ ImmediateTrigger | ResolveLimit$ 1 | TriggerDescription$ Whenever an opponent draws a card, you may pay 2 life. When you do, that player discards a card. Do this only once each turn.
-SVar:ImmediateTrigger:AB$ ImmediateTrigger | Cost$ PayLife<2> | Execute$ TrigDiscard | CopyTriggeringObjects$ True | TriggerDescription$ When you do, that player discards a card. Do this only once each turn.
-SVar:TrigDiscard:DB$ Discard | Defined$ TriggeredTarget | NumCards$ 1 | Mode$ TgtChoose
-Oracle:Evolve from Kadabra {3}{U}{U}{B} [7/4]\nFirst strike\nWhenever an opponent discards a card, they mill cards equal to that card's mana value.\nWhenever an opponent draws a card, you may pay 2 life. When you do, that player discards a card. Do this only once each turn.
+T:Mode$ Drawn | ValidCard$ Card.OppOwn | TriggerZones$ Battlefield | Execute$ TrigDiscard | ResolveLimit$ 1 | TriggerDescription$ Whenever an opponent draws a card, you may pay 2 life. If you do, that player discards a card. Do this only once each turn.
+SVar:TrigDiscard:AB$ Discard | Cost$ PayLife<2> | Defined$ TriggeredTarget | NumCards$ 1 | Mode$ TgtChoose
+Oracle:Evolve from Kadabra {3}{U}{UB}{B} [7/4]\nFirst strike\nWhenever an opponent discards a card, they mill cards equal to that card's mana value.\nWhenever an opponent draws a card, you may pay 2 life. If you do, that player discards a card. Do this only once each turn.
 
 DeckHints:Name$Kadabra
 SVar:SoundEffect:alakazam.mp3

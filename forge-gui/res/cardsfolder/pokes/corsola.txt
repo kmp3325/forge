@@ -1,7 +1,7 @@
 Name:Corsola
 ManaCost:1 G U
 Types:Creature Sponge Pokémon
-PT:1/4
+PT:1/3
 T:Mode$ DamageDoneOnce | ValidTarget$ Card.Self | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME is dealt damage, put a +1/+1 counter on it.
 SVar:TrigPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1
 T:Mode$ CounterAddedOnce | ValidCard$ Creature.YouCtrl | TriggerZones$ Battlefield | CounterType$ P1P1 | Execute$ TrigMana | TriggerDescription$ Whenever one or more +1/+1 counters are put on a creature you control, add {G} or {U}. You don't lose this mana as steps and phases end.

@@ -1,13 +1,13 @@
 Name:Arbok
-ManaCost:3 B G
+ManaCost:2 B G
 Types:Creature Snake Pokémon
 PT:3/3
-K:Evolve from:3 B G:Ekans:4/4
+K:Evolve from:2 B G:Ekans:4/4
 K:First strike
 S:Mode$ Continuous | Affected$ Creature.YouDontCtrl | AffectedZone$ Battlefield | AddPower$ -AffectedX | Description$ Creatures you don't control get -1/-0 for each poison counter on them.
 SVar:AffectedX:Count$CardCounters.POISON
 A:AB$ Goad | Cost$ B G T | ValidTgts$ Creature | SpellDescription$ Goad target creature.
-Oracle: Evolve from Ekans {3}{B}{G} [4/4]\nFirst strike\nCreatures your opponents control get -1/-0 for each poison counter on them.\n{B}{G}, {T}: Goad target creature.
+Oracle: Evolve from Ekans {2}{B}{G} [4/4]\nFirst strike\nCreatures your opponents control get -1/-0 for each poison counter on them.\n{B}{G}, {T}: Goad target creature.
 
 DeckHints:Name$Ekans
 SVar:HasAttackEffect:TRUE

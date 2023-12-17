@@ -1019,7 +1019,7 @@ public class CardView extends GameEntityView {
         }
 
         CardStateView currentStateView = currentState.getView();
-        if (getCurrentState() != currentStateView) {
+        if (getCurrentState() != currentStateView || c.hasPerpetual()) {
             set(TrackableProperty.CurrentState, currentStateView);
             currentStateView.updateName(currentState);
             currentStateView.updatePower(c); //ensure power, toughness, and loyalty updated when current state changes

@@ -2157,6 +2157,10 @@ public class AbilityUtils {
             return doXMath(c.getRememberedCount(), expr, c, ctb);
         }
 
+        if (sq[0].startsWith("ChosenSize")) {
+            return doXMath(c.getChosenCards().size(), expr, c, ctb);
+        }
+
         if (sq[0].startsWith("ImprintedSize")) {
             return doXMath(c.getImprintedCards().size(), expr, c, ctb);
         }
@@ -3056,12 +3060,15 @@ public class AbilityUtils {
                     replaced = getReplacedText(replaced, colorCaptCase, e.getValue(), isDescriptive);
                 }
             } else {
+                replaced = getReplacedText(replaced, key.toLowerCase(), e.getValue().toLowerCase(), isDescriptive);
                 replaced = getReplacedText(replaced, key, e.getValue(), isDescriptive);
             }
         }
         for (final Entry<String, String> e : typeMap.entrySet()) {
             final String key = e.getKey();
-            replaced = getReplacedText(replaced, CardType.getPluralType(key), CardType.getPluralType(e.getValue()), isDescriptive);
+            if (isDescriptive) {
+                replaced = getReplacedText(replaced, CardType.getPluralType(key), CardType.getPluralType(e.getValue()), isDescriptive);
+            }
             replaced = getReplacedText(replaced, key, e.getValue(), isDescriptive);
         }
 

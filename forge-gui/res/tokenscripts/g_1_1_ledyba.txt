@@ -1,0 +1,6 @@
+Name:Ledyba
+ManaCost:no cost
+Types:Creature Insect Pokémon
+Colors:green
+PT:1/1
+Oracle:

@@ -2,10 +2,11 @@ Name:Team Rocket's Meowth
 ManaCost:WB
 Types:Legendary Creature Cat Pokémon
 PT:1/1
-A:AB$ ChangeZone | Cost$ T | Origin$ Battlefield | Destination$ Library | Shuffle$ False | RememberChanged$ True | Defined$ Self | SubAbility$ DBBlastOff | SpellDescription$ Shuffle CARDNAME and up to two other permanents you control into their owners' libraries.
+A:AB$ ChangeZone | Cost$ T | Origin$ Battlefield | Destination$ Library | Shuffle$ False | RememberChanged$ True | Defined$ Self | SubAbility$ DBBlastOff | SpellDescription$ Shuffle CARDNAME and up to two other permanents you control into their owners' libraries. Create a Treasure token.
 SVar:DBBlastOff:DB$ ChangeZone | TargetMin$ 0 | TargetMax$ 2 | TargetsFromSingleZone$ True | TgtPrompt$ Choose target permanent you control | ValidTgts$ Card.YouCtrl+Other | Origin$ Battlefield | Destination$ Library | Shuffle$ False | RememberChanged$ True | SubAbility$ DBShuffleChanged
 SVar:DBShuffleChanged:DB$ Shuffle | Defined$ RememberedOwner | SubAbility$ DBCleanup | StackDescription$ None
-SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
-Oracle:{T}: Shuffle Team Rocket's Meowth and up to two other permanents you control into their owners' libraries.
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True | SubAbility$ CreateTreasure
+SVar:CreateTreasure:DB$ Token | TokenScript$ c_a_treasure_sac
+Oracle:{T}: Shuffle Team Rocket's Meowth and up to two other permanents you control into their owners' libraries. Create a Treasure token.
 
 SVar:SoundEffect:meowth.mp3

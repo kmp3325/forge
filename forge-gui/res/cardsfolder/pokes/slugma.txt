@@ -2,13 +2,11 @@ Name:Slugma
 ManaCost:1 R
 Types:Creature Elemental Slug Pokémon
 PT:2/2
-T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigBurn | TriggerDescription$ When CARDNAME enters the battlefield, it deals 1 damage to target creature, then put a burn counter on that creature.
-SVar:TrigBurn:DB$ DealDamage | NumDmg$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigCounter
-SVar:TrigCounter:DB$ PutCounter | CounterType$ BURN | Defined$ ParentTarget | CounterNum$ 1
 S:Mode$ Continuous | Affected$ Card.Self | AddPower$ X | AddToughness$ SUN | Description$ CARDNAME gets +1/+0 for each burn counter on it. If it's sunny, it gets +1/+1 for each burn counter on it instead.
 SVar:SUN:Count$Sunny.X.0
 SVar:X:Count$CardCounters.BURN
-Oracle:When Slugma enters the battlefield, it deals 1 damage to target creature, then put a burn counter on that creature.\nSlugma gets +1/+0 for each burn counter on it. If it’s sunny, it gets +1/+1 for each burn counter on it instead.
+A:AB$ PutCounter | Cost$ 1 R | CounterType$ BURN | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature | SpellDescription$ Put a burn counter on target creature.
+Oracle:Slugma gets +1/+0 for each burn counter on it. If it’s sunny, it gets +1/+1 for each burn counter on it instead.\n{1}{R}: Put a burn counter on target creature.
 
 DeckHints:Name$Magcargo
 SVar:SoundEffect:slugma.mp3

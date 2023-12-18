@@ -1,6 +1,6 @@
 Name:Sandslash
 ManaCost:2 W B
-Types:Creature Mouse Pokémon
+Types:Creature Mole Pokémon
 PT:3/3
 K:Evolve from:2 W B:Sandshrew:4/4
 K:First strike

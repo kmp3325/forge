@@ -1,6 +1,6 @@
 Name:Sandshrew
 ManaCost:2 WB
-Types:Creature Mouse Pokémon
+Types:Creature Mole Pokémon
 PT:1/2
 R:Event$ DamageDone | ActiveZones$ Battlefield | ValidTarget$ Creature.YouCtrl | ValidSource$ Creature.YouCtrl | ReplaceWith$ Dmg1 | Description$ If a creature you control would deal damage to another creature you control, you may have it deal 1 damage to that creature instead.
 SVar:Dmg1:DB$ ReplaceEffect | VarName$ DamageAmount | VarValue$ 1

@@ -9,11 +9,11 @@ K:Lifelink
 T:Mode$ DamageDealtOnce | ValidSource$ Card.Self | ValidTarget$ Player | Execute$ TrigMill | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME deals damage to a player, that player mills that many cards.
 SVar:TrigMill:DB$ Mill | Defined$ TriggeredTarget | NumCards$ X
 SVar:X:TriggerCount$DamageAmount
-T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | IsPresent$ Card.Self+attackedThisTurn | Execute$ TrigPutPlus | TriggerDescription$ At the beginning of your end step, if CARDNAME attacked this turn, put a +1/+1 counter on it. If it didn't, put a -1/-1 counter on it.
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | IsPresent$ Card.Self+attackedThisTurn | Execute$ TrigPutPlus | TriggerDescription$ At the beginning of your end step, if CARDNAME attacked this turn, put a +1/+1 counter on it. Otherwise, put a -1/-1 counter on it.
 SVar:TrigPutPlus:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1
-T:Mode$ Phase | Secondary$ True | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | IsPresent$ Card.Self+notAttackedThisTurn | Execute$ TrigPutMinus | TriggerDescription$ At the beginning of your end step, if CARDNAME attacked this turn, put a +1/+1 counter on it. If it didn't, put a -1/-1 counter on it.
+T:Mode$ Phase | Secondary$ True | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | IsPresent$ Card.Self+notAttackedThisTurn | Execute$ TrigPutMinus | TriggerDescription$ At the beginning of your end step, if CARDNAME attacked this turn, put a +1/+1 counter on it. Otherwise, put a -1/-1 counter on it.
 SVar:TrigPutMinus:DB$ PutCounter | Defined$ Self | CounterType$ M1M1 | CounterNum$ 1
-Oracle:Evolve from Golbat {3}{B} [3/4]\nFlying, first strike\nWhenever Crobat deals damage to a player, that player mills that many cards.\nAt the beginning of your end step, if Crobat attacked this turn, put a +1/+1 counter on it. If it didn't, put a -1/-1 counter on it.
+Oracle:Evolve from Golbat {3}{B} [3/4]\nFlying, first strike\nWhenever Crobat deals damage to a player, that player mills that many cards.\nAt the beginning of your end step, if Crobat attacked this turn, put a +1/+1 counter on it. Otherwise, put a -1/-1 counter on it.
 
 DeckHints:Name$Golbat
 SVar:HasCombatEffect:TRUE

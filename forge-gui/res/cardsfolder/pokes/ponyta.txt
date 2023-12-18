@@ -2,11 +2,11 @@ Name:Ponyta
 ManaCost:3 R G
 Types:Creature Horse Pokémon
 PT:3/3
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounter | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, you may put a burn counter on target creature. If it's sunny, you may put two burn counters on that creature instead.
-T:Mode$ Evolved | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigPutCounter | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, you may put a burn counter on target creature. If it's sunny, you may put two burn counters on that creature instead.
-SVar:TrigPutCounter:DB$ PutCounter | IsCurse$ True | ValidTgts$ Creature | TgtPrompt$ Select target creature | CounterType$ BURN | CounterNum$ 3 | UpTo$ True | SubAbility$ TrigSun
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounter | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, put a burn counter on each creature you don't control. It becomes sunny.
+T:Mode$ Evolved | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigPutCounter | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, put a burn counter on each creature you don't control. It becomes sunny.
+SVar:TrigPutCounter:DB$ PutCounterAll | ValidCards$ Creature.YouDontCtrl | CounterType$ BURN | CounterNum$ 1 | SubAbility$ TrigSun
 SVar:TrigSun:DB$ Weather | Value$ Sunny
-Oracle:Whenever Ponyta enters the battlefield or evolves, you may put up to three burn counters on target creature. It becomes sunny.
+Oracle:Whenever Ponyta enters the battlefield or evolves, put a burn counter on each creature you don't control. It becomes sunny.
 
 DeckHints:Name$Rapidash
 SVar:SoundEffect:ponyta.mp3

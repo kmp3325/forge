@@ -2,12 +2,12 @@ Name:Pineco
 ManaCost:2 G
 Types:Creature Plant Insect Pokémon
 PT:0/1
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSearch | OptionalDecider$ You | SpellDescription$ When CARDNAME enters the battlefield, you may search your library for up to two basic Forest cards, reveal those cards, put one onto the battlefield tapped and the other into your hand, then shuffle.
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSearch | OptionalDecider$ You | SpellDescription$ When CARDNAME enters the battlefield, you may search your library for up to two basic Forest cards, reveal them, put one onto the battlefield tapped and the other into your hand, then shuffle.
 SVar:TrigSearch:DB$ ChangeZone | Origin$ Library | Destination$ Library | ChangeType$ Land.Basic+Forest | ChangeNum$ 2 | RememberChanged$ True | Reveal$ True | Shuffle$ False | SubAbility$ DBChangeZone1
 SVar:DBChangeZone1:DB$ ChangeZone | Origin$ Library | Destination$ Battlefield | ChangeType$ Land.IsRemembered | ChangeNum$ 1 | Mandatory$ True | NoLooking$ True | SelectPrompt$ Select a card for the battlefield | Tapped$ True | Shuffle$ False | SubAbility$ DBChangeZone2
 SVar:DBChangeZone2:DB$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Land.IsRemembered | Mandatory$ True | NoLooking$ True | SelectPrompt$ Select a card for your hand | SubAbility$ DBCleanup
 SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
-Oracle:When Pineco enters the battlefield, you may search your library for up to two basic Forest cards, reveal those cards, put one onto the battlefield tapped and the other into your hand, then shuffle.
+Oracle:When Pineco enters the battlefield, you may search your library for up to two basic Forest cards, reveal them, put one onto the battlefield tapped and the other into your hand, then shuffle.
 
 DeckHints:Name$Forretress
 SVar:SoundEffect:pineco.mp3

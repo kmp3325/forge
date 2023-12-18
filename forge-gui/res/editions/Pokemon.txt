@@ -261,65 +261,65 @@ Foil=NotSupported
 249 M Lugia
 250 M Ho-Oh
 251 M Celebi
-9942 U Team Rocket's Arbok
-9943 C Team Rocket's Meowth
-9944 U Wild Tentacruel
-9945 U Team Rocket's Hitmonchan
-9946 C Team Rocket's Lickitung
-9947 U Team Rocket's Weezing
-9948 U Team Rocket's Rhydon
-9949 C Team Rocket's Magikarp
-9950 M Team Rocket's Gyarados
-9951 R Team Rocket's Tyranitar
-9952 R Giovanni's Persian
-9953 M Giovanni's Armor
-9954 C Wild Pidgey
-9955 C Wild Pidgeot
-9956 U Wild Raticate
-9957 U Wild Fearow
-9958 U Wild Tauros
-9959 U Wild Poliwhirl
-9960 U Wild Tentacool
-9961 C Wild Lapras
-9962 C Wild Zubat
-9963 C Wild Gastly
-9964 C Wild Charmander
-9965 C Wild Vulpix
-9966 C Wild Ninetales
-9967 U Wild Arcanine
-9969 C Wild Typhlosion
-9970 C Wild Ivysaur
-9970 C Wild Venusaur
-9971 U Wild Beedrill
-9972 C Wild Onix
-9973 U Wild Rhydon
-9974 U Wild Scyther
-9975 C Wild Kabutops
-9975 U Wild Pikachu
-9976 C Wild Bellossom
-9977 M Master Ball
-9978 C Mahogany Town Gym
-9979 C Violet City Gym
-9980 C Viridian City Gym
-9981 C Cianwood City Gym
-9982 C Olivine City Gym
-9983 C Saffron City Gym
-9984 C Vermilion City Gym
-9985 C Cerulean City Gym
-9986 C Ecruteak City Gym
-9987 C Azalea Town Gym
-9988 C Cinnabar Island Gym
-9989 L Snow-Covered Plains
-9990 L Snow-Covered Island
-9991 L Snow-Covered Swamp
-9992 L Snow-Covered Mountain
-9993 L Snow-Covered Forest
-9994 L Plains
-9995 L Island
-9996 L Swamp
-9997 L Mountain
-9998 L Forest
-9999 L Wastes
+4000 U Team Rocket's Arbok
+4001 C Team Rocket's Meowth
+4002 U Team Rocket's Hitmonchan
+4003 C Team Rocket's Lickitung
+4004 U Team Rocket's Weezing
+4005 U Team Rocket's Rhydon
+4006 C Team Rocket's Magikarp
+4007 M Team Rocket's Gyarados
+4008 R Team Rocket's Tyranitar
+4009 R Giovanni's Persian
+4010 M Giovanni's Armor
+4011 C Wild Pidgey
+4012 C Wild Pidgeot
+4013 U Wild Raticate
+4014 U Wild Fearow
+4015 U Wild Tauros
+4016 U Wild Poliwhirl
+4017 U Wild Tentacool
+4018 C Wild Lapras
+4019 C Wild Zubat
+4020 C Wild Gastly
+4021 C Wild Charmander
+4022 C Wild Vulpix
+4023 C Wild Ninetales
+4024 U Wild Arcanine
+4025 C Wild Typhlosion
+4026 C Wild Ivysaur
+4027 C Wild Venusaur
+4028 U Wild Beedrill
+4029 C Wild Onix
+4030 U Wild Rhydon
+4031 U Wild Scyther
+4032 C Wild Kabutops
+4033 U Wild Pikachu
+4034 U Wild Tentacruel
+4035 C Wild Bellossom
+4036 M Master Ball
+4037 C Mahogany Town Gym
+4038 C Violet City Gym
+4039 C Viridian City Gym
+4040 C Cianwood City Gym
+4041 C Olivine City Gym
+4042 C Saffron City Gym
+4043 C Vermilion City Gym
+4044 C Cerulean City Gym
+4045 C Ecruteak City Gym
+4046 C Azalea Town Gym
+4047 C Cinnabar Island Gym
+4048 L Snow-Covered Plains
+4049 L Snow-Covered Island
+4050 L Snow-Covered Swamp
+4051 L Snow-Covered Mountain
+4052 L Snow-Covered Forest
+4053 L Plains
+4054 L Island
+4055 L Swamp
+4056 L Mountain
+4057 L Forest
+4058 L Wastes
 
 [extended art]
 7000 U Ivysaur
@@ -374,16 +374,17 @@ Foil=NotSupported
 7047 M Articuno
 7048 M Zapdos
 7049 M Moltres
-7050 C Chikorita
-7051 M Sunflora
-7052 M Lugia
-7053 M Ho-Oh
-7054 M Celebi
-7055 U Team Rocket's Tentacruel
+7050 M Mewtwo
+7051 C Chikorita
+7052 M Sunflora
+7053 M Lugia
+7054 M Ho-Oh
+7055 M Celebi
 7056 M Team Rocket's Gyarados
 7057 R Team Rocket's Tyranitar
 7058 R Giovanni's Persian
 7059 C Wild Onix
+7060 U Wild Tentacruel
 
 [Snow Lands]
 5 Snow-Covered Plains|PKM

@@ -1579,6 +1579,7 @@
 #307|Swamp|L|PKM
 #308|Mountain|L|PKM
 #309|Forest|L|PKM
+#310|Wastes|L|PKM
 //Rank|Name|Rarity|Set
 #1|Archangel Avacyn|M|SIR
 #2|Sorin, Grim Nemesis|M|SIR

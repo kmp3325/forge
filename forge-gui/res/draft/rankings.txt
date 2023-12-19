@@ -1448,7 +1448,7 @@
 #176|Wild Beedrill|U|PKM
 #177|Wild Rhydon|U|PKM
 #178|Wild Scyther|U|PKM
-#179|Wild Ivysaur|C|PKM
+#179|Wild Ivysaur|U|PKM
 #180|Bulbasaur|C|PKM
 #181|Charmander|C|PKM
 #182|Squirtle|C|PKM

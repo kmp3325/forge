@@ -3,13 +3,10 @@ ManaCost:2 B G
 Types:Creature Insect Pokémon
 PT:3/3
 K:Evolve from:2 B G:Venonat:3/3
-T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Creature.Insect | TriggerZones$ Battlefield | Execute$ TrigGainLife | TriggerDescription$ Whenever an Insect creature dies, you gain 2 life and draw a card.
-SVar:TrigGainLife:DB$ GainLife | Defined$ You | LifeAmount$ 2 | SubAbility$ DBDraw
-SVar:DBDraw:DB$ Draw | Defined$ You | NumCards$ 1
-A:AB$ PumpAll | Cost$ Sac<1/Insect;Food;Insect or Food> | ValidCards$ Creature.YouCtrl+withCaustic | KW$ Indestructible | SubAbility$ CreateFood | SpellDescription$ Sacrifice an Insect or Food: Creatures you control with caustic gain indestructible until end of turn. If an Insect was sacrificed to activate this ability, create a Food token.
+A:AB$ PumpAll | Cost$ Sac<1/Insect;Food;Insect or Food> | ValidCards$ Creature.YouCtrl+withCaustic | NumDef$ 2 | SubAbility$ CreateFood | SpellDescription$ Creatures you control with caustic get +0/+2 until end of turn. If an Insect was sacrificed to activate this ability, create a Food token.
 SVar:CreateFood:DB$ Token | TokenAmount$ 1 | TokenScript$ c_a_food_sac | TokenOwner$ You | ConditionCheckSVar$ X | ConditionSVarCompare$ GE1
 SVar:X:Sacrificed$Valid Card.Insect
-Oracle:Evolve from Venonat {2}{B}{G} [3/3]\nWhenever an Insect creature dies, you gain 2 life and draw a card.\nSacrifice an Insect or Food: Creatures you control with caustic gain indestructible until end of turn. If an Insect was sacrificed to activate this ability, create a Food token.
+Oracle:Evolve from Venonat {2}{B}{G} [3/3]\nSacrifice an Insect or Food: Creatures you control with caustic get +0/+2 until end of turn. If an Insect was sacrificed to activate this ability, create a Food token.
 
 DeckHints:Name$Venonat
 SVar:HasBlockEffect:TRUE

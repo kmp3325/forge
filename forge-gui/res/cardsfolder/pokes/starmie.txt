@@ -5,9 +5,8 @@ PT:3/1
 K:Evolve from:1 U B:Staryu:3/1
 S:Mode$ Continuous | EffectZone$ Battlefield | AddToughness$ X | Affected$ Card.Self | Description$ CARDNAME gets +0/+1 for each land card in all graveyards.
 SVar:X:Count$ValidGraveyard Land
-A:AB$ Mana | Cost$ ExileFromGrave<1/Land> | Produced$ Combo U B | Amount$ 2 | InstantSpeed$ True | SpellDescription$ Add {U}{U}, {U}{B}, or {B}{B}.
 A:AB$ Draw | Cost$ 1 UB Sac<1/Land> | Defined$ You | NumCards$ 2 | SpellDescription$ Draw two cards.
-Oracle:Evolve from Staryu {1}{U}{B} [3/2]\nStarmie gets +0/+1 for each land card in all graveyards.\nExile a land card from your graveyard: Add {U}{U}, {U}{B}, or {B}{B}. Activate only as an instant.\n{1}{UB}, Sacrifice a land: Draw two cards.
+Oracle:Evolve from Staryu {1}{U}{B} [3/2]\nStarmie gets +0/+1 for each land card in all graveyards.\n{1}{UB}, Sacrifice a land: Draw two cards.
 
 DeckHints:Name$Staryu
 SVar:SoundEffect:starmie.mp3

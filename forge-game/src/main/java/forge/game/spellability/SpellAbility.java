@@ -2537,4 +2537,8 @@ public abstract class SpellAbility extends CardTraitBase implements ISpellAbilit
         }
         return true;
     }
+
+    public boolean isCounterableBy(SpellAbility sa) {
+        return true;
+    }
 }

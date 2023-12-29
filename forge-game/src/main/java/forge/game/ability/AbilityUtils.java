@@ -1537,6 +1537,10 @@ public class AbilityUtils {
 
         boolean alreadyPaid = false;
         for (Player payer : allPayers) {
+            if (!payer.isInGame()) {
+                // CR 800.4f
+                continue;
+            }
             if (unlessCost.equals("LifeTotalHalfUp")) {
                 String halfup = Integer.toString(Math.max(0,(int) Math.ceil(payer.getLife() / 2.0)));
                 cost = new Cost("PayLife<" + halfup + ">", true);
@@ -2144,9 +2148,11 @@ public class AbilityUtils {
         if (sq[0].contains("CardManaCost")) {
             int cmc = c.getCMC();
 
-            if (sq[0].contains("LKI") && ctb instanceof SpellAbility && !c.isInZone(ZoneType.Stack) && c.getManaCost() != null) {
-                if (((SpellAbility) ctb).getXManaCostPaid() != null) {
+            if (sq[0].contains("LKI") && !c.isInZone(ZoneType.Stack) && c.getManaCost() != null) {
+                if (ctb instanceof SpellAbility && ((SpellAbility) ctb).getXManaCostPaid() != null) {
                     cmc += ((SpellAbility) ctb).getXManaCostPaid() * c.getManaCost().countX();
+                } else {
+                    cmc += c.getXManaCostPaid() * c.getManaCost().countX();
                 }
             }
 

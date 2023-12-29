@@ -435,6 +435,8 @@ public enum CounterEnumType {
 
     POISON("POISN"),
 
+    RAD("RAD"),
+
     TICKET("TICKET"),
 
     // Keyword Counters

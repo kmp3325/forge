@@ -32,6 +32,7 @@ import forge.game.cost.CostPart;
 import forge.game.event.GameEventCardForetold;
 import forge.game.trigger.TriggerType;
 import forge.util.Localizer;
+
 import org.apache.commons.lang3.StringUtils;
 
 import com.google.common.base.Predicate;
@@ -60,7 +61,6 @@ import forge.game.player.Player;
 import forge.game.replacement.ReplacementEffect;
 import forge.game.replacement.ReplacementHandler;
 import forge.game.replacement.ReplacementLayer;
-import forge.game.replacement.ReplacementType;
 import forge.game.spellability.AbilityStatic;
 import forge.game.spellability.AbilitySub;
 import forge.game.spellability.AlternativeCost;
@@ -76,6 +76,7 @@ import forge.game.trigger.TriggerHandler;
 import forge.game.zone.ZoneType;
 import forge.util.Lang;
 import forge.util.TextUtil;
+
 import io.sentry.Breadcrumb;
 import io.sentry.Sentry;
 
@@ -107,12 +108,9 @@ public class CardFactoryUtil {
                 }
                 final Game game = hostCard.getGame();
 
-                CardCollectionView lastStateBattlefield = game.copyLastStateBattlefield();
-                CardCollectionView lastStateGraveyard = game.copyLastStateGraveyard();
-
                 Map<AbilityKey, Object> moveParams = AbilityKey.newMap();
-                moveParams.put(AbilityKey.LastStateBattlefield, lastStateBattlefield);
-                moveParams.put(AbilityKey.LastStateGraveyard, lastStateGraveyard);
+                moveParams.put(AbilityKey.LastStateBattlefield, game.copyLastStateBattlefield());
+                moveParams.put(AbilityKey.LastStateGraveyard, game.copyLastStateGraveyard());
 
                 hostCard.getGame().getAction().moveToPlay(hostCard, this, moveParams);
             }
@@ -238,52 +236,6 @@ public class CardFactoryUtil {
                 + " | HiddenAgenda$ True"
                 + " | Mode$ TurnFaceUp | SpellDescription$ Reveal this Hidden Agenda at any time.";
         return AbilityFactory.getAbility(ab, sourceCard);
-    }
-
-    /**
-     * <p>
-     * isCounterable.
-     * </p>
-     *
-     * @param c
-     *            a {@link forge.game.card.Card} object.
-     * @return a boolean.
-     */
-    public static boolean isCounterable(final Card c) {
-        if (c.hasKeyword("CARDNAME can't be countered.") || c.hasKeyword("This spell can't be countered.")) {
-            return false;
-        }
-
-        final Map<AbilityKey, Object> repParams = AbilityKey.mapFromAffected(c);
-        List<ReplacementEffect> list = c.getGame().getReplacementHandler().getReplacementList(ReplacementType.Counter, repParams, ReplacementLayer.CantHappen);
-        return list.isEmpty();
-    }
-
-    /**
-     * <p>
-     * isCounterableBy.
-     * </p>
-     *
-     * @param c
-     *            a {@link forge.game.card.Card} object.
-     * @param sa
-     *            the sa
-     * @return a boolean.
-     */
-    public static boolean isCounterableBy(final Card c, final SpellAbility sa) {
-        if (!isCounterable(c)) {
-            return false;
-        }
-
-        for (String o : c.getHiddenExtrinsicKeywords()) {
-            if (o.startsWith("CantBeCounteredBy")) {
-                final String[] m = o.split(":");
-                if (sa.isValid(m[1].split(","), c.getController(), c, null)) {
-                    return false;
-                }
-            }
-        }
-        return true;
     }
 
     /**
@@ -1099,18 +1051,19 @@ public class CardFactoryUtil {
         } else if (keyword.equals("Double team")) {
             final String trigString = "Mode$ Attacks | ValidCard$ Card.Self+nonToken | TriggerZones$ Battlefield" +
                     " | Secondary$ True | TriggerDescription$ Double team (" + inst.getReminderText() + ")";
-            final String makeString = "DB$ MakeCard | DefinedName$ Self | Zone$ Hand | RememberMade$ True | Conjure$ True";
-            final String forgetString = "DB$ Effect | Duration$ Permanent | RememberObjects$ Remembered | ImprintCards$ TriggeredAttacker | StaticAbilities$ RemoveDoubleTeamMade";       
-            final String madeforgetmadeString = "Mode$ Continuous | EffectZone$ Command | Affected$ Card.IsRemembered,Card.IsImprinted | RemoveKeyword$ Double team | AffectedZone$ Battlefield,Hand,Graveyard,Exile,Stack,Library,Command | Description$ Both cards perpetually lose double team.";
-            final String CleanupString = "DB$ Cleanup | ClearRemembered$ True | ClearImprinted$ True";
+            final String maSt = "DB$ MakeCard | DefinedName$ Self | Zone$ Hand | RememberMade$ True | Conjure$ True";
+            final String puSt = "DB$ Pump | RememberObjects$ Self";
+            final String anSt = "DB$ Animate | Duration$ Perpetual | Defined$ Remembered | RemoveKeywords$ Double team";
+            final String clSt = "DB$ Cleanup | ClearRemembered$ True";
             final Trigger trigger = TriggerHandler.parseTrigger(trigString, card, intrinsic);
-            final SpellAbility youMake = AbilityFactory.getAbility(makeString, card);
-            final AbilitySub forget = (AbilitySub) AbilityFactory.getAbility(forgetString, card);
-            final AbilitySub Cleanup = (AbilitySub) AbilityFactory.getAbility(CleanupString, card);
-            forget.setSVar("RemoveDoubleTeamMade",madeforgetmadeString);
-            youMake.setSubAbility(forget);
-            forget.setSubAbility(Cleanup);
-            trigger.setOverridingAbility(youMake);
+            final SpellAbility trigMake = AbilityFactory.getAbility(maSt, card);
+            final AbilitySub pump = (AbilitySub) AbilityFactory.getAbility(puSt, card);
+            final AbilitySub remove = (AbilitySub) AbilityFactory.getAbility(anSt, card);
+            final AbilitySub cleanup = (AbilitySub) AbilityFactory.getAbility(clSt, card);
+            trigMake.setSubAbility(pump);
+            pump.setSubAbility(remove);
+            remove.setSubAbility(cleanup);
+            trigger.setOverridingAbility(trigMake);
             
             inst.addTrigger(trigger); 
         } else if (keyword.startsWith("Echo")) {

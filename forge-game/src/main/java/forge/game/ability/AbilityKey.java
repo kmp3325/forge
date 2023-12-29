@@ -135,7 +135,6 @@ public enum AbilityKey {
     SurveilNum("SurveilNum"),
     Target("Target"),
     Targets("Targets"),
-    TgtSA("TgtSA"),
     Token("Token"),
     TokenNum("TokenNum"),
     Vehicle("Vehicle"),

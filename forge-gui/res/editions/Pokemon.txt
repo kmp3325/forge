@@ -287,7 +287,7 @@ Foil=NotSupported
 4023 C Wild Ninetales
 4024 U Wild Arcanine
 4025 C Wild Typhlosion
-4026 C Wild Ivysaur
+4026 U Wild Ivysaur
 4027 C Wild Venusaur
 4028 U Wild Beedrill
 4029 C Wild Onix

@@ -4,9 +4,9 @@ Types:Creature Mole Pokémon
 PT:1/1
 T:Mode$ DamageDone | TriggerZones$ Battlefield | ValidTarget$ Creature.YouCtrl | CombatDamage$ False | Execute$ TrigCounters | TriggerZones$ Battlefield | TriggerDescription$ Whenever a creature you control is dealt noncombat damage, put a burrow counter on CARDNAME.
 SVar:TrigCounters:DB$ PutCounter | CounterType$ BURROW | CounterNum$ 1 | Defined$ Self
-A:AB$ ChangeZone | Cost$ SubCounter<X/BURROW> | ValidTgts$ Creature.cmcLEX+YouOwn | TgtPrompt$ Select target creature card with mana value X or less | Origin$ Graveyard | Destination$ Hand
+A:AB$ ChangeZone | Cost$ T SubCounter<X/BURROW> | ValidTgts$ Creature.cmcLEX+YouOwn | TgtPrompt$ Select target creature card with mana value X or less | Origin$ Graveyard | Destination$ Hand
 SVar:X:Count$xPaid
-Oracle:Whenever a creature you control is dealt noncombat damage, put a burrow counter on Diglett.\nRemove X burrow counters from Diglett: Return target creature card with mana value less than or equal to X from your graveyard to your hand.
+Oracle:Whenever a creature you control is dealt noncombat damage, put a burrow counter on Diglett.\n{T}, Remove X burrow counters from Diglett: Return target creature card with mana value less than or equal to X from your graveyard to your hand.
 
 DeckHints:Name$Dugtrio
 SVar:SoundEffect:diglett.mp3

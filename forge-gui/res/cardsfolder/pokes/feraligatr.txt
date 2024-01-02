@@ -1,17 +1,17 @@
 Name:Feraligatr
 ManaCost:5 U
 Types:Creature Crocodile Pokémon
-PT:4/5
-K:Evolve from:5 U:Croconaw:5/6
-A:AB$ Phases | Cost$ U U Q | ValidTgts$ Creature.attacking | TgtPrompt$ Select target attacking creature | WontPhaseInNormal$ True | ConditionPresent$ Card.Self | SubAbility$ DBEffect | SpellDescription$ Target attacking creature phases out until CARDNAME leaves the battlefield. If that creature phases out this way, CARDNAME phases out. When CARDNAME phases in, put a -0/-1 counter on it.
+PT:5/5
+K:Evolve from:5 U:Croconaw:6/6
+A:AB$ Phases | Cost$ U U Q | ValidTgts$ Creature.attacking | TgtPrompt$ Select target attacking creature | WontPhaseInNormal$ True | ConditionPresent$ Card.Self | SubAbility$ DBEffect | SpellDescription$ Target attacking creature phases out until CARDNAME leaves the battlefield, then CARDNAME phases out. When CARDNAME phases in, put a -1/-1 counter on it.
 SVar:DBEffect:DB$ Effect | Triggers$ TrigComeBack | RememberObjects$ Targeted | ImprintCards$ Self | ConditionPresent$ Card.Self | Duration$ Permanent | ForgetOnPhasedIn$ True | SubAbility$ TrigPhaseSelf
 SVar:TrigComeBack:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Any | ValidCard$ Card.IsImprinted | Execute$ DBPhaseIn | TriggerZones$ Command | TriggerController$ TriggeredCardController | Static$ True | TriggerDescription$ Target creature phases out until CARDNAME leaves the battlefield. Tap that creature as it phases in this way.
 SVar:DBPhaseIn:DB$ Phases | Defined$ Remembered | PhaseInOrOut$ True | SubAbility$ DBExileSelf
 SVar:DBExileSelf:DB$ ChangeZone | Origin$ Command | Destination$ Exile | Defined$ Self
 SVar:TrigPhaseSelf:DB$ Phases | Defined$ Self | SubAbility$ PhaseInTrig
-SVar:PhaseInTrig:DB$ DelayedTrigger | Mode$ PhaseIn | ValidCard$ Card.Self | Execute$ MinusSelf | TriggerDescription$ When CARDNAME phases in, put a -0/-1 counter on it.
+SVar:PhaseInTrig:DB$ DelayedTrigger | Mode$ PhaseIn | ValidCard$ Card.Self | Execute$ MinusSelf | TriggerDescription$ When CARDNAME phases in, put a -1/-1 counter on it.
 SVar:MinusSelf:DB$ PutCounter | CounterType$ M0M1 | CounterNum$ 1 | Defined$ Self
-Oracle:Evolve from Croconaw {5}{U} [5/6]\n{U}{U}, {Q}: Target attacking creature phases out until Feraligatr leaves the battlefield. If that creature phases out this way, Feraligatr phases out. When Feraligatr phases in, put a -0/-1 counter on it.
+Oracle:Evolve from Croconaw {5}{U} [6/6]\n{U}{U}, {Q}: Target attacking creature phases out until Feraligatr leaves the battlefield, then Feraligatr phases out. When Feraligatr phases in, put a -1/-1 counter on it.
 
 DeckHints:Name$Croconaw
 SVar:SoundEffect:feraligatr.mp3

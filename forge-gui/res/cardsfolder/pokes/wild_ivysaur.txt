@@ -1,5 +1,5 @@
 Name:Wild Ivysaur
-ManaCost:2G G
+ManaCost:1 2G G
 Types:Creature Frog Plant Pokémon
 PT:1/2
 K:Flash

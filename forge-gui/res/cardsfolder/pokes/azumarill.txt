@@ -1,13 +1,13 @@
 Name:Azumarill
-ManaCost:3 WU
+ManaCost:1 W U
 Types:Creature Faerie Mouse Pokémon
 PT:2/2
-K:Evolve from:3 WU:Marill:3/3
+K:Evolve from:1 W U:Marill:3/3
 T:Mode$ PhaseOut | ValidCard$ Creature.Other+SharesColorWith ActivationColor | TriggerZones$ Battlefield | Execute$ TrigLand | TriggerDescription$ Whenever another creature that shares a color with CARDNAME phases in, look at the top card of your library. If it's a land card, you may reveal it and put it into your hand.
 SVar:TrigLand:DB$ PeekAndReveal | RevealValid$ Land.Basic | PeekAmount$ 1 | RevealOptional$ True | RememberRevealed$ True | SubAbility$ DBChangeZone
 SVar:DBChangeZone:DB$ ChangeZone | Defined$ TopOfLibrary | Origin$ Library | Destination$ Hand | ConditionDefined$ Remembered | ConditionPresent$ Land.Basic | ConditionCompare$ EQ1 | SubAbility$ DBCleanup
 SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
-Oracle:Evolve from Marill {3}{WU} [3/3]\nWhenever another creature that shares a color with Azumarill phases in, look at the top card of your library. If it's a land card, you may reveal it and put it into your hand.
+Oracle:Evolve from Marill {1}{W}{U} [3/3]\nWhenever another creature that shares a color with Azumarill phases in, look at the top card of your library. If it's a land card, you may reveal it and put it into your hand.
 
 DeckHints:Name$Marill
 SVar:SoundEffect:azumarill.mp3

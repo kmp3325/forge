@@ -1,19 +1,12 @@
 Name:Tangela
-ManaCost:4 G
+ManaCost:1 G
 Types:Creature Plant Pokémon
-PT:0/0
-K:etbCounter:P1P1:4
-T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | Execute$ TrigPutCounter | TriggerZones$ Battlefield | OptionalDecider$ You | CheckSVar$ P1C | SVarCompare$ LE2 | TriggerDescription$ At the beginning of your upkeep, if CARDNAME has less than four +1/+1 counters on it, put a number of +1/+1 counters on it equal to the difference.
-SVar:P1C:Count$CardCounters.P1P1
-SVar:TrigPutCounter:DB$ PutCounter | CounterType$ P1P1 | CounterNum$ P1CRecover | Defined$ Self
-SVar:P1CRecover:Count$4/Minus.P1C
-R:Event$ DamageDone | ActiveZones$ Battlefield | ValidTarget$ Card.Self+counters_GE1_P1P1 | ReplaceWith$ Counters | PreventionEffect$ True | AlwaysReplace$ True | Description$ If damage would be dealt to CARDNAME while it has a +1/+1 counter on it, prevent that damage and remove that many +1/+1 counters from it. Then distribute those counters among any number of other creatures.
-SVar:Counters:DB$ RemoveCounter | Defined$ ReplacedTarget | CounterType$ P1P1 | CounterNum$ Y | RememberRemoved$ True | SubAbility$ TrigDistribute
-SVar:Y:ReplaceCount$DamageAmount
-SVar:X:Count$RememberedSize
-SVar:TrigDistribute:DB$ PutCounter | Choices$ Creature.Other | ChoiceTitle$ Choose any number of other target creatures to distribute counters to | CounterType$ P1P1 | CounterNum$ X | ChoiceAmount$ X | MinChoiceAmount$ 0 | DividedAsYouChoose$ X | SubAbility$ DBCleanup
-SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
-Oracle:Tangela enters the battlefield with four +1/+1 counters on it.\nAt the beginning of your upkeep, if Tangela has less than four +1/+1 counters on it, put a number of +1/+1 counters on it equal to the difference.\nIf damage would be dealt to Tangela while it has a +1/+1 counter on it, prevent that damage and remove that many +1/+1 counters from it. Then distribute those counters among any number of other creatures.
+PT:2/2
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Land.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Landfall — Whenever a land enters the battlefield under your control, put a +1/+1 counter on CARDNAME.
+SVar:TrigPutCounter:DB$ PutCounter | CounterType$ P1P1 | Defined$ Self | CounterNum$ 1
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Battlefield | Destination$ Graveyard | Execute$ TrigCounterDist | TriggerDescription$ When CARDNAME dies, distribute X +1/+1 counters among any number of target creatures you control, where X is the number of +1/+1 counters on CARDNAME.
+SVar:TrigCounterDist:DB$ PutCounter | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Choose any number of creatures you control to distribute counters to | CounterType$ P1P1 | CounterNum$ X | DividedAsYouChoose$ X | TargetMin$ 0 | TargetMax$ X
+SVar:X:TriggeredCard$CardCounters.P1P1
+Oracle:Landfall — Whenever a land enters the battlefield under your control, put a +1/+1 counter on Tangela.\nWhen Tangela dies, distribute X +1/+1 counters among any number of target creatures you control, where X is the number of +1/+1 counters on Tangela.
 
-SVar:PlayMain1:TRUE
 SVar:SoundEffect:tangela.mp3

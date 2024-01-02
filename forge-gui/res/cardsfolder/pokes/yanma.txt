@@ -4,9 +4,9 @@ Types:Creature Insect Pokémon
 PT:0/1
 K:Flying
 K:First strike
-T:Mode$ Phase | Phase$ BeginCombat | ValidPlayer$ You | OptionalDecider$ You | Execute$ TrigSpeed | TriggerZones$ Battlefield | TriggerDescription$ At the beginning of each combat, you may pay {G}. If you do, put a speed counter on CARDNAME.
+T:Mode$ Phase | Phase$ BeginCombat | ValidPlayer$ You | OptionalDecider$ You | Execute$ TrigSpeed | TriggerZones$ Battlefield | TriggerDescription$ At the beginning of combat on your turn, you may pay {G}. If you do, put a speed counter on CARDNAME.
 SVar:TrigSpeed:AB$ PutCounter | Cost$ G | Defined$ Self | CounterType$ SPEED | CounterNum$ 1
 S:Mode$ Continuous | Affected$ Card.Self | AddPower$ X | Description$ CARDNAME gets +1/+0 for each speed counter on it.
 SVar:X:Count$CardCounters.SPEED
-Oracle:Flying, first strike\nAt the beginning of each combat, you may pay {G}. If you do, put a speed counter on Yanma.\nYanma gets +1/+0 for each speed counter on it.
+Oracle:Flying, first strike\nAt the beginning of combat on your turn, you may pay {G}. If you do, put a speed counter on Yanma.\nYanma gets +1/+0 for each speed counter on it.
 SVar:SoundEffect:yanma.mp3

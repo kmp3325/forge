@@ -9,7 +9,7 @@ SVar:FOG:Count$Foggy.1.0
 SVar:PhaseInTrig:DB$ DelayedTrigger | Mode$ PhaseIn | ValidCard$ Card.Self | Execute$ DBDmgOther | TriggerDescription$ When CARDNAME phases in, it deals 3 damage to target creature and 1 damage to itself.
 SVar:DBDmgOther:DB$ DealDamage | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumDmg$ 3 | SubAbility$ DmgSelf
 SVar:DmgSelf:DB$ DealDamage | Defined$ Self | NumDmg$ 3
-Oracle:Evolve from Eevee {3}{B} [4/6]\nWhenever Umbreon becomes blocked, you may have it phase out until end of combat. When it phases in, it deals 3 damage to any target and 3 damage to itself.
+Oracle:Evolve from Eevee {3}{B} [4/6]\nWhenever Umbreon becomes blocked, if it's foggy, you may have it phase out until end of combat. When it phases in, it deals 3 damage to any target and 3 damage to itself.
 
 DeckHints:Name$Eevee
 SVar:SoundEffect:umbreon.mp3

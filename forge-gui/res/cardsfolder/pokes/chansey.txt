@@ -3,15 +3,14 @@ ManaCost:4 W U
 Types:Creature Rabbit Pokémon
 PT:2/7
 K:Evolve from:4 W U:Happiny:2/8
-T:Mode$ PhaseIn | ValidCard$ Creature.YouCtrl | Execute$ DBScry | TriggerZones$ Battlefield | TriggerDescription$ Whenever a creature you control phases in, scry 2, then draw a card.
-SVar:DBScry:DB$ Scry | ScryNum$ 2 | StackDescription$ {p:You} scries 2 | SubAbility$ DBDraw
+T:Mode$ PhaseIn | ValidCard$ Creature.YouCtrl+Other | Execute$ DBDraw | TriggerZones$ Battlefield | TriggerDescription$ Whenever another creature you control phases in, draw a card.
 SVar:DBDraw:DB$ Draw | NumCards$ 1 | Defined$ You
 A:AB$ RemoveCounter | Cost$ W U | ValidTgts$ Creature.Other | TgtPrompt$ Select another target creature | CounterType$ POISON | CounterNum$ All | SubAbility$ DBRemoveStun | SpellDescription$ Remove all status counters from another target creature, then it phases out.
 SVar:DBRemoveStun:DB$ RemoveCounter | Defined$ Targeted | CounterNum$ All | CounterType$ STUN | SubAbility$ DBRemoveFrost
 SVar:DBRemoveFrost:DB$ RemoveCounter | Defined$ Targeted | CounterNum$ All | CounterType$ FROST | SubAbility$ DBRemoveBurn
 SVar:DBRemoveBurn:DB$ RemoveCounter | Defined$ Targeted | CounterNum$ All | CounterType$ BURN | SubAbility$ TrigPhases
 SVar:TrigPhases:DB$ Phases | Defined$ Targeted
-Oracle:Evolve from Happiny {4}{W}{U} [2/8]\nWhenever a creature you control phases in, scry 2, then draw a card.\n{W}{U}: Remove all status counters from another target creature, then it phases out.
+Oracle:Evolve from Happiny {4}{W}{U} [2/8]\nWhenever another creature you control phases in, draw a card.\n{W}{U}: Remove all status counters from another target creature, then it phases out.
 
 DeckHints:Name$Blissey
 SVar:SoundEffect:chansey.mp3

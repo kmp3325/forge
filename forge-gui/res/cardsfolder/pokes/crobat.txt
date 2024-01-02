@@ -1,8 +1,8 @@
 Name:Crobat
-ManaCost:3 B
+ManaCost:4 B
 Types:Creature Bat Pokémon
-PT:3/4
-K:Evolve from:3 B:Golbat:3/4
+PT:3/3
+K:Evolve from:4 B:Golbat:3/3
 K:Flying
 K:First strike
 K:Lifelink
@@ -13,7 +13,7 @@ T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefiel
 SVar:TrigPutPlus:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1
 T:Mode$ Phase | Secondary$ True | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | IsPresent$ Card.Self+notAttackedThisTurn | Execute$ TrigPutMinus | TriggerDescription$ At the beginning of your end step, if CARDNAME attacked this turn, put a +1/+1 counter on it. Otherwise, put a -1/-1 counter on it.
 SVar:TrigPutMinus:DB$ PutCounter | Defined$ Self | CounterType$ M1M1 | CounterNum$ 1
-Oracle:Evolve from Golbat {3}{B} [3/4]\nFlying, first strike\nWhenever Crobat deals damage to a player, that player mills that many cards.\nAt the beginning of your end step, if Crobat attacked this turn, put a +1/+1 counter on it. Otherwise, put a -1/-1 counter on it.
+Oracle:Evolve from Golbat {4}{B} [3/3]\nFlying, first strike\nWhenever Crobat deals damage to a player, that player mills that many cards.\nAt the beginning of your end step, if Crobat attacked this turn, put a +1/+1 counter on it. Otherwise, put a -1/-1 counter on it.
 
 DeckHints:Name$Golbat
 SVar:HasCombatEffect:TRUE

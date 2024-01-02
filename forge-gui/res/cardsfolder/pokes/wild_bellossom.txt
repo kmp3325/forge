@@ -1,9 +1,11 @@
 Name:Wild Bellossom
-ManaCost:2 RG RG
+ManaCost:RG RG
 Types:Creature Plant Pokémon
-PT:1/3
-A:AB$ Weather | Cost$ T | Value$ Sunny | SpellDescription$ It becomes sunny.
-A:AB$ PutCounter | Cost$ T | CounterType$ SOLAR | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature | SpellDescription$ Put a solar counter on target creature.
-Oracle:{T}: It becomes sunny.\n{T}: Put a solar counter on target creature.
+PT:1/1
+K:Flash
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigSolar | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters the battlefield, put a solar counter on target creature. It becomes sunny.
+SVar:TrigSolar:DB$ PutCounter | ValidTgts$ Creature | TgtPrompt$ Select target creature | CounterType$ SOLAR | CounterNum$ 1 | SubAbility$ TrigWeather
+SVar:TrigWeather:DB$ Weather | Value$ Sunny
+Oracle:Flash\nWhen Wild Bellossom enters the battlefield, put a solar counter on target creature. It becomes sunny.
 
 SVar:SoundEffect:bellossom.mp3

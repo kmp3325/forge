@@ -6,10 +6,10 @@ K:Evolve from:1 R G G:Sunkern:4/4
 T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | Execute$ TrigSolar | OptionalDecider$ You | TriggerZones$ Battlefield | TriggerDescription$ At the beginning of your end step, you may pay {G} any number of times. Put that many solar counters on CARDNAME.
 SVar:TrigSolar:AB$ PutCounter | Cost$ Mana<G\NumTimes> | CounterType$ SOLAR | CounterNum$ NumTimes | Defined$ Self | Announce$ NumTimes | ConditionCheckSVar$ NumTimes | ConditionSVarCompare$ GE1 | RememberSVarAmount$ NumTimes
 A:AB$ Weather | Cost$ R T SubCounter<1/SOLAR> | Value$ Sunny | SpellDescription$ It becomes sunny.
-A:AB$ Pump | Cost$ R G | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumAtt$ X | NumDef$ X | CheckSVar$ SUN | SVarCompare$ GE1 | ActivationLimit$ 1 | SpellDescription$ Target creature gets +X/+X until end of turn, where X is the number of solar counters on CARDNAME. Activate only if it's sunny and only once each turn.
+A:AB$ Pump | Cost$ R G | ValidTgts$ Creature.Other | TgtPrompt$ Select target creature | NumAtt$ X | NumDef$ X | CheckSVar$ SUN | SVarCompare$ GE1 | ActivationLimit$ 1 | SpellDescription$ Another target creature gets +X/+X until end of turn, where X is the number of solar counters on CARDNAME. Activate only if it's sunny and only once each turn.
 SVar:X:Count$CardCounters.SOLAR
 SVar:SUN:Count$Sunny.1.0
-Oracle:Evolve from Sunkern {1}{R}{G}{G} [4/4]\nAt the beginning of your end step, you may pay {G} any number of times. Put that many solar counters on Sunflora.\n{R}, {T}, Remove a solar counter from Sunflora: It becomes sunny.\n{R}{G}: Target creature gets +X/+X until end of turn, where X is the number of solar counters on Sunflora. Activate only if it's sunny and only once each turn.
+Oracle:Evolve from Sunkern {1}{R}{G}{G} [4/4]\nAt the beginning of your end step, you may pay {G} any number of times. Put that many solar counters on Sunflora.\n{R}, {T}, Remove a solar counter from Sunflora: It becomes sunny.\n{R}{G}: Another target creature gets +X/+X until end of turn, where X is the number of solar counters on Sunflora. Activate only if it's sunny and only once each turn.
 
 DeckHints:Name$Sunkern
 SVar:SoundEffect:sunflora.mp3

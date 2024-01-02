@@ -6,9 +6,9 @@ T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.S
 T:Mode$ Evolved | ValidCard$ Card.Self | Execute$ TrigPutCounter | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, put two frost counters on target creature. It becomes snowy.
 SVar:TrigPutCounter:DB$ PutCounter | ValidTgts$ Creature | TgtPrompt$ Select target creature | IsCurse$ True | CounterType$ FROST | CounterNum$ 2 | SubAbility$ TrigSnow
 SVar:TrigSnow:DB$ Weather | Value$ Snowy
-A:AB$ PutCounter | IsCurse$ True | Cost$ 1 U | CounterType$ FROST | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigSnow2 | SpellDescription$ Put a frost counter on target creature. If {S} was spent to activate this ability, it becomes snowy.
+A:AB$ PutCounter | IsCurse$ True | Cost$ 1 U | CounterType$ FROST | CounterNum$ 2 | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigSnow2 | SpellDescription$ Put two frost counters on target creature. If {S} was spent to activate this ability, it becomes snowy.
 SVar:TrigSnow2:DB$ Weather | ConditionCheckSVar$ S | Value$ Snowy
 SVar:S:Count$TotalManaSpent Snow
-Oracle:Whenever Smoochum enters the battlefield or evolves, put two frost counters on target creature. It becomes snowy.\n{1}{U}: Put a frost counter on target creature. If {S} was spent to activate this ability, it becomes snowy.
+Oracle:Whenever Smoochum enters the battlefield or evolves, put two frost counters on target creature. It becomes snowy.\n{1}{U}: Put two frost counters on target creature. If {S} was spent to activate this ability, it becomes snowy.
 
 DeckHints:Name$JynxSVar:SoundEffect:smoochum.mp3

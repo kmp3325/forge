@@ -2,12 +2,12 @@ Name:Drowzee
 ManaCost:4 UB
 Types:Creature Boar Pokémon
 PT:1/3
-A:AB$ ChangeZone | Cost$ UB T | Origin$ Graveyard | Destination$ Exile | TgtPrompt$ Select target creature in a graveyard | ValidTgts$ Creature | RememberChanged$ True | SubAbility$ DBGainLife | SpellDescription$ Exile target creature card from a graveyard. If you have two or more cards in hand, you gain life equal to its mana value.
+A:AB$ ChangeZone | Cost$ 3 B | Origin$ Graveyard | Destination$ Exile | TgtPrompt$ Select target creature in a graveyard | ValidTgts$ Creature | RememberChanged$ True | SubAbility$ DBGainLife | SpellDescription$ Exile target creature card from a graveyard. If you have two or more cards in hand, you gain life equal to its mana value.
 SVar:DBGainLife:DB$ GainLife | Defined$ You | LifeAmount$ X | ConditionCheckSVar$ CARDS | ConditionSVarCompare$ GE2 | SubAbility$ DBCleanup
 SVar:X:Remembered$CardManaCost
 SVar:CARDS:Count$InYourHand
 SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
-Oracle:{UB}, {T}: Exile target creature card from a graveyard. If you have two or more cards in hand, you gain life equal to its mana value.
+Oracle:{3}{B}: Exile target creature card from a graveyard. If you have two or more cards in hand, you gain life equal to its mana value.
 
 DeckHints:Name$Hypno
 SVar:SoundEffect:drowzee.mp3

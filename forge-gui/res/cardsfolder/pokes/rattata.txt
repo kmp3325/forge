@@ -1,5 +1,5 @@
 Name:Rattata
-ManaCost:W
+ManaCost:2 W
 Types:Creature Rat Pokémon
 PT:1/1
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ Whenever CARDNAME enters the battlefield, evolves, or phases in, create a 1/1 white Rat Pokémon creature token named Rattata.

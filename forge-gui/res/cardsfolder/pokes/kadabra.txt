@@ -3,9 +3,11 @@ ManaCost:2 U B
 Types:Creature Fox Wizard Pokémon
 PT:3/2
 K:Evolve from:2 U B:Abra:4/3
-A:AB$ Draw | Cost$ T | NumCards$ 1 | ValidTgts$ Player | TgtPrompt$ Select target player | SpellDescription$ Target player draws a card, then discards a card. | SubAbility$ DBDiscard
-SVar:DBDiscard:DB$ Discard | Defined$ Targeted | NumCards$ 1 | Mode$ TgtChoose
-Oracle:Evolve from Abra {2}{U}{B} [4/3]\n{T}: Target player draws a card, then discards a card.
+A:AB$ Draw | Cost$ T | NumCards$ 1 | ValidTgts$ Player | TgtPrompt$ Select target player | SubAbility$ DBDiscard | SpellDescription$ Target player draws a card, discards a card, then mills two cards.
+SVar:DBDiscard:DB$ Discard | Defined$ Targeted | NumCards$ 1 | Mode$ TgtChoose | SubAbility$ TrigMill
+SVar:TrigMill:DB$ Mill | Defined$ Targeted | NumCards$ 2
+A:AB$ ChangeTargets | Cost$ UB UB | TargetType$ Spell.numTargets EQ1 | TargetValidTargeting$ Creature.inRealZoneBattlefield | ValidTgts$ Card | TgtPrompt$ Select target spell that targets only a single creature | DefinedMagnet$ Self
+Oracle:Evolve from Abra {2}{U}{B} [4/3]\n{T}: Target player draws a card, discards a card, then mills two cards.\n{UB}{UB}: Change the target of target spell or ability that targets only a single creature to Kadabra.
 
 DeckHints:Name$Abra
 DeckHints:Name$Alakazam

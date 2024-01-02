@@ -1,5 +1,5 @@
 Name:Wild Gastly
-ManaCost:4 2B B
+ManaCost:4 B B
 Types:Creature Spirit Horror Pokémon
 PT:1/1
 K:Flash

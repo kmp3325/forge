@@ -1,5 +1,5 @@
 Name:Scyther
-ManaCost:2 RG
+ManaCost:2 R G
 Types:Creature Insect Pokémon
 PT:3/2
 K:First strike

@@ -1,5 +1,5 @@
 Name:Pinsir
-ManaCost:1 R G
+ManaCost:1 RG RG
 Types:Creature Insect Pokémon
 PT:3/3
 S:Mode$ Continuous | Affected$ Creature.Insect+YouCtrl | AddPower$ 2 | AddToughness$ 2 | CheckSVar$ SUN | SVarCompare$ GE1 | Description$ As long as it's sunny, Insect creatures you control get +2/+2.

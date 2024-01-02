@@ -1,15 +1,15 @@
 Name:Scizor
-ManaCost:3 RG RG
+ManaCost:3 R G
 Types:Creature Insect Pokémon
 PT:5/3
-K:Evolve from:3 RG RG:Scyther:6/3
+K:Evolve from:3 R G:Scyther:6/3
 K:Steel skin
 R:Event$ DamageDone | ValidTarget$ Card.Self | ActiveZones$ Battlefield | PreventionEffect$ True | ReplaceWith$ DBRemoveCounter | CheckSVar$ NumCounters | SVarCompare$ GE1 | Description$ If CARDNAME would be dealt damage or destroyed and it has a speed counter on it, remove a speed counter from it instead.
 R:Event$ Destroy | Secondary$ True | ValidTarget$ Card.Self | ActiveZones$ Battlefield | ReplaceWith$ DBRemoveCounter | CheckSVar$ NumCounters | SVarCompare$ GE1 | Description$ If CARDNAME would be dealt damage or destroyed and it has a speed counter on it, remove a speed counter from it instead.
 SVar:NumCounters:Count$CardCounters.SPEED
 SVar:DBRemoveCounter:DB$ RemoveCounter | CounterType$ SPEED | CounterNum$ 1 | Defined$ Self
-A:AB$ PutCounter | Cost$ 2 RG | CounterType$ SPEED | CounterNum$ 1 | Defined$ Self | SpellDescription$ Put a speed counter on CARDNAME.
-Oracle:Evolve from Scyther {3}{RG}{RG} [6/5]\nSteel skin\nIf Scizor would be dealt damage or destroyed and it has a speed counter on it, remove a speed counter from it instead.\n{2}{RG}: Put a speed counter on Scizor.
+A:AB$ PutCounter | Cost$ R G T | CounterType$ SPEED | CounterNum$ 1 | Defined$ Self | SpellDescription$ Put a speed counter on CARDNAME.
+Oracle:Evolve from Scyther {3}{R}{G} [6/5]\nSteel skin\nIf Scizor would be dealt damage or destroyed and it has a speed counter on it, remove a speed counter from it instead.\n{R}{G}, {T}: Put a speed counter on Scizor.
 
 DeckHints:Name$Scyther
 SVar:SoundEffect:scizor.mp3

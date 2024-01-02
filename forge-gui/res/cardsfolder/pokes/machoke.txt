@@ -4,8 +4,11 @@ Types:Creature Frog Ape Pokémon
 PT:3/3
 K:Evolve from:1 R W:Machop:4/4
 K:Vigilance
-K:Mentor
-Oracle:Evolve from Machop {1}{R}{W} [4/4]\nVigilance, mentor
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigSuperMentor | TriggerDescription$ Whenever CARDNAME attacks, put a +1/+1 counter on each other attacking creature with lesser power.
+SVar:TrigSuperMentor:DB$ PutCounterAll | ValidCards$ Creature.attacking+powerLTX | CounterType$ P1P1 | CounterNum$ 1
+SVar:X:Count$CardPower
+
+Oracle:Evolve from Machop {1}{R}{W} [4/4]\nVigilance\nWhenever Machoke attacks, put a +1/+1 counter on each other attacking creature with lesser power.
 
 DeckHints:Name$Machop
 DeckHints:Name$Machamp

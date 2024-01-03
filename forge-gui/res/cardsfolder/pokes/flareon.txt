@@ -3,10 +3,10 @@ ManaCost:3 R
 Types:Creature Fox Pokémon
 PT:5/3
 K:Evolve from:3 R:Eevee:6/4
-A:AB$ PutCounter | Cost$ R | CounterType$ BURN | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature | SpellDescription$ Put a burn counter on target creature.
+A:AB$ PutCounter | Cost$ R R | CounterType$ BURN | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature | SpellDescription$ Put a burn counter on target creature.
 T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Creature.counters_GE1_BURN | Execute$ TrigPump | TriggerDescription$ Whenever a creature with a burn counter on it dies, CARDNAME gets +1/+1 until end of turn.
 SVar:TrigPump:DB$ Pump | Defined$ Self | NumAtt$ 1 | NumDef$ 1
-Oracle:Evolve from Eevee {3}{R} [6/4]\{R}: Put a burn counter on target creature.\nWhenever a creature with a burn counter on it dies, Flareon gets +1/+1 until end of turn.
+Oracle:Evolve from Eevee {3}{R} [6/4]\{R}{R}: Put a burn counter on target creature.\nWhenever a creature with a burn counter on it dies, Flareon gets +1/+1 until end of turn.
 
 DeckHints:Name$Eevee
 SVar:SoundEffect:flareon.mp3

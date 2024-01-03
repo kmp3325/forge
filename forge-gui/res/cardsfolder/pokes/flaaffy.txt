@@ -1,13 +1,13 @@
 Name:Flaaffy
-ManaCost:2 U R
+ManaCost:3 UR
 Types:Creature Sheep Pokémon
 PT:3/3
-K:Evolve from:2 U R:Mareep:4/4
+K:Evolve from:3 UR:Mareep:4/4
 T:Mode$ SpellCast | ValidActivatingPlayer$ You | ActivatorThisTurnCast$ EQ1 | PlayerTurn$ True | NoResolvingCheck$ True | ValidCard$ Card | Execute$ TrigImmediate | TriggerZones$ Battlefield | OptionalDecider$ You | TriggerDescription$ Whenever you cast your first spell during each of your turns, you may pay {UR}. When you do, tap target creature and put a stun counter on it.
-SVar:TrigImmediate:DB$ ImmediateTrigger | Cost$ UR | Execute$ TrigTap | SpellDescription$ Whenever you cast your first spell during each of your turns, you may pay {UR}. When you do, tap target creature and put a stun counter on it.
+SVar:TrigImmediate:DB$ ImmediateTrigger | Cost$ U | Execute$ TrigTap | SpellDescription$ Whenever you cast your first spell during each of your turns, you may pay {U}. When you do, tap target creature and put a stun counter on it.
 SVar:TrigTap:DB$ Tap | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigStun
 SVar:TrigStun:DB$ PutCounter | IsCurse$ True | CounterType$ STUN | CounterNum$ 1 | Defined$ Targeted
-Oracle:Evolve from Mareep {2}{U}{R} [4/4]\nWhenever you cast your first spell during each of your turns, you may pay {UR}. When you do, tap target creature and put a stun counter on it.
+Oracle:Evolve from Mareep {3}{UR} [4/4]\nWhenever you cast your first spell during each of your turns, you may pay {U}. When you do, tap target creature and put a stun counter on it.
 
 DeckHints:Name$Mareep
 DeckHints:Name$Ampharos

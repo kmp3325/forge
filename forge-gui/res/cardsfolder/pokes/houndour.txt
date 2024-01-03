@@ -2,9 +2,9 @@ Name:Houndour
 ManaCost:BR BR
 Types:Creature Demon Dog Pokémon
 PT:2/1
-A:AB$ PutCounter | Cost$ BR | CounterType$ BURN | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature | ActivationLimit$ 1 | SorcerySpeed$ True | SubAbility$ DBPump | SpellDescription$ Put a burn counter on target creature. It gains indestructible until end of turn. Activate only once each turn and only as a sorcery.
+A:AB$ PutCounter | Cost$ 3 BR | CounterType$ BURN | CounterNum$ 1 | ValidTgts$ Creature.Other | TgtPrompt$ Select target creature | ActivationLimit$ 1 | SorcerySpeed$ True | SubAbility$ DBPump | SpellDescription$ Put a burn counter on another target creature. It gains indestructible until end of turn. Activate only once each turn and only as a sorcery.
 SVar:DBPump:DB$ Pump | Defined$ Targeted | KW$ Indestructible
-Oracle:{BR}: Put a burn counter on target creature. It gains indestructible until end of turn. Activate only once each turn and only as a sorcery.
+Oracle:{3}{BR}: Put a burn counter on another target creature. It gains indestructible until end of turn. Activate only once each turn and only as a sorcery.
 
 DeckHints:Name$Houndoom
 SVar:SoundEffect:houndour.mp3

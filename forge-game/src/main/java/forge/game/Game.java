@@ -257,7 +257,6 @@ public class Game {
     public List<Card> getLeftBattlefieldThisTurn() {
         return leftBattlefieldThisTurn;
     }
-
     public List<Card> getLeftGraveyardThisTurn() {
         return leftGraveyardThisTurn;
     }
@@ -265,7 +264,6 @@ public class Game {
     public void clearLeftBattlefieldThisTurn() {
         leftBattlefieldThisTurn.clear();
     }
-
     public void clearLeftGraveyardThisTurn() {
         leftGraveyardThisTurn.clear();
     }

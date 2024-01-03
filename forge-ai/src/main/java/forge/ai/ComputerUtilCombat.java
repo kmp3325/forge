@@ -1258,7 +1258,7 @@ public class ComputerUtilCombat {
             sa.setActivatingPlayer(source.getController(), true);
 
             if (sa.hasParam("Cost")) {
-                if (!CostPayment.canPayAdditionalCosts(sa.getPayCosts(), sa)) {
+                if (!CostPayment.canPayAdditionalCosts(sa.getPayCosts(), sa, true)) {
                     continue;
                 }
             }
@@ -1455,7 +1455,7 @@ public class ComputerUtilCombat {
                     continue;
                 }
                 if (sa.hasParam("Cost")) {
-                    if (!CostPayment.canPayAdditionalCosts(sa.getPayCosts(), sa)) {
+                    if (!CostPayment.canPayAdditionalCosts(sa.getPayCosts(), sa, true)) {
                         continue;
                     }
                 }
@@ -1489,7 +1489,7 @@ public class ComputerUtilCombat {
                     continue;
                 }
                 if (sa.hasParam("Cost")) {
-                    if (!CostPayment.canPayAdditionalCosts(sa.getPayCosts(), sa)) {
+                    if (!CostPayment.canPayAdditionalCosts(sa.getPayCosts(), sa, true)) {
                         continue;
                     }
                 }

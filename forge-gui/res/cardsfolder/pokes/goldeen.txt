@@ -2,10 +2,11 @@ Name:Goldeen
 ManaCost:1 U
 Types:Creature Fish Pokémon
 PT:1/1
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDraw | TriggerDescription$ When CARDNAME enters the battlefield, draw a card. It becomes rainy.
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDraw | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, draw a card. It becomes rainy.
+T:Mode$ Evolved | ValidCard$ Card.Self | Execute$ TrigDraw | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, draw a card. It becomes rainy.
 SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ 1 | SubAbility$ TrigWeather
 SVar:TrigWeather:DB$ Weather | Value$ Rainy
-Oracle:When Goldeen enters the battlefield, draw a card. It becomes rainy.
+Oracle:Whenever Goldeen enters the battlefield or evolves, draw a card. It becomes rainy.
 
 DeckHints:Name$Seaking
 SVar:SoundEffect:goldeen.mp3

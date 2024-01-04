@@ -1288,7 +1288,7 @@
 #16|Moltres|M|PKM
 #17|Mewtwo|M|PKM
 #18|Mew|M|PKM
-#19|Ampharos|M|PKM
+#19|Ampharos|R|PKM
 #20|Bellossom|R|PKM
 #21|Sunflora|M|PKM
 #22|Steelix|M|PKM
@@ -1314,7 +1314,7 @@
 #42|Parasect|R|PKM
 #43|Venomoth|R|PKM
 #44|Golduck|R|PKM
-#45|Poliwrath|R|PKM
+#45|Poliwrath|M|PKM
 #46|Victreebel|R|PKM
 #47|Tentacruel|R|PKM
 #48|Golem|R|PKM

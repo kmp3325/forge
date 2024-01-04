@@ -2,11 +2,13 @@ Name:Togepi
 ManaCost:1 WU
 Types:Creature Faerie Egg Pokémon
 PT:0/1
-T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ BuildCounter | OptionalDecider$ You | TriggerDescription$ At the beginning of your upkeep, you may put a peace counter on target creature. If you do, you gain life equal to the number of creatures with peace counters on them.
-SVar:BuildCounter:DB$ PutCounter | CounterType$ PEACE | CounterNum$ 1 | TargetMin$ 0 | TargetMax$ 1 | SubAbility$ TrigLifeGain | ValidTgts$ Creature | TgtPrompt$ Select target creature
-SVar:TrigLifeGain:DB$ GainLife | LifeAmount$ X | Defined$ You
-SVar:X:Count$Valid Creature.OppCtrl+counters_GE1_PEACE
-Oracle:At the beginning of your upkeep, you may put a peace counter on target creature. If you do, you gain life equal to the number of creatures with peace counters on them.
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ When CARDNAME enters the battlefield, put a peace counter on target creature.
+SVar:TrigPutCounter:DB$ PutCounter | ValidTgts$ Creature | TgtPrompt$ Select target creature | CounterNum$ 1 | CounterType$ PEACE
+A:AB$ GainLife | Cost$ W T | LifeAmount$ XPlusX | Defined$ You | SpellDescription$ You gain 2 life for each creature with a peace counter on it.
+A:AB$ Draw | Cost$ U T | NumCards$ X | Defined$ You | SpellDescription$ Draw a card for each creature with a peace counter on it.
+SVar:X:Count$Valid Creature.counters_GE1_PEACE
+SVar:XPlusX:X/Twice
+Oracle:When Togepi enters the battlefield, put a peace counter on target creature.\n{W}, {T}: You gain 2 life for each creature with a peace counter on it.\n{U}, {T}: Draw a card for each creature with a peace counter on it.
 
 DeckHints:Name$Togetic
 SVar:SoundEffect:togepi.mp3

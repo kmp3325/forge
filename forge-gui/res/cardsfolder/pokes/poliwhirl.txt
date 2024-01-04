@@ -1,11 +1,13 @@
 Name:Poliwhirl
-ManaCost:3 UR
+ManaCost:3 U
 Types:Creature Frog Pokémon
-PT:2/3
-K:Evolve from:3 UR:Poliwag:3/4
-A:AB$ Tap | Cost$ T | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ DBStun | SpellDescription$ Tap target creature. If that creature is an Insect, put a stun counter on it.
-SVar:DBStun:DB$ PutCounter | CounterNum$ 1 | CounterType$ STUN | Defined$ Targeted | ConditionDefined$ Targeted | ConditionPresent$ Creature.Insect
-Oracle:Evolve from Poliwag {3}{UR} [3/4]\n{T}: Tap target creature. If that creature is an Insect, put a stun counter on it.
+PT:1/1
+K:Evolve from:3 U:Poliwag:2/2
+A:AB$ ChangeZone | Cost$ U T | ValidTgts$ Creature.cmcLEX | TgtPrompt$ Select target creature with mana value less than or equal to CARDNAME's power | Origin$ Battlefield | Destination$ Hand | RememberLKI$ True | SubAbility$ TrigDraw | SpellDescription$ Return target creature with mana value less than or equal to CARDNAME’s power to its owner’s hand. If that creature is an Insect, draw a card.
+SVar:X:Count$CardPower
+SVar:TrigDraw:DB$ Draw | NumCards$ 1 | Defined$ You | ConditionDefined$ Remembered | ConditionPresent$ Creature.Insect | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+Oracle:Evolve from Poliwag {3}{U} [2/2]\n{U}, {T}: Return target creature with mana value less than or equal to Poliwhirl’s power to its owner’s hand. If that creature is an Insect, draw a card.
 
 DeckHints:Name$Poliwag
 DeckHints:Name$Poliwrath

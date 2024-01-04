@@ -1,5 +1,5 @@
 Name:Dratini
-ManaCost:4 U
+ManaCost:4 UR
 Types:Creature Dragon Pokémon
 PT:3/3
 T:Mode$ WeatherChanged | TriggerZones$ Battlefield | Execute$ DBRemovePoison | TriggerDescription$ Whenever the weather changes, remove all status counters from CARDNAME. It gets +1/+1 until end of turn.

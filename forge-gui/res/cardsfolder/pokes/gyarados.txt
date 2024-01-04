@@ -4,10 +4,10 @@ Types:Creature Serpent Pokémon
 PT:6/6
 K:Evolve from:3 W U:Magikarp:8/8
 K:Flying
-K:Vigilance
-T:Mode$ Attacks | ValidCard$ Card.Self | Attacked$ Player | Execute$ TrigDestroy | TriggerDescription$ Whenever CARDNAME attacks a player, destroy target land that player controls.
-SVar:TrigDestroy:DB$ Destroy | ValidTgts$ Land.tapped+ControlledBy TriggeredDefendingPlayer | TgtPrompt$ Select target land damaged player controls
-Oracle:Evolve from Magikarp {3}{W}{U} [8/8]\nFlying, vigilance\nWhenever Gyarados attacks a player, destroy target land that player controls.
+T:Mode$ Attacks | ValidCard$ Card.Self | Attacked$ Player | Execute$ TrigDestroy | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME attacks a player, you may destroy target land that player controls. If you do, put a stun counter on CARDNAME unless you sacrifice a land.
+SVar:TrigDestroy:DB$ Destroy | ValidTgts$ Land.ControlledBy TriggeredDefendingPlayer | TgtPrompt$ Select target land damaged player controls | SubAbility$ TrigStun
+SVar:TrigStun:DB$ PutCounter | Defined$ Self | CounterType$ STUN | CounterNum$ 1 | UnlessCost$ Sac<1/Land> | UnlessPlayer$ You
+Oracle:Evolve from Magikarp {3}{W}{U} [8/8]\nFlying\nWhenever Gyarados attacks a player, you may destroy target land that player controls. If you do, put a stun counter on Gyarados unless you sacrifice a land.
 
 DeckHints:Name$Magikarp
 SVar:HasAttackEffect:TRUE

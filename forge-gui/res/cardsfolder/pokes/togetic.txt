@@ -4,11 +4,13 @@ Types:Creature Faerie Bird Pokémon
 PT:2/3
 K:Evolve from:1 WU WU:Togepi:4/5
 K:Flying
-T:Mode$ AttackerBlocked | ValidCard$ Creature | ValidBlocker$ Card.Self | Execute$ TrigPutCounter | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME blocks a creature, you may put a peace counter on that creature. If you do, CARDNAME phases out.
-SVar:TrigPutCounter:DB$ PutCounter | IsCurse$ True | CounterType$ PEACE | CounterNum$ 1 | Defined$ TriggeredAttackerLKICopy | SubAbility$ TrigPhase
-SVar:TrigPhase:DB$ Phases | Defined$ Self
+K:Vigilance
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, put a peace counter on target creature.
+T:Mode$ Evolved | ValidCard$ Card.Self | Execute$ TrigPutCounter | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, put a peace counter on target creature.
+SVar:TrigPutCounter:DB$ PutCounter | ValidTgts$ Creature | TgtPrompt$ Select target creature | CounterNum$ 1 | CounterType$ PEACE
 S:Mode$ Continuous | Affected$ Creature.counters_GE1_PEACE | AddHiddenKeyword$ CARDNAME can't attack. | Description$ Creatures with peace counters on them can't attack.
-Oracle:Evolve from Togepi {1}{WU}{WU} [4/5]\nFlying\nWhenever Togetic blocks a creature, you may put a peace counter on that creature. If you do, Togetic phases out.\nCreatures with peace counters on them can't attack.
+A:AB$ Phases | Cost$ WU | ValidTgts$ Creature.counters_GE1_PEACE | TgtPrompt$ Select target creature with a peace counter on it | SpellDescription$ Target creature with a peace counter on it phases out.
+Oracle:Evolve from Togepi {1}{WU}{WU} [4/5]\nFlying, vigilance\nWhenever Togetic enters the battlefield or evolves, put a peace counter on target creature.\nCreatures with peace counters on them can't attack.\n{WU}: Target creature with a peace counter on it phases out.
 
 DeckHints:Name$Togepi
 SVar:SoundEffect:togetic.mp3

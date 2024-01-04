@@ -3,7 +3,7 @@ ManaCost:3 B G
 Types:Creature Spider Pokémon
 PT:2/2
 K:Caustic
-A:AB$ PutCounter | Cost$ 1 B G | SorcerySpeed$ True | CounterType$ POISON | CounterNum$ 1 | ValidTgts$ Creature.counters_LE0_POISON | TgtPrompt$ Select target creature with no poison counters on it | SubAbility$ TrigDmg | SpellDescription$ Put a poison counter on target creature with no poison counters on it. Activate only as a sorcery.
+A:AB$ PutCounter | Cost$ 1 B G | SorcerySpeed$ True | CounterType$ POISON | CounterNum$ 1 | ValidTgts$ Creature.counters_LE0_POISON | TgtPrompt$ Select target creature with no poison counters on it | SpellDescription$ Put a poison counter on target creature with no poison counters on it. Activate only as a sorcery.
 Oracle:Caustic\n{1}{B}{G}: Put a poison counter on target creature with no poison counters on it. Activate only as a sorcery.
 
 DeckHints:Name$Ariados

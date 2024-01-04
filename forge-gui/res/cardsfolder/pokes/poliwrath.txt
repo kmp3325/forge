@@ -1,11 +1,12 @@
 Name:Poliwrath
-ManaCost:3 U UR R
+ManaCost:3 W U
 Types:Creature Frog Pokémon
-PT:5/6
-K:Evolve from:3 U UR R:Poliwhirl:6/7
-A:AB$ DealDamage | Cost$ U R R | ValidTgts$ Creature.tapped | TgtPrompt$ Select target tapped creature | NumDmg$ 3 | SubAbility$ HurtSelf | SpellDescription$ CARDNAME deals 3 damage to target tapped creature and 3 damage to itself.
-SVar:HurtSelf:DB$ DealDamage | Defined$ Self | NumDmg$ 3
-Oracle:Evolve from Poliwhirl {3}{U}{UR}{R} [6/7]\n{U}{R}{R}: Poliwrath deals 3 damage to target tapped creature and 3 damage to itself.
+PT:3/3
+K:Evolve from:3 W U:Poliwhirl:3/3
+K:Vigilance
+T:Mode$ SpellCast | ValidCard$ Card | ValidActivatingPlayer$ Opponent | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Whenever an opponent casts a spell, put a +1/+1 counter on CARDNAME.
+SVar:TrigPutCounter:DB$ PutCounter | Defined$ Self | CounterNum$ 1 | CounterType$ P1P1
+Oracle:Evolve from Poliwhirl {3}{W}{U} [3/3]\nVigilance\nWhenever an opponent casts a spell, put a +1/+1 counter on Poliwrath.
 
 DeckHints:Name$Poliwhirl
 SVar:SoundEffect:poliwrath.mp3

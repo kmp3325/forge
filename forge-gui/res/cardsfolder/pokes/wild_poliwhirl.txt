@@ -2,11 +2,12 @@ Name:Wild Poliwhirl
 ManaCost:X U U U
 Types:Creature Frog Pokémon
 PT:2/2
-T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigMill | TriggerDescription$ When CARDNAME enters the battlefield, each player mills X cards, then draws X cards. It becomes rainy.
-SVar:TrigMill:DB$ Mill | Defined$ Player | NumCards$ X | SubAbility$ TrigDraw
-SVar:TrigDraw:DB$ Draw | Defined$ Player | NumCards$ X | SubAbility$ TrigWeather
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigDraw | TriggerDescription$ When CARDNAME enters the battlefield, draw X cards. Then each opponent mills twice X cards. It becomes rainy.
+SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ X | SubAbility$ TrigMill
+SVar:TrigMill:DB$ Mill | Defined$ Opponent | NumCards$ XPlusX | SubAbility$ TrigWeather
 SVar:TrigWeather:DB$ Weather | Value$ Rainy
 SVar:X:Count$xPaid
-Oracle:When Wild Poliwhirl enters the battlefield, each player mills X cards, then draws X cards. It becomes rainy.
+SVar:XPlusX:X/Twice
+Oracle:When Wild Poliwhirl enters the battlefield, draw X cards. Then each opponent mills twice X cards. It becomes rainy.
 
 SVar:SoundEffect:poliwhirl.mp3

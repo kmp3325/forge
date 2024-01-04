@@ -71,7 +71,7 @@ Foil=NotSupported
 59 M Arcanine
 60 C Poliwag
 61 C Poliwhirl
-62 R Poliwrath
+62 M Poliwrath
 63 U Abra
 64 U Kadabra
 65 M Alakazam
@@ -190,7 +190,7 @@ Foil=NotSupported
 178 R Xatu
 179 C Mareep
 180 U Flaaffy
-181 M Ampharos
+181 R Ampharos
 182 R Bellossom
 183 C Marill
 184 U Azumarill

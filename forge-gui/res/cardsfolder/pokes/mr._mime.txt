@@ -1,12 +1,11 @@
 Name:Mr. Mime
-ManaCost:3 BR
+ManaCost:2 BR BR
 Types:Creature Faerie Demon Pokémon
 PT:3/3
-K:Evolve from:3 BR:Mime. Jr:3/3
+K:Evolve from:2 BR BR:Mime. Jr:3/3
 T:Mode$ DamageDone | TriggerZones$ Battlefield | ValidTarget$ Creature.YouCtrl | CombatDamage$ False | Execute$ TrigSlap | TriggerZones$ Battlefield | Whenever a creature you control is dealt noncombat damage, Mr. Mime deals 1 damage to target creature you don't control.
 SVar:TrigSlap:DB$ DealDamage | ValidTgts$ Creature.YouDontCtrl | TgtPrompt$ Select target creature you don't control | NumDmg$ 1
-A:AB$ Effect | Cost$ 5 W B | ReplacementEffects$ RPrevent | SpellDescription$ Prevent all damage that would be dealt to creatures you control this turn.
-SVar:RPrevent:Event$ DamageDone | Prevent$ True | ActiveZones$ Command | ValidTarget$ Creature.YouCtrl | Description$ Prevent all damage that would be dealt to creatures you control this turn.
-Oracle:Evolve from Mime. Jr {3}{BR} [3/3]\nWhenever a creature you control is dealt noncombat damage, Mr. Mime deals 1 damage to target creature you don’t control.\n{5}{W}{B}: Prevent all damage that would be dealt to creatures you control this turn.
+A:AB$ Pump | Cost$ 2 W B | KW$ Prevent all damage that would be dealt to CARDNAME. | ValidTgts$ Creature | TgtPrompt$ Select target creature | SpellDescription$ Prevent all damage that would be dealt to target creature this turn.
+Oracle:Evolve from Mime. Jr {2}{BR}{BR} [3/3]\nWhenever a creature you control is dealt noncombat damage, Mr. Mime deals 1 damage to target creature you don’t control.\n{2}{W}{B}: Prevent all damage that would be dealt to target creature you control this turn.
 
 SVar:SoundEffect:mrmime.mp3

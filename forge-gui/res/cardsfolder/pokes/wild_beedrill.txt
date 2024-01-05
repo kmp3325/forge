@@ -3,7 +3,7 @@ ManaCost:B R G
 Types:Creature Insect Pokémon
 PT:1/1
 K:Double strike
-R:Event$ DamageDone | Prevent$ True | CheckSVar$ WEATHER | SVarCompare$ GE1 | IsCombat$ False | Description$ As long as it's not snowy, prevent all noncombat damage that would be dealt to CARDNAME.
+R:Event$ DamageDone | ActiveZones$ Battlefield | Prevent$ True | CheckSVar$ WEATHER | SVarCompare$ GE1 | IsCombat$ False | Description$ As long as it's not snowy, prevent all noncombat damage that would be dealt to CARDNAME.
 SVar:WEATHER:Count$Snowy.0.1
 T:Mode$ ChangesZone | ValidCard$ Creature.Insect | Origin$ Battlefield | Destination$ Graveyard | Execute$ TrigCounter | TriggerZones$ Battlefield | TriggerDescription$ Whenever an Insect creature dies, put a +1/+1 counter on CARDNAME.
 SVar:TrigCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1

@@ -1,14 +1,14 @@
 Name:Team Rocket's Hitmonchan
 ManaCost:2 W B
 Types:Creature Beast Warrior Pokémon
-PT:3/3
-A:AB$ DealDamage | Cost$ B R | NumDmg$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ DBRollDice | StackDescription$ SpellDescription | SpellDescription$ CARDNAME deals 1 damage to target creature,
-SVar:DBRollDice:DB$ RollDice | Sides$ 6 | ResultSubAbilities$ 1:DBGain,2-3:DBBurn,4-5:DBFrost,6:DBStun | SpellDescription$ then roll a d6.
-SVar:DBGain:DB$ GainControl | Defined$ Targeted | LoseControl$ EOT | AddKWs$ Haste | SpellDescription$ 1 VERT Gain control of that creature until end of turn. It gains haste until end of turn.
-SVar:DBBurn:DB$ PutCounter | IsCurse$ True | CounterType$ BURN | CounterNum$ 1 | Defined$ Targeted | SpellDescription$ 2-3 VERT Put a burn counter on that creature.
-SVar:DBFrost:DB$ PutCounter | IsCurse$ True | CounterType$ FROST | CounterNum$ 1 | Defined$ Targeted | SpellDescription$ 4-5 VERT Put a frost counter on that creature.
+PT:4/4
+A:AB$ Pump | Cost$ BR RW | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ DBRollDice | StackDescription$ SpellDescription | SpellDescription$ Choose target creature
+SVar:DBRollDice:DB$ RollDice | Sides$ 6 | ResultSubAbilities$ 1-2:DBGain,3-4:DBBurn,5:DBFrost,6:DBStun | SpellDescription$ then roll a d6.
+SVar:DBGain:DB$ GainControl | Defined$ Targeted | LoseControl$ EOT | AddKWs$ Haste | SpellDescription$ 1-2 VERT Gain control of that creature until end of turn. It gains haste until end of turn.
+SVar:DBBurn:DB$ PutCounter | IsCurse$ True | CounterType$ BURN | CounterNum$ 1 | Defined$ Targeted | SpellDescription$ 3-4 VERT Put a burn counter on that creature.
+SVar:DBFrost:DB$ PutCounter | IsCurse$ True | CounterType$ FROST | CounterNum$ 1 | Defined$ Targeted | SpellDescription$ 5 VERT Put a frost counter on that creature.
 SVar:DBStun:DB$ PutCounter | IsCurse$ True | CounterType$ STUN | CounterNum$ 1 | Defined$ Targeted | SubAbility$ DBTap | SpellDescription$ 6 VERT Tap that creature and put a stun counter on it.
 SVar:DBTap:DB$ Tap | Defined$ Targeted
-Oracle:{WB}{BR}: Team Rocket's Hitmonchan deals 1 damage to target creature, then roll a d6.\n1 | Gain control of that creature until end of turn. It gains haste until end of turn.\n2-3 | Put a burn counter on that creature.\n4-5 | Put a frost counter on that creature.\n6 | Tap that creature and put a stun counter on it.
+Oracle:{BR}{RW}: Choose target creature, then roll a d6.\n1-2 | Gain control of that creature until end of turn. It gains haste until end of turn.\n3-4 | Put a burn counter on that creature.\n5 | Put a frost counter on that creature.\n6 | Tap that creature and put a stun counter on it.
 
 SVar:SoundEffect:hitmonchan.mp3

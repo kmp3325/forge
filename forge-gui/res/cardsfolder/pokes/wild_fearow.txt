@@ -4,9 +4,10 @@ Types:Creature Bird Pokémon
 PT:3/3
 K:Flash
 K:Flying
-T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigDestroy | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters the battlefield, you may destroy target creature with toughness less than or equal to the number of Birds you control.
-SVar:TrigDestroy:DB$ Destroy | ValidTgts$ Creature.toughnessLEX | TgtPrompt$ Select target creature with toughness less than or equal to the number of Birds you control | NumDmg$ X
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigDestroy | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters the battlefield, you may destroy target creature with toughness less than or equal to the number of Birds you control. It becomes windy.
+SVar:TrigDestroy:DB$ Destroy | ValidTgts$ Creature.toughnessLEX | TgtPrompt$ Select target creature with toughness less than or equal to the number of Birds you control | NumDmg$ X | SubAbility$ TrigWeather
 SVar:X:Count$Valid Creature.YouCtrl+Bird
-Oracle:Flash\nFlying\nWhen Wild Fearow enters the battlefield, you may destroy target creature with toughness less than or equal to the number of Birds you control.
+SVar:TrigWeather:DB$ Weather | Value$ Windy
+Oracle:Flash\nFlying\nWhen Wild Fearow enters the battlefield, you may destroy target creature with toughness less than or equal to the number of Birds you control. It becomes windy.
 
 SVar:SoundEffect:fearow.mp3

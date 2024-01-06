@@ -43,6 +43,7 @@ import forge.game.keyword.KeywordCollection;
 import forge.game.keyword.KeywordInterface;
 import forge.game.player.Player;
 import forge.game.replacement.ReplacementEffect;
+import forge.game.spellability.Ability;
 import forge.game.spellability.SpellAbility;
 import forge.game.spellability.SpellAbilityPredicates;
 import forge.game.staticability.StaticAbility;
@@ -576,16 +577,34 @@ public class CardState extends GameObject implements IHasSVars {
         // Makes a "deeper" copy of a CardState object
         setName(source.getName());
         setType(source.type);
-        setManaCost(source.getManaCost());
         setColor(source.getColor());
         setBasePower(source.getBasePower());
         setBaseToughness(source.getBaseToughness());
         setBaseLoyalty(source.getBaseLoyalty());
         setBaseDefense(source.getBaseDefense());
         setSVars(source.getSVars());
+        if (ctb != null && ctb.hasParam("HasNoCost")) {
+            setManaCost(ManaCost.NO_COST);
+        } else {
+            setManaCost(source.getManaCost());
+        }
+
+        Trigger dontCopyTr = null;
+        SpellAbility dontCopyAb = null;
+        if (ctb != null && ctb.hasParam("DoesntHaveThisAbility")) {
+            SpellAbility root = ((SpellAbility) ctb).getRootAbility();
+            if (root.isTrigger()) {
+                dontCopyTr = root.getTrigger();
+            } else if (root.isAbility()) {
+                dontCopyAb = root.getOriginalAbility();
+            }
+        }
 
         manaAbilities.clear();
         for (SpellAbility sa : source.manaAbilities) {
+            if (sa.equals(dontCopyAb)) {
+                continue;
+            }
             if (sa.isIntrinsic()) {
                 manaAbilities.add(sa.copy(card, lki));
             }
@@ -593,6 +612,9 @@ public class CardState extends GameObject implements IHasSVars {
 
         nonManaAbilities.clear();
         for (SpellAbility sa : source.nonManaAbilities) {
+            if (sa.equals(dontCopyAb)) {
+                continue;
+            }
             if (sa.isIntrinsic()) {
                 nonManaAbilities.add(sa.copy(card, lki));
             }
@@ -602,14 +624,6 @@ public class CardState extends GameObject implements IHasSVars {
         setImageKey(source.getImageKey());
         setRarity(source.rarity);
         setSetCode(source.setCode);
-
-        Trigger dontCopyTr = null;
-        if (ctb != null && ctb.hasParam("DoesntHaveThisAbility")) {
-            SpellAbility root = ((SpellAbility) ctb).getRootAbility();
-            if (root.isTrigger()) {
-                dontCopyTr = root.getTrigger();
-            }
-        }
 
         triggers.clear();
         for (Trigger tr : source.triggers) {

@@ -2,8 +2,8 @@ Name:Horsea
 ManaCost:2 U
 Types:Creature Fish Pokémon
 PT:1/1
-A:AB$ PreventDamage | Cost$ U U | ValidTgts$ Creature | Amount$ 2 | TgtPrompt$ Select target creature | ActivationLimit$ 1 | SpellDescription$ Prevent the next 2 damage that would be dealt to target creature this turn. Activate only once each turn.
-Oracle:{U}{U}: Prevent the next 2 damage that would be dealt to target creature. Activate only once each turn.
+A:AB$ PreventDamage | Cost$ U U | ValidTgts$ Creature | Amount$ 2 | TgtPrompt$ Select target creature | SpellDescription$ Prevent the next 2 damage that would be dealt to target creature this turn.
+Oracle:{U}{U}: Prevent the next 2 damage that would be dealt to target creature this turn.
 
 DeckHints:Name$Seadra
 SVar:SoundEffect:horsea.mp3

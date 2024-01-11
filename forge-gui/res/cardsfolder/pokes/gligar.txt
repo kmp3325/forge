@@ -1,7 +1,7 @@
 Name:Gligar
-ManaCost:2 W
+ManaCost:1 W
 Types:Creature Scorpion Bat Pokémon
-PT:2/2
+PT:1/3
 K:Flying
 K:Lifelink
 A:AB$ Pump | Cost$ B | Defined$ Self | KW$ Caustic | SubAbility$ TrigDebuff | ActivationPhases$ Upkeep->Main1 | SpellDescription$ Until end of turn, CARDNAME gains caustic and loses flying. Activate only before combat.

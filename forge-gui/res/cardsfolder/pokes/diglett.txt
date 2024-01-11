@@ -1,5 +1,5 @@
 Name:Diglett
-ManaCost:RB
+ManaCost:1 RB
 Types:Creature Mole Pokémon
 PT:1/1
 T:Mode$ DamageDone | TriggerZones$ Battlefield | ValidTarget$ Creature.YouCtrl | CombatDamage$ False | Execute$ TrigCounters | TriggerZones$ Battlefield | TriggerDescription$ Whenever a creature you control is dealt noncombat damage, put a burrow counter on CARDNAME.

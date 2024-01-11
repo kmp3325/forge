@@ -1,5 +1,5 @@
 Name:Murkrow
-ManaCost:3 B
+ManaCost:2 B
 Types:Creature Bird Pokémon
 PT:2/2
 K:Flying

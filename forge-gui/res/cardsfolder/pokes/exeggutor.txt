@@ -1,15 +1,15 @@
 Name:Exeggutor
-ManaCost:2 G U
+ManaCost:1 G U
 Types:Creature Egg Plant Pokémon
 PT:1/1
-K:Evolve from:2 G U:Exeggcute:1/1
+K:Evolve from:1 G U:Exeggcute:1/1
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, put three +1/+1 counters on it.
 T:Mode$ Evolved | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigPutCounter | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, put three +1/+1 counters on it.
 SVar:TrigPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 3
 T:Mode$ BecomesTarget | ValidTarget$ Creature.YouCtrl+counters_GE1_P1P1+inZoneBattlefield | ValidSource$ SpellAbility.OppCtrl | TriggerZones$ Battlefield | Execute$ TrigFlip | TriggerDescription$ Whenever a creature you control with a +1/+1 counter on it becomes the target of a spell or ability an opponent controls, flip a coin. If you win the flip, that opponent discards a card.
 SVar:TrigFlip:DB$ FlipACoin | Defined$ You | WinSubAbility$ TrigDiscard
 SVar:TrigDiscard:DB$ Discard | Mode$ TgtChoose | Defined$ TriggeredSourceSAController | NumCards$ 1
-Oracle:Evolve from Exeggcute {2}{G}{U} [1/1]\nWhenever Exeggutor enters the battlefield or evolves, put three +1/+1 counters on it.\nWhenever a creature you control with a +1/+1 counter on it becomes the target of a spell or ability an opponent controls, flip a coin. If you win the flip, that opponent discards a card.
+Oracle:Evolve from Exeggcute {1}{G}{U} [1/1]\nWhenever Exeggutor enters the battlefield or evolves, put three +1/+1 counters on it.\nWhenever a creature you control with a +1/+1 counter on it becomes the target of a spell or ability an opponent controls, flip a coin. If you win the flip, that opponent discards a card.
 
 DeckHints:Name$Exeggcute
 SVar:SoundEffect:exeggutor.mp3

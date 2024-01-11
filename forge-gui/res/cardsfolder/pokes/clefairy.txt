@@ -1,13 +1,13 @@
 Name:Clefairy
-ManaCost:4 W
+ManaCost:3 W
 Types:Creature Faerie Rabbit Pokémon
 PT:1/1
-K:Evolve from:4 W:Cleffa:1/2
+K:Evolve from:3 W:Cleffa:1/2
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigPutCounters | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, put a +1/+1 counter on each evolved creature you control. They gain indestructible and vigilance until end of turn.
 T:Mode$ Evolved | ValidCard$ Card.Self | Execute$ TrigPutCounters | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, put a +1/+1 counter on each evolved creature you control. They gain indestructible and vigilance until end of turn.
 SVar:TrigPutCounters:DB$ PutCounterAll | ValidCards$ Creature.YouCtrl+Evolved | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ TrigKWPump
 SVar:TrigKWPump:DB$ PumpAll | ValidCards$ Creature.YouCtrl+Evolved | KW$ Indestructible & vigilance
-Oracle:Evolve from Cleffa {4}{W} [1/2]\nWhenever Clefairy enters the battlefield or evolves, put a +1/+1 counter on each evolved creature you control. They gain indestructible and vigilance until end of turn.
+Oracle:Evolve from Cleffa {3}{W} [1/2]\nWhenever Clefairy enters the battlefield or evolves, put a +1/+1 counter on each evolved creature you control. They gain indestructible and vigilance until end of turn.
 
 DeckHints:Name$Clefable
 DeckHints:Name$Cleffa

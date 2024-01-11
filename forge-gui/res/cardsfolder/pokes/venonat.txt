@@ -1,5 +1,5 @@
 Name:Venonat
-ManaCost:1 BG
+ManaCost:BG
 Types:Creature Insect Pokémon
 PT:1/1
 K:Caustic

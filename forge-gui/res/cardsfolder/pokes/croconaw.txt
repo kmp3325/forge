@@ -2,11 +2,10 @@ Name:Croconaw
 ManaCost:3 U
 Types:Creature Crocodile Pokémon
 PT:3/3
-K:Evolve from:4 U:Totodile:4/4
-A:AB$ DealDamage | Cost$ T | NumDmg$ 1 | ValidTgts$ Creature.Other | TgtPrompt$ Select another target creature | SubAbility$ DBPhase | SpellDescription$ CARDNAME deals 1 damage to another target creature. That creature can't phase out until end of turn.
-SVar:DBPhase:DB$ Effect | RememberObjects$ Targeted | ForgetOnMoved$ Battlefield | StaticAbilities$ CantPhaseOut | Duration$ UntilEndOfTurn
-SVar:CantPhaseOut:Mode$ CantPhaseOut | ValidCard$ Card.IsRemembered | Description$ Remembered can't phase out until end of turn.
-Oracle:Evolve from Totodile {3}{U} [4/4]\n{t}: Croconaw deals 1 damage to another target creature. That creature can't phase out until end of turn.
+K:Evolve from:3 U:Totodile:4/4
+T:Mode$ PhaseOut | ValidCard$ Creature.OppCtrl | Execute$ TrigDiscard | TriggerZones$ Battlefield | RememberLKI$ True | TriggerDescription$ Whenever a creature an opponent controls phases out, you may pay {2}. If you do, its controller discards a card.
+SVar:TrigDiscard:AB$ Discard | Cost$ 2 | Defined$ RememberedController | NumCards$ 1 | Mode$ TgtChoose
+Oracle:Evolve from Totodile {3}{U} [4/4]\nWhenever a creature an opponent controls phases out, you may pay {2}. If you do, its controller discards a card.
 
 DeckHints:Name$Totodile
 DeckHints:Name$Feraligatr

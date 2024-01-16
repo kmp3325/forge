@@ -1,13 +1,13 @@
 Name:Arcanine
-ManaCost:1 R R
+ManaCost:2 R R
 Types:Creature Wold Dog Pokémon
-PT:3/3
-K:Evolve from:1 R R:Growlithe:5/5
+PT:4/4
+K:Evolve from:1 R R:Growlithe:4/4
 K:Scorching
 K:Mentor
 A:AB$ Pump | Cost$ R | KW$ First strike | NumAtt$ 1 | ValidTgts$ Creature.attacking | TgtPrompt$ Choose target attacking creature | SubAbility$ TrigDmgSelf | SpellAbility$ Target attacking creature gets +1/+0 and gains first strike until end of turn. CARDNAME deals 1 damage to itself.
 SVar:TrigDmgSelf:DB$ DealDamage | NumDmg$ 1 | Defined$ Self
-Oracle:Evolve from Growlithe {1}{R}{R} [5/5]\nMentor, scorching\n{R}: Target attacking creature gets +1/+0 and gains first strike until end of turn. Arcanine deals 1 damage to itself.
+Oracle:Evolve from Growlithe {1}{R}{R} [4/4]\nMentor, scorching\n{R}: Target attacking creature gets +1/+0 and gains first strike until end of turn. Arcanine deals 1 damage to itself.
 
 DeckHints:Name$Growlithe
 SVar:SoundEffect:arcanine.mp3

@@ -2,9 +2,9 @@ Name:Voltorb
 ManaCost:3 R
 Types:Artifact Creature Construct Pokémon
 PT:2/1
-A:AB$ DamageAll | Cost$ T | ActivationZone$ Battlefield | ValidCards$ Creature | NumDmg$ X | ValidDescription$ each creature | SpellDescription$ CARDNAME deals damage equal to its power to each creature.
+A:AB$ DamageAll | Cost$ 1 R | ActivationZone$ Battlefield | ValidCards$ Creature | NumDmg$ X | ValidDescription$ each creature | ActivationLimit$ 1 | SpellDescription$ CARDNAME deals damage equal to its power to each creature. Activate only once each turn.
 SVar:X:Count$CardPower
-Oracle:{T}: Voltorb deals damage equal to its power to each creature.
+Oracle:{1}{R}: Voltorb deals damage equal to its power to each creature. Activate only once each turn.
 
 DeckHints:Name$Electrode
 SVar:SoundEffect:voltorb.mp3

@@ -3,10 +3,13 @@ ManaCost:3 U R
 Types:Artifact Creature Construct Pokémon
 PT:2/2
 K:Steel skin
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigTap | TriggerDescription$ Whenever CARDNAME enters the battlefield, tap target creature and put a stun counter on it.
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigTap | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME enters the battlefield, you may tap target creature and put a stun counter on it.
 SVar:TrigTap:DB$ Tap | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigPutCounter
 SVar:TrigPutCounter:DB$ PutCounter | CounterType$ STUN | CounterNum$ 1 | Defined$ Targeted
-Oracle:Steel skin\nWhenever Magnemite enters the battlefield, tap target creature and put a stun counter on it.
+T:Mode$ Evolved | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigBigStun | TriggerDescription$ Whenever CARDNAME evolves, you may distribute three stun counters among any number of target creatures. Tap those creatures.
+SVar:TrigBigStun:DB$ PutCounter | ValidTgts$ Creature | TgtPrompt$ Select target creature to distribute counters to | CounterType$ STUN | CounterNum$ 3 | TargetMin$ 0 | TargetMax$ 3 | DividedAsYouChoose$ 3 | SubAbility$ TrigTapStunned
+SVar:TrigTapStunned:DB$ Tap | Defined$ Targeted
+Oracle:Steel skin\nWhenever Magnemite enters the battlefield, you may tap target creature and put a stun counter on it.\nWhenever Magnemite evolves, you may distribute three stun counters among any number of target creatures. Tap those creatures.
 
 DeckHints:Name$Magneton
 SVar:SoundEffect:magnemite.mp3

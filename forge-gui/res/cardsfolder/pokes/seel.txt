@@ -2,11 +2,14 @@ Name:Seel
 ManaCost:2 U
 Types:Creature Walrus Pokémon
 PT:1/2
+T:Mode$ Evolved | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigFrost | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, put a frost counter on each of up to two target creatures.
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigFrost | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, put a frost counter on each of up to two target creatures.
+SVar:TrigFrost:DB$ PutCounter | TargetMin$ 0 | TargetMax$ 2 | ValidTgts$ Creature | TgtPrompt$ Select up to two target creatures | CounterType$ FROST | CounterNum$ 1
 A:AB$ RemoveCounter | Cost$ T | CounterType$ FROST | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigDraw | RememberRemoved$ True | SpellDescription$ Remove a frost counter from target creature. If you do, draw a card.
 SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ 1 | ConditionCheckSVar$ X | ConditionSVarCompare$ GE1 | SubAbility$ DBCleanup
 SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
 SVar:X:Count$RememberedSize
-Oracle:{T}: Remove a frost counter from target creature. If you do, draw a card.
+Oracle:Whenever Seel enters the battlefield or evolves, put a frost counter on each of up to two target creatures.\n{T}: Remove a frost counter from target creature. If you do, draw a card.
 
 DeckHints:Name$Dewgong
 SVar:SoundEffect:seel.mp3

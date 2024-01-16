@@ -1,12 +1,11 @@
 Name:Ariados
 ManaCost:4 B G
 Types:Creature Spider Pokémon
-PT:4/3
-K:Evolve from:4 B G:Spinarak:4/5
-K:Caustic
+PT:3/3
+K:Evolve from:B G:Spinarak:3/6
 A:AB$ PutCounter | IsCurse$ True | Cost$ B G T | CounterType$ POISON | CounterNum$ 1 | Choices$ Creature.counters_GE1_POISON | MinChoiceAmount$ 0 | ChoiceAmount$ MaxChoices | ChoiceTitle$ Choose any number of creatures with poison counters on them | SpellDescription$ Choose any number of creatures with poison counters on them, then put a poison counter on each of them.
 SVar:MaxChoices:Count$Valid Creature.counters_GE1_POISON
-Oracle:Evolve from Spinarak {4}{B}{G} [4/5]\nCaustic\n{B}{G}, {T}: Choose any number of creatures with poison counters on them, then put a poison counter on each of them.
+Oracle:Evolve from Spinarak {B}{G} [3/6]\n{B}{G}, {T}: Choose any number of creatures with poison counters on them, then put a poison counter on each of them.
 
 DeckHints:Name$Spinarak
 

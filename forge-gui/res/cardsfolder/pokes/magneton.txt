@@ -1,14 +1,14 @@
 Name:Magneton
 ManaCost:4 U R
 Types:Artifact Creature Construct Pokémon
-PT:5/4
-K:Evolve from:4 U R:Magnemite:6/5
+PT:3/3
+K:Evolve from:3 U R:Magnemite:3/3
 K:Steel skin
-T:Mode$ Evolved | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigTap | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, tap up to three target creatures, then put a stun counter on each of them.
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigTap | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, tap up to three target creatures, then put a stun counter on each of them.
-SVar:TrigTap:DB$ Tap | ValidTgts$ Creature | TgtPrompt$ Select target creature | TargetMin$ 0 | TargetMax$ 3 | SubAbility$ TrigPutCounter
-SVar:TrigPutCounter:DB$ PutCounter | Defined$ Targeted | IsCurse$ True | CounterType$ STUN | CounterNum$ 1
-Oracle:Evolve from Magnemite {4}{U}{R} [6/5]\nSteel skin\nWhenever Magneton enters the battlefield or evolves, tap up to three target creatures, then put a stun counter on each of them.
+T:Mode$ CounterRemoved | ValidCard$ Creature.OppCtrl | TriggerZones$ Battlefield | CounterType$ STUN | Execute$ TrigStunUnless | TriggerDescription$ Whenever a stun counter is removed from a creature an opponent controls, put a stun counter on it unless its controller pays {2}.
+SVar:TrigStunUnless:DB$ PutCounter | CounterType$ STUN | CounterNum$ 1 | Defined$ TriggeredTargetLKICopy | UnlessCost$ 2
+A:AB$ Tap | Cost$ 3 U R | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigPutCounter
+SVar:TrigPutCounter:DB$ PutCounter | Defined$ Targeted | CounterNum$ 1 | CounterType$ STUN
+Oracle:Evolve from Magnemite {3}{U}{R} [3/3]\nSteel skin\nWhenever a stun counter is removed from a creature an opponent controls, put a stun counter on it unless its controller pays {2}.\n{3}{u}{r}: Tap target creature and put a stun counter on it.
 
 DeckHints:Name$Magnemite
 SVar:SoundEffect:magneton.mp3

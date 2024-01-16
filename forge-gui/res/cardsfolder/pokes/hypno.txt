@@ -2,11 +2,14 @@ Name:Hypno
 ManaCost:3 U B
 Types:Creature Board Wizard Pokémon
 PT:1/3
-K:Evolve from:3 U B:Drowzee:1/5
+K:Evolve from:3 U B:Drowzee:1/4
+T:Mode$ Evolved | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigMill | TriggerDescription$ Whenever CARDNAME evolves, mill two cards, then draw two cards.
+SVar:TrigMill:DB$ Mill | Defined$ You | NumCards$ 2 | SubAbility$ TrigDraw
+SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ 2
 A:AB$ Mill | Cost$ U T | ValidTgts$ Player | NumCards$ X | TgtPrompt$ Select target player | SpellDescription$ Target player mills cards equal to the number of cards in their hand plus one.
 SVar:X:TargetedPlayer$CardsInHand/Plus.1
 A:AB$ ChangeZoneAll | Cost$ B T | ValidTgts$ Player | ChangeType$ Creature | Origin$ Graveyard | Destination$ Exile | SpellDescription$ Exile all creature cards from target player's graveyard.
-Oracle:Evolve from Drowzee {3}{U}{B} [1/5]\n{B}, {T}: Exile all creature cards from target player's graveyard.\n{U}, {T}: Target player mills cards equal to the number of cards in their hand plus one.
+Oracle:Evolve from Drowzee {3}{U}{B} [1/4]\nWhenever Hypno evolves, mill two cards, then draw two cards.\n{B}, {T}: Exile all creature cards from target player's graveyard.\n{U}, {T}: Target player mills cards equal to the number of cards in their hand plus one.
 
 DeckHints:Name$Drowzee
 SVar:SoundEffect:hypno.mp3

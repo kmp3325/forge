@@ -1,6 +1,6 @@
 Name:Arcanine
 ManaCost:2 R R
-Types:Creature Wold Dog Pokémon
+Types:Creature Wolf Dog Pokémon
 PT:4/4
 K:Evolve from:1 R R:Growlithe:4/4
 K:Scorching

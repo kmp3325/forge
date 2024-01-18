@@ -175,6 +175,8 @@ public enum CounterEnumType {
 
     FUSE("FUSE", 255, 122, 85),
 
+    GAZE("GAZE", 255, 104, 118),
+
     GEM("GEM", 255, 99, 251),
 
     GHOSTFORM("GHSTF", 223, 0, 254),

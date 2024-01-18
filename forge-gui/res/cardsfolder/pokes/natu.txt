@@ -1,11 +1,13 @@
 Name:Natu
 ManaCost:B
 Types:Creature Bird Pokémon
-PT:1/1
+PT:0/1
 K:Flying
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigRemoveCounters | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters the battlefield, you may remove all counters from target permanent.
-SVar:TrigRemoveCounters:DB$ RemoveCounter | CounterType$ All | CounterNum$ All | ValidTgts$ Permanent | TgtPrompt$ Select target permanent
-Oracle:Flying\nWhen Natu enters the battlefield, you may remove all counters from target permanent.
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, put a gaze counter on target creature.
+T:Mode$ Evolved | ValidCard$ Card.Self | Execute$ TrigPutCounter | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, put a gaze counter on target creature.
+SVar:TrigPutCounter:DB$ PutCounter | ValidTgts$ Creature | TgtPrompt$ Select target creature | CounterNum$ 1 | CounterType$ GAZE
+A:AB$ Exile | Cost$ 3 B | ValidTgts$ Creature.counters_GE1_GAZE | TgtPrompt$ Select target creature with a gaze counter on it | SpellDescription$ Exile target creature with a gaze counter on it.
+Oracle:Flying\nWhenever CARDNAME enters the battlefield or evolves, you may put a gaze counter on target creature.\n{3}{B}: Exile target creature with a gaze counter on it.
 
 DeckHints:Name$Xatu
 SVar:SoundEffect:natu.mp3

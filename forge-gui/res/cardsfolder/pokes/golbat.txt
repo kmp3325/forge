@@ -1,14 +1,14 @@
 Name:Golbat
 ManaCost:3 B
 Types:Creature Bat Pokémon
-PT:3/3
+PT:2/2
 K:Evolve from:2 B:Zubat
 K:Flying
-T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigTap | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME attacks, you may tap target creature defending player controls, then flip a coin. If you win the flip, that creature deals 1 damage to itself.
-SVar:TrigTap:DB$ Tap | ValidTgts$ Creature.DefenderCtrl | TgtPrompt$ Select target creature defending player controls | SubAbility$ TrigFlip
-SVar:TrigFlip:DB$ FlipACoin | WinSubAbility$ TrigConfused
-SVar:TrigConfused:DB$ DealDamage | NumDmg$ 1 | DamageSource$ Targeted | Defined$ Targeted
-Oracle:Evolve from Zubat {2}{B}\nFlying\nWhenever Golbat attacks, you may tap target creature defending player controls, then flip a coin. If you win the flip, that creature deals 1 damage to itself.
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigFlip | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME attacks, you may flip a coin. If you win the flip, gain control of target creature until end of turn. Then that creature deals 1 damage to itself.
+SVar:TrigFlip:DB$ FlipACoin | WinSubAbility$ TrigConfused | ValidTgts$ Creature | TgtPrompt$ Select target creature
+SVar:TrigConfused:DB$ GainControl | LoseControl$ EOT | SubAbility$ TrigConfusedHurt
+SVar:TrigConfusedHurt:DB$ DealDamage | NumDmg$ 1 | DamageSource$ Targeted | Defined$ Targeted
+Oracle:Evolve from Zubat {2}{B}\nFlying\nWhenever Golbat attacks, you may flip a coin. If you win the flip, gain control of target creature until end of turn. Then that creature deals 1 damage to itself.
 
 DeckHints:Name$Zubat
 DeckHints:Name$Crobat

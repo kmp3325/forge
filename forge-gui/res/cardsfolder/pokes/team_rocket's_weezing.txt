@@ -4,9 +4,9 @@ Types:Creature Elemental Pokémon
 PT:3/2
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigWeather | TriggerDescription$ When CARDNAME enters the battlefield, it becomes foggy.
 SVar:TrigWeather:DB$ Weather | Value$ Foggy
-T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | CheckSVar$ FOG | SVarCompare$ GE1 | Execute$ TrigGain | TriggerDescription$ At the beginning of your upkeep, if it's foggy, you may gain control of target creature until end of turn. If you do, it loses all abilities until end of turn.
+T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | CheckSVar$ FOG | SVarCompare$ GE1 | Execute$ TrigGain | OptionalDecider$ You | TriggerDescription$ At the beginning of your upkeep, if it's foggy, you may gain control of target creature until end of turn. If you do, it loses all abilities until end of turn.
 SVar:FOG:Count$Foggy.1.0
-SVar:TrigGain:DB$ GainControl | LoseControl$ EOT | SubAbility$ DBPump
+SVar:TrigGain:DB$ GainControl | ValidTgts$ Creature | TgtPrompt$ Select target creature | LoseControl$ EOT | SubAbility$ DBPump
 SVar:DBPump:DB$ Animate | Defined$ Targeted | RemoveAllAbilities$ True | Duration$ UntilHostLeavesPlay
 Oracle:When Team Rocket's Weezing enters the battlefield, it becomes foggy.\nAt the beginning of your upkeep, if it's foggy, you may gain control of target creature until end of turn. If you do, it loses all abilities until end of turn.
 

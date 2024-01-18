@@ -2,7 +2,7 @@ Name:Jynx
 ManaCost:4 B
 Types:Snow Creature Vampire Demon Pokémon
 PT:4/3
-K:Evolve from:4 B:Smoochum:5/3
+K:Evolve from:3 B:Smoochum
 T:Mode$ Attacks | ValidCard$ Card.Self | Attacked$ Player | Execute$ TrigReveal | TriggerDescription$ Whenever CARDNAME attacks a player, reveal your hand and discard a card of their choice. That player exiles a number of cards equal to the discarded card's mana value from the top of their library. You may play the exiled cards this turn. If you cast a spell this way, pay life equal to its mana value rather than paying its mana cost.
 SVar:TrigReveal:DB$ Discard | Defined$ You | Mode$ RevealDefendingPlayerChoose | NumCards$ 1 | RememberDiscarded$ True | SubAbility$ TrigExile
 SVar:TrigExile:DB$ Dig | Defined$ DefendingPlayer | DigNum$ X | ChangeNum$ All | DestinationZone$ Exile | RememberChanged$ True | SubAbility$ DBEffect
@@ -10,7 +10,7 @@ SVar:X:Remembered$CardManaCost
 SVar:DBEffect:DB$ Effect | StaticAbilities$ EffPlay | EffectOwner$ You | RememberObjects$ Remembered | ForgetOnMoved$ Exile | SubAbility$ DBCleanup
 SVar:EffPlay:Mode$ Continuous | MayPlay$ True | MayPlayAltManaCost$ PayLife<ConvertedManaCost> | EffectZone$ Command | Affected$ Card.IsRemembered | AffectedZone$ Exile | Description$ You may play the exiled cards this turn. If you cast a spell this way, pay life equal to its mana value rather than paying its mana cost.
 SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
-Oracle:Evolve from Smoochum {4}{B} [5/3]\nWhenever Jynx attacks a player, reveal your hand and discard a card of their choice. That player exiles a number of cards equal to the discarded card's mana value from the top of their library. You may play the exiled cards this turn. If you cast a spell this way, pay life equal to its mana value rather than paying its mana cost.
+Oracle:Evolve from Smoochum {3}{B}\nWhenever Jynx attacks a player, reveal your hand and discard a card of their choice. That player exiles a number of cards equal to the discarded card's mana value from the top of their library. You may play the exiled cards this turn. If you cast a spell this way, pay life equal to its mana value rather than paying its mana cost.
 
 DeckHints:Name$Smoochum
 SVar:HasAttackEffect:TRUE

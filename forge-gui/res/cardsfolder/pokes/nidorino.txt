@@ -1,12 +1,12 @@
 Name:Nidorino
 ManaCost:4 B
 Types:Creature Rhino Rabbit Pokémon
-PT:3/3
-K:Evolve from:4 B:Male Nidoran:4/3
+PT:4/3
+K:Evolve from:3 B:Male Nidoran
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPump | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, target creature gets +2/+0 and gains indestructible until end of turn.
 T:Mode$ Evolved | ValidCard$ Card.Self | Execute$ TrigPump | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, target creature gets +2/+0 and gains indestructible until end of turn.
 SVar:TrigPump:DB$ Pump | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumAtt$ 2 | KW$ Indestructible
-Oracle:Evolve from Male Nidoran {4}{B} [5/4]Whenever Nidorino enters the battlefield or evolves, target creature gets +2/+0 and gains indestructible until end of turn.
+Oracle:Evolve from Male Nidoran {3}{B}\nWhenever Nidorino enters the battlefield or evolves, target creature gets +2/+0 and gains indestructible until end of turn.
 
 DeckHints:Name$Male Nidoran
 DeckHints:Name$Nidoking

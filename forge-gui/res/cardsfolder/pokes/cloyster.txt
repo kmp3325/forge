@@ -2,13 +2,13 @@ Name:Cloyster
 ManaCost:3 GU GU
 Types:Snow Creature Oyster Pokémon
 PT:2/4
-K:Evolve from:3 GU GU:Shellder:2/4
+K:Evolve from:3 GU GU:Shellder
 R:Event$ AddCounter | ValidCard$ Card.Self | ValidCounterType$ P1P1 | ReplaceWith$ PutShield | Optional$ True | OptionalDecider$ You | IsPresent$ Card.Self+untapped | Description$ If one or more +1/+1 counters would be put on CARDNAME and it's untapped, you may tap it and put that many shield counters on it instead.
 SVar:PutShield:DB$ ReplaceCounter | CounterType$ SHIELD | SubAbility$ DBTap
 SVar:DBTap:DB$ Tap | Defined$ Self
 A:AB$ PutCounter | IsCurse$ True | Cost$ S Q | CounterNum$ 1 | CounterType$ FROST | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigSnow | SpellDescription$ Put a frost counter on target creature. It becomes snowy.
 SVar:TrigSnow:DB$ Weather | Value$ Snowy
-Oracle:Evolve from Shellder {3}{GU}{GU} [2/4]\nIf one or more +1/+1 counters would be put on Cloyster and it's untapped, you may tap it and put that many shield counters on it instead.\n{S}, {Q}: Put a frost counter on target creature. It becomes snowy.
+Oracle:Evolve from Shellder {3}{GU}{GU}\nIf one or more +1/+1 counters would be put on Cloyster and it's untapped, you may tap it and put that many shield counters on it instead.\n{S}, {Q}: Put a frost counter on target creature. It becomes snowy.
 
 DeckHints:Name$Shellder
 SVar:SoundEffect:cloyster.mp3

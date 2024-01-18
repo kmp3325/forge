@@ -2,11 +2,11 @@ Name:Quagsire
 ManaCost:3 W U
 Types:Creature Salamander Pokémon
 PT:2/5
-K:Evolve from:3 W U:Wooper:3/6
+K:Evolve from:3 W U:Wooper
 T:Mode$ PhaseIn | ValidCard$ Creature | Execute$ DBScry | TriggerZones$ Battlefield | OptionalDecider$ True | TriggerDescription$ Whenever a creature phases in, you may scry 1, then draw a card.
 SVar:DBScry:DB$ Scry | ScryNum$ 1 | SubAbility$ DBDraw
 SVar:DBDraw:DB$ Draw | NumCards$ 1 | Defined$ You
-Oracle:Evolve from Wooper {3}{W}{U} [3/6]\nWhenever a creature phases in, you may scry 1, then draw a card.
+Oracle:Evolve from Wooper {2}{W}{U}\nWhenever a creature phases in, you may scry 1, then draw a card.
 
 DeckHints:Name$Wooper
 SVar:SoundEffect:quagsire.mp3

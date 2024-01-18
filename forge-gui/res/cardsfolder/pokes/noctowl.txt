@@ -2,14 +2,14 @@ Name:Noctowl
 ManaCost:4 W
 Types:Creature Bird Pokémon
 PT:3/4
-K:Evolve from:4 W:Hoothoot:4/5
+K:Evolve from:3 W:Hoothoot
 K:Flying
 K:Vigilance
 S:Mode$ Continuous | Affected$ Card.Other+YouCtrl+Bird | AddPower$ 2 | AddToughness$ 2 | AddKeyword$ Vigilance | CheckSVar$ WIND | SVarCompare$ GE1 | Description$ As long as it's windy, other Bird creatures you control get +2/+2 and have vigilance.
 SVar:WIND:Count$Windy.1.0
 A:AB$ Phases | Cost$ W T | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigWind | SpellDescription$ Target creature phases out. It becomes windy.
 SVar:TrigWind:DB$ Weather | Value$ Windy
-Oracle:Evolve from Hoothoot {4}{W} [4/5]\nFlying, vigilance\nAs long as it’s windy, other Bird creatures you control get +2/+2 and have vigilance.\n{W}, {T}: Target creature phases out. It becomes windy.
+Oracle:Evolve from Hoothoot {3}{W}\nFlying, vigilance\nAs long as it’s windy, other Bird creatures you control get +2/+2 and have vigilance.\n{W}, {T}: Target creature phases out. It becomes windy.
 
 DeckHints:Name$Hoothoot
 DeckHints:Type$Bird

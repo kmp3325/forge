@@ -2,7 +2,7 @@ Name:Togetic
 ManaCost:1 WU WU
 Types:Creature Faerie Bird Pokémon
 PT:2/3
-K:Evolve from:1 WU WU:Togepi:4/5
+K:Evolve from:1 WU WU:Togepi
 K:Flying
 K:Vigilance
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, put a peace counter on target creature.
@@ -10,7 +10,7 @@ T:Mode$ Evolved | ValidCard$ Card.Self | Execute$ TrigPutCounter | Secondary$ Tr
 SVar:TrigPutCounter:DB$ PutCounter | ValidTgts$ Creature | TgtPrompt$ Select target creature | CounterNum$ 1 | CounterType$ PEACE
 S:Mode$ Continuous | Affected$ Creature.counters_GE1_PEACE | AddHiddenKeyword$ CARDNAME can't attack. | Description$ Creatures with peace counters on them can't attack.
 A:AB$ Phases | Cost$ WU | ValidTgts$ Creature.counters_GE1_PEACE | TgtPrompt$ Select target creature with a peace counter on it | SpellDescription$ Target creature with a peace counter on it phases out.
-Oracle:Evolve from Togepi {1}{WU}{WU} [4/5]\nFlying, vigilance\nWhenever Togetic enters the battlefield or evolves, put a peace counter on target creature.\nCreatures with peace counters on them can't attack.\n{WU}: Target creature with a peace counter on it phases out.
+Oracle:Evolve from Togepi {1}{WU}{WU}\nFlying, vigilance\nWhenever Togetic enters the battlefield or evolves, put a peace counter on target creature.\nCreatures with peace counters on them can't attack.\n{WU}: Target creature with a peace counter on it phases out.
 
 DeckHints:Name$Togepi
 SVar:SoundEffect:togetic.mp3

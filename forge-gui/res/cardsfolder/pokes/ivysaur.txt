@@ -1,11 +1,11 @@
 Name:Ivysaur
 ManaCost:1 G G
 Types:Creature Plant Frog Pokémon
-PT:2/2
-K:Evolve from:1 G G:Bulbasaur:3/3
+PT:2/3
+K:Evolve from:1 G:Bulbasaur
 K:Vigilance
 K:Caustic
-Oracle:Evolve from Bulbasaur {1}{G}{G} [3/3]\nVigilance, caustic
+Oracle:Evolve from Bulbasaur {1}{G}{G}\nVigilance, caustic
 
 DeckHints:Name$Bulbasuar
 DeckHints:Name$Venusaur

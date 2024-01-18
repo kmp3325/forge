@@ -2,12 +2,12 @@ Name:Raticate
 ManaCost:4 W
 Types:Creature Rat Pokémon
 PT:2/2
-K:Evolve from:4 W:Rattata:3/2
+K:Evolve from:2 W:Rattata
 K:First strike
 T:Mode$ ChangesZone | Destination$ Battlefield | Origin$ Any | ValidCard$ Card.Self | Execute$ TrigDestroy | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, you may destroy target creature with toughness 3 or less.
 T:Mode$ Evolved | ValidCard$ Card.Self | Execute$ TrigDestroy | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, you may destroy target creature with toughness 3 or less.
 SVar:TrigDestroy:DB$ Destroy | ValidTgts$ Creature.toughnessLE3 | TgtPrompt$ Select target creature | OptionalDecider$ You
-Oracle:Evolve from Rattata {4}{W}[3/2]\nFirst strike\nWhenever Raticate enters the battlefield or evolves, you may destroy target creature with toughness 3 or less.
+Oracle:Evolve from Rattata {2}{W}\nFirst strike\nWhenever Raticate enters the battlefield or evolves, you may destroy target creature with toughness 3 or less.
 
 DeckHints:Name$Rattata
 SVar:PlayMain1:OPPONENTCREATURES

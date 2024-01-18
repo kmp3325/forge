@@ -1,13 +1,13 @@
 Name:Ledian
 ManaCost:3 G
 Types:Creature Insect Pokémon
-PT:2/2
-K:Evolve from:3 G:Ledyba:3/3
+PT:3/3
+K:Evolve from:3 G:Ledyba
 K:Flying
 A:AB$ Token | Cost$ 2 G | TokenAmount$ 1 | TokenScript$ g_1_1_ledyba | SpellDescription$ Create a green 1/1 Insect Pokémon creature token named Ledyba.
 T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.Self+powerGE4 | Execute$ TrigReturn | TriggerDescription$ When CARDNAME dies, if its power was 4 or greater, return it to its owner's hand.
 SVar:TrigReturn:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand | Defined$ TriggeredNewCardLKICopy
-Oracle:Evolve from Ledyba {3}{G} [3/3]\nFlying\n{2}{G}: Create a green 1/1 Insect Pokémon creature token named Ledyba.\nWhen Ledian dies, if its power was 4 or greater, return it to its owner's hand.
+Oracle:Evolve from Ledyba {3}{G}\nFlying\n{2}{G}: Create a green 1/1 Insect Pokémon creature token named Ledyba.\nWhen Ledian dies, if its power was 4 or greater, return it to its owner's hand.
 
 DeckHints:Name$Ledybda
 DeckHints:Type$Insect

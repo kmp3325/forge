@@ -1,14 +1,14 @@
 Name:Team Rocket's Gyarados
 ManaCost:5 W B
 Types:Creature Serpent Pokémon
-PT:4/4
-K:Evolve from:5 W B:Team Rocket's Magikarp:7/7
+PT:5/5
+K:Evolve from:3 W B:Team Rocket's Magikarp
 K:Flying
 T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigGainLand | TriggerDescription$ Whenever CARDNAME attacks, you may gain control of target land until the beginning of your next upkeep. Untap it.
 SVar:TrigGainLand:DB$ GainControl | ValidTgts$ Land | TgtPrompt$ Select target land | LoseControl$ UntilYourNextUpkeep | Untap$ True
 A:AB$ PumpAll | Cost$ B Sac<1/Land> | ConditionCheckSVar$ FOG | ConditionSVarCompare$ GE1 | ValidCards$ Creature.YouCtrl | NumAtt$ +1 | NumDef$ +1 | SpellDescription$ Creatures you control get +1/+1 until end of turn. Activate only if it’s foggy.
 SVar:FOG:Count$Foggy.1.0
-Oracle:Evolve from Team Rocket's Magikarp {5}{W}{B} [7/7]\nFlying\nWhenever Team Rocket's Gyarados attacks, you may gain control of target land until the beginning of your next upkeep. Untap it.\n{B}, Sacrifice a land: Creatures you control get +1/+1 until end of turn. Activate only if it’s foggy.
+Oracle:Evolve from Team Rocket's Magikarp {3}{W}{B}\nFlying\nWhenever Team Rocket's Gyarados attacks, you may gain control of target land until the beginning of your next upkeep. Untap it.\n{B}, Sacrifice a land: Creatures you control get +1/+1 until end of turn. Activate only if it’s foggy.
 
 DeckHints:Name$Team Rocket's Magikarp
 SVar:HasAttackEffect:TRUE

@@ -1,12 +1,12 @@
 Name:Magmar
 ManaCost:3 R R
 Types:Creature Salamander Duck Pokémon
-PT:4/4
-K:Evolve from:3 R R:Magby:5/5
+PT:5/5
+K:Evolve from:3 R R:Magby
 T:Mode$ DamageDone | TriggerZones$ Battlefield | ValidTarget$ Creature.YouCtrl | CombatDamage$ False | Execute$ TrigCounter | TriggerZones$ Battlefield | TriggerDescription$ Whenever a creature you control is dealt noncombat damage, you may put a burn counter on target creature.
 SVar:TrigCounter:DB$ PutCounter | IsCurse$ True | ValidTgts$ Creature | TgtPrompt$ Select target creature | CounterType$ BURN | CounterNum$ 1
 A:AB$ RemoveCounter | Cost$ R | CounterType$ FROST | CounterNum$ All | ValidTgts$ Creature | TgtPrompt$ Select target creature | SpellDescription$ Remove all frost counters from target creature.
-Oracle:Evolve from Magby {3}{R}{R} [5/5]\nWhenever a creature you control is dealt noncombat damage, you may put a burn counter on target creature.\n{R}: Remove all frost counters from target creature.
+Oracle:Evolve from Magby {3}{R}{R}\nWhenever a creature you control is dealt noncombat damage, you may put a burn counter on target creature.\n{R}: Remove all frost counters from target creature.
 
 DeckHints:Name$Magby
 SVar:SoundEffect:magmar.mp3

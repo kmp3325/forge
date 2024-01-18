@@ -2,13 +2,13 @@ Name:Politoed
 ManaCost:1 G U R
 Types:Creature Frog Pokémon
 PT:4/4
-K:Evolve from:2 GU U UR:Poliwhirl:4/4
+K:Evolve from:GU U UR:Poliwhirl
 T:Mode$ Attacks | ValidCard$ Creature.YouCtrl+Evolved | TriggerZones$ Battlefield | Execute$ TrigPut | TriggerDescription$ Whenever an evolved creature you control attacks, put a +1/+1 counter on it.
 SVar:TrigPut:DB$ PutCounter | Defined$ TriggeredAttackerLKICopy | CounterType$ P1P1 | CounterNum$ 1
 R:Event$ AddCounter | ActiveZones$ Battlefield | ValidCard$ Creature.YouCtrl+inZoneBattlefield | ValidCounterType$ P1P1 | ReplaceWith$ AddOneMoreCounters | Description$ If one or more +1/+1 counters would be put on a creature you control, that many plus one +1/+1 counters are put on it instead.
 SVar:AddOneMoreCounters:DB$ ReplaceCounter | ValidCounterType$ P1P1 | ChooseCounter$ True | Amount$ Y
 SVar:Y:ReplaceCount$CounterNum/Plus.1
-Oracle:Evolve from Poliwhirl {GU}{U}{UR} [4/4]\nIf one or more +1/+1 counters would be put on a creature you control, that many plus one +1/+1 counters are put on it instead.\nWhenever an evolved creature you control attacks, put a +1/+1 counter on it.
+Oracle:Evolve from Poliwhirl {GU}{U}{UR}\nIf one or more +1/+1 counters would be put on a creature you control, that many plus one +1/+1 counters are put on it instead.\nWhenever an evolved creature you control attacks, put a +1/+1 counter on it.
 
 SVar:PlayMain1:TRUE
 DeckHints:Name$Poliwhirl

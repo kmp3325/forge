@@ -2,12 +2,12 @@ Name:Haunter
 ManaCost:2 B B
 Types:Creature Nightmare Spirit Pokémon
 PT:2/2
-K:Evolve from:2 B B:Gastly:3/2
+K:Evolve from:1 B B:Gastly
 T:Mode$ Evolved | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigImmediateTrig | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, you may sacrifice a creature. When you do, return up to three target creature cards with total mana value 6 or less from your graveyard to your hand.
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigImmediateTrig | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, you may discard a card. If you do, return up to three target creature cards with total mana value 6 or less from your graveyard to your hand.
 SVar:TrigImmediateTrig:AB$ ImmediateTrigger | Cost$ Sac<1/Creature> | Execute$ TrigRevive | SpellDescription$ Whenever CARDNAME enters the battlefield or evolves, you may sacrifice a creature. When you do, return up to three target creature cards with total mana value 6 or less from your graveyard to your hand.
 SVar:TrigRevive:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand | TargetMin$ 0 | TargetMax$ 3 | TgtPrompt$ Select up to three target creature cards with total mana value 6 or less in your graveyard | ValidTgts$ Creature.YouOwn | MaxTotalTargetCMC$ 6
-Oracle:Evolve from Gastly {2}{B}{B} [3/2]\nWhenever Haunter enters the battlefield or evolves, you may sacrifice a creature. When you do, return up to three target creature cards with total mana value 6 or less from your graveyard to your hand.
+Oracle:Evolve from Gastly {1}{B}{B}\nWhenever Haunter enters the battlefield or evolves, you may sacrifice a creature. When you do, return up to three target creature cards with total mana value 6 or less from your graveyard to your hand.
 
 DeckHints:Name$Gastly
 DeckHints:Name$Gengar

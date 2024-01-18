@@ -2,10 +2,10 @@ Name:Hitmonchan
 ManaCost:2 R W
 Types:Creature Beast Warrior Pokémon
 PT:3/4
-K:Evolve from:2 R W:Tyrogue:4/5
+K:Evolve from:1 R W:Tyrogue
 K:Mentor
 A:AB$ Pump | Cost$ W | NumAtt$ 1 | Defined$ Self | KW$ Reach | SpellDescription$ CARDNAME gets +0/+1 and gains reach until end of turn.
-Oracle:Evolve from Tyrogue {2}{R}{W} [4/5]\nMentor\n{W}: Hitmonchan gets +1/+0 and gains reach until end of turn.
+Oracle:Evolve from Tyrogue {1}{R}{W}\nMentor\n{W}: Hitmonchan gets +1/+0 and gains reach until end of turn.
 
 DeckHints:Name$Tyrogue
 SVar:SoundEffect:hitmonchan.mp3

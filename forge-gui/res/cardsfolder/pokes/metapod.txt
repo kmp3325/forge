@@ -2,11 +2,11 @@ Name:Metapod
 ManaCost:1 G
 Types:Creature Insect Pokémon
 PT:0/3
-K:Evolve from:1 G:Caterpie:0/4
+K:Evolve from:1 G:Caterpie
 A:AB$ Pump | Cost$ G | NumDef$ +1 | SpellDescription$ CARDNAME gets +0/+1 until end of turn.
 T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Any | ValidCard$ Card.Self | Execute$ TrigTramp | TriggerDescription$ When CARDNAME leaves the battlefield, creatures you control gain trample until end of turn.
 SVar:TrigTramp:DB$ PumpAll | ValidCards$ Creature.YouCtrl | KW$ Trample
-Oracle:Evolve from Caterpie {1}{G} [0/4]\n{G}: Metapod gets +0/+1 until end of turn.\nWhen Metapod leaves the battlefield, creatures you control gain trample until end of turn.
+Oracle:Evolve from Caterpie {1}{G}\n{G}: Metapod gets +0/+1 until end of turn.\nWhen Metapod leaves the battlefield, creatures you control gain trample until end of turn.
 
 DeckHints:Name$Caterpie
 DeckHints:Name$Butterfree

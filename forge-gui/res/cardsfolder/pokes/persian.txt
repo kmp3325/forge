@@ -2,14 +2,14 @@ Name:Persian
 ManaCost:2 W W W
 Types:Creature Cat Pokémon
 PT:4/4
-K:Evolve from:2 W W W:Meowth:5/4
+K:Evolve from:3 W W:Meowth
 K:First strike
 K:Vigilance
 T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ Whenever CARDNAME attacks, create a Treasure token.
 SVar:TrigToken:DB$ Token | TokenAmount$ 1 | TokenScript$ c_a_treasure_sac | TokenOwner$ You
 S:Mode$ Continuous | Affected$ Card.Treasure+YouCtrl | AddAbility$ Mana | Description$ Treasures you control have "{T}, Sacrifice this artifact: Add two mana of any one color."
 SVar:Mana:AB$ Mana | Cost$ T Sac<1/CARDNAME/this artifact> | Produced$ Any | Amount$ 2 | SpellDescription$ Add two mana of any one color.
-Oracle:Evolve from Meowth {2}{W}{W}{W} [5/4]\nFirst strike, vigilance\nWhenever Persian attacks, create a Treasure token.\nTreasures you control have "{T}, Sacrifice this artifact: Add two mana of any one color."
+Oracle:Evolve from Meowth {3}{W}{W}\nFirst strike, vigilance\nWhenever Persian attacks, create a Treasure token.\nTreasures you control have "{T}, Sacrifice this artifact: Add two mana of any one color."
 
 DeckHints:Name$Meowth
 DeckHints:Type$Treasure

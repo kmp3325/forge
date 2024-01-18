@@ -1,8 +1,8 @@
 Name:Meganium
 ManaCost:5 G
 Types:Creature Plant Dinosaur Pokémon
-PT:4/5
-K:Evolve from:5 G:Bayleef:5/6
+PT:5/6
+K:Evolve from:4 G:Bayleef
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ When CARDNAME enters the battlefield, put a solar counter on it.
 SVar:TrigPutCounter:DB$ PutCounter | CounterType$ SOLAR | CounterNum$ 1 | Defined$ Self
 K:ETBReplacement:Other:AddExtraCounter:Mandatory:Battlefield:Creature.Plant+YouCtrl+Other
@@ -11,7 +11,7 @@ SVar:X:Count$CardCounters.SOLAR/Times.WEATHER
 SVar:WEATHER:Count$Rainy.1.SUN
 SVar:SUN:Count$Sunny.1.0
 A:AB$ ChangeZone | Cost$ G G T | Origin$ Graveyard | Destination$ Hand | ValidTgts$ Plant.YouOwn | TgtPrompt$ Select target Plant card | SpellDescription$ Return target Plant card from your graveyard to your hand.
-Oracle:Evolve from Bayleef {5}{G} [5/6]\nWhen Meganium enters the battlefield, put a solar counter on it.\nAs long as it's sunny or rainy, Plant creatures you control enter the battlefield with X additional +1/+1 counters on them, where X is the number of solar counters on Meganium.\n{G}{G}, {T}: Return target Plant card from your graveyard to your hand.
+Oracle:Evolve from Bayleef {4}{G}\nWhen Meganium enters the battlefield, put a solar counter on it.\nAs long as it's sunny or rainy, Plant creatures you control enter the battlefield with X additional +1/+1 counters on them, where X is the number of solar counters on Meganium.\n{G}{G}, {T}: Return target Plant card from your graveyard to your hand.
 
 DeckHints:Name$Bayleef
 SVar:SoundEffect:meganium.mp3

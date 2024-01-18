@@ -2,10 +2,10 @@ Name:Wobbuffet
 ManaCost:2 B
 Types:Creature Atog Pokémon
 PT:1/2
-K:Evolve from:2 B:Wynut:1/4
+K:Evolve from:2 B:Wynut
 K:Defender
 T:Mode$ DamageDoneOnce | Execute$ TrigDamage | ValidTarget$ Card.Self | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME is dealt damage, it deals that much damage to any target.
 SVar:TrigDamage:DB$ DealDamage | NumDmg$ X | ValidTgts$ Any
 SVar:X:TriggerCount$DamageAmount
-Oracle:Evolve from Wynut {2}{B} [1/4]\nDefender\nWhenever Wobbuffet is dealt damage, it deals that much damage to any target.
+Oracle:Evolve from Wynut {2}{B}\nDefender\nWhenever Wobbuffet is dealt damage, it deals that much damage to any target.
 SVar:SoundEffect:wobbuffet.mp3

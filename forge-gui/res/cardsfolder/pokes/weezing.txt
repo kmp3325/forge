@@ -2,7 +2,7 @@ Name:Weezing
 ManaCost:5 B
 Types:Creature Elemental Pokémon
 PT:3/5
-K:Evolve from:5 B:Koffing:3/6
+K:Evolve from:3 B:Koffing
 R:Event$ AddCounter | ActiveZones$ Battlefield | ValidCard$ Card.Self | ValidCounterType$ POISON | ReplaceWith$ ActuallyP1P1 | Description$ If one or more poison counters would be put on CARDNAME, put that many +1/+1 counters on it instead.
 SVar:ActuallyP1P1:DB$ ReplaceCounter | CounterType$ P1P1
 R:Event$ AddCounter | ActiveZones$ Battlefield | ValidCard$ Creature.inZoneBattlefield | ValidCounterType$ POISON | ReplaceWith$ AddOneMoreCounters | CheckSVar$ FOG | SVarCompare$ GE1 | Description$ If one or more poison counters would be put on a creature, that many plus one poison counters are put on it instead.
@@ -10,7 +10,7 @@ SVar:AddOneMoreCounters:DB$ ReplaceCounter | ValidCounterType$ POISON | ChooseCo
 SVar:Y:ReplaceCount$CounterNum/Plus.1
 SVar:FOG:Count$Foggy.1.0
 A:AB$ Pump | Cost$ B B | ValidTgts$ Creature | TgtPrompt$ Select target creature | KW$ Caustic | SpellDescription$ Target creature gains caustic until end of turn.
-Oracle:Evolve from Koffing {5}{B} [3/6]\nIf one or more poison counters would be put on Weezing, put that many +1/+1 counter on it instead.\nAs long as it’s foggy, if one or more poison counters would be put on a creature, that many plus one poison counters are put on it instead.\n{B}{B}: Target creature gains caustic until end of turn.
+Oracle:Evolve from Koffing {3}{B}\nIf one or more poison counters would be put on Weezing, put that many +1/+1 counter on it instead.\nAs long as it’s foggy, if one or more poison counters would be put on a creature, that many plus one poison counters are put on it instead.\n{B}{B}: Target creature gains caustic until end of turn.
 
 DeckHints:Name$Koffing
 SVar:SoundEffect:weezing.mp3

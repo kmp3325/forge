@@ -1,15 +1,15 @@
 Name:Blissey
 ManaCost:4 G W U
 Types:Creature Rabbit Pokémon
-PT:2/7
-K:Evolve from:3 G W U:Chansey:3/8
+PT:2/9
+K:Evolve from:GW W U:Chansey
 S:Mode$ Continuous | Affected$ Creature.counters_GE1_PEACE | AddHiddenKeyword$ CARDNAME can't attack. | Description$ Creatures with peace counters on them can't attack.
 A:AB$ RemoveCounter | Cost$ G W U | ValidTgts$ Creature.Other | TgtPrompt$ Select another target creature | CounterNum$ All | CounterType$ POISON | SubAbility$ DBRemoveStun | SpellDescription$ Remove all status counters from another target creature. Then put your choice of a +1/+1 counter, a shield counter, or a peace counter on it. Activate only as a sorcery.
 SVar:DBRemoveStun:DB$ RemoveCounter | Defined$ ParentTarget | CounterNum$ All | CounterType$ STUN | SubAbility$ DBRemoveFrost
 SVar:DBRemoveFrost:DB$ RemoveCounter | Defined$ ParentTarget | CounterNum$ All | CounterType$ FROST | SubAbility$ DBRemoveBurn
 SVar:DBRemoveBurn:DB$ RemoveCounter | Defined$ ParentTarget | CounterNum$ All | CounterType$ BURN | SubAbility$ DBPutCounter
 SVar:DBPutCounter:DB$ PutCounter | Defined$ ParentTarget | CounterType$ P1P1,SHIELD,PEACE | CounterNum$ 1
-Oracle:Evolve from Chansey {3}{G}{W}{U} [3/8]\nCreatures with peace counters on them can’t attack.\n{G}{W}{U}: Remove all status counters from another target creature. Then put your choice of a +1/+1 counter, a shield counter, or a peace counter on it. Activate only as a sorcery.
+Oracle:Evolve from Chansey {GW}{W}{U}\nCreatures with peace counters on them can’t attack.\n{G}{W}{U}: Remove all status counters from another target creature. Then put your choice of a +1/+1 counter, a shield counter, or a peace counter on it. Activate only as a sorcery.
 
 DeckHints:Name$Chansey
 SVar:SoundEffect:blissey.mp3

@@ -1,11 +1,13 @@
 Name:Remoraid
-ManaCost:2 U
+ManaCost:1 U U
 Types:Creature Fish Pokémon
-PT:2/1
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDraw | TriggerDescription$ When CARDNAME enters the battlefield, draw two cards, then discard a card.
-SVar:TrigDraw:DB$ Draw | NumCards$ 2 | SubAbility$ TrigDiscard
-SVar:TrigDiscard:DB$ Discard | Defined$ You | Mode$ TgtChoose
-Oracle:When Remoraid enters the battlefield, draw two cards, then discard a card.
+PT:1/1
+K:Flash
+K:ETBReplacement:Other:LandTapped
+SVar:LandTapped:DB$ Tap | Defined$ Self | ETB$ True | ConditionPlayerTurn$ False | SpellDescription$ CARDNAME enters the battlefield tapped unless it's your turn.
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigCounter | TriggerDescription$ When CARDNAME enters the battlefield, counter target spell.
+SVar:TrigCounter:DB$ Counter | TargetType$ Spell | ValidTgts$ Card | TgtPrompt$ Select target spell
+Oracle:Flash\nWhen Remoraid enters the battlefield, counter target spell.\nRemoraid enters the battlefield tapped unless it's your turn.
 
 DeckHints:Name$Octillery
 SVar:SoundEffect:remoraid.mp3

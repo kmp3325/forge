@@ -2,10 +2,10 @@ Name:Wartortle
 ManaCost:1 U U
 Types:Creature Turtle Pokémon
 PT:2/3
-K:Evolve from:1 U U:Squirtle:2/4
+K:Evolve from:1 U:Squirtle
 S:Mode$ CombatDamageToughness | ValidCard$ Card.Self | IsPresent$ Card.Self+blocking | Description$ As long as CARDNAME is blocking, it assigns combat damage equal to its toughness rather than its power.
 
-Oracle:Evolve from Squirtle {1}{U}{U} [2/4]\nAs long as Wartortle is blocking, it assigns combat damage equal to its toughness rather than its power.
+Oracle:Evolve from Squirtle {1}{U}\nAs long as Wartortle is blocking, it assigns combat damage equal to its toughness rather than its power.
 
 DeckHints:Name$Squirtle
 DeckHints:Name$Blastoise

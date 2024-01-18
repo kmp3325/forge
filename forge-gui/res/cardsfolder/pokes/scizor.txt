@@ -2,11 +2,11 @@ Name:Scizor
 ManaCost:3 R G
 Types:Creature Insect Pokémon
 PT:3/3
-K:Evolve from:3 R G:Scyther:3/3
+K:Evolve from:3 R G:Scyther
 K:Steel skin
 S:Mode$ Continuous | Affected$ Card.Self | AddPower$ X | AddToughness$ X | Description$ CARDNAME gets +1/+1 for each other Insect you control.
 SVar:X:Count$Valid Insect.Other+YouCtrl
-Oracle:Evolve from Scyther {3}{R}{G} [3/3]\nSteel skin\nScizor gets +1/+1 for each other Insect you control.
+Oracle:Evolve from Scyther {3}{R}{G}\nSteel skin\nScizor gets +1/+1 for each other Insect you control.
 
 DeckHints:Name$Scyther
 SVar:SoundEffect:scizor.mp3

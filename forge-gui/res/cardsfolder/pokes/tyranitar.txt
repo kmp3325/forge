@@ -2,7 +2,7 @@ Name:Tyranitar
 ManaCost:4 W B G
 Types:Creature Dinosaur Pokémon
 PT:7/5
-K:Evolve from:4 W B G:Pupitar:8/6
+K:Evolve from:4 W B G:Pupitar
 T:Mode$ DamageDone | ValidSource$ Card.Self | ValidTarget$ Player | TriggerZones$ Battlefield | Execute$ TrigSac | TriggerDescription$ Whenever CARDNAME deals damage to a player, you may sacrifice up to that many lands. For each land sacrificed this way, search your library for a basic land card and put it onto the battlefield tapped. Shuffle your library.
 SVar:TrigSac:DB$ Sacrifice | Defined$ You | Optional$ True | Amount$ X | SacValid$ Land | SacMessage$ Lands | RememberSacrificed$ True | SubAbility$ TrigSearch
 SVar:TrigSearch:DB$ ChangeZone | ConditionDefined$ RememberedLKI | ConditionPresent$ Land | Origin$ Library | Destination$ Battlefield | Tapped$ True | DefinedPlayer$ You | ChangeType$ Land.Basic | ChangeNum$ Y | SubAbility$ DBCleanup
@@ -10,7 +10,7 @@ SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
 SVar:X:TriggerCount$DamageAmount
 SVar:Y:Remembered$Amount
 A:AB$ ChangeZone | Cost$ G Sac<1/Creature> | Origin$ Graveyard | Destination$ Battlefield | ValidTgts$ Land.YouOwn | Tapped$ True | TgtPrompt$ Select target land card
-Oracle:Evolve from Pupitar {4}{W}{B}{G} [8/6]\nWhenever Tyranitar deals damage to a player, you may sacrifice up to that many lands. For each land sacrificed this way, search your library for a basic land card and put it onto the battlefield tapped. Shuffle your library.\n{G}, Sacrifice a creature: Return target land card from your graveyard to the battlefield tapped.
+Oracle:Evolve from Pupitar {4}{W}{B}{G}\nWhenever Tyranitar deals damage to a player, you may sacrifice up to that many lands. For each land sacrificed this way, search your library for a basic land card and put it onto the battlefield tapped. Shuffle your library.\n{G}, Sacrifice a creature: Return target land card from your graveyard to the battlefield tapped.
 
 DeckHints:Name$Pupitar
 SVar:SoundEffect:tyranitar.mp3

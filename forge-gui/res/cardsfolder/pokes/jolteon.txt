@@ -2,11 +2,11 @@ Name:Jolteon
 ManaCost:3 R
 Types:Creature Dog Pokémon
 PT:5/3
-K:Evolve from:3 R:Eevee:6/4
+K:Evolve from:3 R:Eevee
 K:First strike
 T:Mode$ Phase | Phase$ BeginCombat | TriggerZones$ Battlefield | ValidPlayer$ Opponent | Execute$ TrigShock | TriggerDescription$ At the beginning of combat on each opponent's turn, if CARDNAME is untapped, it deals 2 damage to another target creature you control unless you pay {U}{R}.
 SVar:TrigShock:DB$ DealDamage | UnlessCost$ U R | ValidTgts$ Creature.Other+YouCtrl | NumDmg$ 2
-Oracle:Evolve from Eevee {3}{R} [6/4]\nFirst strike\nAt the beginning of combat on each opponent's turn, if Jolteon is untapped, it deals 2 damage to another target creature you control unless you pay {U}{R}.
+Oracle:Evolve from Eevee {3}{R}\nFirst strike\nAt the beginning of combat on each opponent's turn, if Jolteon is untapped, it deals 2 damage to another target creature you control unless you pay {U}{R}.
 
 DeckHints:Name$Eevee
 SVar:SoundEffect:jolteon.mp3

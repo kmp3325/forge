@@ -2,13 +2,13 @@ Name:Bayleef
 ManaCost:3 G
 Types:Creature Plant Dinosaur Pokémon
 PT:3/3
-K:Evolve from:3 G:Chikorita:4/4
+K:Evolve from:3 G:Chikorita
 A:AB$ PutCounter | Cost$ T | Defined$ Self | CounterType$ SOLAR | CounterNum$ 1 | SubAbility$ TrigLife | SpellDescription$ Put a solar counter on CARDNAME. Then if it's sunny or rainy, you gain life equal to the number of solar counters on Bayleef.
 SVar:TrigLife:DB$ GainLife | Defined$ You | LifeAmount$ X
 SVar:X:Count$CardCounters.SOLAR/Times.WEATHER
 SVar:WEATHER:Count$Rainy.1.SUN
 SVar:SUN:Count$Sunny.1.0
-Oracle:Evolve from Chikorita {3}{G} [4/4]\n{t}: Put a solar counter on Bayleef. Then if it's sunny or rainy, you gain life equal to the number of solar counters on Bayleef.
+Oracle:Evolve from Chikorita {3}{G}\n{t}: Put a solar counter on Bayleef. Then if it's sunny or rainy, you gain life equal to the number of solar counters on Bayleef.
 
 DeckHints:Name$Chikorita
 DeckHints:Name$Meganium

@@ -2,11 +2,11 @@ Name:Azumarill
 ManaCost:1 W U
 Types:Creature Faerie Mouse Pokémon
 PT:3/3
-K:Evolve from:1 W U:Marill:3/3
+K:Evolve from:1 WU WU:Marill
 A:AB$ ChangeZone | Cost$ WU WU T | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | Origin$ Battlefield | Destination$ Hand | RememberLKI$ True | SubAbility$ TrigLand | SpellDescription$ Return target creature you control to its owner's hand. If that creature phased in this turn, you may search your library for a basic land card, put it into your hand, then shuffle.
 SVar:TrigLand:DB$ ChangeZone | ConditionDefined$ RememberedLKI | ConditionPresent$ Creature.phasedThisTurn | Optional$ You | Origin$ Library | Destination$ Hand | ChangeType$ Land.Basic | ChangeNum$ 1 | SubAbility$ DBCleanup
 SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
-Oracle:Evolve from Marill {1}{W}{U} [3/3]\n{WU}{WU}, {T}: Return target creature you control to its owner's hand. If that creature phased in this turn, you may search your library for a basic land card, put it into your hand, then shuffle.
+Oracle:Evolve from Marill {1}{WU}{WU}\n{WU}{WU}, {T}: Return target creature you control to its owner's hand. If that creature phased in this turn, you may search your library for a basic land card, put it into your hand, then shuffle.
 
 DeckHints:Name$Marill
 SVar:SoundEffect:azumarill.mp3

@@ -2,9 +2,9 @@ Name:Kakuna
 ManaCost:2 BG
 Types:Creature Insect Pokémon
 PT:1/3
-K:Evolve from:B G:Weedle:1/5
+K:Evolve from:BG BG:Weedle
 A:AB$ Pump | Cost$ G | NumDef$ +1 | SpellDescription$ CARDNAME gets +0/+1 until end of turn.
-Oracle:Evolve from Weedle {B}{G} [1/5]\n{G}: Kakuna gets +0/+1 until end of turn.
+Oracle:Evolve from Weedle {BG}{BG}\n{G}: Kakuna gets +0/+1 until end of turn.
 
 DeckHints:Name$Weedle
 DeckHints:Name$Beedrill

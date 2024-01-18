@@ -1,14 +1,14 @@
 Name:Magcargo
 ManaCost:R G W
 Types:Creature Elemental Slug Pokémon
-PT:2/4
-K:Evolve from:R G W:Slugma:3/6
+PT:2/5
+K:Evolve from:RG RW R:Slugma
 R:Event$ AddCounter | ActiveZones$ Battlefield | ValidCard$ Card.Self | ValidCounterType$ POISON | ReplaceWith$ ActuallyShield | Description$ If one or more poison counters would be put on CARDNAME, put that many shield counters on it instead.
 SVar:ActuallyShield:DB$ ReplaceCounter | CounterType$ SHIELD
 R:Event$ AddCounter | ActiveZones$ Battlefield | ValidCard$ Card.Self | ValidCounterType$ FROST | ReplaceWith$ ActuallyDmg | Description$ If one or more frost counters would be put on CARDNAME, it deals that much damage to itself instead.
 SVar:ActuallyDmg:DB$ DealDamage | NumDmg$ X | Defined$ Self | CounterType$ FROST
 SVar:X:ReplaceCount$CounterNum
-Oracle:Evolve from Slugma {R}{G}{W} [3/6]\nIf one or more poison counters would be put on Magcargo, put that many shield counters on it instead.\nIf one or more frost counters would be put on Magcargo, it deals that much damage to itself instead.
+Oracle:Evolve from Slugma {RG}{RW}{R}\nIf one or more poison counters would be put on Magcargo, put that many shield counters on it instead.\nIf one or more frost counters would be put on Magcargo, it deals that much damage to itself instead.
 
 DeckHints:Name$Slugma
 SVar:SoundEffect:magcargo.mp3

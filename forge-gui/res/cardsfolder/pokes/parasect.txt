@@ -2,10 +2,10 @@ Name:Parasect
 ManaCost:1 G G G
 Types:Creature Insect Fungus Pokémon
 PT:3/3
-K:Evolve from:2 G G:Paras:4/4
-A:AB$ Token | Cost$ G G T | IsPresent$ Card.Insect+YouCtrl | PresentCompare$ GTX | TokenScript$ g_0_1_fungus_parasect | TokenAmount$ 1 | SpellDescription$ Create a 0/1 green Fungus creature token with "Insects you control get +1/+1." Activate only if you control more Insects than Fungi.
+K:Evolve from:G G:Paras
+A:AB$ Token | Cost$ 1 G T | IsPresent$ Card.Insect+YouCtrl | PresentCompare$ GTX | TokenScript$ g_0_1_fungus_parasect | TokenAmount$ 1 | SpellDescription$ Create a 0/1 green Fungus creature token with "Insects you control get +1/+1." Activate only if you control more Insects than Fungi.
 SVar:X:Count$Valid Card.Fungus+YouCtrl
-Oracle:Evolve from Paras {2}{G}{G} [4/4]\n{G}{G}, {T}: Create a 0/1 green Fungus creature token with "Insects you control get +1/+1." Activate only if you control more Insects than Fungi.
+Oracle:Evolve from Paras {G}{G}\n{1}{G}, {T}: Create a 0/1 green Fungus creature token with "Insects you control get +1/+1." Activate only if you control more Insects than Fungi.
 
 DeckHints:Name$Paras
 DeckHints:Type$Insect

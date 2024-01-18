@@ -2,10 +2,10 @@ Name:Quilava
 ManaCost:3 R
 Types:Creature Mouse Pokémon
 PT:3/3
-K:Evolve from:3 R:Cyndaquil:4/4
+K:Evolve from:3 R:Cyndaquil
 K:Menace
 A:AB$ Weather | Cost$ T SubCounter<1/BURN> | Value$ Sunny | SpellDescription$ It becomes sunny.
-Oracle:Evolve from Cyndaquil {3}{R} [4/4]\nMenace\n{T}, Remove a burn counter from Quilava: It becomes sunny.
+Oracle:Evolve from Cyndaquil {3}{R}\nMenace\n{T}, Remove a burn counter from Quilava: It becomes sunny.
 
 DeckHints:Name$Cyndaquil
 DeckHints:Name$Typhlosion

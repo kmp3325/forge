@@ -1,14 +1,14 @@
 Name:Butterfree
 ManaCost:2 G
 Types:Creature Insect Pokémon
-PT:1/2
-K:Evolve from:2 G:Metapod:2/3
+PT:2/2
+K:Evolve from:2 G:Metapod
 K:Flying
 A:AB$ PumpAll | Cost$ G G Exile<1/CARDNAME> | ValidCards$ Creature.YouCtrl | NumAtt$ +1 | NumDef$ +1 | KW$ Caustic | SubAbility$ DBAnimate | SpellDescription$ Creatures you control get +1/+1 and gain caustic until end of turn. Until end of turn, Insect creatures you control also gain "When this creature dies, return it to its owner's hand."
 SVar:DBAnimate:DB$ AnimateAll | Triggers$ TrigDies | ValidCards$ Creature.YouCtrl+Insect | StackDescription$ None
 SVar:TrigDies:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Battlefield | Destination$ Graveyard | Execute$ TrigReturn | TriggerDescription$ When CARDNAME dies, return it to its owner's hand.
 SVar:TrigReturn:DB$ ChangeZone | DB$ ChangeZone | Defined$ TriggeredNewCardLKICopy | Origin$ Graveyard | Destination$ Hand
-Oracle:Evolve from Metapod {2}{G} [2/3]\nFlying\n{G}{G}, Exile Butterfree: Creatures you control get +1/+1 and gain caustic until end of turn. Until end of turn, Insect creatures you control also gain "When this creature dies, return it to its owner's hand."
+Oracle:Evolve from Metapod {2}{G}\nFlying\n{G}{G}, Exile Butterfree: Creatures you control get +1/+1 and gain caustic until end of turn. Until end of turn, Insect creatures you control also gain "When this creature dies, return it to its owner's hand."
 
 DeckHints:Name$Metapod
 DeckHints:Type$Creature

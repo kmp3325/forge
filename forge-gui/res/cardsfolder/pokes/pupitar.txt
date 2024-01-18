@@ -2,11 +2,11 @@ Name:Pupitar
 ManaCost:1 G W
 Types:Creature Dinosaur Pokémon
 PT:0/2
-K:Evolve from:G W:Larvitar:0/3
+K:Evolve from:G W:Larvitar
 A:AB$ PutCounter | Cost$ T | CounterType$ SHIELD | CounterNum$ 1 | SpellDescription$ Put a shield counter on CARDNAME.
 T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigPump | TriggerDescription$ Whenever CARDNAME attacks, you may remove a shield counter from it. If you do, it gets +2/+0 and gains trample until end of turn.
 SVar:TrigPump:AB$ Pump | Cost$ SubCounter<1/SHIELD> | Defined$ Self | NumAtt$ 2 | KW$ Trample
-Oracle:Evolve from {G}{W} [0/3]\n{T}: Put a shield counter on Pupitar.\nWhenever Pupitar attacks, you may remove a shield counter from it. If you do, it gets +2/+0 and gains trample until end of turn.
+Oracle:Evolve from {G}{W}\n{T}: Put a shield counter on Pupitar.\nWhenever Pupitar attacks, you may remove a shield counter from it. If you do, it gets +2/+0 and gains trample until end of turn.
 
 DeckHints:Name$Larvitar
 DeckHints:Name$Tyranitar

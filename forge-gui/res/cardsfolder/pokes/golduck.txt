@@ -2,14 +2,14 @@ Name:Golduck
 ManaCost:3 U U
 Types:Creature Bird Pokémon
 PT:3/4
-K:Evolve from:3 U U:Psyduck:4/5
+K:Evolve from:3 U:Psyduck
 R:Event$ Discard | ActiveZones$ Battlefield | ValidCard$ Card.YouCtrl | ReplaceWith$ DiscardToExile | Optional$ True | DiscardFromEffect$ True | Description$ If a spell or ability causes you to discard a card, you may exile it instead of putting it into your graveyard. If you do, you may play that card until your next end step.
 SVar:DiscardToExile:DB$ Discard | Defined$ ReplacedPlayer | Mode$ Defined | DefinedCards$ ReplacedCard | DiscardToExile$ True | RememberDiscarded$ True | ExileFaceDown$ True | SubAbility$ DBEffect
 SVar:DBEffect:DB$ Effect | RememberObjects$ Remembered | StaticAbilities$ STLook,STPlay | Duration$ Permanent | ForgetOnMoved$ Exile | SubAbility$ DBCleanup | Duration$ UntilYourNextEndStep
 SVar:STLook:Mode$ Continuous | MayLookAt$ You | EffectZone$ Command | Affected$ Card.IsRemembered | AffectedZone$ Exile | Description$ You may play this card until the end of your next turn
 SVar:STPlay:Mode$ Continuous | MayPlay$ True | EffectZone$ Command | Affected$ Card.IsRemembered | AffectedZone$ Exile | Secondary$ True | Description$ You may play this card until the end of your next turn
 SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
-Oracle:Evolve from Psyduck {3}{U}{U} [4/5]\nIf a spell or ability causes you to discard a card, you may exile it instead of putting it into your graveyard. If you do, you may play that card until your next end step.
+Oracle:Evolve from Psyduck {3}{U}\nIf a spell or ability causes you to discard a card, you may exile it instead of putting it into your graveyard. If you do, you may play that card until your next end step.
 
 DeckHints:Name$Psyduck
 SVar:SoundEffect:golduck.mp3

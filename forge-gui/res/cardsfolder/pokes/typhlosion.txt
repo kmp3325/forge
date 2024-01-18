@@ -1,14 +1,14 @@
 Name:Typhlosion
 ManaCost:5 R
 Types:Creature Bear Mouse Pokémon
-PT:5/4
-K:Evolve from:5 R:Quilava:6/5
+PT:6/5
+K:Evolve from:4 R:Quilava
 T:Mode$ SpellCast | ValidCard$ Card.Red | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ BurnEm | TriggerDescription$ Whenever you cast a red spell, you may put up to X burn counters on CARDNAME, where X is that spell's mana value.
 SVar:BurnEm:DB$ PutCounter | CounterType$ BURN | CounterNum$ X | Defined$ Self | UpTo$ True
 SVar:X:TriggeredStackInstance$CardManaCostLKI
 T:Mode$ Attacks | ValidCard$ Card.Self | OptionalDecider$ You | Execute$ TrigFlameWheel | TriggerDescription$ Whenever CARDNAME attacks, you may move any number of burn counters from it onto another target creature.
 SVar:TrigFlameWheel:DB$ MoveCounter | Source$ Self | ValidTgts$ Creature.Other | TgtPrompt$ Select another target creature | CounterType$ BURN | CounterNum$ Any
-Oracle:Evolve from Quilava {5}{R} [6/5]\nWhenever you cast a red spell, you may put up to X burn counters on Typhlosion, where X is that spell's mana value.\nWhenever Typhlosion attacks, you may move any number of burn counters from it onto another target creature.
+Oracle:Evolve from Quilava {4}{R}\nWhenever you cast a red spell, you may put up to X burn counters on Typhlosion, where X is that spell's mana value.\nWhenever Typhlosion attacks, you may move any number of burn counters from it onto another target creature.
 
 DeckHints:Name$Quilava
 SVar:HasAttackEffect:TRUE

@@ -1,12 +1,13 @@
 Name:Mantine
-ManaCost:4 WU WU
+ManaCost:3 WU WU
 Types:Creature Fish Pokémon
-PT:2/5
-K:Evolve from:4 WU WU:Mantyke:3/6
+PT:3/5
+K:Evolve from:2 WU WU:Mantyke
 K:Flying
 S:Mode$ Continuous | Affected$ Fish.Other+YouCtrl | AddPower$ 1 | AddToughness$ 1 | Description$ Other Fish you control get +1/+1.
 R:Event$ PhaseOut | ActiveZones$ Battlefield | ValidCard$ Creature.YouCtrl | ReplaceWith$ DBHealAndPhase | ReplaceCounters$ POISON,STUN,FROST,BURN | Description$ Remove all status counters from creatures you control as they phase out.
 SVar:DBHealAndPhase:DB$ ReplacePhaseOutCounters | CounterType$ POISON,STUN,FROST,BURN
-Oracle:Evolve from Mantyke {4}{WU}{WU} [3/6]\nFlying\nOther Fish you control get +1/+1.\nRemove all status counters from creatures you control as they phase out.
+A:AB$ Pump | Cost$ WU WU | ValidTgts$ Fish | TgtPrompt$ Select target Fish | KW$ Flying | SpellDescription$ Target Fish gains flying until end of turn.
+Oracle:Evolve from Mantyke {2}{WU}{WU}\nFlying\nOther Fish you control get +1/+1.\nRemove all status counters from creatures you control as they phase out.\n{WU}{WU}: Target Fish gains flying until end of turn.
 
 SVar:SoundEffect:mantine.mp3

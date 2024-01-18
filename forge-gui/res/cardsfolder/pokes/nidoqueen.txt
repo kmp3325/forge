@@ -1,15 +1,15 @@
 Name:Nidoqueen
 ManaCost:4 W B
 Types:Creature Rhino Rabbit Pokémon
-PT:5/5
-K:Evolve from:4 W B:Nidorina:6/6
+PT:6/6
+K:Evolve from:4 W B:Nidorina
 T:Mode$ ChangesController | ValidCard$ Creature | TriggerZones$ Battlefield | Execute$ TrigHeal | ValidOriginalController$ Opponent | ValidNewController$ You | OptionalDecider$ You | TriggerDescription$ Whenever you gain control of a creature, you may remove any number of counters from it.
 SVar:TrigHeal:DB$ RemoveCounter | CounterType$ Any | CounterNum$ Any | Defined$ TriggeredTargetLKICopy
 A:AB$ GainControl | Cost$ W B B | ActivationLimit$ 1 | ValidTgts$ Creature.toughnessLEX | TgtPrompt$ Select target creature with toughness less than or equal to the number of creatures you control | SorcerySpeed$ True | SpellDescription$ Gain control of target creature with toughness less than or equal to the number of creatures you control. Activate only once each turn and only as a sorcery.
 SVar:X:Count$Valid Creature.YouCtrl
 T:Mode$ DamageDoneOnce | ValidTarget$ Creature.YouCtrl | ValidSource$ Creature.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigPlus | TriggerDescription$ Whenever a creature you control is dealt damage by a creature you control, put a +1/+1 counter on each of them.
 SVar:TrigPlus:DB$ PutCounter | Defined$ TriggeredSourcesLKICopy & TriggeredTargetLKICopy | CounterType$ P1P1 | CounterNum$ 1
-Oracle:Evolve from Nidorina {4}{W}{B} [6/6]\nWhenever you gain control of a creature, you may remove any number of counters from it.\n{W}{B}{B}: Gain control of target creature with toughness less than or equal to the number of creatures you control. Activate only once each turn and only as a sorcery.
+Oracle:Evolve from Nidorina {4}{W}{B}\nWhenever you gain control of a creature, you may remove any number of counters from it.\n{W}{B}{B}: Gain control of target creature with toughness less than or equal to the number of creatures you control. Activate only once each turn and only as a sorcery.
 
 DeckHints:Name$Nidorina
 SVar:HasCombatEffect:TRUE

@@ -2,7 +2,7 @@ Name:Dugtrio
 ManaCost:1 B R
 Types:Creature Mole Pokémon
 PT:3/3
-K:Evolve from:1 B R:Diglett:4/4
+K:Evolve from:B R:Diglett
 A:AB$ PutCounter | Cost$ B | CounterType$ BURROW | CounterNum$ 1 | ValidTgts$ Creature.Other+YouCtrl | TgtPrompt$ Select another target creature you control | SubAbility$ DBCounterAgain | SpellDescription$ Put a burrow counter on another target creature you control and target creature you don't control.
 SVar:DBCounterAgain:DB$ PutCounter | CounterType$ BURROW | CounterNum$ 1 | ValidTgts$ Creature.YouDontCtrl | TgtPrompt$ Select target creature you don't control
 A:AB$ Pump | Cost$ R T | ImprintCards$ Valid Creature.Other+counters_GE1_BURROW | SubAbility$ DBRepeat | SpellDescription$ For each other creature, remove all burrow counters from it, then Dugtrio deals that much damage to that creature. Excess damage is dealt to that creature’s controller instead.
@@ -11,7 +11,7 @@ SVar:DBDmg:DB$ DealDamage | Defined$ Remembered | NumDmg$ X | SubAbility$ DBRemo
 SVar:X:Remembered$CardCounters.BURROW
 SVar:DBRemove:DB$ RemoveCounter | CounterType$ BURROW | CounterNum$ All | Defined$ Remembered | SubAbility$ DBCleanup
 SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
-Oracle:Evolve from Diglett {1}{B}{R} [4/4]\n{B}: Put a burrow counter on another target creature you control and target creature you don’t control.\n{R}, {T}: For each other creature, remove all burrow counters from it, then Dugtrio deals that much damage to that creature. Excess damage is dealt to that creature’s controller instead.
+Oracle:Evolve from Diglett {B}{R}\n{B}: Put a burrow counter on another target creature you control and target creature you don’t control.\n{R}, {T}: For each other creature, remove all burrow counters from it, then Dugtrio deals that much damage to that creature. Excess damage is dealt to that creature’s controller instead.
 
 DeckHints:Name$Diglett
 SVar:HasAttackEffect:TRUE

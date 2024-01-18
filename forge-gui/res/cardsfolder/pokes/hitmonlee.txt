@@ -2,12 +2,12 @@ Name:Hitmonlee
 ManaCost:2 R W
 Types:Creature Beast Warrior Pokémon
 PT:4/3
-K:Evolve from:2 R W:Tyrogue:5/4
+K:Evolve from:1 R W:Tyrogue
 K:Mentor
 A:AB$ Pump | Cost$ R | NumAtt$ 1 | Defined$ Self | KW$ First strike | SubAbility$ TrigCoinFlip | SpellDescription$ CARDNAME gets +1/+0 and gains first strike until end of turn, then flip a coin. If you lose the flip, it deals 2 damage to itself.
 SVar:TrigCoinFlip:DB$ FlipACoin | LoseSubAbility$ HurtSelf
 SVar:HurtSelf:DB$ DealDamage | Defined$ Self | NumDmg$ 2
-Oracle:Evolve from Tyrogue {2}{R}{W} [5/4]\nMentor\n{R}: Hitmonlee gets +1/+0 and gains first strike until end of turn, then flip a coin. If you lose the flip, it deals 2 damage to itself.
+Oracle:Evolve from Tyrogue {1}{R}{W}\nMentor\n{R}: Hitmonlee gets +1/+0 and gains first strike until end of turn, then flip a coin. If you lose the flip, it deals 2 damage to itself.
 
 DeckHints:Name$Tyrogue
 SVar:SoundEffect:hitmonlee.mp3

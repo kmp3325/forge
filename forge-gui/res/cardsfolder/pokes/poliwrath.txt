@@ -2,11 +2,11 @@ Name:Poliwrath
 ManaCost:3 W U
 Types:Creature Frog Pokémon
 PT:3/3
-K:Evolve from:3 W U:Poliwhirl:3/3
+K:Evolve from:3 W U:Poliwhirl
 K:Vigilance
 T:Mode$ SpellCast | ValidCard$ Card | ValidActivatingPlayer$ Opponent | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Whenever an opponent casts a spell, put a +1/+1 counter on CARDNAME.
 SVar:TrigPutCounter:DB$ PutCounter | Defined$ Self | CounterNum$ 1 | CounterType$ P1P1
-Oracle:Evolve from Poliwhirl {3}{W}{U} [3/3]\nVigilance\nWhenever an opponent casts a spell, put a +1/+1 counter on Poliwrath.
+Oracle:Evolve from Poliwhirl {3}{W}{U}\nVigilance\nWhenever an opponent casts a spell, put a +1/+1 counter on Poliwrath.
 
 DeckHints:Name$Poliwhirl
 SVar:SoundEffect:poliwrath.mp3

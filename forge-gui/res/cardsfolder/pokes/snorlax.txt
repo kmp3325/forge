@@ -1,8 +1,8 @@
 Name:Snorlax
 ManaCost:1 W W B
 Types:Creature Bear Pokémon
-PT:2/7
-K:Evolve from:1 W W B:Munchlax:2/9
+PT:2/8
+K:Evolve from:1 W W B:Munchlax
 T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigChoice | TriggerDescription$ At the beginning of your upkeep, you may sacrifice a Food or pay {W}{B}{B}. If you don't, tap CARDNAME.
 SVar:TrigChoice:DB$ GenericChoice | Choices$ PayStuff,PaySacFood | Defined$ You
 SVar:PayStuff:DB$ Tap | UnlessCost$ W B B | UnlessPayer$ You | Defined$ Self | SpellDescription$ Pay {W}{B}{B}
@@ -11,6 +11,6 @@ T:Mode$ AttackerBlocked | ValidCard$ Creature | ValidBlocker$ Card.Self | Execut
 SVar:TrigSteal:DB$ Tap | Defined$ Self | SubAbility$ TrigGain
 SVar:TrigGain:DB$ GainControl | Defined$ TriggeredAttackerLKICopy | LoseControl$ Untap,LeavesPlay | SubAbility$ DBPump
 SVar:DBPump:DB$ Animate | Defined$ Targeted | HiddenKeywords$ CARDNAME can't attack or block. | RemoveAllAbilities$ True | Duration$ UntilHostLeavesPlay
-Oracle:Evolve from Munchlax {1}{W}{W}{B} [2/8]\nSnorlax doesn’t untap during your untap step.\nAt the beginning of your upkeep, you may sacrifice a Food or pay {W}{B}{B}. If you do, untap Snorlax.\nWhenever Snorlax blocks a creature, tap Snorlax and gain control of that creature. For as long as Snorlax remains tapped, you control that creature, it loses all abilities, and it can’t attack or block.
+Oracle:Evolve from Munchlax {1}{W}{W}{B}\nSnorlax doesn’t untap during your untap step.\nAt the beginning of your upkeep, you may sacrifice a Food or pay {W}{B}{B}. If you do, untap Snorlax.\nWhenever Snorlax blocks a creature, tap Snorlax and gain control of that creature. For as long as Snorlax remains tapped, you control that creature, it loses all abilities, and it can’t attack or block.
 
 SVar:SoundEffect:snorlax.mp3

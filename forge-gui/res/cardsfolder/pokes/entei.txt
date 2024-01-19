@@ -4,15 +4,16 @@ Types:Legendary Creature Cat Beast Pokémon
 PT:4/4
 K:First strike
 K:Ward:2
-T:Mode$ SpellCast | ValidCard$ Card.Self+namedEntei | Static$ True | Execute$ EncounterEntei | CheckSVar$ HasCast | SVarCompare$ EQ0 | TriggerDescription$ When you cast this spell, if it's the first time you’ve cast a spell named CARDNAME this game, it gains “When CARDNAME enters the battlefield, shuffle it into its owner’s library.”
+T:Mode$ SpellCast | ValidCard$ Card.Self+namedEntei | Static$ True | Execute$ EncounterEntei | CheckSVar$ HasCast | SVarCompare$ EQ0 | TriggerDescription$ When you cast this spell, if it's the first time you’ve cast a spell named CARDNAME this game, it gains “When CARDNAME enters the battlefield, shuffle it into its owner’s library, then draw a card.”
 SVar:HasCast:Count$ValidCommand Effect.YouCtrl+namedEncounteredEntei
 SVar:EncounterEntei:DB$ Effect | Name$ EncounteredEntei | Duration$ Permanent | SubAbility$ GrantShuffle
 SVar:GrantShuffle:DB$ Animate | Defined$ TriggeredCard | Duration$ Permanent | Triggers$ EtbShuffle
-SVar:EtbShuffle:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigShuffle | TriggerDescription$ When CARDNAME enters the battlefield, shuffle it into its owner's library.
-SVar:TrigShuffle:DB$ ChangeZone | Origin$ Battlefield | Destination$ Library | Shuffle$ True | Defined$ Self
+SVar:EtbShuffle:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigShuffle | TriggerDescription$ When CARDNAME enters the battlefield, shuffle it into its owner's library, then draw a card.
+SVar:TrigShuffle:DB$ ChangeZone | Origin$ Battlefield | Destination$ Library | Shuffle$ True | Defined$ Self | SubAbility$ TrigDraw
+SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ 1
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSteal | TriggerDescription$ When CARDNAME enters the battlefield, gain control of target creature until end of turn. Untap that creature. It gains scorching and haste until end of turn. It becomes sunny.
 SVar:TrigSteal:DB$ GainControl | ValidTgts$ Creature | TgtPrompt$ Select target creature | LoseControl$ EOT | Untap$ True | AddKWs$ Haste & Scorching | SubAbility$ TrigSun
 SVar:TrigSun:DB$ Weather | Value$ Sunny
-Oracle:First strike, ward {2}\nWhen you cast this spell, if it's the first time you’ve cast a spell named Entei this game, it gains “When Entei enters the battlefield, shuffle it into its owner’s library.”\nWhen Entei enters the battlefield, gain control of target creature until end of turn. Untap that creature. It gains scorching and haste until end of turn. It becomes sunny.
+Oracle:First strike, ward {2}\nWhen you cast this spell, if it's the first time you’ve cast a spell named Entei this game, it gains “When Entei enters the battlefield, shuffle it into its owner’s library, then draw a card.”\nWhen Entei enters the battlefield, gain control of target creature until end of turn. Untap that creature. It gains scorching and haste until end of turn. It becomes sunny.
 
 SVar:SoundEffect:entei.mp3

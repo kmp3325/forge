@@ -4,17 +4,18 @@ Types:Legendary Creature Cat Beast Pokémon
 PT:4/4
 K:First strike
 K:Ward:2
-T:Mode$ SpellCast | ValidCard$ Card.Self+namedSuicune | Static$ True | Execute$ EncounterSuicune | CheckSVar$ HasCast | SVarCompare$ EQ0 | TriggerDescription$ When you cast this spell, if it's the first time you’ve cast a spell named CARDNAME this game, it gains “When CARDNAME enters the battlefield, shuffle it into its owner’s library.”
+T:Mode$ SpellCast | ValidCard$ Card.Self+namedSuicune | Static$ True | Execute$ EncounterSuicune | CheckSVar$ HasCast | SVarCompare$ EQ0 | TriggerDescription$ When you cast this spell, if it's the first time you’ve cast a spell named CARDNAME this game, it gains “When CARDNAME enters the battlefield, shuffle it into its owner’s library, then draw a card.”
 SVar:HasCast:Count$ValidCommand Effect.YouCtrl+namedEncounteredSuicune
 SVar:EncounterSuicune:DB$ Effect | Name$ EncounteredSuicune | Duration$ Permanent | SubAbility$ GrantShuffle
 SVar:GrantShuffle:DB$ Animate | Defined$ TriggeredCard | Duration$ Permanent | Triggers$ EtbShuffle
-SVar:EtbShuffle:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigShuffle | TriggerDescription$ When CARDNAME enters the battlefield, shuffle it into its owner's library.
-SVar:TrigShuffle:DB$ ChangeZone | Origin$ Battlefield | Destination$ Library | Shuffle$ True | Defined$ Self
+SVar:EtbShuffle:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigShuffle | TriggerDescription$ When CARDNAME enters the battlefield, shuffle it into its owner's library, then draw a card.
+SVar:TrigShuffle:DB$ ChangeZone | Origin$ Battlefield | Destination$ Library | Shuffle$ True | Defined$ Self | SubAbility$ TrigDraw
+SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ 1
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPhaseOut | TriggerDescription$ When CARDNAME enters the battlefield, another target creature phases out. Each opponent mills cards equal to twice the phased out creature’s mana value.
 SVar:TrigPhaseOut:DB$ Phases | ValidTgts$ Creature.Other | TgtPrompt$ Select another target creature | SubAbility$ TrigMill | RememberAffected$ True
 SVar:TrigMill:DB$ Mill | NumCards$ X | Defined$ Opponent | SubAbility$ DBCleanup
 SVar:X:Remembered$CardManaCost/Times.2
 SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
-Oracle:First strike, ward {2}\nWhen you cast this spell, if it's the first time you’ve cast a spell named Suicune this game, it gains “When Suicune enters the battlefield, shuffle it into its owner’s library.”\nWhen Suicune enters the battlefield, another target creature phases out. Each opponent mills cards equal to twice the phased out creature’s mana value.
+Oracle:First strike, ward {2}\nWhen you cast this spell, if it's the first time you’ve cast a spell named Suicune this game, it gains “When Suicune enters the battlefield, shuffle it into its owner’s library, then draw a card.”\nWhen Suicune enters the battlefield, another target creature phases out. Each opponent mills cards equal to twice the phased out creature’s mana value.
 
 SVar:SoundEffect:suicune.mp3

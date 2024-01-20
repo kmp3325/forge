@@ -5,5 +5,5 @@ PT:4/5
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigSteal | TriggerDescription$ When CARDNAME enters the battlefield, gain control of target creature.
 SVar:TrigSteal:DB$ GainControl | ValidTgts$ Creature | TgtPrompt$ Select target creature
 S:Mode$ CantPutCounter | ValidCard$ Card.Self,Creature.YouCtrl+YouDontOwn | CounterType$ BURN | Description$ CARDNAME can't have burn counters put on it.
-Oracle:When Team Rocket's Rhydon enters the battlefield, gain control of target creature.\nTeam Rocket's Rhydon and creatures you control that you don’t own can’t have burn counters put on them.
+Oracle:When Team Rocket's Rhydon enters the battlefield, gain control of target creature.\nTeam Rocket's Rhydon and creatures you control but don’t own can’t have burn counters put on them.
 SVar:SoundEffect:rhydon.mp3

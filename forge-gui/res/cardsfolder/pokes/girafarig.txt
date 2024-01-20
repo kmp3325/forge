@@ -2,5 +2,5 @@ Name:Girafarig
 ManaCost:WB
 Types:Creature Antelope Demon Pokémon
 PT:1/2
-A:AB$ DealDamage | Cost$ WB | ValidTgts$ Creature.YouCtrl+YouDontOwn | TgtPrompt$ Select target creature you control that you don't own | NumDmg$ 2
-Oracle:{WB}: Girafarig deals 2 damage to target creature you control that you don’t own.
+A:AB$ DealDamage | Cost$ WB | ValidTgts$ Creature.YouCtrl+YouDontOwn | TgtPrompt$ Select target creature you control but don't own | NumDmg$ 2
+Oracle:{WB}: Girafarig deals 2 damage to target creature you control but don’t own.

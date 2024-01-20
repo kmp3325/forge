@@ -1,11 +1,14 @@
 Name:Delibird
 ManaCost:4
 Types:Snow Creature Bird Pokémon
-PT:3/3
+PT:2/2
 K:Flying
-A:AB$ Mana | Cost$ T ExileFromGrave<1/Card> | Produced$ C C | SubAbility$ TrigFood | InstantSpeed$ True | SpellDescription$ Add {C}{C}. If it's snowy, create a Food token. Activate only as an instant.
-SVar:TrigFood:DB$ Token | TokenAmount$ X | TokenScript$ c_a_food_sac | TokenOwner$ You
-SVar:X:Count$Snowy.1.0
-Oracle:Flying\n{T}, Exile a card from your graveyard: Add {C}{C}. If it's snowy, create a Food token. Activate only as an instant.
+A:AB$ ChangeZone | Cost$ T | ValidTgts$ Creature | TgtPrompt$ Select target creature card | Origin$ Graveyard | Destination$ Exile | SubAbility$ AddMana | RememberChanged$ True | SpellDescription$ Exile target creature card from a graveyard. Add {C} for each colored mana symbol in that card’s mana cost.
+SVar:AddMana:DB$ Mana | Produced$ C | Amount$ X | SubAbility$ DBCleanup
+SVar:X:Remembered$ChromaSource
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+A:AB$ Token | Cost$ S S | TokenAmount$ 1 | TokenScript$ c_a_food_sac | TokenOwner$ You | SubAbility$ TrigWeather
+SVar:TrigWeather:DB$ Weather | Value$ Snowy
+Oracle:Flying\n{T}: Exile target creature card from a graveyard. Add {C} for each colored mana symbol in that card’s mana cost.\n{S}{S}: Create a Food token. It becomes snowy.
 
 SVar:SoundEffect:delibird.mp3

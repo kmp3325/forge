@@ -2,9 +2,10 @@ Name:Wild Venusaur
 ManaCost:4 G G
 Types:Creature Frog Plant Pokémon
 PT:4/4
+K:Cycling:3 G
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Land.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigGain | TriggerDescription$ Landfall — Whenever a land enters the battlefield under your control, you may gain control of target creature you own.
 SVar:TrigGain:DB$ GainControlVariant | AILogic$ GainControlOwns | ValidTgts$ Creature.YouOwn | TgtPrompt$ Select target creature you own | ChangeController$ CardOwner
-A:AB$ Pump | Cost 4 G G | NumAtt$ 1 | NumDef$ 1 | KW$ Trample | ValidTgts$ Creature | TgtPrompt$ Select target creature | SpellDescription$ Target creature gets +1/+1 and gains trample until end of turn.
-Oracle:Landfall — Whenever a land enters the battlefield under your control, you may gain control of target creature you own.\n{4}{G}{G}: Target creature gets +1/+1 and gains trample until end of turn.{flavor}The scent of the flower on its back attracts Pokémon.
+T:Mode$ Cycled | ValidCard$ Card.Self | Execute$ TrigGain | OptionalDecider$ You | TriggerDescription$ When you cycle CARDNAME, you may gain control of target creature you own.
+Oracle:Landfall — Whenever a land enters the battlefield under your control, you may gain control of target creature you own.\nCycling {3}{G}\nWhen you cycle Wild Venusaur, you may gain control of target creature you own.
 
 SVar:SoundEffect:venusaur.mp3

@@ -1,12 +1,12 @@
 Name:Pinsir
-ManaCost:1 RG RG
+ManaCost:1 G G
 Types:Creature Insect Pokémon
-PT:3/3
-S:Mode$ Continuous | Affected$ Creature.Insect+YouCtrl | AddPower$ 2 | AddToughness$ 2 | CheckSVar$ SUN | SVarCompare$ GE1 | Description$ As long as it's sunny, Insect creatures you control get +2/+2.
-SVar:SUN:Count$Sunny.1.0
+PT:2/2
+S:Mode$ Continuous | Affected$ Creature.Insect+YouCtrl | AddPower$ X | AddToughness$ X | Description$ Insect creatures you control get +1/+1. If it's sunny, they get +2/+2 instead.
+SVar:X:Count$Sunny.2.1
 S:Mode$ Continuous | Affected$ Card.Self | CheckSVar$ SNOW | SVarCompare$ GE1 | AddHiddenKeyword$ CARDNAME can't attack or block. | Description$ As long as it's snowy, CARDNAME can't attack or block.
 SVar:SNOW:Count$Snowy.1.0
-Oracle:As long as it's sunny, Insect creatures you control get +2/+2.\nAs long as it's snowy, Pinsir can't attack or block.
+Oracle:Insects you control get +1/+1. If it’s sunny, they get +2/+2 instead.\nAs long as it's snowy, Pinsir can't attack or block.
 
 DeckHints:Type$Insect
 SVar:SoundEffect:pinsir.mp3

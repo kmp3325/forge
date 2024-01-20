@@ -3,7 +3,8 @@ ManaCost:5 G G
 Types:Creature Golem Serpent Pokémon
 PT:5/5
 K:Trample
-T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigShield | TriggerDescription$ When CARDNAME enters the battlefield, you may put a shield counter on another target creature.
-SVar:TrigShield:DB$ PutCounter | CounterType$ SHIELD | CounterNum$ 1 | ValidTgts$ Creature.Other | TgtPrompt$ Select another target creature
-Oracle:Trample\nWhen Wild Onix enters the battlefield, you may put a shield counter on another target creature you control.
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigShield | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters the battlefield, you may put a shield counter on another target creature. If you do, that creature gains trample until end of turn.
+SVar:TrigShield:DB$ PutCounter | CounterType$ SHIELD | CounterNum$ 1 | ValidTgts$ Creature.Other | TgtPrompt$ Select another target creature | SubAbility$ TrigPump
+SVar:TrigPump:DB$ Pump | KW$ Trample | Defined$ Targeted
+Oracle:Trample\nWhen Wild Onix enters the battlefield, you may put a shield counter on another target creature you control. If you do, that creature gains trample until end of turn.
 SVar:SoundEffect:onix.mp3

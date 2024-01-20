@@ -2,13 +2,12 @@ Name:Igglybuff
 ManaCost:WU
 Types:Creature Faerie Rabbit Pokémon
 PT:0/1
-K:Ward:Discard<X/Card>
-SVar:X:Count$TimesEvolved
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigScry | TriggerDescription$ Whenever CARDNAME enters the battlefield, evolves, or phases in, scry 2.
 T:Mode$ Evolved | ValidCard$ Card.Self | Execute$ TrigScry | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield, evolves, or phases in, scry 2.
 T:Mode$ PhaseIn | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigScry | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield, evolves, or phases in, scry 2.
 SVar:TrigScry:DB$ Scry | ScryNum$ 2
-Oracle:Ward—Discard a card for each time Igglybuff has evolved.\nWhenever Igglybuff enters the battlefield, evolves, or phases in, scry 2.
+A:AB$ GainControlVariant | Cost$ 5 WU | AILogic$ GainControlOwns | ValidTgts$ Creature.YouOwn | TgtPrompt$ Select target creature you own | ChangeController$ CardOwner | SpellDescription$ Gain control of target creature you own.
+Oracle:Whenever Igglybuff enters the battlefield, evolves, or phases in, scry 2.\n{5}{WU}: Gain control of target creature you own.
 
 DeckHints:Name$Jigglypuff
 SVar:SoundEffect:igglybuff.mp3

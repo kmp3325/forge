@@ -1,13 +1,10 @@
 Name:Wild Venusaur
 ManaCost:4 G G
 Types:Creature Frog Plant Pokémon
-PT:3/3
-T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigSolar | TriggerDescription$ When CARDNAME enters the battlefield, put three solar counters on target creature. Until end of turn, that creature gets +1/+1 for each solar counter on it and gains trample.
-SVar:TrigSolar:DB$ PutCounter | CounterType$ SOLAR | CounterNum$ 3 | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigPump
-SVar:TrigPump:DB$ Pump | Defined$ Targeted | NumAtt$ X | NumDef$ X | KW$ Trample
-SVar:X:TargetedCard$CardCounters.SOLAR
-S:Mode$ Continuous | Affected$ Card.Self | CheckSVar$ SUN | SVarCompare$ GE1 | AddPower$ 1 | AddToughness$ 1 | Description$ As long as it's sunny, CARDNAME gets +1/+1.
-SVar:SUN:Count$Sunny.1.0
-Oracle:When Wild Venusaur enters the battlefield, put three solar counters on target creature. Until end of turn, that creature gets +1/+1 for each solar counter on it and gains trample.\nAs long as it's sunny, Wild Venusar gets +1/+1.
+PT:4/4
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Land.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigGain | TriggerDescription$ Landfall — Whenever a land enters the battlefield under your control, you may gain control of target creature you own.
+SVar:TrigGain:DB$ GainControlVariant | AILogic$ GainControlOwns | ValidTgts$ Creature.YouOwn | TgtPrompt$ Select target creature you own | ChangeController$ CardOwner
+A:AB$ Pump | Cost 4 G G | NumAtt$ 1 | NumDef$ 1 | KW$ Trample | ValidTgts$ Creature | TgtPrompt$ Select target creature | SpellDescription$ Target creature gets +1/+1 and gains trample until end of turn.
+Oracle:Landfall — Whenever a land enters the battlefield under your control, you may gain control of target creature you own.\n{4}{G}{G}: Target creature gets +1/+1 and gains trample until end of turn.{flavor}The scent of the flower on its back attracts Pokémon.
 
 SVar:SoundEffect:venusaur.mp3

@@ -2,12 +2,12 @@ Name:Jigglypuff
 ManaCost:3 W U
 Types:Creature Faerie Rabbit Pokémon
 PT:2/2
-K:Evolve from:3 W U:Igglybuff
+K:Evolve from:2 W U:Igglybuff
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigTap | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, tap all other creatures, then they phase out until your next turn.
 T:Mode$ Evolved | ValidCard$ Card.Self | Execute$ TrigTap | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, tap all other creatures, then they phase out until your next turn.
 SVar:TrigTap:DB$ TapAll | ValidCards$ Creature.Other | SubAbility$ TrigPhase
 SVar:TrigPhase:DB$ Phases | AllValid$ Creature.Other | WontPhaseInNormal$ True | Duration$ UntilYouNextTurn
-Oracle:Evolve from Igglybuff {3}{W}{U}\nWhenever Jigglypuff enters the battlefield or evolves, tap all other creatures, then they phase out until your next turn.
+Oracle:Evolve from Igglybuff {2}{W}{U}\nWhenever Jigglypuff enters the battlefield or evolves, tap all other creatures, then they phase out until your next turn.
 
 DeckHints:Name$Wigglytuff
 DeckHints:Name$Igglybuff

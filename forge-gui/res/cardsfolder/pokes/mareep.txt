@@ -4,7 +4,7 @@ Types:Creature Sheep Pokémon
 PT:1/1
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigTap | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters the battlefield, you may tap target creature and put a stun counter on it. If you do, CARDNAME deals 2 damage to you.
 SVar:TrigTap:DB$ Tap | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigPutCounter
-SVar:TrigPutCounter:DB$ PutCounter | IsCurse$ True | Defined$ Targeted | CounterType$ STUN | CounterNum$ 1 | SubAbility$ TrickShock
+SVar:TrigPutCounter:DB$ PutCounter | IsCurse$ True | Defined$ Targeted | CounterType$ STUN | CounterNum$ 1 | SubAbility$ TrigShock
 SVar:TrigShock:DB$ DealDamage | Defined$ You | NumDmg$ 2
 Oracle:When Mareep enters the battlefield, you may tap target creature and put a stun counter on it. If you do, Mareep deals 2 damage to you.
 

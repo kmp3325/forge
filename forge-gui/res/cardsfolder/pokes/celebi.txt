@@ -3,8 +3,9 @@ ManaCost:G W U
 Types:Legendary Creature Faerie Pokémon
 PT:2/2
 K:Lifelink
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounter | TriggerDescription$ When CARDNAME enters the battlefield, put a shield counter on each of up to two target creatures, then proliferate.
-SVar:TrigPutCounter:DB$ PutCounter | CounterType$ SHIELD | CounterNum$ 1 | ValidTgts$ Creature | TargetMin$ 0 | TargetMax$ 2 | TgtPrompt$ Select target creature | SubAbility$ TrigProl
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounter | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters the battlefield, you may put a shield counter on each of up to two target creatures, then proliferate.
+SVar:TrigPutCounter:DB$ PutCounter | CounterType$ SHIELD | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigProl
 SVar:TrigProl:DB$ Proliferate
-Oracle:Lifelink\nWhen Celebi enters the battlefield, put a shield counter on each of up to two target creatures, then proliferate.
+A:AB$ GainControlVariant | Cost$ G W U | AILogic$ GainControlOwns | AllValid$ Creature | ChangeController$ CardOwner | SorcerySpeed$ True | Activator$ Player | SpellDescription$ Each player gains control of all creatures they own. Any player may activate this ability but only as a sorcery.
+Oracle:Lifelink\nWhen Celebi enters the battlefield, you may put a shield counter on another target creatures, then proliferate.\n{G}{W}{U}: Each player gains control of all creatures they own. Any player may activate this ability but only as a sorcery.
 SVar:SoundEffect:celebi.mp3

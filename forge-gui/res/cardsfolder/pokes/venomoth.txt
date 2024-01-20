@@ -3,10 +3,12 @@ ManaCost:2 B G
 Types:Creature Insect Pokémon
 PT:3/3
 K:Evolve from:2 B G:Venonat
-A:AB$ PumpAll | Cost$ Sac<1/Insect;Food;Insect or Food> | ValidCards$ Creature.YouCtrl+withCaustic | NumDef$ 2 | SubAbility$ CreateFood | SpellDescription$ Creatures you control with caustic get +0/+2 until end of turn. If an Insect was sacrificed to activate this ability, create a Food token.
-SVar:CreateFood:DB$ Token | TokenAmount$ 1 | TokenScript$ c_a_food_sac | TokenOwner$ You | ConditionCheckSVar$ X | ConditionSVarCompare$ GE1
+A:AB$ PumpAll | Cost$ 2 Sac<1/Insect;Food;Insect or Food> | ValidCards$ Creature.YouCtrl+withCaustic | NumDef$ 2 | SubAbility$ CreateFood | SpellDescription$ Creatures you control with caustic get +0/+2 until end of turn. If a Food was sacrificed to activate this ability, you gain 2 life. Otherwise, create a Food token.
+SVar:DBBranch:DB$ Branch | BranchConditionSVar$ X | TrueSubAbility$ CreateFood | FalseSubAbility$ GainLife
+SVar:CreateFood:DB$ Token | TokenAmount$ 1 | TokenScript$ c_a_food_sac | TokenOwner$ You
 SVar:X:Sacrificed$Valid Card.Insect
-Oracle:Evolve from Venonat {2}{B}{G}\nSacrifice an Insect or Food: Creatures you control with caustic get +0/+2 until end of turn. If an Insect was sacrificed to activate this ability, create a Food token.
+SVar:GainLife:DB$ GainLife | LifeAmount$ 2 | Defined$ You
+Oracle:Evolve from Venonat {2}{B}{G}\n{2}, Sacrifice an Insect or Food: Creatures you control with caustic get +0/+2 until end of turn. If a Food was sacrificed to activate this ability, you gain 2 life. Otherwise, create a Food token.
 
 DeckHints:Name$Venonat
 SVar:HasBlockEffect:TRUE

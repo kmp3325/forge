@@ -2,10 +2,10 @@ Name:Croconaw
 ManaCost:3 U
 Types:Creature Crocodile Pokémon
 PT:3/3
-K:Evolve from:3 U:Totodile
+K:Evolve from:2 U:Totodile
 T:Mode$ PhaseOut | ValidCard$ Creature.OppCtrl | Execute$ TrigDiscard | TriggerZones$ Battlefield | RememberLKI$ True | TriggerDescription$ Whenever a creature an opponent controls phases out, you may pay {2}. If you do, its controller discards a card.
 SVar:TrigDiscard:AB$ Discard | Cost$ 2 | Defined$ RememberedController | NumCards$ 1 | Mode$ TgtChoose
-Oracle:Evolve from Totodile {3}{U}\nWhenever a creature an opponent controls phases out, you may pay {2}. If you do, its controller discards a card.
+Oracle:Evolve from Totodile {2}{U}\nWhenever a creature an opponent controls phases out, you may pay {2}. If you do, its controller discards a card.
 
 DeckHints:Name$Totodile
 DeckHints:Name$Feraligatr

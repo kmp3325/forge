@@ -2,13 +2,13 @@ Name:Elekid
 ManaCost:1 R
 Types:Creature Cat Pokémon
 PT:1/1
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigTap | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, tap target creature and put a stun counter on it.
-T:Mode$ Evolved | ValidCard$ Card.Self | Execute$ TrigTap | Secondary$ True | TriggerDescription$ Whenenever CARDNAME enters the battlefield or evolves, tap target creature and put a stun counter on it.
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDmg | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, it deals 2 damage to any target.
+T:Mode$ Evolved | ValidCard$ Card.Self | Execute$ TrigDmg | Secondary$ True | TriggerDescription$ Whenenever CARDNAME enters the battlefield or evolves, it deals 2 damage to any target.
+SVar:TrigDmg:DB$ DealDamage | NumDmg$ 2 | ValidTgts$ Any | TgtPrompt$ Select any target
+T:Mode$ DamageDone | ValidSource$ Card.Self | ValidTarget$ Creature | Execute$ TrigTap | TriggerDescription$ Whenever CARDNAME deals damage to a creature, tap that creature and put a stun counter on it.
 SVar:TrigTap:DB$ Tap | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigPutCounter
 SVar:TrigPutCounter:DB$ PutCounter | IsCurse$ True | Defined$ Targeted | CounterType$ STUN | CounterNum$ 1
-T:Mode$ CounterAdded | ValidCard$ Creature.Other | TriggerZones$ Battlefield | CounterType$ STUN | Execute$ TrigDmg | TriggerDescription$ Whenever a stun counter is put on another creature, CARDNAME deals 2 damage to it.
-SVar:TrigDmg:DB$ DealDamage | NumDmg$ 2 | Defined$ TriggeredCard
-Oracle:Whenever Elekid enters the battlefield or evolves, tap target creature and put a stun counter on it.\nWhenever a stun counter is put on another creature, Elekid deals 2 damage to it.
+Oracle:Whenever Elekid enters the battlefield or evolves, it deals 2 damage to any target.\nWhenever Elekid deals damage to a creature, tap that creature and put a stun counter on it.
 
 DeckHints:Name$Electabuzz
 SVar:SoundEffect:elekid.mp3

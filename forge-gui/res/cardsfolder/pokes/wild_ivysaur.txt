@@ -5,7 +5,7 @@ PT:1/2
 K:Flash
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPump | TriggerDescription$ When CARDNAME enters the battlefield, target creature gets +1/+2 and gains caustic until end of turn.
 SVar:TrigPump:DB$ Pump | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumAtt$ 1 | NumDef$ 2 | KW$ Caustic
-A:AB$ Pump | Cost 4 G G | NumAtt$ 1 | NumDef$ 1 | KW$ Trample | ValidTgts$ Creature | TgtPrompt$ Select target creature | SpellDescription$ Target creature gets +1/+1 and gains trample until end of turn.
+A:AB$ Pump | Cost$ 4 G G | NumAtt$ 1 | NumDef$ 1 | KW$ Trample | ValidTgts$ Creature | TgtPrompt$ Select target creature | SpellDescription$ Target creature gets +1/+1 and gains trample until end of turn.
 Oracle:Flash\nWhen Wild Ivysaur enters the battlefield, target creature gets +1/+2 and gains caustic until end of turn.\n{4}{G}{G}: Target creature gets +1/+1 and gains trample until end of turn.
 
 SVar:SoundEffect:ivysaur.mp3

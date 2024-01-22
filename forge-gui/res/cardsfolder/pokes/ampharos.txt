@@ -8,9 +8,9 @@ T:Mode$ Evolved | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ Tr
 SVar:TrigTap:DB$ Tap | Defined$ Targeted | TargetMin$ 0 | TargetMax$ X | ValidTgts$ Creature | TgtPrompt$ Select up to X target creatures | SubAbility$ TrigPutCounter
 SVar:X:Count$xPaid
 SVar:TrigPutCounter:DB$ PutCounter | IsCurse$ True | CounterType$ STUN | Defined$ Targeted
-T:Mode$ CounterRemoved | ValidCard$ Creature | TriggerZones$ Battlefield | CounterType$ STUN | Execute$ TrigDmg | TriggerDescription$ Whenever a stun counter is removed from a creature, CARDNAME deals 2 damage to any target.
-SVar:TrigDmg:DB$ DealDamage | NumDmg$ 2 | ValidTgts$ Any | TgtPrompt$ Select any target
-Oracle:Evolve from Flaaffy {X}{U}{R}\nWhenever Ampharos enters the battlefield or evolves, tap up to X target creatures, then put a stun counter on each of them.\nWhenever a stun counter is removed from a creature, Ampharos deals 2 damage to any target.
+T:Mode$ CounterRemoved | ValidCard$ Creature | TriggerZones$ Battlefield | CounterType$ STUN | Execute$ TrigDmg | TriggerDescription$ Whenever a stun counter is removed from a creature, CARDNAME deals 1 damage to that creature's controller.
+SVar:TrigDmg:DB$ DealDamage | NumDmg$ 1 | Defined$ TargetedController
+Oracle:Evolve from Flaaffy {X}{U}{R}\nWhenever Ampharos enters the battlefield or evolves, tap up to X target creatures, then put a stun counter on each of them.\nWhenever a stun counter is removed from a creature, Ampharos deals 1 damage to that creature's controller.
 
 DeckHints:Name$Flaaffy
 SVar:SoundEffect:ampharos.mp3

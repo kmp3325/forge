@@ -2,9 +2,10 @@ Name:Koffing
 ManaCost:B
 Types:Creature Elemental Pokémon
 PT:1/1
-K:Caustic
+S:Mode$ Continuous | Affected$ Card.Self | AddKeyword$ Caustic | CheckSVar$ FOG | SVarCompare$ GE1 | Description$ As long as it's foggy, CARDNAME has caustic.
+SVar:FOG:Count$Foggy.1.0
 A:AB$ Weather | Cost$ 2 B | Value$ Foggy | SorcerySpeed$ True | SpellDescription$ It becomes foggy. Activate only as a sorcery.
-Oracle:Caustic\n{2}{B}: It becomes foggy. Activate only as a sorcery.
+Oracle:As long as it's foggy, Koffing has caustic.\n{2}{B}: It becomes foggy. Activate only as a sorcery.
 
 DeckHints:Name$Weezing
 SVar:SoundEffect:koffing.mp3

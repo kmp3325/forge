@@ -4,10 +4,10 @@ Types:Creature Snake Pokémon
 PT:3/3
 K:Evolve from:2 B G:Ekans
 K:First strike
-S:Mode$ Continuous | Affected$ Creature.YouDontCtrl | AffectedZone$ Battlefield | AddPower$ -AffectedX | Description$ Creatures you don't control get -1/-0 for each poison counter on them.
 SVar:AffectedX:Count$CardCounters.POISON
-A:AB$ Goad | Cost$ B G T | ValidTgts$ Creature | SpellDescription$ Goad target creature.
-Oracle: Evolve from Ekans {2}{B}{G}\nFirst strike\nCreatures your opponents control get -1/-0 for each poison counter on them.\n{B}{G}, {T}: Goad target creature.
+A:AB$ Goad | Cost$ B G T | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigMinus | SpellDescription$ {B}{G}, {T}: Goad target creature. It gets -1/-0 until end of turn for each poison counter on it.
+SVar:TrigMinus:DB$ Pump | NumAtt$ -AffectedX | Defined$ Targeted
+Oracle: Evolve from Ekans {2}{B}{G}\nFirst strike\n{B}{G}, {T}: Goad target creature. It gets -1/-0 until end of turn for each poison counter on it.
 
 DeckHints:Name$Ekans
 SVar:HasAttackEffect:TRUE

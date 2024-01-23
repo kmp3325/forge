@@ -16,6 +16,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.TreeSet;
 
@@ -1299,6 +1300,11 @@ public class PlayerControllerHuman extends PlayerController implements IGameCont
             return getGui().oneOrNone(localizer.getMessage("lblChooseATargetType", kindOfType.toLowerCase()), types);
         }
         return getGui().one(localizer.getMessage("lblChooseATargetType", kindOfType.toLowerCase()), types);
+    }
+
+    @Override
+    public Optional<Weather> chooseWeather(SpellAbility sa, List<Weather> choices) {
+        return choices.isEmpty() ? Optional.empty() : Optional.of(getGui().one(localizer.getMessage("lblChooseWeather"), choices));
     }
 
     @Override

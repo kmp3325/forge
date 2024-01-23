@@ -575,7 +575,12 @@ public class PlayerControllerAi extends PlayerController {
 
     @Override
     public Weather chooseWeather(SpellAbility sa) {
-        return Weather.values()[new Random().nextInt(Weather.values().length)];
+        return chooseWeather(sa, Arrays.asList(Weather.values())).orElseGet(() -> Weather.values()[0]);
+    }
+
+    @Override
+    public Optional<Weather> chooseWeather(SpellAbility sa, List<Weather> choices) {
+        return choices.isEmpty() ? Optional.empty() : Optional.of(choices.get(new Random().nextInt(choices.size())));
     }
 
     @Override

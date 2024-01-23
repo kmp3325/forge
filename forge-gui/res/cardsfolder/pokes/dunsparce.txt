@@ -1,10 +1,10 @@
 Name:Dunsparce
-ManaCost:3
+ManaCost:2
 Types:Creature Snake Pokémon
-PT:1/4
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigWeather | TriggerDescription$ When CARDNAME enters the battlefield, it becomes the weather of your choice, then the weather can't change until the beginning of your next upkeep.
-SVar:TrigWeather:DB$ Weather | Value$ Choose | SubAbility$ DBEffect
-SVar:DBEffect:DB$ Effect | Name$ Dunsparce Effect | StaticAbilities$ STNoWeather | Duration$ UntilYourNextUpkeep
-SVar:STNoWeather:Mode$ CantChangeWeather | EffectZone$ Command | Description$ The weather can't change.
-Oracle:When Dunsparce enters the battlefield, it becomes the weather of your choice, then the weather can't change until the beginning of your next upkeep.
+PT:1/2
+A:AB$ Mana | Cost$ T | Produced$ C | SpellDescription$ Add {C}.
+A:AB$ Draw | Cost$ C | Defined$ You | NumCards$ 1 | CheckSVar$ WEATHER | SVarCompare$ GE1 | SpellDescription$ Draw a card. Activate only if the weather changed this turn.
+SVar:WEATHER:Count$WeatherChanged.1.0
+Oracle:{T}: Add {C}.\n{C}: Draw a card. Activate only if the weather changed this turn.
+
 SVar:SoundEffect:dunsparce.mp3

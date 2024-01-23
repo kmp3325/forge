@@ -58,6 +58,8 @@ public class RestartGameEffect extends SpellAbilityEffect {
         game.setMonarch(null);
         game.setHasInitiative(null);
         game.setDayTime(null);
+        game.resetWeather();
+        game.resetWeatherSeen();
         GameAction action = game.getAction();
 
         for (Player p: players) {

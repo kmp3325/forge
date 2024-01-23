@@ -146,7 +146,7 @@ Foil=NotSupported
 134 U Vaporeon
 135 U Jolteon
 136 U Flareon
-137 U Porygon
+137 C Porygon
 138 C Omanyte
 139 R Omastar
 140 C Kabuto
@@ -215,7 +215,7 @@ Foil=NotSupported
 203 C Girafarig
 204 C Pineco
 205 R Forretress
-206 C Dunsparce
+206 U Dunsparce
 207 U Gligar
 208 M Steelix
 209 C Snubbull

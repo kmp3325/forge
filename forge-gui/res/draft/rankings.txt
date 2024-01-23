@@ -1400,7 +1400,7 @@
 #128|Vaporeon|U|PKM
 #129|Jolteon|U|PKM
 #130|Flareon|U|PKM
-#131|Porygon|U|PKM
+#131|Porygon|C|PKM
 #132|Dragonair|U|PKM
 #133|Furret|U|PKM
 #134|Ledyba|U|PKM
@@ -1529,7 +1529,7 @@
 #257|Wobbuffet|C|PKM
 #258|Girafarig|C|PKM
 #259|Pineco|C|PKM
-#260|Dunsparce|C|PKM
+#260|Dunsparce|U|PKM
 #261|Snubbull|C|PKM
 #262|Granbull|C|PKM
 #263|Qwilfish|C|PKM

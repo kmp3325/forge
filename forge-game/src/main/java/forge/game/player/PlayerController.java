@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import com.google.common.collect.Lists;
 import forge.game.*;
@@ -194,6 +195,8 @@ public abstract class PlayerController {
     public final String chooseSomeType(String kindOfType, SpellAbility sa, Collection<String> validTypes, List<String> invalidTypes) {
         return chooseSomeType(kindOfType, sa, validTypes, invalidTypes, false);
     }
+
+    public abstract Optional<Weather> chooseWeather(SpellAbility sa, List<Weather> choices);
 
     public abstract Weather chooseWeather(SpellAbility sa);
 

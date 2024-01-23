@@ -491,6 +491,11 @@ public class PlayerControllerForTests extends PlayerController {
     }
 
     @Override
+    public Optional<Weather> chooseWeather(SpellAbility sa, List<Weather> choices) {
+        return choices.isEmpty() ? Optional.empty() : Optional.of(choices.get(0));
+    }
+
+    @Override
     public String chooseSector(Card assignee, String ai, List<String> sectors) {
         return chooseItem(sectors);
     }

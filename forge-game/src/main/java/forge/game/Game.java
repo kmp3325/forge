@@ -118,6 +118,7 @@ public class Game {
     private Boolean daytime = null;
     private boolean weatherChangedThisTurn = false;
     private Weather weather = null;
+    private Set<Weather> weatherSeen = new HashSet<>(5);
 
     private long timestamp = 0;
     public final GameAction action;
@@ -1316,13 +1317,30 @@ public class Game {
             fireEvent(new GameEventDayTimeChanged(isDay()));
     }
 
-    public void setWeather(Weather weather, Map<AbilityKey, Object> runParams) {
+    public Set<Weather> getWeatherSeen() {
+        return weatherSeen;
+    }
+
+    public void resetWeatherSeen() {
+        weatherSeen.clear();
+    }
+
+    public void resetWeather() {
+        weather = null;
+    }
+
+    public boolean setWeather(Weather weather, Map<AbilityKey, Object> runParams) {
         Weather previous = this.weather;
         this.weather = weather;
         if (previous == null && weather == null) {
-            return;
+            return false;
         }
+        boolean thisEffectChangedWeather = false;
         if (previous == null || !previous.equals(weather)) {
+            weatherSeen.add(weather);
+            if (!weatherChangedThisTurn) {
+                thisEffectChangedWeather = true;
+            }
             weatherChangedThisTurn = true;
             for (Card c : getCardsIn(ZoneType.Battlefield)) {
                 c.updatePowerToughnessForView();
@@ -1332,6 +1350,8 @@ public class Game {
         if (!isNoWeather()) {
             fireEvent(new GameEventWeatherChanged(weather));
         }
+
+        return thisEffectChangedWeather;
     }
 
     public boolean isSunny() {

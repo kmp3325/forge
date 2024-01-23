@@ -2,10 +2,12 @@ Name:Porygon
 ManaCost:1
 Types:Artifact Creature Duck Construct Pokémon
 PT:1/1
-A:AB$ Mana | Cost$ T | Produced$ C | SpellDescription$ Add {C}.
-A:AB$ Draw | Cost$ C | Defined$ You | NumCards$ 1 | ActivationLimit$ 1 | CheckSVar$ WEATHER | SVarCompare$ GE1 | SpellDescription$ Draw a card. Activate only once each turn and only if the weather changed this turn.
-SVar:WEATHER:Count$WeatherChanged.1.0
-Oracle:{T}: Add {C}.\n{C}: Draw a card. Activate only once each turn and only if the weather changed this turn.
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigWeather | TriggerDescription$ When CARDNAME enters the battlefield, choose a weather condition that it hasn’t been this game. It becomes that weather. Then if the weather changed this way, the weather can’t change until your next turn. Otherwise, draw a card.
+SVar:TrigWeather:DB$ Weather | Value$ ChooseHasntBeen | ChangedSubAbility$ DBEffect | NoChangeSubAbility$ DBDraw
+SVar:DBEffect:DB$ Effect | Name$ Porygon Effect | StaticAbilities$ STNoWeather | Duration$ UntilYourNextUpkeep
+SVar:STNoWeather:Mode$ CantChangeWeather | EffectZone$ Command | Description$ The weather can't change.
+SVar:DBDraw:DB$ Draw | NumCards$ 1 | Defined$ You
+Oracle:When Porygon enters the battlefield, choose a weather condition that it hasn’t been this game. It becomes that weather. Then if the weather changed this way, the weather can’t change until your next turn. Otherwise, draw a card.
 
 DeckHints:Name$Porygon2
 SVar:SoundEffect:porygon.mp3

@@ -1372,7 +1372,7 @@
 #100|Ekans|U|PKM
 #101|Sandslash|U|PKM
 #102|Jigglypuff|U|PKM
-#103|Gloom Pokémon|U|PKM
+#103|Gloom Pokemon|U|PKM
 #104|Venonat|U|PKM
 #105|Diglett|U|PKM
 #106|Dugtrio|U|PKM

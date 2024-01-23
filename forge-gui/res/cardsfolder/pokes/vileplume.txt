@@ -2,7 +2,7 @@ Name:Vileplume
 ManaCost:3 BG BG
 Types:Creature Plant Fungus Pokémon
 PT:4/4
-K:Evolve from:2 BG BG:Gloom Pokémon
+K:Evolve from:2 BG BG:Gloom Pokemon
 A:AB$ Pump | Cost$ BG | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ DBRollDice | SpellDescription$ Choose target creature,
 SVar:DBRollDice:DB$ RollDice | Sides$ 6 | ResultSubAbilities$ 1:DBConfused,2-3:DBSolar,4-5:DBPetalDance,6:DBCrit | SpellDescription$ then roll a d6.
 SVar:DBConfused:DB$ DealDamage | Defined$ Self | NumDmg$ 2 | SpellDescription$ 1 VERT CARDNAME deals 2 damage to itself.
@@ -13,5 +13,5 @@ SVar:X:Count$CardCounters.SOLAR
 SVar:Y:Count$CardCounters.SOLAR/HalfDown
 Oracle:Evolve from Gloom {2}{BG}{BG}\n{BG}: Choose target creature, then roll a d6.\n1 | Vileplume deals 2 damage to itself.\n2-3 | Put two solar counters on Vileplume.\n4-5 | Vileplume deals damage to that creature equal to half the number of solar counters on Vileplume, rounded down.\n6 | Vileplume deals damage to that creature equal to the number of solar counters on Vileplume.
 
-DeckHints:Name$Gloom Pokémon
+DeckHints:Name$Gloom Pokemon
 SVar:SoundEffect:vileplume.mp3

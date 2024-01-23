@@ -1,6 +1,6 @@
-Name:Gloom Pokémon
+Name:Gloom Pokemon
 ManaCost:1 BG BG
-Types:Creature Plant Fungus Pokémon
+Types:Creature Plant Fungus Pokemon
 PT:3/3
 K:Evolve from:1 BG BG:Oddish
 A:AB$ RemoveCounter | Cost$ GB | CounterType$ POISON | CounterNum$ 2 | UpTo$ True | ValidTgts$ Creature | ActivationLimit$ 1 | TgtPrompt$ Select target creature | SpellDescription$ Remove up to two poison counters from target creature. Activate only once each turn.

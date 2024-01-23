@@ -7,5 +7,5 @@ A:AB$ ChangeZone | Cost$ T | Origin$ Graveyard | Destination$ Battlefield | Vali
 SVar:TrigPoison:DB$ PutCounter | CounterType$ POISON | CounterNum$ 1 | Defined$ Self
 Oracle:{T}: Put a solar counter on Oddish.\n{T}: Return target land card from your graveyard to the battlefield, then put a poison counter on Oddish. Activate only if Oddish has two or more solar counters on it.
 
-DeckHints:Name$Gloom Pokémon
+DeckHints:Name$Gloom Pokemon
 SVar:SoundEffect:oddish.mp3

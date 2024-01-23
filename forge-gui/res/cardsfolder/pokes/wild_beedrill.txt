@@ -3,11 +3,11 @@ ManaCost:B R G
 Types:Creature Insect Pokémon
 PT:1/1
 K:Double strike
-R:Event$ DamageDone | ActiveZones$ Battlefield | Prevent$ True | CheckSVar$ WEATHER | SVarCompare$ GE1 | IsCombat$ False | Description$ As long as it's not snowy, prevent all noncombat damage that would be dealt to CARDNAME.
-SVar:WEATHER:Count$Snowy.0.1
-T:Mode$ ChangesZone | ValidCard$ Creature.Insect | Origin$ Battlefield | Destination$ Graveyard | Execute$ TrigCounter | TriggerZones$ Battlefield | TriggerDescription$ Whenever an Insect creature dies, put a +1/+1 counter on CARDNAME.
+S:Mode$ Continuous | Affected$ Card.Self | CheckSVar$ SNOW | SVarCompare$ GE1 | AddHiddenKeyword$ CARDNAME can't attack or block. | Description$ As long as it's snowy, CARDNAME can't attack or block.
+SVar:SNOW:Count$Snowy.1.0
+T:Mode$ ChangesZone | ValidCard$ Creature.Insect+YouCtrl | Origin$ Battlefield | Destination$ Graveyard | Execute$ TrigCounter | TriggerZones$ Battlefield | TriggerDescription$ Whenever an Insect creature you control dies, put a +1/+1 counter on CARDNAME.
 SVar:TrigCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1
-Oracle:Double strike\nAs long as it’s not snowy, prevent all noncombat damage that would be dealt to Wild Beedrill.\nWhenever an Insect creature dies, put a +1/+1 counter on Wild Beedrill.
+Oracle:Double strike\nAs long as it’s snowy, Wild Beedrill can't attack or block.\nWhenever an Insect creature you control dies, put a +1/+1 counter on Wild Beedrill.
 
 DeckHints:Type$Insect
 SVar:SoundEffect:beedrill.mp3

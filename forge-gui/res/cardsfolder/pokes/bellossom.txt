@@ -2,7 +2,7 @@ Name:Bellossom
 ManaCost:2 G U
 Types:Creature Plant Pokémon
 PT:2/3
-K:Evolve from:G G:Gloom Pokémon
+K:Evolve from:G G:Gloom Pokemon
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Land.YouCtrl | Execute$ TrigChoice | TriggerZones$ Battlefield | TriggerDescription$ Landfall — Whenever a land enters the battlefield under your control, it becomes your choice of sunny or rainy.
 SVar:TrigChoice:DB$ GenericChoice | Choices$ ChooseSun,ChooseRain
 SVar:ChooseSun:DB$ Weather | Value$ Sunny | SpellDescription$ It becomes sunny.
@@ -14,5 +14,5 @@ A:AB$ PutCounter | Cost$ SubCounter<X/SOLAR> | ValidTgts$ Creature.Other+YouCtrl
 SVar:RAIN:Count$Rainy.1.0
 Oracle:Evolve from Gloom {G}{G}\nLandfall — Whenever a land enters the battlefield under your control, it becomes your choice of sunny or rainy.\n{X}: Put X solar counters on Bellossom. Activate only if it's sunny.\nRemove X solar counters from Bellossom: Distribute X +1/+1 counters among any number of other target creatures you control. Activate only if it's rainy.
 
-DeckHints:Name$Gloom Pokémon
+DeckHints:Name$Gloom Pokemon
 SVar:SoundEffect:bellossom.mp3

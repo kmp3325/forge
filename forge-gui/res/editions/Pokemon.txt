@@ -53,7 +53,7 @@ Foil=NotSupported
 41 C Zubat
 42 C Golbat
 43 C Oddish
-44 U Gloom Pokémon
+44 U Gloom Pokemon
 45 R Vileplume
 46 C Paras
 47 R Parasect
@@ -289,13 +289,13 @@ Foil=NotSupported
 4025 C Wild Typhlosion
 4026 U Wild Ivysaur
 4027 C Wild Venusaur
-4028 U Wild Beedrill
-4029 C Wild Onix
-4030 U Wild Rhydon
-4031 U Wild Scyther
-4032 C Wild Kabutops
+4028 C Wild Onix
+4029 U Wild Scyther
+4030 C Wild Kaputops
+4031 U Wild Beedrill
+4032 U Wild Tentacruel
 4033 U Wild Pikachu
-4034 U Wild Tentacruel
+4034 U Wild Rhydon
 4035 C Wild Bellossom
 4036 M Master Ball
 4037 C Mahogany Town Gym
@@ -334,7 +334,7 @@ Foil=NotSupported
 7009 C Clefairy
 7010 U Jigglypuff
 7011 C Golbat
-7012 U Gloom Pokémon
+7012 U Gloom Pokemon
 7013 C Poliwhirl
 7014 U Kadabra
 7015 U Machoke

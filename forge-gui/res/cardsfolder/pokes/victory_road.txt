@@ -1,0 +1,8 @@
+Name:Victory Road
+Types:Land
+A:AB$ ManaReflected | Cost$ T | ColorOrType$ Color | Valid$ Creature.YouCtrl | ReflectProperty$ Is | SpellDescription$ Add one mana of any color among creatures you control.
+A:AB$ Reveal | Cost$ 1 T | RevealValid$ Card.Creature+Pokémon+withEvolve from | AILogic$ Never | RememberRevealed$ True | SubAbility$ DBNameCard | AISpecificPokeSearch$ True | SpellDescription$ Reveal a Pokémon creature card with evolve from your hand. If you do, search your library for a card it evolves from, reveal that card, put it into your hand, then shuffle.
+SVar:DBNameCard:DB$ NameCard | Defined$ You | ChooseFromEvolveFrom$ Remembered | SubAbility$ DBFetch
+SVar:DBFetch:DB$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Card.NamedCard | ChangeNum$ 1 | SubAbility$ DBCleanup | ConditionDefined$ Remembered | ConditionPresent$ Card | ConditionCompare$ GE1
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+Oracle:{T}: Add one mana of any color among creatures you control.\n{1}, {T}: Reveal a Pokémon creature card with evolve from your hand. If you do, search your library for a card it evolves from, reveal that card, put it into your hand, then shuffle.

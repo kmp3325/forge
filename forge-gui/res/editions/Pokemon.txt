@@ -320,6 +320,7 @@ Foil=NotSupported
 4056 L Mountain
 4057 L Forest
 4058 L Wastes
+4059 R Victory Road
 
 [extended art]
 7000 U Ivysaur

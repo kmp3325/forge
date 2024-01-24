@@ -4,9 +4,9 @@ Types:Creature Bat Pokémon
 PT:1/1
 K:Flash
 K:Flying
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ DBDealDamage | TriggerDescription$ When CARDNAME enters the battlefield, it deals 2 damage to target nonblack creature.
-SVar:DBDealDamage:DB$ DealDamage | ValidTgts$ Creature.nonBlack | TgtPrompt$ Select target nonblack creature | NumDmg$ 2 | SubAbility$ TrigGain
-SVar:TrigGain:DB$ GainLife | LifeAmount$ 2 | Defined$ You
-Oracle:Flash\nFlying\nWhen Wild Zubat enters the battlefield, it deals 2 damage to target nonblack creature. You gain 2 life.
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ DBDebuff | TriggerDescription$ When CARDNAME enters the battlefield, target creature gets -2/-2 until end of turn, then you may gain control of it until end of turn. If you do, untap that creature. It gains haste until end of turn.
+SVar:DBDebuff:DB$ Pump | NumAtt$ -2 | NumDef$ -2 | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ DBGain
+SVar:DBGain:DB$ GainControl | Optional$ True | Defined$ Targeted | LoseControl$ EOT | AddKWs$ Haste | Untap$ True
+Oracle:Flash\nFlying\nWhen Wild Zubat enters the battlefield, target creature gets -2/-2 until end of turn, then you may gain control of it until end of turn. If you do, untap that creature. It gains haste until end of turn.
 
 SVar:SoundEffect:zubat.mp3

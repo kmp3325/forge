@@ -1,7 +1,7 @@
 Name:Wild Ninetales
-ManaCost:5 R
+ManaCost:4 R
 Types:Creature Fox Pokémon
-PT:3/3
+PT:2/2
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigGainCtrl | TriggerDescription$ When CARDNAME enters the battlefield, gain control of target creature until end of turn. Untap that creature and put a burn counter on it. It gains haste until end of turn.
 SVar:TrigGainCtrl:DB$ GainControl | ValidTgts$ Creature | TgtPrompt$ Select target creature | LoseControl$ EOT | Untap$ True | AddKWs$ Haste | SubAbility$ TrigPutCounter
 SVar:TrigPutCounter:DB$ PutCounter | CounterType$ BURN | CounterNum$ 1 | Defined$ Targeted

@@ -2,10 +2,10 @@ Name:Wild Arcanine
 ManaCost:X R R R
 Types:Creature Wolf Dog Pokémon
 PT:2/2
-T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigPump | TriggerDescription$ When CARDNAME enters the battlefield, until end of turn, creatures you control get +X/+0 and gain first strike and scorching. It becomes sunny.
-SVar:TrigPump:DB$ PumpAll | ValidCards$ Creature.YouCtrl | NumAtt$ X | KW$ First strike & Scorching | SubAbility$ TrigWeather
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigPump | TriggerDescription$ When CARDNAME enters the battlefield, until end of turn, creatures you control get +X/+0 and gain scorching. It becomes sunny.
+SVar:TrigPump:DB$ PumpAll | ValidCards$ Creature.YouCtrl | NumAtt$ X | KW$ Scorching | SubAbility$ TrigWeather
 SVar:TrigWeather:DB$ Weather | Value$ Sunny
 SVar:X:Count$xPaid
-Oracle:When Wild Arcanine enters the battlefield, until end of turn, creatures you control get +X/+0 and gain first strike and scorching. It becomes sunny.
+Oracle:When Wild Arcanine enters the battlefield, until end of turn, creatures you control get +X/+0 and gain scorching. It becomes sunny.
 
 SVar:SoundEffect:arcanine.mp3

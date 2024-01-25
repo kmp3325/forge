@@ -1,7 +1,7 @@
 Name:Muk
-ManaCost:3 B B
+ManaCost:2 B B
 Types:Creature Ooze Horror Pokémon
-PT:2/6
+PT:2/5
 K:Evolve from:5 B B:Grimer
 K:Caustic
 T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ At the beginning of your upkeep, put a slime counter on target non-Ooze creature.

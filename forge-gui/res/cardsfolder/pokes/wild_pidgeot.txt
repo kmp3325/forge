@@ -1,5 +1,5 @@
 Name:Wild Pidgeot
-ManaCost:5 W
+ManaCost:4 W
 Types:Creature Bird Pokémon
 PT:2/3
 K:Flash

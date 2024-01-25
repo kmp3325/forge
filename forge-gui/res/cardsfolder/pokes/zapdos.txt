@@ -3,11 +3,10 @@ ManaCost: GW GW GW GW GW GW
 Types:Legendary Creature Bird Pokémon
 PT:8/6
 K:Flying
-S:Mode$ CantPreventDamage | ValidSource$ Card.Self | Description$ Damage that would be dealt by CARDNAME can't be prevented.
-T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigShield | TriggerDescription$ Whenever CARDNAME attacks, put a shield counter on each other creature you control.
-SVar:TrigShield:DB$ PutCounterAll | ValidCards$ Creature.YouCtrl+Other | CounterType$ SHIELD | CounterNum$ 1
-T:Mode$ CounterRemoved | ValidCard$ Creature.YouCtrl | TriggerZones$ Battlefield | CounterType$ SHIELD | Execute$ TrigDmg | Optional$ True | OptionalDecider$ You | TriggerDescription$ Whenever a shield counter is removed from a creature you control, CARDNAME deals 2 damage to it.
-SVar:TrigDmg:DB$ DealDamage | NumDmg$ 2 | Defined$ TriggeredCardLKICopy
-Oracle:Flying\nDamage that would be dealt by Zapdos can't be prevented.\nWhenever Zapdos attacks, put a shield counter on each other creature you control.\nWhenever a shield counter is removed from a creature you control, Zapdos deals 2 damage to it.
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounter | TriggerDescription$ When CARDNAME enters the battlefield, put a shield counter on each other creature you control.
+SVar:TrigPutCounter:DB$ PutCounterAll | ValidCards$ Creature.YouCtrl+Other | CounterType$ SHIELD | CounterNum$ 1
+S:Mode$ Continuous | Affected$ Creature.YouCtrl | AffectedZone$ Battlefield | AddPower$ +AffectedX | AddToughness$ +AffectedX | Description$ Creatures you control get +1/+1 for each shield counter on them.
+SVar:AffectedX:Count$CardCounters.SHIELD
+Oracle:Flying\nWhen Zapdos enters the battlefield, put a shield counter on each other creature you control.\nCreatures you control get +1/+1 for each shield counter on them.
 
 SVar:SoundEffect:zapdos.mp3

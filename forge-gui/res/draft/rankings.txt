@@ -1346,7 +1346,7 @@
 #74|Feraligatr|R|PKM
 #75|Noctowl|R|PKM
 #76|Crobat|R|PKM
-#77|Lanturn|R|PKM
+#77|Lanturn|U|PKM
 #78|Togetic|R|PKM
 #79|Xatu|R|PKM
 #80|Politoed|R|PKM
@@ -1385,7 +1385,7 @@
 #113|Tentacool|U|PKM
 #114|Graveler|U|PKM
 #115|Slowbro|U|PKM
-#116|Magneton|U|PKM
+#116|Magneton|R|PKM
 #117|Farfetch'd|U|PKM
 #118|Grimer|U|PKM
 #119|Cloyster|U|PKM

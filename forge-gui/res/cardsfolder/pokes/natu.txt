@@ -6,8 +6,8 @@ K:Flying
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, put a gaze counter on target creature.
 T:Mode$ Evolved | ValidCard$ Card.Self | Execute$ TrigPutCounter | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, put a gaze counter on target creature.
 SVar:TrigPutCounter:DB$ PutCounter | ValidTgts$ Creature | TgtPrompt$ Select target creature | CounterNum$ 1 | CounterType$ GAZE
-A:AB$ ChangeZone | Cost$ 3 B | Origin$ Battlefield | Destination$ Exile | ValidTgts$ Creature.counters_GE1_GAZE | TgtPrompt$ Select target creature with a gaze counter on it | SpellDescription$ Exile target creature with a gaze counter on it.
-Oracle:Flying\nWhenever CARDNAME enters the battlefield or evolves, you may put a gaze counter on target creature.\n{3}{B}: Exile target creature with a gaze counter on it.
+A:AB$ ChangeZone | Cost$ 2 B | Origin$ Battlefield | Destination$ Exile | ValidTgts$ Creature.counters_GE1_GAZE | TgtPrompt$ Select target creature with a gaze counter on it | SpellDescription$ Exile target creature with a gaze counter on it.
+Oracle:Flying\nWhenever CARDNAME enters the battlefield or evolves, you may put a gaze counter on target creature.\n{2}{B}: Exile target creature with a gaze counter on it.
 
 DeckHints:Name$Xatu
 SVar:SoundEffect:natu.mp3

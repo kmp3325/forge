@@ -2,10 +2,12 @@ Name:Oddish
 ManaCost:1 BG
 Types:Creature Plant Pokémon
 PT:1/1
-A:AB$ PutCounter | Cost$ T | CounterType$ SOLAR | CounterNum$ 1 | Defined$ Self | SpellDescription$ Put a solar counter on CARDNAME.
-A:AB$ ChangeZone | Cost$ T | Origin$ Graveyard | Destination$ Battlefield | ValidTgts$ Land.YouOwn | TgtPrompt$ Select target land card in your graveyard | IsPresent$ Card.Self+counters_GE2_SOLAR | SubAbility$ TrigPoison | SpellDescription$ Return target land card from your graveyard to the battlefield, then put a poison counter on CARDNAME. Activate only if CARDNAME has two or more solar counters on it.
+A:AB$ PutCounter | Cost$ T | CounterType$ SOLAR | CounterNum$ 1 | Defined$ Self | SubAbility$ DBMill | SpellDescription$ Put a solar counter on CARDNAME, then mill a card for each solar counter on it.
+SVar:DBMill:DB$ Mill | NumCards$ X | Defined$ You
+SVar:X:Count$CardCounters.SOLAR
+A:AB$ ChangeZone | Cost$ T | Origin$ Graveyard | Destination$ Battlefield | ValidTgts$ Land.YouOwn | TgtPrompt$ Select target land card in your graveyard | SubAbility$ TrigPoison | SpellDescription$ Return target land card from your graveyard to the battlefield, then put a poison counter on CARDNAME.
 SVar:TrigPoison:DB$ PutCounter | CounterType$ POISON | CounterNum$ 1 | Defined$ Self
-Oracle:{T}: Put a solar counter on Oddish.\n{T}: Return target land card from your graveyard to the battlefield, then put a poison counter on Oddish. Activate only if Oddish has two or more solar counters on it.
+Oracle:{T}: Put a solar counter on Oddish, then mill a card for each solar counter on it.\n{T}: Return target land card from your graveyard to the battlefield, then put a poison counter on Oddish.
 
 DeckHints:Name$Gloom Pokemon
 SVar:SoundEffect:oddish.mp3

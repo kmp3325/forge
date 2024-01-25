@@ -91,7 +91,7 @@ Foil=NotSupported
 79 C Slowpoke
 80 U Slowbro
 81 C Magnemite
-82 U Magneton
+82 R Magneton
 83 U Farfetch'd
 84 C Doduo
 85 R Dodrio
@@ -180,7 +180,7 @@ Foil=NotSupported
 168 U Ariados
 169 R Crobat
 170 C Chinchou
-171 R Lanturn
+171 U Lanturn
 172 U Pichu
 173 C Cleffa
 174 C Igglybuff

@@ -267,6 +267,8 @@ public final class CardUtil {
         newCopy.setTributed(in.isTributed());
         newCopy.setMonstrous(in.isMonstrous());
         newCopy.setRenowned(in.isRenowned());
+        newCopy.setSolved(in.isSolved());
+        newCopy.setSuspected(in.isSuspected());
 
         newCopy.setColor(in.getColor().getColor());
         newCopy.setPhasedOut(in.getPhasedOut());
@@ -328,7 +330,7 @@ public final class CardUtil {
         newCopy.setBestowTimestamp(in.getBestowTimestamp());
 
         newCopy.setForetold(in.isForetold());
-        newCopy.setForetoldThisTurn(in.isForetoldThisTurn());
+        newCopy.setTurnInZone(in.getTurnInZone());
         newCopy.setForetoldCostByEffect(in.isForetoldCostByEffect());
 
         newCopy.setMeldedWith(getLKICopy(in.getMeldedWith(), cachedMap));

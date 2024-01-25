@@ -1,10 +1,10 @@
 Name:Granbull
-ManaCost:3 RW RW
+ManaCost:2 RW RW
 Types:Creature Dog Faerie Pokémon
-PT:4/3
-K:Evolve from:2 RW RW:Snubbull
+PT:3/3
+K:Evolve from:1 RW RW:Snubbull
 S:Mode$ Continuous | IsPresent$ Card.Self+untapped | Affected$ Creature.OppCtrl | AddPower$ -1 | Description$ As long as CARDNAME is untapped, creatures your opponents control get -1/-0.
-Oracle:Evolve from Snubbull {2}{RW}{RW}\nAs long as Granbull is untapped, creatures your opponents control get -1/-0.
+Oracle:Evolve from Snubbull {1}{RW}{RW}\nAs long as Granbull is untapped, creatures your opponents control get -1/-0.
 
 DeckHints:Name$Snubbull
 SVar:SoundEffect:granbull.mp3

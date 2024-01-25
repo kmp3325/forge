@@ -3,10 +3,11 @@ ManaCost: GW GW GW GW GW GW
 Types:Legendary Creature Bird Pokémon
 PT:8/6
 K:Flying
-T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigShield | TriggerDescription$ Whenever CARDNAME attacks, put a shield counter on it.
-SVar:TrigShield:DB$ PutCounter | Defined$ Self | CounterType$ SHIELD | CounterNum$ 1
-T:Mode$ CounterRemoved | ValidCard$ Creature.YouCtrl | TriggerZones$ Battlefield | CounterType$ SHIELD | Execute$ TrigTap | Optional$ True | OptionalDecider$ You | TriggerDescription$ Whenever a shield counter is removed from a creature you control, you may tap target creature and put a stun counter on it.
-SVar:TrigTap:DB$ Tap | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigStun
-SVar:TrigStun:DB$ PutCounter | CounterType$ STUN | CounterNum$ 1 | Defined$ Targeted
-Oracle:Flying\nWhenever Zapdos attacks, put a shield counter on it.\nWhenever a shield counter is removed from a creature you control, you may tap target creature and put a stun counter on it.
+S:Mode$ CantPreventDamage | ValidSource$ Card.Self | Description$ Damage that would be dealt by CARDNAME can't be prevented.
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigShield | TriggerDescription$ Whenever CARDNAME attacks, put a shield counter on each other creature you control.
+SVar:TrigShield:DB$ PutCounterAll | ValidCards$ Creature.YouCtrl+Other | CounterType$ SHIELD | CounterNum$ 1
+T:Mode$ CounterRemoved | ValidCard$ Creature.YouCtrl | TriggerZones$ Battlefield | CounterType$ SHIELD | Execute$ TrigDmg | Optional$ True | OptionalDecider$ You | TriggerDescription$ Whenever a shield counter is removed from a creature you control, CARDNAME deals 2 damage to it.
+SVar:TrigDmg:DB$ DealDamage | NumDmg$ 2 | Defined$ TriggeredCardLKICopy
+Oracle:Flying\nDamage that would be dealt by Zapdos can't be prevented.\nWhenever Zapdos attacks, put a shield counter on each other creature you control.\nWhenever a shield counter is removed from a creature you control, Zapdos deals 2 damage to it.
+
 SVar:SoundEffect:zapdos.mp3

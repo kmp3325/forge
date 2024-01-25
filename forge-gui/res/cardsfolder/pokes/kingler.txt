@@ -1,7 +1,7 @@
 Name:Kingler
 ManaCost:4 GU
 Types:Creature Crab Pokémon
-PT:4/3
+PT:4/4
 K:Evolve from:4 GU:Krabby
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigSmallPump | TriggerDescription$ When CARDNAME enters the battlefield, put a +1/+1 counter on it.
 SVar:TrigSmallPump:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1

@@ -2,9 +2,9 @@ Name:Wild Tauros
 ManaCost:4 W
 Types:Creature Aurochs Pokémon
 PT:2/2
-T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigStuff | TriggerDescription$ When CARDNAME enters the battlefield, creatures you control get +1/+1 and gain indestructible until end of turn.
-SVar:TrigStuff:DB$ PumpAll | NumAtt$ 1 | NumDef$ 1 | KW$ Indestructible | ValidCards$ Creature.YouCtrl
-Oracle:When Wild Tauros enters the battlefield, creatures you control get +1/+1 and gains indestructible until end of turn.
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigStuff | TriggerDescription$ When CARDNAME enters the battlefield, other creatures you control get +2/+2 and gain vigilance until end of turn.
+SVar:TrigStuff:DB$ PumpAll | NumAtt$ 2 | NumDef$ 2 | KW$ Vigilance | ValidCards$ Creature.YouCtrl+Other
+Oracle:When Wild Tauros enters the battlefield, other creatures you control get +2/+2 and gains vigilance until end of turn.
 
 SVar:SoundEffect:tauros.mp3
 SVar:PlayMain1:TRUE

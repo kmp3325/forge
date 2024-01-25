@@ -396,6 +396,12 @@ public class GameCopier {
             if (c.isRenowned()) {
                 newCard.setRenowned(true);
             }
+            if (c.isSolved()) {
+                newCard.setSolved(true);
+            }
+            if (c.isSuspected()) {
+                newCard.setSuspected(true);
+            }
             if (c.isPlaneswalker()) {
                 for (SpellAbility sa : c.getAllSpellAbilities()) {
                     int active = sa.getActivationsThisTurn();

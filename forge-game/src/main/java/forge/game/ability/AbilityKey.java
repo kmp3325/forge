@@ -122,7 +122,6 @@ public enum AbilityKey {
     ScryBottom("ScryBottom"),
     ScryNum("ScryNum"),
     Sides("Sides"),
-    SimultaneousETB("SimultaneousETB"),
     Source("Source"),
     Sources("Sources"),
     SourceSA("SourceSA"),
@@ -139,8 +138,10 @@ public enum AbilityKey {
     TokenNum("TokenNum"),
     Vehicle("Vehicle"),
     Weather("Weather"),
-    Won("Won");
-
+    Won("Won"),
+    // below used across different Replacements, don't reuse
+    InternalTriggerTable("InternalTriggerTable"),
+    SimultaneousETB("SimultaneousETB"); // for CR 614.13c
 
     private String key;
 

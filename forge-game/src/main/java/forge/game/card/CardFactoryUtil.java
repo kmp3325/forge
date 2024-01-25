@@ -32,7 +32,6 @@ import forge.game.*;
 import forge.game.cost.CostExile;
 import forge.game.cost.CostPart;
 import forge.game.event.GameEventCardForetold;
-import forge.game.trigger.TriggerType;
 import forge.util.Localizer;
 
 import org.apache.commons.lang3.StringUtils;
@@ -1563,8 +1562,8 @@ public class CardFactoryUtil {
             final String actualTrigger = "Mode$ Attacks | ValidCard$ Card.Self | Secondary$ True"
                     + " | TriggerDescription$ Myriad (" + inst.getReminderText() + ")";
 
-            final String copyStr = "DB$ CopyPermanent | Defined$ Self | TokenTapped$ True | Optional$ True | TokenAttacking$ Remembered"
-                    + "| ForEach$ OppNonDefendingPlayer | ChoosePlayerOrPlaneswalker$ True | AtEOT$ ExileCombat | CleanupForEach$ True";
+            final String copyStr = "DB$ CopyPermanent | Defined$ Self | TokenTapped$ True | Optional$ True | TokenAttacking$ RememberedPlayer & Valid Planeswalker.ControlledBy Remembered"
+                    + "| ForEach$ OppNonDefendingPlayer | AtEOT$ ExileCombat | CleanupForEach$ True";
 
             final SpellAbility copySA = AbilityFactory.getAbility(copyStr, card);
             copySA.setIntrinsic(intrinsic);
@@ -3019,8 +3018,6 @@ public class CardFactoryUtil {
                     final Game game = getHostCard().getGame();
                     final Card c = game.getAction().exile(new CardCollection(getHostCard()), this, null).get(0);
                     c.setForetold(true);
-                    game.getTriggerHandler().runTrigger(TriggerType.IsForetold, AbilityKey.mapFromCard(c), false);
-                    c.setForetoldThisTurn(true);
                     c.turnFaceDown(true);
                     // look at the exiled card
                     c.addMayLookTemp(getActivatingPlayer());

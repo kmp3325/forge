@@ -253,6 +253,10 @@ public class CardProperty {
             if (!lp.contains(card.getProtectingPlayer())) {
                 return false;
             }
+        } else if (property.equals("Defending")) {
+            if (game.getCombat() == null || !game.getCombat().getAttackersAndDefenders().values().contains(card)) {
+                return false;
+            }
         } else if (property.startsWith("DefendingPlayer")) {
             Player p = property.endsWith("Ctrl") ? controller : card.getOwner();
             if (!game.getPhaseHandler().inCombat()) {
@@ -1122,6 +1126,8 @@ public class CardProperty {
             if (card.isFaceDown()) {
                 return false;
             }
+        } else if (property.startsWith("turnedFaceUpThisTurn")) {
+            if (!card.wasTurnedFaceUpThisTurn()) return false;
         } else if (property.startsWith("phasedOut")) {
             if (!card.isPhasedOut()) {
                 return false;
@@ -1908,6 +1914,22 @@ public class CardProperty {
             }
         } else if (property.equals("IsNotRenowned")) {
             if (card.isRenowned()) {
+                return false;
+            }
+        } else if (property.equals("IsSolved")) {
+            if (!card.isSolved()) {
+                return false;
+            }
+        } else if (property.equals("IsUnsolved")) {
+            if (card.isSolved()) {
+                return false;
+            }
+        } else if (property.equals("IsSuspected")) {
+            if (!card.isSuspected()) {
+                return false;
+            }
+        } else if (property.equals("IsUnsuspected")) {
+            if (card.isSuspected()) {
                 return false;
             }
         } else if (property.equals("IsRemembered")) {

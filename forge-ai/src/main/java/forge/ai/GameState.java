@@ -292,6 +292,12 @@ public abstract class GameState {
             if (c.isRenowned()) {
                 newText.append("|Renowned");
             }
+            if (c.isSolved()) {
+                newText.append("|Solved");
+            }
+            if (c.isSuspected()) {
+                newText.append("|Suspected");
+            }
             if (c.isMonstrous()) {
                 newText.append("|Monstrous");
             }
@@ -401,7 +407,6 @@ public abstract class GameState {
             if (c.isForetoldThisTurn()) {
                 newText.append("|ForetoldThisTurn");
             }
-
         }
 
         if (zoneType == ZoneType.Battlefield || zoneType == ZoneType.Exile) {
@@ -1257,6 +1262,10 @@ public abstract class GameState {
                     c.tap(false, null, null);
                 } else if (info.startsWith("Renowned")) {
                     c.setRenowned(true);
+                } else if (info.startsWith("Solved")) {
+                    c.setSolved(true);
+                } else if (info.startsWith("Suspected")) {
+                    c.setSuspected(true);
                 } else if (info.startsWith("Monstrous")) {
                     c.setMonstrous(true);
                 } else if (info.startsWith("PhasedOut")) {
@@ -1374,7 +1383,7 @@ public abstract class GameState {
                     c.turnFaceDown(true);
                     c.addMayLookTemp(c.getOwner());
                 } else if (info.equals("ForetoldThisTurn")) {
-                    c.setForetoldThisTurn(true);
+                    c.setTurnInZone(turn);
                 } else if (info.equals("IsToken")) {
                     c.setToken(true);
                 }

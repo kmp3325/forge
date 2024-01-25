@@ -676,7 +676,6 @@ public class PlayerControllerAi extends PlayerController {
         if (sa instanceof LandAbility) {
             if (sa.canPlay()) {
                 sa.resolve();
-                getGame().updateLastStateForCard(sa.getHostCard());
             }
         } else {
             ComputerUtil.handlePlayingSpellAbility(player, sa, getGame());

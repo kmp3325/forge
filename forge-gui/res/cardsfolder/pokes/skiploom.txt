@@ -7,8 +7,8 @@ R:Event$ DamageDone | ValidTarget$ Card.Self | ActiveZones$ Battlefield | Preven
 R:Event$ Destroy | Secondary$ True | ValidTarget$ Card.Self | ActiveZones$ Battlefield | ReplaceWith$ DBRemoveFlying | CheckSVar$ NumFlying | SVarCompare$ GE1 | Description$ If CARDNAME would be dealt damage or destroyed and it has a flying counter on it, remove a flying counter from it instead.
 SVar:NumFlying:Count$CardCounters.Flying
 SVar:DBRemoveFlying:DB$ RemoveCounter | CounterType$ Flying | CounterNum$ 1 | Defined$ Self
-A:AB$ Mana | Cost$ T | Produced$ G | SpellDescription$ Add {G}.
-Oracle:Evolve from Hoppip {RG}{RG}\nIf Skiploom would be dealt damage or destroyed and it has a flying counter on it, remove a flying counter from it instead.\n{T}: Add {G}.
+A:AB$ Mana | Cost$ T | Produced$ Combo R G | SpellDescription$ Add {R} or {G}.
+Oracle:Evolve from Hoppip {RG}{RG}\nIf Skiploom would be dealt damage or destroyed and it has a flying counter on it, remove a flying counter from it instead.\n{T}: Add {R} or {G}.
 
 DeckHints:Name$Hoppip
 DeckHints:Name$Jumpluff

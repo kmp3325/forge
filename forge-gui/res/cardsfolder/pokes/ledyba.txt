@@ -1,13 +1,14 @@
 Name:Ledyba
-ManaCost:1 G
+ManaCost:1 W
 Types:Creature Insect Pokémon
 PT:0/1
 K:Flying
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | OptionalDecider$ You | Execute$ TrigSearch | TriggerDescription$ When CARDNAME enters the battlefield, search your library for an Insect card, reveal it, put it into your hand, then shuffle.
 SVar:TrigSearch:DB$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Insect | ChangeNum$ 1
-S:Mode$ Continuous | Affected$ Creature.Self+attacking | AddPower$ X | AddToughness$ X | Description$ As long as CARDNAME is attacking, it gets +1/+1 for each other attacking Insect.
-SVar:X:Count$Valid Creature.attacking+Insect+Other
-Oracle:Flying\nWhen Ledyba enters the battlefield, you may search your library for an Insect card, reveal it, put it into your hand, then shuffle.\nAs long as Ledyba is attacking, it gets +1/+1 for each other attacking Insect.
+S:Mode$ Continuous | Affected$ Creature.Self+attacking,Creature.Self+blocking | AddPower$ X | AddToughness$ X | Description$ As long as CARDNAME is attacking or blocking, it gets +1/+1 for each other attacking or blocking Insect you control.
+SVar:X:Count$Valid Insect.attacking+Other+YouCtrl/Plus.Y
+SVar:Y:Count$Valid Insect.blocking+Other+YouCtrl
+Oracle:Flying\nWhen Ledyba enters the battlefield, you may search your library for an Insect card, reveal it, put it into your hand, then shuffle.\nAs long as Ledyba is attacking or blocking, it gets +1/+1 for each other attacking or blocking Insect you control.
 
 DeckHints:Name$Ledian
 DeckHints:Type$Insect

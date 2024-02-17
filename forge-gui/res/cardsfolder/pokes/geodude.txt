@@ -1,5 +1,5 @@
 Name:Geodude
-ManaCost:GW GW
+ManaCost:RG RG
 Types:Creature Golem Pokémon
 PT:1/1
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ When CARDNAME enters the battlefield, put a shield counter on it.

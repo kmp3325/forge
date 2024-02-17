@@ -1,5 +1,5 @@
 Name:Gligar
-ManaCost:1 W
+ManaCost:2 W
 Types:Creature Scorpion Bat Pokémon
 PT:1/3
 K:Flying

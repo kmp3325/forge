@@ -1,5 +1,5 @@
 Name:Horsea
-ManaCost:2 U
+ManaCost:1 U
 Types:Creature Fish Pokémon
 PT:1/1
 T:Mode$ Evolved | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigWeather | TriggerDescription$ Whenever CARDNAME evolves, it becomes rainy.

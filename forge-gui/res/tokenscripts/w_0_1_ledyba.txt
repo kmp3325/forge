@@ -1,0 +1,10 @@
+Name:Ledyba
+ManaCost:no cost
+Types:Creature Insect Pokémon
+Colors:white
+PT:0/1
+K:Flying
+S:Mode$ Continuous | Affected$ Creature.Self+attacking,Creature.Self+blocking | AddPower$ X | AddToughness$ X | Description$ As long as CARDNAME is attacking or blocking, it gets +1/+1 for each other attacking or blocking Insect you control.
+SVar:X:Count$Valid Insect.attacking+Other+YouCtrl/Plus.Y
+SVar:Y:Count$Valid Insect.blocking+Other+YouCtrl
+Oracle:Flying\nAs long as this creature is attacking or blocking, it gets +1/+1 for each other attacking or blocking Insect you control.

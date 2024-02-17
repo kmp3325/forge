@@ -1,5 +1,5 @@
 Name:Heracross
-ManaCost:4 RG
+ManaCost:4 GW
 Types:Creature Insect Pokémon
 PT:4/5
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigFood | TriggerDescription$ When CARDNAME enters the battlefield, create a Food token.

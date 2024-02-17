@@ -1,7 +1,7 @@
 Name:Magmar
 ManaCost:3 R R
 Types:Creature Salamander Duck Pokémon
-PT:5/5
+PT:4/4
 K:Evolve from:3 R R:Magby
 T:Mode$ DamageDone | TriggerZones$ Battlefield | ValidTarget$ Creature.YouCtrl | CombatDamage$ False | Execute$ TrigCounter | TriggerZones$ Battlefield | TriggerDescription$ Whenever a creature you control is dealt noncombat damage, you may put a burn counter on target creature.
 SVar:TrigCounter:DB$ PutCounter | IsCurse$ True | ValidTgts$ Creature | TgtPrompt$ Select target creature | CounterType$ BURN | CounterNum$ 1

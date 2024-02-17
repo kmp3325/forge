@@ -1,5 +1,5 @@
 Name:Shuckle
-ManaCost:1 GW GW
+ManaCost:1 RG RG
 Types:Creature Turtle Insect Pokémon
 PT:0/5
 T:Mode$ Blocks | ValidCard$ Card.Self | Execute$ TrigCounter | TriggerDescription$ Whenever CARDNAME blocks, put a shield counter on it.

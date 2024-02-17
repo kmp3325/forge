@@ -1,15 +1,15 @@
 Name:Scyther
-ManaCost:2 R G
+ManaCost:2 G W
 Types:Creature Insect Pokémon
 PT:3/2
 K:First strike
 S:Mode$ Continuous | Affected$ Card.Self+notEvolved | AddKeyword$ Flying | Description$ CARDNAME has flying as long as it's not evolved.
-A:AB$ CopyPermanent | Cost$ R G T | Defined$ Self | NumCopies$ 1 | SetPower$ 0 | SetToughness$ 2 | DoesntHaveThisAbility$ True | AddTriggers$ DismissTarget | AddSVars$ DismissSac | SubAbility$ RemoveFlying | RememberTokens$ True | HasNoCost$ True | SpellDescription$ Create a token that's a copy of CARDNAME, except it's a 0/2 with no mana cost, it doesn't have this ability, and it has "When this creature becomes the target of a spell or ability, sacrifice it." Then if CARDNAME doesn't have flying, the token loses flying.
+A:AB$ CopyPermanent | Cost$ G T | Defined$ Self | NumCopies$ 1 | SetPower$ 0 | SetToughness$ 2 | DoesntHaveThisAbility$ True | AddTriggers$ DismissTarget | AddSVars$ DismissSac | SubAbility$ RemoveFlying | RememberTokens$ True | HasNoCost$ True | SpellDescription$ Create a token that's a copy of CARDNAME, except it's a 0/2 with no mana cost, it doesn't have this ability, and it has "When this creature becomes the target of a spell or ability, sacrifice it." Then if CARDNAME doesn't have flying, the token loses flying.
 SVar:DismissTarget:Mode$ BecomesTarget | ValidTarget$ Card.Self | TriggerZones$ Battlefield | Execute$ DismissSac | TriggerDescription$ When this creature becomes the target of a spell or ability, sacrifice it.
 SVar:DismissSac:DB$ Sacrifice
 SVar:RemoveFlying:DB$ Debuff | Keywords$ Flying | Defined$ Remembered | Duration$ Permanent | ConditionDefined$ Self | ConditionPresent$ Card.withoutFlying | SubAbility$ DBCleanup
 SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
-Oracle:First strike\nScyther has flying as long as it’s not evolved.\n{R}{G}, {t}: Create a token that's a copy of Scyther, except it's a 0/2 with no mana cost, it doesn't have this ability, and it has "When this creature becomes the target of a spell or ability, sacrifice it." Then if Scyther doesn't have flying, the token loses flying.
+Oracle:First strike\nScyther has flying as long as it’s not evolved.\n{G}, {T}: Create a token that's a copy of Scyther, except it's a 0/2 with no mana cost, it doesn't have this ability, and it has "When this creature becomes the target of a spell or ability, sacrifice it." Then if Scyther doesn't have flying, the token loses flying.
 
 DeckHints:Name$Scizor
 SVar:SoundEffect:scyther.mp3

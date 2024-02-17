@@ -1,5 +1,5 @@
 Name:Ponyta
-ManaCost:3 R G
+ManaCost:4 R
 Types:Creature Horse Pokémon
 PT:3/3
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounter | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, put a burn counter on each creature you don't control. It becomes sunny.

@@ -1,13 +1,13 @@
 Name:Sunkern
-ManaCost:R G
+ManaCost:G
 Types:Creature Saproling Pokémon
 PT:0/1
 T:Mode$ WeatherChanged | ValidWeather$ Sunny | Execute$ TrigPutCounter | TriggerZones$ Battlefield | TriggerDescription$ Whenever it becomes sunny, put a solar counter on CARDNAME.
 SVar:TrigPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ SOLAR | CounterNum$ 1
 A:AB$ Mana | Cost$ T | Produced$ G | SpellDescription$ Add {G}.
-A:AB$ Mana | Cost$ T | Produced$ Combo R G | Amount$ X | SpellDescription$ Add X mana in any combination of {R} and/or {G}, where X is the number of solar counters on CARDNAME.
+A:AB$ Mana | Cost$ T | Produced$ Combo Any | Amount$ X | SpellDescription$ Add X mana in any combination of colors, where X is the number of solar counters on CARDNAME.
 SVar:X:Count$Valid Creature.YouCtrl$CardCounters.SOLAR
-Oracle:Whenever it becomes sunny, put a solar counter on Sunkern.\n{T}: Add {G}\n{T}: Add X mana in any combination of {R} and/or {G}, where X is the number of solar counters on Sunkern.
+Oracle:Whenever it becomes sunny, put a solar counter on Sunkern.\n{T}: Add {G}\n{T}: Add X mana in any combination of colors, where X is the number of solar counters on Sunkern.
 
 DeckHints:Name$Sunflora
 SVar:SoundEffect:sunkern.mp3

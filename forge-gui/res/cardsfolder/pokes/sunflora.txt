@@ -1,15 +1,15 @@
 Name:Sunflora
-ManaCost:1 R G G
+ManaCost:1 G G G
 Types:Creature Plant Pokémon
 PT:3/3
-K:Evolve from:R G G:Sunkern
+K:Evolve from:1 G G:Sunkern
 T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | Execute$ TrigSolar | OptionalDecider$ You | TriggerZones$ Battlefield | TriggerDescription$ At the beginning of your end step, you may pay {G} any number of times. Put that many solar counters on CARDNAME.
 SVar:TrigSolar:AB$ PutCounter | Cost$ Mana<G\NumTimes> | CounterType$ SOLAR | CounterNum$ NumTimes | Defined$ Self | Announce$ NumTimes | ConditionCheckSVar$ NumTimes | ConditionSVarCompare$ GE1 | RememberSVarAmount$ NumTimes
-A:AB$ Weather | Cost$ R T SubCounter<1/SOLAR> | Value$ Sunny | SpellDescription$ It becomes sunny.
-A:AB$ Pump | Cost$ SubCounter<X/SOLAR> R G | ValidTgts$ Creature.Other | TgtPrompt$ Select target creature | NumAtt$ X | NumDef$ X | CheckSVar$ SUN | SVarCompare$ GE1 | SpellDescription$ Another target creature gets +X/+X until end of turn. Activate only if it's sunny.
+A:AB$ Weather | Cost$ SubCounter<1/SOLAR> G T | Value$ Sunny | SpellDescription$ It becomes sunny.
+A:AB$ Pump | Cost$ SubCounter<X/SOLAR> | ValidTgts$ Creature.Other | TgtPrompt$ Select target creature | NumAtt$ X | NumDef$ X | CheckSVar$ SUN | SVarCompare$ GE1 | SpellDescription$ Another target creature gets +X/+X until end of turn. Activate only if it's sunny.
 SVar:X:Count$xPaid
 SVar:SUN:Count$Sunny.1.0
-Oracle:Evolve from Sunkern {R}{G}{G}\nAt the beginning of your end step, you may pay {G} any number of times. Put that many solar counters on Sunflora.\n{R}, {T}, Remove a solar counter from Sunflora: It becomes sunny.\n{R}{G}, Remove X solar counters from Sunflora: Another target creature gets +X/+X until end of turn. Activate only if it's sunny.
+Oracle:Evolve from Sunkern {1}{G}{G}\nAt the beginning of your end step, you may pay {G} any number of times. Put that many solar counters on Sunflora.\n{G}, {T}, Remove a solar counter from Sunflora: It becomes sunny.\nRemove X solar counters from Sunflora: Another target creature gets +X/+X until end of turn. Activate only if it's sunny.
 
 DeckHints:Name$Sunkern
 SVar:SoundEffect:sunflora.mp3

@@ -1,5 +1,5 @@
 Name:Onix
-ManaCost:2 GW GW
+ManaCost:2 RG RG
 Types:Creature Golem Serpent Pokémon
 PT:2/3
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounter | TriggerDescription$ When CARDNAME enters the battlefield, put a shield counter on it, then you may have it fight target creature.

@@ -1,5 +1,5 @@
 Name:Larvitar
-ManaCost:GW
+ManaCost:RG
 Types:Creature Dinosaur Pokémon
 PT:1/1
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Land.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigFood | TriggerDescription$ Landfall — Whenever a land enters the battlefield under your control, create a Food token.

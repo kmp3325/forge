@@ -1,14 +1,14 @@
 Name:Skiploom
-ManaCost:RG RG
+ManaCost:GW GW
 Types:Creature Plant Saproling Pokémon
 PT:1/2
-K:Evolve from:RG RG:Hoppip
+K:Evolve from:GW GW:Hoppip
 R:Event$ DamageDone | ValidTarget$ Card.Self | ActiveZones$ Battlefield | PreventionEffect$ True | ReplaceWith$ DBRemoveFlying | CheckSVar$ NumFlying | SVarCompare$ GE1 | Description$ If CARDNAME would be dealt damage or destroyed and it has a flying counter on it, remove a flying counter from it instead.
 R:Event$ Destroy | Secondary$ True | ValidTarget$ Card.Self | ActiveZones$ Battlefield | ReplaceWith$ DBRemoveFlying | CheckSVar$ NumFlying | SVarCompare$ GE1 | Description$ If CARDNAME would be dealt damage or destroyed and it has a flying counter on it, remove a flying counter from it instead.
 SVar:NumFlying:Count$CardCounters.Flying
 SVar:DBRemoveFlying:DB$ RemoveCounter | CounterType$ Flying | CounterNum$ 1 | Defined$ Self
-A:AB$ Mana | Cost$ T | Produced$ Combo R G | SpellDescription$ Add {R} or {G}.
-Oracle:Evolve from Hoppip {RG}{RG}\nIf Skiploom would be dealt damage or destroyed and it has a flying counter on it, remove a flying counter from it instead.\n{T}: Add {R} or {G}.
+A:AB$ Mana | Cost$ T | Produced$ G | SpellDescription$ Add {G}.
+Oracle:Evolve from Hoppip {GW}{GW}\nIf Skiploom would be dealt damage or destroyed and it has a flying counter on it, remove a flying counter from it instead.\n{T}: Add {G}.
 
 DeckHints:Name$Hoppip
 DeckHints:Name$Jumpluff

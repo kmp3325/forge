@@ -387,6 +387,7 @@ public enum CounterEnumType {
 
     STRIFE("STRFE", 255, 89, 223),
 
+    STORM("STORM", 170, 191, 52),
     STUDY("STUDY", 226, 192, 165),
 
     STUN("STUN", 226, 192, 165),

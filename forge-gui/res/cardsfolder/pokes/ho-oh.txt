@@ -5,8 +5,8 @@ PT:7/6
 K:Flying
 T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigBurn | TriggerDescription$ Whenever CARDNAME attacks, put a burn counter on another target creature.
 SVar:TrigBurn:DB$ PutCounter | IsCurse$ True | CounterType$ BURN | CounterNum$ 1 | ValidTgts$ Creature.Other | TgtPrompt$ Select another target creature
-T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Creature.Other+counters_GE1_BURN | ActiveZones$ Battlefield | Execute$ TrigResurrect | OptionalDecider$ You | TriggerDescription$ Whenever another creature with a burn counter on it dies, return it to the battlefield under your control.
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Creature.Other+counters_GE1_BURN | ActiveZones$ Battlefield | Execute$ TrigResurrect | OptionalDecider$ You | ResolvedLimit$ 1 | TriggerDescription$ Whenever another creature with a burn counter on it dies, return it to the battlefield under your control. Do this only once each turn.
 SVar:TrigResurrect:DB$ ChangeZone | Origin$ Graveyard | Destination$ Battlefield | GainControl$ True | Defined$ TriggeredNewCardLKICopy
-Oracle:Flying\nWhenever Ho-Oh attacks, put a burn counter on another target creature.\nWhenever another creature with a burn counter on it dies, you may return it to the battlefield under your control.
+Oracle:Flying\nWhenever Ho-Oh attacks, put a burn counter on another target creature.\nWhenever another creature with a burn counter on it dies, you may return it to the battlefield under your control. Do this only once each turn.
 
 SVar:SoundEffect:hooh.mp3

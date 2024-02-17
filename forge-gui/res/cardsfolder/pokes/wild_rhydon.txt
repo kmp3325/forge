@@ -1,5 +1,5 @@
 Name:Wild Rhydon
-ManaCost:X RG RG
+ManaCost:X G G
 Types:Creature Dinosaur Rhino Pokémon
 PT:2/2
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigRemoveShield | TriggerDescription$ When CARDNAME enters the battlefield, remove up to X shield counters from target creature. Then CARDNAME deals X damage to it.

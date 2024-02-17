@@ -1,4 +1,4 @@
-Name:Cinnabar Island Gym
+Name:Pewter City Gym
 Types:Legendary Artifact Land Gym
 A:AB$ Mana | Cost$ T | Produced$ C | SpellDescription$ Add {C}.
 A:AB$ Mana | Cost$ 1 T | Produced$ R G | SpellDescription$ Add {R}{G}.

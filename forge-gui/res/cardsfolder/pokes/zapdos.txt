@@ -3,10 +3,13 @@ ManaCost: GW GW GW GW GW GW
 Types:Legendary Creature Bird Pokémon
 PT:8/6
 K:Flying
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounter | TriggerDescription$ When CARDNAME enters the battlefield, put a shield counter on each other creature you control.
-SVar:TrigPutCounter:DB$ PutCounterAll | ValidCards$ Creature.YouCtrl+Other | CounterType$ SHIELD | CounterNum$ 1
-S:Mode$ Continuous | Affected$ Creature.YouCtrl | AffectedZone$ Battlefield | AddPower$ +AffectedX | AddToughness$ +AffectedX | Description$ Creatures you control get +1/+1 for each shield counter on them.
-SVar:AffectedX:Count$CardCounters.SHIELD
-Oracle:Flying\nWhen Zapdos enters the battlefield, put a shield counter on each other creature you control.\nCreatures you control get +1/+1 for each shield counter on them.
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigWind | TriggerDescription$ When CARDNAME enters the battlefield, it becomes windy.
+SVar:TrigWind:DB$ Weather | Value$ Windy
+T:Mode$ WeatherChanged | ValidWeather$ Windy | Execute$ TrigPutCounter | TriggerZones$ Battlefield | TriggerDescription$ Whenever it becomes windy or rainy, put a storm counter on CARDNAME.
+T:Mode$ WeatherChanged | ValidWeather$ Rainy | Execute$ TrigPutCounter | TriggerZones$ Battlefield | Secondary$ True | TriggerDescription$ Whenever it becomes windy or rainy, put a storm counter on CARDNAME.
+SVar:TrigPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ STORM | CounterNum$ 1
+S:Mode$ RaiseCost | ValidCard$ Card | Activator$ Opponent | ValidSpell$ Activated.nonManaAbility | Amount$ X | Description$ Abilities your opponents activate cost {1} more to activate for each storm counter on CARDNAME unless they're mana abilities.
+SVar:X:Count$CardCounters.STORM
+Oracle:Flying\nWhen Zapdos enters the battlefield, it becomes windy.\nWhenever it becomes windy or rainy, put a storm counter on Zapdos.\nAbilities your opponents activate cost {1} more to activate for each storm counter on Zapdos unless they're mana abilities.
 
 SVar:SoundEffect:zapdos.mp3

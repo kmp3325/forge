@@ -1,15 +1,12 @@
 Name:Rhydon
-ManaCost:4 G G W
+ManaCost:4 R G G
 Types:Creature Dinosaur Rhino Pokémon
 PT:7/7
-K:Evolve from:4 G W:Rhyhorn
-T:Mode$ CounterRemoved | ValidCard$ Creature.YouCtrl | TriggerZones$ Battlefield | CounterType$ SHIELD | Execute$ TrigPeek | TriggerDescription$ Whenever a shield counter is removed from a creature you control, look at the top card of your library. If it's a creature card, you may reveal it and put it into your hand. If you don't put the card into your hand, you may put it on the bottom of your library.
-SVar:TrigPeek:DB$ PeekAndReveal | PeekAmount$ 1 | RevealValid$ Creature | RevealOptional$ True | RememberRevealed$ True | SubAbility$ DBChangeZone
-SVar:DBChangeZone:DB$ ChangeZone | Defined$ Remembered | Origin$ Library | Destination$ Hand | SubAbility$ DBChangeZone2
-SVar:DBChangeZone2:DB$ ChangeZone | Optional$ True | Defined$ TopOfLibrary | Origin$ Library | Destination$ Library | LibraryPosition$ -1 | ConditionDefined$ Remembered | ConditionPresent$ Card | ConditionCompare$ EQ0 | SubAbility$ DBCleanup
-SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
-A:AB$ PutCounter | Cost$ 1 G W | CounterNum$ 1 | CounterType$ SHIELD | Defined$ Self | SorcerySpeed$ True | SpellDescription$ Put a shield counter on CARDNAME. Activate only as a sorcery.
-Oracle:Evolve from Rhyhorn {4}{G}{W}\nWhenever a shield counter is removed from a creature you control, look at the top card of your library. If it's a creature card, you may reveal it and put it into your hand. If you don't put the card into your hand, you may put it on the bottom of your library.\n{1}{G}{W}: Put a shield counter on Rhydon. Activate only as a sorcery.
+K:Evolve from:4 R G:Rhyhorn
+T:Mode$ CounterRemoved | ValidCard$ Creature.YouCtrl | TriggerZones$ Battlefield | CounterType$ SHIELD | Execute$ TrigDmg | TriggerDescription$ Whenever a shield counter is removed from a creature you control, CARDNAME deals 1 damage to target creature you don't control.
+SVar:TrigDmg:DB$ DealDamage | ValidTgts$ Creature.YouDontCtrl | TgtPrompt$ Select target creature you don't control | NumDmg$ 1
+A:AB$ PutCounter | Cost$ 1 R G | CounterNum$ 1 | CounterType$ SHIELD | Defined$ Self | SorcerySpeed$ True | SpellDescription$ Put a shield counter on CARDNAME. Activate only as a sorcery.
+Oracle:Evolve from Rhyhorn {4}{R}{G}\nWhenever a shield counter is removed from a creature you control, Rhydon deals 1 damage to target creature you don't control.\n{1}{R}{G}: Put a shield counter on Rhydon. Activate only as a sorcery.
 
 DeckHints:Name$Rhyhorn
 SVar:HasCombatEffect:TRUE

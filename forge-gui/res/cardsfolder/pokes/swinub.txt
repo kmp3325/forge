@@ -1,13 +1,13 @@
 Name:Swinub
-ManaCost:2 W
+ManaCost:2 G
 Types:Snow Creature Boar Pokémon
 PT:1/2
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | OptionalDecider$ You | Execute$ TrigWeather | TriggerDescription$ When CARDNAME enters the battlefield, it becomes snowy. Then you may search your library for a Plains card, reveal it, put it onto the battlfield tapped, then shuffle.
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | OptionalDecider$ You | Execute$ TrigWeather | TriggerDescription$ When CARDNAME enters the battlefield, it becomes snowy. Then you may search your library for a land card, reveal it, put it onto the battlfield tapped, then shuffle.
 SVar:TrigWeather:DB$ Weather | Value$ Snowy | SubAbility$ TrigSearch
-SVar:TrigSearch:DB$ ChangeZone | Origin$ Library | Destination$ Battlefield | ChangeType$ Land.Plains | Tapped$ True | ChangeNum$ 1
+SVar:TrigSearch:DB$ ChangeZone | Origin$ Library | Destination$ Battlefield | ChangeType$ Land | Tapped$ True | ChangeNum$ 1
 T:Mode$ Evolved | ValidCard$ Card.Self | Execute$ TrigFood | TriggerDescription$ Whenever CARDNAME evolves, create two Food tokens.
 SVar:TrigFood:DB$ Token | TokenAmount$ 1 | TokenScript$ c_a_food_sac | TokenOwner$ You
-Oracle:When Swinub enters the battlefield, it becomes snowy. Then you may search your library for a Plains card, reveal it, put it onto the battlfield tapped, then shuffle.\nWhenever Swinub evolves, create two Food tokens.
+Oracle:When Swinub enters the battlefield, it becomes snowy. Then you may search your library for a land card, reveal it, put it onto the battlfield tapped, then shuffle.\nWhenever Swinub evolves, create two Food tokens.
 
 DeckHints:Name$Piloswine
 SVar:SoundEffect:swinub.mp3

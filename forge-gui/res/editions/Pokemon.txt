@@ -175,7 +175,7 @@ Foil=NotSupported
 163 C Hoothoot
 164 R Noctowl
 165 U Ledyba
-166 U Ledian
+166 R Ledian
 167 C Spinarak
 168 U Ariados
 169 R Crobat
@@ -216,7 +216,7 @@ Foil=NotSupported
 204 C Pineco
 205 R Forretress
 206 U Dunsparce
-207 U Gligar
+207 C Gligar
 208 M Steelix
 209 C Snubbull
 210 C Granbull
@@ -257,7 +257,7 @@ Foil=NotSupported
 245 M Suicune
 246 C Larvitar
 247 U Pupitar
-248 R Tyranitar
+248 U Tyranitar
 249 M Lugia
 250 M Ho-Oh
 251 M Celebi
@@ -276,39 +276,39 @@ Foil=NotSupported
 4012 C Wild Pidgeot
 4013 U Wild Raticate
 4014 U Wild Fearow
-4015 U Wild Tauros
+4015 U Wild Eevee
 4016 U Wild Poliwhirl
 4017 U Wild Tentacool
 4018 C Wild Lapras
 4019 C Wild Zubat
 4020 C Wild Gastly
-4021 C Wild Charmander
-4022 C Wild Vulpix
-4023 C Wild Ninetales
-4024 U Wild Arcanine
-4025 C Wild Typhlosion
-4026 U Wild Ivysaur
-4027 C Wild Venusaur
-4028 C Wild Onix
-4029 U Wild Scyther
-4030 C Wild Kaputops
-4031 U Wild Beedrill
+4021 C Wild Vulpix
+4022 C Wild Ninetales
+4023 U Wild Arcanine
+4024 C Wild Typhlosion
+4025 U Wild Ivysaur
+4026 C Wild Venusaur
+4027 C Wild Onix
+4028 U Wild Rhydon
+4029 U Wild Kabutops
+4030 U Wild Bellossom
+4031 R Wild Beedrill
 4032 U Wild Tentacruel
-4033 U Wild Pikachu
-4034 U Wild Rhydon
-4035 C Wild Bellossom
+4033 C Wild Scyther
+4034 U Wild Pikachu
+4035 C Wild Tauros
 4036 M Master Ball
 4037 C Mahogany Town Gym
 4038 C Violet City Gym
 4039 C Viridian City Gym
 4040 C Cianwood City Gym
-4041 C Olivine City Gym
+4041 C Celadon City Gym
 4042 C Saffron City Gym
 4043 C Vermilion City Gym
 4044 C Cerulean City Gym
 4045 C Ecruteak City Gym
 4046 C Azalea Town Gym
-4047 C Cinnabar Island Gym
+4047 C Pewter City Gym
 4048 L Snow-Covered Plains
 4049 L Snow-Covered Island
 4050 L Snow-Covered Swamp
@@ -370,7 +370,7 @@ Foil=NotSupported
 7042 R Hitmonlee
 7043 R Hitmonchan
 7044 R Electabuzz
-7045 R Magmar
+7045 U Magmar
 7046 M Gyarados
 7047 M Articuno
 7048 M Zapdos
@@ -399,13 +399,13 @@ Foil=NotSupported
 2 Violet City Gym|PKM
 2 Viridian City Gym|PKM
 2 Cianwood City Gym|PKM
-2 Olivine City Gym|PKM
+2 Celadon City Gym|PKM
 2 Saffron City Gym|PKM
 2 Vermilion City Gym|PKM
 2 Cerulean City Gym|PKM
 2 Ecruteak City Gym|PKM
 2 Azalea Town Gym|PKM
-2 Cinnabar Island Gym|PKM
+2 Pewter City Gym|PKM
 
 [tokens]
 g_0_1_plant_parasect

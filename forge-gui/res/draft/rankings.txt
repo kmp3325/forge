@@ -1334,7 +1334,7 @@
 #62|Starmie|R|PKM
 #63|Jynx|R|PKM
 #64|Electabuzz|R|PKM
-#65|Magmar|R|PKM
+#65|Magmar|U|PKM
 #66|Ditto|R|PKM
 #67|Omastar|R|PKM
 #68|Kabutops|R|PKM
@@ -1362,7 +1362,7 @@
 #90|Donphan|R|PKM
 #91|Porygon2|R|PKM
 #92|Hitmontop|R|PKM
-#93|Tyranitar|R|PKM
+#93|Tyranitar|U|PKM
 #94|Team Rocket's Tyranitar|R|PKM
 #95|Giovanni's Persian|R|PKM
 #96|Ivysaur|U|PKM
@@ -1404,7 +1404,7 @@
 #132|Dragonair|U|PKM
 #133|Furret|U|PKM
 #134|Ledyba|U|PKM
-#135|Ledian|U|PKM
+#135|Ledian|R|PKM
 #136|Ariados|U|PKM
 #137|Pichu|U|PKM
 #138|Togepi|U|PKM
@@ -1418,7 +1418,7 @@
 #146|Murkrow|U|PKM
 #147|Slowking|U|PKM
 #148|Misdreavus|U|PKM
-#149|Gligar|U|PKM
+#149|Gligar|C|PKM
 #150|Shuckle|U|PKM
 #151|Heracross|U|PKM
 #152|Sneasel|U|PKM
@@ -1440,14 +1440,14 @@
 #168|Team Rocket's Rhydon|U|PKM
 #169|Wild Raticate|U|PKM
 #170|Wild Fearow|U|PKM
-#171|Wild Tauros|U|PKM
+#171|Wild Tauros|C|PKM
 #172|Wild Poliwhirl|U|PKM
 #173|Wild Tentacool|U|PKM
 #174|Wild Lapras|U|PKM
 #175|Wild Arcanine|U|PKM
-#176|Wild Beedrill|U|PKM
+#176|Wild Beedrill|R|PKM
 #177|Wild Rhydon|U|PKM
-#178|Wild Scyther|U|PKM
+#178|Wild Scyther|C|PKM
 #179|Wild Ivysaur|U|PKM
 #180|Bulbasaur|C|PKM
 #181|Charmander|C|PKM
@@ -1549,26 +1549,26 @@
 #277|Wild Pidgeot|C|PKM
 #278|Wild Zubat|C|PKM
 #279|Wild Gastly|C|PKM
-#280|Wild Charmander|C|PKM
+#280|Wild Eevee|U|PKM
 #281|Wild Vulpix|C|PKM
 #282|Wild Ninetales|C|PKM
 #283|Wild Cyndaquil|C|PKM
 #284|Wild Typhlosion|C|PKM
 #285|Wild Venusaur|C|PKM
 #286|Wild Onix|C|PKM
-#287|Wild Kabutops|C|PKM
-#288|Wild Bellossom|C|PKM
+#287|Wild Kabutops|U|PKM
+#288|Wild Bellossom|U|PKM
 #289|Mahogany Town Gym|C|PKM
 #290|Violet City Gym|C|PKM
 #291|Viridian City Gym|C|PKM
 #292|Cianwood City Gym|C|PKM
-#293|Olivine City Gym|C|PKM
+#293|Celadon City Gym|C|PKM
 #294|Saffron City Gym|C|PKM
 #295|Vermilion City Gym|C|PKM
 #296|Cerulean City Gym|C|PKM
 #297|Ecruteak City Gym|C|PKM
 #298|Azalea Town Gym|C|PKM
-#299|Cinnabar Island Gym|C|PKM
+#299|Pewter City Gym|C|PKM
 #300|Snow-Covered Plains|L|PKM
 #301|Snow-Covered Island|L|PKM
 #302|Snow-Covered Swamp|L|PKM

@@ -1,5 +1,5 @@
 Name:Wild Beedrill
-ManaCost:B R G
+ManaCost:W B G
 Types:Creature Insect Pokémon
 PT:1/1
 K:Double strike

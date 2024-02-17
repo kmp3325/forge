@@ -1,0 +1,6 @@
+Name:Kangaskhan
+ManaCost:no cost
+Types:Creature Dinosaur Pokémon
+Colors:white
+PT:0/1
+Oracle:

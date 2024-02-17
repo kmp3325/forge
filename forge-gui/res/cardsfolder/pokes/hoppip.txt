@@ -1,11 +1,11 @@
 Name:Hoppip
-ManaCost:RG
+ManaCost:GW
 Types:Creature Plant Saproling Pokémon
-PT:0/1
+PT:1/1
 T:Mode$ WeatherChanged | ValidWeather$ Windy | Execute$ TrigPutCounter | TriggerZones$ Battlefield | TriggerDescription$ Whenever it becomes windy, put a flying counter on CARDNAME.
 SVar:TrigPutCounter:DB$ PutCounter | CounterType$ Flying | CounterNum$ 1 | Defined$ Self
-S:Mode$ Continuous | Affected$ Card.Self+counters_GE1_Flying | AddAtt$ 1 | Description$ CARDNAME gets +1/+0 as long as it has a flying counter on it.
-Oracle:Whenever it becomes windy, put a flying counter on Hoppip.\nHoppip gets +1/+0 as long as it has a flying counter on it.
+A:AB$ ChangeZone | Cost$ T SubCounter<1/Flying> | Origin$ Library | Destination$ Battlefield | ChangeType$ Land.Basic | ChangeNum$ 1 | Tapped$ True | SpellDescription$ Search your library for a basic land card and put it onto the battlefield tapped, then shuffle.
+Oracle:Whenever it becomes windy, put a flying counter on Hoppip.\n{T}, Remove a flying counter from Hoppip: Search your library for a basic land card and put it onto the battlefield tapped, then shuffle.
 
 DeckHints:Name$Skiploom
 SVar:SoundEffect:hoppip.mp3

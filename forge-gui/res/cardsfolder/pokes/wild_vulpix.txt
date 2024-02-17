@@ -1,5 +1,5 @@
 Name:Wild Vulpix
-ManaCost:2 R
+ManaCost:1 2R R
 Types:Creature Fox Pokémon
 PT:1/1
 T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigDiscard | TriggerDescription$ When CARDNAME enters the battlefield, discard your hand, then draw two cards.

@@ -1,0 +1,11 @@
+Name:Wild Eevee
+ManaCost:2 W
+Types:Creature Fox Pokémon
+PT:1/1
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigSearch | TriggerDescription$ When CARDNAME enters the battlefield, you may search your library for a creature card with evolve, reveal it, put it into your hand, then shuffle. Until end of turn, evolving creature spells you cast cost {w}{u}{b}{r}{g} less to cast. This effect reduces only the amount of colored mana you pay.
+SVar:TrigSearch:DB$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Creature.withEvolve | ChangeNum$ 1 | SubAbility$ TrigCheapen
+SVar:TrigCheapen:DB$ Effect | Duration$ UntilEndOfTurn | StaticAbilities$ ReduceCost
+SVar:ReduceCost:Mode$ ReduceCost | Amount$ W U B R G | Type$ Spell | Description$ Until end of turn, evolving creature spells you cast cost {W}{U}{B}{R}{G} less to cast. | Activator$ Player.You
+Oracle:When Wild Eevee enters the battlefield, you may search your library for a creature card with evolve, reveal it, put it into your hand, then shuffle. Until end of turn, evolving creature spells you cast cost {W}{U}{B}{R}{G} less to cast. This effect reduces only the amount of colored mana you pay.
+
+SVar:SoundEffect:eevee.mp3

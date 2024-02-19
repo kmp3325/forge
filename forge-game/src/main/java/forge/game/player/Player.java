@@ -118,7 +118,6 @@ public class Player extends GameEntity implements Comparable<Player> {
     private Card lastDrawnCard;
     private Card ringBearer, theRing;
     private String namedCard = "";
-    private String namedCard2 = "";
 
     private int simultaneousDamage = 0;
 
@@ -1462,7 +1461,6 @@ public class Player extends GameEntity implements Comparable<Player> {
         }
 
         final Card source = sa != null ? sa.getHostCard() : null;
-        final ZoneType origin = c.getZone().getZoneType();
 
         boolean discardToTopOfLibrary = null != sa && sa.hasParam("DiscardToTopOfLibrary");
         boolean discardMadness = sa != null && sa.hasParam("Madness");
@@ -1516,6 +1514,10 @@ public class Player extends GameEntity implements Comparable<Player> {
         // Run triggers
         Card cause = null;
         if (sa != null) {
+            if (sa.hasParam("RememberDiscarded")) {
+                source.addRemembered(newCard);
+            }
+
             cause = sa.getHostCard();
             // for Replacement of the discard Cause
             if (sa.hasParam("Cause")) {
@@ -1891,10 +1893,6 @@ public class Player extends GameEntity implements Comparable<Player> {
     }
     public final void setNamedCard(final String s) {
         namedCard = s;
-    }
-    public final String getNamedCard2() { return namedCard2; }
-    public final void setNamedCard2(final String s) {
-        namedCard2 = s;
     }
 
     public final int getTurn() {

@@ -57,6 +57,7 @@ import forge.game.cost.CostPart;
 import forge.game.cost.CostTap;
 import forge.game.event.GameEventCardStatsChanged;
 import forge.game.keyword.Keyword;
+import forge.game.keyword.KeywordInterface;
 import forge.game.mana.Mana;
 import forge.game.mana.ManaCostBeingPaid;
 import forge.game.phase.Untap;
@@ -166,6 +167,8 @@ public abstract class SpellAbility extends CardTraitBase implements ISpellAbilit
     private boolean isCopied = false;
     private boolean mayChooseNewTargets = false;
 
+    private boolean isCastFromPlayEffect = false;
+
     private EnumSet<OptionalCost> optionalCosts = EnumSet.noneOf(OptionalCost.class);
     private TargetRestrictions targetRestrictions;
     private TargetChoices targetChosen = new TargetChoices();
@@ -262,6 +265,23 @@ public abstract class SpellAbility extends CardTraitBase implements ISpellAbilit
 
         view.updateHostCard(this);
         view.updateDescription(this); //description can change if host card does
+    }
+
+    @Override
+    public void setKeyword(final KeywordInterface kw) {
+        super.setKeyword(kw);
+
+        if (subAbility != null) {
+            subAbility.setKeyword(kw);
+        }
+        for (SpellAbility sa : additionalAbilities.values()) {
+            sa.setKeyword(kw);
+        }
+        for (List<AbilitySub> list : additionalAbilityLists.values()) {
+            for (AbilitySub sa : list) {
+                sa.setKeyword(kw);
+            }
+        }
     }
 
     public boolean canThisProduce(final String s) {
@@ -1158,6 +1178,9 @@ public abstract class SpellAbility extends CardTraitBase implements ISpellAbilit
         return copy(host, this.getActivatingPlayer(), lki);
     }
     public SpellAbility copy(Card host, Player activ, final boolean lki) {
+        return copy(host, activ, lki, false);
+    }
+    public SpellAbility copy(Card host, Player activ, final boolean lki, final boolean keepTextChanges) {
         SpellAbility clone = null;
         try {
             clone = (SpellAbility) clone();
@@ -1166,7 +1189,7 @@ public abstract class SpellAbility extends CardTraitBase implements ISpellAbilit
 
             // don't use setHostCard to not trigger the not copied parts yet
 
-            copyHelper(clone, host);
+            copyHelper(clone, host, lki || keepTextChanges);
 
             // always set this to false, it is only set in CopyEffect
             clone.mayChooseNewTargets = false;
@@ -1205,7 +1228,7 @@ public abstract class SpellAbility extends CardTraitBase implements ISpellAbilit
             clone.additionalAbilities = Maps.newHashMap();
             clone.additionalAbilityLists = Maps.newHashMap();
             // run special copy Ability to make a deep copy
-            CardFactory.copySpellAbility(this, clone, host, activ, lki);
+            CardFactory.copySpellAbility(this, clone, host, activ, lki, keepTextChanges);
         } catch (final CloneNotSupportedException e) {
             System.err.println(e);
         }
@@ -1634,12 +1657,20 @@ public abstract class SpellAbility extends CardTraitBase implements ISpellAbilit
     public boolean undo() {
         if (isUndoable() && getActivatingPlayer().getManaPool().accountFor(getManaPart())) {
             payCosts.refundPaidCost(hostCard);
+            return true;
         }
         return false;
     }
 
     public void setUndoable(boolean b) {
         undoable = b;
+    }
+
+    public boolean isCastFromPlayEffect() {
+        return isCastFromPlayEffect;
+    }
+    public void setCastFromPlayEffect(boolean b) {
+        isCastFromPlayEffect = b;
     }
 
     public boolean isCopied() {
@@ -2506,7 +2537,7 @@ public abstract class SpellAbility extends CardTraitBase implements ISpellAbilit
         if (getRestrictions().isInstantSpeed()) {
             return true;
         }
-        if ((isSpell() || this instanceof LandAbility) && (hasSVar("IsCastFromPlayEffect") || host.isInstant() || host.hasKeyword(Keyword.FLASH))) {
+        if ((isSpell() || this instanceof LandAbility) && (isCastFromPlayEffect() || host.isInstant() || host.hasKeyword(Keyword.FLASH))) {
             return true;
         }
 

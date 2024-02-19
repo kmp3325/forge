@@ -116,7 +116,7 @@ public class GameAction {
 
         // Rule 111.8: A token that has left the battlefield can't move to another zone
         if (!c.isSpell() && c.isToken() && !fromBattlefield && zoneFrom != null && !zoneFrom.is(ZoneType.Stack)
-                && (cause == null || !(cause instanceof SpellPermanent) || !cause.hasSVar("IsCastFromPlayEffect"))) {
+                && (cause == null || !(cause instanceof SpellPermanent) || !cause.isCastFromPlayEffect())) {
             return c;
         }
 
@@ -421,7 +421,7 @@ public class GameAction {
             CardCollection cards = new CardCollection(c.getMergedCards());
             // replace top card with copied card for correct name for human to choose.
             cards.set(cards.indexOf(c), copied);
-            // 723.3b
+            // 725.3b
             if (cause != null && zoneTo.getZoneType() == ZoneType.Exile) {
                 cards = (CardCollection) cause.getHostCard().getController().getController().orderMoveToZoneList(cards, zoneTo.getZoneType(), cause);
             } else {

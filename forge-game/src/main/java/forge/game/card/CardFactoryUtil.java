@@ -276,27 +276,6 @@ public class CardFactoryUtil {
 
     /**
      * <p>
-     * countOccurrences.
-     * </p>
-     *
-     * @param arg1
-     *            a {@link java.lang.String} object.
-     * @param arg2
-     *            a {@link java.lang.String} object.
-     * @return a int.
-     */
-    public static int countOccurrences(final String arg1, final String arg2) {
-        int count = 0;
-        int index = 0;
-        while ((index = arg1.indexOf(arg2, index)) != -1) {
-            ++index;
-            ++count;
-        }
-        return count;
-    }
-
-    /**
-     * <p>
      * parseMath.
      * </p>
      *
@@ -1166,12 +1145,9 @@ public class CardFactoryUtil {
 
             inst.addTrigger(trigger);
         } else if (keyword.equals("Evolve")) {
-            final String trigStr = "Mode$ ChangesZone | Destination$ Battlefield | "
-                    + " ValidCard$ Creature.YouCtrl+Other | EvolveCondition$ True | "
-                    + "TriggerZones$ Battlefield | Secondary$ True | "
-                    + "TriggerDescription$ Evolve (" + inst.getReminderText()+ ")";
-            final String effect = "DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | "
-                    + "CounterNum$ 1 | Evolve$ True";
+            final String trigStr = "Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Creature.YouCtrl+Other"
+                    + " | TriggerZones$ Battlefield | Secondary$ True | TriggerDescription$ Evolve (" + inst.getReminderText()+ ")";
+            final String effect = "DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1";
 
             final Trigger trigger = TriggerHandler.parseTrigger(trigStr, card, intrinsic);
             trigger.setOverridingAbility(AbilityFactory.getAbility(effect, card));
@@ -1190,7 +1166,7 @@ public class CardFactoryUtil {
         } else if (keyword.equals("Exploit")) {
             final String trigStr = "Mode$ ChangesZone | ValidCard$ Card.Self | Destination$ Battlefield | Secondary$ True"
                     + " | TriggerDescription$ Exploit (" + inst.getReminderText() + ")";
-            final String effect = "DB$ Sacrifice | SacValid$ Creature | SacMessage$ creature | Exploit$ True | Optional$ True";
+            final String effect = "DB$ Sacrifice | SacValid$ Creature | SacMessage$ creature | Optional$ True";
 
             final Trigger trigger = TriggerHandler.parseTrigger(trigStr, card, intrinsic);
 
@@ -1473,7 +1449,7 @@ public class CardFactoryUtil {
             sbTrig.append("Living Weapon (").append(inst.getReminderText()).append(")");
 
             final StringBuilder sbGerm = new StringBuilder();
-            sbGerm.append("DB$ Token | TokenAmount$ 1 | TokenScript$ b_0_0_phyrexian_germ |TokenOwner$ You | RememberTokens$ True");
+            sbGerm.append("DB$ Token | TokenAmount$ 1 | TokenScript$ b_0_0_phyrexian_germ | TokenOwner$ You | RememberTokens$ True");
 
             final SpellAbility saGerm = AbilityFactory.getAbility(sbGerm.toString(), card);
 
@@ -1729,7 +1705,7 @@ public class CardFactoryUtil {
                     + " | TriggerDescription$ Renown " + k[1] +" (" + inst.getReminderText() + ")";
 
             final String effect = "DB$ PutCounter | Defined$ Self | "
-                    + "CounterType$ P1P1 | CounterNum$ " + k[1] + " | Renown$ True";
+                    + "CounterType$ P1P1 | CounterNum$ " + k[1];
 
             final Trigger parsedTrigger = TriggerHandler.parseTrigger(renownTrig, card, intrinsic);
             parsedTrigger.setOverridingAbility(AbilityFactory.getAbility(effect, card));
@@ -2262,7 +2238,7 @@ public class CardFactoryUtil {
 
             String sacrificeStr = "DB$ Sacrifice | Defined$ You | Amount$ DevourSacX | SacValid$ " + valid +
                     ".Other | SacMessage$ another " + valid.toLowerCase() + " (Devour " + magnitude +
-                    ") | RememberSacrificed$ True | Optional$ True | Devour$ True";
+                    ") | RememberSacrificed$ True | Optional$ True";
 
             String counterStr = "DB$ PutCounter | ETB$ True | Defined$ Self | CounterType$ P1P1 | CounterNum$ DevourX";
             String cleanupStr = "DB$ Cleanup | ClearRemembered$ True";
@@ -2522,8 +2498,7 @@ public class CardFactoryUtil {
             final String[] k = keyword.split(":");
             final String tributeAmount = k[1];
 
-            final String effect = "DB$ PutCounter | Defined$ ReplacedCard | Tribute$ True | "
-                    + "CounterType$ P1P1 | CounterNum$ " + tributeAmount
+            final String effect = "DB$ PutCounter | Defined$ ReplacedCard | CounterType$ P1P1 | CounterNum$ " + tributeAmount
                     + " | ETB$ True | SpellDescription$ Tribute " + tributeAmount
                     + " (" + inst.getReminderText() + ")";
 
@@ -2793,11 +2768,19 @@ public class CardFactoryUtil {
             inst.addSpellAbility(newSA);
         } else if (keyword.startsWith("Disguise")) {
             final String[] k = keyword.split(":");
+            final String reduceCost = k.length > 2 ? k[2] : null;
 
             SpellAbility faceDown = abilityCastFaceDown(card, intrinsic, "Disguise");
             faceDown.putParam("FaceDownKeyword", "Ward:2");
+
+            SpellAbility faceUp = abilityDisguiseUp(card, k[1], intrinsic);
+            if (reduceCost != null) {
+                faceUp.putParam("ReduceCost", reduceCost);
+                faceUp.setSVar(reduceCost, card.getSVar(reduceCost));
+            }
+
             inst.addSpellAbility(faceDown);
-            inst.addSpellAbility(abilityDisguiseUp(card, k[1], intrinsic));
+            inst.addSpellAbility(faceUp);
         } else if (keyword.startsWith("Disturb")) {
             final String[] k = keyword.split(":");
             final Cost disturbCost = new Cost(k[1], true);

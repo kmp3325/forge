@@ -1531,6 +1531,8 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
         if (fireEvents) {
             getGame().updateLastStateForCard(this);
 
+            final SpellAbility cause = (SpellAbility) params.get(AbilityKey.Cause);
+
             // Not sure why firing events wraps EVERYTHING ins
 
             final int powerBonusBefore = getPowerBonusFromCounters();
@@ -1567,6 +1569,18 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
                 runParams.put(AbilityKey.FirstTime, addedThisTurn == 0);
                 getGame().getTriggerHandler().runTrigger(
                         TriggerType.CounterAddedOnce, AbilityKey.newMap(runParams), false);
+                if (cause != null) {
+                    // 702.100b A creature “evolves” when one or more +1/+1 counters are put on it as a result of its evolve ability resolving.
+                    if (cause.isKeyword(Keyword.EVOLVE) && counterType.is(CounterEnumType.P1P1)) {
+                        getGame().getTriggerHandler().runTrigger(TriggerType.Evolved, AbilityKey.mapFromCard(this), false);
+                    }
+
+                    // 702.149c Some creatures with training have abilities that trigger when they train.
+                    // “When this creature trains” means “When a resolving training ability puts a +1/+1 counter on this creature.”
+                    if (cause.isKeyword(Keyword.TRAINING) && counterType.is(CounterEnumType.P1P1)) {
+                        getGame().getTriggerHandler().runTrigger(TriggerType.Trains, AbilityKey.mapFromCard(this), false);
+                    }
+                }
             }
         } else {
             setCounters(counterType, newValue);
@@ -2193,6 +2207,9 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
                         sbLong.append(mCost.toString());
                         if (!mCost.isOnlyManaCost()) {
                             sbLong.append(".");
+                        }
+                        if (k.length > 2) {
+                            sbLong.append(". " + k[3]);
                         }
                         sbLong.append(" (").append(inst.getReminderText()).append(")");
                         sbLong.append("\r\n");
@@ -4658,8 +4675,10 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
 
     public final SpellAbility getSpellAbilityForStaticAbility(final String str, final StaticAbility stAb) {
         SpellAbility result = storedSpellAbility.get(stAb, str);
-        if (result == null) {
+        if (!canUseCachedTrait(result, stAb)) {
             result = AbilityFactory.getAbility(str, this, stAb);
+            // apply text changes from the statics host
+            result.changeTextIntrinsic(stAb.getChangedTextColors(), stAb.getChangedTextTypes());
             result.setIntrinsic(false);
             result.setGrantorStatic(stAb);
             storedSpellAbility.put(stAb, str, result);
@@ -4669,8 +4688,10 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
 
     public final Trigger getTriggerForStaticAbility(final String str, final StaticAbility stAb) {
         Trigger result = storedTrigger.get(stAb, str);
-        if (result == null) {
+        if (!canUseCachedTrait(result, stAb)) {
             result = TriggerHandler.parseTrigger(str, this, false, stAb);
+            // apply text changes from the statics host
+            result.changeTextIntrinsic(stAb.getChangedTextColors(), stAb.getChangedTextTypes());
             storedTrigger.put(stAb, str, result);
         }
         return result;
@@ -4699,8 +4720,10 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
 
     public final ReplacementEffect getReplacementEffectForStaticAbility(final String str, final StaticAbility stAb) {
         ReplacementEffect result = storedReplacementEffect.get(stAb, str);
-        if (result == null) {
+        if (!canUseCachedTrait(result, stAb)) {
             result = ReplacementHandler.parseReplacement(str, this, false, stAb);
+            // apply text changes from the statics host
+            result.changeTextIntrinsic(stAb.getChangedTextColors(), stAb.getChangedTextTypes());
             storedReplacementEffect.put(stAb, str, result);
         }
         return result;
@@ -4708,8 +4731,10 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
 
     public final StaticAbility getStaticAbilityForStaticAbility(final String str, final StaticAbility stAb) {
         StaticAbility result = storedStaticAbility.get(stAb, str);
-        if (result == null) {
+        if (!canUseCachedTrait(result, stAb)) {
             result = StaticAbility.create(str, this, stAb.getCardState(), false);
+            // apply text changes from the statics host
+            result.changeTextIntrinsic(stAb.getChangedTextColors(), stAb.getChangedTextTypes());
             storedStaticAbility.put(stAb, str, result);
         }
         return result;
@@ -4779,6 +4804,13 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
             storedKeywordByText.put(triple, result);
         }
         return result;
+    }
+
+    private boolean canUseCachedTrait(CardTraitBase cached, CardTraitBase stAb) {
+        if (cached == null) {
+            return false;
+        }
+        return cached.getChangedTextColors().equals(stAb.getChangedTextColors()) && cached.getChangedTextTypes().equals(stAb.getChangedTextTypes());
     }
 
     public final void addChangedCardTraits(Collection<SpellAbility> spells, Collection<SpellAbility> removedAbilities,
@@ -5731,6 +5763,10 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
         return isOfColor(col) || canProduceColorMana(color);
     }
 
+    public final boolean hasNoName() {
+        return !hasNonLegendaryCreatureNames() && getName().isEmpty();
+    }
+
     public final boolean sharesNameWith(final Card c1) {
         // in a corner case where c1 is null, there is no name to share with.
         if (c1 == null) {
@@ -6273,17 +6309,18 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
     public final boolean isSolved() {
         return solved;
     }
-    public final void setSolved(final boolean solved) {
+    public final boolean setSolved(final boolean solved) {
         this.solved = solved;
+        return true;
     }
 
     public final boolean isSuspected() {
         return suspected;
     }
 
-    public final void setSuspected(final boolean suspected) {
+    public final boolean setSuspected(final boolean suspected) {
         if (suspected && StaticAbilityCantBeSuspected.cantBeSuspected(this)) {
-            return;
+            return false;
         }
         this.suspected = suspected;
         if (suspected) {
@@ -6292,10 +6329,10 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
             suspectedKeywordChange = new KeywordsChange(ImmutableList.of(kw), ImmutableList.<String>of(), false);
         }
         updateKeywords();
+        return true;
     }
 
-    protected Iterable<KeywordsChange> getSuspectedKeywordChange()
-    {
+    protected Iterable<KeywordsChange> getSuspectedKeywordChange() {
         return isSuspected() ? ImmutableList.of(this.suspectedKeywordChange) : ImmutableList.of();
     }
 
@@ -7076,7 +7113,6 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
 
     public List<SpellAbility> getAllPossibleAbilities(final Player player, final boolean removeUnplayable) {
         CardState oState = getState(CardStateName.Original);
-        // this can only be called by the Human
         final List<SpellAbility> abilities = Lists.newArrayList();
         for (SpellAbility sa : getSpellAbilities()) {
             //adventure spell check
@@ -7086,12 +7122,12 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
             }
             //add alternative costs as additional spell abilities
             abilities.add(sa);
-            abilities.addAll(GameActionUtil.getAlternativeCosts(sa, player));
+            abilities.addAll(GameActionUtil.getAlternativeCosts(sa, player, false));
         }
 
         if (isFaceDown() && isInZone(ZoneType.Exile)) {
             for (final SpellAbility sa : oState.getSpellAbilities()) {
-                abilities.addAll(GameActionUtil.getAlternativeCosts(sa, player));
+                abilities.addAll(GameActionUtil.getAlternativeCosts(sa, player, false));
             }
         }
         // Add Modal Spells
@@ -7101,7 +7137,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
                 // only add Spells there
                 if (sa.isSpell()) {
                     abilities.add(sa);
-                    abilities.addAll(GameActionUtil.getAlternativeCosts(sa, player));
+                    abilities.addAll(GameActionUtil.getAlternativeCosts(sa, player, false));
                 }
             }
         }
@@ -7454,6 +7490,11 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
         return !goad.isEmpty();
     }
 
+    public final void unGoad() {
+        goad = Maps.newTreeMap();
+        updateAbilityTextForView();
+    }
+
     public final boolean isGoadedBy(final Player p) {
         return goad.containsValue(p);
     }
@@ -7556,6 +7597,9 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
     }
     public int getAbilityResolvedThisTurn(SpellAbility ability) {
         return numberAbilityResolved.get(ability);
+    }
+    public List<Player> getAbilityResolvedThisTurnActivators(SpellAbility ability) {
+        return numberAbilityResolved.getActivators(ability);
     }
 
     public void resetAbilityResolvedThisTurn() {

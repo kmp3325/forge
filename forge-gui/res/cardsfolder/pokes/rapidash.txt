@@ -3,12 +3,10 @@ ManaCost:4 R R
 Types:Creature Unicorn Pokémon
 PT:6/5
 K:Evolve from:3 R R:Ponyta
-T:Mode$ Phase | Phase$ BeginCombat | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ At the beginning of combat on your turn, put a burn counter on target creature.
-SVar:TrigPutCounter:DB$ PutCounter | CounterType$ BURN | CounterNum$ 1 | ValidTgts$ Creature | IsCurse$ True | TgtPrompt$ Select target creature
-T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigTrample | CheckSVar$ X | SVarCompare$ GE4 | TriggerDescription$ Whenever CARDNAME attacks, if there are four or more burn counters on creatures on the battlefield, creatures you control gain trample until end of turn.
-SVar:X:Count$Valid Permanent.Creature$CardCounters.BURN
-SVar:TrigTrample:DB$ PumpAll | ValidCards$ Creature.YouCtrl | KW$ Trample
-Oracle:Evolve from Ponyta {3}{R}{R}\nAt the beginning of combat on your turn, put a burn counter on target creature.\nWhenever Rapidash attacks, if there are four or more burn counters on creatures on the battlefield, creatures you control gain trample until end of turn.
+K:Scorching
+A:AB$ PutCounter | Cost$ R R | CounterType$ BURN | CounterNum$ 1 | ValidTgts$ Creature.Other | TgtPrompt$ Select another target creature | SubAbility$ DBPump | SpellDescription$ Put a burn counter on another target creature. It gains trample and haste until end of turn.
+SVar:DBPump:DB$ Pump | Defined$ Targeted | KW$ Trample & Haste
+Oracle:Evolve from Ponyta {3}{R}{R}\nScorching\n{R}{R}: Put a burn counter on another target creature. It gains trample and haste until end of turn.
 
 DeckHints:Name$Ponyta
 SVar:SoundEffect:rapidash.mp3

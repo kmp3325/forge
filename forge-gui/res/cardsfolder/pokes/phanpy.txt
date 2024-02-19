@@ -1,13 +1,14 @@
 Name:Phanpy
 ManaCost:3 W
 Types:Creature Elephant Pokémon
-PT:2/3
+PT:3/3
+K:Vigilance
 T:Mode$ DamageDone | TriggerZones$ Battlefield | ValidTarget$ Creature.YouCtrl | CombatDamage$ False | Execute$ TrigLife | TriggerDescription$ Whenever a creature you control is dealt noncombat damage or a shield counter is removed from a creature you control, you gain 3 life.
 T:Mode$ CounterRemoved | ValidCard$ Creature.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigLife | Secondary$ True | TriggerDescription$ Whenever a creature you control is dealt noncombat damage or a shield counter is removed from a creature you control, you gain 3 life.
 SVar:TrigLife:DB$ GainLife | LifeAmount$ 3 | Defined$ You
 T:Mode$ ChangesController | ValidCard$ Creature.YouDontOwn | TriggerZones$ Battlefield | Execute$ TrigSlam | ValidOriginalController$ Opponent | ValidNewController$ You | OptionalDecider$ You | TriggerDescription$ Whenever you gain control of a creature you don't own, you may have CARDNAME deal 3 damage to that creature.
 SVar:TrigSlam:DB$ DealDamage | Defined$ TriggeredTargetLKICopy | NumDmg$ 3
-Oracle:Whenever a creature you control is dealt noncombat damage or a shield counter is removed from a creature you control, you gain 3 life.\nWhenever you gain control of a creature you don't own, you may have Phanpy deal 3 damage to that creature.
+Oracle:Vigilance\nWhenever a creature you control is dealt noncombat damage or a shield counter is removed from a creature you control, you gain 3 life.\nWhenever you gain control of a creature you don't own, you may have Phanpy deal 3 damage to that creature.
 
 DeckHints:Name$Donphan
 SVar:SoundEffect:phanpy.mp3

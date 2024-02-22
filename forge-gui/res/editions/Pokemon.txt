@@ -224,7 +224,7 @@ Foil=NotSupported
 212 R Scizor
 213 U Shuckle
 214 U Heracross
-215 U Sneasel
+215 C Sneasel
 216 C Teddiursa
 217 R Ursaring
 218 U Slugma
@@ -280,7 +280,7 @@ Foil=NotSupported
 4016 U Wild Poliwhirl
 4017 U Wild Tentacool
 4018 C Wild Lapras
-4019 C Wild Zubat
+4019 U Wild Zubat
 4020 C Wild Gastly
 4021 C Wild Vulpix
 4022 C Wild Ninetales

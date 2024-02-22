@@ -1,5 +1,5 @@
 Name:Wild Bellossom
-ManaCost:G G
+ManaCost:1 G
 Types:Creature Plant Pokémon
 PT:1/1
 K:Flash

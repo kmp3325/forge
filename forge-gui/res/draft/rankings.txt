@@ -1421,7 +1421,7 @@
 #149|Gligar|C|PKM
 #150|Shuckle|U|PKM
 #151|Heracross|U|PKM
-#152|Sneasel|U|PKM
+#152|Sneasel|C|PKM
 #153|Slugma|U|PKM
 #154|Magcargo|U|PKM
 #155|Corsola|U|PKM
@@ -1547,7 +1547,7 @@
 #275|Team Rocket's Magikarp|C|PKM
 #276|Wild Pidgey|C|PKM
 #277|Wild Pidgeot|C|PKM
-#278|Wild Zubat|C|PKM
+#278|Wild Zubat|U|PKM
 #279|Wild Gastly|C|PKM
 #280|Wild Eevee|U|PKM
 #281|Wild Vulpix|C|PKM

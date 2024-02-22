@@ -2,14 +2,14 @@ Name:Piloswine
 ManaCost:3 RG RG
 Types:Snow Creature Boar Pokémon
 PT:4/4
-K:Evolve from:3 RG RG:Swinub
+K:Evolve from:2 RG RG:Swinub
 S:Mode$ Continuous | Affected$ Creature.YouCtrl | AddPower$ AffectedX | AddToughness$ AffectedX | Description$ Each creature you control gets +1/+1 for each frost counter on it.
 SVar:AffectedX:Count$CardCounters.FROST
 A:AB$ Token | Cost$ 1 G T | TokenAmount$ 1 | TokenScript$ c_a_food_sac | TokenOwner$ You | SpellDescription$ Create a Food token.
 A:AB$ PutCounterAll | Cost$ R T Sac<X/Food> | CounterType$ FROST | CounterNum$ X | ValidCards$ Creature.Other | SubAbility$ TrigWeather | SpellDescription$ Put X frost counters on each other creature. It becomes snowy.
 SVar:X:Count$xPaid
 SVar:TrigWeather:DB$ Weather | Value$ Snowy
-Oracle:Evolve from Swinub {3}{RG}{RG}\Each creature you control gets +1/+1 for each frost counter on it.\n{1}{G}: Create a Food token.\n{R}, {T}, Sacrifice X Foods: Put X frost counters on each other creature. It becomes snowy.
+Oracle:Evolve from Swinub {2}{RG}{RG}\Each creature you control gets +1/+1 for each frost counter on it.\n{1}{G}: Create a Food token.\n{R}, {T}, Sacrifice X Foods: Put X frost counters on each other creature. It becomes snowy.
 
 DeckHints:Name$Swinub
 SVar:SoundEffect:piloswine.mp3

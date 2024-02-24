@@ -2,9 +2,9 @@ Name:Misdreavus
 ManaCost:5 B
 Types:Creature Spirit Pokémon
 PT:2/2
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDestroy | TriggerDescription$ When CARDNAME enters the battlefield, destroy all other creatures with power 3 or less. Then return target creature card from your graveyard to your hand. It becomes foggy.
-SVar:TrigDestroy:DB$ DestroyAll | ValidCards$ Creature.toughnessLE3+Other | SubAbility$ TrigReturn
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDestroy | TriggerDescription$ When CARDNAME enters the battlefield, exile all other creatures with power 3 or less. Then return target creature card from your graveyard to your hand. It becomes foggy.
+SVar:TrigDestroy:DB$ ChangeZoneAll | ChangeType$ Creature.toughnessLE3+Other | Origin$ Battlefield | Destination$ Exile | SubAbility$ TrigReturn
 SVar:TrigReturn:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature in your graveyard | SubAbility$ TrigFog
 SVar:TrigFog:DB$ Weather | Value$ Foggy
-Oracle:When Misdreavus enters the battlefield, destroy all other creatures with power 3 or less. Then return target creature card from your graveyard to your hand. It becomes foggy.
+Oracle:When Misdreavus enters the battlefield, exile all other creatures with power 3 or less. Then return target creature card from your graveyard to your hand. It becomes foggy.
 SVar:SoundEffect:misdreavus.mp3

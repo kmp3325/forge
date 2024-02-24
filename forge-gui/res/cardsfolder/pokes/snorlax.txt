@@ -7,10 +7,11 @@ T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | E
 SVar:TrigChoice:DB$ GenericChoice | Choices$ PayStuff,PaySacFood | Defined$ You
 SVar:PayStuff:DB$ Tap | UnlessCost$ W B B | UnlessPayer$ You | Defined$ Self | SpellDescription$ Pay {W}{B}{B}
 SVar:PaySacFood:DB$ Tap | UnlessCost$ Sac<1/Food> | UnlessPayer$ You | Defined$ Self | SpellDescription$ Sacrifice a Food
-T:Mode$ AttackerBlocked | ValidCard$ Creature | ValidBlocker$ Card.Self | Execute$ TrigSteal | TriggerDescription$ Whenever CARDNAME blocks a creature, tap CARDNAME and gain control of that creature. For as long as CARDNAME remains tapped, you control that creature, it loses all abilities, and it can’t attack or block.
-SVar:TrigSteal:DB$ Tap | Defined$ Self | SubAbility$ TrigGain
-SVar:TrigGain:DB$ GainControl | Defined$ TriggeredAttackerLKICopy | LoseControl$ Untap,LeavesPlay | SubAbility$ DBPump
-SVar:DBPump:DB$ Animate | Defined$ Targeted | HiddenKeywords$ CARDNAME can't attack or block. | RemoveAllAbilities$ True | Duration$ UntilHostLeavesPlay
-Oracle:Evolve from Munchlax {1}{W}{W}{B}\nSnorlax doesn’t untap during your untap step.\nAt the beginning of your upkeep, you may sacrifice a Food or pay {W}{B}{B}. If you do, untap Snorlax.\nWhenever Snorlax blocks a creature, tap Snorlax and gain control of that creature. For as long as Snorlax remains tapped, you control that creature, it loses all abilities, and it can’t attack or block.
+T:Mode$ AttackerBlocked | ValidCard$ Creature | ValidBlocker$ Card.Self | Execute$ TrigTap | TriggerDescription$ Whenever CARDNAME blocks a creature, tap CARDNAME. At end of combat, for as long as CARDNAME remains tapped, gain control of that creature, it loses all abilities, and it can't attack or block.
+SVar:TrigTap:DB$ Tap | Defined$ Self | SubAbility$ TrigGain
+SVar:DelTrig:DB$ DelayedTrigger | Mode$ Phase | Phase$ EndCombat | Execute$ TrigGain | RememberObjects$ TriggeredAttackerLKICopy | TriggerDescription$ At end of combat, for as long as CARDNAME remains tapped, gain control of that creature, it loses all abilities, and it can't attack or block.
+SVar:TrigGain:DB$ GainControl | Defined$ DelayTriggerRememberedLKI | LoseControl$ Untap,LeavesPlay | SubAbility$ DBPump
+SVar:DBPump:DB$ Animate | Defined$ DelayTriggerRememberedLKI | HiddenKeywords$ CARDNAME can't attack or block. | RemoveAllAbilities$ True | Duration$ UntilUntaps
+Oracle:Evolve from Munchlax {1}{W}{W}{B}\nSnorlax doesn’t untap during your untap step.\nAt the beginning of your upkeep, you may sacrifice a Food or pay {W}{B}{B}. If you do, untap Snorlax.\nWhenever Snorlax blocks a creature, tap Snorlax. At end of combat, for as long as Snorlax remains tapped, gain control of that creature, it loses all abilities, and it can't attack or block.
 
 SVar:SoundEffect:snorlax.mp3

@@ -1,14 +1,14 @@
 Name:Dragonair
-ManaCost:4 U R
+ManaCost:3 U R
 Types:Creature Dragon Pokémon
 PT:5/5
-K:Evolve from:4 U R:Dratini
+K:Evolve from:3 U R:Dratini
 T:Mode$ Evolved | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigWeather | TriggerDescription$ Whenever CARDNAME evolves, it becomes the weather of your choice.
 SVar:TrigWeather:DB$ Weather | Value$ Choose
 T:Mode$ WeatherChanged | TriggerZones$ Battlefield | Execute$ TrigTap | OptionalDecider$ You | TriggerDescription$ Whenever the weather changes, you may tap target creature and put a stun counter on it.
 SVar:TrigTap:DB$ Tap | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ TrigPutCounter
 SVar:TrigPutCounter:DB$ PutCounter | IsCurse$ True | Defined$ Targeted | CounterType$ STUN | CounterNum$ 1
-Oracle:Evolve from Dratini {4}{U}{R}\Whenever Dragonair evolves, it becomes the weather of your choice.\nWhenever the weather changes, you may tap target creature and put a stun counter on it.
+Oracle:Evolve from Dratini {3}{U}{R}\Whenever Dragonair evolves, it becomes the weather of your choice.\nWhenever the weather changes, you may tap target creature and put a stun counter on it.
 
 DeckHints:Name$Dratini
 DeckHints:Name$Dragonite

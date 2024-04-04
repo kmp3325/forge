@@ -1285,13 +1285,10 @@ public class GameSimulationTest extends SimulationTest {
         Player opp = game.getPlayers().get(1);
 
         addCardToZone("Kalitas, Traitor of Ghet", p, ZoneType.Battlefield);
-        for (int i = 0; i < 4; i++) {
-            addCardToZone("Plains", p, ZoneType.Battlefield);
-        }
 
-        for (int i = 0; i < 2; i++) {
-            addCardToZone("Aboroth", opp, ZoneType.Battlefield);
-        }
+        addCards("Plains", 4, p);
+
+        addCards("Aboroth", 2, opp);
 
         Card wrathOfGod = addCardToZone("Wrath of God", p, ZoneType.Hand);
         game.getPhaseHandler().devModeSet(PhaseType.MAIN2, p);
@@ -2508,5 +2505,35 @@ public class GameSimulationTest extends SimulationTest {
         AssertJUnit.assertTrue(transformedHeliodToken.isTransformable());
         AssertJUnit.assertTrue(transformedHeliodToken.isTransformed());
         AssertJUnit.assertTrue(transformedHeliodToken.isBackSide());
+    }
+
+    @Test
+    public void testBasicSpellFizzling() {
+        Game game = initAndCreateGame();
+        Player p = game.getPlayers().get(0);
+        game.getPhaseHandler().devModeSet(PhaseType.MAIN2, p);
+
+        addCardToZone("Swamp", p, ZoneType.Library);
+        Card bear = addCard("Bear Cub", p);
+
+        addCards("Swamp", 5, p);
+        Card destroy = addCardToZone("Annihilate", p, ZoneType.Hand);
+        SpellAbility destroySA = destroy.getFirstSpellAbility();
+        destroySA.getTargets().add(bear);
+
+        addCards("Island", 2, p);
+        Card fizzle = addCardToZone("Mage's Guile", p, ZoneType.Hand);
+        SpellAbility fizzleSA = fizzle.getFirstSpellAbility();
+        fizzleSA.getTargets().add(bear);
+
+        GameSimulator sim = createSimulator(game, p);
+        game = sim.getSimulatedGameState();
+
+        sim.simulateSpellAbility(destroySA, false);
+        AssertJUnit.assertEquals(1, game.getStackZone().size());
+        sim.simulateSpellAbility(fizzleSA);
+
+        // spell should fizzle so no card was drawn
+        AssertJUnit.assertEquals(0, game.getPlayers().get(0).getCardsIn(ZoneType.Hand).size());
     }
 }

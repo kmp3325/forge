@@ -31,7 +31,6 @@ import forge.card.mana.ManaCostShard;
 import forge.game.*;
 import forge.game.ability.AbilityFactory;
 import forge.game.ability.AbilityKey;
-import forge.game.ability.AbilityUtils;
 import forge.game.ability.ApiType;
 import forge.game.ability.effects.DetachedCardEffect;
 import forge.game.card.*;
@@ -100,13 +99,13 @@ public class Player extends GameEntity implements Comparable<Player> {
     private int lifeGainedThisTurn;
     private int lifeGainedTimesThisTurn;
     private int lifeGainedByTeamThisTurn;
+    private int commitedCrimeThisTurn;
     private int numManaShards;
     private int numPowerSurgeLands;
     private int numLibrarySearchedOwn; //The number of times this player has searched his library
     private int numDrawnThisTurn;
     private int numDrawnThisDrawStep;
     private int numRollsThisTurn;
-    private int numDiscardedThisTurn;
     private int numExploredThisTurn;
     private int numTokenCreatedThisTurn;
     private int numForetoldThisTurn;
@@ -131,6 +130,7 @@ public class Player extends GameEntity implements Comparable<Player> {
     private int descended = 0;
 
     private List<Card> sacrificedThisTurn = new ArrayList<>();
+    private List<Card> discardedThisTurn = new ArrayList<>();
 
     /** A list of tokens not in play, but on their way.
      * This list is kept in order to not break ETB-replacement
@@ -266,7 +266,7 @@ public class Player extends GameEntity implements Comparable<Player> {
         return activeScheme;
     }
 
-    public void setSchemeInMotion() {
+    public void setSchemeInMotion(SpellAbility cause) {
         if (StaticAbilityCantSetSchemesInMotion.any(getGame())) {
             return;
         }
@@ -280,10 +280,9 @@ public class Player extends GameEntity implements Comparable<Player> {
         moveParams.put(AbilityKey.LastStateBattlefield, game.getLastStateBattlefield());
         moveParams.put(AbilityKey.LastStateGraveyard, game.getLastStateGraveyard());
 
-        game.getTriggerHandler().suppressMode(TriggerType.ChangesZone);
         activeScheme = getZone(ZoneType.SchemeDeck).get(0);
-        game.getAction().moveTo(ZoneType.Command, activeScheme, null, moveParams);
-        game.getTriggerHandler().clearSuppression(TriggerType.ChangesZone);
+        game.getAction().moveToCommand(activeScheme, cause);
+        game.getTriggerHandler().suppressMode(TriggerType.ChangesZone);
 
         // Run triggers
         final Map<AbilityKey, Object> runParams = AbilityKey.newMap();
@@ -641,7 +640,7 @@ public class Player extends GameEntity implements Comparable<Player> {
             return -1;
         }
         cnt -= lostEnergy;
-        this.setCounters(CounterEnumType.ENERGY, cnt, true);
+        this.setCounters(CounterEnumType.ENERGY, cnt, null, true);
         return cnt;
     }
 
@@ -864,7 +863,16 @@ public class Player extends GameEntity implements Comparable<Player> {
 
         final int oldValue = getCounters(counterType);
         final int newValue = addAmount + oldValue;
-        this.setCounters(counterType, newValue, fireEvents);
+        this.setCounters(counterType, newValue, source, fireEvents);
+
+        if (counterType.is(CounterEnumType.RAD) && newValue > 0) {
+            String setCode = null;
+            if (params.containsKey(AbilityKey.Cause)) {
+                SpellAbility cause = (SpellAbility) params.get(AbilityKey.Cause);
+                setCode = cause.getHostCard().getSetCode();
+            }
+            createRadiationEffect(setCode);
+        }
 
         final Map<AbilityKey, Object> runParams = AbilityKey.mapFromPlayer(this);
         runParams.put(AbilityKey.Source, source);
@@ -893,7 +901,7 @@ public class Player extends GameEntity implements Comparable<Player> {
         final int delta = oldValue - newValue;
         if (delta == 0) { return; }
 
-        setCounters(counterName, newValue, true);
+        setCounters(counterName, newValue, null, true);
 
         /* TODO Run triggers when something cares
         int curCounters = oldValue;
@@ -914,16 +922,25 @@ public class Player extends GameEntity implements Comparable<Player> {
         getGame().fireEvent(new GameEventPlayerCounters(this, null, 0, 0));
     }
 
-    public void setCounters(final CounterEnumType counterType, final Integer num, boolean fireEvents) {
-        this.setCounters(CounterType.get(counterType), num, fireEvents);
+    public void setCounters(final CounterEnumType counterType, final Integer num, Player source, boolean fireEvents) {
+        this.setCounters(CounterType.get(counterType), num, source, fireEvents);
     }
 
-    public void setCounters(final CounterType counterType, final Integer num, boolean fireEvents) {
+    public void setCounters(final CounterType counterType, final Integer num, Player source, boolean fireEvents) {
         Integer old = getCounters(counterType);
         setCounters(counterType, num);
         view.updateCounters(this);
         if (fireEvents) {
             getGame().fireEvent(new GameEventPlayerCounters(this, counterType, old, num));
+            if (counterType.is(CounterEnumType.POISON)) {
+                getGame().fireEvent(new GameEventPlayerPoisoned(this, source, old, num - old));
+            } else if (counterType.is(CounterEnumType.RAD)) {
+                getGame().fireEvent(new GameEventPlayerRadiation(this, source, num - old));
+            }
+        }
+
+        if (counterType.is(CounterEnumType.RAD) && num <= 0) {
+            removeRadiationEffect();
         }
     }
 
@@ -932,18 +949,20 @@ public class Player extends GameEntity implements Comparable<Player> {
         counters = allCounters;
         view.updateCounters(this);
         getGame().fireEvent(new GameEventPlayerCounters(this, null, 0, 0));
+
+        // create Radiation Effect for GameState
+        if (counters.getOrDefault(CounterType.get(CounterEnumType.RAD), 0) > 0) {
+            this.createRadiationEffect(null);
+        } else {
+            this.removeRadiationEffect();
+        }
     }
 
-    public final void addRadCounters(final int num, final Card source, GameEntityCounterTable table) {
-        addCounter(CounterEnumType.RAD, num, source.getController(), table);
+    public final void addRadCounters(final int num, final Player source, GameEntityCounterTable table) {
+        addCounter(CounterEnumType.RAD, num, source, table);
     }
-    public final void removeRadCounters(final int num, final Card source) {
-        int oldRad = getCounters(CounterEnumType.RAD);
-        if (oldRad != 0) subtractCounter(CounterEnumType.RAD, num);
-
-        int newRad = getCounters(CounterEnumType.RAD);
-        if (newRad == 0) removeRadiationEffect();
-        if (oldRad != newRad) game.fireEvent(new GameEventPlayerRadiation(this, source, newRad - oldRad));
+    public final void removeRadCounters(final int num) {
+        subtractCounter(CounterEnumType.RAD, num);
     }
 
     // TODO Merge These calls into the primary counter calls
@@ -951,25 +970,13 @@ public class Player extends GameEntity implements Comparable<Player> {
         return getCounters(CounterEnumType.POISON);
     }
     public final void setPoisonCounters(final int num, Player source) {
-        int oldPoison = getCounters(CounterEnumType.POISON);
-        setCounters(CounterEnumType.POISON, num, true);
-        game.fireEvent(new GameEventPlayerPoisoned(this, source, oldPoison, num));
+        setCounters(CounterEnumType.POISON, num, source, true);
     }
     public final void addPoisonCounters(final int num, final Player source, GameEntityCounterTable table) {
-        int oldPoison = getCounters(CounterEnumType.POISON);
         addCounter(CounterEnumType.POISON, num, source, table);
-
-        if (oldPoison != getCounters(CounterEnumType.POISON)) {
-            game.fireEvent(new GameEventPlayerPoisoned(this, source, oldPoison, num));
-        }
     }
     public final void removePoisonCounters(final int num, final Player source) {
-        int oldPoison = getCounters(CounterEnumType.POISON);
         subtractCounter(CounterEnumType.POISON, num);
-
-        if (oldPoison != getCounters(CounterEnumType.POISON)) {
-            game.fireEvent(new GameEventPlayerPoisoned(this, source, oldPoison, num));
-        }
     }
     // ================ POISON Merged =================================
     public final void addChangedKeywords(final List<String> addKeywords, final List<String> removeKeywords, final Long timestamp, final long staticId) {
@@ -1101,7 +1108,7 @@ public class Player extends GameEntity implements Comparable<Player> {
         return true;
     }
 
-    public void surveil(int num, SpellAbility cause, CardZoneTable table, Map<AbilityKey, Object> params) {
+    public void surveil(int num, SpellAbility cause, Map<AbilityKey, Object> params) {
         final Map<AbilityKey, Object> repParams = AbilityKey.mapFromAffected(this);
         repParams.put(AbilityKey.Source, cause);
         repParams.put(AbilityKey.SurveilNum, num);
@@ -1132,9 +1139,8 @@ public class Player extends GameEntity implements Comparable<Player> {
 
             if (toGrave != null) {
                 for (Card c : toGrave) {
-                    ZoneType oZone = c.getZone().getZoneType();
                     Card moved = getGame().getAction().moveToGraveyard(c, cause, params);
-                    table.put(oZone, moved.getZone().getZoneType(), moved);
+                    moved.setSurveilled(true);
                     numToGrave++;
                 }
             }
@@ -1445,73 +1451,31 @@ public class Player extends GameEntity implements Comparable<Player> {
             return null;
         }
 
-        final Card source = sa != null ? sa.getHostCard() : null;
+        discardedThisTurn.add(CardCopyService.getLKICopy(c));
 
-        boolean discardToTopOfLibrary = null != sa && sa.hasParam("DiscardToTopOfLibrary");
-        boolean discardMadness = sa != null && sa.hasParam("Madness");
-
-        // DiscardToTopOfLibrary and Madness are replacement discards,
-        // that should not trigger other Replacement again
-        if (!discardToTopOfLibrary && !discardMadness) {
-            // Replacement effects
-            final Map<AbilityKey, Object> repRunParams = AbilityKey.mapFromCard(c);
-            repRunParams.put(AbilityKey.Source, source);
-            repRunParams.put(AbilityKey.Affected, this);
-            if (params != null) {
-                repRunParams.putAll(params);
-            }
-
-            if (game.getReplacementHandler().run(ReplacementType.Discard, repRunParams) != ReplacementResult.NotReplaced) {
-                return null;
-            }
-        }
+        params.put(AbilityKey.Discard, true);
+        params.put(AbilityKey.EffectOnly, effect);
+        final Card newCard = game.getAction().moveToGraveyard(c, sa, params);
 
         StringBuilder sb = new StringBuilder();
         sb.append(this).append(" discards ").append(c);
-        final Card newCard;
-        if (discardToTopOfLibrary) {
-            newCard = game.getAction().moveToLibrary(c, 0, sa, params);
-            sb.append(" to the library");
-            // Play the Discard sound
-        }
-        else if (discardMadness) {
-            newCard = game.getAction().exile(c, sa, params);
-            sb.append(" with Madness");
-        }
-        else {
-            newCard = game.getAction().moveToGraveyard(c, sa, params);
-            // Play the Discard sound
-        }
+        //sb.append(" to the library");
+        //sb.append(" with Madness");
+        sb.append(".");
+        // Play the Discard sound
+        game.getGameLog().add(GameLogEntryType.DISCARD, sb.toString());
 
         newCard.setDiscarded(true);
 
-        sb.append(".");
-        numDiscardedThisTurn++;
-        // Run triggers
-        Card cause = null;
-        if (sa != null) {
-            if (sa.hasParam("RememberDiscarded")) {
-                source.addRemembered(newCard);
-            }
-
-            cause = sa.getHostCard();
-            // for Replacement of the discard Cause
-            if (sa.hasParam("Cause")) {
-                final CardCollection col = AbilityUtils.getDefinedCards(cause, sa.getParam("Cause"), sa);
-                if (!col.isEmpty()) {
-                    cause = col.getFirst();
-                }
-            }
+        if (sa != null && sa.hasParam("RememberDiscarded")) {
+            sa.getHostCard().addRemembered(newCard);
         }
         final Map<AbilityKey, Object> runParams = AbilityKey.mapFromPlayer(this);
         runParams.put(AbilityKey.Card, c);
-        runParams.put(AbilityKey.Cause, cause);
-        runParams.put(AbilityKey.IsMadness, discardMadness);
-        if (params != null) {
-            runParams.putAll(params);
-        }
+        runParams.put(AbilityKey.Cause, sa);
+        runParams.putAll(params);
         game.getTriggerHandler().runTrigger(TriggerType.Discarded, runParams, false);
-        game.getGameLog().add(GameLogEntryType.DISCARD, sb.toString());
+
         return newCard;
     }
 
@@ -1546,12 +1510,11 @@ public class Player extends GameEntity implements Comparable<Player> {
         numForetoldThisTurn = 0;
     }
 
-    public final int getNumDiscardedThisTurn() {
-        return numDiscardedThisTurn;
+    public final List<Card> getDiscardedThisTurn() {
+        return discardedThisTurn;
     }
-
-    public final void resetNumDiscardedThisTurn() {
-        numDiscardedThisTurn = 0;
+    public final void resetDiscardedThisTurn() {
+        discardedThisTurn.clear();
     }
 
     public final int getNumExploredThisTurn() {
@@ -1643,13 +1606,19 @@ public class Player extends GameEntity implements Comparable<Player> {
         }
 
         for (Card m : milled) {
-            game.getAction().moveTo(destination, m, sa, params);
+            Card moved = game.getAction().moveTo(destination, m, sa, params);
+            moved.setMilled(true);
+
+            final Map<AbilityKey, Object> runParams = AbilityKey.mapFromPlayer(this);
+            runParams.put(AbilityKey.Card, m);
+            game.getTriggerHandler().runTrigger(TriggerType.Milled, runParams, false);
         }
 
-        // MilledAll trigger
-        final Map<AbilityKey, Object> runParams = AbilityKey.mapFromPlayer(this);
-        runParams.put(AbilityKey.Cards, milled);
-        game.getTriggerHandler().runTrigger(TriggerType.MilledAll, runParams, false);
+        if (!milled.isEmpty()) {
+            final Map<AbilityKey, Object> runParams = AbilityKey.mapFromPlayer(this);
+            runParams.put(AbilityKey.Cards, milled);
+            game.getTriggerHandler().runTrigger(TriggerType.MilledOnce, runParams, false);
+        }
 
         return milled;
     }
@@ -2290,7 +2259,7 @@ public class Player extends GameEntity implements Comparable<Player> {
         // Play the Sacrifice sound
         game.fireEvent(new GameEventCardSacrificed());
 
-        final Card cpy = CardUtil.getLKICopy(c);
+        final Card cpy = CardCopyService.getLKICopy(c);
         sacrificedThisTurn.add(cpy);
 
         // Run triggers
@@ -2497,7 +2466,6 @@ public class Player extends GameEntity implements Comparable<Player> {
         }
         resetNumDrawnThisTurn();
         resetNumRollsThisTurn();
-        resetNumDiscardedThisTurn();
         resetNumExploredThisTurn();
         resetNumForetoldThisTurn();
         resetNumTokenCreatedThisTurn();
@@ -2510,6 +2478,7 @@ public class Player extends GameEntity implements Comparable<Player> {
         resetSurveilThisTurn();
         resetCycledThisTurn();
         resetEquippedThisTurn();
+        resetDiscardedThisTurn();
         resetSacrificedThisTurn();
         resetVenturedThisTurn();
         setRevolt(false);
@@ -2524,6 +2493,8 @@ public class Player extends GameEntity implements Comparable<Player> {
         setLifeStartedThisTurnWith(getLife());
         setLibrarySearched(0);
         setNumManaConversion(0);
+
+        setCommitedCrimeThisTurn(0);
 
         damageReceivedThisTurn.clear();
         planeswalkedToThisTurn.clear();
@@ -2690,7 +2661,7 @@ public class Player extends GameEntity implements Comparable<Player> {
         game.getView().updatePlanarPlayer(getView());
 
         for (Card c : destinations) {
-            currentPlanes.add(game.getAction().moveTo(getZone(ZoneType.Command), c, sa));
+            currentPlanes.add(game.getAction().moveTo(getZone(ZoneType.Command), c, sa, AbilityKey.newMap()));
             planeswalkedToThisTurn.add(c);
         }
 
@@ -2712,7 +2683,7 @@ public class Player extends GameEntity implements Comparable<Player> {
 
         for (final Card plane : currentPlanes) {
             plane.clearControllers();
-            game.getAction().moveTo(ZoneType.PlanarDeck, plane, -1, null);
+            game.getAction().moveTo(ZoneType.PlanarDeck, plane, -1, null, AbilityKey.newMap());
         }
         currentPlanes.clear();
     }
@@ -3167,7 +3138,7 @@ public class Player extends GameEntity implements Comparable<Player> {
         final PlayerZone com = getZone(ZoneType.Command);
         final String name = "Planar Dice";
         final Card eff = new Card(game.nextCardId(), game);
-        eff.setTimestamp(game.getNextTimestamp());
+        eff.setGameTimestamp(game.getNextTimestamp());
         eff.setName(name);
         eff.setOwner(this);
         eff.setImmutable(true);
@@ -3449,12 +3420,18 @@ public class Player extends GameEntity implements Comparable<Player> {
             radiationEffect.setImmutable(true);
             radiationEffect.setImageKey("t:radiation");
             radiationEffect.setName("Radiation");
-            radiationEffect.setSetCode(setCode);
-            String desc = "Mode$ Continuous | Affected$ Card.Self | Description$ At the beginning of your precombat " +
-                    "main phase, if you have any rad counters, mill that many cards. For each nonland card milled " +
-                    "this way, you lose 1 life and a rad counter.";
-            StaticAbility st = StaticAbility.create(desc, radiationEffect, radiationEffect.getCurrentState(), true);
-            radiationEffect.addStaticAbility(st);
+            if (setCode != null) {
+                radiationEffect.setSetCode(setCode);
+            }
+
+            String trigStr = "Mode$ Phase | PreCombatMain$ True | ValidPlayer$ You | TriggerZones$ Command | TriggerDescription$ " +
+            "At the beginning of your precombat main phase, if you have any rad counters, mill that many cards. For each nonland card milled this way, you lose 1 life and a rad counter.";
+
+            Trigger tr = TriggerHandler.parseTrigger(trigStr, radiationEffect, true);
+            SpellAbility sa = AbilityFactory.getAbility("DB$ InternalRadiation", radiationEffect);
+            tr.setOverridingAbility(sa);
+
+            radiationEffect.addTrigger(tr);
             radiationEffect.updateStateForView();
         }
         com.add(radiationEffect);
@@ -3720,7 +3697,7 @@ public class Player extends GameEntity implements Comparable<Player> {
     public void addCycled(SpellAbility sp) {
         cycledThisTurn++;
 
-        Map<AbilityKey, Object> cycleParams = AbilityKey.mapFromCard(CardUtil.getLKICopy(game.getCardState(sp.getHostCard())));
+        Map<AbilityKey, Object> cycleParams = AbilityKey.mapFromCard(CardCopyService.getLKICopy(game.getCardState(sp.getHostCard())));
         cycleParams.put(AbilityKey.Cause, sp);
         cycleParams.put(AbilityKey.Player, this);
         cycleParams.put(AbilityKey.FirstTime, cycledThisTurn == 1);
@@ -3762,7 +3739,7 @@ public class Player extends GameEntity implements Comparable<Player> {
             for (Card c : game.getCardsInOwnedBy(z, this)) {
                 if (!c.isRealFaceDown()) continue;
 
-                Card lki = CardUtil.getLKICopy(c);
+                Card lki = CardCopyService.getLKICopy(c);
                 lki.forceTurnFaceUp();
                 lki.setZone(c.getZone());
                 revealCards.add(lki);
@@ -3775,12 +3752,10 @@ public class Player extends GameEntity implements Comparable<Player> {
         if (hasLost()) {
             return;
         }
-        // Replacement effects
+
         Map<AbilityKey, Object> repParams = AbilityKey.mapFromAffected(this);
         repParams.put(AbilityKey.Cause, sa);
-        if (params != null) {
-            repParams.putAll(params);
-        }
+        repParams.putAll(params);
         if (game.getReplacementHandler().run(ReplacementType.Learn, repParams) != ReplacementResult.NotReplaced) {
             return;
         }
@@ -3801,17 +3776,18 @@ public class Player extends GameEntity implements Comparable<Player> {
         }
         if (c.isInZone(ZoneType.Sideboard)) { // Sideboard Lesson to Hand
             game.getAction().reveal(new CardCollection(c), c.getOwner(), true);
-            Card moved = game.getAction().moveTo(ZoneType.Hand, c, sa, params);
+            game.getAction().moveTo(ZoneType.Hand, c, sa, params);
         } else if (c.isInZone(ZoneType.Hand)) { // Discard and Draw
-            boolean firstDiscard = getNumDiscardedThisTurn() == 0;
-            if (discard(c, sa, true, params) != null) {
+            List<Card> discardedBefore = Lists.newArrayList(getDiscardedThisTurn());
+            Card moved = discard(c, sa, true, params);
+            if (moved != null) {
                 // Change this if something would make multiple player learn at the same time
 
                 // Discard Trigger outside Effect
                 final Map<AbilityKey, Object> runParams = AbilityKey.mapFromPlayer(this);
-                runParams.put(AbilityKey.Cards, new CardCollection(c));
+                runParams.put(AbilityKey.Cards, new CardCollection(moved));
                 runParams.put(AbilityKey.Cause, sa);
-                runParams.put(AbilityKey.FirstTime, firstDiscard);
+                runParams.put(AbilityKey.DiscardedBefore, discardedBefore);
                 if (params != null) {
                     runParams.putAll(params);
                 }
@@ -3820,5 +3796,22 @@ public class Player extends GameEntity implements Comparable<Player> {
                 drawCards(1, sa, params);
             }
         }
+    }
+
+    public void commitCrime() {
+        //boolean firstTime = this.commitedCrimeThisTurn == 0;
+        commitedCrimeThisTurn++;
+
+        // Run triggers
+        final Map<AbilityKey, Object> runParams = AbilityKey.mapFromPlayer(this);
+        game.getTriggerHandler().runTrigger(TriggerType.CommitCrime, runParams, false);
+
+    }
+
+    public int getCommitedCrimeThisTurn() {
+        return commitedCrimeThisTurn;
+    }
+    public void setCommitedCrimeThisTurn(int v) {
+        commitedCrimeThisTurn = v;
     }
 }

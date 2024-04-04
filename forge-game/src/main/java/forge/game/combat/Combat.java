@@ -908,10 +908,6 @@ public class Combat {
         return assignedDamage;
     }
 
-    public final CardDamageMap getDamageMap() {
-        return damageMap;
-    }
-
     public void dealAssignedDamage() {
         final Game game = playerWhoAttacks.getGame();
         game.copyLastState();
@@ -986,7 +982,7 @@ public class Combat {
 
     public CombatLki saveLKI(Card lki) {
         if (!lki.isLKI()) {
-            lki = CardUtil.getLKICopy(lki);
+            lki = CardCopyService.getLKICopy(lki);
         }
         FCollectionView<AttackingBand> attackersBlocked = null;
         final AttackingBand attackingBand = getBandOfAttacker(lki);

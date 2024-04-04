@@ -797,13 +797,6 @@ public class CardView extends GameEntityView {
 
         sb.append(getRemembered());
 
-        PlayerView chosenPlayer = getChosenPlayer();
-        if (chosenPlayer != null) {
-            sb.append("\r\n[Chosen player: ");
-            sb.append(chosenPlayer);
-            sb.append("]\r\n");
-        }
-
         Direction chosenDirection = getChosenDirection();
         if (chosenDirection != null) {
             sb.append("\r\n[Chosen direction: ");
@@ -837,7 +830,6 @@ public class CardView extends GameEntityView {
                 sb.append(" each combat.");
                 sb.append("\r\n");
             }
-
         }
 
         Set<String> cantHaveKeyword = this.getCantHaveKeyword();
@@ -1007,7 +999,8 @@ public class CardView extends GameEntityView {
 
             // update the color only while in Game
             if (c.getGame() != null) {
-                currentStateView.updateColors(currentState);
+                if (c.hasPerpetual()) currentStateView.updateColors(c);
+                else currentStateView.updateColors(currentState);
                 currentStateView.updateHasChangeColors(!Iterables.isEmpty(c.getChangedCardColors()));
             }
         } else {
@@ -1286,6 +1279,9 @@ public class CardView extends GameEntityView {
             return get(TrackableProperty.ManaCost);
         }
         void updateManaCost(CardState c) {
+            set(TrackableProperty.ManaCost, c.getManaCost());
+        }
+        void updateManaCost(Card c) {
             set(TrackableProperty.ManaCost, c.getManaCost());
         }
 

@@ -865,7 +865,7 @@ public class AiController {
 
         // Trying to play a card that has Buyback without a Buyback cost, look for possible additional considerations
         if (getBooleanProperty(AiProps.TRY_TO_PRESERVE_BUYBACK_SPELLS)) {
-            if (card.hasKeyword(Keyword.BUYBACK) && !sa.isBuyBackAbility() && !canPlaySpellWithoutBuyback(card, sa)) {
+            if (card.hasKeyword(Keyword.BUYBACK) && !sa.isBuyback() && !canPlaySpellWithoutBuyback(card, sa)) {
                 return AiPlayDecision.NeedsToPlayCriteriaNotMet;
             }
         }
@@ -924,7 +924,7 @@ public class AiController {
         }
         Card spellHost = card;
         if (sa.isSpell()) {
-            spellHost = CardUtil.getLKICopy(spellHost);
+            spellHost = CardCopyService.getLKICopy(spellHost);
             spellHost.setLKICMC(-1); // to reset the cmc
             spellHost.setLastKnownZone(game.getStackZone()); // need to add to stack to make check Restrictions respect stack cmc
             spellHost.setCastFrom(card.getZone());
@@ -1859,6 +1859,8 @@ public class AiController {
                 maxCreatures = Math.max(maxCreatures, opp.getCreaturesInPlay().size());
             }
             return Math.min(choiceLimit, Math.max(minAllowedChoice, maxCreatures));
+        } else if ("Random".equals(logic)) {
+            return MyRandom.getRandom().nextInt((max - min) + 1) + min;
         }
         return max;
     }

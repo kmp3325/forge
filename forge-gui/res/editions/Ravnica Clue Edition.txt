@@ -1,6 +1,6 @@
 [metadata]
 Code=CLU
-Date=2024-02-09
+Date=2024-02-23
 Name=Ravnica: Clue Edition
 Type=Draft
 ScryfallCode=CLU
@@ -152,7 +152,7 @@ ScryfallCode=CLU
 144 U Pyrewild Shaman @Lucas Graciano
 145 C Reduce to Ashes @Jason A. Engle
 146 C Ripscale Predator @Volkan Baǵa
-147 U Shiny Impetus @Svetlin Velinov
+147 C Shiny Impetus @Svetlin Velinov
 148 C Spellgorger Weird @James Paick
 149 U Stormblood Berserker @Min Yum
 150 U Street Spasm @Raymond Swanland

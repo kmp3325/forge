@@ -29,22 +29,19 @@ import java.util.concurrent.LinkedBlockingDeque;
 
 import com.esotericsoftware.minlog.Log;
 import com.google.common.base.Predicate;
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 
 import forge.GameCommand;
-import forge.game.CardTraitPredicates;
-import forge.game.Game;
-import forge.game.GameActionUtil;
-import forge.game.GameLogEntryType;
-import forge.game.GameObject;
+import forge.game.*;
 import forge.game.ability.AbilityKey;
 import forge.game.ability.AbilityUtils;
 import forge.game.ability.ApiType;
 import forge.game.card.Card;
-import forge.game.card.CardUtil;
+import forge.game.card.CardCopyService;
 import forge.game.event.EventValueChangeType;
 import forge.game.event.GameEventCardStatsChanged;
 import forge.game.event.GameEventSpellAbilityCast;
@@ -54,6 +51,7 @@ import forge.game.event.GameEventZone;
 import forge.game.keyword.Keyword;
 import forge.game.mana.Mana;
 import forge.game.player.Player;
+import forge.game.player.PlayerPredicates;
 import forge.game.spellability.AbilityStatic;
 import forge.game.spellability.SpellAbility;
 import forge.game.spellability.SpellAbilityStackInstance;
@@ -345,7 +343,7 @@ public class MagicStack /* extends MyObservable */ implements Iterable<SpellAbil
         Map<AbilityKey, Object> runParams = AbilityKey.mapFromPlayer(sp.getHostCard().getController());
 
         if (sp.isSpell() && !sp.isCopied()) {
-            final Card lki = CardUtil.getLKICopy(sp.getHostCard());
+            final Card lki = CardCopyService.getLKICopy(sp.getHostCard());
             runParams.put(AbilityKey.CardLKI, lki);
             thisTurnCast.add(lki);
             sp.getActivatingPlayer().addSpellCastThisTurn();
@@ -436,6 +434,10 @@ public class MagicStack /* extends MyObservable */ implements Iterable<SpellAbil
             runParams.put(AbilityKey.Targets, distinctObjects);
             runParams.put(AbilityKey.Cause, s.getHostCard());
             game.getTriggerHandler().runTrigger(TriggerType.BecomesTargetOnce, runParams, false);
+        }
+
+        if (sp.getActivatingPlayer() != null && commitCrimeCheck(sp.getActivatingPlayer(), chosenTargets)) {
+            sp.getActivatingPlayer().commitCrime();
         }
 
         game.fireEvent(new GameEventZone(ZoneType.Stack, sp.getActivatingPlayer(), EventValueChangeType.Added, source));
@@ -576,8 +578,8 @@ public class MagicStack /* extends MyObservable */ implements Iterable<SpellAbil
         finishResolving(sa, thisHasFizzled);
 
         game.copyLastState();
-        if (isEmpty()) {
-            // FIXME: assuming that if the stack is empty, no reason to hold on to old LKI data (everything is a new object). Is this correct?
+        if (isEmpty() && !hasSimultaneousStackEntries()) {
+            // assuming that if the stack is empty, no reason to hold on to old LKI data (everything is a new object)
             game.clearChangeZoneLKIInfo();
         }
     }
@@ -625,7 +627,6 @@ public class MagicStack /* extends MyObservable */ implements Iterable<SpellAbil
             // If Spell and still on the Stack then let it goto the graveyard or replace its own movement
             Map<AbilityKey, Object> params = AbilityKey.newMap();
             params.put(AbilityKey.StackSa, sa);
-            params.put(AbilityKey.StackSi, si);
             params.put(AbilityKey.Fizzle, fizzle);
             game.getAction().moveToGraveyard(source, null, params);
         }
@@ -641,70 +642,54 @@ public class MagicStack /* extends MyObservable */ implements Iterable<SpellAbil
         return hasLegalTargeting(sa.getSubAbility());
     }
 
-    private final boolean hasFizzled(final SpellAbility sa, final Card source, final Boolean parentFizzled) {
-        // Can't fizzle unless there are some targets
-        Boolean fizzle = null;
-        boolean rememberTgt = sa.getRootAbility().hasParam("RememberOriginalTargets");
-
-        if (sa.usesTargeting()) {
-            if (sa.isZeroTargets()) {
-                // Nothing targeted, and nothing needs to be targeted.
-            } else {
-                // Some targets were chosen, fizzling for this subability is now possible
-                //fizzle = true;
-                // With multi-targets, as long as one target is still legal,
-                // we'll try to go through as much as possible
-                final TargetChoices choices = sa.getTargets();
-                for (final GameObject o : Lists.newArrayList(sa.getTargets())) {
-                    boolean invalidTarget = false;
-                    if (rememberTgt) {
-                        source.addRemembered(o);
+    private final boolean hasFizzled(final SpellAbility sa, final Card source, Boolean fizzle) {
+        List<GameObject> toRemove = Lists.newArrayList();
+        if (sa.usesTargeting() && !sa.isZeroTargets()) {
+            if (fizzle == null) {
+                // don't overwrite previous result
+                fizzle = true;
+            }
+            // Some targets were chosen, fizzling for this subability is now possible
+            // With multi-targets, as long as one target is still legal,
+            // we'll try to go through as much as possible
+            for (final GameObject o : sa.getTargets()) {
+                boolean invalidTarget = false;
+                if (o instanceof Card) {
+                    final Card card = (Card) o;
+                    Card current = game.getCardState(card);
+                    if (current != null) {
+                        invalidTarget = !current.equalsWithGameTimestamp(card);
                     }
-                    if (o instanceof Card) {
-                        final Card card = (Card) o;
-                        Card current = game.getCardState(card);
-                        if (current != null) {
-                            invalidTarget = current.getTimestamp() != card.getTimestamp();
-                        }
-                        invalidTarget = invalidTarget || !sa.canTarget(card);
-                    } else if (o instanceof SpellAbility) {
-                        SpellAbilityStackInstance si = getInstanceMatchingSpellAbilityID((SpellAbility)o);
-                        invalidTarget = si == null ? true : !sa.canTarget(si.getSpellAbility());
-                    } else {
-                        invalidTarget = !sa.canTarget(o);
-                    }
-                    // Remove targets
-                    if (invalidTarget) {
-                        choices.remove(o);
-                    } else {
-                        fizzle = false;
-                    }
-
-                    if (sa.hasParam("CantFizzle")) {
-                        // Gilded Drake cannot be countered by rules if the
-                        // targeted card is not valid
-                        fizzle = false;
-                    }
+                    invalidTarget = invalidTarget || !sa.canTarget(card, true);
+                } else if (o instanceof SpellAbility) {
+                    SpellAbilityStackInstance si = getInstanceMatchingSpellAbilityID((SpellAbility)o);
+                    invalidTarget = si == null ? true : !sa.canTarget(si.getSpellAbility(), true);
+                } else {
+                    invalidTarget = !sa.canTarget(o, true);
                 }
-                if (fizzle == null) {
-                    fizzle = true;
+
+                if (invalidTarget) {
+                    toRemove.add(o);
+                } else {
+                    fizzle = false;
+                }
+
+                if (sa.hasParam("CantFizzle")) {
+                    // Gilded Drake cannot be countered by rules if the
+                    // targeted card is not valid
+                    fizzle = false;
                 }
             }
         }
-        else if (sa.getTargetCard() != null) {
-            fizzle = !sa.canTarget(sa.getTargetCard());
-        } else {
-            // Set fizzle to the same as the parent if there's no target info
-            fizzle = parentFizzled;
+        if (sa.getSubAbility() != null) {
+            fizzle = hasFizzled(sa.getSubAbility(), source, fizzle);
         }
 
-        if (sa.getSubAbility() == null) {
-            if (fizzle != null && fizzle && rememberTgt) {
-                source.clearRemembered();
-            }
-            return fizzle != null && fizzle.booleanValue();
+        // Remove targets
+        if (sa.usesTargeting() && !sa.isZeroTargets()) {
+            sa.getTargets().removeAll(toRemove);
         }
-        return hasFizzled(sa.getSubAbility(), source, fizzle) && (fizzle == null || fizzle.booleanValue());
+        return fizzle != null && fizzle;
     }
 
     public final SpellAbilityStackInstance peek() {
@@ -967,5 +952,28 @@ public class MagicStack /* extends MyObservable */ implements Iterable<SpellAbil
     @Override
     public String toString() {
         return TextUtil.concatNoSpace(simultaneousStackEntryList.toString(),"==", frozenStack.toString(), "==", stack.toString());
+    }
+
+    static protected boolean commitCrimeCheck(Player p, Iterable<TargetChoices> chosenTargets)
+    {
+        List<ZoneType> zoneList = ImmutableList.of(ZoneType.Battlefield, ZoneType.Graveyard, ZoneType.Stack);
+
+        for (TargetChoices tc : chosenTargets) {
+            if (Iterables.any(tc.getTargetPlayers(), PlayerPredicates.isOpponentOf(p))) {
+                return true;
+            }
+            for (SpellAbility sp : tc.getTargetSpells()) {
+                if (sp.getActivatingPlayer().isOpponentOf(p)) {
+                    return true;
+                }
+            }
+
+            for (Card c : tc.getTargetCards()) {
+                if (c.isInZones(zoneList) && c.getController().isOpponentOf(p)) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }

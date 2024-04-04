@@ -406,9 +406,9 @@ public abstract class GameState {
             }
             if (c.isForetold()) {
                 newText.append("|Foretold");
-            }
-            if (c.isForetoldThisTurn()) {
-                newText.append("|ForetoldThisTurn");
+                if (c.enteredThisTurn()) {
+                    newText.append("|ForetoldThisTurn");
+                }
             }
         }
 
@@ -1157,7 +1157,7 @@ public abstract class GameState {
                         // (will be overridden later, so the actual value shouldn't matter)
 
                         //FIXME it shouldn't be able to attach itself
-                        c.setEntityAttachedTo(CardFactory.copyCard(c, true));
+                        c.setEntityAttachedTo(new CardCopyService(c).copyCard(true));
                     }
 
                     if (cardsWithoutETBTrigs.contains(c)) {
@@ -1267,6 +1267,8 @@ public abstract class GameState {
                     c.setRenowned(true);
                 } else if (info.startsWith("Solved")) {
                     c.setSolved(true);
+                } else if (info.startsWith("Saddled")) {
+                    c.setSaddled(true);
                 } else if (info.startsWith("Suspected")) {
                     c.setSuspected(true);
                 } else if (info.startsWith("Monstrous")) {

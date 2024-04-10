@@ -84,7 +84,7 @@ public class SetStateEffect extends SpellAbilityEffect {
             // gameCard is LKI in that case, the card is not in game anymore
             // or the timestamp did change
             // this should check Self too
-            if (gameCard == null || !tgtCard.equalsWithTimestamp(gameCard)) {
+            if (gameCard == null || !tgtCard.equalsWithGameTimestamp(gameCard)) {
                 continue;
             }
 
@@ -109,13 +109,13 @@ public class SetStateEffect extends SpellAbilityEffect {
                         }
                     }
                     if (hasNonPermanent) {
-                        Card lki = CardUtil.getLKICopy(nonPermanentCard);
+                        Card lki = CardCopyService.getLKICopy(nonPermanentCard);
                         lki.forceTurnFaceUp();
                         game.getAction().reveal(new CardCollection(lki), lki.getOwner(), true, Localizer.getInstance().getMessage("lblFaceDownCardCantTurnFaceUp"));
                         continue;
                     }
                 } else if (!gameCard.getState(CardStateName.Original).getType().isPermanent()) {
-                    Card lki = CardUtil.getLKICopy(gameCard);
+                    Card lki = CardCopyService.getLKICopy(gameCard);
                     lki.forceTurnFaceUp();
                     game.getAction().reveal(new CardCollection(lki), lki.getOwner(), true, Localizer.getInstance().getMessage("lblFaceDownCardCantTurnFaceUp"));
 

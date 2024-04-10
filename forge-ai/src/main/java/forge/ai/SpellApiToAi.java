@@ -22,7 +22,7 @@ public enum SpellApiToAi {
             .put(ApiType.AddOrRemoveCounter, CountersPutOrRemoveAi.class)
             .put(ApiType.AddPhase, AddPhaseAi.class)
             .put(ApiType.AddTurn, AddTurnAi.class)
-            .put(ApiType.AlterAttribute, AlwaysPlayAi.class)
+            .put(ApiType.AlterAttribute, AlterAttributeAi.class)
             .put(ApiType.Amass, AmassAi.class)
             .put(ApiType.Animate, AnimateAi.class)
             .put(ApiType.AnimateAll, AnimateAllAi.class)
@@ -205,6 +205,7 @@ public enum SpellApiToAi {
             .put(ApiType.DamageResolve, AlwaysPlayAi.class)
             .put(ApiType.InternalLegendaryRule, LegendaryRuleAi.class)
             .put(ApiType.InternalIgnoreEffect, CannotPlayAi.class)
+            .put(ApiType.InternalRadiation, AlwaysPlayAi.class)
             .build());
 
     public SpellAbilityAi get(final ApiType api) {

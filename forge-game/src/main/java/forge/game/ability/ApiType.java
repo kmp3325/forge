@@ -208,7 +208,9 @@ public enum ApiType {
     DamageResolve (DamageResolveEffect.class),
     ChangeZoneResolve (ChangeZoneResolveEffect.class),
     InternalLegendaryRule (CharmEffect.class),
-    InternalIgnoreEffect (CharmEffect.class);
+    InternalIgnoreEffect (CharmEffect.class),
+    InternalRadiation (InternalRadiationEffect.class),
+    ;
 
     private final SpellAbilityEffect instanceEffect;
     private final Class<? extends SpellAbilityEffect> clsEffect;

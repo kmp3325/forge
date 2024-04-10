@@ -4,6 +4,7 @@ import forge.game.Game;
 import forge.game.ability.SpellAbilityEffect;
 import forge.game.card.Card;
 import forge.game.card.CardCollection;
+import forge.game.card.CardCopyService;
 import forge.game.card.CardFactory;
 import forge.game.spellability.SpellAbility;
 import forge.game.zone.ZoneType;
@@ -24,7 +25,7 @@ public class StealAbilitiesEffect extends SpellAbilityEffect {
     final long ts = game.getNextTimestamp();
     for (Card target : targets) {
       // just simulate it through mutate, idgaf, it works fine I guess
-      Card bottom = CardFactory.copyCard(target, true);
+      Card bottom = new CardCopyService(target).copyCard(true);
       bottom.setToken(true);
       if (!top.hasMergedCard()) {
         top.addMergedCard(top);

@@ -180,14 +180,14 @@ public class ComputerUtilCost {
      *            the remaining life
      * @return true, if successful
      */
-    public static boolean checkDamageCost(final Player ai, final Cost cost, final Card source, final int remainingLife, final boolean isFight) {
+    public static boolean checkDamageCost(final Player ai, final Cost cost, final Card source, final int remainingLife, final SpellAbility sa, final boolean isFight) {
         if (cost == null) {
             return true;
         }
         for (final CostPart part : cost.getCostParts()) {
             if (part instanceof CostDamage) {
                 final CostDamage pay = (CostDamage) part;
-                int realDamage = ComputerUtilCombat.predictDamageTo(ai, pay.convertAmount(), source, false, isFight);
+                int realDamage = ComputerUtilCombat.predictDamageTo(ai, pay.getAbilityAmount(sa), source, false, isFight);
                 if (ai.getLife() - realDamage < remainingLife
                         && realDamage > 0 && !ai.cantLoseForZeroOrLessLife()
                         && ai.canLoseLife()) {
@@ -704,7 +704,7 @@ public class ComputerUtilCost {
 
             // need a copy for one with extra +1/+1 counter boost,
             // without causing triggers to run
-            final Card copy = CardUtil.getLKICopy(source);
+            final Card copy = CardCopyService.getLKICopy(source);
             copy.setCounters(CounterEnumType.P1P1, copy.getCounters(CounterEnumType.P1P1) + n);
             copy.setZone(source.getZone());
 
@@ -814,7 +814,7 @@ public class ComputerUtilCost {
         // Didn't have any of the data on the original SA to pay dependant costs
 
         return checkLifeCost(payer, cost, source, 4, sa)
-                && checkDamageCost(payer, cost, source, 4, sa.getApi() == ApiType.Fight)
+                && checkDamageCost(payer, cost, source, 4, sa, sa.getApi() == ApiType.Fight)
                 && (isMine || checkSacrificeCost(payer, cost, source, sa))
                 && (isMine || checkDiscardCost(payer, cost, source, sa))
                 && (!source.getName().equals("Tyrannize") || payer.getCardsIn(ZoneType.Hand).size() > 2)

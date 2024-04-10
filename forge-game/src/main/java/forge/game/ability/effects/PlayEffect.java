@@ -15,7 +15,6 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 
-import forge.GameCommand;
 import forge.StaticData;
 import forge.card.CardRulesPredicates;
 import forge.game.Game;
@@ -42,7 +41,6 @@ import forge.game.spellability.AlternativeCost;
 import forge.game.spellability.LandAbility;
 import forge.game.spellability.SpellAbility;
 import forge.game.spellability.SpellAbilityPredicates;
-import forge.game.trigger.TriggerType;
 import forge.game.zone.Zone;
 import forge.game.zone.ZoneType;
 import forge.item.PaperCard;
@@ -174,7 +172,7 @@ public class PlayEffect extends SpellAbilityEffect {
             // filter only cards that didn't changed zones
             for (Card c : getTargetCards(sa)) {
                 Card gameCard = game.getCardState(c, null);
-                if (c.equalsWithTimestamp(gameCard)) {
+                if (c.equalsWithGameTimestamp(gameCard)) {
                     tgtCards.add(gameCard);
                 } else if (sa.hasParam("ZoneRegardless")) {
                     tgtCards.add(c);
@@ -434,6 +432,10 @@ public class PlayEffect extends SpellAbilityEffect {
                 tgtSA.putParam("CastTransformed", "True");
             }
 
+            if (sa.hasParam("ManaConversion")) {
+                tgtSA.putParam("ManaConversion", sa.getParam("ManaConversion"));
+            }
+
             if (tgtSA.usesTargeting() && !optional) {
                 tgtSA.getTargetRestrictions().setMandatory(true);
             }
@@ -521,24 +523,11 @@ public class PlayEffect extends SpellAbilityEffect {
             eff.copyChangedTextFrom(hostCard);
         }
 
-        final GameCommand endEffect = new GameCommand() {
-            private static final long serialVersionUID = -5861759814760561373L;
-
-            @Override
-            public void run() {
-                game.getAction().exile(eff, null, null);
-            }
-        };
-
-        game.getEndOfTurn().addUntil(endEffect);
+        game.getEndOfTurn().addUntil(exileEffectCommand(game, eff));
 
         tgtSA.addRollbackEffect(eff);
 
-        // TODO: Add targeting to the effect so it knows who it's dealing with
-        game.getTriggerHandler().suppressMode(TriggerType.ChangesZone);
-        game.getAction().moveTo(ZoneType.Command, eff, sa, moveParams);
-        eff.updateStateForView();
-        game.getTriggerHandler().clearSuppression(TriggerType.ChangesZone);
+        game.getAction().moveToCommand(eff, sa);
     }
 
     protected void addIllusionaryMaskReplace(Card c, SpellAbility sa, Map<AbilityKey, Object> moveParams) {
@@ -572,9 +561,6 @@ public class PlayEffect extends SpellAbilityEffect {
         addExileOnMovedTrigger(eff, "Battlefield");
         addExileOnCounteredTrigger(eff);
 
-        game.getTriggerHandler().suppressMode(TriggerType.ChangesZone);
-        game.getAction().moveTo(ZoneType.Command, eff, sa, moveParams);
-        eff.updateStateForView();
-        game.getTriggerHandler().clearSuppression(TriggerType.ChangesZone);
+        game.getAction().moveToCommand(eff, sa);
     }
 }

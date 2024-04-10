@@ -19,6 +19,7 @@ package forge.ai;
 
 import java.util.*;
 
+import forge.game.card.*;
 import forge.game.cost.*;
 import org.apache.commons.lang3.StringUtils;
 
@@ -47,16 +48,7 @@ import forge.game.ability.AbilityKey;
 import forge.game.ability.AbilityUtils;
 import forge.game.ability.ApiType;
 import forge.game.ability.effects.CharmEffect;
-import forge.game.card.Card;
-import forge.game.card.CardCollection;
-import forge.game.card.CardCollectionView;
-import forge.game.card.CardLists;
-import forge.game.card.CardPredicates;
 import forge.game.card.CardPredicates.Presets;
-import forge.game.card.CardState;
-import forge.game.card.CardUtil;
-import forge.game.card.CounterEnumType;
-import forge.game.card.CounterType;
 import forge.game.combat.Combat;
 import forge.game.combat.CombatUtil;
 import forge.game.keyword.Keyword;
@@ -665,8 +657,8 @@ public class ComputerUtil {
         return sacList;
     }
 
-    public static CardCollection chooseCollectEvidence(final Player ai, CostCollectEvidence cost, final Card activate, int amount, SpellAbility sa) {
-        CardCollection typeList = new CardCollection(ai.getCardsIn(ZoneType.Graveyard));
+    public static CardCollection chooseCollectEvidence(final Player ai, CostCollectEvidence cost, final Card activate, int amount, SpellAbility sa, final boolean effect) {
+        CardCollection typeList = CardLists.filter(ai.getCardsIn(ZoneType.Graveyard), CardPredicates.canExiledBy(sa, effect));
 
         if (CardLists.getTotalCMC(typeList) < amount) return null;
 
@@ -692,7 +684,7 @@ public class ComputerUtil {
         return exileList;
     }
 
-    public static CardCollection chooseExileFrom(final Player ai, CostExile cost, final Card activate, final int amount, SpellAbility sa) {
+    public static CardCollection chooseExileFrom(final Player ai, CostExile cost, final Card activate, final int amount, SpellAbility sa, final boolean effect) {
         CardCollection typeList;
         if (cost.zoneRestriction != 1) {
             typeList = new CardCollection(ai.getGame().getCardsIn(cost.from));
@@ -700,6 +692,7 @@ public class ComputerUtil {
             typeList = new CardCollection(ai.getCardsIn(cost.from));
         }
         typeList = CardLists.getValidCards(typeList, cost.getType().split(";"), activate.getController(), activate, sa);
+        typeList = CardLists.filter(typeList, CardPredicates.canExiledBy(sa, effect));
 
         // don't exile the card we're pumping
         typeList = ComputerUtilCost.paymentChoicesWithoutTargets(typeList, sa, ai);
@@ -2767,8 +2760,8 @@ public class ComputerUtil {
             int tokenScore = ComputerUtilCard.evaluateCreature(token);
 
             // score check similar to Fabricate
-            Card sourceNumbers = CardUtil.getLKICopy(source);
-            Card sourceStrength = CardUtil.getLKICopy(source);
+            Card sourceNumbers = CardCopyService.getLKICopy(source);
+            Card sourceStrength = CardCopyService.getLKICopy(source);
 
             sourceNumbers.setCounters(p1p1Type, sourceNumbers.getCounters(p1p1Type) + numStrength);
             sourceNumbers.setZone(source.getZone());

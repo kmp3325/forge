@@ -25,6 +25,7 @@ Antelope:Antelopes
 Ape:Apes
 Archer:Archers
 Archon:Archons
+Armadillo:Armadillos
 Artificer:Artificers
 Army:Armies
 Assassin:Assassins
@@ -68,6 +69,7 @@ Cockatrice:Cockatrices
 Construct:Constructs
 Cow:Cows
 Coward:Cowards
+Coyote:Coyotes
 Crab:Crabs
 Crocodile:Crocodiles
 Cyberman:Cybermen
@@ -182,6 +184,7 @@ Mongoose:Mongooses
 Monk:Monks
 Monkey:Monkeys
 Moonfolk:Moonfolks
+Mount:Mounts
 Mouse:Mice
 Mutant:Mutants
 Myr:Myrs
@@ -256,6 +259,7 @@ Siren:Sirens
 Skeleton:Skeletons
 Slith:Sliths
 Sliver:Slivers
+Sloth:Sloths
 Slug:Slugs
 Snake:Snakes
 Soldier:Soldiers
@@ -274,6 +278,7 @@ Squid:Squids
 Squirrel:Squirrels
 Starfish:Starfish
 Surrakar:Surrakars
+Synth:Synths
 Survivor:Survivors
 Tentacle:Tentacles
 Tetravite:Tetravites

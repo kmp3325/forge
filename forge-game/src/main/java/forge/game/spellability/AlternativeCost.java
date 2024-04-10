@@ -20,6 +20,7 @@ public enum AlternativeCost {
     Outlast, // ActivatedAbility
     Overload,
     Prowl,
+    Plotted,
     Spectacle,
     Surge;
 

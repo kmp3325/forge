@@ -235,7 +235,7 @@ public class AbilityManaPart implements java.io.Serializable {
     public void addNoCounterEffect(SpellAbility saBeingPaid) {
         final Game game = sourceCard.getGame();
         final Card eff = new Card(game.nextCardId(), game);
-        eff.setTimestamp(game.getNextTimestamp());
+        eff.setGameTimestamp(game.getNextTimestamp());
         eff.setName(sourceCard + "'s Effect");
         eff.setOwner(sourceCard.getController());
 
@@ -252,10 +252,7 @@ public class AbilityManaPart implements java.io.Serializable {
 
         SpellAbilityEffect.addForgetOnMovedTrigger(eff, "Stack");
 
-        game.getTriggerHandler().suppressMode(TriggerType.ChangesZone);
-        game.getAction().moveTo(ZoneType.Command, eff, null, null);
-        eff.updateStateForView();
-        game.getTriggerHandler().clearSuppression(TriggerType.ChangesZone);
+        game.getAction().moveToCommand(eff, null);
     }
 
     /**

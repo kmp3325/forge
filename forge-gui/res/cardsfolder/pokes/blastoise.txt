@@ -2,13 +2,13 @@ Name:Blastoise
 ManaCost:2 U U U
 Types:Creature Turtle Pokémon
 PT:4/6
-K:Evolve from:3 U U:Wartortle
+K:Evolve from:3 U:Wartortle
 A:AB$ DealDamage | Cost$ U T | ValidTgts$ Creature.attacking | TgtPrompt$ Select target attacking creature | NumDmg$ X | SpellDescription$ CARDNAME deals damage to target creature equal to 1 plus the number of untapped Islands you control.
 SVar:X:Count$Valid Island.YouCtrl+untapped/Plus.1
 R:Event$ DamageDone | ActiveZones$ Battlefield | ValidSource$ Card.Self | ValidTarget$ Creature | IsCombat$ False | ReplaceWith$ DmgTwice | Description$ If CARDNAME would deal noncombat damage to a creature, it deals double that damage instead.
 SVar:DmgTwice:DB$ ReplaceEffect | VarName$ DamageAmount | VarValue$ Y
 SVar:Y:ReplaceCount$DamageAmount/Twice
-Oracle:Evolve from Wartortle {3}{U}{U}\n{U}, {T}: Blastoise deals damage to target attacking creature equal to 1 plus the number of untapped Islands you control.\nIf Blastoise would deal noncombat damage to a creature, it deals double that damage instead.
+Oracle:Evolve from Wartortle {3}{U}\n{U}, {T}: Blastoise deals damage to target attacking creature equal to 1 plus the number of untapped Islands you control.\nIf Blastoise would deal noncombat damage to a creature, it deals double that damage instead.
 
 DeckHints:Name$Wartortle
 SVar:SoundEffect:blastoise.mp3

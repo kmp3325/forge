@@ -2,14 +2,14 @@ Name:Charizard
 ManaCost:2 R R R
 Types:Creature Dragon Pokémon
 PT:5/4
-K:Evolve from:3 R R:Charmeleon
+K:Evolve from:3 R:Charmeleon
 K:Flying
 K:First strike
 T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigImmediateTrig | TriggerDescription$ Whenever CARDNAME attacks, you may pay {R}{R}{R}. When you do, put a burn counter on each creature defending player controls. It becomes sunny.
 SVar:TrigImmediateTrig:AB$ ImmediateTrigger | Cost$ R R R | Execute$ TrigFire | TriggerDescription$ When you do, put a burn counter on each creature defending player controls. It becomes sunny.
 SVar:TrigFire:DB$ PutCounterAll | ValidCards$ Creature.DefenderCtrl | CounterType$ BURN | CounterNum$ 1 | SubAbility$ TrigSun
 SVar:TrigSun:DB$ Weather | Value$ Sunny
-Oracle:Evolve from Charmeleon {3}{R}{R}\nFlying, first strike\nWhenever Charizard attacks, you may pay {R}{R}{R}. When you do, put a burn counter on each creature defending player controls. It becomes sunny.
+Oracle:Evolve from Charmeleon {3}{R}\nFlying, first strike\nWhenever Charizard attacks, you may pay {R}{R}{R}. When you do, put a burn counter on each creature defending player controls. It becomes sunny.
 
 DeckHints:Name$Charmeleon
 SVar:HasAttackEffect:TRUE

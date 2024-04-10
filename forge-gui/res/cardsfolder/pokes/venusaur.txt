@@ -1,8 +1,8 @@
 Name:Venusaur
 ManaCost:2 G G G
 Types:Creature Plant Frog Pokémon
-PT:5/5
-K:Evolve from:3 G G:Ivysaur
+PT:6/6
+K:Evolve from:3 G:Ivysaur
 A:AB$ PutCounter | Cost$ X G | CounterType$ SOLAR | CounterNum$ PutSolar | SpellDescription$ Put X solar counters on CARDNAME. If it's sunny, put twice that many solar counters on it instead.
 SVar:PutSolar:Count$Sunny.Y.X
 SVar:X:Count$xPaid
@@ -11,7 +11,7 @@ A:AB$ DealDamage | Cost$ T G SubCounter<X/SOLAR> | ValidTgts$ Creature | TgtProm
 SVar:SolarBeam:Count$Compare IsFlying GE1.Z.X
 SVar:IsFlying:Targeted$Valid Creature.withFlying
 SVar:Z:Count$xPaid/HalfUp
-Oracle:Evolve from Ivysaur {3}{G}{G}\n{X}{G}: Put X solar counters on Venusaur. If it's sunny, put twice that many solar counters on it instead.\n{G}, {T}, Remove any number of solar counters from Venusaur: It deals that much damage to target creature. If that creature has flying, instead Venusaur deals half that damage to it, rounded up.
+Oracle:Evolve from Ivysaur {3}{G}\n{X}{G}: Put X solar counters on Venusaur. If it's sunny, put twice that many solar counters on it instead.\n{G}, {T}, Remove any number of solar counters from Venusaur: It deals that much damage to target creature. If that creature has flying, instead Venusaur deals half that damage to it, rounded up.
 
 DeckHints:Name$Ivysaur
 SVar:SoundEffect:venusaur.mp3

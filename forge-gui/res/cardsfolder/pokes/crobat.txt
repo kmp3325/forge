@@ -2,11 +2,11 @@ Name:Crobat
 ManaCost:4 B
 Types:Creature Bat Pokémon
 PT:3/3
-K:Evolve from:4 B:Golbat:3/3
+K:Evolve from:4 B:Golbat
 K:Flying
 K:First strike
 K:Lifelink
-T:Mode$ DamageDealtOnce | ValidSource$ Card.Self | ValidTarget$ Player | Execute$ TrigMill | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME deals damage to a player, that player mills that many cards.
+T:Mode$ DamageDone | ValidSource$ Card.Self | ValidTarget$ Player | Execute$ TrigMill | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME deals damage to a player, that player mills that many cards.
 SVar:TrigMill:DB$ Mill | Defined$ TriggeredTarget | NumCards$ X
 SVar:X:TriggerCount$DamageAmount
 T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | IsPresent$ Card.Self+attackedThisTurn | Execute$ TrigPutPlus | TriggerDescription$ At the beginning of your end step, if CARDNAME attacked this turn, put a +1/+1 counter on it. Otherwise, put a -1/-1 counter on it.

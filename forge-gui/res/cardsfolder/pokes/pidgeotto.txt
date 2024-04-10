@@ -4,7 +4,7 @@ Types: Creature Bird Pokémon
 PT:1/2
 K:Evolve from:1 W:Pidgey
 K:Flying
-AB$ Phases | Cost$ T | Defined$ Self | SubAbility$ PhaseInTrig | SorcerySpeed$ True | SpellDescription$ CARDNAME phases out. When it phases in, it deals damage equal to its power to any target. Activate only as a sorcery.
+A:AB$ Phases | Cost$ T | Defined$ Self | SubAbility$ PhaseInTrig | SorcerySpeed$ True | SpellDescription$ CARDNAME phases out. When it phases in, it deals damage equal to its power to any target. Activate only as a sorcery.
 SVar:PhaseInTrig:DB$ DelayedTrigger | Mode$ PhaseIn | ValidCard$ Card.Self | Execute$ DamageTrig | TriggerDescription$ When CARDNAME phases in, it deals damage equal to its power to any target.
 SVar:DamageTrig:DB$ DealDamage | ValidTgts$ Creature,Player,Planeswalker | TgtPrompt$ Select any target | NumDmg$ X
 SVar:X:Count$CardPower

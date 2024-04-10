@@ -2,15 +2,11 @@ Name:Abra
 ManaCost:U B
 Types:Creature Fox Wizard Pokémon
 PT:1/1
-T:Mode$ BecomesTarget | ValidTarget$ Card.Self | ValidSource$ SpellAbility | TriggerZones$ Battlefield | Execute$ DBPhaseOut | TriggerDescription$ Whenever CARDNAME becomes the target of a spell or ability, it phases out until end of turn. Draw a card.
-SVar:DBPhaseOut:DB$ Phases | Defined$ Self | WontPhaseInNormal$ True | Duration$ UntilEndOfTurn | SubAbility$ DBDraw
-SVar:DBDraw:DB$ Draw | NumCards$ 1 | Defined$ You
-A:AB$ Effect | Cost$ UB | RememberObjects$ Self | ForgetOnMoved$ Battlefield | ReplacementEffects$ ReplacePhase | Stackable$ False | SpellDescription$ The next time CARDNAME would phase out this turn, instead it doesn't.
-SVar:ReplacePhase:Event$ PhaseOut | ValidCards$ Creature.EffectSource | ReplaceWith$ Nothing | Description$ The next time EFFECTSOURCE would phase out this turn, instead it doesn't.
-SVar:Nothing:DB$ Pump | SubAbility$ ExileEffect
-SVar:ExileEffect:DB$ ChangeZone | Defined$ Self | Origin$ Command | Destination$ Exile
-SVar:NonStackingEffect:True
-Oracle:Whenever Abra becomes the target of a spell or ability, it phases out until end of turn. Draw a card.\n{UB}: The next time Abra would phase out this turn, instead it doesn't.
+T:Mode$ Drawn | ValidCard$ Card.YouCtrl | Number$ 2 | TriggerZones$ Battlefield | Execute$ TrigMill | TriggerDescription$ Whenever you draw your second card each turn, target opponent mills cards equal to the number of cards in your hand.
+SVar:TrigMill:DB$ Mill | ValidTgts$ Opponent | TgtPrompt$ Select target opponent | NumCards$ X
+SVar:X:Count$CardsInYourHand T:Mode$ BecomesTarget | ValidTarget$ Card.Self | ValidSource$ SpellAbility | TriggerZones$ Battlefield | Execute$ DBDraw | TriggerDescription$ Whenever CARDNAME becomes the target of a spell or ability, draw a card. Then Abra phases out until end of turn unless you pay {UB}.
+SVar:DBDraw:DB$ Draw | NumCards$ 1 | Defined$ You | SubAbility$ DBPhaseOut SVar:DBPhaseOut:DB$ Phases | UnlessCost$ UB | UnlessPayer$ You | Defined$ Self
+Oracle:Whenever you draw your second card each turn, target opponent mills cards equal to the number of cards in your hand.\nWhenever CARDNAME becomes the target of a spell or ability, draw a card. Then Abra phases out until end of turn unless you pay {UB}.
 
 DeckHints:Name$Kadabra
 SVar:SoundEffect:abra.mp3

@@ -18,6 +18,7 @@
 package forge.game.phase;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -324,23 +325,40 @@ public class Untap extends Phase {
         }
     }
 
+//    private static void doToxicCountersOld(final Player turn) {
+//        if (turn == null) {
+//            return;
+//        }
+//
+//        HashSet<Card> toxicCards = new HashSet<>();
+//        GameEntityCounterTable table = new GameEntityCounterTable();
+//        for (Card card : turn.getCreaturesInPlay()) {
+//            if (card.isPhasedOut() || card.getCounters(CounterEnumType.POISON) == 0) {
+//                continue;
+//            }
+//            card.addCounter(CounterEnumType.POISON, 1, turn, table);
+//            toxicCards.add(card);
+//        }
+//        table.replaceCounterEffect(turn.getGame(), null, false);
+//        for (Card card : toxicCards) {
+//            card.updatePowerToughnessForView();
+//        }
+//    }
+
     private static void doToxicCounters(final Player turn) {
         if (turn == null) {
             return;
         }
 
-        HashSet<Card> toxicCards = new HashSet<>();
-        GameEntityCounterTable table = new GameEntityCounterTable();
+        int lifeLost = 0;
         for (Card card : turn.getCreaturesInPlay()) {
-            if (card.isPhasedOut() || card.getCounters(CounterEnumType.POISON) == 0) {
+            int numPoison = card.getCounters(CounterEnumType.POISON);
+            if (card.isPhasedOut() || numPoison == 0) {
                 continue;
             }
-            card.addCounter(CounterEnumType.POISON, 1, turn, table);
-            toxicCards.add(card);
+            turn.loseLife(numPoison, false, false);
+            lifeLost += numPoison;
         }
-        table.replaceCounterEffect(turn.getGame(), null, false);
-        for (Card card : toxicCards) {
-            card.updatePowerToughnessForView();
-        }
+        turn.getGame().getTriggerHandler().runTrigger(TriggerType.LifeLostAll, AbilityKey.mapFromPIMap(Collections.singletonMap(turn, lifeLost)), false);
     }
 }

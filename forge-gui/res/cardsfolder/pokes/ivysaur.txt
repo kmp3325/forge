@@ -1,7 +1,7 @@
 Name:Ivysaur
 ManaCost:1 G G
 Types:Creature Plant Frog Pokémon
-PT:2/3
+PT:3/3
 K:Evolve from:1 G:Bulbasaur
 K:Vigilance
 K:Caustic

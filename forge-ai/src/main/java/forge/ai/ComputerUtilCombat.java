@@ -606,7 +606,7 @@ public class ComputerUtilCombat {
 
         } // flanking
         if (attacker.hasKeyword(Keyword.INDESTRUCTIBLE)
-                && !(defender.isWitherDamage() || defender.hasKeyword(Keyword.CAUSTIC) || defender.hasKeyword(Keyword.SCORCHING))) {
+                && !(defender.isWitherDamage() || defender.hasKeyword(Keyword.SCORCHING))) {
             return 0;
         }
 
@@ -1695,7 +1695,7 @@ public class ComputerUtilCombat {
         } // flanking
 
         if (((attacker.hasKeyword(Keyword.INDESTRUCTIBLE) || (!withoutAbilities && ComputerUtil.canRegenerate(ai, attacker)))
-                && !(blocker.isWitherDamage() || blocker.hasKeyword(Keyword.CAUSTIC) || blocker.hasKeyword(Keyword.SCORCHING)))
+                && !(blocker.isWitherDamage() || blocker.hasKeyword(Keyword.SCORCHING)))
                 || (attacker.hasKeyword(Keyword.PERSIST) && !attacker.canReceiveCounters(CounterEnumType.M1M1) && (attacker
                         .getCounters(CounterEnumType.M1M1) == 0))
                 || (attacker.hasKeyword(Keyword.UNDYING) && !attacker.canReceiveCounters(CounterEnumType.P1P1) && (attacker
@@ -1907,7 +1907,7 @@ public class ComputerUtilCombat {
     		return true;
     	}
 
-        if (((blocker.hasKeyword(Keyword.INDESTRUCTIBLE) || (!withoutAbilities && ComputerUtil.canRegenerate(ai, blocker))) && !(attacker.isWitherDamage() || attacker.hasKeyword(Keyword.CAUSTIC) || attacker.hasKeyword(Keyword.SCORCHING)))
+        if (((blocker.hasKeyword(Keyword.INDESTRUCTIBLE) || (!withoutAbilities && ComputerUtil.canRegenerate(ai, blocker))) && !(attacker.isWitherDamage() || attacker.hasKeyword(Keyword.SCORCHING)))
                 || (blocker.hasKeyword(Keyword.PERSIST) && !blocker.canReceiveCounters(CounterEnumType.M1M1) && blocker
                         .getCounters(CounterEnumType.M1M1) == 0)
                 || (blocker.hasKeyword(Keyword.UNDYING) && !blocker.canReceiveCounters(CounterEnumType.P1P1) && blocker
@@ -2162,7 +2162,7 @@ public class ComputerUtilCombat {
         int killDamage = getDamageToKill(c, false);
 
         if (c.hasKeyword(Keyword.INDESTRUCTIBLE) || c.getCounters(CounterEnumType.SHIELD) > 0 || (c.getShieldCount() > 0 && c.canBeShielded())) {
-            if (!(source.isWitherDamage() || source.hasKeyword(Keyword.CAUSTIC) || source.hasKeyword(Keyword.SCORCHING))) {
+            if (!(source.isWitherDamage() || source.hasKeyword(Keyword.SCORCHING))) {
                 return maxDamage + 1;
             }
         } else if (source.hasKeyword(Keyword.DEATHTOUCH) && c.isCreature()) {

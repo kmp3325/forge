@@ -4549,9 +4549,10 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
     }
 
     public final int getPowerBonusFromCounters() {
+        int isBurning = game.isSunny() ? 1 : 0;
         return getCounters(CounterEnumType.P1P1) + getCounters(CounterEnumType.P1P2) + getCounters(CounterEnumType.P1P0)
                 - getCounters(CounterEnumType.M1M1) + 2 * getCounters(CounterEnumType.P2P2) - 2 * getCounters(CounterEnumType.M2M1)
-                - 2 * getCounters(CounterEnumType.M2M2) - getCounters(CounterEnumType.M1M0) + 2 * getCounters(CounterEnumType.P2P0);
+                - 2 * getCounters(CounterEnumType.M2M2) - getCounters(CounterEnumType.M1M0) + 2 * getCounters(CounterEnumType.P2P0) - isBurning * getCounters(CounterEnumType.BURN);
     }
 
     public final StatBreakdown getNetPowerBreakdown() {
@@ -4619,7 +4620,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
         return getCounters(CounterEnumType.P1P1) + 2 * getCounters(CounterEnumType.P1P2) - getCounters(CounterEnumType.M1M1)
                 + getCounters(CounterEnumType.P0P1) - 2 * getCounters(CounterEnumType.M0M2) + 2 * getCounters(CounterEnumType.P2P2)
                 - getCounters(CounterEnumType.M0M1) - getCounters(CounterEnumType.M2M1) - 2 * getCounters(CounterEnumType.M2M2)
-                + 2 * getCounters(CounterEnumType.P0P2) - isBurning * getCounters(CounterEnumType.BURN) - getCounters(CounterEnumType.POISON);
+                + 2 * getCounters(CounterEnumType.P0P2) - isBurning * getCounters(CounterEnumType.BURN);
     }
 
     public final StatBreakdown getNetToughnessBreakdown() {
@@ -6371,7 +6372,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
                     addCounter(CounterEnumType.POISON, 1, source.getController(), counterTable);
                 }
                 if (source.hasKeyword(Keyword.SCORCHING)) {
-                    addCounter(CounterEnumType.BURN, damageIn, source.getController(), counterTable);
+                    addCounter(CounterEnumType.BURN, 1, source.getController(), counterTable);
                 }
             }
 

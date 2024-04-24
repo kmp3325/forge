@@ -198,7 +198,7 @@ public enum Keyword {
     WARD("Ward", KeywordWithCost.class, false, "Whenever this permanent becomes the target of a spell or ability an opponent controls, counter it unless that player pays %s."),
     WITHER("Wither", SimpleKeyword.class, true, "This deals damage to creatures in the form of -1/-1 counters."),
     CAUSTIC("Caustic", SimpleKeyword.class, true, "A creature dealt combat damage by this also gets a poison counter if it has none."),
-    SCORCHING("Scorching", SimpleKeyword.class, false, "A creature dealt combat damage by this also gets that many burn counters."),
+    SCORCHING("Scorching", SimpleKeyword.class, false, "A creature dealt combat damage by this also gets a burn counter."),
     STEEL_SKIN("Steel skin", SimpleKeyword.class, true, "This can’t have poison counters put on it. If a creature with caustic would deal combat damage to this, prevent that damage."),
     // mayflash additional cast
     MAYFLASHCOST("MayFlashCost", KeywordWithCost.class, false, "You may cast CARDNAME as though it had flash if you pay %s more to cast it."),

@@ -4549,7 +4549,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
     }
 
     public final int getPowerBonusFromCounters() {
-        int isBurning = game.isSunny() ? 1 : 0;
+        int isBurning = game != null && game.isSunny() ? 1 : 0;
         return getCounters(CounterEnumType.P1P1) + getCounters(CounterEnumType.P1P2) + getCounters(CounterEnumType.P1P0)
                 - getCounters(CounterEnumType.M1M1) + 2 * getCounters(CounterEnumType.P2P2) - 2 * getCounters(CounterEnumType.M2M1)
                 - 2 * getCounters(CounterEnumType.M2M2) - getCounters(CounterEnumType.M1M0) + 2 * getCounters(CounterEnumType.P2P0) - isBurning * getCounters(CounterEnumType.BURN);

@@ -1,13 +1,16 @@
 Name:Muk
 ManaCost:2 B B
 Types:Creature Ooze Horror Pokémon
-PT:2/5
+PT:2/4
 K:Evolve from:4 B B:Grimer
 K:Caustic
-T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ At the beginning of your upkeep, put a slime counter on target non-Ooze creature.
-SVar:TrigPutCounter:DB$ PutCounter | IsCurse$ True | ValidTgts$ Creature.nonOoze | TgtPrompt$ Select target creature | CounterType$ SLIME | CounterNum$ 1 | AILogic$ Curse
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ At the beginning of your end step, put a slime counter on target non-Ooze creature and goad it.
+SVar:TrigPutCounter:DB$ PutCounter | IsCurse$ True | ValidTgts$ Creature.nonOoze | TgtPrompt$ Select target creature | CounterType$ SLIME | CounterNum$ 1 | AILogic$ Curse | SubAbility$ DBGoad
+SVar:DBGoad:DB$ Goad | Defined$ Targeted
 K:MustBeBlockedByAll:Creature.counters_GE1_SLIME:Creatures with slime counters on them block Muk each combat if able.
-Oracle:Evolve from Grimer {4}{B}{B}\nCaustic\nAt the beginning of your upkeep, put a slime counter on target non-Ooze creature.\nCreatures with slime counters on them block Muk each combat if able.
+S:Mode$ Continuous | Affected$ Card.Self | AddToughness$ X | Description$ CARDNAME gets +0/+2 for each creature with a slime counter on it.
+SVar:X:Count$Valid Creature.counters_GE1_POISON/Times.2
+Oracle:Evolve from Grimer {4}{B}{B}\nCaustic\nAt the beginning of your end step, put a slime counter on target non-Ooze creature and goad it.\nMuk gets +0/+2 for each creature with a slime counter on it.
 
 DeckHints:Name$Grimer
 SVar:SoundEffect:muk.mp3

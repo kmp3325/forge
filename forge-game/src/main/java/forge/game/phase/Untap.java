@@ -19,7 +19,6 @@ package forge.game.phase;
 
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -32,7 +31,6 @@ import com.google.common.collect.Maps;
 
 import forge.card.CardType;
 import forge.game.Game;
-import forge.game.GameEntityCounterTable;
 import forge.game.GlobalRuleChange;
 import forge.game.ability.AbilityKey;
 import forge.game.ability.ApiType;

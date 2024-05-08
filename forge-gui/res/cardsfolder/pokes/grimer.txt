@@ -6,10 +6,10 @@ T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.S
 SVar:TrigPutCounter:DB$ PutCounter | CounterType$ SLIME | CounterNum$ 1 | ValidTgts$ Creature.nonOoze | TgtPrompt$ Select target creature
 T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | TriggerZones$ Battlefield | ValidCard$ Creature.Other+counters_GE1_SLIME | Execute$ TrigCopy | DoesntHaveThisAbility$ True | TriggerDescription$ Whenever another creature with a slime counter on it dies, create a token that's a copy of CARDNAME, except it doesn't have this ability.
 SVar:TrigCopy:DB$ CopyPermanent | Defined$ Self | NumCopies$ 1
-A:AB$ PutCounter | Cost$ B B T | ValidTgts$ Creature.counters_GE1_SLIME | TgtPrompt$ Select target creature | CounterType$ POISON | CounterNum$ 1 | SubAbility$ DBPump | SpellDescription$ Put a poison counter on target creature with a slime counter on it. Until end of turn, it gets -1/-1 for each poison counter on it.
+A:AB$ PutCounter | Cost$ B T | ValidTgts$ Creature.counters_GE1_SLIME | TgtPrompt$ Select target creature | CounterType$ POISON | CounterNum$ 1 | SubAbility$ DBPump | SpellDescription$ Put a poison counter on target creature with a slime counter on it. Until end of turn, it gets -1/-1 for each poison counter on it.
 SVar:DBPump:DB$ Pump | Defined$ Targeted | NumAtt$ -X | NumDef$ -X
 SVar:X:Targeted$CardCounters.POISON
-Oracle:When Grimer enters the battlefield, put a slime counter on target non-Ooze creature.\nWhenever another creature with a slime counter on it dies, create a token that's a copy of Grimer, except it doesn't have this ability.\n{B}{B}, {T}: Put a poison counter on target creature with a slime counter on it. Until end of turn, it gets -1/-1 for each poison counter on it.
+Oracle:When Grimer enters the battlefield, put a slime counter on target non-Ooze creature.\nWhenever another creature with a slime counter on it dies, create a token that's a copy of Grimer, except it doesn't have this ability.\n{B}, {T}: Put a poison counter on target creature with a slime counter on it. Until end of turn, it gets -1/-1 for each poison counter on it.
 
 DeckHints:Name$Muk
 SVar:SoundEffect:grimer.mp3

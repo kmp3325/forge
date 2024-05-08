@@ -42,6 +42,7 @@ Basilisk:Basilisks
 Bat:Bats
 Bear:Bears
 Beast:Beasts
+Beaver:Beavers
 Beeble:Beebles
 Beholder:Beholders
 Berserker:Berserkers
@@ -222,6 +223,8 @@ Pilot:Pilots
 Pincher:Pinchers
 Pirate:Pirates
 Plant:Plants
+Porcupine:Porcupines
+Possum:Possums
 Praetor:Praetors
 Primarch:Primarchs
 Prism:Prisms
@@ -295,6 +298,7 @@ Turtle:Turtles
 Tyranid:Tyranids
 Unicorn:Unicorns
 Vampire:Vampires
+Varmint:Varmints
 Vedalken:Vedalkens
 Viashino:Viashinos
 Volver:Volvers

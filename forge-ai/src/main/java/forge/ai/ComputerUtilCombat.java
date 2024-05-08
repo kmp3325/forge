@@ -1320,6 +1320,10 @@ public class ComputerUtilCombat {
                     continue;
                 }
 
+                if (ComputerUtilCost.isSacrificeSelfCost(ability.getPayCosts())) {
+                    continue;
+                }
+
                 if (!ability.getPayCosts().hasTapCost() && ComputerUtilCost.canPayCost(ability, attacker.getController(), false)) {
                     int pBonus = AbilityUtils.calculateAmount(ability.getHostCard(), ability.getParam("NumAtt"), ability);
                     if (pBonus > 0) {

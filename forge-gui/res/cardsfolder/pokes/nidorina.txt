@@ -2,11 +2,11 @@ Name:Nidorina
 ManaCost:4 B
 Types:Creature Rhino Rabbit Pokémon
 PT:3/4
-K:Evolve from:3 B:Female Nidoran
-T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigPoison | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, you may put a poison counter on target creature.
-T:Mode$ Evolved | ValidCard$ Card.Self | Execute$ TrigPoison | Secondary$ True | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME enters the battlefield or evolves, you may put a poison counter on target creature.
-SVar:TrigPoison:DB$ PutCounter | CounterType$ POISON | CounterNum$ 1 | ValidTgts$ Creature | TgtPrompt$ Select target creature
-Oracle:Evolve from Female Nidoran {3}{B}\nWhenever Nidorina enters the battlefield or evolves, you may put a poison counter on target creature.
+K:Evolve from:2 B:Female Nidoran
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigPoison | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME enters or evolves, you may put two poison counters on target creature.
+T:Mode$ Evolved | ValidCard$ Card.Self | Execute$ TrigPoison | Secondary$ True | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME enters or evolves, you may put two poison counters on target creature.
+SVar:TrigPoison:DB$ PutCounter | CounterType$ POISON | CounterNum$ 2 | ValidTgts$ Creature | TgtPrompt$ Select target creature
+Oracle:Evolve from Female Nidoran {2}{B}\nWhenever Nidorina enters or evolves, you may put two poison counters on target creature.
 
 DeckHints:Name$Female Nidoran
 DeckHints:Name$Nidoqueen

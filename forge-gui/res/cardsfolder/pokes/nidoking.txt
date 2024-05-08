@@ -3,12 +3,13 @@ ManaCost:4 B R
 Types:Creature Rhino Rabbit Pokémon
 PT:7/5
 K:Evolve from:4 B R:Nidorino
+K:Trample
 T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ Earthquake | TriggerDescription$ Whenever CARDNAME attacks, it deals 1 damage to each other creature without flying.
 SVar:Earthquake:DB$ DamageAll | ValidCards$ Creature.withoutFlying+Other | NumDmg$ 1 | ValidDescription$ each other creature without flying
 T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Creature.DamagedBy | TriggerZones$ Battlefield | Execute$ TrigGainLife | TriggerDescription$ Whenever another creature dealt damage by CARDNAME this turn dies, its controller loses 2 life. Then put a +1/+1 counter on CARDNAME.
 SVar:TrigGainLife:DB$ LoseLife | Defined$ TriggeredCardController | LifeAmount$ 2 | SubAbility$ TrigCounter
 SVar:TrigCounter:DB$ PutCounter | CounterType$ P1P1 | CounterNum$ 1 | Defined$ Self
-Oracle:Evolve from Nidorino {4}{B}{R}\nWhenever Nidoking attacks, it deals 1 damage to each other creature without flying.\nWhenever another creature dealt damage by Nidoking this turn dies, its controller loses 2 life. Then put a +1/+1 counter on Nidoking.
+Oracle:Evolve from Nidorino {4}{B}{R}\nTrample\nWhenever Nidoking attacks, it deals 1 damage to each other creature without flying.\nWhenever another creature dealt damage by Nidoking this turn dies, its controller loses 2 life. Then put a +1/+1 counter on Nidoking.
 
 DeckHints:Name$Nidorino
 SVar:HasCombatEffect:TRUE

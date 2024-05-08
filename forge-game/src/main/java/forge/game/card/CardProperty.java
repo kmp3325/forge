@@ -1622,7 +1622,12 @@ public class CardProperty {
             final String counterType = splitProperty[2];
             final int number = AbilityUtils.calculateAmount(source, strNum, spellAbility);
 
-            final int actualnumber = card.getCounters(CounterType.getType(counterType));
+            final int actualnumber;
+            if (counterType.equals("STATUS")) {
+                actualnumber = card.getCounters(CounterType.getType("POISON")) + card.getCounters(CounterType.getType("STUN")) + card.getCounters(CounterType.getType("FROST")) + card.getCounters(CounterType.getType("BURN"));
+            } else {
+                actualnumber = card.getCounters(CounterType.getType(counterType));
+            }
 
             if (!Expressions.compare(actualnumber, comparator, number)) {
                 return false;

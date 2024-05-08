@@ -9,7 +9,10 @@ SVar:TrigWeather:DB$ Weather | Value$ Rainy
 T:Mode$ DamageDoneOnce | ValidTarget$ Creature.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigMill | TriggerDescription$ Whenever a creature you control is dealt damage, target player mills that many cards.
 SVar:TrigMill:DB$ Mill | ValidTgts$ Player | TgtPrompt$ Select target player | NumCards$ X
 SVar:X:TriggerCount$DamageAmount
-S:Mode$ CantPutCounter | ValidCard$ Creature.YouCtrl+Other | CounterType$ POISON | Description$ Other creatures you control can't have poison counters put on them.
-Oracle:Flying\nOther creatures you control can’t have poison counters put on them.\nWhenever Lugia blocks, it gains indestructible until end of turn. It becomes rainy.\nWhenever a creature you control is dealt damage, target player mills that many cards.
+S:Mode$ CantPutCounter | ValidCard$ Creature.YouCtrl+Other | CounterType$ POISON | Description$ Other creatures you control can't have status counters put on them.
+S:Mode$ CantPutCounter | ValidCard$ Creature.YouCtrl+Other | CounterType$ STUN | Secondary$ True | Description$ Other creatures you control can't have status counters put on them.
+S:Mode$ CantPutCounter | ValidCard$ Creature.YouCtrl+Other | CounterType$ FROST | Secondary$ True | Description$ Other creatures you control can't have status counters put on them.
+S:Mode$ CantPutCounter | ValidCard$ Creature.YouCtrl+Other | CounterType$ BURN | Secondary$ True | Description$ Other creatures you control can't have status counters put on them.
+Oracle:Flying\nOther creatures you control can’t have status counters put on them.\nWhenever Lugia blocks, it gains indestructible until end of turn. It becomes rainy.\nWhenever a creature you control is dealt damage, target player mills that many cards.
 
 SVar:SoundEffect:lugia.mp3

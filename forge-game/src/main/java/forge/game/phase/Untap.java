@@ -83,7 +83,7 @@ public class Untap extends Phase {
 
         game.getAction().checkStaticAbilities();
 
-        doToxicCounters(game.getPhaseHandler().getPlayerTurn());
+//        doToxicCounters(game.getPhaseHandler().getPlayerTurn());
         doUntap();
     }
 

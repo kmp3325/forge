@@ -28,7 +28,7 @@ public class ReplacePhaseOutCountersEffect extends SpellAbilityEffect {
       affected.clearCounters();
     } else {
       for (CounterType counterType : countersToRemove) {
-        affected.subtractCounter(counterType, affected.getCounters(counterType));
+        affected.subtractCounter(counterType, affected.getCounters(counterType), affected.getController());
       }
     }
     params.put(AbilityKey.ReplacementResult, ReplacementResult.Updated);

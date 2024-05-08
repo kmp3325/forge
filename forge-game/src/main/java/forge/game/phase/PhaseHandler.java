@@ -357,6 +357,21 @@ public class PhaseHandler implements java.io.Serializable {
                     if (playerTurn.getController().isAI()) {
                         playerTurn.getController().resetAtEndOfTurn();
                     }
+                    game.getEndOfTurn().addAt(() -> {
+                        int lifeLost = 0;
+                        for (Card card : playerTurn.getCreaturesInPlay()) {
+                            int numPoison = card.getCounters(CounterEnumType.POISON);
+                            if (card.isPhasedOut() || numPoison == 0) {
+                                continue;
+                            }
+                            playerTurn.loseLife(numPoison, false, false);
+                            lifeLost += numPoison;
+                            card.subtractCounter(CounterEnumType.POISON, 1, playerTurn);
+                        }
+                        if (lifeLost > 0) {
+                            game.getTriggerHandler().runTrigger(TriggerType.LifeLostAll, AbilityKey.mapFromPIMap(Collections.singletonMap(playerTurn, lifeLost)), false);
+                        }
+                    });
 
                     game.getEndOfTurn().executeAt();
                     break;

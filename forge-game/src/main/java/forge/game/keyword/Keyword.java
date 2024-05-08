@@ -197,7 +197,7 @@ public enum Keyword {
     VIGILANCE("Vigilance", SimpleKeyword.class, true, "Attacking doesn't cause this creature to tap."),
     WARD("Ward", KeywordWithCost.class, false, "Whenever this permanent becomes the target of a spell or ability an opponent controls, counter it unless that player pays %s."),
     WITHER("Wither", SimpleKeyword.class, true, "This deals damage to creatures in the form of -1/-1 counters."),
-    CAUSTIC("Caustic", SimpleKeyword.class, true, "A creature dealt combat damage by this also gets a poison counter if it has none."),
+    CAUSTIC("Caustic", SimpleKeyword.class, true, "A creature dealt combat damage by this also gets a poison counter."),
     SCORCHING("Scorching", SimpleKeyword.class, false, "A creature dealt combat damage by this also gets a burn counter."),
     STEEL_SKIN("Steel skin", SimpleKeyword.class, true, "This can’t have poison counters put on it. If a creature with caustic would deal combat damage to this, prevent that damage."),
     // mayflash additional cast

@@ -121,6 +121,7 @@ public class AbilityManaPart implements java.io.Serializable {
         this.addsCounters = oldMana.addsCounters;
         this.triggersWhenSpent = oldMana.triggersWhenSpent;
         this.persistentMana = oldMana.persistentMana;
+        this.persistOverTurns = oldMana.isPersistedOverTurnsMana();
         // Do we need to copy over last mana produced somehow? Its kinda gross
     }
 

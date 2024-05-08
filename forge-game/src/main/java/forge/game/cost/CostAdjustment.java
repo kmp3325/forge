@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import forge.game.player.PlayerCollection;
 import forge.game.ability.AbilityKey;
 import forge.game.trigger.TriggerType;
 import org.apache.commons.lang3.StringUtils;
@@ -180,9 +181,9 @@ public class CostAdjustment {
 
     // If cardsToDelveOut is null, will immediately exile the delved cards and remember them on the host card.
     // Otherwise, will return them in cardsToDelveOut and the caller is responsible for doing the above.
-    public static final void adjust(ManaCostBeingPaid cost, final SpellAbility sa, CardCollection cardsToDelveOut, boolean test) {
+    public static boolean adjust(ManaCostBeingPaid cost, final SpellAbility sa, CardCollection cardsToDelveOut, boolean test) {
         if (sa.isTrigger() || sa.isReplacementAbility()) {
-            return;
+            return true;
         }
 
         final Game game = sa.getActivatingPlayer().getGame();
@@ -250,6 +251,10 @@ public class CostAdjustment {
         }
 
         if (sa.isSpell()) {
+            if (sa.getHostCard().hasKeyword(Keyword.ASSIST) && !adjustCostByAssist(cost, sa, test)) {
+                return false;
+            }
+
             if (sa.getHostCard().hasKeyword(Keyword.DELVE)) {
                 sa.getHostCard().clearDelved();
 
@@ -286,11 +291,37 @@ public class CostAdjustment {
             originalCard.setFaceDown(false);
             originalCard.setState(CardStateName.Original, false);
         }
+
+        return true;
     }
     // GetSpellCostChange
 
+    private static boolean adjustCostByAssist(ManaCostBeingPaid cost, final SpellAbility sa, boolean test) {
+        // 702.132a Assist is a static ability that modifies the rules of paying for the spell with assist (see rules 601.2g-h).
+        // If the total cost to cast a spell with assist includes a generic mana component, before you activate mana abilities while casting it, you may choose another player.
+        // That player has a chance to activate mana abilities. Once that player chooses not to activate any more mana abilities, you have a chance to activate mana abilities.
+        // Before you begin to pay the total cost of the spell, the player you chose may pay for any amount of the generic mana in the spell’s total cost.
+        int genericLeft = cost.getUnpaidShards(ManaCostShard.GENERIC);
+        if (genericLeft == 0) {
+            return true;
+        }
+
+        Player activator = sa.getActivatingPlayer();
+        PlayerCollection otherPlayers = activator.getAllOtherPlayers();
+
+        Player assistant = activator.getController().choosePlayerToAssistPayment(otherPlayers, sa, "Choose a player to assist paying this spell", genericLeft);
+        if (assistant == null) {
+            return true;
+        }
+        int requestedAmount = genericLeft;
+        // TODO: Nice to have. Ask the player how much mana you are hoping someone will pay.
+        return assistant.getController().helpPayForAssistSpell(cost, sa, genericLeft, requestedAmount);
+    }
+
     private static void adjustCostByConvokeOrImprovise(ManaCostBeingPaid cost, final SpellAbility sa, boolean improvise, boolean test) {
-        sa.clearTappedForConvoke();
+        if (!improvise) {
+            sa.clearTappedForConvoke();
+        }
 
         final Player activator = sa.getActivatingPlayer();
         CardCollectionView untappedCards = CardLists.filter(activator.getCardsIn(ZoneType.Battlefield),
@@ -304,14 +335,12 @@ public class CostAdjustment {
         Map<Card, ManaCostShard> convokedCards = activator.getController().chooseCardsForConvokeOrImprovise(sa,
                 cost.toManaCost(), untappedCards, improvise);
 
-        // Convoked creats are tapped here, setting up their taps triggers,
-        // Then again when payment is done(In InputPayManaCost.done()) with suppression of Taps triggers.
-        // This is to make sure that triggers go off at the right time
-        // AND that you can't use mana tapabilities of convoked creatures to pay the convoked cost.
         CardCollection tapped = new CardCollection();
         for (final Entry<Card, ManaCostShard> conv : convokedCards.entrySet()) {
             Card c = conv.getKey();
-            sa.addTappedForConvoke(c);
+            if (!improvise) {
+                sa.addTappedForConvoke(c);
+            }
             cost.decreaseShard(conv.getValue(), 1);
             if (!test) {
                 if (c.tap(true, sa, activator)) tapped.add(c);
@@ -332,7 +361,6 @@ public class CostAdjustment {
             break;
         }
 
-        Card toSac = null;
         CardCollectionView canOffer = CardLists.filter(sa.getActivatingPlayer().getCardsIn(ZoneType.Battlefield),
                 CardPredicates.isType(offeringType), CardPredicates.canBeSacrificedBy(sa, false));
 
@@ -341,7 +369,7 @@ public class CostAdjustment {
         if (toSacList.isEmpty()) {
             return;
         }
-        toSac = toSacList.getFirst();
+        Card toSac = toSacList.getFirst();
 
         cost.subtractManaCost(toSac.getManaCost());
 
@@ -350,7 +378,6 @@ public class CostAdjustment {
     }
 
     private static void adjustCostByEmerge(final ManaCostBeingPaid cost, final SpellAbility sa) {
-        Card toSac = null;
         CardCollectionView canEmerge = CardLists.filter(sa.getActivatingPlayer().getCreaturesInPlay(), CardPredicates.canBeSacrificedBy(sa, false));
 
         final CardCollectionView toSacList = sa.getHostCard().getController().getController().choosePermanentsToSacrifice(sa, 0, 1, canEmerge, "Creature");
@@ -358,7 +385,7 @@ public class CostAdjustment {
         if (toSacList.isEmpty()) {
             return;
         }
-        toSac = toSacList.getFirst();
+        Card toSac = toSacList.getFirst();
 
         cost.decreaseGenericMana(toSac.getCMC());
 

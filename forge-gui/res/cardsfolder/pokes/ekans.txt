@@ -3,10 +3,10 @@ ManaCost:B G
 Types:Creature Snake Pokémon
 PT:2/2
 K:Caustic
-A:AB$ Pump | Cost$ BG Q | NumAtt$ -2 | IsCurse$ True | ValidTgts$ Creature.attacking | TgtPrompt$ Select target attacking creature | SubAbility$ DBDebuff | SpellDescription$ Target attacking creature gets -2/-0 and loses flying until end of turn. If that creature is a Bird, put a +1/+1 counter on CARDNAME.
+A:AB$ Pump | Cost$ BG Q | NumAtt$ -3 | IsCurse$ True | ValidTgts$ Creature.attacking | TgtPrompt$ Select target attacking creature | SubAbility$ DBDebuff | SpellDescription$ Target attacking creature gets -3/-0 and loses flying until end of turn. If that creature is a Bird, put a +1/+1 counter on CARDNAME.
 SVar:DBDebuff:DB$ Debuff | Keywords$ Flying | Defined$ Targeted | SubAbility$ DBPutCounter
 SVar:DBPutCounter:DB$ PutCounter | Defined$ Self | CounterNum$ 1 | CounterType$ P1P1 | ConditionDefined$ Targeted | ConditionPresent$ Creature.Bird
-Oracle:Caustic\n{BG}, {Q}: Target attacking creature gets -2/-0 and loses flying until end of turn. If that creature is a Bird, put a +1/+1 counter on Ekans.
+Oracle:Caustic\n{BG}, {Q}: Target attacking creature gets -3/-0 and loses flying until end of turn. If that creature is a Bird, put a +1/+1 counter on Ekans.
 
 DeckHints:Name$Arbok
 SVar:SoundEffect:ekans.mp3

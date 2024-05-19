@@ -6397,7 +6397,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
             }
 
             if (isCombat) {
-                if (source.hasKeyword(Keyword.CAUSTIC) && getCounters(CounterEnumType.POISON) <= 0) {
+                if (source.hasKeyword(Keyword.CAUSTIC)) {
                     addCounter(CounterEnumType.POISON, 1, source.getController(), counterTable);
                 }
                 if (source.hasKeyword(Keyword.SCORCHING)) {

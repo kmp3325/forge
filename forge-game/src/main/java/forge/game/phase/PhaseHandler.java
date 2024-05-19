@@ -22,8 +22,11 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Multimap;
 import forge.game.*;
+import forge.game.ability.AbilityFactory;
 import forge.game.ability.AbilityKey;
+import forge.game.ability.AbilityUtils;
 import forge.game.ability.effects.AddTurnEffect;
+import forge.game.ability.effects.CharmEffect;
 import forge.game.ability.effects.SkipPhaseEffect;
 import forge.game.card.*;
 import forge.game.card.CardPredicates.Presets;
@@ -31,11 +34,14 @@ import forge.game.combat.Combat;
 import forge.game.combat.CombatUtil;
 import forge.game.cost.CostEnlist;
 import forge.game.cost.CostExert;
+import forge.game.cost.CostPayLife;
 import forge.game.event.*;
 import forge.game.player.Player;
+import forge.game.player.PlayerController.BinaryChoiceType;
 import forge.game.replacement.ReplacementResult;
 import forge.game.replacement.ReplacementType;
 import forge.game.spellability.LandAbility;
+import forge.game.spellability.OptionalCost;
 import forge.game.spellability.SpellAbility;
 import forge.game.trigger.Trigger;
 import forge.game.trigger.TriggerType;
@@ -358,18 +364,14 @@ public class PhaseHandler implements java.io.Serializable {
                         playerTurn.getController().resetAtEndOfTurn();
                     }
                     game.getEndOfTurn().addAt(() -> {
-                        int lifeLost = 0;
                         for (Card card : playerTurn.getCreaturesInPlay()) {
                             int numPoison = card.getCounters(CounterEnumType.POISON);
                             if (card.isPhasedOut() || numPoison == 0) {
                                 continue;
                             }
-                            playerTurn.loseLife(numPoison, false, false);
-                            lifeLost += numPoison;
-                            card.subtractCounter(CounterEnumType.POISON, 1, playerTurn);
-                        }
-                        if (lifeLost > 0) {
-                            game.getTriggerHandler().runTrigger(TriggerType.LifeLostAll, AbilityKey.mapFromPIMap(Collections.singletonMap(playerTurn, lifeLost)), false);
+                            SpellAbility sa = AbilityFactory.getAbility("DB$ Sacrifice | SacValid$ Self | UnlessCost$ PayLife<" + numPoison + "> | UnlessPayer$ You | OrString$ Sacrifice it.", card);
+                            sa.setActivatingPlayer(playerTurn);
+                            AbilityUtils.resolve(sa);
                         }
                     });
 

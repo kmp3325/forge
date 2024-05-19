@@ -1,6 +1,6 @@
 Name:Sandslash
 ManaCost:2 B R
-Types:Creature Mole Pokémon
+Types:Creature Armadillo Pokémon
 PT:4/4
 K:Evolve from:2 B R:Sandshrew
 K:First strike

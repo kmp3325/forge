@@ -2,6 +2,7 @@ Name:Wild Venusaur
 ManaCost:4 G G
 Types:Creature Frog Plant Pokémon
 PT:4/4
+K:Trample
 K:Cycling:G
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigGainAll | TriggerDescription$ When CARDNAME enters, gain control of all creatures you own.
 SVar:TrigGainAll:DB$ GainControl | AllValid$ Creature.YouOwn
